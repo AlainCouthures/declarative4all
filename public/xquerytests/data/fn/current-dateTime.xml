@@ -1,7 +1,7 @@
 <test-set name="fn-current-dateTime" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the current-dateTime() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-current-dateTime" type="spec"/>
-  <test-case name="fn-current-dateTime-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2018-12-21T11:09:13.545+01:00")</response-string>
+  <test-case name="fn-current-dateTime-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2019-02-14T17:16:52.668+01:00")</response-string>
     <description>dateTime: December 1, 2005  Evaluates a simple call to the fn:current-dateTime" function. Uses a String Value. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-dateTime()</test>
@@ -10,7 +10,7 @@
       <assert-type>xs:dateTime</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-dateTime-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2018")</response-string>
+  <test-case name="fn-current-dateTime-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2019")</response-string>
     <description>dateTime: December 1, 2005  Evaluates The "current-dateTime" function as argument to fn:year-from-dateTime function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:year-from-dateTime(fn:current-dateTime())</test>
@@ -19,7 +19,7 @@
       <assert-type>xs:integer</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-dateTime-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("12")</response-string>
+  <test-case name="fn-current-dateTime-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description>dateTime: December 1, 2005  Evaluates The "current-dateTime" function as argument to fn-month-from-dateTime function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:month-from-dateTime(fn:current-dateTime())</test>
@@ -28,7 +28,7 @@
       <assert-type>xs:integer</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-dateTime-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("21")</response-string>
+  <test-case name="fn-current-dateTime-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("14")</response-string>
     <description>dateTime: December 1, 2005  Evaluates The "current-dateTime" function used as as argument to "day-from-dateTime" function </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:day-from-dateTime(fn:current-dateTime())</test>
@@ -46,7 +46,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-current-dateTime-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2018-12-24T12:24:13.553Z")</response-string>
+  <test-case name="fn-current-dateTime-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2019-02-17T18:31:52.672Z")</response-string>
     <description>dateTime: December 5, 2005  Evaluates The "fn-current-dateTime" function used as part of a "+" expression and a dayTimeDuration. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-dateTime() + xs:dayTimeDuration("P3DT1H15M")</test>
@@ -55,7 +55,7 @@
       <assert-type>xs:dateTime</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-datetime-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2018-12-18T09:54:13.574Z")</response-string>
+  <test-case name="fn-current-datetime-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2019-02-11T16:01:52.673Z")</response-string>
     <description>dateTime: December 5, 2005  Evaluates The "fn-current-dateTime" function used as part of a "-" expression and a dayTimeDuration. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-dateTime() - xs:dayTimeDuration("P3DT1H15M")</test>
@@ -82,7 +82,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-current-dateTime-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("2018-12-21T11:09:13.580+01:00")</response-string>
+  <test-case name="fn-current-dateTime-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("2019-02-14T17:16:52.674+01:00")</response-string>
     <description>dateTime: December 5, 2005  Evaluates The "current-dateTime" function as an argument to the xs:string function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>xs:string(fn:current-dateTime())</test>
@@ -181,7 +181,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-current-dateTime-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2017-10-21T11:09:13.598Z")</response-string>
+  <test-case name="fn-current-dateTime-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2017-12-14T17:16:52.680Z")</response-string>
     <description>dateTime: December 5, 2005  Evaluates The "fn-current-dateTime" function used as part of a "-" operation and a yearMonthDuration. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-dateTime() - xs:yearMonthDuration("P1Y2M")</test>
@@ -190,7 +190,7 @@
       <assert-type>xs:dateTime</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-dateTime-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("11")</response-string>
+  <test-case name="fn-current-dateTime-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("17")</response-string>
     <description>dateTime: December 1, 2005  Evaluates The "current-dateTime" function as argument to fn:hours-from-dateTime function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:hours-from-dateTime(fn:current-dateTime())</test>
@@ -199,7 +199,7 @@
       <assert-type>xs:integer</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-dateTime-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("9")</response-string>
+  <test-case name="fn-current-dateTime-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("16")</response-string>
     <description>dateTime: December 1, 2005  Evaluates The "current-dateTime" function as argument to fn-minutes-from-dateTime function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:minutes-from-dateTime(fn:current-dateTime())</test>
@@ -208,7 +208,7 @@
       <assert-type>xs:integer</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-dateTime-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("13")</response-string>
+  <test-case name="fn-current-dateTime-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("52.683")</response-string>
     <description>dateTime: December 1, 2005  Evaluates The "current-dateTime" function used as as argument to "seconds-from-dateTime" function </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:seconds-from-dateTime(fn:current-dateTime())</test>

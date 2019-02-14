@@ -51,13 +51,23 @@ Fleur.XPathFunctions_fn["format-dateTime#5"] = new Fleur.Function("http://www.w3
 						switch(format.charAt(0)) {
 							case "Y":
 								pdate = true;
-								intvalue = parseInt(value.substr(0, 4), 10);
+								if (format.charAt(1).toLowerCase() === "i") {
+									stringvalue = Fleur.convertToRoman(parseInt(value.substr(0, 4), 10));
+									if (format.charAt(1) === "i") {
+										stringvalue = stringvalue.toLowerCase();
+									}
+								} else {
+									intvalue = parseInt(value.substr(0, 4), 10);
+								}
 								break;
 							case "M":
 								pdate = true;
-								if (format.charAt(1).toLowerCase() !== "n") {
-									intvalue = parseInt(value.substr(5, 2), 10);
-								} else {
+								if (format.charAt(1).toLowerCase() === "i") {
+									stringvalue = Fleur.convertToRoman(parseInt(value.substr(5, 2), 10));
+									if (format.charAt(1) === "i") {
+										stringvalue = stringvalue.toLowerCase();
+									}
+								} else if (format.charAt(1).toLowerCase() === "n") {
 									stringvalue = Fleur.getMonthName(language, valueDate);
 									if (format.charAt(1) === "N") {
 										if (format.charAt(2) === "n") {
@@ -68,6 +78,8 @@ Fleur.XPathFunctions_fn["format-dateTime#5"] = new Fleur.Function("http://www.w3
 									} else {
 										stringvalue = stringvalue.toLowerCase();
 									}
+								} else {
+									intvalue = parseInt(value.substr(5, 2), 10);
 								}
 								break;
 							case "D":

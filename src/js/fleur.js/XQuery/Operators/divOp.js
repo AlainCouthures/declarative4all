@@ -42,18 +42,18 @@ Fleur.XQueryEngine[Fleur.XQueryX.divOp] = function(ctx, children, callback) {
 			restype = Fleur.divOpTypes[op1[0]][op2[0]];
 			if (restype !== -1) {
 				if (op1[0] < 4 && op2[0] < 4) {
-					if (isNaN(op1[1] / op2[1])) {
+					if (isNaN(Number(op1[1]) / Number(op2[1]))) {
 						a1.data = "NaN";
-					} else if (op1[1] / op2[1] === -Infinity) {
+					} else if (Number(op1[1]) / Number(op2[1]) === -Infinity) {
 						a1.data = "-INF";
-					} else if (op1[1] / op2[1] === Infinity) {
+					} else if (Number(op1[1]) / Number(op2[1]) === Infinity) {
 						a1.data = "INF";
-					} else if (op2[1] / op1[1] === -Infinity) {
+					} else if (Number(op2[1]) / Number(op1[1]) === -Infinity) {
 						a1.data = "-0";
-					} else if (op2[1] / op1[1] === Infinity) {
+					} else if (Number(op2[1]) / Number(op1[1]) === Infinity) {
 						a1.data = "0";
 					} else {
-						a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(op1[1] / op2[1])) : Fleur.NumberToDecimalString(op1[1] / op2[1]);
+						a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(Number(op1[1]) / Number(op2[1]))) : Fleur.NumberToDecimalString(Number(op1[1]) / Number(op2[1]));
 						if (restype === 0) {
 							var newv = parseFloat(a1.data);
 							if (newv !== Math.floor(newv)) {

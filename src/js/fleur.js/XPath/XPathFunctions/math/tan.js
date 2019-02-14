@@ -12,5 +12,5 @@ Fleur.XPathFunctions_math["tan#1"] = new Fleur.Function("http://www.w3.org/2005/
 		if (arg === null) {
 			return null;
 		}
-		return Math.tan(arg);},
+		return Math.tan(Number(arg));},
 	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});

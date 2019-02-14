@@ -24,8 +24,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.modOp] = function(ctx, children, callback) {
 				Fleur.callback(function() {callback(a2);});
 				return;
 			}
+			if (typeof op1[1] !== typeof op2[1]) {
+				op1[1] = Number(op1[1]);
+				op2[1] = Number(op2[1]);
+			}
 			divres = op1[1] / op2[1];
-			a1.data = "" + (op1[1] - (Math.floor(divres) + (divres >= 0 ? 0 : 1)) * op2[1]);
+			a1.data = String(op1[1] - ((typeof divres === "number" ? Math.floor(divres) : divres) + Fleur.BigInt(divres >= 0 ? 0 : 1)) * op2[1]);
 			a1.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
 			Fleur.callback(function() {callback(a1);});
 		});

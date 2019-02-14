@@ -12,5 +12,5 @@ Fleur.XPathFunctions_math["sqrt#1"] = new Fleur.Function("http://www.w3.org/2005
 		if (arg === null) {
 			return null;
 		}
-		return Math.sqrt(arg);},
+		return Math.sqrt(Number(arg));},
 	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});

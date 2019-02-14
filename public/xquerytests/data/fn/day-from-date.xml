@@ -127,7 +127,7 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
+  <test-case name="fn-day-from-date-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Evaluates The "day-from-date" function as part of a "idiv" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-02Z")) idiv fn:day-from-date(xs:date("1970-01-01Z"))</test>

@@ -186,9 +186,9 @@ Fleur.functionCall = function(ctx, children, xf, args, callback) {
 							if (!a.schemaTypeInfo) {
 								a.schemaTypeInfo = t || Fleur.Type_double;
 							}
-						} else if (typeof v === "number" || typeof v === "boolean") {
+						} else if (typeof v === "number" || typeof v === "bigint" || typeof v === "boolean") {
 							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = t || (typeof v === "number" ? Fleur.Type_double : Fleur.Type_boolean);
+								a.schemaTypeInfo = t || (typeof v === "boolean" ? Fleur.Type_boolean : Fleur.Type_double);
 							}
 							a.data = a.schemaTypeInfo.canonicalize(String(v));
 						} else if (typeof v === "string") {
@@ -310,7 +310,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 		xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
 	}
 	if (!uri || !xf) {
-		if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && args.length > 1) {
+		if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && args.length > 1 && !Fleur.XPathFunctions[uri][fname + "#" + args.length]) {
 			var cparam = [];
 			for (var i = 0, l = args.length; i < l; i++) {
 				cparam[i] = {type: Fleur.Node};

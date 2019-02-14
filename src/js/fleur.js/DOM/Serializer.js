@@ -228,6 +228,8 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			return s + (indent ? offset + postfix + "\n" : postfix);
 		case Fleur.Node.ATTRIBUTE_NODE:
 			return (indent ? offset : "") + "attribute " + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.value).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
+		case Fleur.Node.FUNCTION_NODE:
+			return (indent ? offset : "") + node.nodeName + "#" + String(node.argtypes.length);
 		case Fleur.Node.MAP_NODE:
 			s = (indent ? offset : "") + "map {"; 
 			if (node.entries.length === 0) {

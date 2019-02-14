@@ -1,7 +1,7 @@
 <test-set name="fn-current-time" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the current-time() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-current-time" type="spec"/>
-  <test-case name="fn-current-time-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("11:09:28.391+01:00")</response-string>
+  <test-case name="fn-current-time-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("17:16:57.099+01:00")</response-string>
     <description> Evaluates a simple call to the fn:current-time" function. Uses a String Value. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:current-time()</test>
@@ -10,7 +10,7 @@
       <assert-type>xs:time</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("11")</response-string>
+  <test-case name="fn-current-time-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("17")</response-string>
     <description> Evaluates The "current-time" function as argument to fn:hours-from-time function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:hours-from-time(fn:current-time())</test>
@@ -19,7 +19,7 @@
       <assert-type>xs:integer</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("9")</response-string>
+  <test-case name="fn-current-time-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("16")</response-string>
     <description> Evaluates The "current-time" function as argument to fn-minutes-from-time-function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:minutes-from-time(fn:current-time())</test>
@@ -28,7 +28,7 @@
       <assert-type>xs:integer</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("28")</response-string>
+  <test-case name="fn-current-time-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("57.103")</response-string>
     <description> Evaluates The "current-time" function used as as argument to "seconds-from-time" function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:seconds-from-time(fn:current-time())</test>
@@ -46,7 +46,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-current-time-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("12:24:28.400Z")</response-string>
+  <test-case name="fn-current-time-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("18:31:57.106Z")</response-string>
     <description> Evaluates The "fn-current-time" function used as part of a "+" expression and a dayTimeDuration. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-time() + xs:dayTimeDuration("P3DT1H15M")</test>
@@ -55,7 +55,7 @@
       <assert-type>xs:time</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("09:54:28.401Z")</response-string>
+  <test-case name="fn-current-time-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("16:01:57.109Z")</response-string>
     <description> Evaluates The "fn-current-time" function used as part of a "-" expression and a dayTimeDuration. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-time() - xs:dayTimeDuration("P3DT1H15M")</test>
@@ -82,7 +82,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-current-time-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("11:09:28.407+01:00")</response-string>
+  <test-case name="fn-current-time-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("17:16:57.113+01:00")</response-string>
     <description> Evaluates The "current-time" function as an argument to the xs:string function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>xs:string(fn:current-time())</test>

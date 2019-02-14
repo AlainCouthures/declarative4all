@@ -136,7 +136,7 @@
       <assert-string-value>3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-exactly-onelng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
+  <test-case name="fn-exactly-onelng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547758")</response-string>
     <description> Evaluates The "exactly-one" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:exactly-one(xs:long("-92233720368547758"))</test>
@@ -145,7 +145,7 @@
       <assert-string-value>-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-exactly-onelng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
+  <test-case name="fn-exactly-onelng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048468")</response-string>
     <description> Evaluates The "exactly-one" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:exactly-one(xs:long("-47175562203048468"))</test>
@@ -154,7 +154,7 @@
       <assert-string-value>-47175562203048468</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-exactly-onelng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
+  <test-case name="fn-exactly-onelng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547758")</response-string>
     <description> Evaluates The "exactly-one" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:exactly-one(xs:long("92233720368547758"))</test>
@@ -253,7 +253,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-exactly-oneulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
+  <test-case name="fn-exactly-oneulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674654")</response-string>
     <description> Evaluates The "exactly-one" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:exactly-one(xs:unsignedLong("130747108607674654"))</test>
@@ -262,7 +262,7 @@
       <assert-string-value>130747108607674654</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-exactly-oneulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
+  <test-case name="fn-exactly-oneulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095516")</response-string>
     <description> Evaluates The "exactly-one" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:exactly-one(xs:unsignedLong("184467440737095516"))</test>
@@ -433,7 +433,7 @@
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-SeqExactlyOneFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-SeqExactlyOneFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0005"))</response-string>
     <description> A test whose essence is: `exactly-one( () )`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exactly-one( () )</test>

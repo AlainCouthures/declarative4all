@@ -10,11 +10,17 @@
 Fleur.XPathFunctions_fn["concat#"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat",
 	function() {
 		var s = "";
+		var e;
 		for (var i = 0, l = arguments.length; i < l; i++) {
 			var n = arguments[i];
 			if (n !== Fleur.EmptySequence && n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				var e = new Error("The dynamic type of a value does not match a required type for Q{http://www.w3.org/2005/xpath-functions}concat#" + String(l));
+				e = new Error("The dynamic type of a value does not match a required type for Q{http://www.w3.org/2005/xpath-functions}concat#" + String(l));
 				e.name = "XPTY0004";
+				return e;
+			}
+			if (n.nodeType === Fleur.Node.FUNCTION_NODE) {
+				e = new Error("The dynamic type of a value does not match a required type for Q{http://www.w3.org/2005/xpath-functions}concat#" + String(l));
+				e.name = "FOTY0013";
 				return e;
 			}
 			var a = Fleur.Atomize(n);

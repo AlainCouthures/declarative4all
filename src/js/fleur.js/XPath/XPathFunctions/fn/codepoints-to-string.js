@@ -20,7 +20,7 @@ Fleur.XPathFunctions_fn["codepoints-to-string#1"] = new Fleur.Function("http://w
 						e.name = "FOCH0001";
 						throw e;
 					}
-					return a + String.fromCodePoint(v);
+					return a + String.fromCodePoint(Number(v));
 				}, "");
 			} catch(err) {
 				return err;
@@ -31,6 +31,6 @@ Fleur.XPathFunctions_fn["codepoints-to-string#1"] = new Fleur.Function("http://w
 			e.name = "FOCH0001";
 			return e;
 		}
-		return String.fromCodePoint(arg);
+		return String.fromCodePoint(Number(arg));
 	},
 	null, [{type: Fleur.Type_integer, occurence: "*"}], false, false, {type: Fleur.Type_string});

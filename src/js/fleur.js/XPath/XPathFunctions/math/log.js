@@ -12,5 +12,5 @@ Fleur.XPathFunctions_math["log#1"] = new Fleur.Function("http://www.w3.org/2005/
 		if (arg === null) {
 			return null;
 		}
-		return Math.log(arg);},
+		return Math.log(Number(arg));},
 	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});

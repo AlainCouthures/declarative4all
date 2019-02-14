@@ -14,7 +14,7 @@
 		td, th {
 		    border: 1px solid black;
 		}		</style>
-		<xf:model>
+		<xf:model id="main">
 			<xf:instance id="selected">
 				<qt:test-set/>
 			</xf:instance>
@@ -30,92 +30,19 @@
 				<xf:action ev:event="xforms-submit-done">
 					<xf:load resource="javascript:document.getElementById('divtests').scrollTop=0"/>
 					<xf:action iterate="instance('test-set')/qt:test-case">
+						<xf:delete ref="qt:response-string"/>
 						<xf:insert origin="instance('response-string')"/>
-						<xf:load>
-							<xf:resource value="concat('javascript:xqeval(&quot;', @name, '&quot;,&quot;', escapeJS(concat('data/', choose(instance('catalog')/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file, '', concat(substring-before(instance('selected'), '/') , '/')), ../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file | instance('catalog')/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file)), '&quot;,&quot;', escapeJS(qt:test), '&quot;)')"/>
-						</xf:load>
 					</xf:action>
+					<xf:load resource="javascript:runtests()"/>
 				</xf:action>
 			</xf:submission>
 			<xf:submission id="put-test-set" method="put" ref="instance('test-set')" replace="none">
 				<xf:resource value="concat('data/',.)"/>
 			</xf:submission>
 			<xf:setvalue ev:event="evaluate-response" ref="instance('test-set')/qt:test-case[@name = event('testname')]/qt:response-string" value="event('result')"/>
+			<xf:load ev:event="xforms-ready" resource="javascript:loadenv()"/>
 		</xf:model>
-		<script type="text/javascript">
-			var parser = new Fleur.DOMParser();
-			Fleur.noErrorMessage = true;
-			function escapeJS(text) {
-				if (!text) {
-					return "";
-				}
-				if (typeof(text) === "string") {
-					text = text.replace(/\\/gm, "\\\\");
-					text = text.replace(/\t/gm, "\\t");
-					text = text.replace(/\n/gm, "\\n");
-					text = text.replace(/\r/gm, "\\r");
-					text = text.replace(/\"/gm, "\\\"");
-				}
-				return text;
-			}
-			function xqeval(testname, envfile, xexpr) {
-			    var cb = function(buf) {
-					var xmldoc = parser.parseFromString(buf, "application/xml");
-					try {
-						xmldoc.evaluate(xexpr).then(
-							function(res) {
-								XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, "evaluate-response", null, null, null, null,
-									{
-										testname: testname,
-										result: res.toXQuery()
-									});
-							},
-							function(err) {
-								XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, "evaluate-response", null, null, null, null,
-									{
-										testname: testname,
-										result: err.toXQuery()
-									});
-							}
-						);
-					} catch(e) {
-						XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, "evaluate-response", null, null, null, null,
-							{
-								testname: testname,
-								result: "Exception!\n" + e.stack
-							});
-					}
-				};
-				if (!envfile.endsWith("/")) {
-					var getp = new Promise(function(resolve, reject) {
-						var req = new XMLHttpRequest();
-						req.open('GET', envfile, true);
-						req.onload = function() {
-							if (req.status === 200) {
-								resolve(req.responseText);
-							} else {
-								reject("Not loaded!");
-					      	}
-						};
-						req.send(null);
-					});
-					getp.then(
-						function(xmlBuf) {
-							cb(xmlBuf);
-						},
-						function(s) {
-							XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, "evaluate-response", null, null, null, null,
-								{
-									testname: testname,
-									result: s
-								});
-						}
-					);
-				} else {
-					cb("\x3cdummy/\x3e");
-				}
-			}
-		</script>
+		<script type="text/javascript" src="set-run.js"/>
 	</head>
 	<body>
 		<xf:select1 ref=".">
@@ -126,7 +53,7 @@
 			</xf:itemset>
 			<xf:send submission="get-test-set" ev:event="xforms-value-changed"/>
 		</xf:select1>
-		<xf:trigger>
+		<xf:trigger ref=".[text() != '']">
 			<xf:label>Save</xf:label>
 			<xf:send submission="put-test-set" ev:event="DOMActivate"/>
 		</xf:trigger>
@@ -141,7 +68,7 @@
 							<xf:trigger>
 								<xf:label>Run</xf:label>
 								<xf:load ev:event="DOMActivate" show="new">
-									<xf:resource value="concat('runtest.htm?test=', encodeURIComponent(qt:test), '&amp;resultstring=', encodeURIComponent(qt:result-string), '&amp;environment=', encodeURIComponent(concat('data/', choose(instance('catalog')/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file, '', concat(substring-before(instance('selected'), '/') , '/')), ../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file | instance('catalog')/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file)))"/>
+									<xf:resource value="concat('runtest.htm?expression=', encodeURIComponent(qt:test), '&amp;resultstring=', encodeURIComponent(qt:result-string), '&amp;env=', encodeURIComponent(envserialize(position())), '&amp;files=', encodeURIComponent(testfiles(position())), '&amp;folder=', encodeURIComponent(testfolder(position())))"/>
 								</xf:load>
 							</xf:trigger>
 						</td>

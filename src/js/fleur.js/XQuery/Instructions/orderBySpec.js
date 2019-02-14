@@ -12,7 +12,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.orderBySpec] = function(ctx, children, callback
 	var i = 0;
 	ctx.env.varresolver = resarr[0];
 	var cb = function(n) {
-		var jsv = Fleur.toJSValue(n, true, true, true, true);
+		var a = Fleur.Atomize(n, true);
+		var jsv = Fleur.toJSValue(a, true, true, true, true);
 		orderkeyvalues.push(jsv);
 		i++;
 		if (i !== resarr.length) {

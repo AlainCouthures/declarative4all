@@ -12,5 +12,5 @@ Fleur.XPathFunctions_math["cos#1"] = new Fleur.Function("http://www.w3.org/2005/
 		if (theta === null) {
 			return null;
 		}
-		return Math.cos(theta);},
+		return Math.cos(Number(theta));},
 	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});

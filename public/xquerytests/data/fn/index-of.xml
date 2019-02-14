@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-index-of" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the index-of function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-index-of" type="spec"/>
@@ -9,7 +8,7 @@
       <created by="XQuery WG" on="2005-02-11"/>
     </source>
   </environment>
-  <test-case name="fn-indexof-mix-args-001">
+  <test-case name="fn-indexof-mix-args-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("5"))</response-string>
     <description> arg1: Sequence of integers , arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:index-of ((10, 20, 30, 30, 20, 10), 20)</test>
@@ -18,7 +17,7 @@
       <assert-string-value>2 5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-002">
+  <test-case name="fn-indexof-mix-args-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> arg1: Sequence of integers , arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:index-of ((10, 20, 30, 40), 35)</test>
@@ -27,7 +26,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-003">
+  <test-case name="fn-indexof-mix-args-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("4"))</response-string>
     <description> arg1: Sequence of string , arg2: string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:index-of (("a", "sport", "and", "a", "pastime"), "a")</test>
@@ -36,7 +35,7 @@
       <assert-string-value>1 4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-004">
+  <test-case name="fn-indexof-mix-args-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> arg1: Sequence of string , arg2: string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:index-of(("sport", "", "and", "", "", "pastime"), "")</test>
@@ -45,7 +44,7 @@
       <assert-string-value>2 4 5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-005">
+  <test-case name="fn-indexof-mix-args-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> arg1: empty Sequence , arg2: string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:index-of((),"")</test>
@@ -54,7 +53,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-006">
+  <test-case name="fn-indexof-mix-args-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> arg1: Sequence of string , arg2: string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:index-of(("sport"), "")</test>
@@ -63,88 +62,88 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-007">
+  <test-case name="fn-indexof-mix-args-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> arg1: empty Sequence , arg2: untypedAtomic </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
-    <test>fn:index-of((),fn:exactly-one(xs:untypedAtomic('')))</test>
+    <test>fn:index-of((),fn:exactly-one(xs:untypedAtomic(&apos;&apos;)))</test>
     <result-string>()</result-string>
     <result>
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-008">
+  <test-case name="fn-indexof-mix-args-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> arg1: Sequence of float , arg2: float </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
-    <test>fn:index-of((xs:float('NaN')), fn:exactly-one(xs:float('NaN')))</test>
+    <test>fn:index-of((xs:float(&apos;NaN&apos;)), fn:exactly-one(xs:float(&apos;NaN&apos;)))</test>
     <result-string>()</result-string>
     <result>
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-009">
+  <test-case name="fn-indexof-mix-args-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> arg1: Sequence of double , arg2: double </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
-    <test>fn:index-of((xs:double('NaN')), fn:exactly-one(xs:double('NaN')))</test>
-    <result-string>xs:string("")</result-string>
-    <result>
-      <assert-string-value/>
-    </result>
-  </test-case>
-  <test-case name="fn-indexof-mix-args-010">
-    <description> arg1: Sequence of double, arg2: double </description>
-    <created by="Pulkita Tyagi" on="2005-05-25"/>
-    <test>fn:index-of((xs:double('INF')), fn:exactly-one(xs:double('INF')))</test>
-    <result-string>xs:integer("1")</result-string>
-    <result>
-      <assert-eq>1</assert-eq>
-    </result>
-  </test-case>
-  <test-case name="fn-indexof-mix-args-011">
-    <description> arg1: Sequence of double, arg2: double </description>
-    <created by="Pulkita Tyagi" on="2005-05-25"/>
-    <test>fn:index-of((xs:double('-INF')), fn:exactly-one(xs:double('-INF')))</test>
-    <result-string>xs:integer("1")</result-string>
-    <result>
-      <assert-eq>1</assert-eq>
-    </result>
-  </test-case>
-  <test-case name="fn-indexof-mix-args-012">
-    <description> arg1: Sequence of decimal, arg2: decimal </description>
-    <created by="Pulkita Tyagi" on="2005-05-25"/>
-    <test>fn:index-of((xs:decimal('9.99999999999999999999999999')), fn:exactly-one(xs:decimal('9.99999999999999999999999999')))</test>
-    <result-string>xs:integer("1")</result-string>
-    <result>
-      <assert-eq>1</assert-eq>
-    </result>
-  </test-case>
-  <test-case name="fn-indexof-mix-args-013">
-    <description> arg1: Sequence of decimal, arg2: decimal </description>
-    <created by="Pulkita Tyagi" on="2005-05-25"/>
-    <test>fn:index-of((xs:decimal('9.99999999999999999999999999')), fn:exactly-one(xs:decimal('9.9999999999999999999999999')))</test>
+    <test>fn:index-of((xs:double(&apos;NaN&apos;)), fn:exactly-one(xs:double(&apos;NaN&apos;)))</test>
     <result-string>()</result-string>
     <result>
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-014">
+  <test-case name="fn-indexof-mix-args-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> arg1: Sequence of double, arg2: double </description>
+    <created by="Pulkita Tyagi" on="2005-05-25"/>
+    <test>fn:index-of((xs:double(&apos;INF&apos;)), fn:exactly-one(xs:double(&apos;INF&apos;)))</test>
+    <result-string>xs:integer("1")</result-string>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-indexof-mix-args-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> arg1: Sequence of double, arg2: double </description>
+    <created by="Pulkita Tyagi" on="2005-05-25"/>
+    <test>fn:index-of((xs:double(&apos;-INF&apos;)), fn:exactly-one(xs:double(&apos;-INF&apos;)))</test>
+    <result-string>xs:integer("1")</result-string>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-indexof-mix-args-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> arg1: Sequence of decimal, arg2: decimal </description>
+    <created by="Pulkita Tyagi" on="2005-05-25"/>
+    <test>fn:index-of((xs:decimal(&apos;9.99999999999999999999999999&apos;)), fn:exactly-one(xs:decimal(&apos;9.99999999999999999999999999&apos;)))</test>
+    <result-string>xs:integer("1")</result-string>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-indexof-mix-args-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> arg1: Sequence of decimal, arg2: decimal </description>
+    <created by="Pulkita Tyagi" on="2005-05-25"/>
+    <test>fn:index-of((xs:decimal(&apos;9.99999999999999999999999999&apos;)), fn:exactly-one(xs:decimal(&apos;9.9999999999999999999999999&apos;)))</test>
+    <result-string>()</result-string>
+    <result>
+      <assert-string-value/>
+    </result>
+  </test-case>
+  <test-case name="fn-indexof-mix-args-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> arg1: Sequence of positiveInteger, arg2: positiveInteger </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
-    <test>fn:index-of((xs:positiveInteger('1'),xs:positiveInteger('2')), fn:exactly-one(xs:positiveInteger('2')))</test>
+    <test>fn:index-of((xs:positiveInteger(&apos;1&apos;),xs:positiveInteger(&apos;2&apos;)), fn:exactly-one(xs:positiveInteger(&apos;2&apos;)))</test>
     <result-string>xs:integer("2")</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-015">
+  <test-case name="fn-indexof-mix-args-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> arg1: Sequence of negativeInteger, arg2: negativeInteger </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
-    <test>fn:index-of((xs:negativeInteger('-2'), xs:negativeInteger('-1')), fn:exactly-one(xs:negativeInteger('-1')))</test>
+    <test>fn:index-of((xs:negativeInteger(&apos;-2&apos;), xs:negativeInteger(&apos;-1&apos;)), fn:exactly-one(xs:negativeInteger(&apos;-1&apos;)))</test>
     <result-string>xs:integer("2")</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-016">
+  <test-case name="fn-indexof-mix-args-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string>
     <description> Use a nested sequence in the sequence to search </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <test>fn:index-of((1, (1,2,3)),1)</test>
@@ -153,7 +152,7 @@
       <assert-string-value>1 2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-017">
+  <test-case name="fn-indexof-mix-args-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("4"),xs:integer("6"))</response-string>
     <description> Use multiple nested sequence in the sequence to search </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <test>fn:index-of(((1),(1), (2,1), (0,1)),1)</test>
@@ -162,7 +161,7 @@
       <assert-string-value>1 2 4 6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-018">
+  <test-case name="fn-indexof-mix-args-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string>
     <description> Use external variable for the sequence parameter </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <environment ref="bib"/>
@@ -172,7 +171,7 @@
       <assert-string-value>1 2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-019">
+  <test-case name="fn-indexof-mix-args-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string>
     <description> Use external variable both in sequence and search parameter </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <environment ref="bib"/>
@@ -182,7 +181,7 @@
       <assert-string-value>1 2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-020">
+  <test-case name="fn-indexof-mix-args-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Use empty string with other strings in sequence </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <test>fn:index-of(("sport", "", "and", "", "", "pastime"), "")</test>
@@ -191,7 +190,7 @@
       <assert-string-value>2 4 5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-021">
+  <test-case name="fn-indexof-mix-args-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("3"))</response-string>
     <description> Use empty string with integers in the sequence parameter </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <test>fn:index-of( ("", 1, ""), "")</test>
@@ -200,7 +199,7 @@
       <assert-string-value>1 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-indexof-mix-args-022">
+  <test-case name="fn-indexof-mix-args-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Use no search parameter </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <test>fn:index-of((1,2,3,4))</test>
@@ -209,7 +208,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-1">
+  <test-case name="K-SeqIndexOfFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `index-of()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>index-of()</test>
@@ -218,7 +217,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-2">
+  <test-case name="K-SeqIndexOfFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `index-of(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>index-of(1)</test>
@@ -227,7 +226,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-3">
+  <test-case name="K-SeqIndexOfFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `index-of((1, 2, 3), 1, ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>index-of((1, 2, 3), 1, ())</test>
@@ -236,7 +235,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-4">
+  <test-case name="K-SeqIndexOfFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description> A test whose essence is: `index-of("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>index-of("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")</test>
@@ -245,7 +244,7 @@
       <error code="FOCH0002"/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-5">
+  <test-case name="K-SeqIndexOfFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `index-of("a string", "a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>index-of("a string", "a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
@@ -254,7 +253,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-6">
+  <test-case name="K-SeqIndexOfFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A test whose essence is: `index-of("a string", "a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>index-of("a string", "a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
@@ -263,7 +262,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-7">
+  <test-case name="K-SeqIndexOfFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(index-of(xs:double("NaN"), xs:float("NaN")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(index-of(xs:double("NaN"), xs:float("NaN")))</test>
@@ -272,7 +271,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-8">
+  <test-case name="K-SeqIndexOfFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(index-of(xs:float("NaN"), xs:double("NaN")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(index-of(xs:float("NaN"), xs:double("NaN")))</test>
@@ -281,7 +280,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-9">
+  <test-case name="K-SeqIndexOfFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(index-of(xs:float("NaN"), xs:float("NaN")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(index-of(xs:float("NaN"), xs:float("NaN")))</test>
@@ -290,7 +289,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-10">
+  <test-case name="K-SeqIndexOfFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(index-of(xs:double("NaN"), xs:double("NaN")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(index-of(xs:double("NaN"), xs:double("NaN")))</test>
@@ -299,7 +298,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-11">
+  <test-case name="K-SeqIndexOfFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(index-of(4, "4"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(index-of(4, "4"))</test>
@@ -308,7 +307,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-12">
+  <test-case name="K-SeqIndexOfFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A test whose essence is: `index-of(4, 4)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>index-of(4, 4)</test>
@@ -317,7 +316,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-13">
+  <test-case name="K-SeqIndexOfFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(index-of((), 4))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(index-of((), 4))</test>
@@ -326,7 +325,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-14">
+  <test-case name="K-SeqIndexOfFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A test whose essence is: `index-of(4, 4)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>index-of(4, 4)</test>
@@ -335,7 +334,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-15">
+  <test-case name="K-SeqIndexOfFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `deep-equal((1, 2, 3, 4, 5, 6), index-of((4, 4, 4, 4, 4, 4), 4))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3, 4, 5, 6), index-of((4, 4, 4, 4, 4, 4), 4))</test>
@@ -344,7 +343,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-16">
+  <test-case name="K-SeqIndexOfFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(index-of(xs:anyURI("example.com/"), xs:hexBinary("FF")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(index-of(xs:anyURI("example.com/"), xs:hexBinary("FF")))</test>
@@ -353,7 +352,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-17">
+  <test-case name="K-SeqIndexOfFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A test whose essence is: `index-of(xs:untypedAtomic("example.com/"), xs:anyURI("example.com/"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>index-of(xs:untypedAtomic("example.com/"), xs:anyURI("example.com/"))</test>
@@ -362,7 +361,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-18">
+  <test-case name="K-SeqIndexOfFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `deep-equal(index-of((1, 2, "three", 5, 5, 6), 5), (4, 5))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(index-of((1, 2, "three", 5, 5, 6), 5), (4, 5))</test>
@@ -371,7 +370,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-19">
+  <test-case name="K-SeqIndexOfFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(index-of((10, 20, 30, 40), 35))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(index-of((10, 20, 30, 40), 35))</test>
@@ -380,7 +379,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-20">
+  <test-case name="K-SeqIndexOfFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `deep-equal(index-of((10, 20, 30, 30, 20, 10), 20), (2, 5))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(index-of((10, 20, 30, 30, 20, 10), 20), (2, 5))</test>
@@ -389,7 +388,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-21">
+  <test-case name="K-SeqIndexOfFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `deep-equal(index-of(("a", "sport", "and", "a", "pastime"), "a"), (1, 4))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(index-of(("a", "sport", "and", "a", "pastime"), "a"), (1, 4))</test>
@@ -398,7 +397,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-22">
+  <test-case name="K-SeqIndexOfFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(index-of((1, 2, 3, 2, 1), 2)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(index-of((1, 2, 3, 2, 1), 2)) eq 2</test>
@@ -407,7 +406,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-23">
+  <test-case name="K-SeqIndexOfFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(index-of((1, 2, 3, 2, 1), 1)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(index-of((1, 2, 3, 2, 1), 1)) eq 2</test>
@@ -416,7 +415,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-24">
+  <test-case name="K-SeqIndexOfFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(index-of((1, 2, 3, 2, 1), 3)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(index-of((1, 2, 3, 2, 1), 3)) eq 1</test>
@@ -425,7 +424,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqIndexOfFunc-25">
+  <test-case name="K-SeqIndexOfFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(index-of((1, 2, 3, 2, 1), 4)) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(index-of((1, 2, 3, 2, 1), 4)) eq 0</test>
@@ -434,7 +433,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-indexof-1">
+  <test-case name="cbcl-fn-indexof-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Test an index-of on a range expression </description>
     <created by="Nick Jones" on="2008-05-30"/>
     <test>index-of(1 to 5,4)</test>
@@ -443,7 +442,7 @@
       <assert-string-value>4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-indexof-2">
+  <test-case name="cbcl-fn-indexof-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Test optimization of index-of to equal </description>
     <created by="Nick Jones" on="2008-06-06"/>
     <test>index-of(exactly-one((1 to 10)[. div 5 = 1]),5)</test>
@@ -452,7 +451,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-indexof-3">
+  <test-case name="cbcl-fn-indexof-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test boolean of indexof </description>
     <created by="Nick Jones" on="2008-06-12"/>
     <test>boolean(index-of((1 to 10)[. mod 2 = 0],4))</test>
@@ -461,7 +460,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-indexof-4">
+  <test-case name="cbcl-fn-indexof-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Tests false boolean of indexof </description>
     <created by="Nick Jones" on="2008-06-12"/>
     <test>boolean(index-of((1 to 10)[. mod 2 = 0],5))</test>
@@ -470,7 +469,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-indexof-5">
+  <test-case name="cbcl-fn-indexof-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("4"),xs:integer("12"))</response-string>
     <description> Tests fn:index-of of a range value followed by an sequence </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>index-of((1 to 10,(1 to 10)[. mod 2 = 0]),4)</test>
@@ -479,7 +478,7 @@
       <assert-string-value>4 12</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-indexof-006">
+  <test-case name="cbcl-fn-indexof-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Tests corner case </description>
     <created by="Nick Jones" on="2008-06-27"/>
     <test>index-of(1 to 10,(1 to 10)[. div 2 = 0][1])</test>

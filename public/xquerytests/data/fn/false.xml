@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-false" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the function false()</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-false" type="spec"/>
-  <test-case name="fn-false-1">
+  <test-case name="fn-false-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Simple call to an "fn:false" function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false()</test>
@@ -14,7 +13,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-false-2">
+  <test-case name="fn-false-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaliation of "fn:false" function as argument to fn:not function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(fn:false())</test>
@@ -23,7 +22,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-false-3">
+  <test-case name="fn-false-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of a "false" function with a logical expression involving the "and" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() and fn:false()</test>
@@ -32,7 +31,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-false-4">
+  <test-case name="fn-false-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of a "fn:false" function with a logical expression involving the "or" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() or fn:false()</test>
@@ -41,7 +40,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-false-5">
+  <test-case name="fn-false-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "eq" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() eq fn:false()</test>
@@ -50,7 +49,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-false-6">
+  <test-case name="fn-false-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "ne" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() ne fn:false()</test>
@@ -59,7 +58,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-false-7">
+  <test-case name="fn-false-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "lt" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() lt fn:false()</test>
@@ -68,7 +67,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-false-8">
+  <test-case name="fn-false-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "le" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() le fn:false()</test>
@@ -77,7 +76,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-false-9">
+  <test-case name="fn-false-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "gt" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() gt fn:false()</test>
@@ -86,7 +85,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-false-10">
+  <test-case name="fn-false-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "ge" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() ge fn:false()</test>
@@ -95,7 +94,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-false-11">
+  <test-case name="fn-false-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "=" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() = fn:false()</test>
@@ -104,7 +103,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-false-12">
+  <test-case name="fn-false-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "!=" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() != fn:false()</test>
@@ -113,7 +112,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-false-13">
+  <test-case name="fn-false-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>
@@ -124,7 +123,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-false-14">
+  <test-case name="fn-false-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "=" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>
@@ -135,7 +134,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-false-15">
+  <test-case name="fn-false-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false()  fn:false()</test>
@@ -144,7 +143,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-false-16">
+  <test-case name="fn-false-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:false" function with a comparison expression involving the "=" operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:false() = fn:false()</test>
@@ -153,7 +152,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-false-17">
+  <test-case name="fn-false-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:false" function as an argument to an "xs:boolean" function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>xs:boolean(fn:false())</test>
@@ -162,7 +161,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-false-18">
+  <test-case name="fn-false-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("false")</response-string>
     <description> Evaluation of an "fn:false" function as an argument to an "fn:string" function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:string(fn:false())</test>
@@ -171,7 +170,7 @@
       <assert-eq>"false"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-false-19">
+  <test-case name="fn-false-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("falsefalse")</response-string>
     <description> Evaluation of an "fn:false" function as arguments to an "fn:concat" function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:concat(xs:string(fn:false()),xs:string(fn:false()))</test>
@@ -180,7 +179,7 @@
       <assert-string-value>falsefalse</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-false-20">
+  <test-case name="fn-false-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:false" function as arguments to an "fn:contains" function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:contains(xs:string(fn:false()),xs:string(fn:false()))</test>
@@ -189,7 +188,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-false-21">
+  <test-case name="fn-false-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> Evaluation of an "fn:false" function as an argument to an "fn:string-length" function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:string-length(xs:string(fn:false()))</test>
@@ -198,7 +197,7 @@
       <assert-string-value>5</assert-string-value>
     </result>
   </test-case>
-  <test-case covers="named-function-ref" name="fn-false-22">
+  <test-case covers="named-function-ref" name="fn-false-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>false() as a function item</description>
     <created by="Michael Kay" on="2011-06-27"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -209,7 +208,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="K-FalseFunc-1">
+  <test-case name="K-FalseFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `false(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>false(1)</test>
@@ -218,7 +217,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FalseFunc-2">
+  <test-case name="K-FalseFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `false() eq false()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>false() eq false()</test>
@@ -227,7 +226,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FalseFunc-3">
+  <test-case name="K-FalseFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(false())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(false())</test>

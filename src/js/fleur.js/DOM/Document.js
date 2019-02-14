@@ -383,7 +383,7 @@ Fleur.Document.prototype._serializeToString = function(indent) {
 Fleur.Document.prototype.compileXslt = function() {
 	return this.documentElement.compileXslt();
 };
-Fleur.Document.prototype.evaluate = function(expression, contextNode, env, type, xpresult) {
+Fleur.Document.prototype._evaluate = function(expression, contextNode, env, type, xpresult) {
 	contextNode = contextNode || this;
 	env = env || {};
 	if (!env.nsresolver) {
@@ -431,6 +431,16 @@ Fleur.Document.prototype.evaluate = function(expression, contextNode, env, type,
 	xpresult.resultType = type;
 	xpresult._index = 0;
 	return xpresult;
+};
+Fleur.Document.prototype.evaluate = function(expression, contextNode, env, type, xpresult) {
+	var xpr = this._evaluate(expression, contextNode, env, type, xpresult);
+	return new Promise(function(resolve, reject) {
+		xpr.evaluate(function(res) {
+			resolve(res);
+		}, function(res) {
+			reject(res);
+		});
+	});
 };
 Fleur.Document.prototype.createExpression = function(expression) {
 	expression = expression || "";

@@ -12,5 +12,5 @@ Fleur.XPathFunctions_math["exp10#1"] = new Fleur.Function("http://www.w3.org/200
 		if (arg === null) {
 			return null;
 		}
-		return Math.pow(10, arg);},
+		return Math.pow(10, Number(arg));},
 	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});

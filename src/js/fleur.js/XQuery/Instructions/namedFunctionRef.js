@@ -21,5 +21,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.namedFunctionRef] = function(ctx, children, cal
 			uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
 		}
 	}
+	if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && nbargs > 1 && !Fleur.XPathFunctions[uri][fname + "#" + nbargs]) {
+		var cparam = [];
+		for (var i = 0; i < nbargs; i++) {
+			cparam[i] = {type: Fleur.Node};
+		}
+		Fleur.XPathFunctions[uri][fname + "#" + nbargs] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
+	}
 	Fleur.callback(function() {callback(Fleur.XPathFunctions[uri] ? Fleur.XPathFunctions[uri][fname + "#" + nbargs] || a : a);});
 };

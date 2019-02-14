@@ -12,6 +12,7 @@
 		"deflate.js",
 		"inflate.js",
 		"envdetect.js",
+		"BigInt.js",
 		["\n})(typeof exports === 'undefined'? this.Fleur = {} : require.main === module ? global.Fleur = {} : exports);\n"],
 		"polyfills.js",
 		"scriptrun.js"

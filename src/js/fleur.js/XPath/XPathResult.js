@@ -142,7 +142,7 @@ Fleur.XPathResult.prototype.evaluate = function(resolve, reject) {
 		src = Fleur.XPathEvaluator._xq2js(this.expression);
 	} catch (e) {
 		ctx.xpresult._result = Fleur.error(ctx, "XPST0003", e.message);
-		reject(ctx.xpresult);
+		resolve(ctx.xpresult);
 		return;
 	}
 	try {
@@ -150,15 +150,11 @@ Fleur.XPathResult.prototype.evaluate = function(resolve, reject) {
 		Fleur.XQueryEngine[compiled[0]](ctx, compiled[1], function(n) {
 			ctx.xpresult._result = n;
 			ctx.xpresult.env = ctx.env;
-			if (n.schemaTypeInfo === Fleur.Type_error) {
-				reject(ctx.xpresult);
-			} else {
-				resolve(ctx.xpresult);
-			}
+			resolve(ctx.xpresult);
 		});
 	} catch (e) {
 		ctx.xpresult._result = Fleur.error(ctx, "XPST0003", e.message);
-		reject(ctx.xpresult);
+		resolve(ctx.xpresult);
 	}
 };
 Fleur.XPathResult.prototype.iterateNext = function() {
@@ -202,6 +198,9 @@ Fleur.XPathResult.prototype.toArray = function() {
 	}
 	return this._result.childNodes;
 };
-Fleur.XPathResult.prototype.then = function(resolve, reject) {
-	this.evaluate(resolve, reject);
+Fleur.XPathResult.prototype.promise = function() {
+	var xpr = this;
+	return new Promise(function(resolve, reject) {
+		xpr.evaluate(resolve, reject);
+	});
 };

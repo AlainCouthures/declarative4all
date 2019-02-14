@@ -12,6 +12,7 @@ Fleur.callback_counter = 0;
 Fleur.callback = function(cb) {
 	if (Fleur.callback_counter === 0) {
 		Fleur.callback_counter = Fleur.callback_period;
+		//setAsap(cb);
 		setImmediate(cb);
 		return;
 	}

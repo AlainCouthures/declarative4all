@@ -42,7 +42,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
 			restype = Fleur.addOpTypes[op1[0]][op2[0]];
 			if (restype !== -1) {
 				if (op1[0] < 4 && op2[0] < 4) {
-					a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(op1[1] + op2[1])) : Fleur.NumberToDecimalString(op1[1] + op2[1]);
+					a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(typeof op1[1] === typeof op2[1] ? op1[1] + op2[1] : Number(op1[1]) + Number(op2[1]))) : Fleur.NumberToDecimalString(op1[1] + op2[1]);
 				} else if (op1[0] === 4 && op2[0] === 4) {
 					a1.data = op1[1] + op2[1];
 				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 5 && op2[0] < 9) {

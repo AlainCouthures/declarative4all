@@ -297,8 +297,8 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["negativeInteger"].canonicalize 
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "long", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].integer);
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"].canonicalize = function(s) {
 	if (/^[\-+]?[0-9]+$/.test(s)) {
-		var value = parseInt(s, 10);
-		if (value >= -9223372036854775808 && value <= 9223372036854775807) {
+		var value = Fleur.BigInt(s);
+		if (value >= Fleur.BigInt("-9223372036854775808") && value <= Fleur.BigInt("9223372036854775807")) {
 			return String(value);
 		}
 	}
@@ -362,8 +362,8 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"].canonicali
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedLong", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].nonNegativeInteger);
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedLong"].canonicalize = function(s) {
 	if (/^(\+?[0-9]+|-0+)$/.test(s)) {
-		var value = parseInt(s, 10);
-		if (value <= 18446744073709551615) {
+		var value = Fleur.BigInt(s);
+		if (value <= Fleur.BigInt("18446744073709551615")) {
 			return String(value);
 		}
 	}

@@ -146,22 +146,22 @@ Fleur.XPathFunctions_fn["format-number#2"] = new Fleur.Function("http://www.w3.o
 			}
 		}
 		suffix = picture.substring(i);
-		if (value === Number.POSITIVE_INFINITY) {
+		if (Number(value) === Number.POSITIVE_INFINITY) {
 			return prefix + "Infinity" + suffix;
-		} else if (value === Number.NEGATIVE_INFINITY) {
+		} else if (Number(value) === Number.NEGATIVE_INFINITY) {
 			return "-" + prefix + "Infinity" + suffix;
 		}
 		if (value < 0 && pictures.length === 1) {
 			prefix = "-" + prefix;
 		}
 		if (ess) {
-			evalue = Math.floor(Math.log(value) / Math.LN10) + 1 - mips;
-			value /= Math.pow(10, evalue);
+			evalue = Math.floor(Math.log(Number(value)) / Math.LN10) + 1 - mips;
+			value = Number(value) / Math.pow(10, evalue);
 			esign = evalue < 0 ? "-" : "";
 			evalue = String(Math.abs(evalue));
 			evalue = esign + ("000000000000000000000000000000").substr(0, Math.max(0, mes - evalue.length)) + evalue;
 		}
-		s0 = Math.abs(value).toFixed(maxfps);
+		s0 = Math.abs(Number(value)).toFixed(maxfps);
 		if (maxfps === 0 && dss) {
 			s0 += ".";
 		}

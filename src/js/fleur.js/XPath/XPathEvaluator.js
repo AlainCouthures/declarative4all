@@ -1351,7 +1351,7 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		var postnextstack = poststacks.substr(postargslen.length + 1 + parseInt(postargslen, 10));
 		var postopslen = postnextstack.substr(0, postnextstack.indexOf("."));
 		ops = (postprec.length + 1 + (o === "a" ? 11 : 12)) + "." + postprec + ".~~" + (o === "a" ? "ascending" : "descending") + postnextstack.substr(postnextstack.indexOf(".") + 1).substr(0, parseInt(postopslen, 10));
-		f = f.substr(o === "a" ? 9 : 10);
+		f = f.substr(i4 + (o === "a" ? 9 : 10));
 		i4 = Fleur.XPathEvaluator._skipSpaces(f, 0);
 		o = f.charAt(i4);
 		p = f.substr(f.indexOf(o));

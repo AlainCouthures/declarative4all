@@ -12,5 +12,5 @@ Fleur.XPathFunctions_math["atan#1"] = new Fleur.Function("http://www.w3.org/2005
 		if (arg === null) {
 			return null;
 		}
-		return Math.atan(arg);},
+		return Math.atan(Number(arg));},
 	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});

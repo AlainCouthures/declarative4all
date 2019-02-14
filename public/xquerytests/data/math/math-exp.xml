@@ -2,7 +2,7 @@
   <description>Tests for the math:exp function introduced in XPath 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-exp" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="math-exp-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="math-exp-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluate the function exp() with the argument set to empty sequence</description>
     <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
@@ -12,7 +12,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="math-exp-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
+  <test-case name="math-exp-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>Evaluate the function exp() with the argument set to zero</description>
     <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
@@ -22,18 +22,18 @@
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-exp-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2.718281828459045")</response-string>
+  <test-case name="math-exp-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2.718281828459045")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2.718281828459045")</response-string>
     <description>Evaluate the function exp() with the argument set to 1</description>
     <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <modified by="Michael Kay, Saxonica" change="allow variation, see bug 14905" on="2011-11-23"/>
     <environment ref="math"/>
     <test>math:exp(1)</test>
-    <result-string>xs:double("2.7182818284590456e0")</result-string>
+    <result-string>xs:double("2.718281828459045")</result-string>
     <result>
       <assert>abs($result - 2.7182818284590456e0) lt 1e-15</assert>
     </result>
   </test-case>
-  <test-case name="math-exp-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("7.38905609893065")</response-string>
+  <test-case name="math-exp-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("7.38905609893065")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("7.38905609893065")</response-string>
     <description>Evaluate the function exp() with the argument set to 2</description>
     <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
@@ -43,7 +43,7 @@
       <assert-eq>7.38905609893065e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-exp-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0.36787944117144233")</response-string>
+  <test-case name="math-exp-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0.36787944117144233")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0.36787944117144233")</response-string>
     <description>Evaluate the function exp() with the argument set to -1</description>
     <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
@@ -53,7 +53,7 @@
       <assert-eq>0.36787944117144233e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-exp-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("23.140692632779267")</response-string>
+  <test-case name="math-exp-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("23.140692632779267")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("23.140692632779267")</response-string>
     <description>Evaluate the function exp() with the argument set to math:pi()</description>
     <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
@@ -63,7 +63,7 @@
       <assert-eq>23.140692632779267e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-exp-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+  <test-case name="math-exp-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>Evaluate the function exp() with the argument set to xs:double(&apos;NaN&apos;)</description>
     <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
@@ -73,7 +73,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="math-exp-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
+  <test-case name="math-exp-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description>Evaluate the function exp() with the argument set to xs:double(&apos;INF&apos;)</description>
     <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
@@ -83,7 +83,7 @@
       <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-exp-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
+  <test-case name="math-exp-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function exp() with the argument set to xs:double(&apos;NaN&apos;)</description>
     <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>

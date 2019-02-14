@@ -440,28 +440,28 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="compare-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
+  <test-case name="compare-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description>compare() with non-BMP characters</description>
     <created by="Michael Kay" on="2011-06-29"/>
-    <test>compare("&#65537;", "&#65538;", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
+    <test>compare("&#1;", "&#2;", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
     <result-string>xs:integer("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="compare-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
+  <test-case name="compare-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description>check that Unicode codepoint collation is used, not comparison of UTF16 surrogates</description>
     <created by="Michael Kay" on="2011-06-29"/>
-    <test>compare("&#65537;", "&#65520;", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
+    <test>compare("&#1;", "&#65520;", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="compare-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
+  <test-case name="compare-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description>check that Unicode codepoint collation is used, not comparison of UTF16 surrogates</description>
     <created by="Michael Kay" on="2011-06-29"/>
-    <test>compare("&#65537;", "&#65520;", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
+    <test>compare("&#1;", "&#65520;", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>

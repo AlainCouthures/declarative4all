@@ -28,7 +28,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-escape-html-uri1args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="fn-escape-html-uri1args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Test escape-html-uri with empty sequence argument </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>escape-html-uri(())</test>
@@ -289,7 +289,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-EscapeHTMLURIFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="K-EscapeHTMLURIFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("example.com")</response-string>
     <description> Invoke fn:normalize-space() on the return value of fn:escape-html-uri(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(iri-to-uri(("example.com", current-time())[1] treat as xs:string))</test>

@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-dateTime" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description/>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-dateTime" type="spec"/>
-  <test-case name="fn-dateTime-1">
+  <test-case name="fn-dateTime-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function as per example 1 of the F  O Specs. for this function. 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -12,7 +11,7 @@
       <assert-string-value>1999-12-31T12:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-2">
+  <test-case name="fn-dateTime-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function as per example 2 of the F  O Specs. for this function. 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -22,7 +21,7 @@
       <assert-string-value>1999-12-31T00:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-3">
+  <test-case name="fn-dateTime-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function, where only the first argument have a timezone. 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -32,7 +31,7 @@
       <assert-string-value>1999-12-31T23:00:00Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-4">
+  <test-case name="fn-dateTime-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function, where only the second argument have a timezone. 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -42,7 +41,7 @@
       <assert-string-value>1999-12-31T23:00:00Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-5">
+  <test-case name="fn-dateTime-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function, where both arguments have the same timezone (Z). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -52,7 +51,7 @@
       <assert-string-value>1999-12-31T23:00:00Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-6">
+  <test-case name="fn-dateTime-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function, where both arguments have the same timezone (+10:00). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -62,7 +61,7 @@
       <assert-string-value>1999-12-31T23:00:00+10:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-7">
+  <test-case name="fn-dateTime-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function together together with the  op:dateTime-equal operator(eq). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -72,7 +71,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-8">
+  <test-case name="fn-dateTime-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function together together with the  op:dateTime-equal operator(ne). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -82,7 +81,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-9">
+  <test-case name="fn-dateTime-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function together together with the  op:dateTime-equal operator(le). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -92,7 +91,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-10">
+  <test-case name="fn-dateTime-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function together together with the  op:dateTime-equal operator(ge). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -102,7 +101,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-11">
+  <test-case name="fn-dateTime-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function together together with the  op:dateTime-equal operator(lt). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -112,7 +111,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-12">
+  <test-case name="fn-dateTime-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function together together with the  op:dateTime-equal operator(le). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -122,7 +121,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-13">
+  <test-case name="fn-dateTime-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function together together with the  op:dateTime-equal operator(gt). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -132,7 +131,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-14">
+  <test-case name="fn-dateTime-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function together together with the  op:dateTime-equal operator(ge). 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -142,7 +141,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-15">
+  <test-case name="fn-dateTime-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" as an argument to the function "year-from-dateTime". 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -152,7 +151,7 @@
       <assert-string-value>1999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-16">
+  <test-case name="fn-dateTime-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" as an argument to the function "month-from-dateTime". 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -162,7 +161,7 @@
       <assert-string-value>12</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-17">
+  <test-case name="fn-dateTime-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" as an argument to the function "day-from-dateTime". 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -172,7 +171,7 @@
       <assert-string-value>31</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-18">
+  <test-case name="fn-dateTime-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" as an argument to the function "hours-from-dateTime". 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -182,7 +181,7 @@
       <assert-string-value>23</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-19">
+  <test-case name="fn-dateTime-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" as an argument to the function "minutes-from-dateTime". 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -192,7 +191,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-20">
+  <test-case name="fn-dateTime-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" as an argument to the function "seconds-from-dateTime". 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -202,7 +201,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-21">
+  <test-case name="fn-dateTime-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" as an argument to the function "timezone-from-dateTime". 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -212,7 +211,7 @@
       <assert-string-value>PT10H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-22">
+  <test-case name="fn-dateTime-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" as an argument to the function "adjust-dateTime-to-timezone". 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -222,7 +221,7 @@
       <assert-string-value>1999-12-31T23:00:00+10:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-23">
+  <test-case name="fn-dateTime-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" as part of a subtraction operation. 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -232,7 +231,7 @@
       <assert-string-value>PT1H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-24">
+  <test-case name="fn-dateTime-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" used together with the "op:add-yearMonthDuration-to-dateTime" operator 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -242,7 +241,7 @@
       <assert-string-value>2001-02-28T23:00:00+10:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-25">
+  <test-case name="fn-dateTime-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" used together with the "op:add-dayTimeDuration-to-dateTime" operator 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -252,7 +251,7 @@
       <assert-string-value>2000-01-04T00:15:00+10:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-26">
+  <test-case name="fn-dateTime-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" used together with the "subtract-yearMonthDuration-from-dateTime" operator 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -262,7 +261,7 @@
       <assert-string-value>1998-10-31T23:00:00+10:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-27">
+  <test-case name="fn-dateTime-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" used together with the "subtract-dayTimeDuration-from-dateTime" operator 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -272,7 +271,7 @@
       <assert-string-value>1999-12-28T21:45:00+10:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-28">
+  <test-case name="fn-dateTime-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" where first argument is empty sequence 
  </description>
     <created by="Carmelo Montanez" on="2006-09-22"/>
@@ -282,7 +281,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-29">
+  <test-case name="fn-dateTime-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" where second argument is empty sequence 
  </description>
     <created by="Carmelo Montanez" on="2006-09-22"/>
@@ -292,7 +291,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-dateTime-30">
+  <test-case name="fn-dateTime-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" where both arguments are equal to the empty sequence 
  </description>
     <created by="Carmelo Montanez" on="2006-09-22"/>
@@ -302,7 +301,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="forg0008-1">
+  <test-case name="forg0008-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluation of "fn:dateTime" function, where the two arguments have different timezones. 
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
@@ -312,7 +311,7 @@
       <error code="FORG0008"/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-1">
+  <test-case name="K-DateTimeFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Passing too few parameters(none) to fn:dateTime().</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime()</test>
@@ -321,7 +320,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-2">
+  <test-case name="K-DateTimeFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Passing too few parameters(only one) to fn:dateTime().</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04"))</test>
@@ -330,7 +329,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-3">
+  <test-case name="K-DateTimeFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Passing too many parameters to fn:dateTime().</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04"), xs:time("08:05:23"), ())</test>
@@ -339,7 +338,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-4">
+  <test-case name="K-DateTimeFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Passing the empty sequence as second argument is allowed(recent change in the specification).</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>empty(dateTime(xs:date("2004-03-04"), ()))</test>
@@ -348,7 +347,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-5">
+  <test-case name="K-DateTimeFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Passing the empty sequence as first argument is allowed(recent change in the specification). </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>empty(dateTime((), xs:time("08:05:23")))</test>
@@ -357,7 +356,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-6">
+  <test-case name="K-DateTimeFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Passing different timezones to fn:dateTime() is an error. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04-00:01"), xs:time("08:05:23+00:01"))</test>
@@ -366,7 +365,7 @@
       <error code="FORG0008"/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-7">
+  <test-case name="K-DateTimeFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Passing different timezones to fn:dateTime() is an error. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04-00:01"), xs:time("08:05:23Z"))</test>
@@ -375,7 +374,7 @@
       <error code="FORG0008"/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-8">
+  <test-case name="K-DateTimeFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Invoke fn:dateTime() with timezones +00:00 and -00:00.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04-00:00"), xs:time("08:05:23+00:00")) eq xs:dateTime("2004-03-04T08:05:23Z")</test>
@@ -384,7 +383,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-9">
+  <test-case name="K-DateTimeFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Invoke fn:dateTime() with identical timezones.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04+11:00"), xs:time("08:05:23+11:00")) eq xs:dateTime("2004-03-04T08:05:23+11:00")</test>
@@ -393,7 +392,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-10">
+  <test-case name="K-DateTimeFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Invoke fn:dateTime() with the first value having no timezone.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04"), xs:time("08:05:23-05:00")) eq xs:dateTime("2004-03-04T08:05:23-05:00")</test>
@@ -402,7 +401,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-11">
+  <test-case name="K-DateTimeFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Invoke fn:dateTime() with the second value having no timezone.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04+11:00"), xs:time("08:05:23")) eq xs:dateTime("2004-03-04T08:05:23+11:00")</test>
@@ -411,7 +410,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-12">
+  <test-case name="K-DateTimeFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Invoke fn:dateTime() with the time value being 24:00:00. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:string(dateTime(xs:date("1999-12-31"), xs:time("24:00:00"))) eq "1999-12-31T00:00:00"</test>
@@ -420,8 +419,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-13">
-    <description> Invoke fn:dateTime() with timezones being canonical UTC('Z').</description>
+  <test-case name="K-DateTimeFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> Invoke fn:dateTime() with timezones being canonical UTC(&apos;Z&apos;).</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04Z"), xs:time("08:05:23Z")) eq xs:dateTime("2004-03-04T08:05:23Z")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -429,8 +428,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-14">
-    <description>Invoke fn:dateTime() with the first value's timezone being canonical UTC('Z'). </description>
+  <test-case name="K-DateTimeFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description>Invoke fn:dateTime() with the first value&apos;s timezone being canonical UTC(&apos;Z&apos;). </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04Z"), xs:time("08:05:23")) eq xs:dateTime("2004-03-04T08:05:23Z")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -438,8 +437,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-15">
-    <description>Invoke fn:dateTime() with the first value's timezone being an arbitrary value.</description>
+  <test-case name="K-DateTimeFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description>Invoke fn:dateTime() with the first value&apos;s timezone being an arbitrary value.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04+13:07"), xs:time("08:05:23")) eq xs:dateTime("2004-03-04T08:05:23+13:07")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -447,8 +446,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-16">
-    <description>Invoke fn:dateTime() with the second value's timezone being an arbitrary value.</description>
+  <test-case name="K-DateTimeFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description>Invoke fn:dateTime() with the second value&apos;s timezone being an arbitrary value.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04"), xs:time("08:05:23+13:07")) eq xs:dateTime("2004-03-04T08:05:23+13:07")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -456,7 +455,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-17">
+  <test-case name="K-DateTimeFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Invoke fn:dateTime() where none of its values has a timezone. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04"), xs:time("08:05:23")) eq xs:dateTime("2004-03-04T08:05:23")</test>
@@ -465,8 +464,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DateTimeFunc-18">
-    <description>Invoke fn:dateTime() with the first value's timezone being canonical UTC('Z'). </description>
+  <test-case name="K-DateTimeFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description>Invoke fn:dateTime() with the first value&apos;s timezone being canonical UTC(&apos;Z&apos;). </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date("2004-03-04"), xs:time("08:05:23Z")) eq xs:dateTime("2004-03-04T08:05:23Z")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -474,7 +473,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DateTimeFunc-1">
+  <test-case name="K2-DateTimeFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Passing the empty sequence as both arguments is allowed(recent change in the specification). </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>empty(dateTime((), ()))</test>
@@ -483,19 +482,19 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-dateTime-001">
+  <test-case name="cbcl-dateTime-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> test evaluation of fn:dateTime to exactly one item Author: Tim Mills </description>
     <created by="Oliver Hallam" on="2008-04-14"/>
-    <test>fn:index-of( ( 'A', fn:current-dateTime(), 'B' ), fn:dateTime(fn:current-date(), fn:current-time()) )</test>
+    <test>fn:index-of( ( &apos;A&apos;, fn:current-dateTime(), &apos;B&apos; ), fn:dateTime(fn:current-date(), fn:current-time()) )</test>
     <result-string>xs:string("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-dateTime-002">
+  <test-case name="cbcl-dateTime-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> test evaluation of fn:dateTime to exactly one item with invalid timezones </description>
     <created by="Oliver Hallam" on="2008-04-14"/>
-    <test>fn:index-of( ( 'A', fn:current-dateTime(), 'B' ), fn:dateTime(adjust-date-to-timezone(fn:current-date(), xs:dayTimeDuration("PT1H")), adjust-time-to-timezone(fn:current-time(), xs:dayTimeDuration("PT2H"))))</test>
+    <test>fn:index-of( ( &apos;A&apos;, fn:current-dateTime(), &apos;B&apos; ), fn:dateTime(adjust-date-to-timezone(fn:current-date(), xs:dayTimeDuration("PT1H")), adjust-time-to-timezone(fn:current-time(), xs:dayTimeDuration("PT2H"))))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0008"))</result-string>
     <result>
       <error code="FORG0008"/>

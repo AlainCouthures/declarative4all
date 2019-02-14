@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Run XQuery Test</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+	</head>
+	<body>
+		<button id="run" disabled onclick="run()">Run</button>
+		<br>
+		<textarea id="test" style="height: 150px; width: 1300px"></textarea>
+		<hr>
+		<pre id="resultstring"></pre>
+		<hr>
+		<pre id="effectiveresult"></pre>
+		<hr>
+		<pre id="doc"></pre>
+		<hr>
+		<pre id="xqueryx"></pre>
+		<hr>
+		<pre id="xqueryarr"></pre>
+		<script type="text/javascript">
+			/*globals Fleur */
+			var testcase = {};
+			var req = new XMLHttpRequest();
+			window.location.search.substr(1).split("&").reduce(function(result, param) {
+			    var item = param.split("=");
+			    result[item[0]] = decodeURIComponent(item[1]);
+			    return result;
+  			}, testcase);
+			var parser = new Fleur.DOMParser();
+		    var xmlBuf = "\x3cdummy/\x3e";
+			var xmldoc;
+			var xqeval = function (xexpr) {
+				try {
+					xmldoc.evaluate(xexpr).then(
+						function(res) {
+							document.getElementById("effectiveresult").innerHTML = res.toXQuery().replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
+						},
+						function(err) {
+							document.getElementById("effectiveresult").innerHTML = err.toXQuery().replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
+						}
+					);
+				} catch(e) {
+					document.getElementById("effectiveresult").innerHTML = "Exception!\n" + e.stack;
+				}
+			};
+			document.getElementById("test").value = testcase.test;
+			document.getElementById("resultstring").innerHTML = testcase.resultstring.replace(/</mg, "&lt;");
+			if (!testcase.environment.endsWith("/")) {
+				var getp = new Promise(function(resolve, reject) {
+					req.open('GET', testcase.environment, true);
+					req.onload = function() {
+						if (req.status === 200) {
+							resolve(req.responseText);
+						} else {
+							reject("Not loaded!");
+				      	}
+					};
+					req.send(null);
+				});
+				getp.then(
+					function(xmlBuf) {
+						xmldoc = parser.parseFromString(xmlBuf, "application/xml");
+						document.getElementById("run").disabled = false;
+						document.getElementById("doc").innerHTML = xmlBuf.replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
+					},
+					function(s) {
+						document.getElementById("doc").innerHTML = s.replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
+					}
+				);
+			} else {
+				xmldoc = parser.parseFromString(xmlBuf, "application/xml");
+				document.getElementById("run").disabled = false;
+				document.getElementById("doc").innerHTML = xmlBuf.replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
+			}
+			function run() {
+				try {
+					var jsret = Fleur.XPathEvaluator._xq2js(document.getElementById("test").value);
+					var arr;
+					eval("arr = " + jsret + ";");
+					var doc = parser.parseFromArray([Fleur.XQueryXNames, [arr]]);
+					var ser = new Fleur.XMLSerializer();
+					document.getElementById("xqueryx").innerHTML = ser.serializeToString(doc, true).replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
+					document.getElementById("xqueryarr").innerHTML = jsret.replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
+				} catch(e) {
+					document.getElementById("xqueryx").innerHTML = "Exception!\n" + e.message + "\n\n" + jsret;
+				}
+				xqeval(document.getElementById("test").value);
+			}
+		</script>
+	</body>
+</html>

@@ -9,13 +9,13 @@
  */
 Fleur.eqOp = function(op1, op2, c) {
 	if (op1[0] < 4) {
-		return op1[1] === op2[1];
+		return Number(op1[1]) === Number(op2[1]);
 	}
 	if (op1[0] === 4) {
 		return c.equals(op1[1], op2[1]);
 	}
 	if (op1[0] === 5) {
-		return (op1[1] === "true") === (op2[1] === "true");
+		return op1[1] === op2[1];
 	}
 	if (op1[0] > 5 && op1[0] < 9) {
 		return op1[1].getTime() === op2[1].getTime();

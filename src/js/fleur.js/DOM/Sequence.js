@@ -13,4 +13,9 @@ Fleur.Sequence = function() {
 	this.nodeName = "#sequence";
 };
 Fleur.Sequence.prototype = new Fleur.Node();
-Fleur.EmptySequence = new Fleur.Sequence();
+Object.defineProperty(Fleur, "EmptySequence", {
+	value: new Fleur.Sequence(),
+	writable: false,
+	enumerable: true,
+	configurable: false
+});

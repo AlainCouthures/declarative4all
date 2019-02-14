@@ -42,39 +42,39 @@ Fleur.XQueryEngine[Fleur.XQueryX.multiplyOp] = function(ctx, children, callback)
 			restype = Fleur.multiplyOpTypes[op1[0]][op2[0]];
 			if (restype !== -1) {
 				if (op1[0] < 4 && op2[0] < 4) {
-					if (isNaN(op1[1] * op2[1])) {
+					if (isNaN(Number(op1[1]) * Number(op2[1]))) {
 						a1.data = "NaN";
-					} else if (op1[1] * op2[1] === -Infinity) {
+					} else if (Number(op1[1]) * Number(op2[1]) === -Infinity) {
 						a1.data = "-INF";
-					} else if (op1[1] * op2[1] === Infinity) {
+					} else if (Number(op1[1]) * Number(op2[1]) === Infinity) {
 						a1.data = "INF";
-					} else if (1 / (op2[1] * op1[1]) === -Infinity) {
+					} else if (1 / (Number(op2[1]) * Number(op1[1])) === -Infinity) {
 						a1.data = "-0";
-					} else if (1 / (op2[1] * op1[1]) === Infinity) {
+					} else if (1 / (Number(op2[1]) * Number(op1[1])) === Infinity) {
 						a1.data = "0";
 					} else {
-						a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(op1[1] * op2[1])) : Fleur.NumberToDecimalString(op1[1] * op2[1]);
+						a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(typeof op1[1] === typeof op2[1] ? op1[1] * op2[1] : Number(op1[1]) * Number(op2[1]))) : Fleur.NumberToDecimalString(op1[1] * op2[1]);
 					}
 				} else if (op1[0] < 4 && op2[0] === 4) {
 					a1.data = op2[1].repeat(op1[1]);
 				} else if (op1[0] === 4 && op2[0] < 4) {
 					a1.data = op1[1].repeat(op2[1]);
 				} else if (op1[0] < 4 && op2[0] === 9) {
-					resvalue = op2[1].sign * Math.round((op2[1].year * 12 + op2[1].month) * op1[1]);
+					resvalue = op2[1].sign * Math.round((op2[1].year * 12 + op2[1].month) * Number(op1[1]));
 					res = {
 						sign: resvalue < 0 ? -1 : 1,
 						year: Math.floor(Math.abs(resvalue) / 12),
 						month: Math.abs(resvalue) % 12};
 					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
 				} else if (op1[0] === 9 && op2[0] < 4) {
-					resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) * op2[1]);
+					resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) * Number(op2[1]));
 					res = {
 						sign: resvalue < 0 ? -1 : 1,
 						year: Math.floor(Math.abs(resvalue) / 12),
 						month: Math.abs(resvalue) % 12};
 					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
 				} else if (op1[0] < 4 && op2[0] === 10) {
-					resvalue = op1[1] * op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+					resvalue = Number(op1[1]) * op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
 					res = {sign: resvalue < 0 ? -1 : 1};
 					resvalue = Math.abs(resvalue);
 					res.day = Math.floor(resvalue / 86400);
@@ -85,7 +85,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.multiplyOp] = function(ctx, children, callback)
 					res.second = resvalue % 60;
 					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
 				} else if (op1[0] === 10 && op2[0] < 4) {
-					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) * op2[1];
+					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) * Number(op2[1]);
 					res = {sign: resvalue < 0 ? -1 : 1};
 					resvalue = Math.abs(resvalue);
 					res.day = Math.floor(resvalue / 86400);

@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-count" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the count() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-count" type="spec"/>
-  <test-case name="fn-countint1args-1">
+  <test-case name="fn-countint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:int("-2147483648")))</test>
@@ -11,7 +10,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countint1args-2">
+  <test-case name="fn-countint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:int("-1873914410")))</test>
@@ -20,7 +19,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countint1args-3">
+  <test-case name="fn-countint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:int("2147483647")))</test>
@@ -29,7 +28,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countintg1args-1">
+  <test-case name="fn-countintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:integer("-999999999999999999")))</test>
@@ -38,7 +37,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countintg1args-2">
+  <test-case name="fn-countintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:integer("830993497117024304")))</test>
@@ -47,7 +46,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countintg1args-3">
+  <test-case name="fn-countintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:integer("999999999999999999")))</test>
@@ -56,7 +55,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countdec1args-1">
+  <test-case name="fn-countdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:decimal("-999999999999999999")))</test>
@@ -65,7 +64,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countdec1args-2">
+  <test-case name="fn-countdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:decimal("617375191608514839")))</test>
@@ -74,7 +73,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countdec1args-3">
+  <test-case name="fn-countdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:decimal("999999999999999999")))</test>
@@ -83,7 +82,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countdbl1args-1">
+  <test-case name="fn-countdbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:double("-1.7976931348623157E308")))</test>
@@ -92,7 +91,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countdbl1args-2">
+  <test-case name="fn-countdbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:double("0")))</test>
@@ -101,7 +100,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countdbl1args-3">
+  <test-case name="fn-countdbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:double("1.7976931348623157E308")))</test>
@@ -110,7 +109,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countflt1args-1">
+  <test-case name="fn-countflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:float("-3.4028235E38")))</test>
@@ -119,7 +118,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countflt1args-2">
+  <test-case name="fn-countflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:float("0")))</test>
@@ -128,7 +127,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countflt1args-3">
+  <test-case name="fn-countflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:float("3.4028235E38")))</test>
@@ -137,7 +136,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countlng1args-1">
+  <test-case name="fn-countlng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:long("-92233720368547758")))</test>
@@ -146,7 +145,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countlng1args-2">
+  <test-case name="fn-countlng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:long("-47175562203048468")))</test>
@@ -155,7 +154,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countlng1args-3">
+  <test-case name="fn-countlng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:long("92233720368547758")))</test>
@@ -164,7 +163,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countusht1args-1">
+  <test-case name="fn-countusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:unsignedShort("0")))</test>
@@ -173,7 +172,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countusht1args-2">
+  <test-case name="fn-countusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:unsignedShort("44633")))</test>
@@ -182,7 +181,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countusht1args-3">
+  <test-case name="fn-countusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:unsignedShort("65535")))</test>
@@ -191,7 +190,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countnint1args-1">
+  <test-case name="fn-countnint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:negativeInteger("-999999999999999999")))</test>
@@ -200,7 +199,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countnint1args-2">
+  <test-case name="fn-countnint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:negativeInteger("-297014075999096793")))</test>
@@ -209,7 +208,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countnint1args-3">
+  <test-case name="fn-countnint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:negativeInteger("-1")))</test>
@@ -218,7 +217,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countpint1args-1">
+  <test-case name="fn-countpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:positiveInteger("1")))</test>
@@ -227,7 +226,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countpint1args-2">
+  <test-case name="fn-countpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:positiveInteger("52704602390610033")))</test>
@@ -236,7 +235,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countpint1args-3">
+  <test-case name="fn-countpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:positiveInteger("999999999999999999")))</test>
@@ -245,7 +244,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countulng1args-1">
+  <test-case name="fn-countulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:unsignedLong("0")))</test>
@@ -254,7 +253,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countulng1args-2">
+  <test-case name="fn-countulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:unsignedLong("130747108607674654")))</test>
@@ -263,7 +262,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countulng1args-3">
+  <test-case name="fn-countulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:unsignedLong("184467440737095516")))</test>
@@ -272,7 +271,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countnpi1args-1">
+  <test-case name="fn-countnpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -281,7 +280,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countnpi1args-2">
+  <test-case name="fn-countnpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:nonPositiveInteger("-475688437271870490")))</test>
@@ -290,7 +289,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countnpi1args-3">
+  <test-case name="fn-countnpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:nonPositiveInteger("0")))</test>
@@ -299,7 +298,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countnni1args-1">
+  <test-case name="fn-countnni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:nonNegativeInteger("0")))</test>
@@ -308,7 +307,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countnni1args-2">
+  <test-case name="fn-countnni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:nonNegativeInteger("303884545991464527")))</test>
@@ -317,7 +316,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countnni1args-3">
+  <test-case name="fn-countnni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:nonNegativeInteger("999999999999999999")))</test>
@@ -326,7 +325,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countsht1args-1">
+  <test-case name="fn-countsht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:short("-32768")))</test>
@@ -335,7 +334,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countsht1args-2">
+  <test-case name="fn-countsht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:short("-5324")))</test>
@@ -344,7 +343,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-countsht1args-3">
+  <test-case name="fn-countsht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "count" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:count((xs:short("32767")))</test>
@@ -353,7 +352,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-1">
+  <test-case name="K-SeqCountFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `count()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count()</test>
@@ -362,7 +361,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-2">
+  <test-case name="K-SeqCountFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `count(1, ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(1, ())</test>
@@ -371,7 +370,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-3">
+  <test-case name="K-SeqCountFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count( () ) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count( () ) eq 0</test>
@@ -380,7 +379,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-4">
+  <test-case name="K-SeqCountFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count( (1, 2, 3) ) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count( (1, 2, 3) ) eq 3</test>
@@ -389,7 +388,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-5">
+  <test-case name="K-SeqCountFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count( (1, 2, ()) ) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count( (1, 2, ()) ) eq 2</test>
@@ -398,7 +397,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-6">
+  <test-case name="K-SeqCountFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(()) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(()) eq 0</test>
@@ -407,7 +406,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-7">
+  <test-case name="K-SeqCountFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(((((()))))) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(((((()))))) eq 0</test>
@@ -416,7 +415,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-8">
+  <test-case name="K-SeqCountFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count( (((), (), ()), (), (), (), ()) ) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count( (((), (), ()), (), (), (), ()) ) eq 0</test>
@@ -425,7 +424,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-9">
+  <test-case name="K-SeqCountFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count( (1, 2, 3) ) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count( (1, 2, 3) ) eq 3</test>
@@ -434,7 +433,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-10">
+  <test-case name="K-SeqCountFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count( ((), "one", 2, "three")) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count( ((), "one", 2, "three")) eq 3</test>
@@ -443,7 +442,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-11">
+  <test-case name="K-SeqCountFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count( ("one", (2, "three")) ) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count( ("one", (2, "three")) ) eq 3</test>
@@ -452,7 +451,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-12">
+  <test-case name="K-SeqCountFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count((1, 2)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((1, 2)) eq 2</test>
@@ -461,7 +460,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-13">
+  <test-case name="K-SeqCountFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count((1, 2, 3, "four")) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((1, 2, 3, "four")) eq 4</test>
@@ -470,7 +469,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-14">
+  <test-case name="K-SeqCountFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count((1, 2, 3, "four")) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((1, 2, 3, "four")) eq 4</test>
@@ -479,7 +478,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-15">
+  <test-case name="K-SeqCountFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(1 to 3) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(1 to 3) eq 3</test>
@@ -488,7 +487,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-16">
+  <test-case name="K-SeqCountFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(reverse((1, 2, 3))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(reverse((1, 2, 3))) eq 3</test>
@@ -497,7 +496,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-17">
+  <test-case name="K-SeqCountFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(reverse((1, 2, 3))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(reverse((1, 2, 3))) eq 3</test>
@@ -506,7 +505,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqCountFunc-18">
+  <test-case name="K-SeqCountFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(count((1, 2, current-time(), 4))) eq false()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(count((1, 2, current-time(), 4))) eq false()</test>
@@ -515,8 +514,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqCountFunc-1">
-    <description> fn:count() doesn't implicitly get the context node. </description>
+  <test-case name="K2-SeqCountFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")))</response-string>
+    <description> fn:count() doesn&apos;t implicitly get the context node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1 to 10)/count()</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
@@ -524,17 +523,17 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="Count001">
+  <test-case name="Count001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
-    <test>count(//employee[@name='John Doe 4']) = 1</test>
+    <test>count(//employee[@name=&apos;John Doe 4&apos;]) = 1</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count002">
+  <test-case name="Count002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
@@ -546,87 +545,87 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count003">
+  <test-case name="Count003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
-    <test>count(//employee[@name='John Doe 4']) &gt; 0</test>
+    <test>count(//employee[@name=&apos;John Doe 4&apos;]) &gt; 0</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count004">
+  <test-case name="Count004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
-    <test>count(//employee[@name='John Doe 4']/@name) &gt; 0.5</test>
+    <test>count(//employee[@name=&apos;John Doe 4&apos;]/@name) &gt; 0.5</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count005">
+  <test-case name="Count005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
-    <test>count(//*[@name='John Doe 4']) lt 1.5</test>
+    <test>count(//*[@name=&apos;John Doe 4&apos;]) lt 1.5</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count006">
+  <test-case name="Count006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
-    <test>count(//*[@name='John Doe 4']) eq 0</test>
+    <test>count(//*[@name=&apos;John Doe 4&apos;]) eq 0</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Count007">
+  <test-case name="Count007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
-    <test>count(//*[@name='John Doe 498']) eq 0</test>
+    <test>count(//*[@name=&apos;John Doe 498&apos;]) eq 0</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count008">
+  <test-case name="Count008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
-    <test>count(//*[@name='John Doe 4']) lt 1000000000000</test>
+    <test>count(//*[@name=&apos;John Doe 4&apos;]) lt 1000000000000</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count009">
+  <test-case name="Count009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
-    <test>count(//*[@name='John Doe 4']) gt -5</test>
+    <test>count(//*[@name=&apos;John Doe 4&apos;]) gt -5</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count010">
+  <test-case name="Count010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
-    <test>count(//*[@name='John Doe 4']) eq 0.3</test>
+    <test>count(//*[@name=&apos;John Doe 4&apos;]) eq 0.3</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Count011">
+  <test-case name="Count011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
@@ -636,7 +635,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count012">
+  <test-case name="Count012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
@@ -646,7 +645,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Count013">
+  <test-case name="Count013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
@@ -656,7 +655,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Count014">
+  <test-case name="Count014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> count() applied to nodes (with optimization opportunities) </description>
     <created by="Michael Kay" on="2011-11-04"/>
     <environment ref="works-mod"/>
@@ -666,7 +665,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Count015">
+  <test-case name="Count015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("12")</response-string>
     <description> count() applied to a for expression </description>
     <created by="Michael Kay" on="2013-05-03"/>
     <test>count(for $s in ("red", "blue", "green") return string-to-codepoints($s))</test>
@@ -675,7 +674,7 @@
       <assert-eq>12</assert-eq>
     </result>
   </test-case>
-  <test-case name="cbcl-count-001">
+  <test-case name="cbcl-count-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("10000")</response-string>
     <description> test fn:count on a range </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:count(1 to 10000)</test>
@@ -684,7 +683,7 @@
       <assert-string-value>10000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-count-002">
+  <test-case name="cbcl-count-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("10004")</response-string>
     <description> test fn:count on a mix of values and expressions </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -694,7 +693,7 @@
       <assert-string-value>10000004</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-count-003">
+  <test-case name="cbcl-count-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test fn:count on a range </description>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <dependency type="spec" value="XQ10+ XP30+"/>
@@ -704,7 +703,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-005">
+  <test-case name="cbcl-count-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -714,7 +713,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-006">
+  <test-case name="cbcl-count-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -724,7 +723,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-007">
+  <test-case name="cbcl-count-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -734,7 +733,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-008">
+  <test-case name="cbcl-count-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -744,7 +743,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-009">
+  <test-case name="cbcl-count-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -754,7 +753,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-010">
+  <test-case name="cbcl-count-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -764,7 +763,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-011">
+  <test-case name="cbcl-count-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -774,7 +773,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-012">
+  <test-case name="cbcl-count-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -784,7 +783,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-013">
+  <test-case name="cbcl-count-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -794,7 +793,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-014">
+  <test-case name="cbcl-count-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -804,7 +803,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-015">
+  <test-case name="cbcl-count-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -814,7 +813,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-016">
+  <test-case name="cbcl-count-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -824,7 +823,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-017">
+  <test-case name="cbcl-count-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -834,7 +833,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-018">
+  <test-case name="cbcl-count-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -844,7 +843,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-019">
+  <test-case name="cbcl-count-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -854,7 +853,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-020">
+  <test-case name="cbcl-count-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -864,7 +863,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-021">
+  <test-case name="cbcl-count-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -874,7 +873,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-022">
+  <test-case name="cbcl-count-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -884,7 +883,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-023">
+  <test-case name="cbcl-count-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -894,7 +893,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-024">
+  <test-case name="cbcl-count-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -904,7 +903,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-025">
+  <test-case name="cbcl-count-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -914,7 +913,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-026">
+  <test-case name="cbcl-count-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -924,7 +923,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-027">
+  <test-case name="cbcl-count-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -934,7 +933,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-028">
+  <test-case name="cbcl-count-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -944,7 +943,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-029">
+  <test-case name="cbcl-count-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -954,7 +953,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-030">
+  <test-case name="cbcl-count-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -964,7 +963,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-031">
+  <test-case name="cbcl-count-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -974,7 +973,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-032">
+  <test-case name="cbcl-count-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -984,7 +983,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-033">
+  <test-case name="cbcl-count-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -994,7 +993,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-034">
+  <test-case name="cbcl-count-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1004,7 +1003,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-035">
+  <test-case name="cbcl-count-035"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1014,7 +1013,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-036">
+  <test-case name="cbcl-count-036"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1024,7 +1023,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-037">
+  <test-case name="cbcl-count-037"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1034,7 +1033,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-038">
+  <test-case name="cbcl-count-038"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1044,7 +1043,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-039">
+  <test-case name="cbcl-count-039"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1054,7 +1053,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-040">
+  <test-case name="cbcl-count-040"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1064,7 +1063,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-041">
+  <test-case name="cbcl-count-041"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1074,7 +1073,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-042">
+  <test-case name="cbcl-count-042"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1084,7 +1083,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-043">
+  <test-case name="cbcl-count-043"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1094,7 +1093,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-044">
+  <test-case name="cbcl-count-044"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1104,7 +1103,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-045">
+  <test-case name="cbcl-count-045"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1114,7 +1113,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-046">
+  <test-case name="cbcl-count-046"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1124,7 +1123,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-047">
+  <test-case name="cbcl-count-047"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1134,7 +1133,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-048">
+  <test-case name="cbcl-count-048"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1144,7 +1143,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-049">
+  <test-case name="cbcl-count-049"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1154,7 +1153,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-050">
+  <test-case name="cbcl-count-050"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1164,7 +1163,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-051">
+  <test-case name="cbcl-count-051"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1174,7 +1173,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-052">
+  <test-case name="cbcl-count-052"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1184,7 +1183,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-053">
+  <test-case name="cbcl-count-053"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1194,7 +1193,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-054">
+  <test-case name="cbcl-count-054"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1204,7 +1203,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-055">
+  <test-case name="cbcl-count-055"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1214,7 +1213,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-056">
+  <test-case name="cbcl-count-056"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1224,7 +1223,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-057">
+  <test-case name="cbcl-count-057"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1234,7 +1233,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-058">
+  <test-case name="cbcl-count-058"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1244,7 +1243,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-059">
+  <test-case name="cbcl-count-059"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1254,7 +1253,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-060">
+  <test-case name="cbcl-count-060"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1264,7 +1263,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-061">
+  <test-case name="cbcl-count-061"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1274,7 +1273,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-062">
+  <test-case name="cbcl-count-062"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1284,7 +1283,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-063">
+  <test-case name="cbcl-count-063"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1294,7 +1293,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-064">
+  <test-case name="cbcl-count-064"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1304,7 +1303,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-065">
+  <test-case name="cbcl-count-065"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1314,7 +1313,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-066">
+  <test-case name="cbcl-count-066"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1324,7 +1323,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-067">
+  <test-case name="cbcl-count-067"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1334,7 +1333,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-068">
+  <test-case name="cbcl-count-068"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1344,7 +1343,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-069">
+  <test-case name="cbcl-count-069"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1354,7 +1353,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-070">
+  <test-case name="cbcl-count-070"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1364,7 +1363,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-071">
+  <test-case name="cbcl-count-071"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1374,7 +1373,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-072">
+  <test-case name="cbcl-count-072"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1384,7 +1383,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-073">
+  <test-case name="cbcl-count-073"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1394,7 +1393,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-074">
+  <test-case name="cbcl-count-074"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1404,7 +1403,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-075">
+  <test-case name="cbcl-count-075"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1414,7 +1413,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-076">
+  <test-case name="cbcl-count-076"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1424,7 +1423,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-077">
+  <test-case name="cbcl-count-077"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1434,7 +1433,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-078">
+  <test-case name="cbcl-count-078"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1444,7 +1443,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-079">
+  <test-case name="cbcl-count-079"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1454,7 +1453,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-080">
+  <test-case name="cbcl-count-080"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1464,7 +1463,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-081">
+  <test-case name="cbcl-count-081"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1474,7 +1473,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-082">
+  <test-case name="cbcl-count-082"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1484,7 +1483,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-083">
+  <test-case name="cbcl-count-083"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1494,7 +1493,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-084">
+  <test-case name="cbcl-count-084"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1504,7 +1503,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-085">
+  <test-case name="cbcl-count-085"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1514,7 +1513,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-086">
+  <test-case name="cbcl-count-086"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1524,7 +1523,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-087">
+  <test-case name="cbcl-count-087"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1534,7 +1533,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-088">
+  <test-case name="cbcl-count-088"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1544,7 +1543,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-089">
+  <test-case name="cbcl-count-089"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1554,7 +1553,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-090">
+  <test-case name="cbcl-count-090"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1564,7 +1563,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-091">
+  <test-case name="cbcl-count-091"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1574,7 +1573,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-092">
+  <test-case name="cbcl-count-092"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1584,7 +1583,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-093">
+  <test-case name="cbcl-count-093"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1594,7 +1593,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-094">
+  <test-case name="cbcl-count-094"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1604,7 +1603,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-095">
+  <test-case name="cbcl-count-095"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1614,7 +1613,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-096">
+  <test-case name="cbcl-count-096"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1624,7 +1623,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-097">
+  <test-case name="cbcl-count-097"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1634,7 +1633,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-098">
+  <test-case name="cbcl-count-098"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1644,7 +1643,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-099">
+  <test-case name="cbcl-count-099"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1654,7 +1653,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-100">
+  <test-case name="cbcl-count-100"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1664,7 +1663,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-101">
+  <test-case name="cbcl-count-101"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1674,7 +1673,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-102">
+  <test-case name="cbcl-count-102"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1684,7 +1683,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-103">
+  <test-case name="cbcl-count-103"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1694,7 +1693,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-104">
+  <test-case name="cbcl-count-104"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1704,7 +1703,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-105">
+  <test-case name="cbcl-count-105"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1714,7 +1713,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-106">
+  <test-case name="cbcl-count-106"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1724,7 +1723,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-107">
+  <test-case name="cbcl-count-107"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1734,7 +1733,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-108">
+  <test-case name="cbcl-count-108"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1744,7 +1743,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-109">
+  <test-case name="cbcl-count-109"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1754,7 +1753,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-110">
+  <test-case name="cbcl-count-110"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1764,7 +1763,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-111">
+  <test-case name="cbcl-count-111"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1774,7 +1773,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-112">
+  <test-case name="cbcl-count-112"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1784,7 +1783,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-113">
+  <test-case name="cbcl-count-113"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1794,7 +1793,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-114">
+  <test-case name="cbcl-count-114"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1804,7 +1803,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-115">
+  <test-case name="cbcl-count-115"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1814,7 +1813,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-116">
+  <test-case name="cbcl-count-116"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1824,7 +1823,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-117">
+  <test-case name="cbcl-count-117"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1834,7 +1833,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-118">
+  <test-case name="cbcl-count-118"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1844,7 +1843,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-119">
+  <test-case name="cbcl-count-119"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1854,7 +1853,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-120">
+  <test-case name="cbcl-count-120"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1864,7 +1863,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-121">
+  <test-case name="cbcl-count-121"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1874,7 +1873,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-122">
+  <test-case name="cbcl-count-122"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1884,7 +1883,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-123">
+  <test-case name="cbcl-count-123"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1894,7 +1893,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-124">
+  <test-case name="cbcl-count-124"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1904,7 +1903,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-125">
+  <test-case name="cbcl-count-125"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1914,7 +1913,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-126">
+  <test-case name="cbcl-count-126"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1924,7 +1923,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-127">
+  <test-case name="cbcl-count-127"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1934,7 +1933,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-128">
+  <test-case name="cbcl-count-128"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1944,7 +1943,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-129">
+  <test-case name="cbcl-count-129"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1954,7 +1953,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-130">
+  <test-case name="cbcl-count-130"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1964,7 +1963,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-131">
+  <test-case name="cbcl-count-131"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1974,7 +1973,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-132">
+  <test-case name="cbcl-count-132"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1984,7 +1983,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-133">
+  <test-case name="cbcl-count-133"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1994,7 +1993,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-134">
+  <test-case name="cbcl-count-134"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2004,7 +2003,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-135">
+  <test-case name="cbcl-count-135"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2014,7 +2013,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-136">
+  <test-case name="cbcl-count-136"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2024,7 +2023,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-137">
+  <test-case name="cbcl-count-137"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2034,7 +2033,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-138">
+  <test-case name="cbcl-count-138"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2044,7 +2043,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-139">
+  <test-case name="cbcl-count-139"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2054,7 +2053,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-140">
+  <test-case name="cbcl-count-140"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2064,7 +2063,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-141">
+  <test-case name="cbcl-count-141"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2074,7 +2073,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-142">
+  <test-case name="cbcl-count-142"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2084,7 +2083,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-143">
+  <test-case name="cbcl-count-143"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2094,7 +2093,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-144">
+  <test-case name="cbcl-count-144"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2104,7 +2103,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-145">
+  <test-case name="cbcl-count-145"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2114,7 +2113,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-146">
+  <test-case name="cbcl-count-146"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2124,7 +2123,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-147">
+  <test-case name="cbcl-count-147"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2134,7 +2133,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-148">
+  <test-case name="cbcl-count-148"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2144,7 +2143,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-149">
+  <test-case name="cbcl-count-149"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2154,7 +2153,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-150">
+  <test-case name="cbcl-count-150"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2164,7 +2163,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-151">
+  <test-case name="cbcl-count-151"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2174,7 +2173,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-152">
+  <test-case name="cbcl-count-152"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2184,7 +2183,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-153">
+  <test-case name="cbcl-count-153"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2194,7 +2193,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-154">
+  <test-case name="cbcl-count-154"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2204,7 +2203,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-155">
+  <test-case name="cbcl-count-155"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2214,7 +2213,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-156">
+  <test-case name="cbcl-count-156"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2224,7 +2223,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-157">
+  <test-case name="cbcl-count-157"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2234,7 +2233,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-158">
+  <test-case name="cbcl-count-158"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2244,7 +2243,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-159">
+  <test-case name="cbcl-count-159"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2254,7 +2253,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-160">
+  <test-case name="cbcl-count-160"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2264,7 +2263,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-161">
+  <test-case name="cbcl-count-161"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2274,7 +2273,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-162">
+  <test-case name="cbcl-count-162"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2284,7 +2283,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-163">
+  <test-case name="cbcl-count-163"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2294,7 +2293,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-164">
+  <test-case name="cbcl-count-164"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2304,7 +2303,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-165">
+  <test-case name="cbcl-count-165"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2314,7 +2313,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-166">
+  <test-case name="cbcl-count-166"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2324,7 +2323,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-167">
+  <test-case name="cbcl-count-167"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2334,7 +2333,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-168">
+  <test-case name="cbcl-count-168"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2344,7 +2343,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-169">
+  <test-case name="cbcl-count-169"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2354,7 +2353,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-170">
+  <test-case name="cbcl-count-170"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2364,7 +2363,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-171">
+  <test-case name="cbcl-count-171"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2374,7 +2373,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-172">
+  <test-case name="cbcl-count-172"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2384,7 +2383,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-173">
+  <test-case name="cbcl-count-173"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2394,7 +2393,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-174">
+  <test-case name="cbcl-count-174"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2404,7 +2403,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-175">
+  <test-case name="cbcl-count-175"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2414,7 +2413,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-176">
+  <test-case name="cbcl-count-176"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2424,7 +2423,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-177">
+  <test-case name="cbcl-count-177"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2434,7 +2433,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-178">
+  <test-case name="cbcl-count-178"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2444,7 +2443,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-179">
+  <test-case name="cbcl-count-179"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2454,7 +2453,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-180">
+  <test-case name="cbcl-count-180"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2464,7 +2463,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-181">
+  <test-case name="cbcl-count-181"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2474,7 +2473,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-182">
+  <test-case name="cbcl-count-182"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2484,7 +2483,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-183">
+  <test-case name="cbcl-count-183"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2494,7 +2493,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-184">
+  <test-case name="cbcl-count-184"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2504,7 +2503,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-185">
+  <test-case name="cbcl-count-185"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2514,7 +2513,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-186">
+  <test-case name="cbcl-count-186"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2524,7 +2523,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-187">
+  <test-case name="cbcl-count-187"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2534,7 +2533,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-188">
+  <test-case name="cbcl-count-188"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2544,7 +2543,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-189">
+  <test-case name="cbcl-count-189"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2554,7 +2553,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-190">
+  <test-case name="cbcl-count-190"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2564,7 +2563,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-191">
+  <test-case name="cbcl-count-191"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2574,7 +2573,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-192">
+  <test-case name="cbcl-count-192"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2584,7 +2583,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-193">
+  <test-case name="cbcl-count-193"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2594,7 +2593,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-194">
+  <test-case name="cbcl-count-194"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2604,7 +2603,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-195">
+  <test-case name="cbcl-count-195"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2614,7 +2613,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-196">
+  <test-case name="cbcl-count-196"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2624,7 +2623,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-197">
+  <test-case name="cbcl-count-197"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2634,7 +2633,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-198">
+  <test-case name="cbcl-count-198"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2644,7 +2643,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-199">
+  <test-case name="cbcl-count-199"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2654,7 +2653,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-200">
+  <test-case name="cbcl-count-200"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2664,7 +2663,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-201">
+  <test-case name="cbcl-count-201"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2674,7 +2673,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-202">
+  <test-case name="cbcl-count-202"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2684,7 +2683,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-203">
+  <test-case name="cbcl-count-203"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2694,7 +2693,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-204">
+  <test-case name="cbcl-count-204"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2704,7 +2703,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-205">
+  <test-case name="cbcl-count-205"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2714,7 +2713,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-206">
+  <test-case name="cbcl-count-206"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2724,7 +2723,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-207">
+  <test-case name="cbcl-count-207"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2734,7 +2733,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-208">
+  <test-case name="cbcl-count-208"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2744,7 +2743,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-209">
+  <test-case name="cbcl-count-209"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2754,7 +2753,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-210">
+  <test-case name="cbcl-count-210"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2764,7 +2763,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-211">
+  <test-case name="cbcl-count-211"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2774,7 +2773,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-212">
+  <test-case name="cbcl-count-212"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2784,247 +2783,247 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-213">
+  <test-case name="cbcl-count-213"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) lt local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) lt local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-214">
+  <test-case name="cbcl-count-214"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) le local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) le local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-215">
+  <test-case name="cbcl-count-215"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) eq local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) eq local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-216">
+  <test-case name="cbcl-count-216"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) ge local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) ge local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-217">
+  <test-case name="cbcl-count-217"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) gt local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) gt local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-218">
+  <test-case name="cbcl-count-218"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) ne local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) ne local:strange(true())</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-219">
+  <test-case name="cbcl-count-219"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) lt local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) lt local:strange(false())</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-220">
+  <test-case name="cbcl-count-220"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) le local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) le local:strange(false())</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-221">
+  <test-case name="cbcl-count-221"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) eq local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) eq local:strange(false())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-222">
+  <test-case name="cbcl-count-222"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) ge local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) ge local:strange(false())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-223">
+  <test-case name="cbcl-count-223"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) gt local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) gt local:strange(false())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-224">
+  <test-case name="cbcl-count-224"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double('NaN') else xs:double('INF') }; count(local:primes(100)) ne local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:double { if ($n) then xs:double(&apos;NaN&apos;) else xs:double(&apos;INF&apos;) }; count(local:primes(100)) ne local:strange(false())</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-225">
+  <test-case name="cbcl-count-225"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) lt local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) lt local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-226">
+  <test-case name="cbcl-count-226"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) le local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) le local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-227">
+  <test-case name="cbcl-count-227"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) eq local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) eq local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-228">
+  <test-case name="cbcl-count-228"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) ge local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) ge local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-229">
+  <test-case name="cbcl-count-229"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) gt local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) gt local:strange(true())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-230">
+  <test-case name="cbcl-count-230"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) ne local:strange(true())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) ne local:strange(true())</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-231">
+  <test-case name="cbcl-count-231"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) lt local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) lt local:strange(false())</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-232">
+  <test-case name="cbcl-count-232"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) le local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) le local:strange(false())</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-233">
+  <test-case name="cbcl-count-233"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) eq local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) eq local:strange(false())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-234">
+  <test-case name="cbcl-count-234"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) ge local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) ge local:strange(false())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-235">
+  <test-case name="cbcl-count-235"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) gt local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) gt local:strange(false())</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-236">
+  <test-case name="cbcl-count-236"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float('NaN') else xs:float('INF') }; count(local:primes(100)) ne local:strange(false())</test>
+    <test>declare function local:primes($n as xs:integer) { if ($n lt 2) then 1 else for $i in 2 to $n return if (every $x in 2 to ($i - 1) satisfies ($i mod $x ne 0)) then $i else () }; declare function local:strange($n as xs:boolean) as xs:float { if ($n) then xs:float(&apos;NaN&apos;) else xs:float(&apos;INF&apos;) }; count(local:primes(100)) ne local:strange(false())</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-237">
+  <test-case name="cbcl-count-237"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Tests a count of initial subsequence </description>
     <created by="Nick Jones" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -3036,7 +3035,7 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-count-238">
+  <test-case name="cbcl-count-238"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -3046,7 +3045,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-239">
+  <test-case name="cbcl-count-239"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -3056,7 +3055,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-240">
+  <test-case name="cbcl-count-240"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -3066,7 +3065,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-241">
+  <test-case name="cbcl-count-241"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -3076,7 +3075,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-242">
+  <test-case name="cbcl-count-242"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -3086,7 +3085,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-243">
+  <test-case name="cbcl-count-243"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -3096,7 +3095,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-count-244">
+  <test-case name="cbcl-count-244"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:count </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>

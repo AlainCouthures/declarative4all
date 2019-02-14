@@ -18,28 +18,33 @@ Fleur.XPathFunctions_fn["avg#1"] = new Fleur.Function("http://www.w3.org/2005/xp
 				if (c[1] === Fleur.Type_untypedAtomic) {
 					c[1] = Fleur.Type_double;
 				}
-				if (p[1]) {
-					rt = p[1].compareType(c[1], Fleur.TypeInfo.DERIVATION_RESTRICTION);
-					if (!rt) {
-						if (p[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || c[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-							if (p[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION) || c[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-								rt = Fleur.Type_double;
-							} else {
-								rt = Fleur.Type_float;
-							}
-						} else {
+				if (!p[1]) {
+					return c;
+				}
+				rt = p[1].compareType(c[1], Fleur.TypeInfo.DERIVATION_RESTRICTION);
+				if (!rt) {
+					if (p[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || c[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+						if (p[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION) || c[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 							rt = Fleur.Type_double;
+						} else {
+							rt = Fleur.Type_float;
 						}
+					} else {
+						rt = Fleur.Type_double;
 					}
-				} else {
-					rt = c[1];
+				}
+				if (typeof p[0] !== typeof c[0]) {
+					p[0] = Number(p[0]);
+					c[0] = Number(c[0]);
 				}
 				return [p[0] + c[0], rt];
 			}, [0, null]);
-			var v = r[0] / arg.length;
+			var argl = typeof r[0] === "number" ? arg.length : Fleur.BigInt(arg.length);
+			var v = r[0] / argl;
 			var t = r[1];
 			if (t.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				if (v !== Math.floor(v)) {
+				if (r[0] !== v * argl) {
+					v = Number(r[0]) / Number(argl);
 					t = Fleur.Type_decimal;
 				}
 			}

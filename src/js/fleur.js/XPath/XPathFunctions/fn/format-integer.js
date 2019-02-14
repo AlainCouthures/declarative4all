@@ -7,6 +7,19 @@
  * @module 
  * @description 
  */
+Fleur.romanValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+Fleur.romanLetters = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+Fleur.convertToRoman = function(num, index) {
+	if (Number(num) === 0) {
+		return "";
+	}
+	for (var i = index || 0; i < 13; i++) {
+		if (num >= Fleur.romanValues[i]) {
+			return Fleur.romanLetters[i] + Fleur.convertToRoman(Number(num) - Fleur.romanValues[i], i);
+		}
+	}
+};
+
 Fleur.XPathFunctions_fn["format-integer#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:format-integer",
 	function(value, picture) {
 		var i, j, l, l2, pictures, dss, ess, ps, pms, ms, msbefore, psafter, pmsafter, signs, esigns, iipgp, ipgp, mips, prefix, fstart, fpgp, minfps, maxfps, mes, suffix, dsspos, evalue, esign, s0, s;
@@ -65,7 +78,7 @@ Fleur.XPathFunctions_fn["format-integer#2"] = new Fleur.Function("http://www.w3.
 				case "%":
 					ps = true;
 					psafter = mips !== 0;
-					value *= 100;
+					value *= Fleur.BigInt(100);
 					if (!dss) {
 						j = 0;
 						l2 = iipgp.length;
@@ -78,7 +91,7 @@ Fleur.XPathFunctions_fn["format-integer#2"] = new Fleur.Function("http://www.w3.
 				case "\u2030":
 					pms = true;
 					pmsafter = mips !== 0;
-					value *= 1000;
+					value *= Fleur.BigInt(1000);
 					if (!dss) {
 						j = 0;
 						l2 = iipgp.length;
@@ -161,7 +174,7 @@ Fleur.XPathFunctions_fn["format-integer#2"] = new Fleur.Function("http://www.w3.
 			evalue = String(Math.abs(evalue));
 			evalue = esign + ("000000000000000000000000000000").substr(0, Math.max(0, mes - evalue.length)) + evalue;
 		}
-		s0 = Math.abs(value).toFixed(maxfps);
+		s0 = Math.abs(Number(value)).toFixed(maxfps);
 		if (maxfps === 0 && dss) {
 			s0 += ".";
 		}
