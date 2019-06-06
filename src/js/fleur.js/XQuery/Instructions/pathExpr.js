@@ -28,7 +28,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 //console.log("pathExpr - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.pathExpr ? "pathExpr" : "stepExpr") : ""));
 		if (eob === Fleur.XQueryX.pathExpr) {
 			if (n !== Fleur.EmptySequence) {
-				if (result === Fleur.EmptySequence) {
+				if (result === Fleur.EmptySequence || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
 					result = n;
 				} else {
 					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
@@ -55,7 +55,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 			return;
 		}
 		var cb2 = function(n) {
-			if (children.length === 1) {
+			if (children.length === 1 || n === Fleur.EmptySequence) {
 				Fleur.callback(function() {callback(n, Fleur.XQueryX.pathExpr);});
 				return;
 			}

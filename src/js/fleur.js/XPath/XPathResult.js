@@ -9,7 +9,7 @@
  */
 Fleur.XPathResult = function(doc, expression, contextNode, env, resultType) {
 	this.document = doc;
-	this.expression = expression;
+	this.expression = typeof expression === "string" && expression ? new Fleur.XPathExpression(expression) : expression;
 	this.contextNode = contextNode;
 	this.env = env;
 	this.resultType = resultType;
@@ -125,7 +125,11 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 	},
 	indent: {
 		get: function() {
-			return false;
+			var opt = this.env.options ? this.env.options["http://www.w3.org/2010/xslt-xquery-serialization"] : null;
+			if (!opt) {
+				return false;
+			}
+			return opt["indent"] === "yes" || opt["indent"] === "true" || opt["indent"] === "1";
 		}
 	}
 });
@@ -137,17 +141,8 @@ Fleur.XPathResult.prototype.evaluate = function(resolve, reject) {
 	};
 	ctx.env.globalvarresolver = ctx.env.varresolver || new Fleur.varMgr();
 	ctx.env.varresolver = new Fleur.varMgr([], ctx.env.globalvarresolver);
-	var src;
 	try {
-		src = Fleur.XPathEvaluator._xq2js(this.expression);
-	} catch (e) {
-		ctx.xpresult._result = Fleur.error(ctx, "XPST0003", e.message);
-		resolve(ctx.xpresult);
-		return;
-	}
-	try {
-		var compiled = eval(src);
-		Fleur.XQueryEngine[compiled[0]](ctx, compiled[1], function(n) {
+		Fleur.XQueryEngine[this.expression.compiled[0]](ctx, this.expression.compiled[1], function(n) {
 			ctx.xpresult._result = n;
 			ctx.xpresult.env = ctx.env;
 			resolve(ctx.xpresult);

@@ -9,7 +9,7 @@
  */
 Fleur.XQueryEngine[Fleur.XQueryX.stringConcatenateOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var a1 = Fleur.Atomize(n);
+		var a1 = Fleur.Atomize(n, true);
 		if (a1.schemaTypeInfo === Fleur.Type_error) {
 			Fleur.callback(function() {callback(a1);});
 			return;
@@ -19,7 +19,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.stringConcatenateOp] = function(ctx, children, 
 			a1.data = "";
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var a2 = Fleur.Atomize(n);
+			var a2 = Fleur.Atomize(n, true);
 			if (a2.schemaTypeInfo === Fleur.Type_error) {
 				Fleur.callback(function() {callback(a2);});
 				return;

@@ -53,7 +53,14 @@ Fleur.XQueryEngine[Fleur.XQueryX.multiplyOp] = function(ctx, children, callback)
 					} else if (1 / (Number(op2[1]) * Number(op1[1])) === Infinity) {
 						a1.data = "0";
 					} else {
-						a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(typeof op1[1] === typeof op2[1] ? op1[1] * op2[1] : Number(op1[1]) * Number(op2[1]))) : Fleur.NumberToDecimalString(op1[1] * op2[1]);
+						var val = typeof op1[1] === typeof op2[1] ? op1[1] * op2[1] : Number(op1[1]) * Number(op2[1]);
+						if (restype > 1) {
+							a1.data = Fleur.Type_double.canonicalize(String(val));
+						} else {
+							var precision1 = a1.data.indexOf(".") !== -1 ? a1.data.length - a1.data.indexOf(".") - 1 : 0;
+							var precision2 = a2.data.indexOf(".") !== -1 ? a2.data.length - a2.data.indexOf(".") - 1 : 0;
+							a1.data = Fleur.NumberToDecimalString(val, precision1 + precision2);
+						}
 					}
 				} else if (op1[0] < 4 && op2[0] === 4) {
 					a1.data = op2[1].repeat(op1[1]);

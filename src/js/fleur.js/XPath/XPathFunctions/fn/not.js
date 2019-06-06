@@ -24,6 +24,9 @@ Fleur.XPathFunctions_fn["not#1"] = new Fleur.Function("http://www.w3.org/2005/xp
 			e.name = "FORG0006";
 			return e;
 		}
+		if (arg.nodeType !== Fleur.Node.TEXT_NODE) {
+			return false;
+		}
 		if (arg.schemaTypeInfo === Fleur.Type_boolean) {
 			return arg.data !== "true";
 		}

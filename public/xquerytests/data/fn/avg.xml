@@ -55,7 +55,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
+  <test-case name="fn-avgdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("-999999999999999999")))</test>
@@ -64,7 +64,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514800")</response-string>
+  <test-case name="fn-avgdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514839")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("617375191608514839")))</test>
@@ -73,7 +73,7 @@
       <assert-eq>617375191608514839</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
+  <test-case name="fn-avgdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("999999999999999999")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("999999999999999999")))</test>
@@ -442,7 +442,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
+  <test-case name="fn-avgdec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("-999999999999999999"),xs:decimal("-999999999999999999")))</test>
@@ -451,7 +451,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-191312404195742600")</response-string>
+  <test-case name="fn-avgdec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-191312404195742580")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("617375191608514839"),xs:decimal("-999999999999999999")))</test>
@@ -469,7 +469,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-191312404195742600")</response-string>
+  <test-case name="fn-avgdec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-191312404195742580")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("-999999999999999999"),xs:decimal("617375191608514839")))</test>
@@ -2042,7 +2042,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="cbcl-avg-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Testing fn:avg overflows correctly with xs:decimals </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:avg((xs:decimal("79000000000000000000000000000"),
@@ -2050,7 +2050,7 @@
             eq 79000000000000000000000000000
       </test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOAR0002"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -2112,7 +2112,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="cbcl-avg-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Test fn:avg on mixed numeric types. </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2127,7 +2127,7 @@
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>boolean(avg(()))</test>
     <result-string>xs:boolean("false")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0005"))</result-string>
+    <result-string>xs:boolean("false")</result-string>
     <result>
       <any-of>
         <assert-false/>
@@ -2167,7 +2167,7 @@
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>empty(avg(()))</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0005"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>

@@ -440,7 +440,7 @@
       	return $x/data()
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:untypedAtomic("1")</result-string>
     <result>
       <all-of>
         <assert-string-value>1</assert-string-value>
@@ -463,7 +463,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case covers="fn-data" name="K2-DataFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),fn:data#0)</response-string>
+  <test-case covers="fn-data" name="K2-DataFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> fn:data() allows zero arguments in XP30/XQ30. Context item is a function item</description>
     <created by="Michael Kay" on="2012-09-27"/>
     <environment ref="empty"/>
@@ -494,7 +494,7 @@
       <error code="FOTY0012"/>
     </result>
   </test-case>
-  <test-case name="fn-datacomplextype-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="fn-datacomplextype-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluates the "data" function with the argument set to a complex element </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <modified by="O&apos;Neil Delpratt" change="Added environement of schema" on="2011-09-08"/>
@@ -512,7 +512,7 @@
       <error code="FOTY0012"/>
     </result>
   </test-case>
-  <test-case name="ST-Data001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="ST-Data001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluates the "data" function on a node that statically has mixed content and could potentially have element only content. </description>
     <created by="Oliver Hallam" on="2010-06-08"/>
     <environment ref="mixed"/>
@@ -574,7 +574,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-data-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="cbcl-data-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:data on a complex type with simple content </description>
     <created by="Oliver Hallam" on="2007-02-27"/>
     <environment ref="complexData"/>
@@ -590,7 +590,7 @@
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-data-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="cbcl-data-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:data on a union type </description>
     <created by="Oliver Hallam" on="2007-02-27"/>
     <environment ref="complexData"/>
@@ -606,7 +606,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-data-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="cbcl-data-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:data on a list type </description>
     <created by="Oliver Hallam" on="2007-02-27"/>
     <environment ref="complexData"/>
@@ -622,7 +622,7 @@
       <assert-string-value>6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-data-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="cbcl-data-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:data on a union type possibly containing a list type </description>
     <created by="Oliver Hallam" on="2007-02-27"/>
     <environment ref="complexData"/>
@@ -639,7 +639,7 @@
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-data-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="cbcl-data-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:data on a more complicated type heirarchy </description>
     <created by="Oliver Hallam" on="2007-02-27"/>
     <environment ref="complexData"/>
@@ -656,7 +656,7 @@
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-data-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="cbcl-data-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:data on list of union type </description>
     <created by="Oliver Hallam" on="2007-02-27"/>
     <environment ref="complexData"/>

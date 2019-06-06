@@ -19,11 +19,11 @@
       <assert-string-value>10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="rangeExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="rangeExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluation of a range expression that results in a sequence of length 0. Uses "fn:count" to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>fn:count(15 to 10)</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:integer("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -248,13 +248,13 @@
       <assert-string-value>1 2 3 4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="rangeExpr-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("18446744073709551620")</response-string>
+  <test-case name="rangeExpr-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("18446744073709551616"),xs:integer("18446744073709551617"),xs:integer("18446744073709551618"),xs:integer("18446744073709551619"),xs:integer("18446744073709551620"))</response-string>
     <description> test op:to with large numbers </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <modified by="Michael Kay" change="see bug 20519" on="2012-12-27"/>
     <test>18446744073709551616 to 18446744073709551620</test>
-    <result-string>xs:string("18446744073709551616 18446744073709551617 18446744073709551618 18446744073709551619 18446744073709551620")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0002"))</result-string>
+    <result-string>(xs:integer("18446744073709551616"),xs:integer("18446744073709551617"),xs:integer("18446744073709551618"),xs:integer("18446744073709551619"),xs:integer("18446744073709551620"))</result-string>
+    <result-string>(xs:integer("18446744073709551616"),xs:integer("18446744073709551617"),xs:integer("18446744073709551618"),xs:integer("18446744073709551619"),xs:integer("18446744073709551620"))</result-string>
     <result>
       <any-of>
         <assert-string-value>18446744073709551616 18446744073709551617 18446744073709551618 18446744073709551619 18446744073709551620</assert-string-value>
@@ -262,13 +262,13 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="rangeExpr-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+  <test-case name="rangeExpr-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> test op:to with large numbers </description>
     <created by="Michael Kay" on="2012-12-15"/>
     <modified by="Michael Kay" change="see bug 20519" on="2012-12-27"/>
     <test>count(18446744073709551616 to 18446744073709551620)</test>
     <result-string>xs:integer("5")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0002"))</result-string>
+    <result-string>xs:integer("5")</result-string>
     <result>
       <any-of>
         <assert-eq>5</assert-eq>
@@ -276,14 +276,14 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="rangeExpr-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+  <test-case name="rangeExpr-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> test op:to with large numbers </description>
     <created by="Michael Kay" on="2012-12-15"/>
     <modified by="Michael Kay" change="see bug 20519" on="2012-12-27"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>(28446744073709551616 to 28446744073709551620)!position()</test>
-    <result-string>xs:string("1 2 3 4 5")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0002"))</result-string>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</result-string>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</result-string>
     <result>
       <any-of>
         <assert-string-value>1 2 3 4 5</assert-string-value>
@@ -291,14 +291,14 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="rangeExpr-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+  <test-case name="rangeExpr-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> test op:to with large numbers </description>
     <created by="Michael Kay" on="2012-12-15"/>
     <modified by="Michael Kay" change="see bug 20519" on="2012-12-27"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>((28446744073709551616 to 28446744073709551620)!last())[1]</test>
     <result-string>xs:integer("5")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0002"))</result-string>
+    <result-string>xs:integer("5")</result-string>
     <result>
       <any-of>
         <assert-eq>5</assert-eq>
@@ -306,14 +306,14 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="rangeExpr-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("28446744073709551620")</response-string>
+  <test-case name="rangeExpr-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("28446744073709551620"),xs:integer("28446744073709551619"),xs:integer("28446744073709551618"),xs:integer("28446744073709551617"),xs:integer("28446744073709551616"))</response-string>
     <description> test op:to with large numbers </description>
     <created by="Michael Kay" on="2012-12-15"/>
     <modified by="Michael Kay" change="see bug 20519" on="2012-12-27"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>reverse(28446744073709551616 to 28446744073709551620)</test>
-    <result-string>xs:string("28446744073709551620 28446744073709551619 28446744073709551618 28446744073709551617 28446744073709551616")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0002"))</result-string>
+    <result-string>(xs:integer("28446744073709551620"),xs:integer("28446744073709551619"),xs:integer("28446744073709551618"),xs:integer("28446744073709551617"),xs:integer("28446744073709551616"))</result-string>
+    <result-string>(xs:integer("28446744073709551620"),xs:integer("28446744073709551619"),xs:integer("28446744073709551618"),xs:integer("28446744073709551617"),xs:integer("28446744073709551616"))</result-string>
     <result>
       <any-of>
         <assert-string-value>28446744073709551620 28446744073709551619 28446744073709551618 28446744073709551617 28446744073709551616</assert-string-value>
@@ -326,7 +326,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 to 1 eq 1</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -334,7 +334,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(30 to 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(30 to 3)</test>
@@ -343,7 +343,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(0 to -3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(0 to -3)</test>
@@ -352,12 +352,12 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(1 to ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(1 to ())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0005"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -365,12 +365,12 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(() to 1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() to 1)</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0005"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -378,7 +378,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(-1 to -3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(-1 to -3)</test>
@@ -441,7 +441,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(reverse(4 to 1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(reverse(4 to 1))</test>
@@ -495,7 +495,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+  <test-case name="K-RangeExpr-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((-1, -2, -3, -4), reverse(-4 to -1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((-1, -2, -3, -4), reverse(-4 to -1))</test>
@@ -504,7 +504,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+  <test-case name="K-RangeExpr-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((), reverse(0 to -5))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((), reverse(0 to -5))</test>
@@ -513,7 +513,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+  <test-case name="K-RangeExpr-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((0, -1, -2, -3, -4, -5), reverse(-5 to 0))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((0, -1, -2, -3, -4, -5), reverse(-5 to 0))</test>
@@ -549,7 +549,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(1 to 0)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(1 to 0)</test>
@@ -558,7 +558,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(0 to -5)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(0 to -5)</test>
@@ -567,7 +567,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(-4 to -5)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(-4 to -5)</test>
@@ -576,7 +576,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(reverse(1 to 0))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(reverse(1 to 0))</test>
@@ -585,7 +585,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(reverse(0 to -5))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(reverse(0 to -5))</test>
@@ -594,7 +594,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-RangeExpr-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(reverse(-4 to -5))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(reverse(-4 to -5))</test>
@@ -603,20 +603,20 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="K-RangeExpr-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> A test whose essence is: `(remove((2.e0, 4), 1) treat as xs:integer to 4)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(remove((2.e0, 4), 1) treat as xs:integer to 4)</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:integer("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K-RangeExpr-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="K-RangeExpr-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> A test whose essence is: `(4 to remove((2e0, 4), 1) treat as xs:integer)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(4 to remove((2e0, 4), 1) treat as xs:integer)</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:integer("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -675,23 +675,23 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-RangeExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K2-RangeExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"))</response-string>
     <description> Combine with a for expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>for $i in 1 to 3 return $i</test>
-    <result-string>xs:string("1 2 3")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"))</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RangeExpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("5"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("1001"),xs:integer("6"),xs:integer("8"),xs:integer("8"),xs:integer("6"),xs:integer("8"),xs:integer("8"),xs:integer("4"))</response-string>
+  <test-case name="K2-RangeExpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("5"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("5"),xs:integer("6"),xs:integer("1001"),xs:integer("6"),xs:integer("8"),xs:integer("8"),xs:integer("6"),xs:integer("8"),xs:integer("8"),xs:integer("4"))</response-string>
     <description> Expressions that are tricky for local rewrites. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[1 to <value>5</value>, 5 to <value>5</value>, <value>1</value> to 5, <value>1</value> to <value>5</value>, let $i := <e>5</e> return $i to $i, count(5 to 10), count(1000 to 2000), count(<e>5</e> to 10), count(3 to <e>10</e>), count(<e>3</e> to <e>10</e>), count(<e>5</e> to 10), count(3 to <e>10</e>), count(<e>3</e> to <e>10</e>), count(4294967295 to 4294967298)]]>
     </test>
-    <result-string>xs:string("1 2 3 4 5 5 1 2 3 4 5 1 2 3 4 5 5 6 1001 6 8 8 6 8 8 4")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("5"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("5"),xs:integer("6"),xs:integer("1001"),xs:integer("6"),xs:integer("8"),xs:integer("8"),xs:integer("6"),xs:integer("8"),xs:integer("8"),xs:integer("4"))</result-string>
     <result>
       <assert-string-value>1 2 3 4 5 5 1 2 3 4 5 1 2 3 4 5 5 6 1001 6 8 8 6 8 8 4</assert-string-value>
     </result>

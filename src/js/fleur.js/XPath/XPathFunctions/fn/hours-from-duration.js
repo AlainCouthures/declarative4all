@@ -10,6 +10,7 @@
 Fleur.XPathFunctions_fn["hours-from-duration#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:hours-from-duration",
 	function(arg) {
 		var a = Fleur.Atomize(arg);
+		var d;
 		if (a === Fleur.EmptySequence) {
 			return null;
 		}
@@ -17,7 +18,11 @@ Fleur.XPathFunctions_fn["hours-from-duration#1"] = new Fleur.Function("http://ww
 			return 0;
 		}
 		if (a.schemaTypeInfo === Fleur.Type_dayTimeDuration) {
-			var d = Fleur.toJSONDayTimeDuration(a.data);
+			d = Fleur.toJSONDayTimeDuration(a.data);
+			return d.sign * d.hour;
+		}
+		if (a.schemaTypeInfo === Fleur.Type_duration) {
+			d = Fleur.toJSONDuration(a.data);
 			return d.sign * d.hour;
 		}
 		var e = new Error("");

@@ -37,7 +37,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-169006502882975740")</response-string>
+  <test-case name="op-numeric-addintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-169006502882975695")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("830993497117024304") + xs:integer("-999999999999999999")</test>
@@ -55,7 +55,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addintg2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-169006502882975740")</response-string>
+  <test-case name="op-numeric-addintg2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-169006502882975695")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") + xs:integer("830993497117024304")</test>
@@ -73,11 +73,11 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-adddec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-382624808391485200")</response-string>
+  <test-case name="op-numeric-adddec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-382624808391485160")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("617375191608514839") + xs:decimal("-999999999999999999")</test>
-    <result-string>xs:integer("-382624808391485160")</result-string>
+    <result-string>xs:decimal("-382624808391485160")</result-string>
     <result>
       <assert-eq>-382624808391485160</assert-eq>
     </result>
@@ -91,11 +91,11 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-adddec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-382624808391485200")</response-string>
+  <test-case name="op-numeric-adddec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-382624808391485160")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") + xs:decimal("617375191608514839")</test>
-    <result-string>xs:integer("-382624808391485160")</result-string>
+    <result-string>xs:decimal("-382624808391485160")</result-string>
     <result>
       <assert-eq>-382624808391485160</assert-eq>
     </result>
@@ -176,12 +176,12 @@
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") + xs:float("3.4028235E38")</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addlng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547740")</response-string>
+  <test-case name="op-numeric-addlng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547758")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-47175562203048468") + xs:long("-45058158165499290")</test>
@@ -199,7 +199,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addlng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547740")</response-string>
+  <test-case name="op-numeric-addlng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547758")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-45058158165499290") + xs:long("-47175562203048468")</test>
@@ -262,7 +262,7 @@
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
+  <test-case name="op-numeric-addnint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-297014075999096793") + xs:negativeInteger("-702985924000903206")</test>
@@ -280,7 +280,7 @@
       <assert-eq>-1000000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
+  <test-case name="op-numeric-addnint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-702985924000903206") + xs:negativeInteger("-297014075999096793")</test>
@@ -307,7 +307,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("52704602390610030")</response-string>
+  <test-case name="op-numeric-addpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("52704602390610034")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("52704602390610033") + xs:positiveInteger("1")</test>
@@ -316,7 +316,7 @@
       <assert-eq>52704602390610034</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
+  <test-case name="op-numeric-addpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("999999999999999998") + xs:positiveInteger("1")</test>
@@ -325,7 +325,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addpint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("52704602390610030")</response-string>
+  <test-case name="op-numeric-addpint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("52704602390610034")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") + xs:positiveInteger("52704602390610033")</test>
@@ -334,7 +334,7 @@
       <assert-eq>52704602390610034</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addpint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
+  <test-case name="op-numeric-addpint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") + xs:positiveInteger("999999999999999998")</test>
@@ -352,7 +352,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("130747108607674660")</response-string>
+  <test-case name="op-numeric-addulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("130747108607674654")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("130747108607674654") + xs:unsignedLong("0")</test>
@@ -361,7 +361,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("184467440737095520")</response-string>
+  <test-case name="op-numeric-addulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("184467440737095516")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("184467440737095516") + xs:unsignedLong("0")</test>
@@ -370,7 +370,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("130747108607674660")</response-string>
+  <test-case name="op-numeric-addulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("130747108607674654")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") + xs:unsignedLong("130747108607674654")</test>
@@ -379,7 +379,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("184467440737095520")</response-string>
+  <test-case name="op-numeric-addulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("184467440737095516")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") + xs:unsignedLong("184467440737095516")</test>
@@ -388,7 +388,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
+  <test-case name="op-numeric-addnpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-475688437271870490") + xs:nonPositiveInteger("-524311562728129509")</test>
@@ -397,7 +397,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
+  <test-case name="op-numeric-addnpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("0") + xs:nonPositiveInteger("-999999999999999999")</test>
@@ -406,7 +406,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnpi2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
+  <test-case name="op-numeric-addnpi2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-524311562728129509") + xs:nonPositiveInteger("-475688437271870490")</test>
@@ -415,7 +415,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnpi2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
+  <test-case name="op-numeric-addnpi2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") + xs:nonPositiveInteger("0")</test>
@@ -433,7 +433,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("303884545991464500")</response-string>
+  <test-case name="op-numeric-addnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("303884545991464527")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("303884545991464527") + xs:nonNegativeInteger("0")</test>
@@ -442,7 +442,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
+  <test-case name="op-numeric-addnni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("999999999999999999") + xs:nonNegativeInteger("0")</test>
@@ -451,7 +451,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("303884545991464500")</response-string>
+  <test-case name="op-numeric-addnni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("303884545991464527")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") + xs:nonNegativeInteger("303884545991464527")</test>
@@ -460,7 +460,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addnni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
+  <test-case name="op-numeric-addnni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string>
     <description> Evaluates The "op:numeric-add" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") + xs:nonNegativeInteger("999999999999999999")</test>
@@ -510,7 +510,7 @@
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <test>1 + ()</test>
     <result-string>()</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0005"))</result-string>
+    <result-string>()</result-string>
     <result>
       <any-of>
         <assert-empty/>
@@ -543,7 +543,7 @@
     <test>
       <![CDATA[1 + <a> 2 </a>]]>
     </test>
-    <result-string>xs:integer("3")</result-string>
+    <result-string>xs:double("3")</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -555,19 +555,19 @@
     <test>
       <![CDATA[1+<a> <b> 2 </b> </a>]]>
     </test>
-    <result-string>xs:integer("3")</result-string>
+    <result-string>xs:double("3")</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addmix2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3")</response-string>
+  <test-case name="op-numeric-addmix2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Simple addition test, second operator node which is not atomizable </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[1 + <a> <b> 2</b> <c> 2</c> </a>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -579,31 +579,31 @@
     <test>
       <![CDATA[<a> 1 </a> + <b> 2 </b>]]>
     </test>
-    <result-string>xs:integer("3")</result-string>
+    <result-string>xs:double("3")</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-addmix2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+  <test-case name="op-numeric-addmix2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Simple addition test, second operator is a node, atomizable but not castable to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[1 + <a> x </a>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-addmix2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+  <test-case name="op-numeric-addmix2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Simple addition test pass an empty node for second operator </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[1 + <a/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -680,7 +680,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericAdd-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
+  <test-case name="K-NumericAdd-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `1.1 + 2.2 eq 3.3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.1 + 2.2 eq 3.3</test>
@@ -994,12 +994,12 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NumericAdd-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-NumericAdd-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Arithmethics involving operands of integer type but with wrong cardinality. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2) + ())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1020,13 +1020,13 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NumericAdd-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-NumericAdd-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Arithmethics involving operands of integer type but with wrong cardinality. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() + (1, 2))</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0005"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1057,11 +1057,11 @@
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-NumericAdd-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("33")</response-string>
+  <test-case name="K-NumericAdd-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Invoke the &apos;+&apos; operator with invalid operands. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>"3" + "3"</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1120,12 +1120,12 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericAdd-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+  <test-case name="K-NumericAdd-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Operand(s) which are the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() + ())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0005"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1138,7 +1138,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(remove((1, "two"), 2) + 1) eq 2</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1151,7 +1151,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>2 eq (1 + remove((1, "two"), 2))</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1164,7 +1164,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(remove((1, "two"), 2) + xs:untypedAtomic("1")) eq 2</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1177,7 +1177,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>2 eq (xs:untypedAtomic("1") + remove((1, "two"), 2))</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1190,7 +1190,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(remove((xs:untypedAtomic("1"), "two"), 2) + 1) eq 2</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1203,7 +1203,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>2 eq (1 + remove((xs:untypedAtomic("1"), "two"), 2))</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1216,7 +1216,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(remove((1, "two"), 2) + xs:untypedAtomic("1")) eq 2</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1229,7 +1229,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>2 eq (xs:untypedAtomic("1") + remove((1, "two"), 2))</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1260,7 +1260,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(remove((5, 1e0), 2) + 1) eq 6</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1273,7 +1273,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1 + remove((5, 1e0), 2)) eq 6</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1317,11 +1317,11 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericAdd-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1 21 2")</response-string>
+  <test-case name="K2-NumericAdd-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Arithmethics involving operands of integer type but where both have wrong cardinality. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2) + (1, 2)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1333,7 +1333,7 @@
     <test>
       <![CDATA[<a>1</a> + <b>2</b>]]>
     </test>
-    <result-string>xs:integer("3")</result-string>
+    <result-string>xs:double("3")</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1345,12 +1345,12 @@
     <test>
       <![CDATA[<a foo="1"/>/@foo + <b foo="2"/>/@foo]]>
     </test>
-    <result-string>xs:integer("3")</result-string>
+    <result-string>xs:double("3")</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-add-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="op-numeric-add-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Check dynamic type of numeric add on arguments of union of numeric types and untypedAtomic. </description>
     <created by="Oliver Hallam" on="2010-03-16"/>
     <dependency type="spec" value="XQ10+"/>

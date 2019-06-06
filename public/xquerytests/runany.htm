@@ -45,7 +45,7 @@
 					document.getElementById("xqueryx").innerHTML = ser.serializeToString(doc, true).replace(/</mg, "&lt;");
 					document.getElementById("xqueryarr").innerHTML = jsret.replace(/</mg, "&lt;");
 				} catch(e) {
-					document.getElementById("xqueryx").innerHTML = "Exception!\n" + e.message + "\n\n" + jsret;
+					document.getElementById("xqueryx").innerHTML = "Exception!\n" + e.message + (jsret ? "\n\n" + jsret : "");
 				}
 				xqeval(document.getElementById("test").value);
 			}

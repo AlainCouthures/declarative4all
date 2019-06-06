@@ -118,7 +118,13 @@ Fleur._Atomize = function(a, n, force) {
 			}
 			return a;
 		case Fleur.Node.FUNCTION_NODE:
-			a = new Fleur.Function(n.namespaceURI, n.nodeName, n.jsfunc, n.xqxfunc, n.argtypes, n.needctx, n.needcallback, n.restype, n.updating);
+			if (force) {
+				a = new Fleur.Text();
+				a.schemaTypeInfo = Fleur.Type_error;
+				a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:FOTY0013");
+			} else {
+				a = new Fleur.Function(n.namespaceURI, n.nodeName, n.jsfunc, n.xqxfunc, n.argtypes, n.needctx, n.needcallback, n.restype, n.updating);
+			}
 			return a;
 	}
 };

@@ -478,7 +478,7 @@ $arg2 = xs:float(upper bound)
       <assert-string-value>-3.4028235E383.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatlng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-92233720368547760-92233720368547760")</response-string>
+  <test-case name="op-concatlng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-92233720368547758-92233720368547758")</response-string>
     <description>
 *******************************************************
 Test: concatlng2args-1                                  
@@ -497,7 +497,7 @@ $arg2 = xs:long(lower bound)
       <assert-string-value>-92233720368547758-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatlng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-47175562203048460-92233720368547760")</response-string>
+  <test-case name="op-concatlng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-47175562203048468-92233720368547758")</response-string>
     <description>
 *******************************************************
 Test: concatlng2args-2                                  
@@ -516,7 +516,7 @@ $arg2 = xs:long(lower bound)
       <assert-string-value>-47175562203048468-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatlng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("92233720368547760-92233720368547760")</response-string>
+  <test-case name="op-concatlng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("92233720368547758-92233720368547758")</response-string>
     <description>
 *******************************************************
 Test: concatlng2args-3                                  
@@ -535,7 +535,7 @@ $arg2 = xs:long(lower bound)
       <assert-string-value>92233720368547758-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatlng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-92233720368547760-47175562203048460")</response-string>
+  <test-case name="op-concatlng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-92233720368547758-47175562203048468")</response-string>
     <description>
 *******************************************************
 Test: concatlng2args-4                                  
@@ -554,7 +554,7 @@ $arg2 = xs:long(mid range)
       <assert-string-value>-92233720368547758-47175562203048468</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatlng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-9223372036854776092233720368547760")</response-string>
+  <test-case name="op-concatlng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-9223372036854775892233720368547758")</response-string>
     <description>
 *******************************************************
 Test: concatlng2args-5                                  
@@ -877,7 +877,7 @@ $arg2 = xs:unsignedLong(lower bound)
       <assert-string-value>00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1307471086076746600")</response-string>
+  <test-case name="op-concatulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1307471086076746540")</response-string>
     <description>
 *******************************************************
 Test: concatulng2args-2                                 
@@ -896,7 +896,7 @@ $arg2 = xs:unsignedLong(lower bound)
       <assert-string-value>1307471086076746540</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1844674407370955200")</response-string>
+  <test-case name="op-concatulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1844674407370955160")</response-string>
     <description>
 *******************************************************
 Test: concatulng2args-3                                 
@@ -915,7 +915,7 @@ $arg2 = xs:unsignedLong(lower bound)
       <assert-string-value>1844674407370955160</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0130747108607674660")</response-string>
+  <test-case name="op-concatulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0130747108607674654")</response-string>
     <description>
 *******************************************************
 Test: concatulng2args-4                                 
@@ -934,7 +934,7 @@ $arg2 = xs:unsignedLong(mid range)
       <assert-string-value>0130747108607674654</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0184467440737095520")</response-string>
+  <test-case name="op-concatulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0184467440737095516")</response-string>
     <description>
 *******************************************************
 Test: concatulng2args-5                                 
@@ -1412,14 +1412,14 @@ $arg2 = xs:short(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-concat-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
+  <test-case name="op-concat-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0013"))</response-string>
     <description>Can&apos;t have a function item as an argument to concat</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <modified by="O&apos;Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>("abc" || "abc" ||  fn:concat#3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0013"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0013"))</result-string>
     <result>
       <error code="FOTY0013"/>
     </result>

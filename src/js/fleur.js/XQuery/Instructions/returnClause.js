@@ -16,7 +16,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.returnClause] = function(ctx, children, callbac
 		//console.log("result eq " + Fleur.Serializer._serializeNodeToXQuery(result, false, ""));
 		//console.log("n eq " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
 		if (n !== Fleur.EmptySequence) {
-			if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			if ((result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) || (n.schemaTypeInfo && n.schemaTypeInfo === Fleur.Type_error)) {
 				result = n;
 			} else {
 				if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {

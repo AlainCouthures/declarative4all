@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["byte"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["byte"], function() {}, callback);
-};
+Fleur.XPathFunctions_xs["byte#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:byte",
+	function(arg) {
+		return Fleur.XPathConstructor(arg, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["byte"], function() {});
+	},
+	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

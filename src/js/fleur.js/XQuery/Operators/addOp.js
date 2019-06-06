@@ -13,7 +13,7 @@ Fleur.addOpTypes = [
 /*decimal	 1*/	[		 1,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
 /*float		 2*/	[		 2,		 2,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
 /*double	 3*/	[		 3,		 3,		 3,		 3,		-1,		-1,		-1,		-1,		-1,		-1, 	-1],
-/*string	 4*/	[		-1,		-1,		-1,		-1,		 4,		-1,		-1,		-1,		-1,		-1,		-1],
+/*string	 4*/	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
 /*boolean	 5*/	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
 /*date		 6*/	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 6],
 /*dateTime	 7*/	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 7,		 7],
@@ -22,18 +22,27 @@ Fleur.addOpTypes = [
 /*dayTimeD.	10*/	[		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 7,		 8,		-1,		10]
 ];
 Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSValue(a1, true, true, false, true, false, true);
-		if (op1[0] < 0) {
+	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n1) {
+		var op1, d;
+		var a1 = Fleur.Atomize(n1, true);
+		if (a1 === Fleur.EmptySequence) {
 			Fleur.callback(function() {callback(a1);});
 			return;
 		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n2) {
 			var op2;
 			var restype, res, resvalue;
-			var a2 = Fleur.Atomize(n);
+			var prevm;
+			var a2 = Fleur.Atomize(n2, true);
+			if (a2 === Fleur.EmptySequence) {
+				Fleur.callback(function() {callback(a2);});
+				return;
+			}
+			op1 = Fleur.toJSValue(a1, true, true, false, true, false, true);
+			if (op1[0] < 0) {
+				Fleur.callback(function() {callback(a1);});
+				return;
+			}
 			op2 = Fleur.toJSValue(a2, true, true, false, true, false, true);
 			if (op2[0] < 0) {
 				Fleur.callback(function() {callback(a2);});
@@ -42,19 +51,28 @@ Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
 			restype = Fleur.addOpTypes[op1[0]][op2[0]];
 			if (restype !== -1) {
 				if (op1[0] < 4 && op2[0] < 4) {
-					a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(typeof op1[1] === typeof op2[1] ? op1[1] + op2[1] : Number(op1[1]) + Number(op2[1]))) : Fleur.NumberToDecimalString(op1[1] + op2[1]);
+					var val = typeof op1[1] === typeof op2[1] ? op1[1] + op2[1] : Number(op1[1]) + Number(op2[1]);
+					if (restype > 1) {
+						a1.data = Fleur.Type_double.canonicalize(String(val));
+					} else {
+						var precision1 = a1.data.indexOf(".") !== -1 ? a1.data.length - a1.data.indexOf(".") - 1 : 0;
+						var precision2 = a2.data.indexOf(".") !== -1 ? a2.data.length - a2.data.indexOf(".") - 1 : 0;
+						a1.data = Fleur.NumberToDecimalString(val, Math.max(precision1, precision2));
+					}
 				} else if (op1[0] === 4 && op2[0] === 4) {
 					a1.data = op1[1] + op2[1];
-				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 5 && op2[0] < 9) {
-					a1.data = Fleur.msToDayTimeDuration(op1[1] + op2[1]);
 				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 8) {
-					var d = op1[1];
+					d = op1[1].d;
 					if (op2[0] === 9) {
+						prevm = d.getMonth();
 						if (op2[1].year !== 0) {
 							d.setFullYear(d.getFullYear() + op2[1].sign * op2[1].year);
 						}
 						if (op2[1].month !== 0) {
 							d.setMonth(d.getMonth() + op2[1].sign * op2[1].month);
+						}
+						if (d.getMonth() !== prevm + (op2[1].month !== 0 ? op2[1].sign * op2[1].month : 0)) {
+							d.setDate(0);
 						}
 					} else {
 						if (op2[1].day !== 0) {
@@ -70,15 +88,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
 							d.setSeconds(d.getSeconds() + op2[1].sign * op2[1].second);
 						}
 					}
-					a1.data = restype === 6 ? Fleur.dateToDate(d) : restype === 7 ? Fleur.dateToDateTime(d) : Fleur.dateToTime(d);
+					a1.data = restype === 6 ? Fleur.dateToDate({d: d, tz: op1[1].tz}) : restype === 7 ? Fleur.dateToDateTime({d: d, tz: op1[1].tz}) : Fleur.dateToTime({d: d, tz: op1[1].tz});
 				} else if (op2[0] > 5 && op2[0] < 9 && op1[0] > 8) {
-					var d = op2[1];
+					d = op2[1].d;
 					if (op1[0] === 9) {
+						prevm = d.getMonth();
 						if (op1[1].year !== 0) {
 							d.setFullYear(d.getFullYear() + op1[1].sign * op1[1].year);
 						}
 						if (op1[1].month !== 0) {
 							d.setMonth(d.getMonth() + op1[1].sign * op1[1].month);
+						}
+						if (d.getMonth() !== prevm + (op1[1].month !== 0 ? op1[1].sign * op1[1].month : 0)) {
+							d.setDate(0);
 						}
 					} else {
 						if (op1[1].day !== 0) {
@@ -94,7 +116,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
 							d.setSeconds(d.getSeconds() + op1[1].sign * op1[1].second);
 						}
 					}
-					a1.data = restype === 6 ? Fleur.dateToDate(d) : restype === 7 ? Fleur.dateToDateTime(d) : Fleur.dateToTime(d);
+					a1.data = restype === 6 ? Fleur.dateToDate({d: d, tz: op2[1].tz}) : restype === 7 ? Fleur.dateToDateTime({d: d, tz: op2[1].tz}) : Fleur.dateToTime({d: d, tz: op2[1].tz});
 				} else if (op1[0] === 9 && op2[0] === 9) {
 					resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) + op2[1].sign * (op2[1].year * 12 + op2[1].month);
 					res = {
@@ -116,9 +138,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
 				}
 				a1.schemaTypeInfo = Fleur.JSTypes[restype];
 			} else {
+				var casterr = n1.nodeType === Fleur.Node.ELEMENT_NODE || n2.nodeType === Fleur.Node.ELEMENT_NODE;
 				a1 = new Fleur.Text();
 				a1.schemaTypeInfo = Fleur.Type_error;
-				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", casterr ? "err:FORG0001" : "err:XPTY0004");
 			}
 			Fleur.callback(function() {callback(a1);});
 		});

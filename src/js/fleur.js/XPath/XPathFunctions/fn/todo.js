@@ -7,17 +7,11 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["adjust-date-to-timezone"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["adjust-dateTime-to-timezone"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["adjust-time-to-timezone"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["analyze-string"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["apply"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["available-environment-variables"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["collation-key"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["collection"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["dateTime"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["deep-equal"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["default-collation"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["element-with-id"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["environment-variable"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["filter"] = function(ctx, children) {};
@@ -28,7 +22,6 @@ Fleur.XPathFunctions_fn["for-each-pair"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["generate-id"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["id"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["idref"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["implicit-timezone"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["in-scope-prefixes"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["innermost"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["json-doc"] = function(ctx, children) {};
@@ -47,9 +40,6 @@ Fleur.XPathFunctions_fn["resolve-QName"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["resolve-uri"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["root"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["static-base-uri"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["timezone-from-date"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["timezone-from-dateTime"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["timezone-from-time"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["transform"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["unparsed-text-available"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["unparsed-text-lines"] = function(ctx, children) {};

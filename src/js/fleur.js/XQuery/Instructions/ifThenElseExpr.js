@@ -42,10 +42,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.ifThenElseExpr] = function(ctx, children, callb
 			Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
 			return;
 		}
+		var cb = function(n) {
+			callback(n);
+		};
 		if (boolean) {
-			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], callback);
+			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
 		} else {
-			Fleur.XQueryEngine[children[2][1][0][0]](ctx, children[2][1][0][1], callback);
+			Fleur.XQueryEngine[children[2][1][0][0]](ctx, children[2][1][0][1], cb);
 		}
 	});
 };

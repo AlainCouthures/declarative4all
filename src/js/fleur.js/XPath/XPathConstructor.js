@@ -7,7 +7,39 @@
  * @module 
  * @description 
  */
-Fleur.XPathConstructor = function(ctx, children, schemaType, others, callback) {
+Fleur.XPathConstructor = function(arg, schemaType, others) {
+	var err;
+	var a = Fleur.Atomize(arg, true);
+	if (a === Fleur.EmptySequence) {
+		return a;
+	}
+	if (a.schemaTypeInfo === Fleur.Type_error || a.schemaTypeInfo === schemaType) {
+		return a;
+	}
+	if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+		if (!a.hasOwnProperty("data")) {
+			err = new Error("");
+			err.name = "FORG0001";
+			return err;
+		}
+	} else {
+		others(a);
+		if (a.schemaTypeInfo === Fleur.Type_error) {
+			return a;
+		}
+	}
+	a.schemaTypeInfo = schemaType;
+	try {
+		a.data = a.schemaTypeInfo.canonicalize(a.data);
+		return a;
+	} catch (e) {
+		err = new Error(e.error || "");
+		err.name = e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001";
+		return err;
+	}
+};
+
+Fleur.XPathConstructor_old = function(ctx, children, schemaType, others, callback) {
 	if (children.length !== 1) {
 		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
@@ -39,7 +71,7 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, others, callback) {
 			a.data = a.schemaTypeInfo.canonicalize(a.data);
 			Fleur.callback(function() {callback(a);});
 		} catch (e) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
+			Fleur.callback(function() {callback(Fleur.error(ctx, e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001", e.error));});
 		}
 	});
 };
@@ -190,11 +222,6 @@ Fleur.XPathNumberFunction = function(ctx, children, f, schemaTypeInfo, callback)
 Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var a1 = Fleur.Atomize(n);
-		if (a1 === Fleur.EmptySequence) {
-			a1 = new Fleur.Text();
-			a1.schemaTypeInfo = Fleur.Type_string;
-			a1.data = "";
-		}
 		if (a1.nodeType === Fleur.Node.SEQUENCE_NODE) {
 			Fleur.callback(function() {callback(Fleur.EmptySequence);});
 			return;
@@ -211,11 +238,6 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 			var a2 = Fleur.Atomize(n);
-			if (a2 === Fleur.EmptySequence) {
-				a2 = new Fleur.Text();
-				a2.schemaTypeInfo = Fleur.Type_string;
-				a2.data = "";
-			}
 			if (a2.nodeType === Fleur.Node.SEQUENCE_NODE) {
 				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
@@ -244,7 +266,14 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 Fleur.XPathGenTestOpFunction = function(ctx, children, f, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var a1 = Fleur.Atomize(n, true);
-		if (a1 === Fleur.EmptySequence || a1.schemaTypeInfo === Fleur.Type_error) {
+		if (a1 === Fleur.EmptySequence) {
+			a1 = new Fleur.Text();
+			a1.data = "false";
+			a1.schemaTypeInfo = Fleur.Type_boolean;
+			Fleur.callback(function() {callback(a1);});
+			return;
+		}
+		if (a1.schemaTypeInfo === Fleur.Type_error) {
 			Fleur.callback(function() {callback(a1);});
 			return;
 		}
@@ -266,7 +295,14 @@ Fleur.XPathGenTestOpFunction = function(ctx, children, f, callback) {
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 			var a2 = Fleur.Atomize(n, true);
 			var i1, res = false, b, l;
-			if (a2 === Fleur.EmptySequence || a2.schemaTypeInfo === Fleur.Type_error) {
+			if (a2 === Fleur.EmptySequence) {
+				a1 = new Fleur.Text();
+				a1.data = "false";
+				a1.schemaTypeInfo = Fleur.Type_boolean;
+				Fleur.callback(function() {callback(a1);});
+				return;
+			}
+			if (a2.schemaTypeInfo === Fleur.Type_error) {
 				Fleur.callback(function() {callback(a2);});
 				return;
 			}

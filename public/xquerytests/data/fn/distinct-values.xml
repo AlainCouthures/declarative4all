@@ -668,11 +668,11 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+  <test-case name="K-SeqDistinctValuesFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description> Invoke fn:distinct-values() with a collation argument, although the function does not perform string comparison. For that reason, output is valid as well. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(distinct-values((1, 2, 3), "http://www.example.com/COLLATION/NOT/SUPPORTED"), (1, 2, 3))</test>
-    <result-string>xs:boolean("true")</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</result-string>
     <result>
       <any-of>
@@ -704,7 +704,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(distinct-values(()))</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0005"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -712,7 +712,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+  <test-case name="K-SeqDistinctValuesFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(distinct-values( ("1", 1, 2, 1, 1, 3, 1, 1, 3, xs:anyURI("example.com/"), xs:anyURI("example.com/"))), ("1", 1, 2, 3, xs:anyURI("example.com/")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -739,7 +739,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>distinct-values((1, 1))</test>
     <result-string>xs:integer("1")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <any-of>
         <assert-eq>1</assert-eq>
@@ -752,7 +752,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>distinct-values((-3, -3))</test>
     <result-string>xs:integer("-3")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
+    <result-string>xs:integer("-3")</result-string>
     <result>
       <any-of>
         <assert-eq>-3</assert-eq>
@@ -769,7 +769,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+  <test-case name="K-SeqDistinctValuesFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(distinct-values((1, 2.0, 3, 2)), (1, 2.0, 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(distinct-values((1, 2.0, 3, 2)), (1, 2.0, 3))</test>
@@ -810,7 +810,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(distinct-values(())) eq 0</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0005"))</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -836,7 +836,7 @@
       <error code="FOCH0002"/>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+  <test-case name="fn-distinct-values-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test Bugzilla #5183, [FO] Effect of type promotion in fn:distinct-values </description>
     <created by="Andrew Eisenberg" on="2009-12-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -846,7 +846,7 @@
                        xs:decimal(&apos;2.0000000000100000000001&apos;), xs:double( &apos;2.00000000001&apos;)), 
             $distinct := distinct-values($input) 
         return ( (every $n in $input satisfies $n = $distinct) and 
-        (every $bool in (for $d1 at $p in $distinct, $d2 in $distinct [position()  $p] return $d1 eq $d2) satisfies not($bool)) )</test>
+        (every $bool in (for $d1 at $p in $distinct, $d2 in $distinct [position() &gt; $p] return $d1 eq $d2) satisfies not($bool)) )</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
@@ -870,7 +870,7 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string>
+  <test-case name="cbcl-distinct-values-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:time("12:00:00"),xs:untypedAtomic("12:00:00"),xs:time("12:00:00+01:00"),xs:date("1972-06-01+01:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:date("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string>
     <description> test fn:distinct-values with a mix of types </description>
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10"/>
@@ -989,7 +989,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-002b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string>
+  <test-case name="cbcl-distinct-values-002b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:time("12:00:00"),xs:untypedAtomic("12:00:00"),xs:time("12:00:00+01:00"),xs:date("1972-06-01+01:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:date("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string>
     <description> test fn:distinct-values with a mix of types </description>
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ30+"/>
@@ -999,7 +999,7 @@
       <assert-string-value>---01 ---01 ---15Z ---15Z --06 --06 --06-01 --06-01 --12-15Z --12-15Z --12Z --12Z -1 -1 -P1DT15H -P1DT15H0M0S -P2DT15H -P2DT15H0M0S 0 0 00:00:00 00:00:00 1 1 12:00:00 12:00:00 1972-06-01T12:00:00+01:00 1972-06-01T12:00:00+01:00 1972-06-01Z 1972-06-01Z 1972-12Z 1972-12Z 1972Z 1972Z 2008 2008 2008 2008 2008 2008-06 2008-06 2008-06-01 2008-06-01 2008-06-01T12:00:00 2008-06-01T12:00:00 3 3.141 3.141 3.141 3.333 3.333 3.333 333 333.3 333.3 333.3 FFFEFDFC FFFEFDFC FFFEFDFC FFFEFDFC NaN NaN NaN P10Y15M P10Y15M P11Y3M P20Y15M P20Y15M P21Y3M aGVsbG8= aGVsbG8= false false false ht:person http://www.example.com/ person person true true true true zero zero zero</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+  <test-case name="cbcl-distinct-values-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:dateTime("2008-01-01T13:00:00"),xs:dateTime("2008-01-01T13:00:00+01:00"))</response-string>
     <description> Test with static context dependant values </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
@@ -1041,12 +1041,12 @@
       <assert-string-value>11:00:00 12:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+  <test-case name="cbcl-distinct-values-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("13:00:00Z"),xs:time("12:00:00"),xs:time("20:00:00"))</response-string>
     <description> test fn:distinct-values with xs:time </description>
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value at $p in ( for $time in fn:distinct-values(( xs:time(&apos;12:00:00&apos;), xs:time(&apos;12:00:00&apos;), xs:time(&apos;20:00:00&apos;), xs:time(&apos;01:00:00+12:00&apos;), xs:time(&apos;02:00:00+13:00&apos;))) order by $time return $time ) return adjust-time-to-timezone($value, (xs:dayTimeDuration("PT0S")[$p]))</test>
-    <result-string>xs:string("13:00:00Z 12:00:00 20:00:00")</result-string>
+    <result-string>(xs:time("13:00:00Z"),xs:time("12:00:00"),xs:time("20:00:00"))</result-string>
     <result>
       <assert-string-value>13:00:00Z 12:00:00 20:00:00</assert-string-value>
     </result>
@@ -1101,12 +1101,12 @@
       <assert-string-value>1972 2008</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:yearMonthDuration("P0M"),xs:duration("P0Y"),xs:dayTimeDuration("P1D"),xs:yearMonthDuration("P1Y"),xs:duration("P1Y"),xs:dayTimeDuration("PT0S"))</response-string>
+  <test-case name="cbcl-distinct-values-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:dayTimeDuration("P1D"),xs:yearMonthDuration("P1Y"),xs:dayTimeDuration("PT0S"))</response-string>
     <description> test fn:distinct-values with durations </description>
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:dayTimeDuration(&apos;P0D&apos;), xs:yearMonthDuration(&apos;P0Y&apos;), xs:duration(&apos;P0Y&apos;), xs:duration(&apos;P0Y&apos;), xs:yearMonthDuration(&apos;P0Y&apos;), xs:dayTimeDuration(&apos;P0D&apos;), xs:dayTimeDuration(&apos;P1D&apos;), xs:yearMonthDuration(&apos;P1Y&apos;), xs:duration(&apos;P1Y&apos;))) order by string($value) return $value</test>
-    <result-string>xs:string("P1D P1Y PT0S")</result-string>
+    <result-string>(xs:dayTimeDuration("P1D"),xs:yearMonthDuration("P1Y"),xs:dayTimeDuration("PT0S"))</result-string>
     <result>
       <assert-string-value>P1D P1Y PT0S</assert-string-value>
     </result>
@@ -1121,7 +1121,7 @@
       <assert-string-value>--06-16 --12-15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")))</response-string>
+  <test-case name="cbcl-distinct-values-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description> Tests distinct values with unknown, but unneeded collation </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>for $x in 65 to 75 return distinct-values(1 to 10,codepoints-to-string($x to $x+10))</test>

@@ -34,16 +34,25 @@ Fleur.XPathFunctions_fn["sum#1"] = new Fleur.Function("http://www.w3.org/2005/xp
 				} else {
 					rt = c[1];
 				}
-				return [p[0] + c[0], rt];
-			}, [0, null]);
+				var val = typeof p[0] === typeof c[0] ? p[0] + c[0] : Number(p[0]) + Number(c[0]);
+				var precision = p[2] !== undefined && c[2] !== undefined ? Math.max(p[2], c[2]) : undefined;
+				if (rt === Fleur.Type_decimal) {
+					val = Math.round(val * Math.pow(10, precision)) / Math.pow(10, precision);
+				}
+				return [val, rt, precision];
+			}, [0, null, 0]);
+			return r;
+			/*
 			var v = r[0];
 			var t = r[1];
+			var p = r[2];
 			if (t.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 				if (v !== Math.floor(v)) {
 					t = Fleur.Type_decimal;
 				}
 			}
-			return [v, t];
+			return [v, t, p];
+			*/
 		}
 		if (arg[1] === Fleur.Type_untypedAtomic) {
 			arg[1] = Fleur.Type_double;

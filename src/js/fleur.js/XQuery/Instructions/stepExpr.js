@@ -15,7 +15,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 		var subcurr;
 		if (eob === Fleur.XQueryX.stepExpr) {
 			if (n !== Fleur.EmptySequence) {
-				if (result === Fleur.EmptySequence) {
+				if (result === Fleur.EmptySequence || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
 					result = n;
 				} else {
 					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {

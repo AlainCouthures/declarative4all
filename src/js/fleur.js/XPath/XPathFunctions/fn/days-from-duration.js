@@ -10,6 +10,7 @@
 Fleur.XPathFunctions_fn["days-from-duration#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:days-from-duration",
 	function(arg) {
 		var a = Fleur.Atomize(arg);
+		var d;
 		if (a === Fleur.EmptySequence) {
 			return null;
 		}
@@ -17,7 +18,11 @@ Fleur.XPathFunctions_fn["days-from-duration#1"] = new Fleur.Function("http://www
 			return 0;
 		}
 		if (a.schemaTypeInfo === Fleur.Type_dayTimeDuration) {
-			var d = Fleur.toJSONDayTimeDuration(a.data);
+			d = Fleur.toJSONDayTimeDuration(a.data);
+			return d.sign * d.day;
+		}
+		if (a.schemaTypeInfo === Fleur.Type_duration) {
+			d = Fleur.toJSONDuration(a.data);
 			return d.sign * d.day;
 		}
 		var e = new Error("");

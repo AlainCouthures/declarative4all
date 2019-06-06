@@ -24,8 +24,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.idivOp] = function(ctx, children, callback) {
 				Fleur.callback(function() {callback(a2);});
 				return;
 			}
-			divres = op1[1] / op2[1];
-			a1.data = "" + (Math.floor(divres) + (divres >= 0 ? 0 : 1));
+			divres = typeof op1[1] === typeof op2[1] ? op1[1] / op2[1] : Number(op2[1]) / Number(op1[1]);
+			a1.data = String(typeof divres === "number" ? Math.floor(divres) + (divres >= 0 ? 0 : 1) : divres + Fleur.BigInt(divres >= 0 ? 0 : 1));
 			a1.schemaTypeInfo = Fleur.Type_integer;
 			Fleur.callback(function() {callback(a1);});
 		});

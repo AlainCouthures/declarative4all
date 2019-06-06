@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["decimal"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_decimal, function() {}, callback);
-};
+Fleur.XPathFunctions_xs["decimal#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:decimal",
+	function(arg) {
+		return Fleur.XPathConstructor(arg, Fleur.Type_decimal, function() {});
+	},
+	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

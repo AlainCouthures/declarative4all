@@ -383,12 +383,27 @@ Fleur.Document.prototype._serializeToString = function(indent) {
 Fleur.Document.prototype.compileXslt = function() {
 	return this.documentElement.compileXslt();
 };
-Fleur.Document.prototype._evaluate = function(expression, contextNode, env, type, xpresult) {
-	contextNode = contextNode || this;
+Fleur._evaluate = function(expression, contextNode, env, type, xpresult) {
+	var doc;
+	if (contextNode) {
+		if (contextNode.nodeType === Fleur.Node.DOCUMENT_NODE) {
+			doc = contextNode;
+		} else if (contextNode.ownerDocument) {
+			doc = contextNode.ownerDocument;
+		}
+	}
 	env = env || {};
+	var d = new Date();
+	if (!env.timezone) {
+		var jstz = d.getTimezoneOffset();
+		env.timezone = Fleur.msToDayTimeDuration(-jstz * 60 * 1000);
+	}
+	if (!env.now) {
+		env.now = d;
+	}
 	if (!env.nsresolver) {
 		var nsResolver;
-		if (this.documentElement) {
+		if (doc && doc.documentElement) {
 			nsResolver = function(element) {
 				return {
 					defaultNamespace: element.getAttribute("xmlns"),
@@ -404,8 +419,8 @@ Fleur.Document.prototype._evaluate = function(expression, contextNode, env, type
 					}
 				};
 			};
-			env.nsresolver = nsResolver(this.documentElement);
-		} else if (this.nodeType === Fleur.Node.DOCUMENT_NODE) {
+			env.nsresolver = nsResolver(doc.documentElement);
+		} else if (doc) {
 			nsResolver = function(document) {
 				return {
 					nsresolver: document.createNSResolver(),
@@ -417,24 +432,52 @@ Fleur.Document.prototype._evaluate = function(expression, contextNode, env, type
 					}
 				};
 			};
-			env.nsresolver = nsResolver(this);
+			env.nsresolver = nsResolver(doc);
+		} else {
+			env.nsresolver = new Fleur.XPathNSResolver();
 		}
 	}
 	type = type || Fleur.XPathResult.ANY_TYPE;
-	if (!xpresult) {
-		return new Fleur.XPathResult(this, expression, contextNode, env, type);
+	var invalidmsg = "";
+	if (typeof expression === "string") {
+		try {
+			var compiled = new Fleur.XPathExpression(expression);
+			expression = compiled;
+		} catch(e) {
+			invalidmsg = e.error;
+		}
 	}
-	xpresult.document = this;
-	xpresult.expression = expression;
-	xpresult.contextNode = contextNode;
-	xpresult.env = env;
-	xpresult.resultType = type;
-	xpresult._index = 0;
+	if (!xpresult) {
+		xpresult = new Fleur.XPathResult(doc, invalidmsg === "" ? expression : null, contextNode, env, type);
+		if (!xpresult.expression) {
+			xpresult.expression = expression;
+		}
+	} else {
+		xpresult.document = doc;
+		xpresult.expression = expression;
+		xpresult.contextNode = contextNode;
+		xpresult.env = env;
+		xpresult.resultType = type;
+		xpresult._index = 0;
+	}
+	if (invalidmsg !== "") {
+		xpresult._result = new Fleur.Text();
+		xpresult._result.schemaTypeInfo = Fleur.Type_error;
+		xpresult._result._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0003");
+		xpresult._result.data = invalidmsg;
+	}
 	return xpresult;
 };
-Fleur.Document.prototype.evaluate = function(expression, contextNode, env, type, xpresult) {
-	var xpr = this._evaluate(expression, contextNode, env, type, xpresult);
-	return new Promise(function(resolve, reject) {
+Fleur.Document.prototype._evaluate = function(expression, contextNode, env, type, xpresult) {
+	contextNode = contextNode || this;
+	return Fleur._evaluate(expression, contextNode, env, type, xpresult);
+};
+Fleur.evaluate = function(expression, contextNode, env, type, xpresult) {
+	if (xpresult && xpresult._result) {
+		xpresult._result = null;
+	}
+	var xpr = Fleur._evaluate(expression, contextNode, env, type, xpresult);
+	return xpr._result ? xpr : new Promise(function(resolve, reject) {
 		xpr.evaluate(function(res) {
 			resolve(res);
 		}, function(res) {
@@ -442,11 +485,15 @@ Fleur.Document.prototype.evaluate = function(expression, contextNode, env, type,
 		});
 	});
 };
-Fleur.Document.prototype.createExpression = function(expression) {
+Fleur.Document.prototype.evaluate = function(expression, contextNode, env, type, xpresult) {
+	contextNode = contextNode || this;
+	return Fleur.evaluate(expression, contextNode, env, type, xpresult);
+};;
+Fleur.createExpression = function(expression) {
 	expression = expression || "";
-//	return '[Fleur.XQueryX.module,[[Fleur.XQueryX.mainModule,[[Fleur.XQueryX.queryBody,[' + Fleur.XPathEvaluator._xp2js(expression, "", "") + ']]]],[Fleur.XQueryX.xqx,"http://www.w3.org/2005/XQueryX"],[Fleur.XQueryX.schemaLocation,"http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"],[Fleur.XQueryX.xsi,"http://www.w3.org/2001/XMLSchema-instance"]]]';
-	return Fleur.XPathEvaluator._xq2js(expression);
+	return new Fleur.XPathExpression(expression);
 };
+Fleur.Document.prototype.createExpression = Fleur.createExpression;
 Fleur.Document.prototype.createNSResolver = function(node) {
 	return new Fleur.XPathNSResolver(node);
 };

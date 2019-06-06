@@ -13,6 +13,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedTextConstructor] = function(ctx, childr
 	txt.schemaTypeInfo = Fleur.Type_string;
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var a = Fleur.Atomize(n);
+		if (a === Fleur.EmptySequence) {
+			Fleur.callback(function() {callback(a);});
+			return;
+		}
 		txt.data = a.data;
 		txt.schemaTypeInfo = n.schemaTypeInfo;
 		Fleur.callback(function() {callback(txt);});

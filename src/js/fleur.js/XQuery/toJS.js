@@ -13,23 +13,47 @@ Fleur.pad = function(number) {
 	}
  	return String(number);
 };
-Fleur.dateToDate = function(d) {
-	return String(d.getFullYear()) + '-' + Fleur.pad(d.getMonth() + 1) + '-' + Fleur.pad(d.getDate());
+Fleur.dateToDate = function(dtz) {
+	return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
 };
-Fleur.dateToDateTime = function(d) {
-	return String(d.getFullYear()) + '-' + Fleur.pad(d.getMonth() + 1) + '-' + Fleur.pad(d.getDate()) + 'T' + Fleur.pad(d.getHours()) + ':' + Fleur.pad(d.getMinutes()) + ':' + Fleur.pad(d.getSeconds()) + '.' + (d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) + 'Z';
+Fleur.dateToDateTime = function(dtz) {
+	return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + 'T' + Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
 };
-Fleur.dateToTime = function(d) {
-	return Fleur.pad(d.getHours()) + ':' + Fleur.pad(d.getMinutes()) + ':' + Fleur.pad(d.getSeconds()) + '.' + (d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) + 'Z';
+Fleur.dateToTime = function(dtz) {
+	return Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
 };
 Fleur.toDate = function(s) {
-	return new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10));
+	return {
+		d: new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10)),
+		tz: s.endsWith("Z") ? 0 :
+			s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
+			s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
+			null
+	};
 };
 Fleur.toDateTime = function(s) {
-	return new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10), parseInt(s.substr(11, 2), 10), parseInt(s.substr(14, 2), 10), parseInt(s.substr(17, 2), 10), s.charAt(19) === "." ? parseFloat("0." + s.substr(20).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0);
+	return {
+		d: new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10), parseInt(s.substr(11, 2), 10), parseInt(s.substr(14, 2), 10), parseInt(s.substr(17, 2), 10), s.charAt(19) === "." ? parseFloat("0." + s.substr(20).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0),
+		tz: s.endsWith("Z") ? 0 :
+			s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
+			s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
+			null
+	};
 };
 Fleur.toTime = function(s) {
-	return new Date(0, 0, 0, parseInt(s.substr(0, 2), 10), parseInt(s.substr(3, 2), 10), parseInt(s.substr(6, 2), 10), s.charAt(8) === "." ? parseFloat("0." + s.substr(9).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0);
+	var d = new Date();
+	var tpos = s.indexOf("T") + 1;
+	d.setHours(parseInt(s.substr(tpos, 2), 10));
+	d.setMinutes(parseInt(s.substr(tpos + 3, 2), 10));
+	d.setSeconds(parseInt(s.substr(tpos + 6, 2), 10));
+	d.setMilliseconds(s.charAt(tpos + 8) === "." ? parseFloat("0." + s.substr(tpos + 9).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0);
+	return {
+		d: d,
+		tz: s.endsWith("Z") ? 0 :
+			s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
+			s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
+			null
+	};
 };
 Fleur.toJSONDate = function(s) {
 	return {
@@ -76,7 +100,24 @@ Fleur.toJSONDayTimeDuration = function(s) {
 	ret.second = retvalue % 60;
 	return ret;
 };
-Fleur.NumberToDecimalString = function(n) {
+Fleur.toJSONDuration= function(s) {
+	var m = s.match(/^-?P(?!$)(([0-9]+)Y)?(([0-9]+)M)?(([0-9]+)D)?(T(?!$)(([0-9]+)H)?(([0-9]+)M)?(([0-9]+(\.[0-9]+)?)S)?)?$/);
+	var retvalue = (m[2] ? parseInt(m[2], 10) : 0) * 12 +(m[4] ? parseInt(m[4], 10) : 0);
+	var ret = {
+		sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1,
+		year: Math.floor(retvalue / 12),
+		month: retvalue % 12
+	};
+	retvalue = (((m[6] ? parseInt(m[6], 10) : 0) * 24 + (m[9] ? parseInt(m[9], 10) : 0)) * 60 + (m[11] ? parseInt(m[11], 10) : 0)) * 60 + (m[13] ? parseFloat(m[13]) : 0);
+	ret.day = Math.floor(retvalue / 86400);
+	retvalue = retvalue % 86400;
+	ret.hour = Math.floor(retvalue / 3600);
+	retvalue = retvalue % 3600;
+	ret.minute = Math.floor(retvalue / 60);
+	ret.second = retvalue % 60;
+	return ret;
+};
+Fleur.NumberToDecimalString = function(n, precision) {
 	var s = String(n);
 	if (s.indexOf("e") !== -1) {
 		s = s.split("e");
@@ -91,23 +132,29 @@ Fleur.NumberToDecimalString = function(n) {
 		}
 		return "0." + "0".repeat(-1 - exp) + s[0] + s[1];
 	}
+	if (typeof n !== "number") {
+		return s;
+	}
+	if (precision) {
+		return String(Math.round(n * Math.pow(10, precision)) / Math.pow(10, precision));
+	}
 	return s;
 };
 Fleur.JSTypes = [Fleur.Type_integer, Fleur.Type_decimal, Fleur.Type_float, Fleur.Type_double, Fleur.Type_string, Fleur.Type_boolean, Fleur.Type_date, Fleur.Type_dateTime, Fleur.Type_time, Fleur.Type_yearMonthDuration, Fleur.Type_dayTimeDuration];
-Fleur.toJSValue = function(a, asNumber, asString, asBoolean, asDate, asJSONDate, asJSONDuration) {
+Fleur.toJSValue = function(a, asNumber, asString, asBoolean, asDate, asJSONDate, asJSONDuration, asOthers) {
 	var value;
 	if (a.nodeType === Fleur.Node.TEXT_NODE) {
 		if (a.schemaTypeInfo === Fleur.Type_error) {
 			return [-1];
 		}
-		if (asNumber) {
+		if (asNumber && /^\s*(([\-+]?([0-9]+(\.[0-9]*)?)|[\-+]?(\.[0-9]+))([eE][\-+]?[0-9]+)?|[\-+]?INF|NaN)\s*$/.test(a.data)) {
 			if (a.schemaTypeInfo === Fleur.Type_integer) {
 				return [0, Fleur.BigInt(a.data)];
 			} else if (a.schemaTypeInfo === Fleur.Type_decimal) {
-				return [1, parseFloat(a.data)];
+				return [1, a.data.indexOf(".") === -1 ? Fleur.BigInt(a.data) : parseFloat(a.data)];
 			} else if (a.schemaTypeInfo === Fleur.Type_float) {
 				return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-			} else if (a.schemaTypeInfo === Fleur.Type_double || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+			} else if (a.schemaTypeInfo === Fleur.Type_double || (a.schemaTypeInfo === Fleur.Type_untypedAtomic && (a.data === "INF" || a.data === "-INF" || !isNaN(parseFloat(a.data))))) {
 				return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
 			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 				return [0, Fleur.BigInt(a.data)];
@@ -172,11 +219,18 @@ Fleur.toJSValue = function(a, asNumber, asString, asBoolean, asDate, asJSONDate,
 				return [9, Fleur.toJSONYearMonthDuration(a.data)];
 			} else if (a.schemaTypeInfo === Fleur.Type_dayTimeDuration) {
 				return [10, Fleur.toJSONDayTimeDuration(a.data)];
+			} else if (a.schemaTypeInfo === Fleur.Type_duration) {
+				return [11, Fleur.toJSONDuration(a.data)];
 			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "yearMonthDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 				return [9, Fleur.toJSONYearMonthDuration(a.data)];
 			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dayTimeDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 				return [10, Fleur.toJSONDayTimeDuration(a.data)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "duration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [11, Fleur.toJSONDuration(a.data)];
 			}
+		}
+		if (asOthers) {
+			return [99, a.data];
 		}
 		a.schemaTypeInfo = Fleur.Type_error;
 		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
@@ -187,7 +241,7 @@ Fleur.toJSValue = function(a, asNumber, asString, asBoolean, asDate, asJSONDate,
 		}
 		a.nodeType = Fleur.Node.TEXT_NODE;
 		a.schemaTypeInfo = Fleur.Type_error;
-		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0005");
+		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 		return [-1];
 	}
 	a = new Fleur.Text();
@@ -200,7 +254,7 @@ Fleur.toJSNumber = function(a, ignore) {
 		if (a.schemaTypeInfo === Fleur.Type_integer) {
 			return [0, Fleur.BigInt(a.data)];
 		} else if (a.schemaTypeInfo === Fleur.Type_decimal) {
-			return [1, parseFloat(a.data)];
+			return [1, a.data.indexOf(".") === -1 ? Fleur.BigInt(a.data) : parseFloat(a.data)];
 		} else if (a.schemaTypeInfo === Fleur.Type_float) {
 			return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
 		} else if (a.schemaTypeInfo === Fleur.Type_double || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
@@ -369,7 +423,7 @@ Fleur.msToDayTimeDuration = function(ms) {
     var min = Math.floor(sec / 60);
     sec = sec - min * 60;
     if (sec === 0 && min === 0 && hours === 0 && days === 0) {
-    	return "P0D";
+    	return "PT0S";
     }
     if (days !== 0) {
     	s += String(days) + "D";

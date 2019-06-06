@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["dateTime"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTime"], function() {}, callback);
-};
+Fleur.XPathFunctions_xs["dateTime#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:dateTime",
+	function(arg) {
+		return Fleur.XPathConstructor(arg, Fleur.Type_dateTime, function() {});
+	},
+	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

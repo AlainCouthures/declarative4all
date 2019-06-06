@@ -408,6 +408,16 @@ Fleur.Node.prototype.copyNode = function() {
 				copy.setEntryNode(this.entries[i++].copyNode());
 			}
 			break;
+		case Fleur.Node.SEQUENCE_NODE:
+			if (this === Fleur.EmptySequence) {
+				return this;
+			}
+			copy = new Fleur.Sequence();
+			lj = this.childNodes.length;
+			while (j < lj) {
+				copy.appendChild(this.childNodes[j++].copyNode());
+			}
+			break;
 		case Fleur.Node.ARRAY_NODE:
 			copy = new Fleur.Array();
 			lj = this.childNodes.length;

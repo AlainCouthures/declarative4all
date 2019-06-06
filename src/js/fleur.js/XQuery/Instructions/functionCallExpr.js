@@ -111,7 +111,13 @@ Fleur.functionCall = function(ctx, children, xf, args, callback) {
 										subarr.push(effchild);
 									}
 									if (carg && carg.adaptative) {
-										subarr.push([subarr.pop(), effchild.schemaTypeInfo]);
+										var precision = undefined;
+										if (effchild.schemaTypeInfo === Fleur.Type_integer) {
+											precision = 0;
+										} else if (effchild.schemaTypeInfo === Fleur.Type_decimal) {
+											precision = effchild.data.indexOf(".") !== -1 ? effchild.data.length - effchild.data.indexOf(".") - 1 : 0;
+										}
+										subarr.push([subarr.pop(), effchild.schemaTypeInfo, precision]);
 									}
 								}
 								jsargs.push(subarr);
@@ -143,6 +149,8 @@ Fleur.functionCall = function(ctx, children, xf, args, callback) {
 									throw new Error("error");
 								}
 								jsargs.push(op[1]);
+							} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_dayTimeDuration) || (carg && carg.type === Fleur.Type_dayTimeDuration)) {
+								jsargs.push(Fleur.toJSONDayTimeDuration(effarg.data));
 							} else {
 								jsargs.push(effarg);
 							}

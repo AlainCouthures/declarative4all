@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["double"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_double, function() {}, callback);
-};
+Fleur.XPathFunctions_xs["double#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:double",
+	function(arg) {
+		return Fleur.XPathConstructor(arg, Fleur.Type_double, function() {});
+	},
+	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

@@ -83,32 +83,32 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
+  <test-case name="fn-ceilingdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:decimal("-999999999999999999"))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:decimal("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514800")</response-string>
+  <test-case name="fn-ceilingdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514839")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:decimal("617375191608514839"))</test>
-    <result-string>xs:integer("617375191608514839")</result-string>
+    <result-string>xs:decimal("617375191608514839")</result-string>
     <result>
       <assert-eq>617375191608514839</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
+  <test-case name="fn-ceilingdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("999999999999999999")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:decimal("999999999999999999"))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:decimal("999999999999999999")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>

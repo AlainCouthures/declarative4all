@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-deep-equal" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the deep-equal() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-deep-equal" type="spec"/>
@@ -14,7 +13,7 @@
       <created by="Michael Kay" on="2012-05-30"/>
     </schema>
   </environment>
-  <test-case name="fn-deep-equalint2args-1">
+  <test-case name="fn-deep-equalint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:int(lower bound) $parameter2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:int("-2147483648")),(xs:int("-2147483648")))</test>
@@ -23,7 +22,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalint2args-2">
+  <test-case name="fn-deep-equalint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:int(mid range) $parameter2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:int("-1873914410")),(xs:int("-2147483648")))</test>
@@ -32,7 +31,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalint2args-3">
+  <test-case name="fn-deep-equalint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:int(upper bound) $parameter2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:int("2147483647")),(xs:int("-2147483648")))</test>
@@ -41,7 +40,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalint2args-4">
+  <test-case name="fn-deep-equalint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:int(lower bound) $parameter2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:int("-2147483648")),(xs:int("-1873914410")))</test>
@@ -50,7 +49,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalint2args-5">
+  <test-case name="fn-deep-equalint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:int(lower bound) $parameter2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:int("-2147483648")),(xs:int("2147483647")))</test>
@@ -59,7 +58,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalintg2args-1">
+  <test-case name="fn-deep-equalintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:integer(lower bound) $parameter2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:integer("-999999999999999999")),(xs:integer("-999999999999999999")))</test>
@@ -68,7 +67,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalintg2args-2">
+  <test-case name="fn-deep-equalintg2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:integer(mid range) $parameter2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:integer("830993497117024304")),(xs:integer("-999999999999999999")))</test>
@@ -77,7 +76,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalintg2args-3">
+  <test-case name="fn-deep-equalintg2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:integer(upper bound) $parameter2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:integer("999999999999999999")),(xs:integer("-999999999999999999")))</test>
@@ -86,7 +85,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalintg2args-4">
+  <test-case name="fn-deep-equalintg2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:integer(lower bound) $parameter2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:integer("-999999999999999999")),(xs:integer("830993497117024304")))</test>
@@ -95,7 +94,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalintg2args-5">
+  <test-case name="fn-deep-equalintg2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:integer(lower bound) $parameter2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:integer("-999999999999999999")),(xs:integer("999999999999999999")))</test>
@@ -104,7 +103,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldec2args-1">
+  <test-case name="fn-deep-equaldec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:decimal(lower bound) $parameter2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:decimal("-999999999999999999")),(xs:decimal("-999999999999999999")))</test>
@@ -113,7 +112,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldec2args-2">
+  <test-case name="fn-deep-equaldec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:decimal(mid range) $parameter2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:decimal("617375191608514839")),(xs:decimal("-999999999999999999")))</test>
@@ -122,7 +121,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldec2args-3">
+  <test-case name="fn-deep-equaldec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:decimal(upper bound) $parameter2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:decimal("999999999999999999")),(xs:decimal("-999999999999999999")))</test>
@@ -131,7 +130,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldec2args-4">
+  <test-case name="fn-deep-equaldec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:decimal(lower bound) $parameter2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:decimal("-999999999999999999")),(xs:decimal("617375191608514839")))</test>
@@ -140,7 +139,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldec2args-5">
+  <test-case name="fn-deep-equaldec2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:decimal(lower bound) $parameter2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:decimal("-999999999999999999")),(xs:decimal("999999999999999999")))</test>
@@ -149,7 +148,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldbl2args-1">
+  <test-case name="fn-deep-equaldbl2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:double(lower bound) $parameter2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:double("-1.7976931348623157E308")),(xs:double("-1.7976931348623157E308")))</test>
@@ -158,7 +157,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldbl2args-2">
+  <test-case name="fn-deep-equaldbl2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:double(mid range) $parameter2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:double("0")),(xs:double("-1.7976931348623157E308")))</test>
@@ -167,7 +166,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldbl2args-3">
+  <test-case name="fn-deep-equaldbl2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:double(upper bound) $parameter2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:double("1.7976931348623157E308")),(xs:double("-1.7976931348623157E308")))</test>
@@ -176,7 +175,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldbl2args-4">
+  <test-case name="fn-deep-equaldbl2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:double(lower bound) $parameter2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:double("-1.7976931348623157E308")),(xs:double("0")))</test>
@@ -185,7 +184,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equaldbl2args-5">
+  <test-case name="fn-deep-equaldbl2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:double(lower bound) $parameter2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:double("-1.7976931348623157E308")),(xs:double("1.7976931348623157E308")))</test>
@@ -194,7 +193,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalflt2args-1">
+  <test-case name="fn-deep-equalflt2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:float(lower bound) $parameter2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:float("-3.4028235E38")),(xs:float("-3.4028235E38")))</test>
@@ -203,7 +202,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalflt2args-2">
+  <test-case name="fn-deep-equalflt2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:float(mid range) $parameter2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:float("0")),(xs:float("-3.4028235E38")))</test>
@@ -212,7 +211,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalflt2args-3">
+  <test-case name="fn-deep-equalflt2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:float(upper bound) $parameter2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:float("3.4028235E38")),(xs:float("-3.4028235E38")))</test>
@@ -221,7 +220,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalflt2args-4">
+  <test-case name="fn-deep-equalflt2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:float(lower bound) $parameter2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:float("-3.4028235E38")),(xs:float("0")))</test>
@@ -230,7 +229,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalflt2args-5">
+  <test-case name="fn-deep-equalflt2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:float(lower bound) $parameter2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:float("-3.4028235E38")),(xs:float("3.4028235E38")))</test>
@@ -239,7 +238,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equallng2args-1">
+  <test-case name="fn-deep-equallng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:long(lower bound) $parameter2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:long("-92233720368547758")),(xs:long("-92233720368547758")))</test>
@@ -248,7 +247,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equallng2args-2">
+  <test-case name="fn-deep-equallng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:long(mid range) $parameter2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:long("-47175562203048468")),(xs:long("-92233720368547758")))</test>
@@ -257,7 +256,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equallng2args-3">
+  <test-case name="fn-deep-equallng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:long(upper bound) $parameter2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:long("92233720368547758")),(xs:long("-92233720368547758")))</test>
@@ -266,7 +265,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equallng2args-4">
+  <test-case name="fn-deep-equallng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:long(lower bound) $parameter2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:long("-92233720368547758")),(xs:long("-47175562203048468")))</test>
@@ -275,7 +274,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equallng2args-5">
+  <test-case name="fn-deep-equallng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:long(lower bound) $parameter2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:long("-92233720368547758")),(xs:long("92233720368547758")))</test>
@@ -284,7 +283,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalusht2args-1">
+  <test-case name="fn-deep-equalusht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedShort(lower bound) $parameter2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedShort("0")),(xs:unsignedShort("0")))</test>
@@ -293,7 +292,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalusht2args-2">
+  <test-case name="fn-deep-equalusht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedShort(mid range) $parameter2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedShort("44633")),(xs:unsignedShort("0")))</test>
@@ -302,7 +301,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalusht2args-3">
+  <test-case name="fn-deep-equalusht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedShort(upper bound) $parameter2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedShort("65535")),(xs:unsignedShort("0")))</test>
@@ -311,7 +310,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalusht2args-4">
+  <test-case name="fn-deep-equalusht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedShort(lower bound) $parameter2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedShort("0")),(xs:unsignedShort("44633")))</test>
@@ -320,7 +319,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalusht2args-5">
+  <test-case name="fn-deep-equalusht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedShort(lower bound) $parameter2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedShort("0")),(xs:unsignedShort("65535")))</test>
@@ -329,7 +328,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnint2args-1">
+  <test-case name="fn-deep-equalnint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:negativeInteger(lower bound) $parameter2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:negativeInteger("-999999999999999999")),(xs:negativeInteger("-999999999999999999")))</test>
@@ -338,7 +337,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnint2args-2">
+  <test-case name="fn-deep-equalnint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:negativeInteger(mid range) $parameter2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:negativeInteger("-297014075999096793")),(xs:negativeInteger("-999999999999999999")))</test>
@@ -347,7 +346,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnint2args-3">
+  <test-case name="fn-deep-equalnint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:negativeInteger(upper bound) $parameter2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:negativeInteger("-1")),(xs:negativeInteger("-999999999999999999")))</test>
@@ -356,7 +355,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnint2args-4">
+  <test-case name="fn-deep-equalnint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:negativeInteger(lower bound) $parameter2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:negativeInteger("-999999999999999999")),(xs:negativeInteger("-297014075999096793")))</test>
@@ -365,7 +364,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnint2args-5">
+  <test-case name="fn-deep-equalnint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:negativeInteger(lower bound) $parameter2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:negativeInteger("-999999999999999999")),(xs:negativeInteger("-1")))</test>
@@ -374,7 +373,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalpint2args-1">
+  <test-case name="fn-deep-equalpint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:positiveInteger(lower bound) $parameter2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:positiveInteger("1")),(xs:positiveInteger("1")))</test>
@@ -383,7 +382,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalpint2args-2">
+  <test-case name="fn-deep-equalpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:positiveInteger(mid range) $parameter2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:positiveInteger("52704602390610033")),(xs:positiveInteger("1")))</test>
@@ -392,7 +391,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalpint2args-3">
+  <test-case name="fn-deep-equalpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:positiveInteger(upper bound) $parameter2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:positiveInteger("999999999999999999")),(xs:positiveInteger("1")))</test>
@@ -401,7 +400,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalpint2args-4">
+  <test-case name="fn-deep-equalpint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:positiveInteger(lower bound) $parameter2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:positiveInteger("1")),(xs:positiveInteger("52704602390610033")))</test>
@@ -410,7 +409,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalpint2args-5">
+  <test-case name="fn-deep-equalpint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:positiveInteger(lower bound) $parameter2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:positiveInteger("1")),(xs:positiveInteger("999999999999999999")))</test>
@@ -419,7 +418,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalulng2args-1">
+  <test-case name="fn-deep-equalulng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedLong(lower bound) $parameter2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedLong("0")),(xs:unsignedLong("0")))</test>
@@ -428,7 +427,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalulng2args-2">
+  <test-case name="fn-deep-equalulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedLong(mid range) $parameter2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedLong("130747108607674654")),(xs:unsignedLong("0")))</test>
@@ -437,7 +436,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalulng2args-3">
+  <test-case name="fn-deep-equalulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedLong(upper bound) $parameter2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedLong("184467440737095516")),(xs:unsignedLong("0")))</test>
@@ -446,7 +445,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalulng2args-4">
+  <test-case name="fn-deep-equalulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedLong(lower bound) $parameter2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedLong("0")),(xs:unsignedLong("130747108607674654")))</test>
@@ -455,7 +454,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalulng2args-5">
+  <test-case name="fn-deep-equalulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:unsignedLong(lower bound) $parameter2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:unsignedLong("0")),(xs:unsignedLong("184467440737095516")))</test>
@@ -464,7 +463,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnpi2args-1">
+  <test-case name="fn-deep-equalnpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonPositiveInteger(lower bound) $parameter2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonPositiveInteger("-999999999999999999")),(xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -473,7 +472,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnpi2args-2">
+  <test-case name="fn-deep-equalnpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonPositiveInteger(mid range) $parameter2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonPositiveInteger("-475688437271870490")),(xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -482,7 +481,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnpi2args-3">
+  <test-case name="fn-deep-equalnpi2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonPositiveInteger(upper bound) $parameter2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonPositiveInteger("0")),(xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -491,7 +490,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnpi2args-4">
+  <test-case name="fn-deep-equalnpi2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonPositiveInteger(lower bound) $parameter2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonPositiveInteger("-999999999999999999")),(xs:nonPositiveInteger("-475688437271870490")))</test>
@@ -500,7 +499,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnpi2args-5">
+  <test-case name="fn-deep-equalnpi2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonPositiveInteger(lower bound) $parameter2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonPositiveInteger("-999999999999999999")),(xs:nonPositiveInteger("0")))</test>
@@ -509,7 +508,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnni2args-1">
+  <test-case name="fn-deep-equalnni2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonNegativeInteger(lower bound) $parameter2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonNegativeInteger("0")),(xs:nonNegativeInteger("0")))</test>
@@ -518,7 +517,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnni2args-2">
+  <test-case name="fn-deep-equalnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonNegativeInteger(mid range) $parameter2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonNegativeInteger("303884545991464527")),(xs:nonNegativeInteger("0")))</test>
@@ -527,7 +526,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnni2args-3">
+  <test-case name="fn-deep-equalnni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonNegativeInteger(upper bound) $parameter2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonNegativeInteger("999999999999999999")),(xs:nonNegativeInteger("0")))</test>
@@ -536,7 +535,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnni2args-4">
+  <test-case name="fn-deep-equalnni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonNegativeInteger(lower bound) $parameter2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonNegativeInteger("0")),(xs:nonNegativeInteger("303884545991464527")))</test>
@@ -545,7 +544,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalnni2args-5">
+  <test-case name="fn-deep-equalnni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:nonNegativeInteger(lower bound) $parameter2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:nonNegativeInteger("0")),(xs:nonNegativeInteger("999999999999999999")))</test>
@@ -554,7 +553,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalsht2args-1">
+  <test-case name="fn-deep-equalsht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:short(lower bound) $parameter2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:short("-32768")),(xs:short("-32768")))</test>
@@ -563,7 +562,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalsht2args-2">
+  <test-case name="fn-deep-equalsht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:short(mid range) $parameter2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:short("-5324")),(xs:short("-32768")))</test>
@@ -572,7 +571,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalsht2args-3">
+  <test-case name="fn-deep-equalsht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:short(upper bound) $parameter2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:short("32767")),(xs:short("-32768")))</test>
@@ -581,7 +580,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalsht2args-4">
+  <test-case name="fn-deep-equalsht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:short(lower bound) $parameter2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:short("-32768")),(xs:short("-5324")))</test>
@@ -590,7 +589,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equalsht2args-5">
+  <test-case name="fn-deep-equalsht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "deep-equal" function with the arguments set as follows: $parameter1 = xs:short(lower bound) $parameter2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:deep-equal((xs:short("-32768")),(xs:short("32767")))</test>
@@ -599,7 +598,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-001">
+  <test-case name="fn-deep-equal-mix-args-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> The order of elements in sequence is important </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( (1,2) , (2,1))</test>
@@ -608,7 +607,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-002">
+  <test-case name="fn-deep-equal-mix-args-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Two sequences are fn:deep-equal if items have same value and same order </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( (1,2) , (1,2))</test>
@@ -617,7 +616,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-003">
+  <test-case name="fn-deep-equal-mix-args-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> comparing arguments of type string </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:string("A") , "A")</test>
@@ -626,7 +625,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-004">
+  <test-case name="fn-deep-equal-mix-args-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> arg of type string, but case is different </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:string("A") , "a")</test>
@@ -635,7 +634,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-005">
+  <test-case name="fn-deep-equal-mix-args-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> arg1: string, arg2: sequence with 1 element of type string </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:string("A") , ("A"))</test>
@@ -644,7 +643,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-006">
+  <test-case name="fn-deep-equal-mix-args-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing null strings </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:string("") , (""))</test>
@@ -653,7 +652,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-007">
+  <test-case name="fn-deep-equal-mix-args-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing null sequences </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( () , ())</test>
@@ -662,7 +661,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-008">
+  <test-case name="fn-deep-equal-mix-args-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing nested null  a null sequence </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( (()) , ())</test>
@@ -671,7 +670,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-009">
+  <test-case name="fn-deep-equal-mix-args-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1: sequence with a space with agr2: empty sequence </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( ( ) , ())</test>
@@ -680,7 +679,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-010">
+  <test-case name="fn-deep-equal-mix-args-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Comparing strings with different value </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal(xs:string("abc"), xs:string("cba"))</test>
@@ -689,7 +688,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-011">
+  <test-case name="fn-deep-equal-mix-args-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1: anyURI, arg2: string </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:anyURI("www.example.com") , "www.example.com")</test>
@@ -698,7 +697,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-012">
+  <test-case name="fn-deep-equal-mix-args-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:anyURI and arg2:string </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:anyURI("www.example.com") , xs:string("www.example.com"))</test>
@@ -707,7 +706,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-013">
+  <test-case name="fn-deep-equal-mix-args-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:integer and arg2:decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:integer(1) , xs:decimal(1.0))</test>
@@ -716,7 +715,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-014">
+  <test-case name="fn-deep-equal-mix-args-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Comapring integer args with different values </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:integer(1) , xs:integer(-1))</test>
@@ -725,7 +724,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-015">
+  <test-case name="fn-deep-equal-mix-args-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:integer and arg2:float </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:integer(1) , xs:float(1.0))</test>
@@ -734,7 +733,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-016">
+  <test-case name="fn-deep-equal-mix-args-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:integer, arg2:double </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:integer(1) , xs:double(1.0))</test>
@@ -743,7 +742,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-017">
+  <test-case name="fn-deep-equal-mix-args-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:decimal , arg2:float </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:decimal(1.01) , xs:float(1.01))</test>
@@ -752,7 +751,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-018">
+  <test-case name="fn-deep-equal-mix-args-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:decimal, arg2:double </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:decimal(1.01) , xs:double(1.01))</test>
@@ -761,16 +760,16 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-019">
+  <test-case name="fn-deep-equal-mix-args-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:float , arg2:double </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:float(1.01) , xs:double(1.01))</test>
-    <result-string>xs:boolean("false")</result-string>
+    <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-020">
+  <test-case name="fn-deep-equal-mix-args-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:float, arg2:double values INF </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:float("INF") , xs:double("INF"))</test>
@@ -779,7 +778,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-021">
+  <test-case name="fn-deep-equal-mix-args-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:float, arg2:double values -INF </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:float("-INF") , xs:double("-INF"))</test>
@@ -788,7 +787,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-022">
+  <test-case name="fn-deep-equal-mix-args-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:float, arg2:double values NaN </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:float("NaN") , xs:double("NaN"))</test>
@@ -797,7 +796,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-023">
+  <test-case name="fn-deep-equal-mix-args-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing two boolean args </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:boolean("1") , xs:boolean("true"))</test>
@@ -806,7 +805,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-024">
+  <test-case name="fn-deep-equal-mix-args-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing two boolean args </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:boolean("true") , xs:boolean("true"))</test>
@@ -815,7 +814,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-025">
+  <test-case name="fn-deep-equal-mix-args-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:boolean arg2:value returned by true fn </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:boolean("true") , true())</test>
@@ -824,7 +823,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-026">
+  <test-case name="fn-deep-equal-mix-args-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing two boolean args </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:boolean("0") , xs:boolean("false"))</test>
@@ -833,7 +832,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-027">
+  <test-case name="fn-deep-equal-mix-args-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing arg1:boolean arg2:value of false fn </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:boolean("false") , false())</test>
@@ -842,7 +841,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-028">
+  <test-case name="fn-deep-equal-mix-args-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Comparing arg1:date, arg2: string </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:date("1993-03-31") , "1993-03-31")</test>
@@ -851,7 +850,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-029">
+  <test-case name="fn-deep-equal-mix-args-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Comparing arg1:date, arg2: string </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal( xs:date("1993-03-31") , xs:string("1993-03-31"))</test>
@@ -860,7 +859,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-030">
+  <test-case name="fn-deep-equal-mix-args-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Comparing arg1:dateTime, arg2: string </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal(xs:dateTime("1972-12-31T00:00:00"), "1972-12-31T00:00:00")</test>
@@ -869,7 +868,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-mix-args-031">
+  <test-case name="fn-deep-equal-mix-args-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Comparing arg1:time, arg2: string </description>
     <created by="Pulkita Tyagi" on="2005-05-24"/>
     <test>fn:deep-equal(xs:time("12:30:00"), "12:30:00")</test>
@@ -878,7 +877,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-node-args-1">
+  <test-case name="fn-deep-equal-node-args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Apply deep-equal to nodes </description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <environment ref="bib"/>
@@ -891,7 +890,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-node-args-2">
+  <test-case name="fn-deep-equal-node-args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Apply deep-equal to nodes </description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <environment ref="bib"/>
@@ -904,7 +903,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-node-args-3">
+  <test-case name="fn-deep-equal-node-args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Apply deep-equal to nodes </description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <environment ref="bib"/>
@@ -917,7 +916,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-node-args-4">
+  <test-case name="fn-deep-equal-node-args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Apply deep-equal to nodes </description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <environment ref="bib"/>
@@ -930,7 +929,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-deep-equal-node-args-5">
+  <test-case name="fn-deep-equal-node-args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Apply deep-equal to nodes </description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <environment ref="bib"/>
@@ -943,52 +942,52 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-1">
+  <test-case name="K-SeqDeepEqualFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `deep-equal()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-2">
+  <test-case name="K-SeqDeepEqualFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `deep-equal("a string")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal("a string")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-3">
+  <test-case name="K-SeqDeepEqualFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `deep-equal("a string", "a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal("a string", "a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-4">
+  <test-case name="K-SeqDeepEqualFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description> A test whose essence is: `deep-equal("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCH0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</result-string>
     <result>
       <error code="FOCH0002"/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-5">
+  <test-case name="K-SeqDeepEqualFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `deep-equal("a string", "a string", ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal("a string", "a string", ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-6">
+  <test-case name="K-SeqDeepEqualFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal("a string", "a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal("a string", "a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
@@ -997,7 +996,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-7">
+  <test-case name="K-SeqDeepEqualFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((), ()) eq true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((), ()) eq true()</test>
@@ -1006,7 +1005,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-8">
+  <test-case name="K-SeqDeepEqualFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(xs:float("NaN"), xs:float("NaN"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(xs:float("NaN"), xs:float("NaN"))</test>
@@ -1015,7 +1014,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-9">
+  <test-case name="K-SeqDeepEqualFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(xs:double("NaN"), xs:double("NaN"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(xs:double("NaN"), xs:double("NaN"))</test>
@@ -1024,7 +1023,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-10">
+  <test-case name="K-SeqDeepEqualFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(xs:float("NaN"), xs:double("NaN"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(xs:float("NaN"), xs:double("NaN"))</test>
@@ -1033,7 +1032,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-11">
+  <test-case name="K-SeqDeepEqualFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(xs:double("NaN"), xs:float("NaN"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(xs:double("NaN"), xs:float("NaN"))</test>
@@ -1042,7 +1041,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-12">
+  <test-case name="K-SeqDeepEqualFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal(xs:float("NaN"), xs:float(0)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal(xs:float("NaN"), xs:float(0)))</test>
@@ -1051,7 +1050,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-13">
+  <test-case name="K-SeqDeepEqualFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal(xs:float(0), xs:float("NaN")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal(xs:float(0), xs:float("NaN")))</test>
@@ -1060,7 +1059,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-14">
+  <test-case name="K-SeqDeepEqualFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal(xs:double(0), xs:double("NaN")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal(xs:double(0), xs:double("NaN")))</test>
@@ -1069,7 +1068,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-15">
+  <test-case name="K-SeqDeepEqualFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal(xs:double("NaN"), xs:double(0)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal(xs:double("NaN"), xs:double(0)))</test>
@@ -1078,7 +1077,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-16">
+  <test-case name="K-SeqDeepEqualFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal(xs:decimal("1"), xs:anyURI("example.com")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal(xs:decimal("1"), xs:anyURI("example.com")))</test>
@@ -1087,7 +1086,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-17">
+  <test-case name="K-SeqDeepEqualFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal(QName("example.com", "ncname"), 3e2))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal(QName("example.com", "ncname"), 3e2))</test>
@@ -1096,7 +1095,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-18">
+  <test-case name="K-SeqDeepEqualFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 2, xs:anyURI("example.com")), (1, 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 2, xs:anyURI("example.com")), (1, 2, 3)))</test>
@@ -1105,7 +1104,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-19">
+  <test-case name="K-SeqDeepEqualFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, xs:decimal("2.2"), 3), (1, 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, xs:decimal("2.2"), 3), (1, 2, 3)))</test>
@@ -1114,7 +1113,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-20">
+  <test-case name="K-SeqDeepEqualFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((true(), 2, 3), (1, 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((true(), 2, 3), (1, 2, 3)))</test>
@@ -1123,7 +1122,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-21">
+  <test-case name="K-SeqDeepEqualFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 2, 3), (1, 2, QName("example.com", "ncname"))))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 2, 3), (1, 2, QName("example.com", "ncname"))))</test>
@@ -1132,7 +1131,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-22">
+  <test-case name="K-SeqDeepEqualFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 2, 3), (1, xs:hexBinary("FF"), 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 2, 3), (1, xs:hexBinary("FF"), 3)))</test>
@@ -1141,7 +1140,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-23">
+  <test-case name="K-SeqDeepEqualFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 2, 3), (xs:base64Binary("FFFF"), 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 2, 3), (xs:base64Binary("FFFF"), 2, 3)))</test>
@@ -1150,7 +1149,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-24">
+  <test-case name="K-SeqDeepEqualFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((1, 2, xs:base64Binary("FFFF")), (1, 2, xs:base64Binary("FFFF")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, xs:base64Binary("FFFF")), (1, 2, xs:base64Binary("FFFF")))</test>
@@ -1159,7 +1158,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-25">
+  <test-case name="K-SeqDeepEqualFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((1, 1, 1), (1, 1, 1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 1, 1), (1, 1, 1))</test>
@@ -1168,7 +1167,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-26">
+  <test-case name="K-SeqDeepEqualFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, 3), (1, 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, 3), (1, 1, 1)))</test>
@@ -1177,7 +1176,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-27">
+  <test-case name="K-SeqDeepEqualFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 3, 1), (1, 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 3, 1), (1, 1, 1)))</test>
@@ -1186,7 +1185,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-28">
+  <test-case name="K-SeqDeepEqualFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((3, 1, 1), (1, 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((3, 1, 1), (1, 1, 1)))</test>
@@ -1195,7 +1194,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-29">
+  <test-case name="K-SeqDeepEqualFunc-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, 1), (3, 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, 1), (3, 1, 1)))</test>
@@ -1204,7 +1203,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-30">
+  <test-case name="K-SeqDeepEqualFunc-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, 1), (1, 3, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, 1), (1, 3, 1)))</test>
@@ -1213,7 +1212,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-31">
+  <test-case name="K-SeqDeepEqualFunc-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, 1), (1, 1, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, 1), (1, 1, 3)))</test>
@@ -1222,7 +1221,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-32">
+  <test-case name="K-SeqDeepEqualFunc-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(index-of(20, 20), (1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(index-of(20, 20), (1))</test>
@@ -1231,7 +1230,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-33">
+  <test-case name="K-SeqDeepEqualFunc-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(index-of((20, 40), 20), (1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(index-of((20, 40), 20), (1))</test>
@@ -1240,7 +1239,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-34">
+  <test-case name="K-SeqDeepEqualFunc-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(index-of((20, 20), 20), (1, 2))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(index-of((20, 20), 20), (1, 2))</test>
@@ -1249,7 +1248,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-35">
+  <test-case name="K-SeqDeepEqualFunc-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(index-of((20, 40, 20), 20), (1, 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(index-of((20, 40, 20), 20), (1, 3))</test>
@@ -1258,7 +1257,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-36">
+  <test-case name="K-SeqDeepEqualFunc-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((1, 1, "str"), (1, 1, "str"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 1, "str"), (1, 1, "str"))</test>
@@ -1267,7 +1266,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-37">
+  <test-case name="K-SeqDeepEqualFunc-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((1, "str", 1), (1, "str", 1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, "str", 1), (1, "str", 1))</test>
@@ -1276,7 +1275,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-38">
+  <test-case name="K-SeqDeepEqualFunc-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(("str", 1, 1), ("str", 1, 1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(("str", 1, 1), ("str", 1, 1))</test>
@@ -1285,7 +1284,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-39">
+  <test-case name="K-SeqDeepEqualFunc-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((1, 1, ()), (1, 1, ()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 1, ()), (1, 1, ()))</test>
@@ -1294,7 +1293,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-40">
+  <test-case name="K-SeqDeepEqualFunc-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((1, (), 1), (1, (), 1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, (), 1), (1, (), 1))</test>
@@ -1303,7 +1302,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-41">
+  <test-case name="K-SeqDeepEqualFunc-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(((), 1, 1), ((), 1, 1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(((), 1, 1), ((), 1, 1))</test>
@@ -1312,7 +1311,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-42">
+  <test-case name="K-SeqDeepEqualFunc-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, ()), (1, 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, ()), (1, 1, 1)))</test>
@@ -1321,7 +1320,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-43">
+  <test-case name="K-SeqDeepEqualFunc-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, (), 1), (1, 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, (), 1), (1, 1, 1)))</test>
@@ -1330,7 +1329,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-44">
+  <test-case name="K-SeqDeepEqualFunc-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal(((), 1, 1), (1, 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal(((), 1, 1), (1, 1, 1)))</test>
@@ -1339,7 +1338,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-45">
+  <test-case name="K-SeqDeepEqualFunc-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, 1), (1, 1, ())))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, 1), (1, 1, ())))</test>
@@ -1348,7 +1347,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-46">
+  <test-case name="K-SeqDeepEqualFunc-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, 1), (1, (), 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, 1), (1, (), 1)))</test>
@@ -1357,7 +1356,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-47">
+  <test-case name="K-SeqDeepEqualFunc-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, 1), ((), 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, 1), ((), 1, 1)))</test>
@@ -1366,7 +1365,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-48">
+  <test-case name="K-SeqDeepEqualFunc-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1), (1, 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1), (1, 1, 1)))</test>
@@ -1375,7 +1374,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-49">
+  <test-case name="K-SeqDeepEqualFunc-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, 1), (1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, 1), (1, 1)))</test>
@@ -1384,7 +1383,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-50">
+  <test-case name="K-SeqDeepEqualFunc-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((), (1, 1, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((), (1, 1, 1)))</test>
@@ -1393,7 +1392,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-51">
+  <test-case name="K-SeqDeepEqualFunc-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(deep-equal((1, 1, 1), ()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal((1, 1, 1), ()))</test>
@@ -1402,7 +1401,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-52">
+  <test-case name="K-SeqDeepEqualFunc-52"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((), reverse(0 to -5))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((), reverse(0 to -5))</test>
@@ -1411,7 +1410,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-53">
+  <test-case name="K-SeqDeepEqualFunc-53"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal((), 0 to -5)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((), 0 to -5)</test>
@@ -1420,7 +1419,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-54">
+  <test-case name="K-SeqDeepEqualFunc-54"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(reverse(0 to -5), ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(reverse(0 to -5), ())</test>
@@ -1429,7 +1428,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-55">
+  <test-case name="K-SeqDeepEqualFunc-55"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `deep-equal(0 to -5, ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(0 to -5, ())</test>
@@ -1438,7 +1437,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-56">
+  <test-case name="K-SeqDeepEqualFunc-56"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Use case-blind collation, if supported</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <environment>
@@ -1450,7 +1449,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-57">
+  <test-case name="K-SeqDeepEqualFunc-57"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Use case-blind collation, if supported</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <environment>
@@ -1462,7 +1461,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-58">
+  <test-case name="K-SeqDeepEqualFunc-58"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Use case-blind collation, if supported, within attribute nodes</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <environment>
@@ -1480,7 +1479,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-59">
+  <test-case name="K-SeqDeepEqualFunc-59"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Use case-blind collation, if supported, within element nodes</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <environment>
@@ -1498,8 +1497,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-60">
-    <description>Use case-blind collation, if supported, doesn't apply to names</description>
+  <test-case name="K-SeqDeepEqualFunc-60"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
+    <description>Use case-blind collation, if supported, doesn&apos;t apply to names</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <environment>
       <collation uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
@@ -1516,8 +1515,8 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-SeqDeepEqualFunc-61">
-    <description>Use case-blind collation, if supported, doesn't apply to attribute names</description>
+  <test-case name="K-SeqDeepEqualFunc-61"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
+    <description>Use case-blind collation, if supported, doesn&apos;t apply to attribute names</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <environment>
       <collation uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
@@ -1534,7 +1533,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="partial-function-application" name="K-SeqDeepEqualFunc-62">
+  <test-case covers="partial-function-application" name="K-SeqDeepEqualFunc-62"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Use case-blind collation, if supported, partially applied</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <environment>
@@ -1552,7 +1551,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="named-function-ref" name="K-SeqDeepEqualFunc-63">
+  <test-case covers="named-function-ref" name="K-SeqDeepEqualFunc-63"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Use case-blind collation, if supported, in dynamic call</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <environment>
@@ -1572,7 +1571,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-1">
+  <test-case name="K2-SeqDeepEqualFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Two date/time values that never will compare equal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(deep-equal(current-time(), current-date()))</test>
@@ -1581,7 +1580,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-2">
+  <test-case name="K2-SeqDeepEqualFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A date and node value that never will compare equal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1593,7 +1592,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-3">
+  <test-case name="K2-SeqDeepEqualFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A date and node value that never will compare equal(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1605,7 +1604,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-4">
+  <test-case name="K2-SeqDeepEqualFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Time values that never will compare equal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((current-time(), current-time(), current-time()), (current-time(), current-time()))</test>
@@ -1614,7 +1613,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-5">
+  <test-case name="K2-SeqDeepEqualFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparing mixed content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1626,7 +1625,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-6">
+  <test-case name="K2-SeqDeepEqualFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Comparing mixed content(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1638,7 +1637,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-7">
+  <test-case name="K2-SeqDeepEqualFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Comparing mixed content(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1650,25 +1649,25 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-8">
+  <test-case name="K2-SeqDeepEqualFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> fn:deep-equal() takes two arguments, not zero. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-9">
+  <test-case name="K2-SeqDeepEqualFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> fn:deep-equal() takes two arguments, not one. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-10">
+  <test-case name="K2-SeqDeepEqualFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:deep-equal() with two sequence of nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1680,7 +1679,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-11">
+  <test-case name="K2-SeqDeepEqualFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:deep-equal() with two sequence of nodes(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1692,7 +1691,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-12">
+  <test-case name="K2-SeqDeepEqualFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:deep-equal() with two sequence of nodes(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1704,7 +1703,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-13">
+  <test-case name="K2-SeqDeepEqualFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:deep-equal() with two sequence of nodes(#4). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1716,7 +1715,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-14">
+  <test-case name="K2-SeqDeepEqualFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure processing instructions are ignored if children of a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1728,7 +1727,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-15">
+  <test-case name="K2-SeqDeepEqualFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure processing instructions are ignored if children of a document node(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1740,7 +1739,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-16">
+  <test-case name="K2-SeqDeepEqualFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure processing instructions are ignored if children of a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1752,7 +1751,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-17">
+  <test-case name="K2-SeqDeepEqualFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure processing instructions are ignored if children of a document node(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1764,7 +1763,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-18">
+  <test-case name="K2-SeqDeepEqualFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:deep-equal() with mixed content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1776,7 +1775,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-19">
+  <test-case name="K2-SeqDeepEqualFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:deep-equal() with mixed content(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1788,19 +1787,19 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-20">
+  <test-case name="K2-SeqDeepEqualFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"))</response-string>
     <description> One of the operands has two text nodes, and hence it evaluate to false. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $d1 := <e a="1" b="2">te<?target data?>xt</e>; declare variable $d2 := <e b="2" a="1">text</e>; deep-equal($d1, $d2), deep-equal($d2, $d1)]]>
     </test>
-    <result-string>xs:string("false false")</result-string>
+    <result-string>(xs:boolean("false"),xs:boolean("false"))</result-string>
     <result>
       <assert-string-value>false false</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-21">
+  <test-case name="K2-SeqDeepEqualFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"))</response-string>
     <description> Processing instructions inside elements are ignored. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1812,19 +1811,19 @@
       <assert-string-value>true true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-22">
+  <test-case name="K2-SeqDeepEqualFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"))</response-string>
     <description> One of the operands has two text nodes besides the comment, and hence it evaluate to false. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $d1 := <e a="1" b="2">te<!-- content -->xt</e>; declare variable $d2 := <e b="2" a="1">text</e>; deep-equal($d1, $d2), deep-equal($d2, $d1)]]>
     </test>
-    <result-string>xs:string("false false")</result-string>
+    <result-string>(xs:boolean("false"),xs:boolean("false"))</result-string>
     <result>
       <assert-string-value>false false</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-23">
+  <test-case name="K2-SeqDeepEqualFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"))</response-string>
     <description> Comments inside elements are ignored. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1836,7 +1835,7 @@
       <assert-string-value>true true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-24">
+  <test-case name="K2-SeqDeepEqualFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Compare attribute nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1846,7 +1845,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-25">
+  <test-case name="K2-SeqDeepEqualFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare attribute nodes in a weird order. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1856,7 +1855,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-26">
+  <test-case name="K2-SeqDeepEqualFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare operands with attributes nodes of different size. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1866,7 +1865,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-27">
+  <test-case name="K2-SeqDeepEqualFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare operands with attributes nodes of different size(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1876,7 +1875,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-28">
+  <test-case name="K2-SeqDeepEqualFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test deep-equalness of two attribute nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1886,7 +1885,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-29">
+  <test-case name="K2-SeqDeepEqualFunc-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test deep-equalness of two attribute nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1896,7 +1895,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-30">
+  <test-case name="K2-SeqDeepEqualFunc-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test deep-equalness of two attribute nodes that has the same name, but different string values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1906,7 +1905,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-31">
+  <test-case name="K2-SeqDeepEqualFunc-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test deep-equalness of two attribute nodes that has same text content but different names. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1916,7 +1915,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-32">
+  <test-case name="K2-SeqDeepEqualFunc-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test deep-equalness of two attribute nodes that has identical text content but different names. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1926,7 +1925,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-33">
+  <test-case name="K2-SeqDeepEqualFunc-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Namespace prefixes and namespace nodes are ignored</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1940,7 +1939,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-34">
+  <test-case name="K2-SeqDeepEqualFunc-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Parent node is ignored</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1954,7 +1953,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-35">
+  <test-case name="K2-SeqDeepEqualFunc-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Type annotation is ignored for atomic values</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <test>
@@ -1965,7 +1964,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="validate-by-type" name="K2-SeqDeepEqualFunc-36">
+  <test-case covers="validate-by-type" name="K2-SeqDeepEqualFunc-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Compare typed value, not string value</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1980,7 +1979,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="validate-by-type" name="K2-SeqDeepEqualFunc-37">
+  <test-case covers="validate-by-type" name="K2-SeqDeepEqualFunc-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Type annotation is ignored on nodes</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1995,10 +1994,10 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-38">
+  <test-case name="K2-SeqDeepEqualFunc-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Element with mixed content is not equal to similar element with element-only content</description>
     <created by="Michael Kay" on="2012-05-30"/>
-    <modified by="O'Neil Delpratt" change="Bug fix relating to 17267" on="2012-10-09"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix relating to 17267" on="2012-10-09"/>
     <environment ref="perverse"/>
     <dependency type="spec" value="XQ10+"/>
     <dependency type="feature" value="schemaValidation"/>
@@ -2019,10 +2018,10 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-39">
+  <test-case name="K2-SeqDeepEqualFunc-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Element with mixed content is not equal to similar element with simple content</description>
     <created by="Michael Kay" on="2012-05-30"/>
-    <modified by="O'Neil Delpratt" change="Bug fix relating to 17267" on="2012-10-09"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix relating to 17267" on="2012-10-09"/>
     <environment ref="perverse"/>
     <dependency type="spec" value="XQ10+"/>
     <dependency type="feature" value="schemaValidation"/>
@@ -2040,18 +2039,18 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDeepEqualFunc-40">
+  <test-case name="K2-SeqDeepEqualFunc-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Handle dependency on implicit timezone </description>
     <created by="Michael Kay" on="2012-05-30"/>
     <test>
-        deep-equal(xs:dateTime('2012-05-30T12:00:00'), xs:dateTime('2012-05-30T12:00:00Z') - implicit-timezone())
+        deep-equal(xs:dateTime(&apos;2012-05-30T12:00:00&apos;), xs:dateTime(&apos;2012-05-30T12:00:00Z&apos;) - implicit-timezone())
       </test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-001">
+  <test-case name="cbcl-deep-equal-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test deep-equal ignores processing instructions and comments in elements. </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2063,7 +2062,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-002">
+  <test-case name="cbcl-deep-equal-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test deep-equal on processing instructions with different values. </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2075,7 +2074,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-003">
+  <test-case name="cbcl-deep-equal-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test deep-equal on processing instructions with different names. </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2087,7 +2086,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-004">
+  <test-case name="cbcl-deep-equal-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test deep-equal on equal processing instructions </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2099,7 +2098,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-005">
+  <test-case name="cbcl-deep-equal-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test deep-equal simplifying to fn:empty </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2109,7 +2108,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-006">
+  <test-case name="cbcl-deep-equal-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test deep-equal simplifying to fn:empty </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2119,7 +2118,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-007">
+  <test-case name="cbcl-deep-equal-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Test deep-equal on comparison requiring dynamic context </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <test>deep-equal(xs:gMonth("--12+03:00"), xs:gMonth("--12")) eq (implicit-timezone() eq xs:dayTimeDuration("PT3H"))</test>
@@ -2128,7 +2127,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-008">
+  <test-case name="cbcl-deep-equal-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test that deep equal compares untypedAtomic values correctly </description>
     <created by="Oliver Hallam" on="2008-06-17"/>
     <test>deep-equal((xs:untypedAtomic("a"), xs:untypedAtomic("P1Y"), 2.0), (xs:untypedAtomic("a"), xs:yearMonthDuration("P12M"), xs:untypedAtomic(" 2")))</test>
@@ -2137,7 +2136,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-009">
+  <test-case name="cbcl-deep-equal-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test fn:deep equal (was duplicate cbcl-deep-equal-001)</description>
     <created by="Tim Mills" on="2008-05-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2149,7 +2148,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-deep-equal-010">
+  <test-case name="cbcl-deep-equal-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test that deep equal compares untypedAtomic values correctly </description>
     <created by="Tim Mills" on="2012-10-30"/>
     <modified by="Michael Dyck" change="Add dependency on XQ10+ because query contains constructors" on="2012-10-30"/>

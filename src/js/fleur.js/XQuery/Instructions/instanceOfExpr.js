@@ -56,8 +56,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callb
 					Fleur.callback(function() {callback(a);});
 				});
 			}
-		} else if (occurrence === "1" || occurrence === "+") {
-			a.data = "false";
+		} else {
+			a.data = String(occurrence !== "1" && occurrence !== "+");
 			Fleur.callback(function() {callback(a);});
 		}
 	});

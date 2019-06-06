@@ -44,4 +44,6 @@ Fleur.XPathFunctions["http://expath.org/ns/zip"] = {};
 Fleur.XPathFunctions_zip = Fleur.XPathFunctions["http://expath.org/ns/zip"];
 Fleur.XPathFunctions["http://www.mathunion.org/matrix"] = {};
 Fleur.XPathFunctions_matrix = Fleur.XPathFunctions["http://www.mathunion.org/matrix"];
+Fleur.XPathFunctions["http://www.w3.org/2005/xquery"] = {};
+Fleur.XPathFunctions_xquery = Fleur.XPathFunctions["http://www.w3.org/2005/xquery"];
 Fleur.canonize = {};

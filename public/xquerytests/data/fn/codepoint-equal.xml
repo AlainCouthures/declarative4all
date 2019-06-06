@@ -217,7 +217,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-CodepointEqual-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
+  <test-case name="K2-CodepointEqual-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Compare two values returned from fn:lower-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(lower-case(concat("B STRING", current-time())), 
@@ -343,7 +343,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:yes-no($arg as xs:boolean) as xs:string { if ($arg) then &apos;yes&apos; else &apos;no&apos; }; 
       fn:index-of( (fn:true(), fn:false()), fn:codepoint-equal( local:yes-no(fn:false()), local:yes-no(fn:true()) ) )</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>

@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.ltOp = function(op1, op2) {
-	if (op1[0] < 4 || (op1[0] > 5 && op1[0] < 9)) {
+	if (op1[0] < 4) {
 		return op1[1] < op2[1];
 	}
 	if (op1[0] === 4) {
@@ -16,6 +16,13 @@ Fleur.ltOp = function(op1, op2) {
 	}
 	if (op1[0] === 5) {
 		return (op1[1] === "true") < (op2[1] === "true");
+	}
+	if (op1[0] > 5 && op1[0] < 9) {
+		var d1 = op1[1].d;
+		d1.setMinutes(d1.getMinutes() - op1[1].tz);
+		var d2 = op2[1].d;
+		d2.setMinutes(d2.getMinutes() - op2[1].tz);
+		return d1 < d2;
 	}
 	if (op1[0] === 9) {
 		return op1[1].sign * (op1[1].year * 12 + op1[1].month) < op2[1].sign * (op2[1].year * 12 + op2[1].month);

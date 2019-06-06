@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-implicit-timezone" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the implicit-timezone() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-implicit-timezone" type="spec"/>
-  <test-case name="fn-implicit-timezone-1">
+  <test-case name="fn-implicit-timezone-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Description Evaluation of "fn:implicit-timezone" with incorrect arity. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:implicit-timezone("Argument 1")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-2">
+  <test-case name="fn-implicit-timezone-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT1H")</response-string>
     <description> Normal call to "fn:implicit-timezone". </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:implicit-timezone()</test>
@@ -20,7 +19,7 @@
       <assert-type>xs:dayTimeDuration</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-3">
+  <test-case name="fn-implicit-timezone-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("PT2H")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of an addition operation. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() + fn:implicit-timezone())</test>
@@ -29,7 +28,7 @@
       <assert-type>xs:string</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-4">
+  <test-case name="fn-implicit-timezone-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("PT0S")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a subtraction operation. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() - fn:implicit-timezone())</test>
@@ -38,7 +37,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-5">
+  <test-case name="fn-implicit-timezone-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT2H")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a multiplication operation. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:implicit-timezone() * xs:double(2)</test>
@@ -47,7 +46,7 @@
       <assert-type>xs:dayTimeDuration</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-6">
+  <test-case name="fn-implicit-timezone-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("PNaNDTNaNHNaNMNaNS")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a multiplication operation. Second argument is NaN </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() * (0 div 0E0))</test>
@@ -56,7 +55,7 @@
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-7">
+  <test-case name="fn-implicit-timezone-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("PT0S")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a multiplication operation. Second argument is 0 </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() * 0)</test>
@@ -65,7 +64,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-8">
+  <test-case name="fn-implicit-timezone-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("PT0S")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a multiplication operation. Second argument is -0 </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() * -0)</test>
@@ -74,7 +73,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-9">
+  <test-case name="fn-implicit-timezone-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("PT30M")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a division operation. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() div xs:double(2))</test>
@@ -83,7 +82,7 @@
       <assert-type>xs:string</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-10">
+  <test-case name="fn-implicit-timezone-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("PNaNDTNaNHNaNMNaNS")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a division operation. Second argument results in NaN </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() div ( 0 div 0E0))</test>
@@ -92,7 +91,7 @@
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-11">
+  <test-case name="fn-implicit-timezone-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a division operation. Second argument is 0. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() div 0 )</test>
@@ -101,7 +100,7 @@
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-12">
+  <test-case name="fn-implicit-timezone-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a division operation. Second argument is -0. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() div -0 )</test>
@@ -110,16 +109,16 @@
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-13">
+  <test-case name="fn-implicit-timezone-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a division operation. Both operands includes the fn:implicit-timezone. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
-    <test>(implicit-timezone() + xs:dayTimeDuration('PT1S')) div (implicit-timezone() + xs:dayTimeDuration('PT1S'))</test>
+    <test>(implicit-timezone() + xs:dayTimeDuration(&apos;PT1S&apos;)) div (implicit-timezone() + xs:dayTimeDuration(&apos;PT1S&apos;))</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-14">
+  <test-case name="fn-implicit-timezone-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a division operation. Second operand is a call to xs:dayTimeDuration function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() div xs:dayTimeDuration("P0DT60M00S"))</test>
@@ -128,7 +127,7 @@
       <assert-type>xs:string</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-15">
+  <test-case name="fn-implicit-timezone-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("06:00:00")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of an addition operation. First operand is a call to xs:time function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>xs:time("05:00:00") + fn:implicit-timezone()</test>
@@ -137,7 +136,7 @@
       <assert-type>xs:time</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-16">
+  <test-case name="fn-implicit-timezone-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODT0001"))</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a subtraction operation. First operand is a call to xs:time function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>xs:time("05:00:00") - fn:implicit-timezone()</test>
@@ -146,7 +145,7 @@
       <assert-type>xs:time</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-17">
+  <test-case name="fn-implicit-timezone-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODT0001"))</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a subtraction operation. First operand is a call to xs:date function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>(xs:date("2000-10-30") - fn:implicit-timezone())</test>
@@ -155,7 +154,7 @@
       <assert-type>xs:date</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-18">
+  <test-case name="fn-implicit-timezone-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:date("2000-10-30")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of an addition operation. First operand is a call to xs:date function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>(xs:date("2000-10-30") + fn:implicit-timezone())</test>
@@ -164,7 +163,7 @@
       <assert-type>xs:date</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-19">
+  <test-case name="fn-implicit-timezone-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODT0001"))</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of a subtraction operation. First operand is a call to xs:dateTime function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>(xs:dateTime("2000-10-30T11:12:00") - fn:implicit-timezone())</test>
@@ -173,7 +172,7 @@
       <assert-type>xs:dateTime</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-20">
+  <test-case name="fn-implicit-timezone-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2000-10-30T12:12:00")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as part of an addition operation. First operand is a call to xs:dateTime function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>(xs:dateTime("2000-10-30T11:12:00") + fn:implicit-timezone())</test>
@@ -182,7 +181,7 @@
       <assert-type>xs:dateTime</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-21">
+  <test-case name="fn-implicit-timezone-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:date("2000-10-30+01:00")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as an an argument to the adjust-date-to-timezone function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>(fn:adjust-date-to-timezone(xs:date("2000-10-30"),fn:implicit-timezone()))</test>
@@ -191,7 +190,7 @@
       <assert-type>xs:date</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-22">
+  <test-case name="fn-implicit-timezone-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("10:00:00+01:00")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as an an argument to the adjust-time-to-timezone function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>(fn:adjust-time-to-timezone(xs:time("10:00:00"),fn:implicit-timezone()))</test>
@@ -200,7 +199,7 @@
       <assert-type>xs:time</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-23">
+  <test-case name="fn-implicit-timezone-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2002-03-07T10:00:00+01:00")</response-string>
     <description> Evaluation of "fn:implicit-timezone" as an an argument to the adjust-dateTime-to-timezone function. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>(fn:adjust-dateTime-to-timezone(xs:dateTime("2002-03-07T10:00:00"),fn:implicit-timezone()))</test>
@@ -209,25 +208,25 @@
       <assert-type>xs:dateTime</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-implicit-timezone-24">
+  <test-case name="fn-implicit-timezone-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Test that implicit timezone is in range -14h to +14h</description>
     <created by="Michael Kay" on="2011-06-30"/>
-    <test>implicit-timezone() ge xs:dayTimeDuration('-PT14H') and implicit-timezone() le xs:dayTimeDuration('PT14H')</test>
+    <test>implicit-timezone() ge xs:dayTimeDuration(&apos;-PT14H&apos;) and implicit-timezone() le xs:dayTimeDuration(&apos;PT14H&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextImplicitTimezoneFunc-1">
+  <test-case name="K-ContextImplicitTimezoneFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `implicit-timezone("WRONG PARAM")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>implicit-timezone("WRONG PARAM")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ContextImplicitTimezoneFunc-2">
+  <test-case name="K-ContextImplicitTimezoneFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Simple test of implicit-timezone(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-duration(implicit-timezone()) le 0 or seconds-from-duration(implicit-timezone()) gt 0</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextImplicitTimezoneFunc-3">
+  <test-case name="K-ContextImplicitTimezoneFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test that implicit-timezone() do return a value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exists(seconds-from-duration(implicit-timezone()))</test>

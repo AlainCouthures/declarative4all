@@ -10,6 +10,7 @@
 Fleur.XPathFunctions_fn["months-from-duration#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:months-from-duration",
 	function(arg) {
 		var a = Fleur.Atomize(arg);
+		var d;
 		if (a === Fleur.EmptySequence) {
 			return null;
 		}
@@ -17,7 +18,11 @@ Fleur.XPathFunctions_fn["months-from-duration#1"] = new Fleur.Function("http://w
 			return 0;
 		}
 		if (a.schemaTypeInfo === Fleur.Type_yearMonthDuration) {
-			var d = Fleur.toJSONYearMonthDuration(a.data);
+			d = Fleur.toJSONYearMonthDuration(a.data);
+			return d.sign * d.month;
+		}
+		if (a.schemaTypeInfo === Fleur.Type_duration) {
+			d = Fleur.toJSONDuration(a.data);
 			return d.sign * d.month;
 		}
 		var e = new Error("");

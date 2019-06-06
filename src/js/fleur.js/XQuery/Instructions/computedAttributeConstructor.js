@@ -14,6 +14,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedAttributeConstructor] = function(ctx, c
 		attr.namespaceURI = null;
 		attr.nodeName = children[0][1][0];
 		attr.localName = children[0][1][0];
+		if (children[1][1].length === 0) {
+			Fleur.callback(function() {callback(attr);});
+			return;
+		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 			attr.appendChild(n);
 			Fleur.callback(function() {callback(attr);});
@@ -28,6 +32,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedAttributeConstructor] = function(ctx, c
 				attr.nodeName = a.data;
 				attr.namespaceURI = null;
 				attr.localName = a.data;
+				if (children[1][1].length === 0) {
+					Fleur.callback(function() {callback(attr);});
+					return;
+				}
 				Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 					attr.appendChild(n);
 					Fleur.callback(function() {callback(attr);});

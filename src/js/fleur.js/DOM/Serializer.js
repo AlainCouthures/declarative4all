@@ -47,8 +47,9 @@ Fleur.Serializer.escapeXML = function(s, quotes, inline) {
 	}
 	return r;
 };
-Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
+Fleur.Serializer._serializeXMLToString = function(node, indent, offset, knownns) {
 	var s, i, l;
+	knownns = knownns || {};
 	switch (node.nodeType) {
 		case Fleur.Node.ELEMENT_NODE:
 			s = (indent ? offset + "<" : "<") + node.nodeName;
@@ -59,10 +60,32 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 				}
 				names.sort();
 				for (i = 0, l = names.length; i < l; i++) {
+					if (names[i] === "xmlns") {
+						if (knownns[" "] === node.getAttribute(names[i])) {
+							continue;
+						}
+						knownns[" "] = node.getAttribute(names[i]);
+					} else if (node.getAttributeNode(names[i]).namespaceURI === "http://www.w3.org/2000/xmlns/") {
+						if (knownns[node.getAttributeNode(names[i]).localName] === node.getAttributeNode(names[i]).nodeValue) {
+							continue;
+						}
+						knownns[node.getAttributeNode(names[i]).localName] = node.getAttributeNode(names[i]).nodeValue;
+					}
 					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true) + "\"";
 				}
 			} else {
 				for (i = 0, l = node.attributes.length; i < l; i++) {
+					if (node.attributes[i].nodeName === "xmlns") {
+						if (knownns[" "] === node.attributes[i].nodeValue) {
+							continue;
+						}
+						knownns[" "] = node.attributes[i].nodeValue;
+					} else if (node.attributes[i].namespaceURI === "http://www.w3.org/2000/xmlns/") {
+						if (knownns[node.attributes[i].localName] === node.attributes[i].nodeValue) {
+							continue;
+						}
+						knownns[node.attributes[i].localName] = node.attributes[i].nodeValue;
+					}
 					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true) + "\"";
 				}
 			}
@@ -71,7 +94,7 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 			}
 			s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset + "  ");
+				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset + "  ", knownns);
 			}
 			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + (indent ? ">\n" : ">");
 		case Fleur.Node.TEXT_NODE:
@@ -82,19 +105,19 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + "?>";
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.SEQUENCE_NODE:
 			s = "";
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset);
+				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset, knownns);
 			}
 			return s;
 		case Fleur.Node.DOCUMENT_NODE:
 			s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset);
+				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset, {});
 			}
 			return s;
 	}

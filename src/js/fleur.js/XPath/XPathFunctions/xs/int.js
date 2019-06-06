@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["int"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_int, function() {}, callback);
-};
+Fleur.XPathFunctions_xs["int#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:int",
+	function(arg) {
+		return Fleur.XPathConstructor(arg, Fleur.Type_int, function() {});
+	},
+	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

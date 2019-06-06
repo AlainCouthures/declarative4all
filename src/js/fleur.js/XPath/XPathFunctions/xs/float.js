@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["float"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_float, function() {}, callback);
-};
+Fleur.XPathFunctions_xs["float#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:float",
+	function(arg) {
+		return Fleur.XPathConstructor(arg, Fleur.Type_float, function() {});
+	},
+	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

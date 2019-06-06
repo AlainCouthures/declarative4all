@@ -20,9 +20,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 	var cb = function(n, eob) {
 		var seq;
 		if (eob === depth) {
-			if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) {
+			if ((result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
 				result = n;
-			} else if (n !== Fleur.EmptySequence) {
+			} else if (n !== Fleur.EmptySequence && (result.nodeType !== Fleur.Node.TEXT_NODE || result.schemaTypeInfo !== Fleur.Type_error)) {
 				if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 					seq = new Fleur.Sequence();
 					seq.childNodes = new Fleur.NodeList();
@@ -50,9 +50,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 			Fleur.callback(function() {callback(n, depth);});
 			return;
 		}
-		if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) {
+		if ((result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
 			result = n;
-		} else if (n !== Fleur.EmptySequence) {
+		} else if (n !== Fleur.EmptySequence && (result.nodeType !== Fleur.Node.TEXT_NODE || result.schemaTypeInfo !== Fleur.Type_error)) {
 			if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 				seq = new Fleur.Sequence();
 				seq.childNodes = new Fleur.NodeList();

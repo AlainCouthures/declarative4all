@@ -7,6 +7,11 @@
  * @module 
  * @description 
  */
+Fleur.XPathFunctions_xs["QName#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:QName",
+	function(arg) {
+		return Fleur.XPathConstructor(arg, Fleur.Type_QName, function() {});
+	},
+	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
 Fleur.XPathFunctions_xs["QName"] = function(ctx, children, callback) {
 	var namespaceURI, qualifiedName, a;
 	if (children.length === 1) {

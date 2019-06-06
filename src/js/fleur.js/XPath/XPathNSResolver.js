@@ -12,6 +12,7 @@ Fleur.XPathNSResolver = function(node) {
 		"xml": "http://www.w3.org/XML/1998/namespace",
 		"xmlns": "http://www.w3.org/2000/xmlns/",
 		"xs": "http://www.w3.org/2001/XMLSchema",
+		"xsi": "http://www.w3.org/2001/XMLSchema-instance",
 		"xf": "http://www.w3.org/2002/xforms",
 		" function": "http://www.w3.org/2005/xpath-functions",
 		"fn": "http://www.w3.org/2005/xpath-functions",
@@ -34,19 +35,23 @@ Fleur.XPathNSResolver = function(node) {
 		"ietf": "https://tools.ietf.org/rfc/index",
 		"excel": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
 		"zip": "http://expath.org/ns/zip",
-		"matrix": "http://www.mathunion.org/matrix"
+		"matrix": "http://www.mathunion.org/matrix",
+		"xpath": "http://www.w3.org/2005/xpath",
+		"xquery": "http://www.w3.org/2005/xquery"
 	};
 	this.uri2pf = {
 		"http://www.w3.org/XML/1998/namespace": "xml",
 		"http://www.w3.org/2000/xmlns/": "xmlns",
 		"http://www.w3.org/2001/XMLSchema": "xs",
+		"http://www.w3.org/2001/XMLSchema-instance": "xsi",
 		"http://www.w3.org/2002/xforms": "xf",
+		"http://www.w3.org/2005/xpath": "xpath",
 		"http://www.w3.org/2005/xpath-functions": "fn",
-		"http://www.w3.org/2005/xquery-local-functions": "local",
 		"http://www.w3.org/2005/xpath-functions/math": "math",
 		"http://www.w3.org/2005/xpath-functions/map": "map",
 		"http://www.w3.org/2005/xpath-functions/array": "array",
 		"http://www.w3.org/2005/xqt-errors": "err",
+		"http://www.w3.org/2005/xquery": "xquery",
 		"http://xqib.org": "b",
 		"http://expath.org/ns/binary": "bin",
 		"http://expath.org/ns/file": "file",

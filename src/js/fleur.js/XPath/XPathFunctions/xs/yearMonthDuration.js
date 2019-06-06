@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["yearMonthDuration"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["yearMonthDuration"], function() {}, callback);
-};
+Fleur.XPathFunctions_xs["yearMonthDuration#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:yearMonthDuration",
+	function(arg) {
+		return Fleur.XPathConstructor(arg, Fleur.Type_yearMonthDuration, function() {});
+	},
+	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
