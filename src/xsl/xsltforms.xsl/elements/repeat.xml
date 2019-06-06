@@ -3,6 +3,9 @@
  * @licence LGPL - See file 'LICENSE.md' in this project.
  * @module repeat
 -->
+<!--
+<xsl:template match="xforms:repeat[count(xhtml:tr | tr | xhtml:td | td | xhtml:th | th) &lt; 2 and not(parent::*[local-name() = 'tr'] and ancestor::*[2][local-name() = 'repeat' and namespace-uri() = 'http://www.w3.org/2002/xforms']) and ((not(following-sibling::*) and not(preceding-sibling::*)) or not(xhtml:tr | tr | xhtml:td | td | xhtml:th | th))]" priority="3" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+-->
 <xsl:template match="xforms:repeat[count(xhtml:tr | tr | xhtml:td | td | xhtml:th | th) &lt; 2 and not(parent::*[local-name() = 'tr'] and ancestor::*[2][local-name() = 'repeat' and namespace-uri() = 'http://www.w3.org/2002/xforms']) and ((not(following-sibling::*) and not(preceding-sibling::*)) or not(xhtml:tr | tr | xhtml:td | td | xhtml:th | th))]" priority="3" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:param name="parentworkid"/>
 	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>

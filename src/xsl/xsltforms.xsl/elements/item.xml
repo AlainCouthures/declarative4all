@@ -8,6 +8,13 @@
 	<xsl:param name="parentworkid"/>
 	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
 	<xsl:choose>
+		<xsl:when test="$type = 'openselect'">
+			<option value="{xforms:label}" data-value="{xforms:value}">
+				<xsl:call-template name="genid">
+					<xsl:with-param name="workid" select="$workid"/>
+				</xsl:call-template>
+			</option>
+		</xsl:when>
 		<xsl:when test="$type">
 			<div>
 				<xsl:call-template name="genid">

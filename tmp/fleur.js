@@ -1,8 +1,8 @@
 /*
-Fleur rev.13 (13)
-FLOWR + group by + count
+Fleur rev.14 (14)
+Comformance impr. for types and functions
 
-Copyright (C) 2018 agenceXML - Alain Couthures
+Copyright (C) 2019 agenceXML - Alain Couthures
 Contact at : info@agencexml.com
 
 This library is free software; you can redistribute it and/or

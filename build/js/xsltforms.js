@@ -1,8 +1,8 @@
 /*
-XSLTForms 1.3 (652)
+XSLTForms 1.4 (654)
 XForms 1.1+ with XPath 1.0+ Engine
 
-Copyright (C) 2018 agenceXML - Alain Couthures
+Copyright (C) 2019 agenceXML - Alain Couthures
 Contact at : xsltforms@agencexml.com
 
 This library is free software; you can redistribute it and/or
@@ -146,8 +146,8 @@ var XsltForms_xpathAxis = {
 };
 var XsltForms_context;
 var XsltForms_globals = {
-	fileVersion: "1.3",
-	fileVersionNumber: 652,
+	fileVersion: "1.4",
+	fileVersionNumber: 654,
 	language: "navigator",
 	debugMode: false,
 	debugButtons: [
@@ -5031,13 +5031,13 @@ var XsltForms_xpathFunctionExceptions = {
 		name : "current() : Invalid number of arguments",
 		message : "current() function must have no argument"
 	},
-	isValidInvalidArgumentsNumber : {
-		name : "is-valid() : Invalid number of arguments",
-		message : "is-valid() function must have one argument exactly"
+	validInvalidArgumentsNumber : {
+		name : "valid() : Invalid number of arguments",
+		message : "valid() function must have one argument exactly"
 	},
-	isValidInvalidArgumentType : {
-		name : "is-valid() : Invalid type of argument",
-		message : "is-valid() function must have a nodeset argument"
+	validInvalidArgumentType : {
+		name : "valid() : Invalid type of argument",
+		message : "valid() function must have a nodeset argument"
 	},
 	isNonEmptyArrayArgumentsNumber : {
 		name : "is-non-empty-array() : Invalid number of arguments",
@@ -5889,13 +5889,13 @@ var XsltForms_xpathCoreFunctions = {
 			ctx.addDepElement(document.getElementById(XsltForms_browser.getDocMeta(ctx.node.nodeType === Fleur.Node.DOCUMENT_NODE ? ctx.node : ctx.node.ownerDocument, "model")).xfElement);
 			return [ctx.current];
 		} ),
-	"http://www.w3.org/2002/xforms is-valid" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NODESET, false,
+	"http://www.w3.org/2002/xforms valid" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NODESET, false,
 		function(nodeSet) {
 			if (arguments.length !== 1) {
-				throw XsltForms_xpathFunctionExceptions.isValidInvalidArgumentsNumber;
+				throw XsltForms_xpathFunctionExceptions.validInvalidArgumentsNumber;
 			}
 			if (typeof nodeSet !== "object") {
-				throw XsltForms_xpathFunctionExceptions.isValidInvalidArgumentType;
+				throw XsltForms_xpathFunctionExceptions.validInvalidArgumentType;
 			}
 			var valid = true;
 			for (var i = 0, len = nodeSet.length; valid && i < len; i++) {
@@ -6527,6 +6527,7 @@ var XsltForms_xpathCoreFunctions = {
 			return XsltForms_globals.invalid_id_(XsltForms_globals.body);
 		})
 };
+XsltForms_xpathCoreFunctions["http://www.w3.org/2002/xforms is-valid"] = XsltForms_xpathCoreFunctions["http://www.w3.org/2002/xforms valid"];
 XsltForms_globals.invalid_id_ = function(element) {
 	if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms_console" || element.hasXFElement === false) {
 		return "";
@@ -11399,7 +11400,7 @@ XsltForms_repeat.selectItem = function(element) {
 		}
 	}
 };
-function XsltForms_select(subform, id, min, max, full, binding, incremental, clone) {
+function XsltForms_select(subform, id, min, max, full, binding, open, incremental, clone) {
 	XsltForms_globals.counters.select++;
 	this.init(subform, id);
 	this.controlName = max === 1 ? "select1": "select";
@@ -11407,12 +11408,19 @@ function XsltForms_select(subform, id, min, max, full, binding, incremental, clo
 	this.min = min;
 	this.max = max;
 	this.full = full;
+	this.open = open;
 	this.incremental = incremental;
 	this.isClone = clone;
 	this.hasBinding = true;
 	this.outRange = false;
 	if (!this.full) {
-		this.select = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "select")[0] : this.element.getElementsByTagName("select")[0];
+		if (!this.open) {
+			this.select = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "select")[0] : this.element.getElementsByTagName("select")[0];
+			this.datalist = this.select;
+		} else {
+			this.select = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input")[0] : this.element.getElementsByTagName("input")[0];
+			this.datalist = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "datalist")[0] : this.element.getElementsByTagName("datalist")[0];
+		}
 		this.initFocus(this.select);
 		if (incremental) {
 			XsltForms_browser.events.attach(this.select, "change", XsltForms_select.incrementalChange);
@@ -11424,7 +11432,7 @@ function XsltForms_select(subform, id, min, max, full, binding, incremental, clo
 }
 XsltForms_select.prototype = new XsltForms_control();
 XsltForms_select.prototype.clone = function(id) { 
-	return new XsltForms_select(this.subform, id, this.min, this.max, this.full, this.binding, this.incremental, true);
+	return new XsltForms_select(this.subform, id, this.min, this.max, this.full, this.binding, this.open, this.incremental, true);
 };
 XsltForms_select.prototype.dispose = function() {
 	this.select = null;
@@ -11441,40 +11449,40 @@ XsltForms_select.prototype.focusFirst = function() {
 };
 XsltForms_select.prototype.setValue = function(value) {
 	var optvalue, empty;
-	if (this.select && this.select.options.length === 1 && this.select.options[0] && this.select.options[0].value === "\xA0") {
+	if (this.select && this.datalist.options.length === 1 && this.datalist.options[0] && this.datalist.options[0].value === "\xA0") {
 		this.currentValue = null;
 	}
 	if (!this.full && (!value || value === "")) {
 		this.selectedOptions = [];
-		if (this.select.options[0] && this.select.options[0].value !== "\xA0") {
+		if (this.datalist.options[0] && this.datalist.options[0].value !== "\xA0") {
 			empty = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "option") : document.createElement("option");
 			empty.value = "\xA0";
 			empty.text = "\xA0";
 			empty.id = "";
-			if (this.select.children[0]) {
-				this.select.insertBefore(empty, this.select.children[0]);
+			if (this.datalist.children[0]) {
+				this.datalist.insertBefore(empty, this.datalist.children[0]);
 			} else {
-				this.select.appendChild(empty);
+				this.datalist.appendChild(empty);
 			}
-			this.select.selectedIndex = 0;
+			this.datalist.selectedIndex = 0;
 		}
 	} else {
-		if (!this.full && this.min === 0 && this.select.options[0] && this.select.options[0].value !== "\xA0") {
+		if (!this.full && this.min === 0 && this.datalist.options[0] && this.datalist.options[0].value !== "\xA0") {
 			empty = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "option") : document.createElement("option");
 			empty.value = "\xA0";
 			empty.text = "\xA0";
 			empty.id = "";
-			if (this.select.children[0]) {
-				this.select.insertBefore(empty, this.select.children[0]);
+			if (this.datalist.children[0]) {
+				this.datalist.insertBefore(empty, this.datalist.children[0]);
 			} else {
-				this.select.appendChild(empty);
+				this.datalist.appendChild(empty);
 			}
 		}
-		if (!this.full && this.select.firstChild && this.select.firstChild.value === "\xA0" && !(this.min === 0 && this.max === 1)) {
-			this.select.remove(0);
+		if (!this.full && this.datalist.firstChild && this.datalist.firstChild.value === "\xA0" && !(this.min === 0 && this.max === 1)) {
+			this.datalist.remove(0);
 		}
 		var vals = value ? value instanceof Array ? value : (this.max !== 1? value.split(XsltForms_globals.valuesSeparator) : [value]) : [""];
-		var list = this.full ? (XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input") : this.element.getElementsByTagName("input")) : this.select.options;
+		var list = this.full ? (XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input") : this.element.getElementsByTagName("input")) : this.datalist.options;
 		var well = true;
 		var schtyp = XsltForms_schema.getType(XsltForms_browser.getType(this.element.node) || "xsd_:string");
 		for (var i = 0, len = vals.length; well && i < len; i++) {
@@ -13285,7 +13293,7 @@ if (typeof xsltforms_d0 === "undefined") {
 			document.getElementsByTagName("body")[0].appendChild(conselt);
 			XsltForms_browser.dialog.show('statusPanel');
 			if (!(document.documentElement.childNodes[0].nodeType === 8 || (XsltForms_browser.isIE && document.documentElement.childNodes[0].childNodes[1] && document.documentElement.childNodes[0].childNodes[1].nodeType === 8))) {
-				var comment = document.createComment("HTML elements and Javascript instructions generated by XSLTForms 1.3 (652) - Copyright (C) 2018 <agenceXML> - Alain COUTHURES - http://www.agencexml.com");
+				var comment = document.createComment("HTML elements and Javascript instructions generated by XSLTForms 1.4 (654) - Copyright (C) 2019 <agenceXML> - Alain COUTHURES - http://www.agencexml.com");
 				document.documentElement.insertBefore(comment, document.documentElement.firstChild);
 			}
 			var initelts2 = document.getElementsByTagName("script");

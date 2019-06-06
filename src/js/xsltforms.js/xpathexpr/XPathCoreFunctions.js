@@ -304,13 +304,13 @@ var XsltForms_xpathFunctionExceptions = {
 		name : "current() : Invalid number of arguments",
 		message : "current() function must have no argument"
 	},
-	isValidInvalidArgumentsNumber : {
-		name : "is-valid() : Invalid number of arguments",
-		message : "is-valid() function must have one argument exactly"
+	validInvalidArgumentsNumber : {
+		name : "valid() : Invalid number of arguments",
+		message : "valid() function must have one argument exactly"
 	},
-	isValidInvalidArgumentType : {
-		name : "is-valid() : Invalid type of argument",
-		message : "is-valid() function must have a nodeset argument"
+	validInvalidArgumentType : {
+		name : "valid() : Invalid type of argument",
+		message : "valid() function must have a nodeset argument"
 	},
 	isNonEmptyArrayArgumentsNumber : {
 		name : "is-non-empty-array() : Invalid number of arguments",
@@ -1544,16 +1544,16 @@ var XsltForms_xpathCoreFunctions = {
 
 		
 /**
- * * '''is-valid(nodeset?)'''
+ * * '''valid(nodeset?)'''
  */
 
-	"http://www.w3.org/2002/xforms is-valid" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NODESET, false,
+	"http://www.w3.org/2002/xforms valid" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NODESET, false,
 		function(nodeSet) {
 			if (arguments.length !== 1) {
-				throw XsltForms_xpathFunctionExceptions.isValidInvalidArgumentsNumber;
+				throw XsltForms_xpathFunctionExceptions.validInvalidArgumentsNumber;
 			}
 			if (typeof nodeSet !== "object") {
-				throw XsltForms_xpathFunctionExceptions.isValidInvalidArgumentType;
+				throw XsltForms_xpathFunctionExceptions.validInvalidArgumentType;
 			}
 			var valid = true;
 			for (var i = 0, len = nodeSet.length; valid && i < len; i++) {
@@ -2409,6 +2409,7 @@ var XsltForms_xpathCoreFunctions = {
 			return XsltForms_globals.invalid_id_(XsltForms_globals.body);
 		})
 };
+XsltForms_xpathCoreFunctions["http://www.w3.org/2002/xforms is-valid"] = XsltForms_xpathCoreFunctions["http://www.w3.org/2002/xforms valid"];
 
 XsltForms_globals.invalid_id_ = function(element) {
 	if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms_console" || element.hasXFElement === false) {

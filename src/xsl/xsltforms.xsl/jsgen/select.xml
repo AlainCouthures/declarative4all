@@ -34,6 +34,8 @@
 		<xsl:text>,</xsl:text>
 		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@ref"/></xsl:call-template>
 		<xsl:text>,</xsl:text>
+		<xsl:choose><xsl:when test="@selection='open'"><xsl:text>true</xsl:text></xsl:when><xsl:otherwise><xsl:text>false</xsl:text></xsl:otherwise></xsl:choose>
+		<xsl:text>,</xsl:text>
 		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@incremental"/><xsl:with-param name="default">true</xsl:with-param></xsl:call-template>
 		<xsl:text>);</xsl:text>
 	</js>

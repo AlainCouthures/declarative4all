@@ -10,7 +10,7 @@
  * * constructor function : initializes specific properties and initializes focus and change event management
  */
 		
-function XsltForms_select(subform, id, min, max, full, binding, incremental, clone) {
+function XsltForms_select(subform, id, min, max, full, binding, open, incremental, clone) {
 	XsltForms_globals.counters.select++;
 	this.init(subform, id);
 	this.controlName = max === 1 ? "select1": "select";
@@ -18,12 +18,19 @@ function XsltForms_select(subform, id, min, max, full, binding, incremental, clo
 	this.min = min;
 	this.max = max;
 	this.full = full;
+	this.open = open;
 	this.incremental = incremental;
 	this.isClone = clone;
 	this.hasBinding = true;
 	this.outRange = false;
 	if (!this.full) {
-		this.select = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "select")[0] : this.element.getElementsByTagName("select")[0];
+		if (!this.open) {
+			this.select = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "select")[0] : this.element.getElementsByTagName("select")[0];
+			this.datalist = this.select;
+		} else {
+			this.select = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input")[0] : this.element.getElementsByTagName("input")[0];
+			this.datalist = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "datalist")[0] : this.element.getElementsByTagName("datalist")[0];
+		}
 		this.initFocus(this.select);
 		if (incremental) {
 			XsltForms_browser.events.attach(this.select, "change", XsltForms_select.incrementalChange);
@@ -43,7 +50,7 @@ XsltForms_select.prototype = new XsltForms_control();
  */
 
 XsltForms_select.prototype.clone = function(id) { 
-	return new XsltForms_select(this.subform, id, this.min, this.max, this.full, this.binding, this.incremental, true);
+	return new XsltForms_select(this.subform, id, this.min, this.max, this.full, this.binding, this.open, this.incremental, true);
 };
 
 
@@ -81,41 +88,41 @@ XsltForms_select.prototype.focusFirst = function() {
 
 XsltForms_select.prototype.setValue = function(value) {
 	var optvalue, empty;
-	if (this.select && this.select.options.length === 1 && this.select.options[0] && this.select.options[0].value === "\xA0") {
+	if (this.select && this.datalist.options.length === 1 && this.datalist.options[0] && this.datalist.options[0].value === "\xA0") {
 		this.currentValue = null;
 	}
 	if (!this.full && (!value || value === "")) {
 		this.selectedOptions = [];
-		if (this.select.options[0] && this.select.options[0].value !== "\xA0") {
+		if (this.datalist.options[0] && this.datalist.options[0].value !== "\xA0") {
 			empty = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "option") : document.createElement("option");
 			empty.value = "\xA0";
 			empty.text = "\xA0";
 			empty.id = "";
-			if (this.select.children[0]) {
-				this.select.insertBefore(empty, this.select.children[0]);
+			if (this.datalist.children[0]) {
+				this.datalist.insertBefore(empty, this.datalist.children[0]);
 			} else {
-				this.select.appendChild(empty);
+				this.datalist.appendChild(empty);
 			}
-			this.select.selectedIndex = 0;
+			this.datalist.selectedIndex = 0;
 		}
 	} else {
-		if (!this.full && this.min === 0 && this.select.options[0] && this.select.options[0].value !== "\xA0") {
+		if (!this.full && this.min === 0 && this.datalist.options[0] && this.datalist.options[0].value !== "\xA0") {
 			empty = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "option") : document.createElement("option");
 			empty.value = "\xA0";
 			empty.text = "\xA0";
 			empty.id = "";
-			if (this.select.children[0]) {
-				this.select.insertBefore(empty, this.select.children[0]);
+			if (this.datalist.children[0]) {
+				this.datalist.insertBefore(empty, this.datalist.children[0]);
 			} else {
-				this.select.appendChild(empty);
+				this.datalist.appendChild(empty);
 			}
 		}
-		if (!this.full && this.select.firstChild && this.select.firstChild.value === "\xA0" && !(this.min === 0 && this.max === 1)) {
+		if (!this.full && this.datalist.firstChild && this.datalist.firstChild.value === "\xA0" && !(this.min === 0 && this.max === 1)) {
 			//this.select.removeChild(this.select.firstChild);
-			this.select.remove(0);
+			this.datalist.remove(0);
 		}
 		var vals = value ? value instanceof Array ? value : (this.max !== 1? value.split(XsltForms_globals.valuesSeparator) : [value]) : [""];
-		var list = this.full ? (XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input") : this.element.getElementsByTagName("input")) : this.select.options;
+		var list = this.full ? (XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input") : this.element.getElementsByTagName("input")) : this.datalist.options;
 		var well = true;
 		var schtyp = XsltForms_schema.getType(XsltForms_browser.getType(this.element.node) || "xsd_:string");
 		for (var i = 0, len = vals.length; well && i < len; i++) {
