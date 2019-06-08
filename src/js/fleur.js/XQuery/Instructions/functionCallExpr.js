@@ -237,7 +237,13 @@ Fleur.functionCall = function(ctx, children, xf, args, callback) {
 							seq.appendChild(a);
 						});
 						Fleur.callback(function() {callback(seq);});
-					} else if (typeof vret === 'object' && vret && !(vret instanceof Array || vret instanceof Fleur.Node || vret instanceof Node || vret instanceof Error || typeof vret.getMonth === "function")) {
+					} else if (typeof vret === 'object' && vret && !(vret instanceof Array || vret instanceof Fleur.Node || vret instanceof Error || typeof vret.getMonth === "function")) {
+						try {
+							if (vret instanceof Node) {
+								convret(vret);
+								Fleur.callback(function() {callback(a);});
+							}
+						} catch (e) {}
 						var map = new Fleur.Map();
 						var e;
 						for (var p in vret) {
