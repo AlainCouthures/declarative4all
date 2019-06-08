@@ -5614,7 +5614,9 @@ Fleur.XPathFunctions_b["alert#1"] = new Fleur.Function("http://xqib.org", "b:ale
 	},
 	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.EmptySequence});
 Fleur.XPathFunctions_b["dom#0"] = new Fleur.Function("http://xqib.org", "b:dom",
-	function() { return document; },
+	function() {
+		return document;
+	},
 	null, [], false, false, {type: Fleur.Node});
 Fleur.XPathFunctions_b["getProperty#2"] = new Fleur.Function("http://xqib.org", "b:getProperty",
 	function(htmlelt, propertyname) {
@@ -14580,7 +14582,7 @@ Fleur.functionCall = function(ctx, children, xf, args, callback) {
 							seq.appendChild(a);
 						});
 						Fleur.callback(function() {callback(seq);});
-					} else if (typeof vret === 'object' && vret && !(vret instanceof Array || vret instanceof Fleur.Node || vret instanceof Error || typeof vret.getMonth === "function")) {
+					} else if (typeof vret === 'object' && vret && !(vret instanceof Array || vret instanceof Fleur.Node || vret instanceof Node || vret instanceof Error || typeof vret.getMonth === "function")) {
 						var map = new Fleur.Map();
 						var e;
 						for (var p in vret) {
@@ -16677,7 +16679,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 			Fleur.callback(function() {callback(seq);});
 			return;
 		case "child":
-			if (!curr.hasOwnProperty("childNodes") || curr.childNodes.length === 0) {
+			if (!curr.childNodes || curr.childNodes.length === 0) {
 				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
