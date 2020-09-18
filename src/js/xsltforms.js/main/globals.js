@@ -440,7 +440,7 @@ var XsltForms_globals = {
 			var target = XsltForms_browser.events.getTarget(evt);
 			var parentElt = target;
 			while (parentElt && parentElt.nodeType === Fleur.Node.ELEMENT_NODE) {
-				if (XsltForms_browser.hasClass(parentElt, "xforms-repeat-item")) {
+				if (parentElt.localName.toLowerCase() === "xforms-repeat-item" || parentElt.getAttribute("xforms-name") === "repeat-item") {
 					XsltForms_repeat.selectItem(parentElt);
 				}
 				parentElt = parentElt.parentNode;
@@ -604,6 +604,9 @@ var XsltForms_globals = {
 				model.newNodesChanged = [];
 				model.rebuilded = model.newRebuilded;
 				model.newRebuilded = false;
+				if (XsltForms_globals.ready) {
+					XsltForms_xmlevents.dispatch(model, "xforms-recalculate");
+				}
 			} else {
 				model.nodesChanged.length = 0;
 				model.rebuilded = false;
@@ -756,7 +759,7 @@ var XsltForms_globals = {
 			if (this.focus.element) {
 				this.openAction("XsltForms_globals.blur");
 				XsltForms_xmlevents.dispatch(this.focus, "DOMFocusOut");
-				XsltForms_browser.setClass(this.focus.element, "xforms-focus", false);
+				this.focus.element.removeAttribute("xf-focus");
 				try {
 					this.focus.blur();
 				} catch (e){

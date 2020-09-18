@@ -90,7 +90,7 @@ XsltForms_xmlevents.dispatch = function(target, evtname, type, bubbles, cancelab
 	}
 	target = target.element || target;
 	XsltForms_browser.assert(target && typeof(target.nodeName) !== "undefined");
-	XsltForms_browser.debugConsole.write("Dispatching event " + evtname + " on <" + target.nodeName +
+	XsltForms_browser.debugConsole.write("Dispatching event " + evtname + " on <" + target.nodeName.toLowerCase() +
 		(target.className? " class=\"" + (typeof target.className === "string" ? target.className : target.className.baseVal) + "\"" : "") +
 		(target.id? " id=\"" + target.id + "\"" : "") + "/>");
 	var reg = XsltForms_xmlevents.REGISTRY[evtname];

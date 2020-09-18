@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_domEngine XsltForms_browser unescape XsltForms_coreElement XsltForms_globals XsltForms_browser_BinaryToArray_ByteStr_Last XsltForms_browser_BinaryToArray_ByteStr Fleur XsltForms_schema XsltForms_exprContext XsltForms_xmlevents zip_inflate zip_deflate*/
+/*globals XsltForms_browser unescape XsltForms_coreElement XsltForms_globals XsltForms_browser_BinaryToArray_ByteStr_Last XsltForms_browser_BinaryToArray_ByteStr Fleur XsltForms_schema XsltForms_exprContext XsltForms_xmlevents zip_inflate zip_deflate XsltForms_class XsltForms_subform XsltForms_collection*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,10 +10,22 @@
  * * constructor function : stores the properties of this instance and attaches it to a model
  */
 		
-function XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc) {
-	if (XsltForms_domEngine === "") {
-		this.init(subform, id, model, "xforms-instance");
-		this.readonly = readonly;
+new XsltForms_class("XsltForms_instance", "HTMLElement", "xforms-instance");
+
+function XsltForms_instance(subform, elt) {
+	if (!elt.id && !document.getElementById(subform.id + "-instance-default")) {
+		elt.id = subform.id + "-instance-default";
+	}
+	var model = elt.parentNode.xfElement;
+	var srcDoc = elt.children[0] ? elt.children[0].textContent : "";
+	srcDoc = srcDoc.replace(/(<|&lt;)\\\/script(>|&gt;)/g, "</script>");
+	if (srcDoc === "") {
+		elt.innerHTML = "";
+	}
+	if (!Fleur.DOMParse) {
+		this.init(subform, elt);
+		this.readonly = elt.getAttribute("xf-readonly");
+		var mediatype = elt.getAttribute("xf-mediatype") || "application/xml";
 		var lines = mediatype.split(";");
 		this.mediatype = lines[0];
 		for (var i = 1, len = lines.length; i < len; i++) {
@@ -30,14 +42,14 @@ function XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc
 					break;
 			}
 		}
-		this.src = XsltForms_browser.unescape(src);
+		this.src = XsltForms_browser.unescape(elt.getAttribute("xf-src") || (elt.children.length !== 0 ? null : elt.getAttribute("xf-resource")));
 		var newmediatype = this.mediatype;
 		if (newmediatype.substr(newmediatype.length - 4) === "/xml" || newmediatype.substr(newmediatype.length - 4) === "/xsl" || newmediatype.substr(newmediatype.length - 4) === "+xml") {
 			newmediatype = "application/xml";
 		}
 		switch(newmediatype) {
 			case "application/xml":
-				this.srcDoc = XsltForms_browser.unescape(srcDoc);
+				this.srcDoc = srcDoc.trim();
 				if (this.srcDoc.substring(0, 1) === "&") {
 					this.srcDoc = XsltForms_browser.unescape(this.srcDoc);
 				}
@@ -47,17 +59,17 @@ function XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc
 			case "application/javascript":
 				if (srcDoc) {
 					var json;
-					eval("json = " + XsltForms_browser.unescape(srcDoc));
+					eval("json = " + srcDoc);
 					this.srcDoc = XsltForms_browser.json2xml("", json, true, false);
 				} else {
 					this.srcDoc = "";
 				}
 				break;
 			case "text/csv":
-				this.srcDoc = XsltForms_browser.csv2xml(XsltForms_browser.unescape(srcDoc), this.separator, this.header);
+				this.srcDoc = XsltForms_browser.csv2xml(srcDoc, this.separator, this.header);
 				break;
 			case "text/vcard":
-				this.srcDoc = XsltForms_browser.vcard2xcard(XsltForms_browser.unescape(srcDoc));
+				this.srcDoc = XsltForms_browser.vcard2xcard(srcDoc);
 				break;
 			case "application/zip":
 			case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
@@ -65,24 +77,24 @@ function XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc
 				this.srcDoc = "<dummy/>";
 				break;
 			default:
-				alert("Unsupported mediatype '" + mediatype + "' for instance #" + id);
+				alert("Unsupported mediatype '" + elt.getAttribute("mediatype") + "' for instance #" + elt.id);
 				return;
 		}
 		this.model = model;
 		this.doc = XsltForms_browser.createXMLDocument("<dummy/>");
-		XsltForms_browser.setDocMeta(this.doc, "instance", id);
+		XsltForms_browser.setDocMeta(this.doc, "instance", elt.id);
 		XsltForms_browser.setDocMeta(this.doc, "model", model.element.id);
 		model.addInstance(this);
 		subform.instances.push(this);
 	} else {
-		this.init(subform, id, model, "xforms-instance");
-		this.readonly = readonly;
-		this.mediatype = mediatype;
-		this.src = XsltForms_browser.unescape(src);
-		this.srcDoc = XsltForms_browser.unescape(srcDoc).replace(/^\s+|\s+$/gm,'');
+		this.init(subform, elt);
+		this.readonly = elt.getAttribute("xf-readonly");
+		this.mediatype = elt.getAttribute("xf-mediatype");
+		this.src = XsltForms_browser.unescape(elt.getAttribute("xf-src"));
+		this.srcDoc = srcDoc.replace(/^\s+|\s+$/gm,'');
 		this.model = model;
 		this.doc = XsltForms_browser.createXMLDocument("<dummy/>");
-		XsltForms_browser.setDocMeta(this.doc, "instance", id);
+		XsltForms_browser.setDocMeta(this.doc, "instance", elt.id);
 		XsltForms_browser.setDocMeta(this.doc, "model", model.element.id);
 		model.addInstance(this);
 		subform.instances.push(this);
@@ -230,7 +242,7 @@ XsltForms_instance.prototype.store = function(isReset) {
  * * '''setDoc''' method : sets a document for this instance
  */
 
-if (XsltForms_domEngine === "") {
+if (!Fleur.DOMParser) {
 	XsltForms_instance.prototype.setDoc = function(xml, isReset, preserveOld) {
 		var instid = XsltForms_browser.getDocMeta(this.doc, "instance");
 		var modid = XsltForms_browser.getDocMeta(this.doc, "model");
@@ -268,7 +280,7 @@ if (XsltForms_domEngine === "") {
  * * '''setDocFromReq''' method : sets a document for this instance from a request
  */
 
-if (XsltForms_domEngine === "") {
+if (!Fleur.DOMParser) {
 	XsltForms_instance.prototype.setDocFromReq = function(req, isReset, preserveOld) {
 		var srcDoc = req.responseText;
 		var mediatype = req.getResponseHeader('Content-Type') ? req.getResponseHeader('Content-Type') : this.mediatype;
@@ -446,7 +458,7 @@ XsltForms_instance.prototype.validate_ = function(node, readonly, notrelevant) {
 		var relevantfound = false;
 		var readonlyfound = false;
 		for (var i = 0, len = binds.length; i < len; i++) {
-			var bind = document.getElementById(binds[i]).xfElement;
+			var bind = XsltForms_collection[binds[i]].xfElement;
 			var nodes = bind.nodes;
 			var i2 = 0;
 			for (var len2 = nodes.length; i2 < len2; i2++) {
@@ -470,16 +482,24 @@ XsltForms_instance.prototype.validate_ = function(node, readonly, notrelevant) {
 				this.setProperty_(node, "readonly", readonly || (bind.readonly? bind.readonly.evaluate(ctx, node) : bind.calculate ? true : false));
 				readonlyfound = readonlyfound || bind.readonly;
 			}
-			this.setProperty_(node, "notvalid",
+			this.setProperty_(node, "invalid",
 				!XsltForms_browser.getBoolMeta(node, "notrelevant") && !(!(XsltForms_browser.getBoolMeta(node, "required") && (!value || value === "")) &&
 				(XsltForms_browser.getNil(node) ? value === "" : !schtyp || schtyp.validate(value) && !XsltForms_browser.getBoolMeta(node, "unsafe")) &&
 				(!bind.constraint || bind.constraint.evaluate(ctx, node))));
+			var inst = this;
+			Object.entries(bind.meta).forEach(function(m) {
+				var valueb = String(m[1].evaluate(ctx, node));
+				if (XsltForms_browser.getMeta(node, "meta-" + m[0]) !== valueb) {
+					XsltForms_browser.setMeta(node, "meta-" + m[0], valueb);
+					inst.model.addChange(node);   
+				}
+			});
 			XsltForms_browser.copyArray(ctx.depsNodes, bind.depsNodes);
 		}
 	} else {
 		this.setProperty_(node, "notrelevant", notrelevant);
 		this.setProperty_(node, "readonly", readonly);
-		this.setProperty_(node, "notvalid", schtyp && (!schtyp.validate(value) || XsltForms_browser.getBoolMeta(node, "unsafe")));
+		this.setProperty_(node, "invalid", schtyp && (!schtyp.validate(value) || XsltForms_browser.getBoolMeta(node, "unsafe")));
 	}
 };
 
@@ -502,7 +522,7 @@ XsltForms_browser.json2xml = function(eltname, json, root, inarray) {
 		fullname = " exml:fullname=\"" + XsltForms_browser.escape(eltname) + "\"";
 		eltname = "________";
 	}
-	var ret = root ? "<exml:anonymous xmlns:exml=\"http://www.agencexml.com/exml\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:exsi=\"http://www.agencexml.com/exi\" xmlns=\"\">" : "";
+	var ret = root ? "<exml:anonymous xmlns:exml=\"http://www.agencexml.com/exml\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:exsi=\"http://www.agencexml.com/exi\" xmlns=\"\">" : "";
 	if (json instanceof Array) {
 		if (inarray) {
 			ret += "<exml:anonymous exsi:maxOccurs=\"unbounded\">";

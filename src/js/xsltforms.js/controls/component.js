@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control*/
+/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_class*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -9,6 +9,8 @@
  * Component Control  Class
  * * constructor function : initializes specific properties
  */
+
+new XsltForms_class("XsltForms_component", "HTMLElement", "xforms-component");
 		
 function XsltForms_component(subform, id, valoff, binding, href) {
 	XsltForms_globals.counters.component++;

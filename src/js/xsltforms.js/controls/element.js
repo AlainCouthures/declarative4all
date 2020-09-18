@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_browser XsltForms_globals XsltForms_xmlevents*/
+/*globals XsltForms_browser XsltForms_globals XsltForms_xmlevents XsltForms_element XsltForms_class*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -9,21 +9,19 @@
  * Element  Class
  * * constructor function : empty
  */
-		
+
 function XsltForms_element() {
 }
-
-
 		
 /**
  * * '''init''' method : initializes properties 
  */
 
-XsltForms_element.depsId = 0;
+var XsltForms_element_depsId = 0;
 
-XsltForms_element.prototype.init = function(subform, id) {
+XsltForms_element.prototype.init = function(subform, elt) {
 	this.subform = subform;
-	this.element = document.getElementById(id);
+	this.element = elt;
 	if (this.element.xfElement) {
 		if (!(this.element.xfElement instanceof Array)) {
 			this.element.xfElement = [this.element.xfElement];
@@ -35,8 +33,8 @@ XsltForms_element.prototype.init = function(subform, id) {
 	this.depsElements = [];
 	this.depsNodesBuild = [];
 	this.depsNodesRefresh = [];
-	this.depsIdB = XsltForms_element.depsId++;
-	this.depsIdR = XsltForms_element.depsId++;
+	this.depsIdB = XsltForms_element_depsId++;
+	this.depsIdR = XsltForms_element_depsId++;
 	var p = this.element.parentNode;
 	while (p) {
 		if (p.varScope) {
@@ -139,7 +137,7 @@ XsltForms_element.prototype.build = function(ctx, varresolver) {
 			this.build_(ctx, varresolver);
 		}
 	} else {
-		this.element.node = ctx;
+		this.element.node = this.controlName === "item" ? this.element.node || ctx : ctx;
 	}
 };
 
@@ -161,13 +159,18 @@ XsltForms_element.prototype.evaluateBinding = function(binding, ctx, varresolver
 			}
 		}
 		this.boundnodes = binding.bind_evaluate(this.subform, ctx, varresolver, this.depsNodesBuild, this.depsIdB, this.depsElements);
+		if (this.boundnodes instanceof Array && this.boundnodes.length !== 0) {
+			this.element.setAttribute("xf-bound", "");
+		} else {
+			this.element.removeAttribute("xf-bound");
+		}
 		if (this.boundnodes || this.boundnodes === "" || this.boundnodes === 0) {
 			return this.boundnodes;
 		}
 		// A 'null' binding means bind-ID was not found.
-		errmsg = "non-existent bind-ID("+ binding.bind + ") on element(" + this.element.id + ")!";
+		errmsg = "non-existent bind-ID("+ binding.bind + ") on element(" + this.element.localName + ")!";
 	} else {
-		errmsg = "no binding defined for element("+ this.element.id + ")!";
+		errmsg = "no binding defined for element("+ this.element.localName + ")!";
 	}
 	XsltForms_browser.assert(errmsg);
 	if (XsltForms_globals.building && XsltForms_globals.debugMode) {

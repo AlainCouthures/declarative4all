@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser*/
+/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser XsltForms_class XsltForms_binding XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,13 +10,15 @@
  * * constructor function : resolves specific properties
  */
 		
-function XsltForms_setvalue(subform, binding, value, literal, context, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_setvalue", "HTMLElement", "xforms-setvalue");
+
+function XsltForms_setvalue(subform, elt) {
 	this.subform = subform;
-	this.binding = binding;
-	this.value = value? XsltForms_xpath.get(value) : null;
-	this.literal = literal || "";
-	this.context = XsltForms_xpath.get(context);
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.binding = elt.hasAttribute("xf-ref") || elt.hasAttribute("xf-bind") ? new XsltForms_binding(this.subform, elt) : null;
+	this.value = elt.hasAttribute("xf-value") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-value")) : null;
+	this.literal = elt.textContent || "";
+	this.context = elt.hasAttribute("xf-context") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-context")) : null;
+	this.init(elt);
 }
 
 XsltForms_setvalue.prototype = new XsltForms_abstractAction();

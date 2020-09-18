@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_element XsltForms_browser XsltForms_globals Fleur XsltForms_xmlevents XsltForms_repeat XsltForms_schema*/
+/*globals XsltForms_element XsltForms_browser XsltForms_globals Fleur XsltForms_xmlevents XsltForms_repeat XsltForms_schema XsltForms_class*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -13,7 +13,6 @@
 function XsltForms_control() {
 	this.isControl = true;
 }
-
 XsltForms_control.prototype = new XsltForms_element();
 
 
@@ -57,11 +56,12 @@ XsltForms_control.prototype.focus = function(focusEvent, evcontext) {
 		XsltForms_globals.openAction("XsltForms_control.prototype.focus");
 		XsltForms_globals.blur(true);
 		XsltForms_globals.focus = this;
-		XsltForms_browser.setClass(this.element, "xforms-focus", true);
-		XsltForms_browser.setClass(this.element, "xforms-disabled", false);
+		this.element.setAttribute("xf-focus", "");
+		//XsltForms_browser.setClass(this.element, "xforms-focus", true);
+		//XsltForms_browser.setClass(this.element, "xforms-disabled", false);
 		var parentNode = this.element.parentNode;
 		while (parentNode.nodeType === Fleur.Node.ELEMENT_NODE) {
-			if (typeof parentNode.node !== "undefined" && XsltForms_browser.hasClass(parentNode, "xforms-repeat-item")) {
+			if (typeof parentNode.node !== "undefined" && (parentNode.localName.toLowerCase() === "xforms-repeat-item" || parentNode.getAttribute("xforms-name") === "repeat-item")) {
 				XsltForms_repeat.selectItem(parentNode);
 			}
 			parentNode = parentNode.parentNode;
@@ -99,6 +99,12 @@ XsltForms_control.prototype.focus = function(focusEvent, evcontext) {
  */
 
 XsltForms_control.prototype.build_ = function(ctx, varresolver) {
+	if (this.controlName === "output") {
+		var p = this.element.parentNode;
+		if (p.localName.toLowerCase() === "xforms-message" && !p.xfElement.running) {
+			return;
+		}
+	}
 	var result = this.evaluateBinding(this.binding, ctx, varresolver);
 	if (typeof result === "object") {
 		var node = result[0];
@@ -110,6 +116,9 @@ XsltForms_control.prototype.build_ = function(ctx, varresolver) {
 		}
 		if (node) {
 			this.depsNodesRefresh.push(node);
+			element.setAttribute("xf-bound", "");
+		} else {
+			element.removeAttribute("xf-bound");
 		}
 	} else {
 		this.outputValue = result;
@@ -123,7 +132,7 @@ XsltForms_control.prototype.build_ = function(ctx, varresolver) {
  */
 
 XsltForms_control.prototype.refresh = function() {
-	if (this.controlName === "var") {
+	if (this.controlName === "var" || this.controlName === "action-var") {
 		return;
 	}
 	var element = this.element;
@@ -156,13 +165,13 @@ XsltForms_control.prototype.refresh = function() {
 		} else {
 			changed = value !== this.currentValue || this.nodeChanged;
 		}
-		if (this.relevant) {
-			XsltForms_browser.setClass(element, "xforms-disabled", false);
-		}
+		//if (this.relevant) {
+		//	XsltForms_browser.setClass(element, "xforms-disabled", false);
+		//}
 		this.changeProp(node, "required", "xforms-required", "xforms-optional", changed, value);
 		this.changeProp(node, "notrelevant", "xforms-disabled", "xforms-enabled", changed, value);
 		this.changeProp(node, "readonly", "xforms-readonly", "xforms-readwrite", changed, value);
-		this.changeProp(node, "notvalid", "xforms-invalid", "xforms-valid", changed, value);
+		this.changeProp(node, "invalid", "xforms-invalid", "xforms-valid", changed, value);
 		this.currentValue = value instanceof Array ? value.slice(0) : value;
 		if (changed) {
 			this.setValue(value);
@@ -187,8 +196,8 @@ XsltForms_control.prototype.eventDispatch = function(onTrue, onFalse, value) {
 	if ((!this.nodeChanged || XsltForms_globals.ready) && !this.isTrigger) {
 		XsltForms_xmlevents.dispatch(this.element, (value? onTrue : onFalse));
 	}
-	XsltForms_browser.setClass(this.element, onTrue, value);
-	XsltForms_browser.setClass(this.element, onFalse, !value);
+	//XsltForms_browser.setClass(this.element, onTrue, value);
+	//XsltForms_browser.setClass(this.element, onFalse, !value);
 };
 
 
@@ -198,10 +207,15 @@ XsltForms_control.prototype.eventDispatch = function(onTrue, onFalse, value) {
  */
 
 XsltForms_control.prototype.changeProp = function(node, prop, onTrue, onFalse, changed, nvalue) {
-	var value = (prop === "notvalid" && nvalue === "" && !XsltForms_globals.validationError) ? false : XsltForms_browser.getBoolMeta(node, prop);
+	var value = (prop === "invalid" && nvalue === "" && !XsltForms_globals.validationError) ? false : XsltForms_browser.getBoolMeta(node, prop);
 	if (changed || value !== this[prop]) {
 		this.eventDispatch(onTrue, onFalse, value);
 		this[prop] = value;
+		if (value) {
+			this.element.setAttribute("xf-" + prop, "");
+		} else {
+			this.element.removeAttribute("xf-" + prop);
+		}
 		if(prop === "readonly" && this.changeReadonly) {
 			this.changeReadonly();
 		}

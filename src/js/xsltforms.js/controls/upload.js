@@ -1,5 +1,5 @@
 /*eslint-env browser, jquery*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_schema plupload XsltForms_xmlevents*/
+/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_schema plupload XsltForms_xmlevents XsltForms_class XsltForms_subform XsltForms_binding*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,34 +10,73 @@
  * * constructor function : initializes specific properties including aid button management
  */
 		
-function XsltForms_upload(subform, id, valoff, binding, incremental, filename, mediatype, aidButton, clone) {
+new XsltForms_class("XsltForms_upload", "HTMLElement", "xforms-upload", "<xforms-focus></xforms-focus><xforms-label></xforms-label><xforms-body></xforms-body><xforms-required></xforms-required><xforms-alert></xforms-alert><xforms-help></xforms-help><xforms-hint></xforms-hint>");
+
+function XsltForms_upload(subform, elt) {
 	XsltForms_globals.counters.upload++;
-	this.init(subform, id);
+	this.init(subform, elt);
 	this.controlName = "upload";
-	this.binding = binding;
-	this.incremental = incremental;
-	this.filename = filename;
+	this.binding = new XsltForms_binding(subform, elt);
+	this.incremental = elt.getAttribute("xf-incremental") === "true";
 	var cells = this.element.children;
-	this.valoff = valoff;
-	this.cell = cells[valoff];
-	this.input = this.cell.children[0];
-	//if (this.input.nodeName.toLowerCase() === "form") {
-	//	this.input = this.input.children[0];
-	//}
-	this.isClone = clone;
+	for (var i = 0, l = cells.length; i < l; i++) {
+		var cname = cells[i].localName.toLowerCase();
+		if (cname === "xforms-body") {
+			this.cell = cells[i];
+		} else if (cname === "xforms-hint" && cells[i].getAttribute("xf-appearance") === "minimal") {
+			elt.setAttribute("title", cells[i].textContent);
+		}
+	}
 	this.hasBinding = true;
-	this.bolAidButton = aidButton;
-	this.mediatype = mediatype;
+	var headers = [];
+	var resource, filename, mediatype;
+	Array.prototype.slice.call(elt.children).forEach(function(n) {
+		switch(n.localName.toLowerCase()) {
+			case "xforms-filename":
+				filename = n;
+				break;
+			case "xforms-mediatype":
+				mediatype = n;
+				break;
+			case "xforms-resource":
+				resource = n;
+				break;
+			case "xforms-header":
+				var hname, hvalues = [];
+				Array.prototype.slice.call(n.children).forEach(function(n) {
+					switch(n.localName.toLowerCase()) {
+						case "xforms-name":
+							hname = n;
+							break;
+						case "xforms-value":
+							hvalues.push(n);
+							break;
+					}
+				});
+				headers.push({
+					nodeset: n.hasAttribute("xf-ref") ? new XsltForms_binding(subform, n) : null,
+					name: hname ? hname.hasAttribute("xf-value") ? new XsltForms_binding(subform, hname) : hname.textContent : n.getAttribute("xf-name"),
+					combine: n.getAttribute("xf-combine") || "append",
+					values: hvalues.map(function(hvalue) { return hvalue.hasAttribute("xf-value") ? new XsltForms_binding(subform, hvalue) : hvalue.textContent; })
+				});
+				break;
+		}
+	});
+	this.mediatype = mediatype ?
+		mediatype.hasAttribute("xf-value")  || mediatype.hasAttribute("xf-ref") ? new XsltForms_binding(subform, mediatype) : mediatype.textContent :
+		elt.getAttribute("xf-mediatype");
+	this.filename = filename ?
+		filename.hasAttribute("xf-value")  || filename.hasAttribute("xf-ref") ? new XsltForms_binding(subform, filename) : filename.textContent :
+		elt.getAttribute("xf-filename");
+	this.headers = headers;
+	this.resource = resource ?
+		resource.hasAttribute("xf-value") ? new XsltForms_binding(subform, resource) : resource.textContent :
+		elt.getAttribute("xf-resource");
 	this.value = "";
-	this.headers = [];
-	this.initFocus(this.input, true);
 	if (!window.FileReader && !(document.applets.xsltforms || document.getElementById("xsltforms_applet"))) {
 		XsltForms_browser.loadapplet();
 	}
-	if (aidButton) {
-		this.aidButton = cells[valoff + 1].children[0];
-		this.initFocus(this.aidButton);
-	}
+	this.initBody();
 }
 
 XsltForms_upload.prototype = new XsltForms_control();
@@ -84,6 +123,36 @@ XsltForms_upload.prototype.dispose = function() {
 	this.cell = null;
 	XsltForms_globals.counters.upload--;
 	XsltForms_control.prototype.dispose.call(this);
+};
+
+		
+/**
+ * * '''initBody''' method : initializes the input control body according to its type (password/textarea/boolean/date/datetime)
+ */
+
+XsltForms_upload.prototype.initBody = function() {
+	if (this.resource) {
+		if (this.cell.children.length === 0 || this.cell.children[0].nodeName.toUpperCase() !== "BUTTON") {
+			this.cell.innerHTML = '<button type="button">Select&nbsp;files</button><button type="button">Upload</button>';
+			this.input = this.cell.children[0];
+		} else {
+			this.input = this.cell.children[0];
+		}
+	} else {
+		if (this.cell.children.length === 0 || this.cell.children[0].nodeName.toUpperCase() !== "INPUT") {
+			this.cell.innerHTML = '<input type="file">';
+			this.input = this.cell.children[0];
+			this.input.onclick = function(event) {
+				return event.target.parentElement.parentElement.xfElement.directclick();
+			};
+			this.input.onchange = function(event) {
+				event.target.parentElement.parentElement.xfElement.change();
+			};
+		} else {
+			this.input = this.cell.children[0];
+		}
+	}
+	this.initFocus(this.input);
 };
 
 
@@ -361,7 +430,7 @@ XsltForms_upload.prototype.change = function() {
 				} else {
 					fr.onload = function(e) {
 						XsltForms_upload.contents[xf.element.id] = e.target.result;
-						xf.value = "file://" + filename + "?id=" + xf.element.id;
+						xf.value = "file://" + filename + "?id=" + (xf.element.id || "xsltforms_" + String(xf.element.xfIndex));
 						if (xf.incremental) {
 							xf.valueChanged(xf.value);
 						}

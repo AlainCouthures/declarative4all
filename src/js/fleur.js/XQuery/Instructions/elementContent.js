@@ -12,6 +12,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.elementContent] = function(ctx, children, callb
 		if (n.schemaTypeInfo === Fleur.Type_error) {
 			Fleur.callback(function() {callback(n);});
 		} else {
+			if (!n.namespaceURI) {
+				n.namespaceURI = ctx.env.nsresolver.lookupNamespaceURI(n.prefix);
+			}
 			elt.appendContent(n, "");
 			if (children.length > 1) {
 				Fleur.XQueryEngine[Fleur.XQueryX.elementContent](ctx, children.slice(1), function(n) {

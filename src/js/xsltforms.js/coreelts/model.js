@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_xmlevents XsltForms_schema XsltForms_coreElement XsltForms_xpathCoreFunctions Fleur XsltForms_browser*/
+/*globals XsltForms_globals XsltForms_xmlevents XsltForms_schema XsltForms_coreElement XsltForms_xpathCoreFunctions Fleur XsltForms_browser XsltForms_subform XsltForms_class XsltForms_schemadocs*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -8,13 +8,50 @@
  * @description  === "XsltForms_model" class ===
  * * constructor function : specifically gets the associated schemas
  */
-		
-function XsltForms_model(subform, id, schemas, functions, version) {
+
+
+Array.prototype.slice.call(document.documentElement.attributes).forEach(function(n) {
+	if (n.nodeName.substr(0, 6) === "xmlns:" || n.nodeName.substr(0, 6) === "xmlns-") {
+		Fleur.XPathNSResolver_default.pf.push(n.nodeName.substr(6));
+		Fleur.XPathNSResolver_default.uri.push(n.nodeValue);
+	} else if (n.localName === "xmlns" && n.prefix) {
+		Fleur.XPathNSResolver_default.pf.push(n.prefix.toLowerCase());
+		Fleur.XPathNSResolver_default.uri.push(n.namespaceURI);
+	} else if (n.prefix && n.prefix !== "") {
+		Fleur.XPathNSResolver_default.pf.push(n.prefix.toLowerCase());
+		Fleur.XPathNSResolver_default.uri.push(n.namespaceURI);
+	}
+});
+
+Array.prototype.slice.call(document.querySelectorAll("script[data-uri]")).forEach(function(n) {
+	XsltForms_globals.jslibraries[n.getAttribute("data-uri")] = n.getAttribute("data-version");
+});
+
+new XsltForms_class("XsltForms_model", "HTMLElement", "xforms-model");
+
+function XsltForms_model(subform, elt) {
+	if (!elt.id && !document.getElementById(subform.id + "-model-default")) {
+		elt.id = subform.id + "-model-default";
+	}
+	var children = elt.children;
+	for (var i = 0, l = children.length; i < l; i++) {
+		if (children[i].localName.toLowerCase() === "xforms-instance") {
+			break;
+		}
+	}
+	if (i === l) {
+		var definst = document.createElement("xforms-instance");
+		definst.innerHTML = '<script type="application/xml">&lt;data xmlns=""/&gt;</script>';
+		elt.appendChild(definst);
+	}
+	var schemas = elt.getAttribute("xf-schema");
+	var functions = elt.getAttribute("xf-functions");
+	var version = elt.getAttribute("xf-version");
 	var found;
 	if (subform.id !== "xsltforms-mainform") {
 		XsltForms_globals.addChange(this);
 	}
-	this.init(subform, id, null, "xforms-model");
+	this.init(subform, elt);
 	this.instances = {};
 	this.binds = [];
 	this.nodesChanged = [];
@@ -24,34 +61,31 @@ function XsltForms_model(subform, id, schemas, functions, version) {
 	this.defaultSubmission = null;
 	XsltForms_globals.models.push(this);
 	subform.models.push(this);
-	var elt = document.getElementById(id);
 	XsltForms_globals.defaultModel = XsltForms_globals.defaultModel || this;
-	if (elt) {
-		elt.getInstanceDocument = function(modid) {
-			return this.xfElement.getInstanceDocument(modid);
-		};
-		elt.rebuild = function() {
-			return this.xfElement.rebuild();
-		};
-		elt.recalculate = function() {
-			return this.xfElement.recalculate();
-		};
-		elt.revalidate = function() {
-			return this.xfElement.revalidate();
-		};
-		elt.refresh = function() {
-			return this.xfElement.refresh();
-		};
-		elt.reset = function() {
-			return this.xfElement.reset();
-		};
-		elt.handleEvent = function(evtname, evcontext) {
-			XsltForms_xmlevents.dispatch(elt, evtname, null, null, null, null, evcontext);
-		};
-	}
+	elt.getInstanceDocument = function(modid) {
+		return this.xfElement.getInstanceDocument(modid);
+	};
+	elt.rebuild = function() {
+		return this.xfElement.rebuild();
+	};
+	elt.recalculate = function() {
+		return this.xfElement.recalculate();
+	};
+	elt.revalidate = function() {
+		return this.xfElement.revalidate();
+	};
+	elt.refresh = function() {
+		return this.xfElement.refresh();
+	};
+	elt.reset = function() {
+		return this.xfElement.reset();
+	};
+	elt.handleEvent = function(evtname, evcontext) {
+		XsltForms_xmlevents.dispatch(elt, evtname, null, null, null, null, evcontext);
+	};
 	if (schemas) {
 		schemas = schemas.split(" ");
-		for (var i = 0, len = schemas.length; i < len; i++) {
+		for (i = 0, l = schemas.length; i < l; i++) {
 			found = false;
 			for (var sid in XsltForms_schema.all) {
 				if (XsltForms_schema.all.hasOwnProperty(sid)) {
@@ -96,6 +130,16 @@ function XsltForms_model(subform, id, schemas, functions, version) {
 			}
 		}
 	}
+	Array.prototype.slice.call(elt.children).forEach(function(n) {
+		if (n.localName.toLowerCase() === "script" && n.getAttribute("type") === "application/xml") {
+			var src = n.textContent;
+			if (src.startsWith("&")) {
+				src = XsltForms_browser.unescape(src);
+			}
+			var doc = XsltForms_browser.createXMLDocument(src);
+			new XsltForms_schema(subform, doc.documentElement.getAttribute("targetNamespace"), "#local", {}, doc);
+		}
+	});
 }
 
 XsltForms_model.prototype = new XsltForms_coreElement();
@@ -328,14 +372,4 @@ XsltForms_model.prototype.setRebuilded = function(value) {
 	} else {
 		this.rebuilded = value;
 	}
-};
-
-		
-/**
- * * '''itext''' method : stores the iText attached to this model
- */
-
-XsltForms_model.prototype.additext = function(itext) {
-	this.itext = itext;
-	return this;
 };

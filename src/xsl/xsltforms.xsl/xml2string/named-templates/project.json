@@ -1,1 +1,8 @@
-{"Name":"named-templates.xsl","Components":["escapeEntities.xml","nmdecls.xml"]}
+{
+	"Name":
+		"named-templates.xsl",
+	"Components":[
+		"escapeEntities.xml",
+		"nmdecls.xml"
+	]
+}

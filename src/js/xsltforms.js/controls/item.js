@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_element*/
+/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_element XsltForms_class XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,18 +10,22 @@
  * * constructor function : initializes specific properties and initializes focus and blur event management
  */
 		
-function XsltForms_item(subform, id, bindingL, bindingV, copyBinding) {
+new XsltForms_class("XsltForms_item", "HTMLElement", "xforms-item", "<xforms-body></xforms-body><xforms-label></xforms-label>");
+
+function XsltForms_item(subform, elt, clone) {
+	var bindingL, bindingV, copyBinding;
 	XsltForms_globals.counters.item++;
-	this.init(subform, id);
+	this.init(subform, elt);
 	this.controlName = "item";
 	if (bindingL || bindingV) {
 		this.hasBinding = true;
 		this.bindingL = bindingL;
 		this.bindingV = bindingV;
 		this.copyBinding = copyBinding;
-	} else {
-		XsltForms_browser.setClass(this.element, "xforms-disabled", false);
+	//} else {
+	//	XsltForms_browser.setClass(this.element, "xforms-disabled", false);
 	}
+	/*
 	var element = this.element;
 	if (element.nodeName.toLowerCase() !== "option") {
 		this.input = XsltForms_browser.isXhtml ? element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input")[0] : element.getElementsByTagName("input")[0];
@@ -30,6 +34,7 @@ function XsltForms_item(subform, id, bindingL, bindingV, copyBinding) {
 		XsltForms_browser.events.attach(this.input, "blur", XsltForms_control.blurHandler);
 		this.label = XsltForms_browser.isXhtml ? element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "label")[0] : element.getElementsByTagName("label")[0];
 	}
+	*/
 }
 
 XsltForms_item.prototype = new XsltForms_element();
@@ -112,7 +117,7 @@ XsltForms_item.prototype.build_ = function(ctx) {
 
 XsltForms_item.prototype.refresh = function() {
 	var element = this.element;
-	XsltForms_browser.setClass(element, "xforms-disabled", false);
+	//XsltForms_browser.setClass(element, "xforms-disabled", false);
 	if (element.nodeName.toLowerCase() === "option") {
 		if (element.nodeL) {
 			try { 

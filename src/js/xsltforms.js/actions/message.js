@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_browser XsltForms_idManager XsltForms_globals*/
+/*globals XsltForms_abstractAction XsltForms_browser XsltForms_idManager XsltForms_globals XsltForms_class XsltForms_subform XsltForms_binding*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,12 +10,14 @@
  * * constructor function : stores specific properties
  */
 		
-function XsltForms_message(subform, id, binding, level, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_message", "HTMLElement", "xforms-message");
+
+function XsltForms_message(subform, elt) {
 	this.subform = subform;
-	this.binding = binding;
-	this.id = id;
-	this.level = level;
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.binding = elt.hasAttribute("xf-ref") || elt.hasAttribute("xf-bind") ? new XsltForms_binding(this.subform, elt) : null;
+	//this.id = elt.id;
+	this.level = elt.getAttribute("xf-level");
+	this.init(elt);
 }
 
 XsltForms_message.prototype = new XsltForms_abstractAction();
@@ -34,12 +36,14 @@ XsltForms_message.prototype.run = function(element, ctx) {
 			text = XsltForms_browser.getValue(node);
 		}
 	} else {
-		var e = XsltForms_idManager.find(this.id);
+		var e = this.element;//XsltForms_idManager.find(this.id);
 		var building = XsltForms_globals.building;
 		XsltForms_globals.building = true;
+		this.running = true;
 		XsltForms_globals.build(e, ctx, null, this.parentAction ? this.parentAction.varResolver : element.xfElement.varResolver);
+		this.running = false;
 		XsltForms_globals.building = building;
-		text = e.textContent || e.innerText;
+		text = this.element.textContent || this.element.innerText;
 	}
 
 	if (text) {

@@ -15,13 +15,14 @@ Fleur.XQueryEngine[Fleur.XQueryX.nameTest] = function(ctx, children, callback) {
 	}
 	var nsURI;
 	if (children.length === 1) {
-		nsURI = "";
+		nsURI = ctx.env.nsresolver.lookupNamespaceURI("") || "";
+	} else if (children[1][0] === Fleur.XQueryX.prefix) {
+		nsURI = ctx.env.nsresolver.lookupNamespaceURI(children[1][1][0]) || "";
 	} else {
 		nsURI = children[1][1][0];
 	}
-	var currURI = ctx._curr.namespaceURI || null;
-	var lookupURI = ctx.env.nsresolver.lookupNamespaceURI(nsURI) || null;
-	if (currURI !==  lookupURI && currURI !== "http://www.w3.org/1999/xhtml") {
+	var currURI = ctx._curr.namespaceURI || "";
+	if (currURI !==  nsURI && currURI !== "http://www.w3.org/1999/xhtml") {
 		Fleur.callback(function() {callback(Fleur.EmptySequence);});
 		return;
 	}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link type="text/css" href="xsltforms.css" rel="stylesheet">
+    <title>Hello World in XForms</title>
+    <script type="text/javascript" src="xsltforms.js"></script>
+  </head>
+  <body>
+    <xforms-model>
+      <xforms-instance>
+        <script type="application/xml">
+          <data xmlns="">
+            <PersonGivenName/>
+          </data>
+        </script>
+      </xforms-instance>
+    </xforms-model>
+    <p>Type your first name in the input box. <br>
+      If you are running XForms, the output should be displayed in the output area.</p>
+    <xforms-input xf-ref="PersonGivenName" xf-incremental="true">
+      <xforms-label>Please enter your first name: </xforms-label>
+    </xforms-input>
+    <br>
+    <xforms-output xf-value="concat('Hello ', PersonGivenName, '. We hope you like XForms!')">
+      <xforms-label>Output: </xforms-label>
+    </xforms-output>
+  </body>
+</html>

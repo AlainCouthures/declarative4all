@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_idManager XsltForms_browser XsltForms_xmlevents XsltForms_repeat Fleur*/
+/*globals XsltForms_abstractAction XsltForms_idManager XsltForms_browser XsltForms_xmlevents XsltForms_repeat Fleur XsltForms_class XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,10 +10,12 @@
  * * constructor function : stores specific properties
  */
 		
-function XsltForms_unload(subform, targetid, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_unload", "HTMLElement", "xforms-unload");
+
+function XsltForms_unload(subform, elt) {
 	this.subform = subform;
-	this.targetid = targetid;
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.targetid = elt.getAttribute("xf-targetid");
+	this.init(elt);
 }
 
 XsltForms_unload.prototype = new XsltForms_abstractAction();
@@ -67,7 +69,7 @@ XsltForms_unload.subform = function(targetid, ref) {
 	if (ref) {
 		var parentNode = ref;
 		while (parentNode && parentNode.nodeType === Fleur.Node.ELEMENT_NODE) {
-			if (XsltForms_browser.hasClass(parentNode, "xforms-repeat-item")) {
+			if (parentNode.localName.toLowerCase() === "xforms-repeat-item" || parentNode.getAttribute("xforms-name") === "repeat-item") {
 				XsltForms_repeat.selectItem(parentNode);
 			}
 			parentNode = parentNode.parentNode;

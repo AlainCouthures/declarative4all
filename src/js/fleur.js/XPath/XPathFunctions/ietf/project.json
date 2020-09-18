@@ -1,5 +1,6 @@
 {
 	"Components":[
+		"email.js",
 		"ipv4.js",
 		"mac.js",
 		"on-subnet.js",

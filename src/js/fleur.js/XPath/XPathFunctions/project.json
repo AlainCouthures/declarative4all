@@ -3,6 +3,7 @@
 		"main.js",
 		"array/project.json",
 		"b/project.json",
+		"base64/project.json",
 		"bin/project.json",
 		"fn/project.json",
 		"http/project.json",
@@ -17,6 +18,7 @@
 		"prof/project.json",
 		"proc/project.json",
 		"request/project.json",
+		"unit/project.json",
 		"xquery/project.json",
 		"xs/project.json",
 		"zip/project.json"

@@ -80,13 +80,27 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 		var parseval = function(xml, xexpr, out) {
 			var parser = new global.Fleur.DOMParser();
 			var xmldoc = parser.parseFromString(xml, "application/xml");
+			var env;
+			if (params.argv.length > 0) {
+				var args = {};
+				params.argv.forEach(function(p) {
+					var pp = p.split("=");
+					args[pp[0]] = pp[1];
+				});
+				env = {
+					args: args
+				};
+			}
 			try {
-				xmldoc.evaluate(xexpr).then(
+       			var d1 = new Date();
+				xmldoc.evaluate(xexpr, null, env).then(
 					function(res) {
 						if (out) {
 	        				global.fs.writeFile(out, res.toXQuery(), function(err) {if (err) process.stdout.write(err);});
 						} else {
 							process.stdout.write(res.toXQuery());
+							var d2 = new Date();
+							console.log("\nExecution Time: " + ((d2 - d1) / 1000) + "s");
 						}
 					},
 					function(err) {
@@ -132,7 +146,7 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 		port = isNaN(port) || port > 65535 || port === 0 ? 80 : port;
 		console.log("Fleur Web Server");
 		console.log("Listening to port " + port);
-		process.chdir("public");
+		process.chdir(Fleur.baseDir);
 		global.http.createServer(function(request, response) {
 			var body, uri, method, newuri, headers, filename, filestats, contentType, ifmodifiedsince, lastmodified;
 			body = "";
@@ -148,6 +162,7 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 					headers["Content-Type"] = contentType;
 				}
 				if (lastmodified) {
+					headers['Expires'] = lastmodified;
 					headers["Last-Modified"] = lastmodified;
 				}
 				response.writeHead(200, headers);
@@ -221,7 +236,7 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 								global.fs.readFile(filename, 'binary', execfile);
 							} else {
 								ifmodifiedsince = request.headers['if-modified-since'];
-								if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= filestats.mtime.getTime()) {
+								if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= (new Date(filestats.mtime.toUTCString())).getTime()) {
 									response.writeHead(304, {'Content-Type': 'text/plain'});
 									response.end('304 Not Modified');
 									return;

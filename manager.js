@@ -36,6 +36,63 @@ var composeResponse = function(resp, components, callback) {
 			return;
 		}
 		if (fname.endsWith(global.path.sep + 'project.json')) {
+			var rmcomments = function(json) {
+				var state = 0;
+				var ret = "";
+				for (var i = 0, l = json.length; i < l; i++) {
+					var c = json.charAt(i);
+					switch (state) {
+						case 0:
+							if (c === "/") {
+								i++;
+								c = json.charAt(i);
+								if (c === "*") {
+									state = 1;
+								} else if (c === "/") {
+									state = 2;
+								} else {
+									ret += "/" + c;
+								}
+							} else {
+								if (c === "'") {
+									state = 3;
+								} else if (c === '"') {
+									state = 4;
+								}
+								ret += c;
+							}
+							break;
+						case 1:
+							if (c === "*") {
+								i++;
+								c = json.charAt(i);
+								if (c === "/") {
+									state = 0;
+								}
+							}
+							break;
+						case 2:
+							if (c === "\n") {
+								state = 0;
+							}
+							break;
+						case 3:
+							ret += c;
+							if (c === "'") {
+								state = 0;
+							}
+							break;
+						case 4:
+							ret += c;
+							if (c === '"') {
+								state = 0;
+							}
+							break;
+					}
+				}
+				return ret;
+			};
+			file = rmcomments(file);
 			descriptor = JSON.parse(file);
 			if (!resp.versionInfo) {
 				resp.versionInfo = descriptor;
@@ -104,6 +161,8 @@ if (process.argv.length > 2) {
 		var resp = {cpd: '', commentStart: '/*', commentEnd: '*/'}, upper;
 		body = "";
 		var sendfile = function(err, file) {
+			var Fleur;
+			//console.log("sendfile " + filename);
 			if (err) {        
 				response.writeHead(err.errno === 34 ? 404 : 500, {'Content-Type': 'text/plain'});
 				response.end(err.errno === 34 ? '404 Not Found' : '500 Internal server error - ' + err);
@@ -111,16 +170,74 @@ if (process.argv.length > 2) {
 			}
 			headers = {};
 			contentType = contentTypesByExtension[global.path.extname(filename)];
-			if (contentType) {
-				headers['Content-Type'] = contentType;
-			}
-			if (lastmodified) {
-				headers['Last-Modified'] = lastmodified;
-			}
-			response.writeHead(200, headers);
-			response.end(file, 'binary');
-			if (newfilename) {
-		        global.fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
+			//console.log(contentType);
+			if (contentType === "application/xhtml+xml") {
+				if (global.fs.existsSync('./js/fleur.js')) {
+	    			Fleur = require('./js/fleur.js');
+	    			contentType = "text/html";
+	    			file = Fleur.Serializer.xhtml2html5(file, "js/xsltforms.js", "css/xsltforms.css");
+					headers['Content-Type'] = contentType;
+					if (lastmodified) {
+						headers['Expires'] = lastmodified;
+						headers['Last-Modified'] = lastmodified;
+					}
+					response.writeHead(200, headers);
+					response.end(file, 'binary');
+					if (newfilename) {
+				        global.fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
+					}
+				} else {
+					var moduri = uri.split('/');
+					moduri.pop();
+					moduri = moduri.join('/') + '/js/fleur.js';
+					global.http.get({
+						host: 'localhost',
+						port: port,
+						path: moduri
+					}, function(modresp) {
+				        var modbody = '';
+				        modresp.on('data', function(d) {
+				            modbody += d;
+				        });
+				        modresp.on('end', function() {
+				        	var fleursrc = './tmp/fleur.js';
+				        	global.fs.writeFile(fleursrc, modbody, err => {
+				        		if (err) {
+				        			console.log(err);
+				        		}
+			        			global.fleurmtime = global.fs.statSync(fleursrc).mtime.toISOString();
+			        			Fleur = require(fleursrc);
+				    			contentType = "text/html";
+								//console.log(contentType);
+				    			file = Fleur.Serializer.xhtml2html5(file, "js/xsltforms.js", "css/xsltforms.css");
+								headers['Content-Type'] = contentType;
+								if (lastmodified) {
+									headers['Expires'] = lastmodified;
+									headers['Last-Modified'] = lastmodified;
+								}
+								response.writeHead(200, headers);
+								response.end(file, 'binary');
+								if (newfilename) {
+							        global.fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
+								}
+								delete require.cache[require.resolve(fleursrc)];
+				        	});
+				        });
+					});
+				}
+			} else {
+				if (contentType) {
+					headers['Content-Type'] = contentType;
+				}
+				if (lastmodified) {
+					headers['Expires'] = lastmodified;
+					headers['Last-Modified'] = lastmodified;
+				}
+				response.writeHead(200, headers);
+				response.end(file, 'binary');
+				if (newfilename) {
+			        global.fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
+				}
 			}
 		};
 		var execfile = function(err, file) {
@@ -375,7 +492,7 @@ if (process.argv.length > 2) {
 						global.fs.readFile(filename, 'binary', execfile);
 					} else {
 						ifmodifiedsince = request.headers['if-modified-since'];
-						if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= filestats.mtime.getTime()) {
+						if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= (new Date(filestats.mtime.toUTCString())).getTime()) {
 							response.writeHead(304, {'Content-Type': 'text/plain'});
 							response.end('304 Not Modified');
 							return;

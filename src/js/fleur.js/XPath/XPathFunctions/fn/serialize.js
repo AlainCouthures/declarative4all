@@ -27,6 +27,9 @@ Fleur.XPathFunctions_fn["serialize#2"] = new Fleur.Function("http://www.w3.org/2
 				case Fleur.Node.TEXT_NODE:
 					defContentType = "text/plain";
 					break;
+				case Fleur.Node.SEQUENCE_NODE:
+					defContentType = "text/csv";
+					break;
 				case Fleur.Node.ELEMENT_NODE:
 					defContentType = "application/xml";
 			}

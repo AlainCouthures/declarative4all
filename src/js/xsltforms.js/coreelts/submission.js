@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_browser XsltForms_binding XsltForms_coreElement XsltForms_globals XsltForms_xmlevents Fleur*/
+/*globals XsltForms_browser XsltForms_binding XsltForms_coreElement XsltForms_globals XsltForms_xmlevents Fleur XsltForms_class XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,32 +10,31 @@
  * * constructor function : store the properties of this submission and attaches it to a model
  */
 		
-function XsltForms_submission(subform, id, model, ref, value, bind, action, method, version, indent,
+new XsltForms_class("XsltForms_submission", "HTMLElement", "xforms-submission");
+
+function XsltForms_submission(subform, elt) {
+/*			subform, id, model, ref, value, bind, action, method, version, indent,
 			mediatype, encoding, omitXmlDeclaration, cdataSectionElements,
 			replace, targetref, instance, separator, includenamespaceprefixes, validate, relevant,
-			synchr, show, serialization) {
-	if (document.getElementById(id)) {
-		return;
+			synchr, show, serialization) {*/
+//	if (document.getElementById(id)) {
+//		return;
+//	}
+	this.init(subform, elt);
+	this.model = elt.parentNode.xfElement;
+	if (!this.model.defaultSubmission) {
+		this.model.defaultSubmission = this;
 	}
-	this.init(subform, id, model, "xforms-submission");
-	this.model = model;
-	if (!model.defaultSubmission) {
-		model.defaultSubmission = this;
-	}
-	this.action = action;
-	if (action.substr && (action.substr(0, 7) === "file://" || (window.location.href.substr(0, 7) === "file://" && action.substr(0, 7) !== "http://")) && !(document.applets.xsltforms || document.getElementById("xsltforms_applet")) ) {
-		XsltForms_browser.loadapplet();
-	}
-	this.method = method;
-	this.replace = replace;
-	this.targetref = targetref;
-	this.version = version;
-	this.indent = indent;
-	this.validate = validate;
-	this.relevant = relevant;
-	this.synchr = synchr;
-	this.show = show;
-	this.serialization = serialization;
+	this.replace = elt.getAttribute("xf-replace") || "all";
+	this.targetref = elt.hasAttribute("xf-targetref") ? new XsltForms_binding(subform, elt, "xf-targetref") : null;
+	this.version = elt.getAttribute("xf-version");
+	this.serialization = elt.getAttribute("xf-serialization");
+	this.indent = elt.getAttribute("xf-indent");
+	this.validate = elt.hasAttribute("xf-validate") ? elt.getAttribute("xf-validate") !== "false" : this.serialization !== "none";
+	this.relevant = elt.hasAttribute("xf-relevant") ? elt.getAttribute("xf-relevant") !== "false" : this.serialization !== "none";
+	this.synchr = elt.getAttribute("xf-mode") === "synchronous";
+	this.show = elt.getAttribute("xf-show");
+	var mediatype = elt.getAttribute("xf-mediatype");
 	if (mediatype) {
 		var lines = mediatype.split(";");
 		this.mediatype = lines[0];
@@ -54,15 +53,55 @@ function XsltForms_submission(subform, id, model, ref, value, bind, action, meth
 			this.charset = "x-user-defined-binary";
 		}
 	}
-	this.encoding = encoding || "UTF-8";
-	this.omitXmlDeclaration = omitXmlDeclaration;
-	this.cdataSectionElements = cdataSectionElements;
-	this.instance = instance;
-	this.separator = separator === "&amp;"? "&" : separator;
-	this.includenamespaceprefixes = includenamespaceprefixes;
-	this.headers = [];
-	if (ref || bind || value) {
-		this.binding = new XsltForms_binding(value ? "xsd:string" : null, value ? value : ref, model.element, bind);
+	this.encoding = elt.getAttribute("xf-encoding") || "UTF-8";
+	this.omitXmlDeclaration = elt.getAttribute("xf-omitXmlDeclaration");
+	this.cdataSectionElements = elt.getAttribute("xf-cdataSectionElements");
+	this.instance = elt.getAttribute("xf-instance");
+	this.separator = elt.getAttribute("xf-separator") || "&";
+	this.includenamespaceprefixes = elt.getAttribute("xf-includenamespaceprefixes");
+	var headers = [];
+	var action, method;
+	Array.prototype.slice.call(elt.children).forEach(function(n) {
+		switch(n.localName.toLowerCase()) {
+			case "xforms-resource":
+				action = n;
+				break;
+			case "xforms-method":
+				method = n;
+				break;
+			case "xforms-header":
+				var hname, hvalues = [];
+				Array.prototype.slice.call(n.children).forEach(function(n) {
+					switch(n.localName.toLowerCase()) {
+						case "xforms-name":
+							hname = n;
+							break;
+						case "xforms-value":
+							hvalues.push(n);
+							break;
+					}
+				});
+				headers.push({
+					nodeset: n.hasAttribute("xf-ref") ? new XsltForms_binding(subform, n) : null,
+					name: hname ? hname.hasAttribute("xf-value") ? new XsltForms_binding(subform, hname) : hname.textContent : n.getAttribute("xf-name"),
+					combine: n.getAttribute("xf-combine") || "append",
+					values: hvalues.map(function(hvalue) { return hvalue.hasAttribute("xf-value") ? new XsltForms_binding(subform, hvalue) : hvalue.textContent; })
+				});
+				break;
+		}
+	});
+	this.headers = headers;
+	this.action = action ?
+		action.hasAttribute("xf-value") ? new XsltForms_binding(subform, action) : action.textContent :
+		elt.hasAttribute("xf-resource") ? elt.getAttribute("xf-resource") : elt.getAttribute("xf-action");
+	if (this.action.substr && (this.action.substr(0, 7) === "file://" || (window.location.href.substr(0, 7) === "file://" && this.action.substr(0, 7) !== "http://")) && !(document.applets.xsltforms || document.getElementById("xsltforms_applet")) ) {
+		XsltForms_browser.loadapplet();
+	}
+	this.method = method ?
+		method.hasAttribute("xf-value") ? new XsltForms_binding(subform, method) : method.textContent :
+		elt.getAttribute("xf-method");
+	if (elt.hasAttribute("xf-ref") || elt.hasAttribute("xf-bind") || elt.hasAttribute("xf-value")) {
+		this.binding = new XsltForms_binding(subform, elt);
 		this.eval_ = function() {
 			var res = this.binding.bind_evaluate();
 			return typeof res === "string" ? res : res[0];
@@ -428,14 +467,13 @@ XsltForms_submission.prototype.submit = function() {
 								XsltForms_browser.dialog.hide("statusPanel", false);
 								XsltForms_globals.close();
 								if(document.write) {
-									document.write(resp);
+	  							document.write(resp);
 									document.close();
 								} else {
 									//document.documentElement.parentNode.replaceChild(req.responseXML.documentElement,document.documentElement);
 									if (resp.indexOf("<?", 0) === 0) {
 										resp = resp.substr(resp.indexOf("?>")+2);
 									}                       
-									//alert(resp);
 									document.documentElement.innerHTML = resp;
 								}
 							}

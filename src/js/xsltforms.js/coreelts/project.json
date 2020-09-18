@@ -3,9 +3,13 @@
 	"Description":"== XForms Model Management ==\nEach Model component is stored as a Javascript object created by the XSLT transformation.\nThe CoreElement is the parent class for all other classes.",
 	"Components":[
 		"CoreElement.js",
+		"options.js",
 		"model.js",
 		"instance.js",
 		"bind.js",
 		"submission.js",
+		"itext.js",
+		"translation.js",
+		"text.js",
 		"timer.js"]
 }

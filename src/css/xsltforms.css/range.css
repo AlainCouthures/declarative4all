@@ -1,4 +1,4 @@
-.xsltforms-range-rail {
+xforms-range-rail, .xsltforms-range-rail {
 	width: 200px;
 	height: 4px;
 	border: 1px solid #999999;
@@ -7,7 +7,7 @@
 	display: inline-block;
 }
 	
-.xsltforms-range-cursor {
+xforms-range-cursor, .xsltforms-range-cursor {
 	margin: 0;
 	margin-top: -8px;
 	margin-left: -5px;

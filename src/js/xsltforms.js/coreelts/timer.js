@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_coreElement XsltForms_globals XsltForms_xmlevents*/
+/*globals XsltForms_coreElement XsltForms_globals XsltForms_xmlevents XsltForms_class*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +7,10 @@
  * @module timer
  * @description
  */
+
+new XsltForms_class("XsltForms_timer", "HTMLElement", "xforms-timer");
+
+
 function XsltForms_timer(subform, id, time) {
 	if (document.getElementById(id)) {
 		return;

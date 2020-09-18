@@ -226,7 +226,7 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 			Fleur.callback(function() {callback(Fleur.EmptySequence);});
 			return;
 		}
-		var op1 = Fleur.toJSValue(a1, true, true, true, true, false, true);
+		var op1 = Fleur.toJSValue(a1, a1.schemaTypeInfo !== Fleur.Type_untypedAtomic, true, true, true, false, true);
 		if (op1[0] < 0) {
 			Fleur.callback(function() {callback(a1);});
 			return;
@@ -242,7 +242,7 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
-			var op2 = Fleur.toJSValue(a2, true, true, true, true, false, true);
+			var op2 = Fleur.toJSValue(a2, a2.schemaTypeInfo !== Fleur.Type_untypedAtomic, true, true, true, false, true);
 			if (op2[0] < 0) {
 				Fleur.callback(function() {callback(a2);});
 				return;

@@ -48,11 +48,12 @@ Fleur.Serializer.escapeXML = function(s, quotes, inline) {
 	return r;
 };
 Fleur.Serializer._serializeXMLToString = function(node, indent, offset, knownns) {
-	var s, i, l;
-	knownns = knownns || {};
+	var s, i, l, index, nsl;
+	knownns = knownns || {pf: [], uri: []};
 	switch (node.nodeType) {
 		case Fleur.Node.ELEMENT_NODE:
 			s = (indent ? offset + "<" : "<") + node.nodeName;
+			nsl = knownns.pf.length;
 			if (indent) {
 				var names = [];
 				for (i = 0, l = node.attributes.length; i < l; i++) {
@@ -61,41 +62,53 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset, knownns)
 				names.sort();
 				for (i = 0, l = names.length; i < l; i++) {
 					if (names[i] === "xmlns") {
-						if (knownns[" "] === node.getAttribute(names[i])) {
+						index = knownns.pf.lastIndexOf(" ");
+						if (index !== -1 && knownns.uri[index] === node.getAttribute(names[i])) {
 							continue;
 						}
-						knownns[" "] = node.getAttribute(names[i]);
+						knownns.pf.push(" ");
+						knownns.uri.push(node.getAttribute(names[i]));
 					} else if (node.getAttributeNode(names[i]).namespaceURI === "http://www.w3.org/2000/xmlns/") {
-						if (knownns[node.getAttributeNode(names[i]).localName] === node.getAttributeNode(names[i]).nodeValue) {
+						index = knownns.pf.lastIndexOf(node.getAttributeNode(names[i]).localName);
+						if (index !== -1 && knownns.uri[index] === node.getAttributeNode(names[i]).nodeValue) {
 							continue;
 						}
-						knownns[node.getAttributeNode(names[i]).localName] = node.getAttributeNode(names[i]).nodeValue;
+						knownns.pf.push(node.getAttributeNode(names[i]).localName);
+						knownns.uri.push(node.getAttributeNode(names[i]).nodeValue);
 					}
 					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true) + "\"";
 				}
 			} else {
 				for (i = 0, l = node.attributes.length; i < l; i++) {
 					if (node.attributes[i].nodeName === "xmlns") {
-						if (knownns[" "] === node.attributes[i].nodeValue) {
+						index = knownns.pf.lastIndexOf(" ");
+						if (index !== -1 && knownns.uri[index] === node.attributes[i].nodeValue) {
 							continue;
 						}
-						knownns[" "] = node.attributes[i].nodeValue;
+						knownns.pf.push(" ");
+						knownns.uri.push(node.attributes[i].nodeValue);
 					} else if (node.attributes[i].namespaceURI === "http://www.w3.org/2000/xmlns/") {
-						if (knownns[node.attributes[i].localName] === node.attributes[i].nodeValue) {
+						index = knownns.pf.lastIndexOf(node.attributes[i].localName);
+						if (index !== -1 && knownns.uri[index] === node.attributes[i].nodeValue) {
 							continue;
 						}
-						knownns[node.attributes[i].localName] = node.attributes[i].nodeValue;
+						knownns.pf.push(node.attributes[i].localName);
+						knownns.uri.push(node.attributes[i].nodeValue);
 					}
 					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true) + "\"";
 				}
 			}
 			if (node.childNodes.length === 0) {
+				knownns.pf.length = nsl;
+				knownns.uri.length = nsl;
 				return s + (indent ? "/>\n" : "/>");
 			}
 			s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
 				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset + "  ", knownns);
 			}
+			knownns.pf.length = nsl;
+			knownns.uri.length = nsl;
 			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + (indent ? ">\n" : ">");
 		case Fleur.Node.TEXT_NODE:
 			if ((indent || (node.ownerDocument && node === node.ownerDocument.firstChild)) && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
@@ -117,7 +130,7 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset, knownns)
 		case Fleur.Node.DOCUMENT_NODE:
 			s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset, {});
+				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset);
 			}
 			return s;
 	}
@@ -153,7 +166,7 @@ Fleur.Serializer._serializeHTMLToString = function(node, indent, offset) {
 				if (["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"].indexOf(node.localName.toLowerCase()) !== -1) {
 					return s + (indent ? ">\n" : ">");
 				}
-				return s + (indent ? "/>\n" : "/>");
+				return s + (indent ? "></" + node.localName.toLowerCase() + ">\n" : "></" + node.localName.toLowerCase() + ">");
 			}
 			s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
@@ -279,7 +292,16 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			}
 			return (indent ? offset : "") + "entry " + node.nodeName + " {" + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ") + "}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.TEXT_NODE:
-			var typeName = node.schemaTypeInfo ? node.schemaTypeInfo.typeName : "string";
+			var typeName;
+			var prefix;
+			if (node.schemaTypeInfo) {
+				var nres = new Fleur.XPathNSResolver(node);
+				typeName = node.schemaTypeInfo.typeName;
+				prefix = nres.lookupPrefix(node.schemaTypeInfo.typeNamespace);
+			} else {
+				typeName = "untypedAtomic";
+				prefix = "xs";
+			}
 			if (tree) {
 				if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
 					return "";
@@ -310,8 +332,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			//		fdata += ".0";
 			//	}
 			//}
-			var nres = new Fleur.XPathNSResolver(node);
-			return (indent ? offset : "") + nres.lookupPrefix(node.schemaTypeInfo.typeNamespace) + ":" + typeName + "(\"" + Fleur.Serializer.escapeXML(node.data, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
+			return (indent ? offset : "") + prefix + ":" + typeName + "(\"" + Fleur.Serializer.escapeXML(node.data, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
@@ -1691,6 +1712,570 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 		case "module":
 			return Fleur.Serializer.XQX_renderChildren(node);
 	}
+};
+Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
+	var ii, ll, text, index, offset = 0, end = s.length,
+		nodename, attrs, parents = [], c,
+		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
+		n, newnamespaces = {}, pindex, prefix, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue, uri;
+	var r0 = "", r = "", rmodel = "", rsave = "", roptions = "";
+	var xformsinside = false;
+	var xmlser = false;
+	var lt = "<";
+	var gt = ">";
+	var amp = "&";
+	var xsltformscssfile = "<link type=\"text/css\" href=\"" + csspath + "\" rel=\"stylesheet\">";
+	var xsltformsjsfile = "<script type=\"text/javascript\" src=\"" + jspath + "\" data-uri=\"http://www.agencexml.com/xsltforms\">/* */</script>";
+	var emptyelts = ["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
+	var tableelts = ["thead", "tbody", "tfoot"];
+	var tableeltpos;
+	var tablerepeat;
+	var xlinkattrs = ["actuate", "arcrole", "href", "role", "show", "title", "type"];
+	var xmlattrs = ["base", "lang", "space"];
+	var xmlnsattrs = ["xlink"];
+	var htmluri = "http://www.w3.org/1999/xhtml";
+	var mathmluri = "http://www.w3.org/1998/Math/MathML";
+	var svguri = "http://www.w3.org/2000/svg";
+	var xlinkuri = "http://www.w3.org/1999/xlink";
+	var xmluri = "http://www.w3.org/XML/1998/namespace";
+	var xmlnsuri = "http://www.w3.org/2000/xmlns/";
+	var xformsuri = "http://www.w3.org/2002/xforms";
+	var eventuri = "http://www.w3.org/2001/xml-events";
+	var xsuri = "http://www.w3.org/2001/XMLSchema";
+	var avt;
+	var nsi;
+	var namespaces = [
+		{ prefix: "xml", namespaceURI: xmluri, htmlimplicit: true, xmlimplicit: true },
+		{ prefix: "xmlns", namespaceURI: xmlnsuri, htmlimplicit: true, xmlimplicit: true },
+		{ prefix: "", namespaceURI: htmluri, htmlimplicit: true, xmlimplicit: false },
+		{ prefix: "xlink", namespaceURI: xlinkuri, htmlimplicit: false, xmlimplicit: false }
+	];
+	var nsLookupFirstpos = 0;
+	var nsLookupLastpos = 3;
+	var attr;
+	var nsattr;
+	while (offset !== end) {
+		text = "";
+		c = s.charAt(offset);
+		while (c !== "<" && offset !== end) {
+			if (c === ">") {
+				text += gt;
+			} else if (c === "&") {
+				text += amp;
+			} else if (r !== "" || r0 !== "" || (c !== "\r" && c !== "\n" && c !== "\t" && c !== " ")) {
+				text += c;
+			}
+			c = s.charAt(++offset);
+		}
+		if (text !== "") {
+			r += text;
+		}
+		if (offset === end) {
+			break;
+		}
+		offset++;
+		if (s.charAt(offset) === "!") {
+			offset++;
+			if (s.substr(offset, 2) === "--") {
+				offset += 2;
+				index = s.indexOf("-->", offset);
+				if (index !== offset) {
+					if (index === -1) {
+						index = end;
+					}
+					text = "";
+					ii = offset;
+					while (ii < index) {
+						text += s.charAt(ii++);
+					}
+					text = text.replace(/\x01/gm, lt);
+					r += lt + "!--" + text + "--" + gt;
+					if (index === end) {
+						break;
+					}
+					offset = index;
+				}
+				offset += 3;
+			} else if (s.substr(offset, 7) === "[CDATA[") {
+				offset += 7;
+				index = s.indexOf("]]>", offset);
+				if (index !== offset) {
+					if (index === -1) {
+						index = end;
+					}
+					text = "";
+					ii = offset;
+					while (ii < index) {
+						text += s.charAt(ii++);
+					}
+					text = text.replace(/\x01/gm,"<");
+					r += lt + "[CDATA[" + text + "]]" + gt;
+					if (index === end) {
+						break;
+					}
+					offset = index;
+				}
+				offset += 3;
+			} else if (s.substr(offset, 7) === "DOCTYPE") {
+				offset += 7;
+				index = s.indexOf(">", offset);
+				while (seps.indexOf(c) !== -1) {
+					c = s.charAt(offset++);
+				}
+				nodename = "";
+				while (seps_dtd.indexOf(c) === -1) {
+					nodename += c;
+					c = s.charAt(offset++);
+				}
+				while (seps.indexOf(c) !== -1) {
+					c = s.charAt(offset++);
+				}
+				dtdtype = "";
+				while (seps_dtd.indexOf(c) === -1) {
+					dtdtype += c;
+					c = s.charAt(offset++);
+				}
+				if (dtdtype === "PUBLIC" || dtdtype === "SYSTEM") {
+					if (dtdtype === "PUBLIC") {
+						while (seps.indexOf(c) !== -1) {
+							c = s.charAt(offset++);
+						}
+						dtdpublicid = "";
+						ii = offset;
+						ll = Math.min(index - 1, s.indexOf(c, offset));
+						while (ii < ll) {
+							dtdpublicid += s.charAt(ii++);
+						}
+						offset += dtdpublicid.length + 1;
+						c = s.charAt(offset++);
+					}
+					while (seps.indexOf(c) !== -1) {
+						c = s.charAt(offset++);
+					}
+					dtdsystemid = "";
+					ii = offset;
+					ll = Math.min(index - 1, s.indexOf(c, offset));
+					while (ii < ll) {
+						dtdsystemid += s.charAt(ii++);
+					}
+					offset += dtdsystemid.length + 1;
+					c = s.charAt(offset++);
+					while (seps.indexOf(c) !== -1) {
+						c = s.charAt(offset++);
+					}
+				} else {
+					dtdpublicid = dtdsystemid = null;
+				}
+				if (c === "[") {
+					index = s.indexOf("]", offset);
+					c = s.charAt(offset++);
+					while (c !== "]" && offset < end) {
+						while (seps.indexOf(c) !== -1) {
+							c = s.charAt(offset++);
+						}
+						if (c === "]") {
+							break;
+						}
+						if (s.substr(offset, 7) === "!ENTITY") {
+							offset += 7;
+							c = s.charAt(offset++);
+							while (seps.indexOf(c) !== -1) {
+								c = s.charAt(offset++);
+							}
+							if (c === "%") {
+								c = s.charAt(offset++);
+								while (seps.indexOf(c) !== -1) {
+									c = s.charAt(offset++);
+								}
+							}
+							nodename = "";
+							while (seps_dtd.indexOf(c) === -1) {
+								nodename += c;
+								c = s.charAt(offset++);
+							}
+							while (seps.indexOf(c) !== -1) {
+								c = s.charAt(offset++);
+							}
+							if (s.substr(offset - 1, 6) === "SYSTEM") {
+								offset += 5;
+								c = s.charAt(offset++);
+								while (seps.indexOf(c) !== -1) {
+									c = s.charAt(offset++);
+								}
+							} else if (s.substr(offset -1, 6) === "PUBLIC") {
+								offset += 5;
+								c = s.charAt(offset++);
+								while (seps.indexOf(c) !== -1) {
+									c = s.charAt(offset++);
+								}
+								while (seps_dtd.indexOf(c) === -1) {
+									c = s.charAt(offset++);
+								}
+								while (seps.indexOf(c) !== -1) {
+									c = s.charAt(offset++);
+								}
+							}
+							entityvalue = "";
+							ii = offset;
+							ll = Math.min(index - 1, s.indexOf(c, offset));
+							while (ii < ll) {
+								entityvalue += s.charAt(ii++);
+							}
+							offset += entityvalue.length + 1;
+							c = s.charAt(offset++);
+						} else if (s.substr(offset, 9) === "!NOTATION") {
+							offset += 9;
+							c = s.charAt(offset++);
+							while (seps.indexOf(c) !== -1) {
+								c = s.charAt(offset++);
+							}
+							nodename = "";
+							while (seps_dtd.indexOf(c) === -1) {
+								nodename += c;
+								c = s.charAt(offset++);
+							}
+							while (seps.indexOf(c) !== -1) {
+								c = s.charAt(offset++);
+							}
+							if (s.substr(offset - 1, 6) === "SYSTEM") {
+								offset += 5;
+								c = s.charAt(offset++);
+								while (seps.indexOf(c) !== -1) {
+									c = s.charAt(offset++);
+								}
+							} else if (s.substr(offset -1, 6) === "PUBLIC") {
+								offset += 5;
+								c = s.charAt(offset++);
+								while (seps.indexOf(c) !== -1) {
+									c = s.charAt(offset++);
+								}
+								while (seps_dtd.indexOf(c) === -1) {
+									c = s.charAt(offset++);
+								}
+								while (seps.indexOf(c) !== -1) {
+									c = s.charAt(offset++);
+								}
+							}
+							if (c === '"' || c === "'") {
+								notationvalue = "";
+								ii = offset;
+								ll = Math.min(index - 1, s.indexOf(c, offset));
+								while (ii < ll) {
+									notationvalue += s.charAt(ii++);
+								}
+								offset += notationvalue.length + 1;
+								c = s.charAt(offset++);
+							}
+						}
+						offset = s.indexOf(">", offset - 1) + 1;
+						c = s.charAt(offset++);
+					}
+					index = s.indexOf(">", offset);
+				}
+				if (index !== offset) {
+					if (index === -1) {
+						index = end;
+					}
+					if (index === end) {
+						break;
+					}
+					offset = index;
+				}
+				offset++;
+			}
+		} else if (s.charAt(offset) === "?") {
+			offset++;
+			c = s.charAt(offset++);
+			nodename = "";
+			while (seps_pi.indexOf(c) === -1) {
+				nodename += c;
+				c = s.charAt(offset++);
+			}
+			index = s.indexOf("?>", offset - 1);
+			if (index === -1) {
+				index = end;
+			}
+			if (nodename === "xml") {
+				if (s.charCodeAt(index + 2) === 13) {
+					index++;
+				}
+				if (s.charCodeAt(index + 2) === 10) {
+					index++;
+				}
+			} else if (nodename !== "") {
+				text = "";
+				ii = offset;
+				while (ii < index) {
+					text += s.charAt(ii++);
+				}
+				text = text.replace(/\x01/gm,"<");
+				if (nodename === "xsltforms-options") {
+					roptions += " " + text;
+				} else if (nodename !== "xml-stylesheet") {
+					r += lt + "?" + nodename + " " + (index === offset - 1 ? "" : text) + "?" + gt;
+				}
+			}
+			if (index === end) {
+				break;
+			}
+			offset = index + 2;
+		} else if (s.charAt(offset) === "/") {
+			offset++;
+			c = s.charAt(offset++);
+			nodename = "";
+			while (seps_close.indexOf(c) === -1 && offset <= end) {
+				nodename += c;
+				c = s.charAt(offset++);
+			}
+			n = parents.pop();
+			nsLookupFirstpos = n.nsLookupFirstpos;
+			nsLookupLastpos = n.nsLookupLastpos;
+			if (nodename !== n.nodeName) {
+				return "Malformed XHTML";
+			}
+			if (n.localName === "instance" && n.namespaceURI === xformsuri) {
+				r += "</script>";
+				xmlser = false;
+				lt = "<";
+				gt = ">";
+				amp = "&";
+				nsLookupFirstpos = 0;
+			} else if (n.localName === "head" && n.namespaceURI === htmluri) {
+				r += xsltformsjsfile;
+			}
+			//console.log(uri + " " + nodelocalname + ": " + parents.reduce(function(ret, p) { return ret + " " + p.nodelocalname; }, ""));
+			if (n.namespaceURI !== xformsuri || n.localName !== "repeat" || parents[parents.length - 1].namespaceURI !== htmluri ||!tableelts.includes(parents[parents.length - 1].localName)) { 
+				r += lt + "/" + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName) + gt;
+				if (xmlser && n.namespaceURI === xsuri && n.localName === "schema") {
+					r += "</script>";
+					xmlser = false;
+					lt = "<";
+					gt = ">";
+					amp = "&";
+					nsLookupFirstpos = 0;
+				}
+				if (n.localName === "model" && n.namespaceURI === xformsuri) {
+					rmodel = r;
+					r = rsave;
+				}
+			}
+			offset = s.indexOf(">", offset - 1) + 1;
+			if (offset === 0) {
+				break;
+			}
+		} else {
+			c = s.charAt(offset++);
+			n = {};
+			n.nsLookupFirstpos = nsLookupFirstpos;
+			n.nsLookupLastpos = nsLookupLastpos;
+			n.nodeName = "";
+			while (seps_elt.indexOf(c) === -1 && offset <= end) {
+				n.nodeName += c;
+				c = s.charAt(offset++);
+			}
+			index = s.indexOf(">", offset - 1);
+			if (n.nodeName !== "") {
+				attrs = [];
+				attr = {};
+				while (offset <= end) {
+					while (seps.indexOf(c) !== -1) {
+						c = s.charAt(offset++);
+					}
+					if (c === "/" || c === ">" || offset === end) {
+						break;
+					}
+					attr.nodeName = "";
+					while (seps_attr.indexOf(c) === -1 && offset <= end) {
+						attr.nodeName += c;
+						c = s.charAt(offset++);
+					}
+					while (seps.indexOf(c) !== -1 && offset <= end) {
+						c = s.charAt(offset++);
+					}
+					if (c === "=") {
+						c = s.charAt(offset++);
+						while (seps.indexOf(c) !== -1 && offset <= end) {
+							c = s.charAt(offset++);
+						}
+						attr.nodeValue = "";
+						if (c === "'" || c === "\"") {
+							attr.nodeValueDelim = c;
+							ll = Math.min(index - 1, s.indexOf(c, offset));
+							while (offset < ll) {
+								attr.nodeValue += s.charAt(offset++);
+							}
+							offset++;
+							c = s.charAt(offset++);
+						} else {
+							return "Malformed XHTML";
+						}
+					} else {
+						return "Malformed XHTML";
+					}
+					pindex = attr.nodeName.indexOf(":");
+					attr.prefix = pindex !== -1 ? attr.nodeName.substr(0, pindex) : "";
+					attr.localName = pindex !== -1 ? attr.nodeName.substr(pindex + 1) : attr.nodeName;
+					attrs.push(attr);
+					attr = {};
+				}
+				pindex = n.nodeName.indexOf(":");
+				n.prefix = pindex !== -1 ? n.nodeName.substr(0, pindex) : "";
+				n.localName = pindex !== -1 ? n.nodeName.substr(pindex + 1) : n.nodeName;
+				avt = false;
+				var nextFirstpos = nsLookupLastpos + 1;
+				for (var i = 0, l = attrs.length; i < l; i++) {
+					attr = attrs[i];
+					if (attr.nodeName === "xmlns") {
+						namespaces[++nsLookupLastpos] = {prefix: "", namespaceURI: attr.nodeValue, htmlimplicit: false, xmlimplicit: false};
+					} else if (attr.prefix === "xmlns") {
+						namespaces[++nsLookupLastpos] = {prefix: attr.localName, namespaceURI: attr.nodeValue, htmlimplicit: false, xmlimplicit: false};
+					}
+				}
+				nsi = nsLookupLastpos;
+				while (nsi >= 0 && n.prefix !== namespaces[nsi].prefix) {
+					nsi--;
+				}
+				if (nsi < 0) {
+					return "Malformed XHTML";
+				}
+				n.namespaceURI = namespaces[nsi].namespaceURI;
+				if (n.namespaceURI === xformsuri) {
+					xformsinside = true;
+				}
+				if (n.localName === "model" && n.namespaceURI === xformsuri) {
+					rsave = r;
+					r = rmodel;
+				}
+				tablerepeat = n.namespaceURI === xformsuri && n.localName === "repeat" && tableelts.includes(parents[parents.length - 1].localName);
+				if (tablerepeat) {
+					r = r.substr(0, tableeltpos);
+				} else {
+					if (!xmlser && n.namespaceURI === xsuri) {
+						r += "<script type=\"application/xml\">";
+						xmlser = true;
+						lt = "&lt;";
+						gt = "&gt;";
+						amp = "&amp;";
+						nsLookupFirstpos = nextFirstpos;
+					}
+					r += lt + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName);
+				}
+				if (!namespaces[nsi][xmlser ? "xmlimplicit" : "htmlimplicit"] && nsi < nsLookupFirstpos) {
+					nsattr = {};
+					nsattr.localName = namespaces[nsi].prefix;
+					nsattr.prefix = "xmlns";
+					nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
+					nsattr.namespaceURI = xmlnsuri;
+					nsattr.nodeValueDelim = "\"";
+					nsattr.nodeValue = namespaces[nsi].namespaceURI;
+					attrs.push(nsattr);
+				}
+				for (var i = 0, l = attrs.length; i < l; i++) {
+					attr = attrs[i];
+					if (attr.prefix !== "") {
+						nsi = nsLookupLastpos;
+						while (nsi >= 0 && attr.prefix !== namespaces[nsi].prefix) {
+							nsi--;
+						}
+						if (nsi < 0) {
+							return "Malformed XHTML";
+						}
+						attrs[i].namespaceURI = namespaces[nsi].namespaceURI;
+						if (!namespaces[nsi][xmlser ? "xmlimplicit" : "htmlimplicit"] && nsi < nsLookupFirstpos) {
+							nsattr = {};
+							nsattr.localName = namespaces[nsi].prefix;
+							nsattr.prefix = "xmlns";
+							nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
+							nsattr.namespaceURI = xmlnsuri;
+							nsattr.nodeValueDelim = "\"";
+							nsattr.nodeValue = namespaces[nsi].namespaceURI;
+							attrs.push(nsattr);
+						}
+					}
+				}
+				for (var i = 0, l = attrs.length; i < l; i++) {
+					attr = attrs[i];
+					if (xmlser || attr.localName !== "xmlns") {
+						if (xmlser) {
+							r += " " + (attr.prefix !== "" ? attr.prefix + ":" : "") + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
+						} else if (n.localName === "html" && n.namespaceURI === htmluri && attr.prefix === "xmlns") {
+							r += " xmlns-" + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
+						} else if (attr.namespaceURI === xmlnsuri) {
+							if (xmlnsattrs.includes(attr.localName) && attr.nodeValue === xlinkuri) {
+								r += " xmlns:link=\"" + xlinkuri + "\"";
+							}
+						} else {
+							if (attr.nodeValue.indexOf("{") !== -1) {
+								if (!avt) {
+									r += " xf-avt";
+									avt = true;
+								}
+								r += " xf-template-" + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
+							} else {
+								r += " " + (attr.namespaceURI === eventuri ? "ev-" : n.namespaceURI === xformsuri && attr.localName !== "id" && attr.localName !== "style" && attr.localName !== "class" ? "xf-" + (tablerepeat ? "repeat-" : "") : "") + (n.namespaceURI === xformsuri && attr.localName === "nodeset" ? "ref" : attr.localName) + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
+							}
+						}
+					}
+				}
+				if (s.charAt(offset - 1) !== "/") {
+					if (tableelts.includes(n.localName) && n.namespaceURI === htmluri) {
+						tableeltpos = r.length;
+					}
+					r += gt;
+					if (n.localName === "html" && n.namespaceURI === htmluri) {
+						r += "\n<!--HTML elements generated by XSLTForms 1.5beta (655) - Copyright (C) 2020 <agenceXML> - Alain Couthures - http://www.agencexml.com-->\n";
+					} else if (n.localName === "head" && n.namespaceURI === htmluri) {
+						r0 = r;
+						r = "";
+					} else if (n.localName === "body" && n.namespaceURI === htmluri) {
+						if (roptions !== "") {
+							r += "<xforms-options" + roptions + "/>";
+						}
+						r += rmodel;
+					} else if (n.localName === "instance" && n.namespaceURI === xformsuri) {
+						var mediatype = "application/xml";
+						for (var i = 0, l = attrs.length; i < l; i++) {
+							attr = attrs[i];
+							if (attr.nodeName === "mediatype") {
+								mediatype = attr.nodeValue;
+								break;
+							}
+						}
+						r += lt + "script type=\"" + mediatype + "\"" + gt;
+						xmlser = true;
+						lt = "&lt;";
+						gt = "&gt;";
+						amp = "&amp;";
+						nsLookupFirstpos = nsLookupLastpos + 1;
+					}
+					parents.push(n);
+					//console.log("push " + n.nodeName);
+					for (prefix in newnamespaces) {
+						if (newnamespaces.hasOwnProperty(prefix)) {
+							namespaces[prefix] = newnamespaces[prefix];
+						}
+					}
+				} else if (!xmlser && emptyelts.includes(n.localName)) {
+					r += gt;
+				} else {
+					if (!xmlser && n.localName === "head" && n.namespaceURI === htmluri) {
+						r0 = r + gt;
+						r = lt + "/head" + gt;
+					}
+					if (xmlser) {
+						r += "/" + gt;
+					} else {
+						r += gt + lt + "/" + (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName + gt;
+					}
+				}
+			}
+			offset = index + 1;
+			if (offset === 0) {
+				break;
+			}
+		}
+	}
+	return "<!DOCTYPE html>\r\n" + r0 + (xformsinside ? xsltformscssfile : "") + r;
 };
 Fleur.Serializer.prototype.serializeToString = function(node, mediatype, indent) {
 	var media = mediatype.split(";"), config = {}, param, paramreg = /^\s*(\S*)\s*=\s*(\S*)\s*$/, i = 1, l = media.length, handler, mime;

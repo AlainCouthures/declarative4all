@@ -10,24 +10,10 @@
          <xf:instance>
             <data xmlns="">
                <Default>Default Default Default Default</Default>
-               <Small>Small Small Small Small Small Small Small Small Small Small Small
-               Small Small Small Small Small Small Small </Small>
-               <Medium>Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium
-               Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium
-               Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium</Medium>
-               <Large>Large Large Large Large Large Large Large Large Large Large Large Large
-               Large Large Large Large Large Large Large Large Large Large Large Large Large
-               Large Large Large Large Large Large Large Large Large Large Large Large Large
-               Large Large Large Large Large Large Large Large Large Large Large Large</Large>
-               <XLarge>X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large
-               X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large
-               X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large
-               X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large
-               X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large
-               X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large
-               X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large
-               X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large
-               X-Large X-Large X-Large X-Large X-Large X-Large X-Large</XLarge>
+               <Small>Small Small Small Small Small Small Small Small Small Small Small Small Small Small Small Small Small Small </Small>
+               <Medium>Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium Medium</Medium>
+               <Large>Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large Large</Large>
+               <XLarge>X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large X-Large</XLarge>
             </data>
          </xf:instance>
       </xf:model>

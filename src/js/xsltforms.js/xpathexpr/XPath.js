@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_nsResolver XsltForms_browser XsltForms_exprContext*/
+/*globals XsltForms_nsResolver XsltForms_browser XsltForms_exprContext Fleur XsltForms_FleurConv XsltForms_schema*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,32 +10,25 @@
  * * constructor function : initializes properties and creates an associated namespace resolver. A compiled argument as string is interpreted as an error detected by the XSLT transformation.
  */
 		
-function XsltForms_xpath(subform, expression, unordered, compiled, ns) {
-	this.subforms = [];
-	this.subforms[subform] = true;
-	this.nbsubforms = 1;
+function XsltForms_xpath(subform, expression) {
 	this.subform = subform;
 	subform.xpaths.push(this);
 	this.expression = expression;
-	this.unordered = unordered;
-	if (typeof compiled === "string") {
-		alert("XSLTForms Exception\n--------------------------\n\nError parsing the following XPath expression :\n\n"+expression+"\n\n"+compiled);
+	var compiled;
+	try {
+		compiled = Fleur.XPathEvaluator._xp2js(expression, "", "");
+		var arr;
+		eval("arr = " + compiled + ";");
+		compiled = XsltForms_FleurConv[arr[0]](arr[1]);
+		compiled = eval(compiled);
+	} catch (e) {
+		alert("XSLTForms Exception\n--------------------------\n\nError parsing the following XPath expression :\n\n"+expression+"\n\n" + e.message);
 		return;
 	}
 	this.compiled = compiled;
 	this.compiled.isRoot = true;
-	this.nsresolver = new XsltForms_nsResolver();
-	XsltForms_xpath.expressions[expression] = this;
-	//if (ns.length > 0)  {
-	for (var i = 0, len = ns.length; i < len; i += 2) {
-		this.nsresolver.register(ns[i], ns[i + 1]);
-	}
-	//} else {
-	//	this.nsresolver.register("", "http://www.w3.org/1999/xhtml");
-	//}
-	if (this.nsresolver.notfound) {
-		XsltForms_xpath.notfound = true;
-	}
+	this.nsresolver = new Fleur.XPathNSResolver(); //XsltForms_nsResolver();
+	subform.expressions[expression] = this;
 	this.evaltime = 0;
 }
 
@@ -85,41 +78,25 @@ XsltForms_xpath.prototype.xpath_evaluate = function(ctx, current, subform, varre
  * * '''expressions''' associative array : stores every XPath object
  */
 
-XsltForms_xpath.expressions = {};
 XsltForms_xpath.notfound = false;
 
-
-		
-/**
- * * '''get''' method : get an XPath object according to a given source text
- */
-
-XsltForms_xpath.get = function(str) {
-	return XsltForms_xpath.expressions[str];
-};
-
-		
 /**
  * * '''create''' method : creates an XPath object if it doesn't already exists
  */
 
-XsltForms_xpath.create = function(subform, expression, unordered, compiled) {
-	var xp = XsltForms_xpath.get(expression);
-	if (xp) {
-		compiled = null;
-		if (!xp.subforms[subform]) {
-			xp.subforms[subform] = true;
-			xp.nbsubforms++;
-			subform.xpaths.push(xp);
-		}
-	} else {
+XsltForms_xpath.create = function(subform, expression) {
+	var xp = subform.expressions[expression];
+	if (!xp) {
+		/*
 		var ns = [];
 		for (var i = 4, len = arguments.length; i < len; i += 2) {
 			ns[i-4] = arguments[i];
 			ns[i-3] = arguments[i+1];
 		}
-		xp = new XsltForms_xpath(subform, expression, unordered, compiled, ns);
+		*/
+		xp = new XsltForms_xpath(subform, expression);
 	}
+	return xp;
 };
 
 		
@@ -127,15 +104,8 @@ XsltForms_xpath.create = function(subform, expression, unordered, compiled) {
  * * '''dispose''' method : clears the properties of this object
  */
 
-XsltForms_xpath.prototype.dispose = function(subform) {
-	if (subform && this.nbsubforms !== 1) {
-		delete this.subforms[subform];
-		this.nbsubforms--;
-		return;
-	}
-	//this.compiled = null;
-	//this.nsresolver = null;
-	delete XsltForms_xpath.expressions[this.expression];
+XsltForms_xpath.prototype.dispose = function() {
+	delete this.subform.expressions[this.expression];
 };
 
 		

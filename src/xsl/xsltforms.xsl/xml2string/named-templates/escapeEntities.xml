@@ -3,8 +3,8 @@
  * @licence LGPL - See file 'LICENSE.md' in this project.
  * @module escapeEntities
 -->
-<xsl:variable name="trEntities1" select="concat($amp,$apos,$lt,$gt,$quot,$backslash,$newline,$lineseparator,$carriagereturn)" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
-<xsl:variable name="trEntities2" select="concat($tab,$tab,$tab,$tab,$tab,$tab,$tab,$tab,$tab)" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+<xsl:variable name="trEntities1" select="concat($amp,$apos,$lt,$gt,$quot)" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+<xsl:variable name="trEntities2" select="concat($tab,$tab,$tab,$tab,$tab)" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
 <xsl:template name="escapeEntities" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:param name="text"/>
 	<xsl:param name="trtext"/>
@@ -22,7 +22,7 @@
 				<xsl:when test="$c = $newline">&amp;#10;</xsl:when>
 				<xsl:when test="$c = $lineseparator">&amp;#10;</xsl:when>
 				<xsl:when test="$c = $carriagereturn">&amp;#13;</xsl:when>
-				<xsl:when test="$c = '&#9;'">&amp;#9;</xsl:when>
+				<xsl:when test="$c = '&#9;'">&#9;</xsl:when>
 			</xsl:choose>
 			<xsl:variable name="text2" select="substring-after($text, $c)"/>
 			<xsl:variable name="trtext2" select="substring-after($trtext, '&#9;')"/>
@@ -52,7 +52,7 @@
 				<xsl:when test="$c = $newline">&amp;#10;</xsl:when>
 				<xsl:when test="$c = $lineseparator">&amp;#10;</xsl:when>
 				<xsl:when test="$c = $carriagereturn">&amp;#13;</xsl:when>
-				<xsl:when test="$c = $tab">&amp;#9;</xsl:when>
+				<xsl:when test="$c = $tab">&#9;</xsl:when>
 			</xsl:choose>
 			<xsl:variable name="text2" select="substring-after($text, $c)"/>
 			<xsl:variable name="trtext2" select="substring-after($trtext, $tab)"/>

@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser XsltForms_idManager XsltForms_xmlevents*/
+/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser XsltForms_idManager XsltForms_xmlevents XsltForms_class XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,13 +10,15 @@
  * * constructor function : resolves specific properties
  */
 		
-function XsltForms_wrap(subform, control, prevalue, postvalue, context, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_wrap", "HTMLElement", "xforms-wrap");
+
+function XsltForms_wrap(subform, elt) {
 	this.subform = subform;
-	this.control = control;
-	this.prevalue = prevalue;
-	this.postvalue = postvalue;
-	this.context = XsltForms_xpath.get(context);
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.control = elt.getAttribute("xf-control");
+	this.prevalue = elt.hasAttribute("xf-pre") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-pre")) : null;
+	this.postvalue = elt.hasAttribute("xf-post") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-post")) : null;
+	this.context = elt.hasAttribute("xf-context") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-context")) : null;
+	this.init(elt);
 }
 
 XsltForms_wrap.prototype = new XsltForms_abstractAction();

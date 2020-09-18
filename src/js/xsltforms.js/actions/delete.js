@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_binding XsltForms_xpath XsltForms_abstractAction XsltForms_browser XsltForms_globals XsltForms_exprContext Fleur XsltForms_mipbinding XsltForms_xmlevents*/
+/*globals XsltForms_binding XsltForms_xpath XsltForms_abstractAction XsltForms_browser XsltForms_globals XsltForms_exprContext Fleur XsltForms_mipbinding XsltForms_xmlevents XsltForms_class XsltForms_collection XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,13 +10,14 @@
  * * constructor function : resolves the properties of this delete action
  */
 		
-function XsltForms_delete(subform, nodeset, model, bind, at, context, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_delete", "HTMLElement", "xforms-delete");
+
+function XsltForms_delete(subform, elt) {
 	this.subform = subform;
-	this.binding = new XsltForms_binding(null, nodeset, model, bind);
-	//this.at = at?XsltForms_xpath.get(at):null;
-	this.at = XsltForms_xpath.get(at);
-	this.context = XsltForms_xpath.get(context);
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.binding = new XsltForms_binding(this.subform, elt);
+	this.at = elt.hasAttribute("xf-at") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-at")) : null;
+	this.context = elt.hasAttribute("xf-context") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-context")) : null;
+	this.init(elt);
 }
 
 XsltForms_delete.prototype = new XsltForms_abstractAction();
@@ -28,6 +29,11 @@ XsltForms_delete.prototype = new XsltForms_abstractAction();
  */
 
 XsltForms_delete.prototype.run = function(element, ctx) {
+//	if (!element.xfElement) {
+//console.log(Date.now() + ' ' +"missing");
+//		return;
+//	}
+//console.log(Date.now() + ' ' +"valid");
 	var i, len;
 	if (this.context) {
 		ctx = this.context.xpath_evaluate(ctx, null, this.subform)[0];
@@ -62,7 +68,7 @@ XsltForms_delete.prototype.run = function(element, ctx) {
 		XsltForms_mipbinding.nodedispose(node);
 		var repeat = XsltForms_browser.getMeta(node, "repeat");
 		if (repeat) {
-			document.getElementById(repeat).xfElement.deleteNode(node);
+			XsltForms_collection[repeat].xfElement.deleteNode(node);
 		}
 		if (node.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
 			var oldOwnerElement = node.ownerElement? node.ownerElement: node.selectSingleNode("..");

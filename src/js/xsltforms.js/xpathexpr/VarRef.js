@@ -21,18 +21,21 @@ function XsltForms_varRef(vname) {
  */
 
 XsltForms_varRef.prototype.evaluate = function(ctx) {
-		if (!ctx.varresolver || !ctx.varresolver[this.name]) {
-			return "";
+	if (!ctx.varresolver || !ctx.varresolver[this.name]) {
+		return "";
+	}
+	if (ctx.varresolver[this.name] instanceof XsltForms_var) {
+		var varxf = ctx.varresolver[this.name];
+		for (var i = 0, l = varxf.depsNodesRefresh.length; i < l ; i++) {
+			ctx.addDepNode(varxf.depsNodesRefresh[i]);
 		}
-		if (typeof ctx.varresolver[this.name] === "string") {
-			var varxf = document.getElementById(ctx.varresolver[this.name]).xfElement;
-			for (var i = 0, l = varxf.depsNodesRefresh.length; i < l ; i++) {
-				ctx.addDepNode(varxf.depsNodesRefresh[i]);
-			}
-			for (var j = 0, l2 = varxf.depsElements.length; j < l2 ; j++) {
-				ctx.addDepElement(varxf.depsElements[j]);
-			}
-			return varxf.boundnodes;
+		for (i = 0, l = varxf.depsNodesBuild.length; i < l ; i++) {
+			ctx.addDepNode(varxf.depsNodesBuild[i]);
 		}
-		return ctx.varresolver[this.name][0];
+		for (var j = 0, l2 = varxf.depsElements.length; j < l2 ; j++) {
+			ctx.addDepElement(varxf.depsElements[j]);
+		}
+		return varxf.boundnodes;
+	}
+	return ctx.varresolver[this.name][0];
 };

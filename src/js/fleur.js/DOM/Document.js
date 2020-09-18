@@ -16,9 +16,7 @@ Fleur.Document = function() {
 	this.xmlStandalone = false;
 	this.xmlVersion = "1.0";
 	this._elementById = {};
-	this._elementsByTagName = {
-		" ": {}
-	};
+	this._elementsByTagName = {};
 	this.internal_id = String(Fleur.Document_index++);
 	this.internal_id = String.fromCharCode(64 + this.internal_id.length) + this.internal_id;
 };
@@ -373,6 +371,14 @@ Fleur.Document.docImportNode = function(doc, importedNode, deep) {
 	}
 	return node;
 };
+Fleur.Document.prototype.sortNodes = function(nodes) {
+	nodes.sort(function(a, b) {
+		var ia = a.internal_id;
+		var ib = b.internal_id;
+		return ia === ib ? 0 : ia < ib ? -1 : 1;
+	});
+	return nodes;
+};
 Fleur.Document.prototype._serializeToString = function(indent) {
 	var s, i, l;
 	for (i = 0, l = this.childNodes.length; i < l; i++) {
@@ -414,6 +420,9 @@ Fleur._evaluate = function(expression, contextNode, env, type, xpresult) {
 						}
 						return this.nsresolver.lookupNamespaceURI(prefix);
 					},
+					lookupPrefix: function(uri) {
+						return this.nsresolver.lookupPrefix(uri);
+					},
 					declareNamespace: function(prefix, uri) {
 						return this.nsresolver.declareNamespace(prefix, uri);
 					}
@@ -426,6 +435,9 @@ Fleur._evaluate = function(expression, contextNode, env, type, xpresult) {
 					nsresolver: document.createNSResolver(),
 					lookupNamespaceURI: function(prefix) {
 						return this.nsresolver.lookupNamespaceURI(prefix);
+					},
+					lookupPrefix: function(uri) {
+						return this.nsresolver.lookupPrefix(uri);
 					},
 					declareNamespace: function(prefix, uri) {
 						return this.nsresolver.declareNamespace(prefix, uri);

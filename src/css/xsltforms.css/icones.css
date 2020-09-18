@@ -12,7 +12,12 @@ span.xforms-required-icon, span.xforms-alert, span.xforms-help, span.xforms-hint
     margin-left			: 3px;
 }
 
-span.xforms-help-value, span.xforms-alert-value, span.xforms-hint-value { 
+xforms-input[xf-bound][xf-required] > xforms-required::after {
+	content: " *";
+	color: red;
+}
+
+xforms-alert, xforms-help, xforms-hint, span.xforms-help-value, span.xforms-alert-value, span.xforms-hint-value { 
 	display				: none;
 	background-color	: #ffffee;
 	position			: absolute;
@@ -40,12 +45,46 @@ span.xforms-alert:hover span.xforms-alert-value {
 	display				: inline;
 }
 
-span.xforms-hint:hover span.xforms-hint-value {
-	display				: inline;
+xforms-input[xf-invalid] > xforms-alert-mark {
+	display: inline;
+}
+xforms-alert-mark::after {
+	content: ' \274C';
+	color: red;
+}
+
+xforms-alert-mark:hover + xforms-alert {
+	display: inline;
+	cursor: help;
+}
+
+xforms-hint-mark::after {
+	content: ' \1D422';
+	color: orange;
+}
+
+xforms-hint-mark:hover + xforms-hint, span.xforms-hint:hover span.xforms-hint-value {
+	display: inline;
+	cursor: help;
 }
 
 span.xforms-help:hover span.xforms-help-value {
-	display				: inline;
+	display: inline;
+}
+
+xforms-help-mark::after {
+	content: ' \2754';
+	color: green;
+}
+
+xforms-help-mark:hover + xforms-help {
+	display: inline;
+	cursor: help;
+}
+
+xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
+	display: inline;
+	cursor: help;
 }
 
 span.xforms-alert-icon, span.xforms-help-icon, span.xforms-hint-icon {
@@ -75,4 +114,8 @@ span.xforms-hint-icon {
 
 span.focus {
 	display:none;
+}
+
+input[xf-numeric] {
+	text-align: right;
 }

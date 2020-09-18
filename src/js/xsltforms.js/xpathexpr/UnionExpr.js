@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals */
+/*globals XsltForms_globals XsltForms_browser*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -36,6 +36,14 @@ XsltForms_unionExpr.prototype.evaluate = function(ctx) {
 		if (!found) {
 			nodes1.push(nodes2[i2]);
 		}
+	}
+	var posres = [];
+	for (var i3 = 0, len3 = nodes1.length; i3 < len3; i3++) {
+		posres.push({count: XsltForms_browser.selectNodesLength("preceding::* | ancestor::*", nodes1[i3]), node: nodes1[i3]});
+	}
+	posres.sort(function(a,b){return a.count - b.count;});
+	for (var i4 = 0, len4 = posres.length; i4 < len4; i4++) {
+		nodes1[i4] = posres[i4].node;
 	}
 	return nodes1;
 };

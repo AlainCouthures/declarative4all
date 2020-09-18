@@ -20,7 +20,6 @@ Fleur.XPathFunctions_fn["fold-right"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["for-each"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["for-each-pair"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["generate-id"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["id"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["idref"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["in-scope-prefixes"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["innermost"] = function(ctx, children) {};

@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_schema XsltForms_xmlevents*/
+/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_schema XsltForms_xmlevents XsltForms_class XsltForms_subform XsltForms_binding XsltForms_collection*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,35 +10,41 @@
  * * constructor function : initializes specific properties and initializes focus and change event management
  */
 		
-function XsltForms_select(subform, id, min, max, full, binding, open, incremental, clone) {
-	XsltForms_globals.counters.select++;
-	this.init(subform, id);
-	this.controlName = max === 1 ? "select1": "select";
-	this.binding = binding;
-	this.min = min;
-	this.max = max;
-	this.full = full;
-	this.open = open;
-	this.incremental = incremental;
+new XsltForms_class("XsltForms_select", "HTMLElement", "xforms-select", "<xforms-focus></xforms-focus><xforms-label></xforms-label><xforms-body></xforms-body><xforms-required></xforms-required><xforms-alert></xforms-alert><xforms-help></xforms-help><xforms-hint></xforms-hint>");
+new XsltForms_class("XsltForms_select", "HTMLElement", "xforms-select1", "<xforms-focus></xforms-focus><xforms-label></xforms-label><xforms-body></xforms-body><xforms-required></xforms-required><xforms-alert></xforms-alert><xforms-help></xforms-help><xforms-hint></xforms-hint>");
+
+function XsltForms_select(subform, elt, clone) {
+	this.inputname = "xsltforms-select-" + String(XsltForms_globals.counters.select++);
+	this.init(subform, elt);
+	this.controlName = elt.localName.substr(7);
+	this.binding = new XsltForms_binding(subform, elt);
+	this.min = elt.getAttribute("xf-min");
+	this.min = this.min ? Math.max(Number(this.min), 1) : 1;
+	this.max = elt.getAttribute("xf-max");
+	this.max = this.max ? Math.max(Number(this.max), this.min) : elt.localName.toLowerCase() === "xforms-select1" ? 1 : null;
+	this.inputtype = this.max === 1 ? "radio" : "checkbox";
+	this.full = elt.getAttribute("xf-appearance") === "full";
+	this.open = elt.getAttribute("xf-selection") === "open";
+	this.incremental = elt.getAttribute("xf-incremental") !== "false";
+	var cells = Array.prototype.slice.call(this.element.children);
+	var cname;
+	for (var i = 0, l = cells.length; i < l; i++) {
+		cname = cells[i].localName.toLowerCase();
+		if (cname === "xforms-body") {
+			this.cell = cells[i];
+		} else if (cname === "xforms-hint" && cells[i].getAttribute("xf-appearance") === "minimal") {
+			elt.setAttribute("title", cells[i].textContent);
+		}
+	}
+	for (i = 0, l = cells.length; i < l; i++) {
+		cname = cells[i].localName.toLowerCase();
+		if (cname === "xforms-item" || cname === "xforms-itemset" || cname === "xforms-choices") {
+			this.cell.appendChild(cells[i]);
+		}
+	}
 	this.isClone = clone;
 	this.hasBinding = true;
 	this.outRange = false;
-	if (!this.full) {
-		if (!this.open) {
-			this.select = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "select")[0] : this.element.getElementsByTagName("select")[0];
-			this.datalist = this.select;
-		} else {
-			this.select = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input")[0] : this.element.getElementsByTagName("input")[0];
-			this.datalist = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "datalist")[0] : this.element.getElementsByTagName("datalist")[0];
-		}
-		this.initFocus(this.select);
-		if (incremental) {
-			XsltForms_browser.events.attach(this.select, "change", XsltForms_select.incrementalChange);
-			XsltForms_browser.events.attach(this.select, "keyup", XsltForms_select.incrementalChangeKeyup);
-		} else {
-			XsltForms_browser.events.attach(this.select, "change", XsltForms_select.normalChange);
-		}
-	}
 }
 
 XsltForms_select.prototype = new XsltForms_control();
@@ -80,6 +86,138 @@ XsltForms_select.prototype.focusFirst = function() {
 	}
 };
 
+XsltForms_select.initChild = {
+	"xforms-item": function(child) {
+		var ilabel, ivalue;
+		Array.prototype.slice.call(child.children).forEach(function(subitem) {
+			switch (subitem.localName.toLowerCase()) {
+				case "xforms-value":
+					ivalue = subitem.textContent;
+					break;
+				case "xforms-label":
+					ilabel = subitem.innerHTML;
+			}
+		});
+		return '<option value="' + ivalue + '" xf-index="' + child.xfIndex + '">' + ilabel + '</option>';
+	},
+	"xforms-itemset": function(child) {
+		return Array.prototype.slice.call(child.children).map(function(item) {
+			var f = XsltForms_select.initChild[item.localName.toLowerCase()];
+			return f ? f(item) : "";
+		}, "").join("");
+	},
+	"xforms-choices": function(child) {
+		var gchildren = Array.prototype.slice.call(child.children);
+		var glabel = gchildren.filter(function(n) { return n.localName.toLowerCase() === "xforms-label";});
+		var alabel = glabel.length !== 0 ? ' label="' + glabel[0].textContent + '"' : "";
+		return "<optgroup" + alabel + ">" + gchildren.map(function(item) {
+			var f = XsltForms_select.initChild[item.localName.toLowerCase()];
+			return f ? f(item) : "";
+		}, "").join("") + "</optgroup>";
+	}
+};
+
+XsltForms_select.initChildFull = {
+	"xforms-item": function(child, thisselect) {
+		var ibody, ivalue;
+		Array.prototype.slice.call(child.children).forEach(function(subitem) {
+			switch (subitem.localName.toLowerCase()) {
+				case "xforms-body":
+					ibody = subitem;
+					break;
+				case "xforms-value":
+					ivalue = subitem.textContent;
+					break;
+				case "xforms-label":
+					child.xfElement.label = subitem;
+			}
+		});
+		ibody.innerHTML = '<input type="' + thisselect.inputtype + '" value="' + ivalue + '" name="' + thisselect.inputname + '">';
+		//child.setAttribute("xf-appearance", "full");
+		//XsltForms_browser.setClass(child, "xforms-appearance-full", true);
+		child.xfElement.input = ibody.children[0];
+		XsltForms_browser.events.attach(ibody.children[0], "focus", XsltForms_control.focusHandler);
+		XsltForms_browser.events.attach(ibody.children[0], "blur", XsltForms_control.blurHandler);
+	},
+	"xforms-itemset": function(child, thisselect) {
+		Array.prototype.slice.call(child.children).map(function(item) {
+			var f = XsltForms_select.initChildFull[item.localName.toLowerCase()];
+			if (f) {
+				f(item, thisselect);
+			}
+		});
+	},
+	"xforms-choices": function(child, thisselect) {
+		Array.prototype.slice.call(child.children).map(function(item) {
+			var f = XsltForms_select.initChildFull[item.localName.toLowerCase()];
+			if (f) {
+				f(item, thisselect);
+			}
+		});
+		//child.setAttribute("xf-appearance", "full");
+	}
+};
+		
+/**
+ * * '''initBody''' method : initializes the select control body
+ */
+
+XsltForms_select.prototype.initBody = function() {
+	var cell = this.cell;
+	var thisselect = this;
+	if (this.full) {
+		//XsltForms_browser.setClass(this.element, "xforms-appearance-full", true);
+		Array.prototype.slice.call(cell.children).forEach(function(child) {
+			var f = XsltForms_select.initChildFull[child.localName.toLowerCase()];
+			return f ? f(child, thisselect) : "";
+		});
+	} else {
+		var select;
+		if (cell.lastChild.localName.toLowerCase() === "select") {
+			select = cell.lastChild;
+		} else {
+			select = document.createElement("select");
+			if (!this.max || this.max > this.min + 1) {
+				select.setAttribute("multiple", "");
+			}
+			cell.appendChild(select);
+		}
+		var v = select.value;
+		var options = (select.value === "\xA0" ? '<option value="\xA0" id="">\xA0</option>' : "") + Array.prototype.slice.call(cell.children).map(function(child) {
+			var f = XsltForms_select.initChild[child.localName.toLowerCase()];
+			return f ? f(child) : "";
+		}).join("");
+		select.innerHTML = options;
+		Array.prototype.slice.call(select.querySelectorAll("*")).forEach(function(elt){
+			if (elt.hasAttribute("xf-index")) {
+				var ls = XsltForms_collection[elt.getAttribute("xf-index")].listeners;
+				if (ls) {
+					ls.forEach(function(l) {
+						l.clone(elt);
+					});
+				}
+				elt.removeAttribute("xf-index");
+			}
+		});
+		select.value = v;
+		var datalist;
+		if (!this.open) {
+			this.select = select;
+			this.datalist = this.select;
+		} else {
+			this.select = select;
+			this.datalist = datalist;
+		}
+		this.initFocus(this.select);
+		if (this.incremental) {
+			XsltForms_browser.events.attach(this.select, "change", XsltForms_select.incrementalChange);
+			XsltForms_browser.events.attach(this.select, "keyup", XsltForms_select.incrementalChangeKeyup);
+		} else {
+			XsltForms_browser.events.attach(this.select, "change", XsltForms_select.normalChange);
+		}
+	}
+	this.bodyOK = true;
+};
 
 		
 /**
@@ -88,6 +226,9 @@ XsltForms_select.prototype.focusFirst = function() {
 
 XsltForms_select.prototype.setValue = function(value) {
 	var optvalue, empty;
+	if (!this.bodyOK) {
+		this.initBody();
+	}
 	if (this.select && this.datalist.options.length === 1 && this.datalist.options[0] && this.datalist.options[0].value === "\xA0") {
 		this.currentValue = null;
 	}
@@ -189,7 +330,7 @@ XsltForms_select.prototype.changeReadonly = function() {
 			list[i].disabled = this.readonly;
 		}
 	} else {
-		if (!XsltForms_browser.dialog.knownSelect(this.select)) {
+		if (!XsltForms_browser.dialog.knownSelect(this.select) && this.select) {
 			this.select.disabled = this.readonly;
 		}
 	}
@@ -377,7 +518,7 @@ XsltForms_select.incrementalChangeKeyup = function(evt) {
 
 XsltForms_select.prototype.getSelected = function() {
 	var s = this.selectedOptions;
-	if (!s) {
+	if (!s || s.length === 0) {
 		s = [];
 		var opts = this.select.options;
 		for (var i = 0, len = opts.length; i < len; i++) {

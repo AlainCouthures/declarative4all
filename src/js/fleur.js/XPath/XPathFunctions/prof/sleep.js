@@ -12,7 +12,7 @@ Fleur.XPathFunctions_prof["sleep#1"] = new Fleur.Function("http://basex.org/modu
 		if (ms > 0) {
 			setTimeout(function() {
 				callback(null);
-			}, ms);
+			}, Number(ms));
 			return;
 		}
 		callback(null);

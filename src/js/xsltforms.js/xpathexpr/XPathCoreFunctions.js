@@ -336,6 +336,10 @@ var XsltForms_xpathFunctionExceptions = {
 		name : "format-number() : Invalid number of arguments",
 		message : "format-number() function must have two arguments exactly"
 	},
+	formatDateTimeInvalidArgumentsNumber : {
+		name : "format-dateTime() : Invalid number of arguments",
+		message : "format-dateTime() function must have two arguments exactly"
+	},
 	distinctValuesInvalidArgumentsNumber : {
 		name : "distinct-values() : Invalid number of arguments",
 		message : "distinct-values() function must have one argument exactly"
@@ -399,6 +403,10 @@ var XsltForms_xpathFunctionExceptions = {
 	uuidInvalidArgumentsNumber : {
 		name : "uuid() : Invalid number of arguments",
 		message : "uuid() function must have no argument"
+	},
+	metaInvalidArgumentsNumber : {
+		name : "meta() : Invalid number of arguments",
+		message : "meta() function must have one or two arguments"
 	}
 };
 		
@@ -1438,7 +1446,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (c[8]) {
 				d = new Date(Date.UTC(c[1], c[2]-1, c[3], c[4], c[5], c[6]));
 				if (c[8] !== "Z") {
-					d.setUTCMinutes(d.getUTCMinutes() + (c[8] === "+" ? 1 : -1)*(c[9]*60 + c[10]));
+					d.setUTCMinutes(d.getUTCMinutes() + (c[8] === "+" ? -1 : 1)*(c[9]*60 + Number(c[10])));
 				}
 			} else {
 				d = new Date(c[1], c[2]-1, c[3], c[4], c[5], c[6]);
@@ -1503,9 +1511,9 @@ var XsltForms_xpathCoreFunctions = {
 			var c = p.exec(string);
 			var d = new Date(Date.UTC(c[1], c[2]-1, c[3], c[4], c[5], c[6]));
 			if (c[8] && c[8] !== "Z") {
-				d.setUTCMinutes(d.getUTCMinutes() + (c[8] === "+" ? 1 : -1)*(c[9]*60 + c[10]));
+				d.setUTCMinutes(d.getUTCMinutes() + (c[8] === "+" ? -1 : 1)*(c[9]*60 + Number(c[10])));
 			}
-			return Math.floor(d.getTime() / 1000 + 0.000001) + (c[7]?c[7]:0);
+			return Math.floor(d.getTime() / 1000 + 0.000001) + (c[7]?Number(c[7]):0);
 		} ),
 
 		
@@ -1710,6 +1718,166 @@ var XsltForms_xpathCoreFunctions = {
 				}
 			}
 			return nodeSet2;
+		} ),
+
+		
+/**
+ * * '''format-dateTime(value, picture)'''
+ */
+
+	"http://www.w3.org/2005/xpath-functions format-dateTime" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NODESET, false,
+		function(value, picture) {
+			if (arguments.length !== 2) {
+				throw XsltForms_xpathFunctionExceptions.formatNumberInvalidArgumentsNumber;
+			}
+			value = XsltForms_globals.stringValue(value);
+			var s = "";
+			var i = 0, l = picture.length;
+			var format = "";
+			var pdate = false;
+			var ptime = false;
+			var valueDate = null; //notime ? Fleur.toDate(value) : nodate ? Fleur.toTime(value) : Fleur.toDateTime(value);
+			var nodate = false;
+			while (i < l) {
+				var c = picture.charAt(i);
+				var prec = "";
+				while (c !== "[" && i < l) {
+					if (c !== "]") {
+						s += c;
+					} else if (prec === c) {
+						s += c;
+						c = "";
+					}
+					prec = c;
+					c = picture.charAt(++i);
+				}
+				if (c === "[") {
+					c = picture.charAt(++i);
+					if (c === "[") {
+						s += c;
+						i++;
+					} else {
+						format = "";
+						while (c !== "]" && i < l) {
+							format += c;
+							c = picture.charAt(++i);
+						}
+						if (c === "]") {
+							var intvalue = null, stringvalue = null;
+							switch(format.charAt(0)) {
+								case "Y":
+									pdate = true;
+									if (format.charAt(1).toLowerCase() === "i") {
+										stringvalue = Fleur.convertToRoman(parseInt(value.substr(0, 4), 10));
+										if (format.charAt(1) === "i") {
+											stringvalue = stringvalue.toLowerCase();
+										}
+									} else {
+										intvalue = parseInt(value.substr(0, 4), 10);
+									}
+									break;
+								case "M":
+									pdate = true;
+									if (format.charAt(1).toLowerCase() === "i") {
+										stringvalue = Fleur.convertToRoman(parseInt(value.substr(5, 2), 10));
+										if (format.charAt(1) === "i") {
+											stringvalue = stringvalue.toLowerCase();
+										}
+									} else if (format.charAt(1).toLowerCase() === "n") {
+										stringvalue = Fleur.getMonthName(language, valueDate);
+										if (format.charAt(1) === "N") {
+											if (format.charAt(2) === "n") {
+												stringvalue = stringvalue.charAt(0).toUpperCase() + stringvalue.substr(1).toLowerCase();
+											} else {
+												stringvalue = stringvalue.toUpperCase();
+											}
+										} else {
+											stringvalue = stringvalue.toLowerCase();
+										}
+									} else {
+										intvalue = parseInt(value.substr(5, 2), 10);
+									}
+									break;
+								case "D":
+									pdate = true;
+									intvalue = parseInt(value.substr(8, 2), 10);
+									break;
+								case "d":
+									break;
+								case "F":
+									pdate = true;
+									stringvalue = Fleur.getDayName(language, valueDate);
+									if (format.charAt(1) === "N") {
+										if (format.charAt(2) === "n") {
+											stringvalue = stringvalue.charAt(0).toUpperCase() + stringvalue.substr(1).toLowerCase();
+										} else {
+											stringvalue = stringvalue.toUpperCase();
+										}
+									} else {
+										stringvalue = stringvalue.toLowerCase();
+									}
+									break;
+								case "W":
+									break;
+								case "w":
+									break;
+								case "H":
+									break;
+								case "h":
+									ptime = true;
+									intvalue = parseInt(value.substr(nodate ? 0 : 11, 2), 10);
+									break;
+								case "P":
+									break;
+								case "m":
+									ptime = true;
+									intvalue = parseInt(value.substr(nodate ? 3 : 14, 2), 10);
+									break;
+								case "s":
+									ptime = true;
+									intvalue = parseInt(value.substr(nodate ? 6 : 17, 2), 10);
+									break;
+								case "f":
+									break;
+								case "Z":
+									break;
+								case "z":
+									break;
+								case "C":
+									break;
+								case "E":
+									break;
+							}
+							if (intvalue !== null || stringvalue !== null) {
+								format = format.split(',');
+								var maxw, minw;
+								if (format[1]) {
+									var ws = format[1].split('-');
+									minw = ws[0] === "*" ? 1 : parseInt(ws[0], 10);
+									maxw = !ws[1] || ws[1] === "*" ? Infinity : parseInt(ws[1], 10);
+								} else {
+									minw = Math.max(format[0].length - 1, 1);
+									maxw = Infinity;
+								}
+								if (intvalue !== null) {
+									stringvalue = String(intvalue);
+								}
+								stringvalue = "0".repeat(Math.max(minw - stringvalue.length, 0)) + stringvalue;
+								if (stringvalue.length > maxw) {
+									if (format[0].charAt(0) === 'Y') {
+										stringvalue = stringvalue.substr(stringvalue.length - maxw);
+									}
+								}
+							}
+							if (stringvalue !== null) {
+								s += stringvalue;
+							}
+							i++;
+						}
+					}
+				}
+			}
+			return s;
 		} ),
 
 		
@@ -2401,6 +2569,30 @@ var XsltForms_xpathCoreFunctions = {
 
 		
 /**
+ * * '''meta(node?, name)'''
+ */
+
+	"http://www.w3.org/2005/xpath-functions meta" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NODESET, false,
+		function(arg1, arg2) {
+			if (arguments.length < 1 || arguments.length > 2) {
+				throw XsltForms_xpathFunctionExceptions.metaInvalidArgumentsNumber;
+			}
+			if (arguments.length === 2 && typeof arg1 !== "object") {
+				throw XsltForms_xpathFunctionExceptions.metaInvalidArgumentType;
+			}
+			var node, meta;
+			if (arguments.length === 1) {
+				node = arg1;
+				meta = XsltForms_globals.stringValue(arg1);
+			} else {
+				node = arg1[0];
+				meta = XsltForms_globals.stringValue(arg2);
+			}
+			return XsltForms_browser.getMeta(node, "meta-" + meta);
+		}),
+
+		
+/**
  * * '''invalid-id()'''
  */
 
@@ -2417,7 +2609,7 @@ XsltForms_globals.invalid_id_ = function(element) {
 	}
 	var xf = element.xfElement;
 	if (xf && xf.controlName !== "group" && !(xf instanceof Array) && !xf.isRepeat) {
-		return xf.notvalid && !xf.isOutput ? element.id : "";
+		return xf.invalid && !xf.isOutput ? element.id : "";
 	}
 	var childs = element.children || element.childNodes;
 	for (var i = 0, l = childs.length; i < l; i++) {
@@ -2429,7 +2621,7 @@ XsltForms_globals.invalid_id_ = function(element) {
 	return "";
 };
 XsltForms_globals.validate_ = function(node) {
-	if (XsltForms_browser.getBoolMeta(node, "notvalid") || XsltForms_browser.getBoolMeta(node, "unsafe")) {
+	if (XsltForms_browser.getBoolMeta(node, "invalid") || XsltForms_browser.getBoolMeta(node, "unsafe")) {
 		return false;
 	}
 	var atts = node.attributes || [];

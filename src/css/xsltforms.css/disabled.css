@@ -1,3 +1,107 @@
 .xforms-disabled, span.xforms-control.xforms-appearance-minimal.xforms-disabled {
 	display				: none !important;
 }
+
+xforms-group.xforms-enabled {
+	display:	block;
+}
+
+.xforms-enabled, span.xforms-control.xforms-appearance-minimal.xforms-enabled {
+	display				: inline;
+}
+
+xforms-case:not([xf-selected = "true"]) {
+	display: none;
+}
+
+xforms-group[xf-ref]:not([xf-bound]), xforms-group[xf-bind]:not([xf-bound]) {
+	display: none;
+}
+
+xforms-group:not([xf-ref]):not([xf-bind]), xforms-group[xf-bound]:not([xf-notrelevant]) {
+	display: block;
+}
+
+xforms-case[xf-selected = "true"] {
+	display: block;
+}
+
+xforms-trigger[xf-ref]:not([xf-bound]), xforms-trigger[xf-bind]:not([xf-bound]), xforms-trigger[xf-notrelevant] {
+	display: none;
+}
+
+xforms-trigger:not([xf-ref]):not([xf-bind]), xforms-trigger[xf-bound]:not([xf-notrelevant]), xforms-submit {
+	display: inline;
+}
+
+xforms-repeat[xf-bound]:not([xf-notrelevant]) {
+	display: block;
+}
+
+xforms-repeat[xf-bound]:not([xf-notrelevant]) > xforms-repeat-item {
+	display: block;
+}
+
+xforms-select[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]) {
+	display: inline;
+}
+
+xforms-select[xf-bound]:not([xf-notrelevant])[xf-appearance="full"] {
+	display: block;
+}
+
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label {
+	display: block;
+	font-weight: bold;
+	font-style: italic;
+}
+
+xforms-select[xf-appearance="full"] > xforms-body > xforms-item, xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item, xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item, xforms-select[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item {
+	display: block;
+}
+
+xforms-select:not([xf-appearance="full"]) > xforms-body > xforms-item, xforms-select:not([xf-appearance="full"]) > xforms-body > xforms-choices, xforms-select:not([xf-appearance="full"]) > xforms-body > xforms-itemset {
+	display: none;
+}
+
+xforms-select1[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]) {
+	display: inline;
+}
+
+xforms-select1[xf-bound]:not([xf-notrelevant])[xf-appearance="full"] {
+	display: block;
+}
+
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label {
+	display: block;
+	font-weight: bold;
+	font-style: italic;
+}
+
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-item, xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item, xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item, xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item {
+	display: block;
+}
+
+xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-item, xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-choices, xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-itemset {
+	display: none;
+}
+
+xforms-itemset > xforms-label {
+	display: none;
+}
+
+xforms-output[xf-value], xforms-output[xf-bound]:not([xf-notrelevant]) {
+	display: inline;
+}
+
+xforms-input[xf-bound]:not([xf-notrelevant]), xforms-textarea[xf-bound]:not([xf-notrelevant]), xforms-secret[xf-bound]:not([xf-notrelevant]), xforms-upload[xf-bound]:not([xf-notrelevant]), xforms-range[xf-bound]:not([xf-notrelevant]) {
+	display: inline;
+}
+
+*[xf-repeat-ref]:not([xf-bound]) {
+	display: none;
+}
+
+*[xf-repeat-bind]:not([xf-bound]) {
+	display: none;
+}

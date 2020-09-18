@@ -31,8 +31,8 @@ var XsltForms_idManager = {
 				if (element) {
 					var parentElt = element.parentNode;
 					while (parentElt.nodeType === Fleur.Node.ELEMENT_NODE) {
-						if (XsltForms_browser.hasClass(parentElt, "xforms-repeat-item")) {
-							if (XsltForms_browser.hasClass(parentElt, "xforms-repeat-item-selected")) {
+						if (parentElt.localName.toLowerCase() === "xforms-repeat-item" || parentElt.getAttribute("xforms-name" === "repeat-item")) {
+							if (parentElt.getAttribute("xf-selected") === "true") {
 								return element;
 							}
 							break;

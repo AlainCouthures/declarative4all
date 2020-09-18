@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_element XsltForms_globals XsltForms_browser XsltForms_toggle*/
+/*globals XsltForms_element XsltForms_globals XsltForms_browser XsltForms_toggle XsltForms_class XsltForms_binding XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -9,18 +9,38 @@
  * Group Element Class
  * * constructor function : sets specific properties
  */
+	
+new XsltForms_class("XsltForms_group", "HTMLElement", "xforms-group", "<xforms-label></xforms-label><xforms-alert></xforms-alert><xforms-help></xforms-help><xforms-hint></xforms-hint><xforms-body></xforms-body>");
+new XsltForms_class("XsltForms_group", "HTMLElement", "xforms-switch");
+XsltForms_browser.addLoadListener(new Function(
+	"Array.prototype.slice.call(document.querySelectorAll('*[xforms-name=\"group\"]')).forEach(function(elt) { if (!elt.xfElement) { elt.xfIndex = XsltForms_collection.length; XsltForms_collection.push(elt); elt.xfElement = new XsltForms_group(XsltForms_subform.subforms['xsltforms-mainform'], elt); } });"
+));
 		
-function XsltForms_group(subform, id, binding, casebinding) {
+function XsltForms_group(subform, elt) {
+	this.init(subform, elt);
+	var binding = elt.hasAttribute("xf-ref") || elt.hasAttribute("xf-bind") ? new XsltForms_binding(subform, elt) : null;
 	XsltForms_globals.counters.group++;
-	this.init(subform, id);
+	this.init(subform, elt);
 	this.controlName = "group";
+	if (elt.localName.toLowerCase() === "xforms-switch") {
+		var cells = Array.prototype.slice.call(this.element.children || this.element.childNodes);
+		for (var i = 0, l = cells.length; i < l; i++) {
+			var selected = cells[i].getAttribute("xf-selected");
+			if (selected === "true") {
+				break;
+			}
+		}
+		if (i === l) {
+			cells[0].setAttribute("xf-selected", "true");
+		}
+	}
 	if (binding) {
 		this.hasBinding = true;
 		this.binding = binding;
-	} else {
-		XsltForms_browser.setClass(this.element, "xforms-disabled", false);
+	//} else {
+	//	XsltForms_browser.setClass(this.element, "xforms-enabled", true);
 	}
-	this.casebinding = casebinding;
+	this.casebinding = elt.hasAttribute("xf-caseref") ? new XsltForms_binding(subform, elt) : null;
 }
 
 XsltForms_group.prototype = new XsltForms_element();
@@ -71,20 +91,20 @@ XsltForms_group.prototype.build_ = function(ctx) {
  */
 
 XsltForms_group.prototype.refresh = function() {
-	var element = this.element;
-	var disabled = !element.node || XsltForms_browser.getBoolMeta(element.node, "notrelevant");
-	XsltForms_browser.setClass(element, "xforms-disabled", disabled);
-	var ul = element.parentNode.children ? element.parentNode.children[0] : element.parentNode.childNodes[0];
-	if (ul.nodeName.toLowerCase() === "ul") {
-		var childs = element.parentNode.children || element.parentNode.childNodes;
-		var tab;
-		for (var i = 1, len = childs.length; i < len; i++) {
-			if (childs[i] === element) {
-				tab = ul.childNodes[i - 1];
-			}
-		}
-		XsltForms_browser.setClass(tab, "xforms-disabled", disabled);
-	}
+	//var element = this.element;
+	//var disabled = !element.node || XsltForms_browser.getBoolMeta(element.node, "notrelevant");
+	//XsltForms_browser.setClass(element, "xforms-disabled", disabled);
+	//var ul = element.parentNode.children ? element.parentNode.children[0] : element.parentNode.childNodes[0];
+	//if (ul.nodeName.toLowerCase() === "ul") {
+	//	var childs = element.parentNode.children || element.parentNode.childNodes;
+	//	var tab;
+	//	for (var i = 1, len = childs.length; i < len; i++) {
+	//		if (childs[i] === element) {
+	//			tab = ul.childNodes[i - 1];
+	//		}
+	//	}
+	//	XsltForms_browser.setClass(tab, "xforms-disabled", disabled);
+	//}
 };
 
 		

@@ -2,17 +2,16 @@
 	"Name":"xpathexpr.js",
 	"Description":"== XPath Expressions Management ==\nXPath expressions are \"compiled\" (converted to Javascript objects creation instructions) by the XSLT transformation. There is an \"XPath\" object for each distinct (according to its text source) expression. An implicit cast is usually performed for each parameter.",
 	"Components":[
-		"ArrayExpr.js",
 		"BinaryExpr.js",
 		"ExprContext.js",
 		"Exprs.js",
 		"FilterExpr.js",
+		"FleurConv.js",
 		"LocationExpr.js",
 		"NodeTestAny.js",
 		"NodeTestName.js",
 		"NodeTestPI.js",
 		"NodeTestType.js",
-		"NSResolver.js",
 		"PathExpr.js",
 		"PredicateExpr.js",
 		"StepExpr.js",
@@ -22,5 +21,6 @@
 		"XPath.js",
 		"XPathFunction.js",
 		"XPathCoreFunctions.js",
+		"XPathNSResolver.js",
 		"FunctionCallExpr.js"]
 }

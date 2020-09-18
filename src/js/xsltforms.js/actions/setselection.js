@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser XsltForms_idManager XsltForms_xmlevents*/
+/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser XsltForms_idManager XsltForms_xmlevents XsltForms_class XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,12 +10,14 @@
  * * constructor function : resolves specific properties
  */
 		
-function XsltForms_setselection(subform, control, value, context, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_setselection", "HTMLElement", "xforms-setselection");
+
+function XsltForms_setselection(subform, elt) {
 	this.subform = subform;
-	this.control = control;
-	this.value = value? XsltForms_xpath.get(value) : null;
-	this.context = XsltForms_xpath.get(context);
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.control = elt.getAttribute("xf-control");
+	this.value = elt.hasAttribute("xf-value") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-value")) : null;
+	this.context = elt.hasAttribute("xf-context") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-context")) : null;
+	this.init(elt);
 }
 
 XsltForms_setselection.prototype = new XsltForms_abstractAction();

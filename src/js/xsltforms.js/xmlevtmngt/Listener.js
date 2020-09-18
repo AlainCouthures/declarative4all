@@ -41,9 +41,10 @@ function XsltForms_listener(subform, observer, evtTarget, evtname, phase, handle
 	}
 	observer.listeners.push(this);
 	this.callback = function(evt) {
-		if (evt.target.id === "" || !document.getElementById(evt.target.id) || !document.getElementById(this.id)) {
-			return;
-		}
+		//if (evt.target.id === "" || !document.getElementById(evt.target.id) || !document.getElementById(this.id)) {
+		//	return;
+		//}
+		//console.log(Date.now() + " " +evtname + " " + evt.target.nodeName);
 		if (!document.addEventListener) {
 			evt = evt || window.event;
 			evt.target = evt.srcElement;
@@ -78,7 +79,8 @@ function XsltForms_listener(subform, observer, evtTarget, evtname, phase, handle
 			evt.target = evt.target.parentNode;
 		}
 //console.log((evt instanceof UIEvent ? "UIEvent" : "Event") + " " + evt.target.nodeName + " " + evt.type + " " + evt.eventPhase + " " + (evt.currentTarget && evt.type === "DOMActivate" && (evt.target.nodeName.toUpperCase() === "BUTTON" || evt.target.nodeName.toUpperCase() === "A" || (XsltForms_browser.isChrome && evt.eventPhase === 3 && this.xfElement.controlName === "trigger"))  && !XsltForms_browser.isFF2));
-		if (evt.currentTarget && (evt.target.nodeName.toUpperCase() === "BUTTON" || evt.target.nodeName.toUpperCase() === "A" || evt.target.nodeName.toUpperCase() === "INPUT" || (XsltForms_browser.isChrome && (evt.eventPhase === 3 || evt instanceof UIEvent)  && this.xfElement  && this.xfElement.controlName === "trigger"))  && !XsltForms_browser.isFF2) {
+//		if (evt.currentTarget && (evt.target.nodeName.toUpperCase() === "BUTTON" || evt.target.nodeName.toUpperCase() === "A" || evt.target.nodeName.toUpperCase() === "INPUT" || (XsltForms_browser.isChrome && (evt.eventPhase === 3 || evt instanceof UIEvent)  && this.xfElement  && this.xfElement.controlName === "trigger"))  && !XsltForms_browser.isFF2) {
+		if (evt.currentTarget && (evt.target.nodeName.toUpperCase() === "BUTTON" || evt.target.nodeName.toUpperCase() === "A" || evt.target.nodeName.toUpperCase() === "INPUT" || evt.target.nodeName.toUpperCase() === "XFORMS-LABEL" || (XsltForms_browser.isChrome && (evt.eventPhase === 3 || evt instanceof UIEvent)  && this.xfElement  && this.xfElement.controlName === "trigger"))  && !XsltForms_browser.isFF2) {
 			effectiveTarget = false;
 		}
 //console.log(effectiveTarget);

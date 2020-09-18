@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_binding XsltForms_xpath XsltForms_abstractAction XsltForms_browser Fleur XsltForms_globals XsltForms_xmlevents XsltForms_exprContext*/
+/*globals XsltForms_binding XsltForms_xpath XsltForms_abstractAction XsltForms_browser Fleur XsltForms_globals XsltForms_xmlevents XsltForms_exprContext XsltForms_class XsltForms_collection XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,14 +10,16 @@
  * * constructor function : resolves specific properties
  */
 		
-function XsltForms_insert(subform, nodeset, model, bind, at, position, origin, context, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_insert", "HTMLElement", "xforms-insert");
+
+function XsltForms_insert(subform, elt) {
 	this.subform = subform;
-	this.binding = new XsltForms_binding(null, nodeset, model, bind);
-	this.origin = XsltForms_xpath.get(origin);
-	this.context = XsltForms_xpath.get(context);
-	this.at = XsltForms_xpath.get(at);
-	this.position = position;
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.binding = new XsltForms_binding(this.subform, elt);
+	this.origin = elt.hasAttribute("xf-origin") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-origin")) : null;
+	this.at = elt.hasAttribute("xf-at") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-at")) : null;
+	this.context = elt.hasAttribute("xf-context") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-context")) : null;
+	this.position = elt.getAttribute("xf-position") || "after";
+	this.init(elt);
 }
 
 XsltForms_insert.prototype = new XsltForms_abstractAction();
@@ -98,7 +100,7 @@ XsltForms_insert.prototype.run = function(element, ctx) {
 				var repeat = nodes.length > 0? XsltForms_browser.getMeta(nodes[0], "repeat") : null;
 				nodes.push(clone);
 				if (repeat) {
-					document.getElementById(repeat).xfElement.insertNode(clone, nodeAfter);
+					XsltForms_collection[repeat].xfElement.insertNode(clone, nodeAfter);
 				}
 			}
 		}

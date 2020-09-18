@@ -1,4 +1,4 @@
-Copyright (C) 2015 agenceXML - Alain COUTHURES
+Copyright (C) 2020 agenceXML - Alain COUTHURES
 Contact at : info@agencexml.com
 
 This library is free software; you can redistribute it and/or

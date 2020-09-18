@@ -137,7 +137,7 @@ Fleur.Type_duration.canonicalize = function(s) {
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "dateTime");
 Fleur.Type_dateTime = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTime"];
 Fleur.Type_dateTime.canonicalize = function(s) {
-	if (/^\s*([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
+	if (/^\s*([0-9]{4})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
 		s = s.trim();
 		return Fleur.dateToDateTime(Fleur.toDateTime(s));
 	}
@@ -149,7 +149,7 @@ Fleur.Type_dateTime.canonicalize = function(s) {
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "time");
 Fleur.Type_time = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["time"];
 Fleur.Type_time.canonicalize = function(s) {
-	if (/^\s*(([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T)?(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
+	if (/^\s*(([0-9]{4})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T)?(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
 		s = s.trim();
 		if (s.startsWith("24")) {
 			s = "00" + s.substr(2);
@@ -161,7 +161,7 @@ Fleur.Type_time.canonicalize = function(s) {
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "date");
 Fleur.Type_date = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["date"];
 Fleur.Type_date.canonicalize = function(s) {
-	if (/^\s*([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(T(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?))?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
+	if (/^\s*([0-9]{4})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(T(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?))?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
 		return Fleur.dateToDate(Fleur.toDate(s.trim()));
 	}
 	if (/^\s*-?[0-9]+-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(T(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?))?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
@@ -171,7 +171,7 @@ Fleur.Type_date.canonicalize = function(s) {
 };
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gYearMonth");
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYearMonth"].canonicalize = function(s) {
-	if (/^\s*([12][0-9]{3})-(0[1-9]|1[012])\s*$/.test(s)) {
+	if (/^\s*([0-9]{4})-(0[1-9]|1[012])\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
@@ -562,12 +562,19 @@ Fleur.Type_port.canonicalize = function(s) {
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
 
+Fleur.Types["http://www.agencexml.com/fleur/unit"] = {};
+new Fleur.TypeInfo("http://www.agencexml.com/fleur/unit", "information", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
+Fleur.Type_unit_information = Fleur.Types["http://www.agencexml.com/fleur/unit"]["information"];
+Fleur.Type_unit_information.canonicalize = function(s) {
+	return s;
+};
+
 Fleur.Types["http://www.w3.org/2005/xquery"] = {};
 new Fleur.TypeInfo("http://www.w3.org/2005/xquery", "main-module", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
 Fleur.Type_xquery_main_module = Fleur.Types["http://www.w3.org/2005/xquery"]["main-module"];
 Fleur.Type_xquery_main_module.canonicalize = function(s) {
 	Fleur.createExpression(s);
 	return s;
-}
+};
 
 Fleur.numericTypes = [Fleur.Type_integer, Fleur.Type_decimal, Fleur.Type_float, Fleur.Type_double];

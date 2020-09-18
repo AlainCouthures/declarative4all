@@ -41,12 +41,16 @@ Fleur.XQueryEngine.lookups = function(ctx, children, callback, functionid) {
 			ilabel = ctx._curr.collabels.indexOf(ncname);
 			if (ilabel === -1) {
 				Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
-			} else if (ctx._curr.childNodes[ilabel].nodeType === Fleur.Node.MULTIDIM_NODE) {
-				seq = new Fleur.Sequence();
-				seq.appendChild(ctx._curr.childNodes[ilabel]);
-				Fleur.callback(function() {callback(seq, functionid);});
+			} else if (ctx._curr.childNodes[ilabel]) {
+				if (ctx._curr.childNodes[ilabel].nodeType === Fleur.Node.MULTIDIM_NODE) {
+					seq = new Fleur.Sequence();
+					seq.appendChild(ctx._curr.childNodes[ilabel]);
+					Fleur.callback(function() {callback(seq, functionid);});
+				} else {
+					Fleur.callback(function() {callback(ctx._curr.childNodes[ilabel], functionid);});
+				}
 			} else {
-				Fleur.callback(function() {callback(ctx._curr.childNodes[ilabel], functionid);});
+				Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
 			}
 		} else {
 			Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
@@ -55,7 +59,7 @@ Fleur.XQueryEngine.lookups = function(ctx, children, callback, functionid) {
 					Fleur.callback(function() {callback(a, functionid);});
 				} else {
 					ilabel = ctx._curr.collabels.indexOf(a.data);
-					Fleur.callback(function() {callback(ilabel === -1 ? Fleur.EmptySequence : ctx._curr.childNodes[ilabel], functionid);});
+					Fleur.callback(function() {callback(ilabel === -1 || !ctx._curr.childNodes[ilabel] ? Fleur.EmptySequence : ctx._curr.childNodes[ilabel], functionid);});
 				}
 			});
 		}

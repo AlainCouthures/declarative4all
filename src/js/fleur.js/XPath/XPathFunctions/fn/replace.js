@@ -16,7 +16,7 @@ Fleur.XPathFunctions_fn["replace#3"] = new Fleur.Function("http://www.w3.org/200
 Fleur.XPathFunctions_fn["replace#4"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:replace",
 	function(input, pattern, replacement, flags) {
 			input = input || "";
-			flags = flags || "";
+			flags = (flags || "") + "g";
 			try {
 				var re = new RegExp(pattern, flags);
 				return input.replace(re, replacement);

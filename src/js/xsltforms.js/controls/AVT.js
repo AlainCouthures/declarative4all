@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_control Fleur XsltForms_globals*/
+/*globals XsltForms_control Fleur XsltForms_globals XsltForms_browser XsltForms_binding*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -9,17 +9,19 @@
  * AVT Control  Class
  * * constructor function : initializes specific properties and initializes focus and blur event management
  */
+//XsltForms_browser.addLoadListener(new Function(
+//	"Array.prototype.slice.call(document.querySelectorAll('*[xf-avt]')).forEach(function(elt) { if (!elt.xfElement) { elt.xfIndex = XsltForms_collection.length; XsltForms_collection.push(elt); }  Array.prototype.slice.call(elt.attributes).filter(function(a) {return a.nodeName.startsWith('xf-template-');}).forEach(function(a) { new XsltForms_avt(XsltForms_subform.subforms['xsltforms-mainform'], elt, a.nodeName.substr(12)); }); });"
+//));
 		
-function XsltForms_avt(subform, id, attrname, binding) {
-	this.init(subform, id);
+function XsltForms_avt(subform, elt, attrname) {
+	this.init(subform, elt);
 	this.controlName = "avt";
 	this.attrname = attrname;
-	this.binding = binding;
+	this.binding = new XsltForms_binding(subform, elt, "xf-template-" + attrname, "xsd:string");
 	this.hasBinding = true;
 	this.isOutput = true;
 	if (attrname.toLowerCase() === "id") {
 		var calcid = "xsltforms-id-";
-		var elt = this.element;
 		var prev = 1;
 		while (elt.nodeType === Fleur.Node.ELEMENT_NODE) {
 			while (elt.previousSibling) {

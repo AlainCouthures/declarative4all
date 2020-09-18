@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_element XsltForms_browser*/
+/*globals XsltForms_globals XsltForms_element XsltForms_browser XsltForms_subform XsltForms_binding XsltForms_class*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,13 +10,15 @@
  * * constructor function : initializes specific properties
  */
 		
-function XsltForms_label(subform, id, binding) {
+new XsltForms_class("XsltForms_label", "HTMLElement", "xforms-label");
+
+function XsltForms_label(subform, elt) {
 	XsltForms_globals.counters.label++;
-	this.init(subform, id);
+	this.init(subform, elt);
 	this.controlName = "label";
-	if (binding) {
+	if (elt.getAttribute("xf-ref") || elt.getAttribute("xf-value") || elt.getAttribute("xf-bind")) {
 		this.hasBinding = true;
-		this.binding = binding;
+		this.binding = new XsltForms_binding(subform, elt);
 	}
 }
 

@@ -14,7 +14,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.varRef] = function(ctx, children, callback) {
 	} else {
 		nsURI = children[0][1][1][1][0];
 	}
-	var lookupURI = ctx.env.nsresolver.lookupNamespaceURI(nsURI) || "";
+	var lookupURI = nsURI === "" ? "" : ctx.env.nsresolver.lookupNamespaceURI(nsURI) || "";
 	var n = ctx.env.varresolver.get(ctx, lookupURI, children[0][1][0]);
 	//alert(children[0][1][0] + " -> " + n.data);
 	Fleur.callback(function() {callback(n);});

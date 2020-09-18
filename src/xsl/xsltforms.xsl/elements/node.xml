@@ -3,42 +3,54 @@
  * @licence LGPL - See file 'LICENSE.md' in this project.
  * @module node
 -->
-<xsl:template match="*" priority="-2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:param name="appearance" select="@appearance"/>
-	<xsl:param name="parentworkid"/>
-	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+<xsl:template match="*" priority="-2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:choose>
 		<xsl:when test="namespace-uri() != '' and namespace-uri() != 'http://www.w3.org/1999/xhtml'">
 			<xsl:element name="{local-name()}" namespace="{namespace-uri()}">
+				<xsl:if test="@*[contains(., '{')]">
+					<xsl:attribute name="xf-avt"/>
+				</xsl:if>
 				<xsl:apply-templates select="@*"/>
-				<xsl:apply-templates select="node()">
-					<xsl:with-param name="parentworkid" select="$workid"/>
-					<xsl:with-param name="appearance" select="$appearance"/>
-				</xsl:apply-templates>
+				<xsl:apply-templates select="node()"/>
 			</xsl:element>
 		</xsl:when>
 		<xsl:otherwise>
 			<xsl:element name="{local-name()}">
+				<xsl:if test="@*[contains(., '{')]">
+					<xsl:attribute name="xf-avt"/>
+				</xsl:if>
 				<xsl:apply-templates select="@*"/>
-				<xsl:apply-templates select="node()">
-					<xsl:with-param name="parentworkid" select="$workid"/>
-					<xsl:with-param name="appearance" select="$appearance"/>
-				</xsl:apply-templates>
+				<xsl:if test="(local-name() = 'thead' or local-name() = 'tbody' or local-name() = 'tfoot') and xforms:repeat">
+					<xsl:for-each select="xforms:repeat/@*">
+						<xsl:variable name="aname">
+							<xsl:choose>
+								<xsl:when test="local-name() = 'id'">id</xsl:when>
+								<xsl:when test="local-name() = 'nodeset'">xf-repeat-ref</xsl:when>
+								<xsl:otherwise><xsl:value-of select="concat('xf-repeat-', local-name())"/></xsl:otherwise>
+							</xsl:choose>
+						</xsl:variable>
+						<xsl:attribute name="{$aname}"><xsl:value-of select="."/></xsl:attribute>
+					</xsl:for-each>
+				</xsl:if>
+				<xsl:apply-templates select="node()"/>
 			</xsl:element>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
 <xsl:template match="@*" priority="-2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:copy/>
+	<xsl:choose>
+		<xsl:when test="contains(., '{')">
+			<xsl:attribute name="xf-template-{local-name()}">
+				<xsl:value-of select="."/>
+			</xsl:attribute>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:copy/>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 <xsl:template match="node()" priority="-3" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:param name="appearance" select="@appearance"/>
-	<xsl:param name="parentworkid"/>
-	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
 	<xsl:copy>
-		<xsl:apply-templates select="node()">
-			<xsl:with-param name="parentworkid" select="$workid"/>
-			<xsl:with-param name="appearance" select="$appearance"/>
-		</xsl:apply-templates>
+		<xsl:apply-templates select="node()"/>
 	</xsl:copy>
 </xsl:template>

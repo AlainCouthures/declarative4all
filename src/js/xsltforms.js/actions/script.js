@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_browser XsltForms_globals*/
+/*globals XsltForms_abstractAction XsltForms_browser XsltForms_globals XsltForms_class XsltForms_subform XsltForms_binding*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,12 +10,14 @@
  * * constructor function : stores specific properties
  */
 		
-function XsltForms_script(subform, binding, stype, script, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_script", "HTMLElement", "xforms-script");
+
+function XsltForms_script(subform, elt) {
 	this.subform = subform;
-	this.binding = binding;
-	this.stype = stype;
-	this.script = script;
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.binding = elt.hasAttribute("xf-ref") || elt.hasAttribute("xf-bind") ? new XsltForms_binding(this.subform, elt) : null;
+	this.stype = elt.getAttribute("xf-type");
+	this.script = elt.textContent;
+	this.init(elt);
 }
 
 XsltForms_script.prototype = new XsltForms_abstractAction();

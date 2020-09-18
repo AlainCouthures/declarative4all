@@ -15,15 +15,18 @@ function XsltForms_subform(subform, id, eltid) {
 	this.eltid = eltid;
 	if (eltid) {
 		document.getElementById(eltid).xfSubform = this;
+	/*
 	} else {
 		var b = XsltForms_browser.isXhtml ? document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "body")[0] : document.getElementsByTagName("body")[0];
 		b.xfSubform = this;
+	*/
 	}
 	this.models = [];
 	this.schemas = [];
 	this.instances = [];
 	this.binds = [];
 	this.xpaths = [];
+	this.expressions = {};
 	this.subforms = [];
 	this.listeners = [];
 	this.ready = false;
@@ -34,7 +37,7 @@ function XsltForms_subform(subform, id, eltid) {
 }
 
 XsltForms_subform.subforms = {};
-
+new XsltForms_subform(null, "xsltforms-mainform");
 		
 /**
  * * '''construct''' method : reconstructs the models for this object
@@ -48,7 +51,8 @@ XsltForms_subform.prototype.construct = function() {
 	for (i = 0, len = this.instances.length; i < len; i++) {
 		this.instances[i].revalidate();
 	}
-	XsltForms_xmlevents.dispatchList(this.models, "xforms-subform-ready");
+	window.setTimeout("XsltForms_xmlevents.dispatchList(XsltForms_subform.subforms[\""+ this.id + "\"].models, \"xforms-subform-ready\")", 1);
+	//XsltForms_xmlevents.dispatchList(this.models, "xforms-subform-ready");
 	this.ready = true;
 };
 
@@ -58,8 +62,6 @@ XsltForms_subform.prototype.construct = function() {
  */
 
 XsltForms_subform.prototype.dispose = function() {
-	var scriptelt = document.getElementById(this.id + "-script");
-	scriptelt.parentNode.removeChild(scriptelt);
 	for (var h = 0, len0 = this.subforms.length; h < len0; h++) {
 		this.subforms[0].dispose();
 	}
@@ -85,6 +87,7 @@ XsltForms_subform.prototype.dispose = function() {
 		this.xpaths[k] = null;
 	}
 	this.xpaths = null;
+	this.expressions = null;
 	this.binds = null;
 	XsltForms_subform.subforms[this.id] = null;
 	var parentform = this.subform;

@@ -64,10 +64,13 @@ Fleur.DOMParser._appendFromCSVString = function(node, s, config) {
 		} else {
 			a = new Fleur.Text();
 			a.data = v;
+			a.schemaTypeInfo = Fleur.Type_untypedAtomic;
 			row.appendChild(a);
 		}
 		if (s.charAt(offset) === "\n") {
-			node.appendChild(row);
+			if (!first) {
+				node.appendChild(row);
+			}
 			row = new Fleur.Multidim();
 			first = false;
 		}
@@ -631,7 +634,7 @@ Fleur.DocumentType.resolveEntities = function(doctype, s) {
 Fleur.DOMParser._appendFromXMLString = function(node, s, leaftags) {
 	var ii, ll, text, entstart, entityname, index, offset = 0, end = s.length, nodename, attrname, attrvalue, attrs, parents = [], doc = node.ownerDocument || node, currnode = node, eltnode, attrnode, c,
 		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
-		n, namespaces = {}, newnamespaces = {}, pindex, prefix, localName, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue;
+		n, namespaces = {}, newnamespaces = {}, pindex, prefix, localName, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue, uri;
 	while (offset !== end) {
 		text = "";
 		c = s.charAt(offset);
@@ -1074,14 +1077,27 @@ Fleur.DOMParser._appendFromXMLString = function(node, s, leaftags) {
 					}
 				}
 				pindex = nodename.indexOf(":");
-				eltnode = doc.createElementNS(newnamespaces[pindex !== -1 ? nodename.substr(0, pindex) : " "], nodename);
+				uri = newnamespaces[pindex !== -1 ? nodename.substr(0, pindex) : " "];
+				eltnode = doc.createElementNS(uri, nodename);
+				if (!doc._elementsByTagName[uri]) {
+					doc._elementsByTagName[uri] = {};
+					doc._elementsByTagName[uri][nodename] = [eltnode];
+				} else if (!doc._elementsByTagName[uri][nodename]) {
+					doc._elementsByTagName[uri][nodename] = [eltnode];
+				} else {
+					doc._elementsByTagName[uri][nodename].push(eltnode);
+				}
 				for (prefix in attrs) {
 					if (attrs.hasOwnProperty(prefix)) {
 						for (attrname in attrs[prefix]) {
 							if (attrs[prefix].hasOwnProperty(attrname)) {
+								attrvalue = Fleur.DocumentType.resolveEntities(doc.doctype, attrs[prefix][attrname]).replace(/\x01/gm,"<");
+								if (attrname === "id" && (prefix === " " || prefix === "xml")) {
+									doc._elementById[attrvalue] = eltnode;
+								}
 								attrnode = doc.createAttributeNS(prefix === "xmlns" || prefix === " " && attrname === "xmlns" ? "http://www.w3.org/2000/xmlns/" : prefix === "xml" ? "http://www.w3.org/XML/1998/namespace" : prefix !== " " ? newnamespaces[prefix] : null, prefix !== " " ? prefix + ":" + attrname : attrname);
 								eltnode.setAttributeNodeNS(attrnode);
-								attrnode.appendChild(doc.createTextNode(Fleur.DocumentType.resolveEntities(doc.doctype, attrs[prefix][attrname]).replace(/\x01/gm,"<")));
+								attrnode.appendChild(doc.createTextNode(attrvalue));
 							}
 						}
 					}

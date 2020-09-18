@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_browser XsltForms_element XsltForms_globals XsltForms_repeat Fleur*/
+/*globals XsltForms_browser XsltForms_element XsltForms_globals XsltForms_repeat Fleur XsltForms_class*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +7,9 @@
  * @module tree
  * @description
  */
+
+new XsltForms_class("XsltForms_tree", "HTMLElement", "xforms-tree");
+
 function XsltForms_tree(subform, id, binding) {
 	this.init(subform, id);
 	this.binding = binding;

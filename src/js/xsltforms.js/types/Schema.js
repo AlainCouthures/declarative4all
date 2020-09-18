@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals */
+/*globals XsltForms_globals XsltForms_atomicType Fleur*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,10 +10,10 @@
  * * constructor function : creates a Schema object after checking it doesn't exist yet
  */
 		
-function XsltForms_schema(subform, ns, sname, prefixes) {
+function XsltForms_schema(subform, ns, sname, prefixes, doc) {
 	if (XsltForms_schema.all[ns]) {
 		XsltForms_globals.error(XsltForms_globals.defaultModel, "xforms-link-exception", "More than one schema with the same namespace declaration");
-		return;
+		throw new Error("Error");
 	}
 	if (ns === "") {
 		return XsltForms_schema.all["http://www.w3.org/2002/xforms"];
@@ -26,6 +26,61 @@ function XsltForms_schema(subform, ns, sname, prefixes) {
 	XsltForms_schema.all[ns] = this;
 	if (subform) {
 		subform.schemas.push(this);
+	}
+	if (doc) {
+		var n = doc.documentElement;
+		var stype;
+		while (n) {
+			switch(n.localName || n.baseName) {
+				case "simpleType":
+					stype = new XsltForms_atomicType().setSchema(this).setName(n.getAttribute("name"));
+					break;
+				case "restriction":
+					stype.put("base", n.getAttribute("base"));
+					if (n.getAttributeNS) {
+						stype.put("rte", n.getAttributeNS("http://www.agencexml.com/xsltforms", "rte"));
+					} else {
+						var rteattr = n.attributes.getQualifiedItem("rte", "http://www.agencexml.com/xsltforms");
+						if (rteattr) {
+							stype.put("rte",  rteattr.nodeValue);
+						}
+					}
+					break;
+				case "length":
+				case "minLength":
+				case "maxLength":
+				case "enumeration":
+				case "whiteSpace":
+				case "maxInclusive":
+				case "minInclusive":
+				case "maxExclusive":
+				case "minExclusive":
+				case "totalDigits":
+				case "fractionDigits":
+				case "maxScale":
+				case "minScale":
+					stype.put(n.localName || n.baseName, n.getAttribute("value"));
+					break;
+				case "pattern":
+					stype.put("pattern", new RegExp("^(" + n.getAttribute("value").replace(/\//g, "\\/") + ")$"));
+					break;
+				case "appinfo":
+					stype.put("appinfo", n.firstChild.nodeValue);
+					break;
+			}
+			if (n.firstChild) {
+				n = n.firstChild;
+			} else if (n.nextSibling) {
+				n = n.nextSibling;
+			} else {
+				do {
+					n = n.parentNode;
+				} while (n && !n.nextSibling);
+				if (n) {
+					n = n.nextSibling;
+				}
+			}
+		}
 	}
 }
 
@@ -84,9 +139,8 @@ XsltForms_schema.getType = function(tname) {
 	var res = tname.split(":");
 	if (typeof(res[1]) === "undefined") {
 		return XsltForms_schema.getTypeNS(XsltForms_schema.prefixes.xforms, res[0]);
-	} else {
-		return XsltForms_schema.getTypeNS(XsltForms_schema.prefixes[res[0]], res[1]);
 	}
+	return XsltForms_schema.getTypeNS(Fleur.XPathNSResolver_default.uri[Fleur.XPathNSResolver_default.pf.lastIndexOf(res[0].toLowerCase())], res[1]);
 };
 
 

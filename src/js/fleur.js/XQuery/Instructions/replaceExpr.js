@@ -15,6 +15,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.replaceExpr] = function(ctx, children, callback
 				if (replaceValue === 1) {
 					var a = Fleur.Atomize(replacement);
 					target.textContent = a.data;
+					target.firstChild.schemaTypeInfo = a.schemaTypeInfo;
 				} else if (replacement === Fleur.EmptySequence) {
 					if (target.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
 						target.ownerElement.removeAttributeNode(target);
@@ -24,12 +25,16 @@ Fleur.XQueryEngine[Fleur.XQueryX.replaceExpr] = function(ctx, children, callback
 						target.parentElement.removeChild(target);
 					}
 				} else {
-					var parelt = target.nodeType === Fleur.Node.ATTRIBUTE_NODE ? target.ownerElement : target.nodeType === Fleur.Node.ENTRY_NODE ? target.ownerMap : target.nodeType === Fleur.Node.MAP_NODE ? target.parentNode : target.parentElement;
+					var parelt = target.nodeType === Fleur.Node.ATTRIBUTE_NODE ? target.ownerElement : target.nodeType === Fleur.Node.ENTRY_NODE ? target.ownerMap : target.nodeType === Fleur.Node.MAP_NODE ? target.parentNode : target.parentElement || target.parentNode;
 					var n2;
-					if (target instanceof Fleur.Node) {
-						n2 = target.ownerDocument.importNode(replacement.nodeType === Fleur.Node.SEQUENCE_NODE ? replacement.firstChild : replacement, true);
+					if (target.ownerDocument) {
+						if (target instanceof Fleur.Node) {
+							n2 = target.ownerDocument.importNode(replacement.nodeType === Fleur.Node.SEQUENCE_NODE ? replacement.firstChild : replacement, true);
+						} else {
+							n2 = Fleur.Document.docImportNode(target.ownerDocument, replacement.nodeType === Fleur.Node.SEQUENCE_NODE ? replacement.firstChild : replacement, true);
+						}
 					} else {
-						n2 = Fleur.Document.docImportNode(target.ownerDocument, replacement.nodeType === Fleur.Node.SEQUENCE_NODE ? replacement.firstChild : replacement, true);
+						n2 = replacement;
 					}
 					if (target.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
 						parelt.removeAttributeNode(target);

@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_idManager XsltForms_globals XsltForms_browser XsltForms_xmlevents*/
+/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_idManager XsltForms_globals XsltForms_browser XsltForms_xmlevents XsltForms_class XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,11 +10,14 @@
  * * constructor function : resolves specific properties
  */
 		
-function XsltForms_setindex(subform, repeat, index, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_setindex", "HTMLElement", "xforms-setindex");
+
+function XsltForms_setindex(subform, elt) {
 	this.subform = subform;
-	this.repeat = repeat;
-	this.index = XsltForms_xpath.get(index);
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.repeat = elt.getAttribute("xf-repeat");
+	this.index = elt.hasAttribute("xf-index") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-index")) : null;
+	this.context = elt.hasAttribute("xf-context") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-context")) : null;
+	this.init(elt);
 }
 
 XsltForms_setindex.prototype = new XsltForms_abstractAction();

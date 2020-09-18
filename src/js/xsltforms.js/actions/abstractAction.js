@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_globals*/
+/*globals XsltForms_xpath XsltForms_globals XsltForms_listener XsltForms_browser XsltForms_idManager*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -18,13 +18,36 @@ function XsltForms_abstractAction() {
  * * '''init''' method : "if", "while" and "iterate" attributes are defined in this class
  */
 
-XsltForms_abstractAction.prototype.init = function(ifexpr, whileexpr, iterateexpr) {
-	this.ifexpr = XsltForms_xpath.get(ifexpr);
-	this.whileexpr = XsltForms_xpath.get(whileexpr);
-	this.iterateexpr = XsltForms_xpath.get(iterateexpr);
+XsltForms_abstractAction.prototype.init = function(elt) {
+	var ifexpr = elt.getAttribute("xf-if");
+	var whileexpr = elt.getAttribute("xf-while");
+	var iterateexpr = elt.getAttribute("xf-iterate");
+	this.ifexpr = ifexpr? XsltForms_xpath.create(this.subform, ifexpr) : null;
+	this.whileexpr = whileexpr? XsltForms_xpath.create(this.subform, whileexpr) : null;
+	this.iterateexpr = iterateexpr? XsltForms_xpath.create(this.subform, iterateexpr) : null;
+	this.element = elt;
+	var mainaction = elt;
+	while (mainaction && mainaction.hasAttribute && !mainaction.hasAttribute("ev-event")) {
+		mainaction = mainaction.parentNode;
+	}
+	if (mainaction.hasAttribute) {
+		this.observer = mainaction.hasAttribute("ev-observer") ? XsltForms_idManager.find(mainaction.getAttribute("ev-observer")) : mainaction.parentNode;
+		if (elt === mainaction) {
+			var action = this;
+			new XsltForms_listener(this.subform, this.observer, null, elt.getAttribute("ev-event"), null, function(evt) {
+				XsltForms_browser.run(action, action.observer, evt, false, true);
+			}, true);
+		}
+	}
 };
 
 
+		
+/**
+ * * '''build''' method : empty method for actions
+ */
+
+XsltForms_abstractAction.prototype.build = function() {};
 		
 /**
  * * '''execute''' method : "while" attribute process calling "if" attribute process

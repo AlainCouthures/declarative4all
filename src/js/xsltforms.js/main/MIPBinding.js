@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_binding XsltForms_globals XsltForms_browser Fleur*/
+/*globals XsltForms_binding XsltForms_globals XsltForms_browser Fleur XsltForms_subform XsltForms_collection*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,8 +10,8 @@
  * * constructor function : "xpath", "model" and "bind" properties are resolved
  */
 		
-function XsltForms_mipbinding(type, xpath, model) {
-	this.binding = new XsltForms_binding(type, xpath, model, null);
+function XsltForms_mipbinding(subform, elt, mip, miptype, model) {
+	this.binding = new XsltForms_binding(subform, elt, mip, miptype, model);
 	this.nodes = [];
 	this.depsElements = [];
 	this.depsNodes = [];
@@ -68,9 +68,8 @@ XsltForms_mipbinding.prototype.evaluate = function(ctx, node) {
 		deps.length = 0;
 		this.nodes[curn].result = this.binding.bind_evaluate(ctx.subform, ctx.node, null, this.nodes[curn].depsN, null, this.nodes[curn].deps);
 		return this.nodes[curn].result;
-	} else {
-		return this.nodes[curn].result;
 	}
+	return this.nodes[curn].result;
 };
 
 		
@@ -93,7 +92,7 @@ XsltForms_mipbinding.nodedispose = function(node) {
 	if (bindids) {
 		var binds = bindids.split(" ");
 		for (var j = 0, len2 = binds.length; j < len2; j++) {
-			var bind = document.getElementById(binds[j]).xfElement;
+			var bind = XsltForms_collection[binds[j]].xfElement;
 			if (bind.required) {
 				bind.required.nodedispose_(node);
 			}

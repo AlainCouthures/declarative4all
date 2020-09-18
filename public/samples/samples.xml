@@ -1,0 +1,48 @@
+<?xml-stylesheet href="xsl/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events">
+	<head>
+		<title>XForms Samples</title>
+		<xf:model>
+			<xf:instance>
+				<data xmlns="">
+					<form label="Address" name="address.xml"/>
+					<form label="Bind" name="bind.xml"/>
+					<form label="Button" name="button.xml"/>
+					<form label="Calculator" name="calculator.xml"/>
+					<form label="Checkbox" name="checkbox.xml"/>
+					<form label="Constraint" name="constraint.xml"/>
+					<form label="Date" name="date.xml"/>
+					<form label="Deep Copy" name="deep-copy.xml"/>
+					<form label="First Field" name="first-field.xml"/>
+					<form label="Hello" name="hello.xml"/>
+					<form label="Incremental" name="incremental.xml"/>
+					<form label="Input Width" name="input-width.xml"/>
+					<form label="Input" name="input.xml"/>
+					<form label="Readonly" name="readonly.xml"/>
+					<form label="Relevant" name="relevant.xml"/>
+					<form label="Required" name="required.xml"/>
+					<form label="Secret" name="secret.xml"/>
+					<form label="Select From File" name="select-from-file.xml"/>
+					<form label="Select Model" name="select-model.xml"/>
+					<form label="Select Multi Col" name="select-multi-col.xml"/>
+					<form label="Select" name="select.xml"/>
+					<form label="Select1 Drop" name="select1-drop.xml"/>
+					<form label="Select1" name="select1.xml"/>
+					<form label="Spreadsheet" name="spreadsheet.xml"/>
+					<form label="Textarea Styled" name="textarea-styled.xml"/>
+					<form label="Textarea" name="textarea.xml"/>
+				</data>
+			</xf:instance>
+		</xf:model>
+	</head>
+	<body>
+		<xf:repeat ref="form">
+			<xf:trigger ref=".">
+				<xf:label ref="@label"/>
+				<xf:load ev:event="DOMActivate">
+					<xf:resource value="@name"/>
+				</xf:load>
+			</xf:trigger>
+		</xf:repeat>
+	</body>
+</html>

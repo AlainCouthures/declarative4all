@@ -28,5 +28,5 @@ Fleur.XQueryEngine[Fleur.XQueryX.namedFunctionRef] = function(ctx, children, cal
 		}
 		Fleur.XPathFunctions[uri][fname + "#" + nbargs] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
 	}
-	Fleur.callback(function() {callback(Fleur.XPathFunctions[uri] ? Fleur.XPathFunctions[uri][fname + "#" + nbargs] || a : a);});
+	Fleur.callback(function() {callback(Fleur.XPathFunctions[uri] ? Fleur.XPathFunctions[uri][fname + "#" + nbargs].cloneNode() || a : a);});
 };

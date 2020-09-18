@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control tinyMCE XsltForms_schema CKEDITOR Fleur tinymce XsltForms_xmlevents XsltForms_calendar*/
+/*globals XsltForms_globals XsltForms_browser XsltForms_control tinyMCE XsltForms_schema CKEDITOR Fleur tinymce XsltForms_xmlevents XsltForms_calendar XsltForms_subform XsltForms_binding XsltForms_class*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,32 +10,33 @@
  * * constructor function : initializes specific properties including aid button management
  */
 		
-function XsltForms_input(subform, id, valoff, itype, binding, inputmode, incremental, delay, mediatype, aidButton, clone) {
+new XsltForms_class("XsltForms_input", "HTMLElement", "xforms-input", "<xforms-focus></xforms-focus><xforms-label></xforms-label><xforms-body></xforms-body><xforms-required></xforms-required><xforms-alert></xforms-alert><xforms-help></xforms-help><xforms-hint></xforms-hint>");
+new XsltForms_class("XsltForms_input", "HTMLElement", "xforms-secret", "<xforms-focus></xforms-focus><xforms-label></xforms-label><xforms-body></xforms-body><xforms-required></xforms-required><xforms-alert></xforms-alert><xforms-help></xforms-help><xforms-hint></xforms-hint>");
+new XsltForms_class("XsltForms_input", "HTMLElement", "xforms-textarea", "<xforms-focus></xforms-focus><xforms-label></xforms-label><xforms-body></xforms-body><xforms-required></xforms-required><xforms-alert></xforms-alert><xforms-help></xforms-help><xforms-hint></xforms-hint>");
+		
+function XsltForms_input(subform, elt, clone) {
 	XsltForms_globals.counters.input++;
-	this.init(subform, id);
+	this.init(subform, elt);
 	this.controlName = "input";
-	this.binding = binding;
-	this.inputmode = typeof inputmode === "string"? XsltForms_input.InputMode[inputmode] : inputmode;
-	this.incremental = incremental;
-	this.delay = delay;
+	this.binding = new XsltForms_binding(subform, elt);
+	this.inputmode = XsltForms_input.InputMode[elt.getAttribute("xf-inputmode")];
+	this.incremental = elt.getAttribute("xf-incremental") === "true";
+	this.delay = elt.getAttribute("xf-delay");
 	this.timer = null;
 	var cells = this.element.children;
-	this.valoff = valoff;
-	this.cell = cells[valoff];
-	if (!this.cell) {
-		XsltForms_browser.debugConsole.write("ERROR: Could not create input id " + id + ", with binding " + binding + " on subform " + subform);
-		return;
+	for (var i = 0, l = cells.length; i < l; i++) {
+		var cname = cells[i].localName.toLowerCase();
+		if (cname === "xforms-body") {
+			this.cell = cells[i];
+		} else if (cname === "xforms-hint" && cells[i].getAttribute("xf-appearance") === "minimal") {
+			elt.setAttribute("title", cells[i].textContent);
+		}
 	}
 	this.isClone = clone;
 	this.hasBinding = true;
-	this.itype = itype;
-	this.bolAidButton = aidButton;
-	this.mediatype = mediatype;
-	this.initFocus(this.cell.children[0], true);
-	if (aidButton) {
-		this.aidButton = cells[valoff + 1].children[0];
-		this.initFocus(this.aidButton);
-	}
+	this.itype = elt.localName.toLowerCase().substr(7);
+	this.mediatype = elt.getAttribute("xf-mediatype");
+	//this.initFocus(this.cell.children[0], true);
 }
 
 XsltForms_input.prototype = new XsltForms_control();
@@ -87,23 +88,102 @@ XsltForms_input.prototype.dispose = function() {
 
 		
 /**
- * * '''initInput''' method : initializes the input control according to its type (password/textarea/boolean/date/datetime)
+ * * '''initBody''' method : initializes the input control body according to its type (password/textarea/boolean/date/datetime)
  */
 
-XsltForms_input.prototype.initInput = function(type) {
+XsltForms_input.prototype.initBody = function(type) {
 	var cell = this.cell;
 	var input = cell.children[0];
 	var tclass = type["class"];
-	var initinfo;
-	if (input.type === "password") {
+	var initinfo = {};
+	if (!input || type !== this.type) {
+		var inputid = input ? input.id : "";
+		this.type = type;
+		if (tclass === "boolean" || !input || this.itype !== input.type) {
+			while (cell.firstChild) {
+				cell.removeChild(cell.firstChild);
+			}
+		} else {
+			while (cell.firstChild.nodeType === Fleur.Node.TEXT_NODE) {
+				cell.removeChild(cell.firstChild);
+			}
+			for (var i = cell.childNodes.length - 1; i >= 1; i--) {
+				cell.removeChild(cell.childNodes[i]);
+			}
+		}
+		if (tclass === "boolean") {
+			input = XsltForms_browser.createElement("input");
+			input.type = "checkbox";
+			if (inputid !== "") {
+				input.id = inputid;
+			}
+			cell.appendChild(input);
+		} else {
+			if(!input || this.itype !== input.type) {
+				input = XsltForms_browser.createElement(this.element.localName.toLowerCase() === "xforms-textarea" ? "textarea" : "input", cell);
+				if (this.element.localName.toLowerCase() === "xforms-secret") {
+					input.setAttribute("type", "password");
+				}
+			}
+			if (inputid !== "") {
+				input.id = inputid;
+			}
+			this.initEvents(input, (this.itype === "input" || this.itype === "secret"));
+			if (tclass === "time") {
+				if (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isEdge)) {
+					input.type = "time";
+				}
+			} else if (tclass === "date" || tclass === "datetime") {
+				if (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isSafari)) {
+					if (tclass === "date") {
+						input.type = "date";
+					} else if (tclass === "datetime"){
+						input.type = "datetime-local";
+					}
+			    } else {
+					this.calendarButton = XsltForms_browser.createElement("button", cell, XsltForms_browser.selectSingleNode("calendar.label", XsltForms_browser.config) ? XsltForms_browser.i18n.get("calendar.label") : "...", "aid-button");
+					this.calendarButton.setAttribute("type", "button");
+					this.initFocus(this.calendarButton);
+				}
+			} else if (tclass === "number"){
+				if (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isSafari)) {
+					input.type = "number";
+					if (typeof type.fractionDigits === "number") {
+						input.step = String(Math.pow(1, -parseInt(type.fractionDigits, 10)));
+					} else {
+						input.step = "any";
+					}
+				}
+				input.setAttribute("xf-numeric", "");
+				//input.style.textAlign = "right";
+			} else {
+				input.removeAttribute("xf-numeric");
+				//input.style.textAlign = "left";
+			}
+			var max = type.getMaxLength();
+			if (max) {
+				input.maxLength = max;
+			} else {
+				input.removeAttribute("maxLength");
+			}
+			var tlength = type.getDisplayLength();
+			if (tlength) { 
+				input.size = tlength;
+			} else { 
+				input.removeAttribute("size");
+			}
+		}
+	}
+	this.input = input;
+	if (input && input.type === "secret") {
 		this.type = XsltForms_schema.getType("xsd_:string");
 		this.initEvents(input, true);
-	} else if (input.nodeName.toLowerCase() === "textarea") {
+	} else if (input && input.nodeName.toLowerCase() === "textarea") {
 		this.type = type;
 		if (this.mediatype === "application/xhtml+xml" && type.rte) {
 			switch(type.rte.toLowerCase()) {
 				case "tinymce":
-					input.id = this.element.id + "_textarea";
+					input.id = "xsltforms_" + String(this.element.xfIndex) + "_textarea";
 					XsltForms_browser.debugConsole.write(input.id+": init="+XsltForms_globals.tinyMCEinit);
 					if (!XsltForms_globals.tinyMCEinit || XsltForms_globals.jslibraries["http://www.tinymce.com"].substr(0, 2) !== "3.") {
 						eval("initinfo = " + (type.appinfo ? type.appinfo.replace(/(\r\n|\n|\r)/gm, " ") : "{}"));
@@ -151,7 +231,7 @@ XsltForms_input.prototype.initInput = function(type) {
 					//this.editor = new tinymce.Editor(input.id, initinfo, tinymce.EditorManager);
 					break;
 				case "ckeditor":
-					input.id = this.element.id + "_textarea";
+					input.id = "xsltforms_" + String(this.element.xfIndex) + "_textarea";
 					if (!CKEDITOR.replace) {
 						alert("CKEditor is not compatible with XHTML mode.");
 					}
@@ -173,74 +253,6 @@ XsltForms_input.prototype.initInput = function(type) {
 			}
 		}
 		this.initEvents(input, false);
-	} else if (type !== this.type) {
-		var inputid = input.id;
-		this.type = type;
-		if (tclass === "boolean" || this.itype !== input.type) {
-			while (cell.firstChild) {
-				cell.removeChild(cell.firstChild);
-			}
-		} else {
-			while (cell.firstChild.nodeType === Fleur.Node.TEXT_NODE) {
-				cell.removeChild(cell.firstChild);
-			}
-			for (var i = cell.childNodes.length - 1; i >= 1; i--) {
-				cell.removeChild(cell.childNodes[i]);
-			}
-		}
-		if (tclass === "boolean") {
-			input = XsltForms_browser.createElement("input");
-			input.type = "checkbox";
-			input.id = inputid;
-			cell.appendChild(input);
-		} else {
-			if(this.itype !== input.type) {
-				input = XsltForms_browser.createElement("input", cell, null, "xforms-value");
-			}
-			input.id = inputid;
-			this.initEvents(input, (this.itype === "text"));
-			if (tclass === "time") {
-				if (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isEdge)) {
-					input.type = "time";
-				}
-			} else if (tclass === "date" || tclass === "datetime") {
-				if (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isSafari)) {
-					if (tclass === "date") {
-						input.type = "date";
-					} else if (tclass === "datetime"){
-						input.type = "datetime-local";
-					}
-			    } else {
-					this.calendarButton = XsltForms_browser.createElement("button", cell, XsltForms_browser.selectSingleNode("calendar.label", XsltForms_browser.config) ? XsltForms_browser.i18n.get("calendar.label") : "...", "aid-button");
-					this.calendarButton.setAttribute("type", "button");
-					this.initFocus(this.calendarButton);
-				}
-			} else if (tclass === "number"){
-				if (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isSafari)) {
-					input.type = "number";
-					if (typeof type.fractionDigits === "number") {
-						input.step = String(Math.pow(1, -parseInt(type.fractionDigits, 10)));
-					} else {
-						input.step = "any";
-					}
-				}
-				input.style.textAlign = "right";
-			} else {
-				input.style.textAlign = "left";
-			}
-			var max = type.getMaxLength();
-			if (max) {
-				input.maxLength = max;
-			} else {
-				input.removeAttribute("maxLength");
-			}
-			var tlength = type.getDisplayLength();
-			if (tlength) { 
-				input.size = tlength;
-			} else { 
-				input.removeAttribute("size");
-			}
-		}
 	}
 	this.initFocus(input, true);
 	this.input = input;
@@ -257,7 +269,7 @@ XsltForms_input.prototype.setValue = function(value) {
 	var node = this.element.node;
 	var type = node ? XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string") : XsltForms_schema.getType("xsd_:string");
 	if (!this.input || type !== this.type) {
-		this.initInput(type);
+		this.initBody(type);
 		this.changeReadonly();
 	}
 //	XsltForms_browser.debugConsole.write(this.input.id+": setValue("+value+")");
@@ -391,6 +403,11 @@ XsltForms_input.prototype.blur = function(target) {
 			}
 		} else if (this.type.rte && this.type.rte.toLowerCase() === "tinymce") {
 			value = tinyMCE.get(input.id).getContent();
+		} else if (this.type.rte && this.type.rte.toLowerCase() === "ckeditor") {
+			value = this.rte.getData();
+			if (value.substr(value.length - 1) === "\n") {
+				value = value.substr(0, value.length - 1);
+			}
 		} else {
 			value = input.value;
 		}

@@ -13,9 +13,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.dynamicFunctionInvocationExpr] = function(ctx, 
 			Fleur.callback(function() {callback(n);});
 			return;
 		}
+		if (n && n.nodeType === Fleur.Node.ENTRY_NODE) {
+			n = n.firstChild;
+		}
 		var args = children[children.length - 1][0] === Fleur.XQueryX.arguments ? children[children.length - 1][1] : [];
 		var preds = [];
-		children[0][1].forEach(function(child) {
+		children.forEach(function(child) {
 			if (child[0] === Fleur.XQueryX.predicates) {
 				child[1].forEach(function(subchild) {preds.push(subchild);});
 			} else if (child[0] === Fleur.XQueryX.predicate) {

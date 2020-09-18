@@ -319,7 +319,7 @@ Fleur.Node.prototype.cloneNode = function(deep) {
 			}
 			break;
 		case Fleur.Node.SEQUENCE_NODE:
-			clone = this.ownerDocument.createSequence();
+			clone = this.ownerDocument ? this.ownerDocument.createSequence() : new Fleur.Sequence();
 			lj = this.childNodes.length;
 			while (j < lj) {
 				clone.appendChild(this.childNodes[j++].cloneNode(true));
@@ -333,6 +333,9 @@ Fleur.Node.prototype.cloneNode = function(deep) {
 			}
 			break;
 		case Fleur.Node.DOCUMENT_NODE:
+			break;
+		case Fleur.Node.FUNCTION_NODE:
+			clone = new Fleur.Function(this.namespaceURI, this.nodeName, this.jsfunc, this.xqxfunc, this.argtypes, this.needctx, this.needcallback, this.restype, this.updating);
 			break;
 	}
 	return clone;
@@ -425,7 +428,38 @@ Fleur.Node.prototype.copyNode = function() {
 				copy.appendChild(this.childNodes[j++].copyNode());
 			}
 			break;
+		case Fleur.Node.ATTRIBUTE_NODE:
+			copy = new Fleur.Attr();
+			copy.nodeName = this.nodeName;
+			copy.localName = this.localName;
+			copy.prefix = this.prefix;
+			copy.namespaceURI = this.namespaceURI;
+			copy.schemaTypeInfo = this.schemaTypeInfo;
+			lj = this.childNodes.length;
+			while (j < lj) {
+				copy.appendChild(this.childNodes[j++].copyNode());
+			}
+			break;
+		case Fleur.Node.ELEMENT_NODE:
+			copy = new Fleur.Element();
+			copy.nodeName = this.nodeName;
+			copy.localName = this.localName;
+			copy.prefix = this.prefix;
+			copy.namespaceURI = this.namespaceURI;
+			copy.schemaTypeInfo = this.schemaTypeInfo;
+			li = this.attributes.length;
+			while (i < li) {
+				copy.setAttributeNode(this.attributes[i++].copyNode());
+			}
+			lj = this.childNodes.length;
+			while (j < lj) {
+				copy.appendChild(this.childNodes[j++].copyNode());
+			}
+			break;
 		case Fleur.Node.DOCUMENT_NODE:
+			break;
+		case Fleur.Node.FUNCTION_NODE:
+			copy = new Fleur.Function(this.namespaceURI, this.nodeName, this.jsfunc, this.xqxfunc, this.argtypes, this.needctx, this.needcallback, this.restype, this.updating);
 			break;
 	}
 	return copy;
@@ -616,7 +650,11 @@ Fleur.Node.prototype.lookupPrefix = function(namespaceURI) {
 	}
 	while (pnode) {
 		if (pnode.nodeType === Fleur.Node.ELEMENT_NODE) {
-			//return this.prefix ? this.getAttribute("xmlns") === namespaceURI : this.namespaceURI === namespaceURI;
+			for (var i = 0, l = pnode.attributes.length; i < l; i++) {
+				if (pnode.attributes[i].namespaceURI === "http://www.w3.org/2000/xmlns/" && pnode.attributes[i].value === namespaceURI) {
+					return pnode.attributes[i].localName;
+				}
+			}
 		}
 		pnode = pnode.parentNode || pnode.ownerElement;
 	}
@@ -701,7 +739,7 @@ Fleur.Node.prototype.replaceChild = function(newChild, oldChild) {
 	if (oldChild.parentNode !== this) {
 		throw new Fleur.DOMException(Fleur.DOMException.NOT_FOUND_ERR);
 	}
-	if (newChild.ownerDocument !== (this.ownerDocument || this)) {
+	if (newChild.ownerDocument && newChild.ownerDocument !== (this.ownerDocument || this)) {
 		throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
 	}
 	if (oldChild === newChild) {

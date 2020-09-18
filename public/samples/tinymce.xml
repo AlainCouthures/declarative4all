@@ -13,7 +13,7 @@
 		<model xmlns="http://www.w3.org/2002/xforms">
 			<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.agencexml.com/xsltforms/rte">
 				<simpleType name="standardHTML">
-					<restriction base="xforms:HTMLFragment" xsltforms:rte="TinyMCE"/>
+					<restriction xmlns:xforms="http://www.w3.org/2002/xforms" xforms:xmlns="http://www.w3.org/2002/xforms" base="xforms:HTMLFragment" xsltforms:rte="TinyMCE"/>
 					<annotation>
 						<appinfo>
 							{

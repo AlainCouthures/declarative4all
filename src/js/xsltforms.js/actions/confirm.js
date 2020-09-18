@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_browser XsltForms_idManager XsltForms_globals*/
+/*globals XsltForms_abstractAction XsltForms_browser XsltForms_idManager XsltForms_globals XsltForms_class XsltForms_subform XsltForms_binding*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,11 +7,14 @@
  * @module confirm
  * @description
  */
-function XsltForms_confirm(subform, id, binding, ifexpr, whileexpr, iterateexpr) {
+
+new XsltForms_class("XsltForms_confirm", "HTMLElement", "xforms-confirm");
+
+function XsltForms_confirm(subform, elt) {
 	this.subform = subform;
-	this.id = id;
-	this.binding = binding;
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.binding = elt.hasAttribute("xf-ref") || elt.hasAttribute("xf-bind") ? new XsltForms_binding(this.subform, elt) : null;
+	this.id = elt.id;
+	this.init(elt);
 }
 
 XsltForms_confirm.prototype = new XsltForms_abstractAction();

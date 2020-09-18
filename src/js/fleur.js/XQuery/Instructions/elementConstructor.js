@@ -24,9 +24,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.elementConstructor] = function(ctx, children, c
 	elt.textContent = "";
 	if (children.length > 1) {
 		Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
-			elt.namespaceURI = elt.lookupNamespaceURI(elt.prefix);
+			elt.namespaceURI = elt.lookupNamespaceURI(elt.prefix) || ctx.env.nsresolver.lookupNamespaceURI(elt.prefix);
 			if (children.length > 2) {
+				var nsr = ctx.env.nsresolver;
+				ctx.env.nsresolver = new Fleur.XPathNSResolver(elt);
 				Fleur.XQueryEngine[children[2][0]](ctx, children[2][1], function(n) {
+					ctx.env.nsresolver = nsr;
 					Fleur.callback(function() {callback(n);});
 				}, elt);
 			} else {
@@ -34,7 +37,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.elementConstructor] = function(ctx, children, c
 			}
 		}, elt);
 	} else {
-		elt.namespaceURI = elt.lookupNamespaceURI(elt.prefix);
+		elt.namespaceURI = ctx.env.nsresolver.lookupNamespaceURI(elt.prefix);
 		Fleur.callback(function() {callback(elt);});
 	}
 };

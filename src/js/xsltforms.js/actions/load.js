@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_schema XsltForms_browser XsltForms_globals XsltForms_idManager XsltForms_submission XsltForms_xmlevents Fleur XsltForms_repeat*/
+/*globals XsltForms_abstractAction XsltForms_schema XsltForms_browser XsltForms_globals XsltForms_idManager XsltForms_submission XsltForms_xmlevents Fleur XsltForms_repeat XsltForms_class XsltForms_subform XsltForms_binding XsltForms_classes XsltForms_collection XsltForms_avt*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,14 +10,23 @@
  * * constructor function : stores specific properties
  */
 		
-function XsltForms_load(subform, binding, resource, show, targetid, instance, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_load", "HTMLElement", "xforms-load");
+
+function XsltForms_load(subform, elt) {
 	this.subform = subform;
-	this.binding = binding;
-	this.resource = resource;
-	this.show = show;
-	this.targetid = targetid || "_self";
-	this.instance = instance;
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.binding = elt.hasAttribute("xf-ref") || elt.hasAttribute("xf-bind") ? new XsltForms_binding(this.subform, elt) : null;
+	if (elt.hasAttribute("xf-resource")) {
+		this.resource = elt.getAttribute("xf-resource");
+	} else if (elt.children.length !== 0 && elt.children[0].nodeName.toUpperCase() === "XFORMS-RESOURCE") {
+		if (elt.children[0].hasAttribute("xf-value")) {
+			this.resource = new XsltForms_binding(this.subform, elt.children[0]);
+		} else {
+			this.resource = elt.children[0].textContent;
+		}
+	}
+	this.show = elt.getAttribute("xf-show");
+	this.targetid = elt.getAttribute("xf-target") || elt.getAttribute("xf-targetid") || "_self";
+	this.init(elt);
 }
 
 XsltForms_load.prototype = new XsltForms_abstractAction();
@@ -63,7 +72,6 @@ XsltForms_load.prototype.run = function(element, ctx) {
 			var req = null;
 			var method = "get";
 			var evcontext = {"method": method, "resource-uri": href};
-			var subformidx = XsltForms_globals.nbsubforms++;
 			try {
 				req = XsltForms_browser.openRequest(method, href, false);
 				XsltForms_browser.debugConsole.write("Load " + href);
@@ -84,29 +92,18 @@ XsltForms_load.prototype.run = function(element, ctx) {
 					piindex = resp.indexOf("<?xml-stylesheet", 0);
 				}
 				XsltForms_browser.dialog.hide("statusPanel", false);
-				var sp = XsltForms_globals.stringSplit(resp, "XsltForms_MagicSeparator");
-				var subbody, subjs;
+				var sp = XsltForms_globals.stringSplit(resp, "<!--XsltForms_MagicSeparator-->");
+				var subbody;
 				var targetelt = XsltForms_idManager.find(this.targetid);
 				if (sp.length === 1) {
 					subbody = resp;
 				} else {
-					subjs = "/\* xsltforms-subform-" + subformidx + " " + sp[2] + " xsltforms-subform-" + subformidx + " *\/";
-					var imain = subjs.indexOf('"xsltforms-mainform"');
-					var targetsubform = targetelt.xfSubform;
-					if (targetsubform) {
-						targetsubform.dispose();
-					}
-					subjs = '(function(){var xsltforms_subform_eltid = "' + targetelt.id + '";var xsltforms_parentform = XsltForms_subform.subforms["' + this.subform.id + '"];' + subjs.substring(0, imain) + '"xsltforms-subform-' + subformidx + '"' + subjs.substring(imain + 20) + "})();";
-					subbody = "<!-- xsltforms-subform-" + subformidx + " " + sp[4] + " xsltforms-subform-" + subformidx + " -->";
-					imain = subbody.indexOf(' id="xsltforms-mainform');
-					while (imain !== -1) {
-						subbody = subbody.substring(0, imain) + ' id="xsltforms-subform-' + subformidx + subbody.substring(imain + 23);
-						imain = subbody.indexOf(' id="xsltforms-mainform');
-					}
+					subbody = sp[1];
 				}
+				var targetid = targetelt.id;
 				var targetxf = targetelt.xfElement;
 				if (targetelt.xfElement) {
-					targetelt = targetelt.children[targetelt.children.length - 1];
+					targetelt = targetelt.querySelector("xforms-body");
 				}
 				targetelt.innerHTML = subbody;
 				targetelt.hasXFElement = null;
@@ -118,26 +115,19 @@ XsltForms_load.prototype.run = function(element, ctx) {
 					parentNode.hasXFElement = null;
 					parentNode = parentNode.parentNode;
 				}
-				if (sp.length !== 1) {
-					var scriptelt = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "script") : document.createElement("script");
-					scriptelt.setAttribute("id", "xsltforms-subform-" + subformidx + "-script");
-					scriptelt.setAttribute("type", "text/javascript");
-					if (subjs.indexOf('XsltForms_globals.ltchar = "&lt;"; XsltForms_browser.isEscaped = XsltForms_globals.ltchar.length != 1;') !== -1) {
-						subjs = XsltForms_browser.unescape(subjs);
+				var subformidx = XsltForms_globals.nbsubforms++;
+				var newsubform = new XsltForms_subform(this.subform, "xsltforms-subform-" + String(subformidx), targetid);
+				XsltForms_class.activateAll(newsubform, targetelt, function() {
+					newsubform.construct();
+					if (!targetxf || !targetxf.isComponent) {
+						XsltForms_globals.openAction("XsltForms_subform.prototype.construct");
+						XsltForms_globals.closeChanges(true);
+						XsltForms_globals.closeAction("XsltForms_subform.prototype.construct");
 					}
-					subjs = subjs.replace('XsltForms_browser.isEscaped = XsltForms_globals.ltchar.length != 1;', "");
-					if (XsltForms_browser.isIE) {
-						scriptelt.text = subjs;
-					} else {
-						scriptelt.appendChild(document.createTextNode(subjs));
+					if (targetxf) {
+						XsltForms_xmlevents.dispatch(targetxf, "xforms-load-done", null, null, null, null, evcontext);
 					}
-					var body = XsltForms_browser.isXhtml ? document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "body")[0] : document.getElementsByTagName("body")[0];
-					body.insertBefore(scriptelt, body.firstChild);
-				}
-				XsltForms_browser.setClass(targetelt, "xforms-subform-loaded", true);
-				if (targetxf) {
-					XsltForms_xmlevents.dispatch(targetxf, "xforms-load-done", null, null, null, null, evcontext);
-				}
+				});
 			} catch(e2) {
 				XsltForms_browser.debugConsole.write(e2.message || e2);
 				evcontext["error-type"] = "resource-error";
@@ -193,7 +183,7 @@ XsltForms_load.subform = function(resource, targetid, ref) {
 	if (ref) {
 		var parentNode = ref;
 		while (parentNode && parentNode.nodeType === Fleur.Node.ELEMENT_NODE) {
-			if (XsltForms_browser.hasClass(parentNode, "xforms-repeat-item")) {
+			if (parentNode.localName.toLowerCase() === "xforms-repeat-item" || parentNode.getAttribute("xforms-name") === "repeat-item") {
 				XsltForms_repeat.selectItem(parentNode);
 			}
 			parentNode = parentNode.parentNode;

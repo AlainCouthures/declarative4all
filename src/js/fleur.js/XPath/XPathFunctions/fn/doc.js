@@ -53,6 +53,13 @@ Fleur.extension2encoding = {
 	".zip":   "binary"
 };
 
+Fleur.encoding2encoding = {
+	"us-ascii":   "latin1",
+	"iso-8859-1": "latin1",
+	"utf-8":      "utf8",
+	"utf-16":     "utf16le"   
+};
+
 Fleur.XPathFunctions_fn["doc#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:doc",
 	function(docname, ctx, callback) {
 		return Fleur.XPathFunctions_fn["doc#3"].jsfunc(docname, null, null, ctx, callback);
@@ -78,9 +85,14 @@ Fleur.XPathFunctions_fn["doc#3"] = new Fleur.Function("http://www.w3.org/2005/xp
 			}
 			serialization = op2[1];
 			contentType = Fleur.toContentType(serialization);
+			if (serialization["encoding"]) {
+				encoding = Fleur.encoding2encoding[serialization["encoding"].toLowerCase()];
+			}
 		}
 		var httpget = docname.startsWith("http://") || Fleur.inBrowser;
-		var fileread = docname.startsWith("file://") || !httpget;
+		var cmdexec = docname.startsWith("cmd://");
+		var ps1exec = docname.startsWith("ps1://");
+		var fileread = (docname.startsWith("file://") || !httpget) && !cmdexec && !ps1exec;
 		var parser = new Fleur.DOMParser();
 		if (httpget) {
 			if (!Fleur.inBrowser) {
@@ -127,6 +139,7 @@ Fleur.XPathFunctions_fn["doc#3"] = new Fleur.Function("http://www.w3.org/2005/xp
 				var getp = new Promise(function(resolve, reject) {
 					var req = new XMLHttpRequest();
 					req.open(serialization && serialization["http-verb"] ? serialization["http-verb"].toUpperCase() : "GET", docname, true);
+					//req.setRequestHeader("Cache-Control", "no-cache");
 					req.onload = function() {
 						if (req.status === 200) {
 							resolve({text: req.responseText, contenttype: serialization ? contentType : req.getResponseHeader("Content-Type")});
@@ -154,14 +167,48 @@ Fleur.XPathFunctions_fn["doc#3"] = new Fleur.Function("http://www.w3.org/2005/xp
 				contentType = Fleur.extension2contentType[extension] || "application/xml";
 			}
 			if (!encoding) {
-				encoding = Fleur.extension2encoding[extension] || "utf8";
+				encoding = "utf8";
 			}
-			//console.log(docname);
+			//console.log(docname);console.log(process.cwd());
 			global.fs.readFile(docname, encoding, function(err, file) {
 				if (err) {
+					//console.log(err);
 					callback(Fleur.error(ctx, "FODC0002"));
 				} else {
-					callback(parser.parseFromString(file, contentType));
+					//console.log(file.charCodeAt(1));
+					callback(parser.parseFromString(file.startsWith('\uFEFF') ? file.substr(1) : file, contentType));
+				}
+			});
+		} else if (cmdexec || ps1exec) {
+			docname = decodeURIComponent(docname.substr(6));
+			if (!contentType) {
+				contentType = "application/xml";
+			}
+			var dropone = false;
+			if (global.os.platform() === "win32") {
+				if (cmdexec) {
+					docname = "@chcp 65001 | " + docname;
+				} else {
+					docname = "%SystemRoot%\\system32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NoLogo -NonInteractive -ExecutionPolicy Bypass \"& {chcp 65001 ; $ProgressPreference='SilentlyContinue' ; " + docname + "}\"";
+					dropone = true;
+					//console.log(docname);
+				}
+			}
+			global.child_process.exec(docname, {windowsHide: true, maxBuffer: 1024*1024*1024}, function(err, stdout, stderr) {
+				if (err) {
+					err.name = "FOPR0001";
+					callback(err);
+				} else if (stderr) {
+					var e = new Error(stderr);
+					e.name = "FOPR0001";
+					callback(e);
+				} else {
+					//console.log(stdout.replace(/\n/g, "\\n").replace(/\r/g, "\\r"));
+					if (dropone) {
+						stdout = stdout.substr(stdout.indexOf("\r\n") + 2);
+					}
+					//console.log(stdout.replace(/\n/g, "\\n").replace(/\r/g, "\\r"));
+					callback(parser.parseFromString(stdout, contentType));
 				}
 			});
 		}

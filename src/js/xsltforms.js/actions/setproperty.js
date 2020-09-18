@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_browser*/
+/*globals XsltForms_abstractAction XsltForms_browser XsltForms_class XsltForms_subform XsltForms_xpath*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,12 +7,15 @@
  * @module setproperty
  * @description 
  */
-function XsltForms_setproperty(subform, pname, value, literal, ifexpr, whileexpr, iterateexpr) {
+
+new XsltForms_class("XsltForms_setproperty", "HTMLElement", "xforms-setproperty");
+
+function XsltForms_setproperty(subform, elt) {
 	this.subform = subform;
-	this.name = pname;
-	this.value = value;
-	this.literal = literal;
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.name = elt.getAttribute("xf-pname");
+	this.value = elt.hasAttribute("xf-value") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-value")) : null;
+	this.literal = elt.textContent || "";
+	this.init(elt);
 }
 
 XsltForms_setproperty.prototype = new XsltForms_abstractAction();

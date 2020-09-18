@@ -1,0 +1,59 @@
+xforms-action,
+xforms-alert-mark,
+xforms-bind,
+xforms-component,
+xforms-delete,
+xforms-dialog,
+xforms-dispatch,
+xforms-group,
+xforms-hide,
+xforms-input,
+xforms-insert,
+xforms-instance,
+xforms-itext,
+xforms-load,
+xforms-message,
+xforms-model,
+xforms-options,
+xforms-output,
+xforms-range,
+xforms-rebuild,
+xforms-recalculate,
+xforms-refresh,
+xforms-repeat,
+xforms-reset,
+xforms-revalidate,
+xforms-script,
+xforms-secret,
+xforms-select,
+xforms-select1,
+xforms-send,
+xforms-setfocus,
+xforms-setindex,
+xforms-setnode,
+xforms-setselection,
+xforms-setvalue,
+xforms-show,
+xforms-split,
+xforms-submission,
+xforms-text,
+xforms-textarea,
+xforms-timer,
+xforms-toggle,
+xforms-translation,
+xforms-tree,
+xforms-unload,
+xforms-upload,
+xforms-value,
+xforms-var,
+xforms-wrap {
+	display: none
+}
+
+xforms-item[xf-appearance="full"] {
+	display: block !important;
+}
+
+xforms-input[xf-numeric] {
+	text-align: right;
+}

@@ -95,7 +95,7 @@
 						<td>
 							<xforms:trigger class="delete">
 								<xforms:label>X</xforms:label>
-								<xforms:delete nodeset="." at="1" ev:event="DOMActivate" if="count(//transaction) > 1"/>
+								<xforms:delete nodeset="." at="1" ev:event="DOMActivate" if="count(//transaction) &gt; 1"/>
 							</xforms:trigger>
 						</td>
 					</tr>

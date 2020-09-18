@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_globals XsltForms_idManager XsltForms_browser XsltForms_xmlevents*/
+/*globals XsltForms_abstractAction XsltForms_globals XsltForms_idManager XsltForms_browser XsltForms_xmlevents XsltForms_class XsltForms_subform XsltForms_binding*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,10 +10,20 @@
  * * constructor function : stores specific property
  */
 		
-function XsltForms_toggle(subform, caseId, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_toggle", "HTMLElement", "xforms-toggle");
+
+function XsltForms_toggle(subform, elt) {
 	this.subform = subform;
-	this.caseId = caseId;
-	this.init(ifexpr, whileexpr, iterateexpr);
+	var tcase;
+	Array.prototype.slice.call(elt.children).forEach(function(n) {
+		switch(n.localName.toLowerCase()) {
+			case "xforms-case":
+				tcase = n;
+				break;
+		}
+	});
+	this.caseId = tcase ? tcase.hasAttribute("xf-value") ? new XsltForms_binding(this.subform, tcase) : tcase.textContent : elt.getAttribute("xf-case");
+	this.init(elt);
 }
 
 XsltForms_toggle.prototype = new XsltForms_abstractAction();
@@ -44,33 +54,18 @@ XsltForms_toggle.toggle = function(caseId, ctx) {
 		caseId = XsltForms_globals.stringValue(caseId.xpath.xpath_evaluate(ctx));
 	}
 	var element = XsltForms_idManager.find(caseId);
-	var childs = element ? element.parentNode.childNodes : [];
-	var ul;
-	var index = -1;
-	if (childs.length > 0 && childs[0].nodeName.toLowerCase() === "ul") {
-		ul = childs[0];
-	}
-	for (var i = ul ? 1 : 0, len = childs.length; i < len; i++) {
+	var childs = element ? element.parentNode.children : [];
+	for (var i = 0, len = childs.length; i < len; i++) {
 		var child = childs[i];
-		if (child === element) {
-			index = i - 1;
-		} else {
-			if (child.style && child.style.display !== "none") {
-				child.style.display = "none";
-				if (ul) {
-					XsltForms_browser.setClass(ul.childNodes[i - 1], "ajx-tab-selected", false);
-				}
-			}
+		if (child !== element && child.hasAttribute("xf-selected")) {
+			child.removeAttribute("xf-selected");
+			//XsltForms_browser.setClass(child, "xforms-enabled", false);
 			XsltForms_xmlevents.dispatch(child, "xforms-deselect");
 		}
 	}
-	if (element && element.style.display === "none") {
-		element.style.display = "block";
-		if (ul) {
-			XsltForms_browser.setClass(ul.childNodes[index], "ajx-tab-selected", true);
-		}
-	}
 	if (element) {
+		//XsltForms_browser.setClass(element, "xforms-enabled", true);
+		element.setAttribute("xf-selected", "true");
 		XsltForms_xmlevents.dispatch(element, "xforms-select");
 	}
 	XsltForms_globals.closeAction("XsltForms_toggle.toggle");

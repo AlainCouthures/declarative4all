@@ -17,6 +17,7 @@ Fleur.XPathFunctions_file["write#3"] = new Fleur.Function("http://expath.org/ns/
 	function(filename, node, serialization, ctx, callback) {
 		var contentType;
 		var indent = false;
+		var encoding;
 		if (serialization) {
 			var a2 = Fleur.Atomize(serialization);
 			var	op2 = Fleur.toJSObject(a2);
@@ -24,14 +25,21 @@ Fleur.XPathFunctions_file["write#3"] = new Fleur.Function("http://expath.org/ns/
 				callback(a2);
 				return;
 			}
-			contentType = Fleur.toContentType(op2[1], Fleur.extension2contentType[global.path.extname(filename).toLowerCase()] || "application/xml");
-			indent = op2[1].indent === "yes";
+			serialization = op2[1];
+			contentType = Fleur.toContentType(serialization, Fleur.extension2contentType[global.path.extname(filename).toLowerCase()] || "application/xml");
+			indent = serialization.indent === "yes";
+			if (serialization["encoding"]) {
+				encoding = Fleur.encoding2encoding[serialization["encoding"].toLowerCase()];
+			}
 		}
 		if (!contentType) {
 			contentType = Fleur.extension2contentType[global.path.extname(filename).toLowerCase()] || "application/xml";
 		}
 		var ser = new Fleur.Serializer();
-		global.fs.writeFile(filename, '\ufeff' + ser.serializeToString(node, contentType, indent), 'utf8', function(err) {
+		if (!encoding) {
+			encoding = "utf8";
+		}
+		global.fs.writeFile(filename, (encoding === "utf8" ? '\ufeff' : '') + ser.serializeToString(node, contentType, indent), encoding, function(err) {
 			if (err) {
 				callback(Fleur.error(ctx, "FODC0002"));
 			} else {

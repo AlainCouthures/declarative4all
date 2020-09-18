@@ -9,5 +9,6 @@
 		"subform.js",
 		"Binding.js",
 		"MIPBinding.js",
-		"IdManager.js"]
+		"IdManager.js",
+		"class.js"]
 }

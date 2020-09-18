@@ -402,12 +402,14 @@ Fleur.toContentType = function(o, def) {
 				s = def;
 		}
 	}
-	if (o.encoding) {
-		s += "; charset=\"" + o.encoding + "\"";
-	}
-	for (var p in o) {
-		if (o.hasOwnProperty(p) && p !== "media-type" && p !== "encoding") {
-			s += "; " + p + "=" + encodeURIComponent(o[p]);
+	if (s) {
+		if (o.encoding) {
+			s += "; charset=\"" + o.encoding + "\"";
+		}
+		for (var p in o) {
+			if (o.hasOwnProperty(p) && p !== "media-type" && p !== "encoding") {
+				s += "; " + p + "=" + encodeURIComponent(o[p]);
+			}
 		}
 	}
 	return s;

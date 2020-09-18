@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser*/
+/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser XsltForms_class XsltForms_binding XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,14 +10,18 @@
  * * constructor function : resolves specific properties
  */
 		
-function XsltForms_split(subform, binding, separator, leftTrim, rightTrim, context, ifexpr, whileexpr, iterateexpr) {
+new XsltForms_class("XsltForms_split", "HTMLElement", "xforms-split");
+
+function XsltForms_split(subform, elt) {
 	this.subform = subform;
-	this.binding = binding;
-	this.separator = separator;
+	this.binding = new XsltForms_binding(this.subform, elt);
+	this.separator = elt.getAttribute("xf-separator");
+	var leftTrim = elt.getAttribute("xf-left-trim");
 	this.leftTrim = leftTrim && leftTrim !== "" ? new RegExp(leftTrim) : null;
+	var rightTrim = elt.getAttribute("xf-right-trim");
 	this.rightTrim = rightTrim && rightTrim !== "" ? new RegExp(rightTrim) : null;
-	this.context = XsltForms_xpath.get(context);
-	this.init(ifexpr, whileexpr, iterateexpr);
+	this.context = elt.hasAttribute("xf-context") ? XsltForms_xpath.create(this.subform, elt.getAttribute("xf-context")) : null;
+	this.init(elt);
 }
 
 XsltForms_split.prototype = new XsltForms_abstractAction();

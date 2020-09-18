@@ -68,7 +68,7 @@ Fleur.XPathFunctions_fn["format-dateTime#5"] = new Fleur.Function("http://www.w3
 										stringvalue = stringvalue.toLowerCase();
 									}
 								} else if (format.charAt(1).toLowerCase() === "n") {
-									stringvalue = Fleur.getMonthName(language, valueDate);
+									stringvalue = Fleur.getMonthName(language, valueDate.d);
 									if (format.charAt(1) === "N") {
 										if (format.charAt(2) === "n") {
 											stringvalue = stringvalue.charAt(0).toUpperCase() + stringvalue.substr(1).toLowerCase();
@@ -90,7 +90,7 @@ Fleur.XPathFunctions_fn["format-dateTime#5"] = new Fleur.Function("http://www.w3
 								break;
 							case "F":
 								pdate = true;
-								stringvalue = Fleur.getDayName(language, valueDate);
+								stringvalue = Fleur.getDayName(language, valueDate.d);
 								if (format.charAt(1) === "N") {
 									if (format.charAt(2) === "n") {
 										stringvalue = stringvalue.charAt(0).toUpperCase() + stringvalue.substr(1).toLowerCase();

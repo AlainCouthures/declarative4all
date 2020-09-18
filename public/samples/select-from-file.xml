@@ -3,7 +3,7 @@
    <head>
       <title>Select List From File</title>
       
-      /* the default model */
+      <!-- the default model -->
       <xf:model>
          <xf:instance>
             <Data xmlns="">

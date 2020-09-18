@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_browser Fleur*/
+/*globals XsltForms_browser Fleur XsltForms_collection*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -17,7 +17,7 @@ function XsltForms_exprContext(subform, node, position, nodelist, parentNode, ns
 	if(!position) {
 		var repeat = node && node.nodeType ? XsltForms_browser.getMeta(node, "repeat") : null;
 		if(repeat) {
-			var eltrepeat = document.getElementById(repeat);
+			var eltrepeat = XsltForms_collection[repeat];
 			if (eltrepeat) {
 				var xrepeat = eltrepeat.xfElement;
 				var len;
