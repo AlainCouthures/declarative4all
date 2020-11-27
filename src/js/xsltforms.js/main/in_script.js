@@ -113,7 +113,7 @@ if (typeof xsltforms_d0 === "undefined") {
 		}
 		var xftrans = function () {
 			var conselt = document.createElement("div");
-			conselt.setAttribute("id", "xsltforms_console");
+			conselt.setAttribute("id", "xsltforms-console");
 			document.getElementsByTagName("body")[0].appendChild(conselt);
 			conselt = document.createElement("div");
 			conselt.setAttribute("id", "statusPanel");

@@ -1898,7 +1898,7 @@ XsltForms_browser.debugConsole = {
 	isInit_ : false,
 	time_ : 0,
 	init_ : function() {
-		this.element_ = document.getElementById("xsltforms_console");
+		this.element_ = document.getElementById("xsltforms-console");
 		this.isInit_ = true;
 		this.time_ = new Date().getTime();
     },

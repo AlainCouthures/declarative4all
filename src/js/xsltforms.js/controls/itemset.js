@@ -102,7 +102,7 @@ XsltForms_itemset.prototype.build_ = function(ctx) {
 			} catch(e3) {
 			}
 		}
-		ielt.innerHTML = "<xforms-label>" + nlabel + "</xforms-label><xforms-value>" + nvalue + "</xforms-value>";
+		ielt.innerHTML = "<xforms-label>" + nlabel + "</xforms-label><xforms-value" + (xfelt.copyBinding && nodeCopy ? " xf-copy" : "") + ">" + nvalue + "</xforms-value>";
 		elt.insertBefore(ielt, elt.firstChild);
 		if (xfelt.labelBinding) {
 			XsltForms_classes["xforms-item"].classbinding(subform, ielt);
@@ -111,11 +111,16 @@ XsltForms_itemset.prototype.build_ = function(ctx) {
 			XsltForms_repeat.initClone(subform, ielt);
 		}
 	});
-	if (elt.parentNode.parentNode.localName.toLowerCase() === "xforms-body") {
-		elt.parentNode.parentNode.parentNode.xfElement.initBody();
-	} else {
-		elt.parentNode.parentNode.xfElement.initBody();
+	var xfparent = elt.parentNode.parentNode;
+	if (xfparent.localName.toLowerCase() === "xforms-body") {
+		xfparent = xfparent.parentNode;
 	}
+	var xfparentelement = xfparent.xfElement;
+	if (xfparentelement instanceof Array) {
+		xfparentelement = xfparentelement[0];
+	}
+	xfparentelement.initBody();
+	xfparentelement.setValue(xfparentelement.currentValue);
 	/*
 	var next = this.element;
 	var parentNode = next.parentNode;
@@ -249,7 +254,8 @@ XsltForms_itemset.prototype.refresh_ = function(element, cont) {
 		element.parentNode.parentNode.parentNode.xfElement.hasCopy = true;
 		this.depsNodesRefresh.push(nodeCopy);
 		try {
-			element.value = element.copy = XsltForms_browser.saveNode(nodeCopy, "application/xml");
+			element.value = XsltForms_browser.saveNode(nodeCopy, "application/xml");
+			element.setAttribute("xf-copy", "");
 		} catch(e3) {
 		}
 	}

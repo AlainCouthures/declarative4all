@@ -170,15 +170,15 @@ var XsltForms_globals = {
 				}
 				dbg.appendChild(ifr);
 				body.insertBefore(dbg, body.firstChild);
-				if (!document.getElementById("xsltforms_console")) {
+				if (!document.getElementById("xsltforms-console")) {
 					var conselt = document.createElement("div");
-					conselt.setAttribute("id", "xsltforms_console");
+					conselt.setAttribute("id", "xsltforms-console");
 					document.getElementsByTagName("body")[0].appendChild(conselt);
 				}
-				document.getElementById("xsltforms_console").style.display = "block";
+				document.getElementById("xsltforms-console").style.display = "block";
 			} else {
 				body.removeChild(document.getElementById("xsltforms_debug"));
-				document.getElementById("xsltforms_console").style.display = "none";
+				document.getElementById("xsltforms-console").style.display = "none";
 			}
 		}
 	},
@@ -630,7 +630,7 @@ var XsltForms_globals = {
  */
 
 	build : function(element, ctx, selected, varresolver) {
-		if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms_console" || element.hasXFElement === false) {
+		if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms-console" || element.hasXFElement === false) {
 			return {ctx: ctx, hasXFElement: false};
 		}
 		var xf = element.xfElement;
@@ -733,7 +733,7 @@ var XsltForms_globals = {
  */
 
 	dispose : function(element) {
-		if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms_console") {
+		if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms-console") {
 			return;
 		}
 		var xf = element.xfElement;

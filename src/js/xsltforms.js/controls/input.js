@@ -141,7 +141,7 @@ XsltForms_input.prototype.initBody = function(type) {
 						input.type = "datetime-local";
 					}
 			    } else {
-					this.calendarButton = XsltForms_browser.createElement("button", cell, XsltForms_browser.selectSingleNode("calendar.label", XsltForms_browser.config) ? XsltForms_browser.i18n.get("calendar.label") : "...", "aid-button");
+					this.calendarButton = XsltForms_browser.createElement("button", cell, XsltForms_browser.selectSingleNode("calendar.label", XsltForms_browser.config) ? XsltForms_browser.i18n.get("calendar.label") : "...", "xsltforms-aid-button");
 					this.calendarButton.setAttribute("type", "button");
 					this.initFocus(this.calendarButton);
 				}

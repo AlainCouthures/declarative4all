@@ -1,15 +1,12 @@
 .xforms-group-label-collapsed::before {
-	content		: '\23F5\00A0';
+	content: '\23F5\00A0';
 }
-
 .xforms-group-label-collapsed:hover {
-	cursor		: pointer;
+	cursor: pointer;
 }
-
 .xforms-group-label-expanded::before {
-	content		: '\23F7\00A0';
+	content: '\23F7\00A0';
 }
-
 .xforms-group-label-expanded:hover {
-	cursor		: pointer;
+	cursor: pointer;
 }

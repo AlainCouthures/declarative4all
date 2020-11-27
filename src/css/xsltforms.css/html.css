@@ -1,0 +1,28 @@
+body {
+	margin: 1ex;
+	font-family: tahoma, verdana, sans-serif;
+}
+
+input {
+	font-size: 100%;
+}
+input[type='checkbox'] {
+  width: 1ex;
+  height: 1ex;
+}
+input[xf-numeric] {
+	text-align: right;
+}
+
+textarea {
+	font-family: tahoma, verdana, sans-serif;
+	font-size: 100%;
+}
+
+select {
+	font-size: 100%;
+}
+
+a[appearance="minimal"] {
+	cursor: default;
+}

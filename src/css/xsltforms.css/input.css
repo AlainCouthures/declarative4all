@@ -1,0 +1,8 @@
+xforms-input[xf-readonly] > xforms-body {
+	background-color: #f8f8f8;
+	color: #333333;
+}
+
+xforms-input[xf-numeric] {
+	text-align: right;
+}

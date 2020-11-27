@@ -1,0 +1,19 @@
+xforms-label {
+	font-weight: bold;
+	display: block;
+	margin: 0;
+	padding-right: 0.5ex;
+}
+xforms-label img{
+	border: none !important;
+}
+
+xforms-submit xforms-label,
+xforms-trigger xforms-label {
+	padding-right: 0;
+}
+xforms-select > xforms-label,
+xform-select1 > xforms-label,
+xforms-textarea > xforms-label {
+	vertical-align: top;
+}

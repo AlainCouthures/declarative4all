@@ -24,6 +24,7 @@ function XsltForms_select(subform, elt, clone) {
 	this.max = this.max ? Math.max(Number(this.max), this.min) : elt.localName.toLowerCase() === "xforms-select1" ? 1 : null;
 	this.inputtype = this.max === 1 ? "radio" : "checkbox";
 	this.full = elt.getAttribute("xf-appearance") === "full";
+	this.compact = elt.getAttribute("xf-appearance") === "compact";
 	this.open = elt.getAttribute("xf-selection") === "open";
 	this.incremental = elt.getAttribute("xf-incremental") !== "false";
 	var cells = Array.prototype.slice.call(this.element.children);
@@ -88,17 +89,18 @@ XsltForms_select.prototype.focusFirst = function() {
 
 XsltForms_select.initChild = {
 	"xforms-item": function(child) {
-		var ilabel, ivalue;
+		var ilabel, ivalue, icopy;
 		Array.prototype.slice.call(child.children).forEach(function(subitem) {
 			switch (subitem.localName.toLowerCase()) {
 				case "xforms-value":
-					ivalue = subitem.textContent;
+					ivalue = subitem.textContent.replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+					icopy = subitem.hasAttribute("xf-copy");
 					break;
 				case "xforms-label":
 					ilabel = subitem.innerHTML;
 			}
 		});
-		return '<option value="' + ivalue + '" xf-index="' + child.xfIndex + '">' + ilabel + '</option>';
+		return '<option value="' + ivalue + '"' + (icopy ? ' xf-copy' : '') + ' xf-index="' + child.xfIndex + '">' + ilabel + '</option>';
 	},
 	"xforms-itemset": function(child) {
 		return Array.prototype.slice.call(child.children).map(function(item) {
@@ -119,7 +121,7 @@ XsltForms_select.initChild = {
 
 XsltForms_select.initChildFull = {
 	"xforms-item": function(child, thisselect) {
-		var ibody, ivalue;
+		var ibody, ivalue, icopy;
 		Array.prototype.slice.call(child.children).forEach(function(subitem) {
 			switch (subitem.localName.toLowerCase()) {
 				case "xforms-body":
@@ -127,12 +129,13 @@ XsltForms_select.initChildFull = {
 					break;
 				case "xforms-value":
 					ivalue = subitem.textContent;
+					icopy = subitem.hasAttribute("xf-copy");
 					break;
 				case "xforms-label":
 					child.xfElement.label = subitem;
 			}
 		});
-		ibody.innerHTML = '<input type="' + thisselect.inputtype + '" value="' + ivalue + '" name="' + thisselect.inputname + '">';
+		ibody.innerHTML = '<input type="' + thisselect.inputtype + '" value="' + ivalue + '"' + (icopy ? ' xf-copy' : '') + ' name="' + thisselect.inputname + '">';
 		//child.setAttribute("xf-appearance", "full");
 		//XsltForms_browser.setClass(child, "xforms-appearance-full", true);
 		child.xfElement.input = ibody.children[0];
@@ -180,6 +183,9 @@ XsltForms_select.prototype.initBody = function() {
 			if (!this.max || this.max > this.min + 1) {
 				select.setAttribute("multiple", "");
 			}
+			if (this.compact) {
+				select.setAttribute("size", "4");
+			}
 			cell.appendChild(select);
 		}
 		var v = select.value;
@@ -198,6 +204,11 @@ XsltForms_select.prototype.initBody = function() {
 				}
 				elt.removeAttribute("xf-index");
 			}
+			/*
+			if (elt.hasAttribute ("value")) {
+				elt.setAttribute("value", elt.getAttribute("value").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&apos/g, "'"));
+			}
+			*/
 		});
 		select.value = v;
 		var datalist;
@@ -350,14 +361,14 @@ XsltForms_select.prototype.itemClick = function(value) {
 	if (this.max !== 1) {
 		for (var i = 0, len = inputs.length; i < len; i++) {
 			input = inputs[i];
-			if (input.copy && newValue === "") {
+			if (input.hasAttribute("xf-copy") && newValue === "") {
 				newValue = [];
 			}
 			if (input.value === value) {
 				XsltForms_xmlevents.dispatch(input.parentNode, input.checked? "xforms-select" : "xforms-deselect");
 			}
 			if (input.checked) {
-				if (input.copy) {
+				if (input.hasAttribute("xf-copy")) {
 					newValue.push(input.value);
 				} else {
 					newValue = (newValue !== "" ? newValue + XsltForms_globals.valuesSeparator : "") + input.value;
@@ -388,12 +399,12 @@ XsltForms_select.prototype.itemClick = function(value) {
 			if (input_controlvalue === old) {
 				if (input.checked && this.min === 0) {
 					input.checked = false;
-					newValue = input.copy ? [] : "";
+					newValue = input.hasAttribute("xf-copy") ? [] : "";
 				}
 				XsltForms_xmlevents.dispatch(input.parentNode, "xforms-deselect");
 			} else if (input_controlvalue === value) {
 				inputSelected = input;
-				newValue = input.copy ? [value] : value;
+				newValue = input.hasAttribute("xf-copy") ? [value] : value;
 			}
 		}
 		if (inputSelected) {
@@ -451,8 +462,8 @@ XsltForms_select.normalChange = function(evt) {
 	for (var j = 0, len1 = opts.length; j < len1; j++) {
 		opt = opts[j];
 		if (opt.selected) {
-			if (opt.copy) {
-				copy.push(opt.copy);
+			if (opt.hasAttribute("xf-copy")) {
+				copy.push(opt.value);
 			} else if (opt.value !== "\xA0") {
 				value = value? value + XsltForms_globals.valuesSeparator + opt.value : opt.value;
 			}

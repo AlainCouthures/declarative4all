@@ -1747,9 +1747,7 @@ Fleur.DOMParser._appendFromCSVString = function(node, s, config) {
 			row.appendChild(a);
 		}
 		if (s.charAt(offset) === "\n") {
-			if (!first) {
-				node.appendChild(row);
-			}
+			node.appendChild(row);
 			row = new Fleur.Multidim();
 			first = false;
 		}
@@ -16057,7 +16055,7 @@ Fleur.XQueryEngine.lookups = function(ctx, children, callback, functionid) {
 					Fleur.callback(function() {callback(a, functionid);});
 				} else {
 					ilabel = ctx._curr.collabels.indexOf(a.data);
-					Fleur.callback(function() {callback(ilabel === -1 || !ctx._curr.childNodes[ilabel] ? Fleur.EmptySequence : ctx._curr.childNodes[ilabel], functionid);});
+					Fleur.callback(function() {callback(ilabel === -1 ? Fleur.EmptySequence : ctx._curr.childNodes[ilabel], functionid);});
 				}
 			});
 		}

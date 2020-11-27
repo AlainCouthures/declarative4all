@@ -3,6 +3,7 @@
  * @licence LGPL - See file 'LICENSE.md' in this project.
  * @module node
 -->
+<xsl:template match="text()[normalize-space(.)='']" priority="-1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
 <xsl:template match="*" priority="-2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:choose>
 		<xsl:when test="namespace-uri() != '' and namespace-uri() != 'http://www.w3.org/1999/xhtml'">

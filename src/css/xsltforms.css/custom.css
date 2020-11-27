@@ -57,3 +57,13 @@ xforms-item[xf-appearance="full"] {
 xforms-input[xf-numeric] {
 	text-align: right;
 }
+
+xforms-label {
+	font-weight: bold;
+	display: block;
+	margin: 0;
+}
+
+select {
+	font-size: 100%;
+}

@@ -1,20 +1,20 @@
-div#statusPanel {
-	display				: none;
-	position			: absolute;
-	white-space			: pre;
-	width				: 300px;
-	height				: 120px;
-	min-width			: 300px;
-	min-height			: 120px;
-	padding				: 40px;
-	text-align			: center;
-	background-color	: #eeeeee;
-	opacity				: 0.85;
-	filter				: alpha(opacity=85);
-	border				: 1px solid black;
-	font				: bold 20px Arial, Verdana;
-	z-index				: 11;
-	-moz-box-sizing		: border-box;
-	-webkit-box-sizing	: border-box;
-	box-sizing			: border-box;
+#xsltforms-status-panel {
+	display: none;
+	position: absolute;
+	white-space: pre;
+	width: 300px;
+	height: 120px;
+	min-width: 300px;
+	min-height: 120px;
+	padding: 40px;
+	text-align: center;
+	background-color: #eeeeee;
+	opacity: 0.85;
+	filter: alpha(opacity=85);
+	border: 1px solid black;
+	font: bold 20px Arial, Verdana;
+	z-index: 11;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }

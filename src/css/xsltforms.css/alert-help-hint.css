@@ -1,0 +1,55 @@
+xforms-alert, xforms-help, xforms-hint { 
+	display: none;
+	position: absolute;
+	border: thin solid black; 
+	margin-left: 0.5ex;
+	padding: 0.2px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+xforms-alert {
+	color: white;
+	background-color: #f00;
+}
+xforms-help {
+	background-color: #eeeeff;
+}
+xforms-hint {
+	z-index: 2;
+	background-color: #ff8;
+}
+xforms-input[xf-invalid] > xforms-alert-mark {
+	display: none;
+}
+xforms-alert-mark::after {
+	content: ' \2716';
+	color: red;
+}
+xforms-alert-mark:hover + xforms-alert {
+	display: inline;
+	cursor: help;
+}
+/*
+xforms-hint-mark::after {
+	content: ' \1D422';
+	color: orange;
+}
+*/
+xforms-input:hover xforms-hint,
+xforms-trigger:hover xforms-hint {
+	display: block;
+	cursor: help;
+}
+xforms-help-mark::after {
+	content: ' \2754';
+	color: green;
+}
+xforms-help-mark:hover + xforms-help {
+	display: inline;
+	cursor: help;
+}
+xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
+	display: inline;
+	cursor: help;
+}

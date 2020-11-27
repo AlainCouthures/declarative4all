@@ -1,0 +1,22 @@
+xforms-input[xf-bound][xf-required]:not([xf-invalid]) > xforms-label::after {
+	content: "*";
+	color: red;
+}
+
+xforms-input:not([xf-required])[xf-invalid] > xforms-label::after {
+	content: "\2716";
+	color: red;
+}
+
+xforms-input[xf-bound][xf-required][xf-invalid] > xforms-label::after {
+	content: "*\2716";
+	color: red;
+}
+
+xforms-input[xf-invalid]:not([xf-required]) > xforms-body > input,
+xforms-input[xf-invalid][xf-required] > xforms-body > input,
+xforms-textarea[xf-invalid]:not([xf-required]) > xforms-body > textarea {
+	background-color: #fcc;
+	border-style: solid;
+	border-width: thin;
+}

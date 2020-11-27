@@ -2604,7 +2604,7 @@ var XsltForms_xpathCoreFunctions = {
 XsltForms_xpathCoreFunctions["http://www.w3.org/2002/xforms is-valid"] = XsltForms_xpathCoreFunctions["http://www.w3.org/2002/xforms valid"];
 
 XsltForms_globals.invalid_id_ = function(element) {
-	if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms_console" || element.hasXFElement === false) {
+	if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms-console" || element.hasXFElement === false) {
 		return "";
 	}
 	var xf = element.xfElement;

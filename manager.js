@@ -182,7 +182,7 @@ if (process.argv.length > 2) {
 						headers['Last-Modified'] = lastmodified;
 					}
 					response.writeHead(200, headers);
-					response.end(file, 'binary');
+					response.end(file, 'utf8');
 					if (newfilename) {
 				        global.fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
 					}
@@ -216,7 +216,7 @@ if (process.argv.length > 2) {
 									headers['Last-Modified'] = lastmodified;
 								}
 								response.writeHead(200, headers);
-								response.end(file, 'binary');
+								response.end(file, 'utf8');
 								if (newfilename) {
 							        global.fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
 								}

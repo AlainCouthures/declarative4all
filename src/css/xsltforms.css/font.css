@@ -1,0 +1,16 @@
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label {
+	font-weight: bold;
+	font-style: italic;
+}
+
+xforms-select[xf-appearance="full"] > xforms-body > xforms-item > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item > xforms-label {
+	font-weight: normal;
+}
