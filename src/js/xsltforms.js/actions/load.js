@@ -91,7 +91,7 @@ XsltForms_load.prototype.run = function(element, ctx) {
 					resp = XsltForms_browser.transformText(resp, xslhref, false);
 					piindex = resp.indexOf("<?xml-stylesheet", 0);
 				}
-				XsltForms_browser.dialog.hide("statusPanel", false);
+				XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 				var sp = XsltForms_globals.stringSplit(resp, "<!--XsltForms_MagicSeparator-->");
 				var subbody;
 				var targetelt = XsltForms_idManager.find(this.targetid);

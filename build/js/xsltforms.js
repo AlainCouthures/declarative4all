@@ -1,8 +1,8 @@
 /*
-XSLTForms 1.5 (656)
+XSLTForms 1.5.1 (657)
 XForms 1.1+ with XPath 1.0+ Engine
 
-Copyright (C) 2020 agenceXML - Alain Couthures
+Copyright (C) 2021 agenceXML - Alain Couthures
 Contact at : xsltforms@agencexml.com
 
 This library is free software; you can redistribute it and/or
@@ -2064,8 +2064,8 @@ var XsltForms_xpathAxis = {
 };
 var XsltForms_context;
 var XsltForms_globals = {
-	fileVersion: "1.5",
-	fileVersionNumber: 656,
+	fileVersion: "1.5.1",
+	fileVersionNumber: 657,
 	language: "navigator",
 	debugMode: false,
 	debugButtons: [
@@ -2430,7 +2430,7 @@ var XsltForms_globals = {
 		}
 	},
 	init: function() {
-		XsltForms_browser.setValue(document.getElementById("statusPanel"), XsltForms_browser.i18n.get("status"));
+		XsltForms_browser.setValue(document.getElementById("xsltforms-status-panel"), XsltForms_browser.i18n.get("status"));
 		XsltForms_globals.htmlversion = XsltForms_browser.i18n.get("html");
 		var amval = XsltForms_browser.i18n.get("format.time.AM");
 		var pmval = XsltForms_browser.i18n.get("format.time.PM");
@@ -2491,7 +2491,7 @@ var XsltForms_globals = {
 		XsltForms_globals.refresh();
 		XsltForms_globals.closeAction("XsltForms_globals.init");
 		XsltForms_globals.ready = true;
-		XsltForms_browser.dialog.hide("statusPanel", false);
+		XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 	},
 	close : function() {
 		if (XsltForms_globals.body) {
@@ -2552,9 +2552,9 @@ var XsltForms_globals = {
 		}
 	},
 	error : function(element, evt, message, causeMessage) {
-		XsltForms_browser.dialog.hide("statusPanel", false);
-		XsltForms_browser.setValue(document.getElementById("statusPanel"), message);
-		XsltForms_browser.dialog.show("statusPanel", null, false);
+		XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
+		XsltForms_browser.setValue(document.getElementById("xsltforms-status-panel"), message);
+		XsltForms_browser.dialog.show("xsltforms-status-panel", null, false);
 		if (element) {
 			XsltForms_xmlevents.dispatch(element, evt);
 		}
@@ -5358,11 +5358,11 @@ XsltForms_browser.setValue = function(node, value) {
 XsltForms_browser.run = function(action, element, evt, synch, propagate) {
 	XsltForms_xmlevents.EventContexts.push(evt);
 	if (synch) {
-		XsltForms_browser.dialog.show("statusPanel", null, false);
+		XsltForms_browser.dialog.show("xsltforms-status-panel", null, false);
 		setTimeout(function() { 
 			XsltForms_globals.openAction("XsltForms_browser.run#1");
 			action.execute(document.getElementById(element), null, evt);
-			XsltForms_browser.dialog.hide("statusPanel", false);
+			XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 			if (!propagate) {
 				evt.stopPropagation();
 			}
@@ -10043,7 +10043,7 @@ XsltForms_browser.xml2json = function(s) {
 };
 var jsoninst = function(json) {
 	XsltForms_browser.jsoninstobj.submission.pending = false;
-	XsltForms_browser.dialog.hide("statusPanel", false);
+	XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 	XsltForms_browser.jsoninstobj.instance.setDoc(XsltForms_browser.json2xml("", json, true, false));
 	XsltForms_globals.addChange(XsltForms_browser.jsoninstobj.instance.model);
 	XsltForms_xmlevents.dispatch(XsltForms_browser.jsoninstobj.instance.model, "xforms-rebuild");
@@ -10893,7 +10893,7 @@ XsltForms_submission.prototype.submit = function() {
 	}
 	var synchr = this.synchr;
 	if (synchr) {
-		XsltForms_browser.dialog.show("statusPanel", null, false);
+		XsltForms_browser.dialog.show("xsltforms-status-panel", null, false);
 	}
 	if(method === "xml-urlencoded-post") {
 		var outForm = document.getElementById("xsltforms_form");
@@ -10991,7 +10991,7 @@ XsltForms_submission.prototype.submit = function() {
 									w.document.close();
 								}
 							} else {
-								XsltForms_browser.dialog.hide("statusPanel", false);
+								XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 								XsltForms_globals.close();
 								if(document.write) {
 	  							document.write(resp);
@@ -11125,10 +11125,10 @@ XsltForms_submission.prototype.submit = function() {
 				}
 				if (synchr) {
 					func();
-					XsltForms_browser.dialog.hide("statusPanel", null, false);
+					XsltForms_browser.dialog.hide("xsltforms-status-panel", null, false);
 				}
 			} catch(e) {
-				XsltForms_browser.dialog.hide("statusPanel", null, false);
+				XsltForms_browser.dialog.hide("xsltforms-status-panel", null, false);
 				XsltForms_browser.debugConsole.write(e.message || e);
 				evcontext["error-type"] = "resource-error";
 				subm.issueSubmitException_(evcontext, req, e);
@@ -11735,7 +11735,7 @@ XsltForms_load.prototype.run = function(element, ctx) {
 					resp = XsltForms_browser.transformText(resp, xslhref, false);
 					piindex = resp.indexOf("<?xml-stylesheet", 0);
 				}
-				XsltForms_browser.dialog.hide("statusPanel", false);
+				XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 				var sp = XsltForms_globals.stringSplit(resp, "<!--XsltForms_MagicSeparator-->");
 				var subbody;
 				var targetelt = XsltForms_idManager.find(this.targetid);
@@ -14438,7 +14438,7 @@ XsltForms_select.initChildFull = {
 					ibody = subitem;
 					break;
 				case "xforms-value":
-					ivalue = subitem.textContent;
+					ivalue = subitem.textContent.replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 					icopy = subitem.hasAttribute("xf-copy");
 					break;
 				case "xforms-label":
@@ -16589,13 +16589,13 @@ if (typeof xsltforms_d0 === "undefined") {
 			conselt.setAttribute("id", "xsltforms-console");
 			document.getElementsByTagName("body")[0].appendChild(conselt);
 			conselt = document.createElement("div");
-			conselt.setAttribute("id", "statusPanel");
+			conselt.setAttribute("id", "xsltforms-status-panel");
 			conselt.setAttribute("style", "display: none; z-index: 99; top: 294.5px; left: 490px;");
 			conselt.innerHTML = "... Loading ...";
 			document.getElementsByTagName("body")[0].appendChild(conselt);
-			XsltForms_browser.dialog.show('statusPanel');
+			XsltForms_browser.dialog.show('xsltforms-status-panel');
 			if (!(document.documentElement.childNodes[0].nodeType === 8 || (XsltForms_browser.isIE && document.documentElement.childNodes[0].childNodes[1] && document.documentElement.childNodes[0].childNodes[1].nodeType === 8))) {
-				var comment = document.createComment("HTML elements and Javascript instructions generated by XSLTForms 1.5 (656) - Copyright (C) 2020 <agenceXML> - Alain Couthures - http://www.agencexml.com");
+				var comment = document.createComment("HTML elements and Javascript instructions generated by XSLTForms 1.5.1 (657) - Copyright (C) 2021 <agenceXML> - Alain Couthures - http://www.agencexml.com");
 				document.documentElement.insertBefore(comment, document.documentElement.firstChild);
 			}
 			var initelts2 = document.getElementsByTagName("script");

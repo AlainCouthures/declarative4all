@@ -411,7 +411,7 @@ var XsltForms_globals = {
  */
 
 	init: function() {
-		XsltForms_browser.setValue(document.getElementById("statusPanel"), XsltForms_browser.i18n.get("status"));
+		XsltForms_browser.setValue(document.getElementById("xsltforms-status-panel"), XsltForms_browser.i18n.get("status"));
 		XsltForms_globals.htmlversion = XsltForms_browser.i18n.get("html");
 		var amval = XsltForms_browser.i18n.get("format.time.AM");
 		var pmval = XsltForms_browser.i18n.get("format.time.PM");
@@ -472,7 +472,7 @@ var XsltForms_globals = {
 		XsltForms_globals.refresh();
 		XsltForms_globals.closeAction("XsltForms_globals.init");
 		XsltForms_globals.ready = true;
-		XsltForms_browser.dialog.hide("statusPanel", false);
+		XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 	},
 
 		
@@ -569,9 +569,9 @@ var XsltForms_globals = {
  */
 
 	error : function(element, evt, message, causeMessage) {
-		XsltForms_browser.dialog.hide("statusPanel", false);
-		XsltForms_browser.setValue(document.getElementById("statusPanel"), message);
-		XsltForms_browser.dialog.show("statusPanel", null, false);
+		XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
+		XsltForms_browser.setValue(document.getElementById("xsltforms-status-panel"), message);
+		XsltForms_browser.dialog.show("xsltforms-status-panel", null, false);
 		if (element) {
 			XsltForms_xmlevents.dispatch(element, evt);
 		}

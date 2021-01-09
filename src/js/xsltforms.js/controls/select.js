@@ -128,7 +128,7 @@ XsltForms_select.initChildFull = {
 					ibody = subitem;
 					break;
 				case "xforms-value":
-					ivalue = subitem.textContent;
+					ivalue = subitem.textContent.replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 					icopy = subitem.hasAttribute("xf-copy");
 					break;
 				case "xforms-label":

@@ -665,7 +665,7 @@ XsltForms_browser.xml2json = function(s) {
 
 var jsoninst = function(json) {
 	XsltForms_browser.jsoninstobj.submission.pending = false;
-	XsltForms_browser.dialog.hide("statusPanel", false);
+	XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 	XsltForms_browser.jsoninstobj.instance.setDoc(XsltForms_browser.json2xml("", json, true, false));
 	XsltForms_globals.addChange(XsltForms_browser.jsoninstobj.instance.model);
 	XsltForms_xmlevents.dispatch(XsltForms_browser.jsoninstobj.instance.model, "xforms-rebuild");

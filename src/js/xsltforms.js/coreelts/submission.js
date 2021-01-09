@@ -355,7 +355,7 @@ XsltForms_submission.prototype.submit = function() {
 	}
 	var synchr = this.synchr;
 	if (synchr) {
-		XsltForms_browser.dialog.show("statusPanel", null, false);
+		XsltForms_browser.dialog.show("xsltforms-status-panel", null, false);
 	}
 	if(method === "xml-urlencoded-post") {
 		var outForm = document.getElementById("xsltforms_form");
@@ -464,7 +464,7 @@ XsltForms_submission.prototype.submit = function() {
 									w.document.close();
 								}
 							} else {
-								XsltForms_browser.dialog.hide("statusPanel", false);
+								XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 								XsltForms_globals.close();
 								if(document.write) {
 	  							document.write(resp);
@@ -607,10 +607,10 @@ XsltForms_submission.prototype.submit = function() {
 				}
 				if (synchr) {
 					func();
-					XsltForms_browser.dialog.hide("statusPanel", null, false);
+					XsltForms_browser.dialog.hide("xsltforms-status-panel", null, false);
 				}
 			} catch(e) {
-				XsltForms_browser.dialog.hide("statusPanel", null, false);
+				XsltForms_browser.dialog.hide("xsltforms-status-panel", null, false);
 				XsltForms_browser.debugConsole.write(e.message || e);
 				evcontext["error-type"] = "resource-error";
 				subm.issueSubmitException_(evcontext, req, e);

@@ -2770,11 +2770,11 @@ XsltForms_browser.setValue = function(node, value) {
 XsltForms_browser.run = function(action, element, evt, synch, propagate) {
 	XsltForms_xmlevents.EventContexts.push(evt);
 	if (synch) {
-		XsltForms_browser.dialog.show("statusPanel", null, false);
+		XsltForms_browser.dialog.show("xsltforms-status-panel", null, false);
 		setTimeout(function() { 
 			XsltForms_globals.openAction("XsltForms_browser.run#1");
 			action.execute(document.getElementById(element), null, evt);
-			XsltForms_browser.dialog.hide("statusPanel", false);
+			XsltForms_browser.dialog.hide("xsltforms-status-panel", false);
 			if (!propagate) {
 				evt.stopPropagation();
 			}

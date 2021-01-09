@@ -1,8 +1,8 @@
 /*
-XSLTForms 1.5 (656)
+XSLTForms 1.5.1 (657)
 XForms 1.1+ with XPath 1.0+ Engine
 
-Copyright (C) 2020 agenceXML - Alain Couthures
+Copyright (C) 2021 agenceXML - Alain Couthures
 Contact at : xsltforms@agencexml.com
 
 This library is free software; you can redistribute it and/or
@@ -71,6 +71,115 @@ xforms-help-mark:hover + xforms-help {
 xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
 	display: inline;
 	cursor: help;
+}
+.xsltforms-calendar, .xsltforms-calendarList {
+	border-top: 1px solid black;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+	border-left: 1px solid black;
+	padding: 1px 0 0 1px;
+	font-family: tahoma, verdana, sans-serif;
+	font-size: 12px;
+	color: black;
+	background: #f8f8f8;
+	display: none;
+	position: absolute;
+	z-index: 9;
+}
+.xsltforms-calendar button {
+	text-align: center;
+	padding: 1px;
+	border: 1px solid;
+	border-color: #fff #000 #000 #fff;
+}
+.xsltforms-calendar thead .xsltforms-listHover {
+	border: 2px solid;
+	border-color: #fff #000 #000 #fff;
+	padding: 0;
+	background-color: #d8e0e4;
+}
+.xsltforms-calendar .xsltforms-calendar-title, .xsltforms-calendar .xsltforms-calendar-title input, .xsltforms-calendar .xsltforms-calendar-title select, .xsltforms-calendar tfoot {
+	font-weight: bold;
+	padding: 1px;
+	border: 1px solid #000;
+	color: #000;
+	text-align: center;
+	background-color: #f8f8f8;
+	background-image: url(../img/titleBackground.png);
+}
+.xsltforms-calendar .xsltforms-calendar-title input {
+	width: 3em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #f8f8f8;
+}
+.xsltforms-calendar-date tfoot {
+	display: none;
+}
+.xsltforms-calendar tfoot input {
+	width: 2em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: center;
+	background: #f0f0f0;
+}
+.xsltforms-calendar .xsltforms-calendar-names {
+	background-image: url(../img/thBackground.png);
+}
+.xsltforms-calendar .xsltforms-calendar-name {
+	border-bottom: 1px solid #000;
+	padding: 2px;
+	text-align: center;
+}
+.xsltforms-calendar .xsltforms-calendar-day {
+	width: 2em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: right;
+	padding: 2px 4px 2px 2px;
+}
+.xsltforms-calendar tbody .xsltforms-listHover {
+	padding: 1px 3px 1px 1px;
+	border: 1px solid;
+	border-color: #fff #000 #000 #fff;
+	background-color: #dddddd;
+}
+.xsltforms-calendar .xsltforms-calendar-today {
+	font-weight: bold;
+	color: #00f;
+}
+.xsltforms-calendar .xsltforms-calendar-selected {
+	font-weight: bold;
+	padding: 2px 2px 0 2px;
+	border: 1px solid;
+	border-color: #000 #fff #fff #000;
+	background: #cccccc;
+}
+.xsltforms-calendar .xsltforms-calendar-weekend {
+	color: #f00;
+}
+.xsltforms-calendarList {
+	padding: 0;
+	margin: 0;
+	width: 55px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.xsltforms-calendarList li {
+	list-style-type: none;
+	text-align: center;
+	padding: 1px;
+}
+.xsltforms-calendarList li.xsltforms-listHover {
+	border: 1px solid;
+	border-color: #fff #000 #000 #fff;
+	padding: 0;
+	background-color: #dddddd;
+	width: 100%;
 }
 .xforms-group-label-collapsed::before {
 	content: '\23F5\00A0';
@@ -338,12 +447,10 @@ xforms-textarea[xf-invalid]:not([xf-required]) > xforms-body > textarea {
 #xsltforms-status-panel {
 	display: none;
 	position: absolute;
-	white-space: pre;
 	width: 300px;
-	height: 120px;
 	min-width: 300px;
-	min-height: 120px;
-	padding: 40px;
+	min-height: 20px;
+	padding: 10px;
 	text-align: center;
 	background-color: #eeeeee;
 	opacity: 0.85;
@@ -353,7 +460,7 @@ xforms-textarea[xf-invalid]:not([xf-required]) > xforms-body > textarea {
 	z-index: 11;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	box-sizing: content-box;
 }
 xforms-trigger {
 	margin-top: 1px;
