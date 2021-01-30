@@ -14,8 +14,8 @@ Fleur.neOp = function(op1, op2, c) {
 	if (op1[0] === 4) {
 		return !c.equals(op1[1], op2[1]);
 	}
-	if (op1[0] === 5) {
-		return (op1[1] === "true") !== (op2[1] === "true");
+	if (op1[0] === 5 && op2[0] === 5) {
+		return op1[1] !== op2[1];
 	}
 	if (op1[0] > 5 && op1[0] < 9) {
 		var d1 = op1[1].d;

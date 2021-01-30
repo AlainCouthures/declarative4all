@@ -344,6 +344,10 @@ var XsltForms_xpathFunctionExceptions = {
 		name : "distinct-values() : Invalid number of arguments",
 		message : "distinct-values() function must have one argument exactly"
 	},
+	sortInvalidArgumentsNumber : {
+		name : "sort() : Invalid number of arguments",
+		message : "sort function must have one argument exactly"
+	},
 	transformInvalidArgumentsNumber : {
 		name : "transform() : Invalid number of arguments",
 		message : "transform() function must have two arguments exactly"
@@ -1719,6 +1723,30 @@ var XsltForms_xpathCoreFunctions = {
 			}
 			return nodeSet2;
 		} ),
+
+		
+/**
+ * * '''sort(nodeset)'''
+ */
+
+"http://www.w3.org/2005/xpath-functions sort" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NONE, false,
+function(nodeSet) {
+	if (arguments.length !== 1) {
+		throw XsltForms_xpathFunctionExceptions.sortInvalidArgumentsNumber;
+	}
+	var nodeSet2 = nodeSet.sort(function(a, b) {
+		var va = XsltForms_globals.xmlValue(a);
+		var vb = XsltForms_globals.xmlValue(b);
+		if (va < vb) {
+			return -1;
+		}
+		if (va > vb) {
+			return 1;
+		}
+		return 0;
+	});
+	return nodeSet2;
+} ),
 
 		
 /**

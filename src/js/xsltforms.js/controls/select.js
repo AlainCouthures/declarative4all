@@ -276,7 +276,7 @@ XsltForms_select.prototype.setValue = function(value) {
 		var vals = value ? value instanceof Array ? value : (this.max !== 1? value.split(XsltForms_globals.valuesSeparator) : [value]) : [""];
 		var list = this.full ? (XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input") : this.element.getElementsByTagName("input")) : this.datalist.options;
 		var well = true;
-		var schtyp = XsltForms_schema.getType(XsltForms_browser.getType(this.element.node) || "xsd_:string");
+		var schtyp = XsltForms_schema.getType(this.element.node ? XsltForms_browser.getType(this.element.node) || "xsd_:string" : "xsd_:string");
 		for (var i = 0, len = vals.length; well && i < len; i++) {
 			var val = vals[i];
 			var found = false;
