@@ -97,7 +97,7 @@ Fleur.XPathEvaluator._getNameStep = function(s, attr) {
 	var sind = eq ? n2.indexOf("}") : n2.indexOf(":");
 	var n3 = sind !== -1 ? n2.substr(sind + 1) : n2;
 	var nsp = eq ? n2.substr(2, sind - 2) : sind !== -1 ? n2.substr(0, sind) : "";
-	var ntest = n3 === "*" || nsp === "*" ? "[Fleur.XQueryX.Wildcard,[" + (n3 !== "*" && nsp === "*" ? "[Fleur.XQueryX.star,[]],[Fleur.XQueryX.NCName,['" + n3 + "']]" : "") + (nsp !== "*" && nsp !== "" && n3 === "*"? "[Fleur.XQueryX.NCName,['" + nsp + "']],[Fleur.XQueryX.star,[]]" : "") + "]]" : "[Fleur.XQueryX.nameTest,['" + n3 + "'" + (eq || sind !== -1 ? ",[" + (eq ? "Fleur.XQueryX.URI" : "Fleur.XQueryX.prefix") + ",['" + nsp + "']]" : "") + "]]";
+	var ntest = n3 === "*" || nsp === "*" ? "[Fleur.XQueryX.Wildcard,[" + (n3 !== "*" && nsp === "*" ? "[Fleur.XQueryX.star,[]],[Fleur.XQueryX.NCName,['" + n3 + "']]" : "") + (nsp !== "*" && nsp !== "" && n3 === "*"? "[Fleur.XQueryX." + (eq ? "uri" : "NCName") + ",['" + nsp + "']],[Fleur.XQueryX.star,[]]" : "") + "]]" : "[Fleur.XQueryX.nameTest,['" + n3 + "'" + (eq || sind !== -1 ? ",[" + (eq ? "Fleur.XQueryX.URI" : "Fleur.XQueryX.prefix") + ",['" + nsp + "']]" : "") + "]]";
 	return (n.length + attr) + ".[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['" + axis + "']]," + ntest + "]]]]";
 };
 Fleur.XPathEvaluator._pathExprFormat = function(s, p) {

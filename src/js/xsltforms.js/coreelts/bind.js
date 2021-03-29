@@ -78,13 +78,13 @@ XsltForms_bind.prototype.refresh = function(ctx, index) {
 		this.clear();
 	}
 	ctx = ctx || (this.model ? this.model.getInstanceDocument() ? this.model.getInstanceDocument().documentElement : null : null);
-	XsltForms_browser.copyArray(this.binding.bind_evaluate(this.subform, ctx, {}, this.depsNodes, this.depsId, this.depsElements), this.nodes);
+	XsltForms_browser.copyArray(this.binding.bind_evaluate(this.subform, ctx, {}, this.depsNodes, this.depsId, this.depsElements).toArray(), this.nodes);
 	var el = this.element;
 	for (var i2 = 0, len2 = this.nodes.length; i2 < len2; i2++) {
 		var node = this.nodes[i2];
 		var bindids = XsltForms_browser.getMeta(node, "bind");
 		if (!bindids) {
-			XsltForms_browser.setMeta(node, "bind", this.element.xfIndex);
+			XsltForms_browser.setMeta(node, "bind", String(this.element.xfIndex));
 		} else {
 			var bindids2 = " " + bindids + " ";
 			if (bindids2.indexOf(" " + this.element.xfIndex + " ") === -1) {

@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,34 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_substring$_after_2 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_string},
+  params_type: [
+    {type: Fleur.Type_string, occurence: "?"},
+    {type: Fleur.Type_string, occurence: "?"}
+  ]
+};
+Fleur.Context.prototype.fn_substring$_after_2 = function() {
+  const arg2 = this.item;
+  const arg1 = this.itemstack.pop();
+  if (arg1.isNotEmpty()) {
+		if (arg2.isNotEmpty() || arg2.data === "") {
+			const index = arg1.data.indexOf(arg2.data);
+    	this.item.data = index === -1 ? "" : arg1.data.substring(index + arg2.data.length);
+		} else {
+			this.item = new Fleur.Text();
+			this.item.data = arg1.data;
+		}
+  } else {
+		this.item = new Fleur.Text();
+		this.item.data = "";
+	}
+	this.item.schemaTypeInfo = Fleur.Type_string;
+  return this;
+};
+
 Fleur.XPathFunctions_fn["substring-after#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:substring-after",
 	function(a, b) {
 		if (!a) {

@@ -104,7 +104,7 @@ function XsltForms_submission(subform, elt) {
 		this.binding = new XsltForms_binding(subform, elt);
 		this.eval_ = function() {
 			var res = this.binding.bind_evaluate();
-			return typeof res === "string" ? res : res[0];
+			return typeof res === "string" ? res : res.head();
 		};
 	} else {
 		this.eval_ = function() {
@@ -300,11 +300,12 @@ XsltForms_submission.prototype.submit = function() {
 				ctxnode = !instance ? (node ? (node.documentElement ? node.documentElement : node.ownerDocument.documentElement) : subm.model.getInstance().documentElement) : document.getElementById(instance).xfElement.doc.documentElement;
 				if (subm.targetref) {
 					targetnode = subm.targetref.bind_evaluate(subm.subform, ctxnode);
-					if (targetnode && targetnode[0]) {
+					if ((Fleur.minimal && targetnode && targetnode[0]) || (!Fleur.minimal && targetnode.head().nodeType !== Fleur.Node.SEQUENCE_NODE)) {
+						targetnode = targetnode.head();
 						if (subm.replace === "instance") {
-							XsltForms_browser.loadNode(targetnode[0], ser, "application/xml");
+							XsltForms_browser.loadNode(targetnode, ser, "application/xml");
 						} else {
-							XsltForms_browser.loadTextNode(targetnode[0], ser);
+							XsltForms_browser.loadTextNode(targetnode, ser);
 						}
 					}
 				} else {
@@ -330,11 +331,12 @@ XsltForms_submission.prototype.submit = function() {
 				ctxnode = !instance ? (node ? (node.documentElement ? node.documentElement : node.ownerDocument.documentElement) : subm.model.getInstance().documentElement) : document.getElementById(instance).xfElement.doc.documentElement;
 				if (subm.targetref) {
 					targetnode = subm.targetref.bind_evaluate(subm.subform, ctxnode);
-					if (targetnode && targetnode[0]) {
+					if ((Fleur.minimal && targetnode && targetnode[0]) || (!Fleur.minimal && targetnode.head().nodeType !== Fleur.Node.SEQUENCE_NODE)) {
+						targetnode = targetnode.head();
 						if (subm.replace === "instance") {
-							XsltForms_browser.loadNode(targetnode[0], ser, "application/xml");
+							XsltForms_browser.loadNode(targetnode, ser, "application/xml");
 						} else {
-							XsltForms_browser.loadTextNode(targetnode[0], ser);
+							XsltForms_browser.loadTextNode(targetnode, ser);
 						}
 					}
 				} else {
@@ -428,11 +430,12 @@ XsltForms_submission.prototype.submit = function() {
 							if (subm.targetref) {
 								ctxnode = !instance ? (node ? (node.nodeType === Fleur.Node.DOCUMENT_NODE ? node.documentElement : node.ownerDocument.documentElement) : subm.model.getInstance().documentElement) : document.getElementById(instance).xfElement.doc.documentElement;
 								targetnode = subm.targetref.bind_evaluate(subm.subform, ctxnode);
-								if (targetnode && targetnode[0]) {
+								if ((Fleur.minimal && targetnode && targetnode[0]) || (!Fleur.minimal && targetnode.head().nodeType !== Fleur.Node.SEQUENCE_NODE)) {
+									targetnode = targetnode.head();
 									if (subm.replace === "instance") {
-										XsltForms_browser.loadNode(targetnode[0], req.responseText, "application/xml");
+										XsltForms_browser.loadNode(targetnode, req.responseText, "application/xml");
 									} else {
-										XsltForms_browser.loadTextNode(targetnode[0], req.responseText);
+										XsltForms_browser.loadTextNode(targetnode, req.responseText);
 									}
 								}
 							} else {

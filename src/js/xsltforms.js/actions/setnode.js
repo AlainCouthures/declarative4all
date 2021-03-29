@@ -31,10 +31,10 @@ XsltForms_setnode.prototype = new XsltForms_abstractAction();
  */
 
 XsltForms_setnode.prototype.run = function(element, ctx) {
-	var node = this.binding.bind_evaluate(this.subform, ctx)[0];
+	var node = this.binding.bind_evaluate(this.subform, ctx).head();
 	if (node) {
 		if (this.context) {
-			ctx = this.context.xpath_evaluate(ctx)[0];
+			ctx = this.context.xpath_evaluate(ctx).head();
 		}
 		var value = this.value? XsltForms_globals.stringValue(this.context ? this.value.xpath_evaluate(ctx, ctx) : this.value.xpath_evaluate(node, ctx)) : this.literal;
 		var modelid = XsltForms_browser.getDocMeta(node.ownerDocument, "model");

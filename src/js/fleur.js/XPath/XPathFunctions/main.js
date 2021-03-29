@@ -7,6 +7,9 @@
  * @module 
  * @description 
  */
+
+Fleur.signatures = {};
+
 Fleur.XPathFunctions = {};
 Fleur.XPathFunctions["http://www.w3.org/2005/xpath-functions/array"] = {};
 Fleur.XPathFunctions_array = Fleur.XPathFunctions["http://www.w3.org/2005/xpath-functions/array"];

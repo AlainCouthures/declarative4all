@@ -209,7 +209,7 @@ if (process.argv.length > 2) {
 			        			Fleur = require(fleursrc);
 				    			contentType = "text/html";
 								//console.log(contentType);
-				    			file = Fleur.Serializer.xhtml2html5(file, "js/xsltforms.js", "css/xsltforms.css");
+				    			file = Fleur.Serializer.xhtml2html5(file, "js/xsltforms.js", "css/xsltforms.css", "js/fleur.js");
 								headers['Content-Type'] = contentType;
 								if (lastmodified) {
 									headers['Expires'] = lastmodified;

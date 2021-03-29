@@ -31,9 +31,9 @@ XsltForms_setvalue.prototype = new XsltForms_abstractAction();
 
 XsltForms_setvalue.prototype.run = function(element, ctx) {
 	var varresolver = this.parentAction ? this.parentAction.varResolver : element.xfElement.varResolver;
-	var nodeset = this.binding.bind_evaluate(element.xfElement.subform, ctx, varresolver);
+	var nodeset = this.binding.bind_evaluate(element.xfElement.subform, ctx, varresolver).toArray();
 	if (nodeset.length !== 0 && this.context) {
-		ctx = this.context.xpath_evaluate(element.xfElement.subform, ctx, null, varresolver)[0];
+		ctx = this.context.xpath_evaluate(element.xfElement.subform, ctx, null, varresolver).head();
 	}
 	for (var i = 0, l = nodeset.length; i < l; i++) {
 		var node = nodeset[i];

@@ -42,7 +42,7 @@ XsltForms_load.prototype.run = function(element, ctx) {
 	var node;
 	if (this.binding) {
 		var varresolver = this.parentAction ? this.parentAction.varResolver : element.xfElement.varResolver;
-		node = this.binding.bind_evaluate(this.subform, ctx, varresolver)[0];
+		node = this.binding.bind_evaluate(this.subform, ctx, varresolver).head();
 		if (node) {
 			var t = XsltForms_schema.getType(XsltForms_browser.getType(node));
 			if (!t.hasBase("xf:HTMLFragment")) {

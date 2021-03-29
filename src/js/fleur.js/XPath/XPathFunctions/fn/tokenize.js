@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,72 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_tokenize_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_string, occurence: "*"},
+  params_type: [
+    {type: Fleur.Type_string, occurence: "?"}
+  ]
+};
+Fleur.signatures.fn_tokenize_2 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_string, occurence: "*"},
+  params_type: [
+    {type: Fleur.Type_string, occurence: "?"},
+		{type: Fleur.Type_string}
+  ]
+};
+Fleur.signatures.fn_tokenize_3 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_string, occurence: "*"},
+  params_type: [
+    {type: Fleur.Type_string, occurence: "?"},
+		{type: Fleur.Type_string},
+		{type: Fleur.Type_string}
+  ]
+};
+Fleur.Context.prototype.fn_tokenize_1 = function() {
+	const seq = new Fleur.Sequence();
+  if (this.item.isNotEmpty() && this.item.data !== "") {
+		const input = this.item.data.trim().replace(/\s+/g, " ").split(" ");
+		input.forEach(inp => {
+			const n = new Fleur.Text();
+			n.data = inp;
+			n.schemaTypeInfo = Fleur.Type_string;
+			seq.appendChild(n);
+		});
+	}
+	this.item = seq.singleton();
+	return this;
+};
+Fleur.Context.prototype.fn_tokenize_2 = function() {
+	this.xqx_stringConstantExpr("").fn_tokenize_3();
+	return this;
+};
+Fleur.Context.prototype.fn_tokenize_3 = function() {
+  const arg3 = this.item;
+  const arg2 = this.itemstack.pop();
+  const arg1 = this.itemstack.pop();
+	const seq = new Fleur.Sequence();
+  if (arg1.isNotEmpty() && arg1.data !== "") {
+		const pattern = new RegExp(arg2.data, arg3.data);
+		const input = arg1.data.split(pattern);
+		input.forEach(function(t) {
+			if (t !== undefined && !pattern.test(t)) {
+				const n = new Fleur.Text();
+				n.data = t;
+				n.schemaTypeInfo = Fleur.Type_string;
+				seq.appendChild(n);
+			}
+		});
+	}
+	this.item = seq.singleton();
+	return this;
+};
+
 Fleur.XPathFunctions_fn["tokenize#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:tokenize",
 	function(input) {
 		if (!input || input === "") {

@@ -10,7 +10,10 @@
  */
 		
 XsltForms_globals.stringValue = function(value) {
-	return typeof value !== "object"? "" + value : (!value || value.length === 0 ? "" : XsltForms_globals.xmlValue(value[0]));
+	if (Fleur.minimal) {
+		return typeof value !== "object"? "" + value : (!value || value.length === 0 ? "" : XsltForms_globals.xmlValue(value.head()));
+	}
+	return XsltForms_globals.xmlValue(value.head ? value.head() : value);
 };
 
 
@@ -20,7 +23,10 @@ XsltForms_globals.stringValue = function(value) {
  */
 
 XsltForms_globals.booleanValue = function(value) {
-	return typeof value === "undefined" || !value ? false : (typeof value.length !== "undefined"? value.length > 0 : !!value);
+	if (Fleur.minimal) {
+		return typeof value === "undefined" || !value ? false : (typeof value.length !== "undefined"? value.length > 0 : !!value);
+	}
+	return value.data === "true";
 };
 
 
@@ -31,12 +37,15 @@ XsltForms_globals.booleanValue = function(value) {
 
 //var nbvalcount = 0;
 XsltForms_globals.numberValue = function(value) {
-	if (typeof value === "boolean") {
-		return 'A' - 0;
-	} else {
-		var v = typeof value === "object"?  XsltForms_globals.stringValue(value) : value;
-		return v === '' ? NaN : v - 0;
+	if (Fleur.minimal) {
+		if (typeof value === "boolean") {
+			return 'A' - 0;
+		} else {
+			var v = typeof value === "object"?  XsltForms_globals.stringValue(value) : value;
+			return v === '' ? NaN : v - 0;
+		}
 	}
+	return Number(XsltForms_globals.stringValue(value));
 };
 
 

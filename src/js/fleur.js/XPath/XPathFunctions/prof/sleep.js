@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -7,6 +6,20 @@
  * @module 
  * @description 
  */
+Fleur.signatures.prof_sleep_1 = {
+  need_ctx: false,
+  is_async: true,
+  return_type: {type: Fleur.EmptySequence},
+  params_type: [
+    {type: Fleur.Type_integer}
+  ]
+};
+Fleur.Context.prototype.prof_sleep_1_async = async function() {
+  await new Promise(resolve => setTimeout(resolve, Number(this.item.data)));
+  this.item = new Fleur.Sequence();
+  return this;
+};
+
 Fleur.XPathFunctions_prof["sleep#1"] = new Fleur.Function("http://basex.org/modules/proc", "prof:sleep",
 	function(ms, callback) {
 		if (ms > 0) {

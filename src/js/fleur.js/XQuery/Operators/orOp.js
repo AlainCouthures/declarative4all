@@ -7,6 +7,16 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_orOp = function(children) {
+  let result = this.gen(children[0][1][0], Fleur.atomicTypes) + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().dropFalse()) {";
+  const previndent = this.indent;
+  this.indent += this.step;
+  result += this.gen(children[1][1][0], Fleur.atomicTypes);
+  result += this.inst("fn_boolean_1()");
+  this.indent = previndent;
+  return result + "\n" + previndent + "}";
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.orOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var op1;

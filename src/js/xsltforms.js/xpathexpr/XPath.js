@@ -1,5 +1,4 @@
-/*eslint-env browser*/
-/*globals XsltForms_nsResolver XsltForms_browser XsltForms_exprContext Fleur XsltForms_FleurConv XsltForms_schema*/
+/*globals XsltForms_browser, XsltForms_exprContext, Fleur, XsltForms_FleurConv*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -19,7 +18,7 @@ function XsltForms_xpath(subform, expression) {
 		compiled = Fleur.XPathEvaluator._xp2js(expression, "", "");
 		var arr;
 		eval("arr = " + compiled + ";");
-		compiled = XsltForms_FleurConv[arr[0]](arr[1]);
+		compiled = Fleur.minimal ? XsltForms_FleurConv[arr[0]](arr[1]) : (new Fleur.Transpiler("ctx", "  ")).funcdef(arr);
 		compiled = eval(compiled);
 	} catch (e) {
 		alert("XSLTForms Exception\n--------------------------\n\nError parsing the following XPath expression :\n\n"+expression+"\n\n" + e.message);
@@ -52,7 +51,7 @@ XsltForms_xpath.prototype.xpath_evaluate = function(ctx, current, subform, varre
 		ctx.nsresolver = this.nsresolver;
 	}
 	try {
-		var res = this.compiled.evaluate(ctx);
+		var res = Fleur.minimal ? this.compiled.evaluate(ctx) : this.compiled(new Fleur.Context(ctx.node, {nsresolver: ctx.nsresolver})).item;
 		if (this.unordered && (res instanceof Array) && res.length > 1) {
 			var posres = [];
 			for (var i = 0, len = res.length; i < len; i++) {

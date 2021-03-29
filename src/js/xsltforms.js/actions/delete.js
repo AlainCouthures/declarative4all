@@ -36,13 +36,13 @@ XsltForms_delete.prototype.run = function(element, ctx) {
 //console.log(Date.now() + ' ' +"valid");
 	var i, len;
 	if (this.context) {
-		ctx = this.context.xpath_evaluate(ctx, null, this.subform)[0];
+		ctx = this.context.xpath_evaluate(ctx, null, this.subform).head();
 	}
 	if (!ctx) {
 		return;
 	}
 	var varresolver = this.parentAction ? this.parentAction.varResolver : element.xfElement.varResolver;
-	var nodes = this.binding.bind_evaluate(this.subform, ctx, varresolver);
+	var nodes = this.binding.bind_evaluate(this.subform, ctx, varresolver).toArray();
 	for (i = 0; i < nodes.length; i++) {
 		if (!nodes[i].ownerDocument || nodes[i].ownerDocument.documentElement === nodes[i]) {
 			nodes.splice(i, 1);

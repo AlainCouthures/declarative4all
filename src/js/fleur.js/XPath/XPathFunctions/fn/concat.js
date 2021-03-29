@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -7,6 +6,28 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_concat = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_string},
+  params_type: [
+    {type: Fleur.Type_string, occurence: "?"}
+  ]
+};
+Fleur.Context.prototype.fn_concat = function(count) {
+  if (this.item.isEmpty()) {
+    this.item.data = "";
+    this.item.schemaTypeInfo = Fleur.Type_string;
+  }
+	for (let i = 1; i < count; i++) {
+		const arg = this.itemstack.pop();
+		if (arg.isNotEmpty()) {
+			this.item.data = arg.data + this.item.data;
+		}
+	}
+  return this;
+};
+
 Fleur.XPathFunctions_fn["concat#"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat",
 	function() {
 		var s = "";

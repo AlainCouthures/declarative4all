@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,29 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_evaluate_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Node},
+  params_type: [
+    {type: Fleur.Type_string}
+  ]
+};
+Fleur.Context.prototype.fn_evaluate_1 = function() {
+  if (this.item.isNotEmpty()) {
+		const jsret = Fleur.XPathEvaluator._xp2js(this.item.data, "", "");
+		let arr;
+		eval("arr = " + jsret + ";");
+		try {
+			const jsresult = (new Fleur.Transpiler("ctx", "  ")).funcdef(arr);
+			try {
+				this.item = (eval("(" + jsresult + ")(new Fleur.Context())")).item;
+			} catch(e) {}
+		} catch(e) {}
+  }
+  return this;
+};
+
 Fleur.XPathFunctions_fn["evaluate#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:evaluate",
 	function(arg) {
 		return arg !== Fleur.EmptySequence;

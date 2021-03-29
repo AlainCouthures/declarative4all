@@ -18,8 +18,10 @@ new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "anySimpleType");
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "anyAtomicType");
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "string");
 Fleur.Type_string = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["string"];
+Fleur.Type_string.atomizerName = "xs_string_1";
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "boolean");
 Fleur.Type_boolean = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["boolean"];
+Fleur.Type_boolean.atomizerName = "xs_boolean_1";
 Fleur.Type_boolean.canonicalize = function(s) {
 	if (/^\s*(true|false|0|1)\s*$/.test(s)) {
 		s = s.trim();
@@ -121,6 +123,7 @@ Fleur.Type_float.canonicalize = function(s) {
 };
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "double");
 Fleur.Type_double = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["double"];
+Fleur.Type_double.atomizerName = "xs_double_1";
 Fleur.Type_double.canonicalize = Fleur.Type_float.canonicalize;
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "duration");
 Fleur.Type_duration = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["duration"];
@@ -296,6 +299,7 @@ new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "ENTITIES", Fleur.TypeInf
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["ENTITIES"].canonicalize = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["IDREFS"].canonicalize;
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].decimal);
 Fleur.Type_integer = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["integer"];
+Fleur.Type_integer.atomizerName = "xs_integer_1";
 Fleur.Type_integer.canonicalize = function(s) {
 	if (/^\s*[\-+]?[0-9]+\s*$/.test(s)) {
 		s = s.trim();
@@ -578,3 +582,4 @@ Fleur.Type_xquery_main_module.canonicalize = function(s) {
 };
 
 Fleur.numericTypes = [Fleur.Type_integer, Fleur.Type_decimal, Fleur.Type_float, Fleur.Type_double];
+Fleur.atomicTypes = [];

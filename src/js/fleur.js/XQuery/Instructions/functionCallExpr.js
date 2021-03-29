@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -9,6 +8,54 @@
  */
 Fleur.XQueryEngine.updating = false;
 Fleur.XQueryEngine.updateQueue = [];
+
+Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, atomicType) {
+	var pf2 = "fn";
+	var args = children[1][1];
+	if (children[0][1][1] && children[0][1][1][0] === Fleur.XQueryX.prefix) {
+		var pf = children[0][1][1][1][0];
+		if (pf === "xf" || pf === "xform" || pf === "xforms") {
+			pf2 = "xf";
+		} else if (pf === "math") {
+			pf2 = "math";
+		} else {
+			pf2 = pf;
+		}
+	} else if (" boolean-from-string is-card-number count-non-empty index power random if choose property digest hmac local-date local-dateTime now days-from-date days-to-date seconds-from-dateTime seconds-to-dateTime adjust-dateTime-to-timezone seconds months instance current context event nodeindex is-valid serialize transform js-eval ".indexOf(" " + children[0][1][0] + " ") !== -1) {
+		pf2 = "xf";
+	}
+	const shortname = children[0][1][0].replace(/-/g, "$_");
+  let fname = pf2 + "_" + shortname;
+	if (fname !== "fn_concat") {
+		fname += "_" + String(args.length);
+	}
+	const libfunc = Fleur.signatures[fname];
+  const fasync = libfunc ? libfunc.is_async : false;
+  if (!this.async) {
+    this.async = fasync;
+  }
+  let params = "";
+  const paramstype = libfunc ? libfunc.params_type : null;
+  for (let i = 0, l = args.length; i < l; i++) {
+    params += this.gen(args[i], libfunc && fname !== "fn_concat" ? paramstype[i].type : Fleur.Type_string);
+  }
+  return params + this.inst((libfunc ? fname : "xqx_functionCallExpr") + (fasync ? "_async" : "") + "(" + (libfunc ? "" : shortname + ", ") + (fname === "fn_concat" || !libfunc ? String(args.length) : "") + ")", fasync, libfunc && (atomicType !== Fleur.atomicTypes && atomicType !== libfunc.return_type.type || atomicType === Fleur.atomicTypes && libfunc.return_type.type === Fleur.Node) ? atomicType : null);
+};
+Fleur.Context.prototype.xqx_functionCallExpr = function(shortname, arglen) {
+	const args = [];
+	if (arglen === 0) {
+		this.itemstack.push(this.item);
+		this.item = new Fleur.Text();
+    this.item.schemaTypeInfo = Fleur.Type_string;
+	} else {
+		for (let i = 1; i < arglen; i++) {
+			args[arglen - i - 1] = this.itemstack.pop().data;
+		}
+		args[arglen - 1] = this.item.data;
+	}
+  this.item.data = String(shortname.apply(null, args));
+  return this;
+};
 
 Fleur.functionCall = function(ctx, children, xf, args, callback) {
 	var mainUpdater = false;

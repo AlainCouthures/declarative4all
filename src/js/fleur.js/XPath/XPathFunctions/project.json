@@ -19,6 +19,7 @@
 		"proc/project.json",
 		"request/project.json",
 		"unit/project.json",
+		"xf/project.json",
 		"xquery/project.json",
 		"xs/project.json",
 		"zip/project.json"

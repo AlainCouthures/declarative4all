@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -21,6 +20,126 @@ Fleur.addOpTypes = [
 /*yearMonthD.9*/	[		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 7,		-1,		 9,		-1],
 /*dayTimeD.	10*/	[		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 7,		 8,		-1,		10]
 ];
+
+Fleur.Transpiler.prototype.xqx_addOp = function(children) {
+	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_addOp()");
+};
+
+Fleur.Context.prototype.xqx_addOp = function() {
+  const arg1 = this.itemstack.pop();
+  const arg2 = this.item;
+  if (arg1.isEmpty()) {
+    this.item = arg1;
+    return this;
+  }
+  if (arg2.isEmpty()) {
+    return this;
+  }
+  const op1 = Fleur.toJSValue(arg1, true, true, false, true, false, true);
+  if (op1[0] < 0) {
+    this.item = arg1;
+    return this;
+  }
+  const op2 = Fleur.toJSValue(arg2, true, true, false, true, false, true);
+  if (op2[0] < 0) {
+    return this;
+  }
+  const restype = Fleur.addOpTypes[op1[0]][op2[0]];
+  if (restype !== -1) {
+    let d, res, resvalue, prevm;
+    if (op1[0] < 4 && op2[0] < 4) {
+      const val = typeof op1[1] === typeof op2[1] ? op1[1] + op2[1] : Number(op1[1]) + Number(op2[1]);
+      if (restype > 1) {
+        this.item.data = Fleur.Type_double.canonicalize(String(val));
+      } else {
+        const precision1 = arg1.data.indexOf(".") !== -1 ? arg1.data.length - arg1.data.indexOf(".") - 1 : 0;
+        const precision2 = arg2.data.indexOf(".") !== -1 ? arg2.data.length - arg2.data.indexOf(".") - 1 : 0;
+        this.item.data = Fleur.NumberToDecimalString(val, Math.max(precision1, precision2));
+      }
+    } else if (op1[0] === 4 && op2[0] === 4) {
+      this.item.data = op1[1] + op2[1];
+    } else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 8) {
+      d = op1[1].d;
+      if (op2[0] === 9) {
+        prevm = d.getMonth();
+        if (op2[1].year !== 0) {
+          d.setFullYear(d.getFullYear() + op2[1].sign * op2[1].year);
+        }
+        if (op2[1].month !== 0) {
+          d.setMonth(d.getMonth() + op2[1].sign * op2[1].month);
+        }
+        if (d.getMonth() !== prevm + (op2[1].month !== 0 ? op2[1].sign * op2[1].month : 0)) {
+          d.setDate(0);
+        }
+      } else {
+        if (op2[1].day !== 0) {
+          d.setDate(d.getDate() + op2[1].sign * op2[1].day);
+        }
+        if (op2[1].hour !== 0) {
+          d.setHours(d.getHours() + op2[1].sign * op2[1].hour);
+        }
+        if (op2[1].minute !== 0) {
+          d.setMinutes(d.getMinutes() + op2[1].sign * op2[1].minute);
+        }
+        if (op2[1].second !== 0) {
+          d.setSeconds(d.getSeconds() + op2[1].sign * op2[1].second);
+        }
+      }
+      this.item.data = restype === 6 ? Fleur.dateToDate({d: d, tz: op1[1].tz}) : restype === 7 ? Fleur.dateToDateTime({d: d, tz: op1[1].tz}) : Fleur.dateToTime({d: d, tz: op1[1].tz});
+    } else if (op2[0] > 5 && op2[0] < 9 && op1[0] > 8) {
+      d = op2[1].d;
+      if (op1[0] === 9) {
+        prevm = d.getMonth();
+        if (op1[1].year !== 0) {
+          d.setFullYear(d.getFullYear() + op1[1].sign * op1[1].year);
+        }
+        if (op1[1].month !== 0) {
+          d.setMonth(d.getMonth() + op1[1].sign * op1[1].month);
+        }
+        if (d.getMonth() !== prevm + (op1[1].month !== 0 ? op1[1].sign * op1[1].month : 0)) {
+          d.setDate(0);
+        }
+      } else {
+        if (op1[1].day !== 0) {
+          d.setDate(d.getDate() + op1[1].sign * op1[1].day);
+        }
+        if (op1[1].hour !== 0) {
+          d.setHours(d.getHours() + op1[1].sign * op1[1].hour);
+        }
+        if (op1[1].minute !== 0) {
+          d.setMinutes(d.getMinutes() + op1[1].sign * op1[1].minute);
+        }
+        if (op1[1].second !== 0) {
+          d.setSeconds(d.getSeconds() + op1[1].sign * op1[1].second);
+        }
+      }
+      this.item.data = restype === 6 ? Fleur.dateToDate({d: d, tz: op2[1].tz}) : restype === 7 ? Fleur.dateToDateTime({d: d, tz: op2[1].tz}) : Fleur.dateToTime({d: d, tz: op2[1].tz});
+    } else if (op1[0] === 9 && op2[0] === 9) {
+      resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) + op2[1].sign * (op2[1].year * 12 + op2[1].month);
+      res = {
+        sign: resvalue < 0 ? -1 : 1,
+        year: Math.floor(Math.abs(resvalue) / 12),
+        month: Math.abs(resvalue) % 12};
+      this.item.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+    } else if (op1[0] === 10 && op2[0] === 10) {
+      resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) + op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+      res = {sign: resvalue < 0 ? -1 : 1};
+      resvalue = Math.abs(resvalue);
+      res.day = Math.floor(resvalue / 86400);
+      resvalue = resvalue % 86400;
+      res.hour = Math.floor(resvalue / 3600);
+      resvalue = resvalue % 3600;
+      res.minute = Math.floor(resvalue / 60);
+      res.second = resvalue % 60;
+      this.item.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+    }
+    this.item.schemaTypeInfo = Fleur.JSTypes[restype];
+  } else {
+    this.item = Fleur.error(this.ctx, arg1.nodeType === Fleur.Node.ELEMENT_NODE || arg2.nodeType === Fleur.Node.ELEMENT_NODE ? "FORG0001" : "XPTY0004");
+  }
+  return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n1) {
 		var op1, d;

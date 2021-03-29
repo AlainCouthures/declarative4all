@@ -128,9 +128,11 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 			newChild.parentNode = this;
 			this.lastChild = newChild;
 		}
-		this.childNodes.push(newChild);
-		if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.MULTIDIM_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
-			this.children.push(newChild);
+		if (newChild.isNotEmpty()) {
+			this.childNodes.push(newChild);
+			if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.MULTIDIM_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
+				this.children.push(newChild);
+			}
 		}
 	}
 	if (this.nodeType !== Fleur.Node.SEQUENCE_NODE && this.nodeType !== Fleur.Node.MULTIDIM_NODE) {
@@ -805,4 +807,34 @@ Fleur.Node.prototype.then = function(resolve, reject) {
 	} else {
 		resolve(this);
 	}
+};
+Fleur.Node.prototype.singleton = function() {
+  if (this.nodeType === Fleur.Node.SEQUENCE_NODE && this.childNodes.length === 1) {
+    return this.childNodes[0];
+  }
+  return this;
+};
+Fleur.Node.prototype.head = function() {
+  if (this.nodeType === Fleur.Node.SEQUENCE_NODE && this.childNodes.length !== 0) {
+    return this.childNodes[0];
+  }
+  return this;
+}
+Fleur.Node.prototype.isNotEmpty = function() {
+  return this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.childNodes.length !== 0;
+};
+Fleur.Node.prototype.isEmpty = function() {
+  return this.nodeType === Fleur.Node.SEQUENCE_NODE && this.childNodes.length === 0;
+};
+Fleur.Node.prototype.isSingle = function() {
+  return this.nodeType !== Fleur.Node.SEQUENCE_NODE;
+};
+Fleur.Node.prototype.toArray = function() {
+	if (this.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+		return [this];
+	}
+	return this.childNodes;
+};
+Fleur.Node.prototype.hasNumericType = function() {
+	return Fleur.numericTypes.indexOf(this.schemaTypeInfo) !== -1;
 };

@@ -63,7 +63,7 @@ XsltForms_abstractAction.prototype.execute = function(element, ctx, evt) {
 		if (this.whileexpr) {
 			XsltForms_globals.error(this.element, "xforms-compute-exception", "@iterate cannot be used with @while");
 		}
-		var nodes = this.iterateexpr.xpath_evaluate(ctx);
+		var nodes = this.iterateexpr.xpath_evaluate(ctx).toArray();
 		for (var i = 0, len = nodes.length; i < len; i++) {
 			this.exec_(element, nodes[i], evt);
 		}

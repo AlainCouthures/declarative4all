@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -21,6 +20,95 @@ Fleur.multiplyOpTypes = [
 /*yearMonthD.9*/	[		 9,		 9,		 9,		 9,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
 /*dayTimeD.	10*/	[		10,		10,		10,		10,		-1,		-1,		-1,		-1,		-1,		-1,		-1]
 ];
+
+Fleur.Transpiler.prototype.xqx_multiplyOp = function(children) {
+	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_multiplyOp()");
+};
+
+Fleur.Context.prototype.xqx_multiplyOp = function() {
+  const arg1 = this.itemstack.pop();
+  const arg2 = this.item;
+  const op1 = Fleur.toJSValue(arg1, true, true, false, false, false, true);
+  if (op1[0] < 0) {
+    this.item = arg1;
+    return this;
+  }
+  const op2 = Fleur.toJSValue(arg2, true, true, false, true, false, true);
+  if (op2[0] < 0) {
+    return this;
+  }
+  const restype = Fleur.multiplyOpTypes[op1[0]][op2[0]];
+  if (restype !== -1) {
+    let res, resvalue;
+    if (op1[0] < 4 && op2[0] < 4) {
+      if (isNaN(Number(op1[1]) * Number(op2[1]))) {
+        this.item.data = "NaN";
+      } else if (Number(op1[1]) * Number(op2[1]) === -Infinity) {
+        this.item.data = "-INF";
+      } else if (Number(op1[1]) * Number(op2[1]) === Infinity) {
+        this.item.data = "INF";
+      } else if (1 / (Number(op2[1]) * Number(op1[1])) === -Infinity) {
+        this.item.data = "-0";
+      } else if (1 / (Number(op2[1]) * Number(op1[1])) === Infinity) {
+        this.item.data = "0";
+      } else {
+        const val = typeof op1[1] === typeof op2[1] ? op1[1] * op2[1] : Number(op1[1]) * Number(op2[1]);
+        if (restype > 1) {
+          this.item.data = Fleur.Type_double.canonicalize(String(val));
+        } else {
+          const precision1 = arg1.data.indexOf(".") !== -1 ? arg1.data.length - arg1.data.indexOf(".") - 1 : 0;
+          const precision2 = arg2.data.indexOf(".") !== -1 ? arg2.data.length - arg2.data.indexOf(".") - 1 : 0;
+          this.item.data = Fleur.NumberToDecimalString(val, precision1 + precision2);
+        }
+      }
+    } else if (op1[0] < 4 && op2[0] === 4) {
+      this.item.data = op2[1].repeat(op1[1]);
+    } else if (op1[0] === 4 && op2[0] < 4) {
+      this.item.data = op1[1].repeat(op2[1]);
+    } else if (op1[0] < 4 && op2[0] === 9) {
+      resvalue = op2[1].sign * Math.round((op2[1].year * 12 + op2[1].month) * Number(op1[1]));
+      res = {
+        sign: resvalue < 0 ? -1 : 1,
+        year: Math.floor(Math.abs(resvalue) / 12),
+        month: Math.abs(resvalue) % 12};
+      this.item.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+    } else if (op1[0] === 9 && op2[0] < 4) {
+      resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) * Number(op2[1]));
+      res = {
+        sign: resvalue < 0 ? -1 : 1,
+        year: Math.floor(Math.abs(resvalue) / 12),
+        month: Math.abs(resvalue) % 12};
+      this.item.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+    } else if (op1[0] < 4 && op2[0] === 10) {
+      resvalue = Number(op1[1]) * op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+      res = {sign: resvalue < 0 ? -1 : 1};
+      resvalue = Math.abs(resvalue);
+      res.day = Math.floor(resvalue / 86400);
+      resvalue = resvalue % 86400;
+      res.hour = Math.floor(resvalue / 3600);
+      resvalue = resvalue % 3600;
+      res.minute = Math.floor(resvalue / 60);
+      res.second = resvalue % 60;
+      this.item.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+    } else if (op1[0] === 10 && op2[0] < 4) {
+      resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) * Number(op2[1]);
+      res = {sign: resvalue < 0 ? -1 : 1};
+      resvalue = Math.abs(resvalue);
+      res.day = Math.floor(resvalue / 86400);
+      resvalue = resvalue % 86400;
+      res.hour = Math.floor(resvalue / 3600);
+      resvalue = resvalue % 3600;
+      res.minute = Math.floor(resvalue / 60);
+      res.second = resvalue % 60;
+      this.item.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+    }
+    this.item.schemaTypeInfo = Fleur.JSTypes[restype];
+  } else {
+    this.item = Fleur.error(this.ctx, "XPTY0004");
+  }
+  return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.multiplyOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var op1;

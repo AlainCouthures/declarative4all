@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,31 @@
  * @module 
  * @description 
  */
+ Fleur.signatures.fn_tail_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Node, occurence: "*"},
+  params_type: [
+    {type: Fleur.Node, occurence: "*"}
+  ]
+};
+Fleur.Context.prototype.fn_tail_1 = function() {
+  if (this.item.nodeType === Fleur.Node.SEQUENCE_NODE && this.item.childNodes.length !== 0) {
+		if (this.item.childNodes.length > 2) {
+			const result = new Fleur.Sequence();
+			for (let i = 1, l = this.item.childNodes.length; i < l; i++) {
+				result.appendChild(this.item.childNodes[i]);
+			}
+			this.item = result;
+		} else {
+			this.item = this.item.childNodes[1];
+		}
+	} else if (this.item.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+		this.item = new Fleur.Sequence();
+	}
+  return this;
+};
+
 Fleur.XPathFunctions_fn["tail#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:tail",
 	function(arg) {
 		if (arg === Fleur.EmptySequence || arg.nodeType !== Fleur.Node.SEQUENCE_NODE) {

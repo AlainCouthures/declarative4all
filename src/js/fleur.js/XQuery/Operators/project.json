@@ -5,6 +5,7 @@
 		"divOp.js",
 		"eqOp.js",
 		"equalOp.js",
+		"generalComp.js",
 		"geOp.js",
 		"greaterThanOp.js",
 		"greaterThanOrEqualOp.js",
@@ -23,6 +24,8 @@
 		"subtractOp.js",
 		"todo.js",
 		"unaryMinusOp.js",
-		"unaryPlusOp.js"
+		"unaryPlusOp.js",
+		"unionOp.js",
+		"valueComp.js"
 	]
 }

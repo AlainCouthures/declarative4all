@@ -176,6 +176,49 @@ if (!String.prototype.codePointAt) {
 		}
 	}());
 }
+/**
+ * Array.prototype.head
+ */
+
+if (!Array.prototype.head) {
+	Object.defineProperty(Array.prototype, 'head', {
+		value() {
+			return this.find(Boolean);
+		}
+	});
+}
+
+/**
+ * Array.prototype.isSingle
+ */
+
+if (!Array.prototype.isSingle) {
+	Object.defineProperty(Array.prototype, 'isSingle', {
+		value() {
+			return false;
+		}
+	});
+}
+
+/**
+ * Array.prototype.childNodes
+ */
+
+if (!Array.prototype.childNodes) {
+	Object.defineProperty(Array.prototype, 'childNodes', {
+		get: function() { return this;}
+	});
+}
+
+/**
+ * Array.prototype.toArray
+ */
+
+if (!Array.prototype.toArray) {
+	Object.defineProperty(Array.prototype, 'toArray', {
+		value() { return this;}
+	});
+}
 
 (function (global, undefined) {
     if (global.setImmediate) {

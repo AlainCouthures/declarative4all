@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,22 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_count_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_integer},
+  params_type: [
+    {type: Fleur.Node, occurence: "*"}
+  ]
+};
+Fleur.Context.prototype.fn_count_1 = function() {
+	const count = this.item.nodeType === Fleur.Node.SEQUENCE_NODE ? this.item.childNodes.length : 1;
+	this.item = new Fleur.Text();
+	this.item.data = String(count);
+	this.item.schemaTypeInfo = Fleur.Type_integer;
+	return this;
+};
+
 Fleur.XPathFunctions_fn["count#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:count",
 	function(arg) {
 		return arg === Fleur.EmptySequence ? 0 : arg.nodeType === Fleur.Node.SEQUENCE_NODE ? arg.childNodes.length : 1;

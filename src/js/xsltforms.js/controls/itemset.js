@@ -50,7 +50,7 @@ XsltForms_itemset.prototype.build_ = function(ctx) {
 	if (this.element.getAttribute("cloned")) {
 		return;
 	}
-	this.nodes = this.evaluateBinding(this.nodesetBinding, ctx);
+	this.nodes = this.evaluateBinding(this.nodesetBinding, ctx).toArray();
 	var elt = this.element;
 	var xfelt = this;
 	if (this.nodes.length !== 0) {
@@ -82,18 +82,31 @@ XsltForms_itemset.prototype.build_ = function(ctx) {
 		}
 		result = xfelt.valueBinding ? xfelt.evaluateBinding(xfelt.valueBinding, n) : null;
 		if (xfelt.valueBinding && result) {
-			if (typeof result === "object") {
-				nodeValue = result[0];
-				xfelt.depsNodesRefresh.push(nodeValue);
-				try {
-					nvalue = XsltForms_browser.getValue(nodeValue);
-				} catch(e2) {
+			if (Fleur.minimal) {
+				if (typeof result === "object") {
+					nodeValue = result[0];
+					xfelt.depsNodesRefresh.push(nodeValue);
+					try {
+						nvalue = XsltForms_browser.getValue(nodeValue);
+					} catch(e2) {
+					}
+				} else {
+					nvalue = result;
 				}
 			} else {
-				nvalue = result;
+				if (result.nodeType !== Fleur.Node.TEXT_NODE || !result.head) {
+					nodeValue = result.head();
+					xfelt.depsNodesRefresh.push(nodeValue);
+					try {
+						nvalue = XsltForms_browser.getValue(nodeValue);
+					} catch(e2) {
+					}
+				} else {
+					nvalue = result.data || result;
+				}
 			}
 		}
-		var nodeCopy = xfelt.copyBinding ? xfelt.evaluateBinding(xfelt.copyBinding, n)[0] : null;
+		var nodeCopy = xfelt.copyBinding ? xfelt.evaluateBinding(xfelt.copyBinding, n).head() : null;
 		if (xfelt.copyBinding && nodeCopy) {
 			elt.parentNode.parentNode.xfElement.hasCopy = true;
 			xfelt.depsNodesRefresh.push(nodeCopy);

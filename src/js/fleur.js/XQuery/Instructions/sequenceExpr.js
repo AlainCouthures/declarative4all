@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,29 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_sequenceExpr = function(children) {
+  let items = "";
+  for (let i = 0, l = children.length; i < l; i++) {
+    items += this.gen(children[i]);
+  }
+  return items + this.inst("xqx_sequenceExpr(" + String(children.length) + ")");
+};
+Fleur.Context.prototype.xqx_sequenceExpr = function(itemlen) {
+	const items = [];
+	if (itemlen === 0) {
+		this.itemstack.push(this.item);
+		this.item = new Fleur.Sequence();
+	} else {
+		for (let i = 1; i < itemlen; i++) {
+			items[itemlen - i - 1] = this.itemstack.pop();
+		}
+		items[itemlen - 1] = this.item;
+	}
+  this.item = new Fleur.Sequence();
+	items.forEach(item => this.item.appendChild(item));
+  return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callback, depth) {
 	if (!depth) {
 		depth = 0;

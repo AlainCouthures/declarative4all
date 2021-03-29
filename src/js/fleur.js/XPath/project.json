@@ -1,5 +1,7 @@
 {
 	"Components":[
+		"Transpiler.js",
+		"Context.js",
 		"XPathFunctions/project.json",
 		"Atomize.js",
 		"Collations.js",

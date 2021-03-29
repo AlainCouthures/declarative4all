@@ -1713,7 +1713,7 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 			return Fleur.Serializer.XQX_renderChildren(node);
 	}
 };
-Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
+Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath, fleurpath) {
 	var ii, ll, text, index, offset = 0, end = s.length,
 		nodename, attrs, parents = [], c,
 		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
@@ -1725,6 +1725,7 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 	var gt = ">";
 	var amp = "&";
 	var xsltformscssfile = "<link type=\"text/css\" href=\"" + csspath + "\" rel=\"stylesheet\">";
+	var fleurjsfile = (fleurpath ? "<script type=\"text/javascript\" src=\"" + fleurpath + "\" data-uri=\"http://www.agencexml.com/fleur\">/* */</script>" : "");
 	var xsltformsjsfile = "<script type=\"text/javascript\" src=\"" + jspath + "\" data-uri=\"http://www.agencexml.com/xsltforms\">/* */</script>";
 	var emptyelts = ["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
 	var tableelts = ["thead", "tbody", "tfoot"];
@@ -1754,6 +1755,8 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 	var nsLookupLastpos = 3;
 	var attr;
 	var nsattr;
+	let indentlevel = 0;
+	let okindent = true;
 	while (offset !== end) {
 		text = "";
 		c = s.charAt(offset);
@@ -2034,20 +2037,23 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 				return "Malformed XHTML";
 			}
 			if (n.localName === "instance" && n.namespaceURI === xformsuri) {
-				r += "</script>";
+				r += "</script>\n";
+				indentlevel--;
 				xmlser = false;
 				lt = "<";
 				gt = ">";
 				amp = "&";
 				nsLookupFirstpos = 0;
-			} else if (n.localName === "head" && n.namespaceURI === htmluri) {
-				r += xsltformsjsfile;
+			//} else if (n.localName === "head" && n.namespaceURI === htmluri) {
+			//	r += xsltformsjsfile;
 			}
 			//console.log(uri + " " + nodelocalname + ": " + parents.reduce(function(ret, p) { return ret + " " + p.nodelocalname; }, ""));
-			if (n.namespaceURI !== xformsuri || n.localName !== "repeat" || parents[parents.length - 1].namespaceURI !== htmluri ||!tableelts.includes(parents[parents.length - 1].localName)) { 
-				r += lt + "/" + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName) + gt;
+			if (n.namespaceURI !== xformsuri || n.localName !== "repeat" || parents[parents.length - 1].namespaceURI !== htmluri ||!tableelts.includes(parents[parents.length - 1].localName)) {
+				indentlevel--;
+				r += (okindent ? "  ".repeat(Math.max(indentlevel,0)) : "") + lt + "/" + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName) + gt + "\n";
+				okindent = true;
 				if (xmlser && n.namespaceURI === xsuri && n.localName === "schema") {
-					r += "</script>";
+					r += "</script>\n";
 					xmlser = false;
 					lt = "<";
 					gt = ">";
@@ -2158,19 +2164,25 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 						amp = "&amp;";
 						nsLookupFirstpos = nextFirstpos;
 					}
-					r += lt + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName);
+					r += "  ".repeat(Math.max(indentlevel,0)) + lt + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName);
 				}
 				if (!namespaces[nsi][xmlser ? "xmlimplicit" : "htmlimplicit"] && nsi < nsLookupFirstpos) {
 					nsattr = {};
-					nsattr.localName = namespaces[nsi].prefix;
-					nsattr.prefix = "xmlns";
-					nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
+					if (namespaces[nsi].prefix !== "") {
+						nsattr.localName = namespaces[nsi].prefix;
+						nsattr.prefix = "xmlns";
+						nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
+					} else {
+						nsattr.localName = "xmlns";
+						nsattr.prefix = "";
+						nsattr.nodeName = "xmlns";
+					}
 					nsattr.namespaceURI = xmlnsuri;
 					nsattr.nodeValueDelim = "\"";
 					nsattr.nodeValue = namespaces[nsi].namespaceURI;
 					attrs.push(nsattr);
 				}
-				for (var i = 0, l = attrs.length; i < l; i++) {
+				for (let i = 0, l = attrs.length; i < l; i++) {
 					attr = attrs[i];
 					if (attr.prefix !== "") {
 						nsi = nsLookupLastpos;
@@ -2183,9 +2195,15 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 						attrs[i].namespaceURI = namespaces[nsi].namespaceURI;
 						if (!namespaces[nsi][xmlser ? "xmlimplicit" : "htmlimplicit"] && nsi < nsLookupFirstpos) {
 							nsattr = {};
-							nsattr.localName = namespaces[nsi].prefix;
-							nsattr.prefix = "xmlns";
-							nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
+							if (namespaces[nsi].prefix !== "") {
+								nsattr.localName = namespaces[nsi].prefix;
+								nsattr.prefix = "xmlns";
+								nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
+							} else {
+								nsattr.localName = "xmlns";
+								nsattr.prefix = "";
+								nsattr.nodeName = "xmlns";
+							}
 							nsattr.namespaceURI = xmlnsuri;
 							nsattr.nodeValueDelim = "\"";
 							nsattr.nodeValue = namespaces[nsi].namespaceURI;
@@ -2193,7 +2211,7 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 						}
 					}
 				}
-				for (var i = 0, l = attrs.length; i < l; i++) {
+				for (let i = 0, l = attrs.length; i < l; i++) {
 					attr = attrs[i];
 					if (xmlser || attr.localName !== "xmlns") {
 						if (xmlser) {
@@ -2221,15 +2239,17 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 					if (tableelts.includes(n.localName) && n.namespaceURI === htmluri) {
 						tableeltpos = r.length;
 					}
-					r += gt;
+					okindent = s.substr(offset).trim().startsWith("<");
+					r += gt + (okindent ? "\n" : "");
+					indentlevel++;
 					if (n.localName === "html" && n.namespaceURI === htmluri) {
-						r += "\n<!--HTML elements generated by XSLTForms 1.5beta (655) - Copyright (C) 2020 <agenceXML> - Alain Couthures - http://www.agencexml.com-->\n";
+						r += "  ".repeat(Math.max(indentlevel,0)) + "<!--HTML elements generated by XSLTForms 1.6 (655) - Copyright (C) 2021 <agenceXML> - Alain Couthures - http://www.agencexml.com-->\n";
 					} else if (n.localName === "head" && n.namespaceURI === htmluri) {
-						r0 = r + "<meta charset='UTF-8'>";
+						r0 = r + "  ".repeat(Math.max(indentlevel,0)) + "<meta charset=\"UTF-8\">\n" + "  ".repeat(Math.max(indentlevel,0)) + xsltformscssfile + "\n" + "  ".repeat(Math.max(indentlevel,0)) + fleurjsfile + "\n" + "  ".repeat(Math.max(indentlevel,0)) + xsltformsjsfile + "\n";
 						r = "";
 					} else if (n.localName === "body" && n.namespaceURI === htmluri) {
 						if (roptions !== "") {
-							r += "<xforms-options" + roptions + "/>";
+							r += "  ".repeat(Math.max(indentlevel,0)) + "<xforms-options" + roptions + "/>";
 						}
 						r += rmodel;
 					} else if (n.localName === "instance" && n.namespaceURI === xformsuri) {
@@ -2241,7 +2261,7 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 								break;
 							}
 						}
-						r += lt + "script type=\"" + mediatype + "\"" + gt;
+						r += "  ".repeat(Math.max(indentlevel,0)) + lt + "script type=\"" + mediatype + "\"" + gt;
 						xmlser = true;
 						lt = "&lt;";
 						gt = "&gt;";
@@ -2256,16 +2276,17 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 						}
 					}
 				} else if (!xmlser && emptyelts.includes(n.localName)) {
-					r += gt;
+					r += gt + "\n";
 				} else {
 					if (!xmlser && n.localName === "head" && n.namespaceURI === htmluri) {
-						r0 = r + gt;
-						r = lt + "/head" + gt;
+						r0 = r + gt + "\n";
+						indentlevel--;
+						r = "  ".repeat(Math.max(indentlevel,0)) + lt + "/head" + gt;
 					}
 					if (xmlser) {
-						r += "/" + gt;
+						r += "/" + gt + "\n";
 					} else {
-						r += gt + lt + "/" + (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName + gt;
+						r += gt + lt + "/" + (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName + gt + "\n";
 					}
 				}
 			}
@@ -2275,7 +2296,7 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath) {
 			}
 		}
 	}
-	return "<!DOCTYPE html>\r\n" + Fleur.bin2utf8(r0) + (xformsinside ? xsltformscssfile : "") + Fleur.bin2utf8(r);
+	return "<!DOCTYPE html>\r\n" + Fleur.bin2utf8(r0) + Fleur.bin2utf8(r);
 };
 Fleur.Serializer.prototype.serializeToString = function(node, mediatype, indent) {
 	var media = mediatype.split(";"), config = {}, param, paramreg = /^\s*(\S*)\s*=\s*(\S*)\s*$/, i = 1, l = media.length, handler, mime;

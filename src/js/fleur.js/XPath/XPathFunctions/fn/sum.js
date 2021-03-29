@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,27 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_sum_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_double},
+  params_type: [
+    {type: Fleur.NumericTypes, occurence: "*"}
+  ]
+};
+Fleur.Context.prototype.fn_sum_1 = function() {
+	if (this.item.nodeType === Fleur.Node.SEQUENCE_NODE) {
+		if (this.item.childNodes.length !== 0) {
+			this.item.data = Fleur.Type_integer.canonicalize(String(this.item.data.length));
+		} else {
+			this.item = new Fleur.Text();
+			this.item.data = "0";
+			this.item.schemaTypeInfo = Fleur.Type_integer;
+		}
+	}
+	return this;
+};
+
 Fleur.XPathFunctions_fn["sum#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:sum",
 	function(arg) {
 		if (arg === null) {

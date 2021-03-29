@@ -78,24 +78,44 @@ XsltForms_item.prototype.build_ = function(ctx) {
 	}
 	if (this.bindingL) {
 		result = this.evaluateBinding(this.bindingL, ctx);
-		if (typeof result === "object") {
-			element.nodeL = result[0];
-			element.valueL = null;
-			this.depsNodesRefresh.push(element.nodeL);
+		if (Fleur.minimal) {
+			if (typeof result === "object") {
+				element.nodeL = result[0];
+				element.valueL = null;
+				this.depsNodesRefresh.push(element.nodeL);
+			} else {
+				element.nodeL = null;
+				element.valueL = result;
+			}
 		} else {
-			element.nodeL = null;
-			element.valueL = result;
+			if (result.nodeType !== Fleur.Node.TEXT_NODE) {
+				element.nodeL = result.head();
+				element.valueL = null;
+			} else {
+				element.nodeL = null;
+				element.valueL = result.data;
+			}
 		}
 	}
 	if (this.bindingV) {
 		result = this.evaluateBinding(this.bindingV, ctx);
-		if (typeof result === "object") {
-			element.nodeV = result[0];
-			element.valueV = null;
-			this.depsNodesRefresh.push(element.nodeV);
+		if (Fleur.minimal) {
+			if (typeof result === "object") {
+				element.nodeV = result[0];
+				element.valueV = null;
+				this.depsNodesRefresh.push(element.nodeV);
+			} else {
+				element.nodeV = null;
+				element.valueV = result;
+			}
 		} else {
-			element.nodeV = null;
-			element.valueV = result;
+			if (result.nodeType !== Fleur.Node.TEXT_NODE) {
+				element.nodeV = result.head();
+				element.valueV = null;
+			} else {
+				element.nodeV = null;
+				element.valueV = result.data;
+			}
 		}
 	}
 	var nodeCopy = this.copyBinding ? this.evaluateBinding(this.copyBinding, ctx)[0] : null;

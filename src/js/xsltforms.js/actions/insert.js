@@ -33,14 +33,14 @@ XsltForms_insert.prototype = new XsltForms_abstractAction();
 XsltForms_insert.prototype.run = function(element, ctx) {
 	var varresolver = this.parentAction ? this.parentAction.varResolver : element.xfElement.varResolver;
 	if (this.context) {
-		ctx = this.context.xpath_evaluate(ctx)[0];
+		ctx = this.context.xpath_evaluate(ctx).head();
 	}
 	if (!ctx) {
 		return;
 	}
 	var nodes = [];
 	if( this.binding.bind || this.binding.xpath ) {
-		nodes = this.binding.bind_evaluate(this.subform, ctx, varresolver);
+		nodes = this.binding.bind_evaluate(this.subform, ctx, varresolver).toArray();
 	}
 	var index = 0;
 	var node = null;
@@ -49,7 +49,7 @@ XsltForms_insert.prototype.run = function(element, ctx) {
 	var pos = this.position === "after"? 1 : 0;
 	var res = 0;
 	if (this.origin) {
-		originNodes = this.origin.xpath_evaluate(ctx);
+		originNodes = this.origin.xpath_evaluate(ctx).toArray();
 	}
 	if (originNodes.length === 0) {
 		if (nodes.length === 0) {

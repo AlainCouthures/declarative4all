@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog">
+	<head>
+		<title>XQuery Test Suite</title>
+		<style>
+		table {
+			word-wrap:break-word;
+			width:100%;
+			margin:auto;
+			border-collapse: collapse;
+			table-layout:fixed;
+		}
+		td, th {
+		    border: 1px solid black;
+		}		</style>
+		<xf:model id="main">
+			<xf:instance id="selected">
+				<qt:test-set/>
+			</xf:instance>
+			<xf:instance id="catalog" src="data/catalog.xml"/>
+			<xf:instance id="test-set">
+				<qt:test-set/>
+			</xf:instance>
+			<xf:instance id="response-string" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+				<response-string>In progress...</response-string>
+			</xf:instance>
+			<xf:submission id="get-test-set" method="get" replace="instance" instance="test-set" serialization="none">
+				<xf:resource value="concat('data/',.)"/>
+				<xf:action ev:event="xforms-submit-done">
+					<xf:load resource="javascript:document.getElementById('divtests').scrollTop=0"/>
+					<xf:action iterate="instance('test-set')/qt:test-case">
+						<xf:delete ref="qt:response-string"/>
+						<xf:insert origin="instance('response-string')"/>
+					</xf:action>
+					<xf:load resource="javascript:runtests()"/>
+				</xf:action>
+			</xf:submission>
+			<xf:submission id="put-test-set" method="put" ref="instance('test-set')" replace="none">
+				<xf:resource value="concat('data/',.)"/>
+			</xf:submission>
+			<xf:setvalue ev:event="evaluate-response" ref="instance('test-set')/qt:test-case[@name = event('testname')]/qt:response-string" value="event('result')"/>
+			<xf:load ev:event="xforms-ready" resource="javascript:loadenv()"/>
+		</xf:model>
+		<script type="text/javascript" src="set-run.js"/>
+	</head>
+	<body>
+		<xf:select1 ref=".">
+			<xf:label>Test Set: </xf:label>
+			<xf:itemset ref="instance('catalog')/qt:test-set">
+				<xf:label ref="@name"/>
+				<xf:value ref="@file"/>
+			</xf:itemset>
+			<xf:send submission="get-test-set" ev:event="xforms-value-changed"/>
+		</xf:select1>
+		<xf:trigger ref=".[text() != '']">
+			<xf:label>Save</xf:label>
+			<xf:send submission="put-test-set" ev:event="DOMActivate"/>
+		</xf:trigger>
+		<xf:output value="choose(. = '', '', concat('&#160;&#160;&#160;',count(instance('test-set')/qt:test-case[qt:response-string = qt:result-string]), '/', count(instance('test-set')/qt:test-case)))"/>
+		<div id="divtests" style="height:630px; overflow-y: scroll;">
+		<table>
+			<tbody>
+				<xf:repeat id="tests" ref="instance('test-set')/qt:test-case">
+					<tr>
+						<td><xf:output value="qt:test"/></td>
+						<td width="3.3%">
+							<xf:trigger>
+								<xf:label>Run</xf:label>
+								<xf:load ev:event="DOMActivate" show="new">
+									<xf:resource value="concat('runtest.htm?expression=', encodeURIComponent(qt:test), '&amp;resultstring=', encodeURIComponent(qt:result-string), '&amp;env=', encodeURIComponent(envserialize(position())), '&amp;files=', encodeURIComponent(testfiles(position())), '&amp;folder=', encodeURIComponent(testfolder(position())))"/>
+								</xf:load>
+							</xf:trigger>
+						</td>
+						<td>
+							<div style="color:{choose(qt:response-string = qt:result-string, 'green', 'red')}"><xf:output value="qt:response-string"/></div>
+							<div><xf:output ref="qt:result-string[. != ../qt:response-string]"/></div>
+						</td>
+						<td width="3.1%">
+							<xf:trigger>
+								<xf:label>OK</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue ref="qt:result-string" value="../qt:response-string"/>
+								</xf:action>
+							</xf:trigger>
+						</td>
+					</tr>
+				</xf:repeat>
+			</tbody>
+		</table>
+		</div>
+	</body>
+</html>

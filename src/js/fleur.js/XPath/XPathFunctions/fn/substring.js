@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,51 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_substring_2 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_string},
+  params_type: [
+    {type: Fleur.Type_string, occurence: "?"},
+    {type: Fleur.Type_integer}
+  ]
+};
+Fleur.signatures.fn_substring_3 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_string},
+  params_type: [
+    {type: Fleur.Type_string, occurence: "?"},
+    {type: Fleur.Type_integer},
+    {type: Fleur.Type_integer}
+  ]
+};
+Fleur.Context.prototype.fn_substring_2 = function() {
+  const arg2 = this.item;
+  const arg1 = this.itemstack.pop();
+  if (arg1.isNotEmpty()) {
+		this.item.data = arg1.data.substr(Number(arg2.data) - 1);
+  } else {
+		this.item = new Fleur.Text();
+		this.item.data = "";
+	}
+	this.item.schemaTypeInfo = Fleur.Type_string;
+  return this;
+};
+Fleur.Context.prototype.fn_substring_3 = function() {
+  const arg3 = this.item;
+  const arg2 = this.itemstack.pop();
+  const arg1 = this.itemstack.pop();
+  if (arg1.isNotEmpty()) {
+		this.item.data = arg1.data.substr(Number(arg2.data) - 1, Number(arg3.data));
+  } else {
+		this.item = new Fleur.Text();
+		this.item.data = "";
+	}
+	this.item.schemaTypeInfo = Fleur.Type_string;
+  return this;
+};
+
 Fleur.XPathFunctions_fn["substring#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:substring",
 	function(source, start) {
 		return source ? source.substr(Number(start) - 1) : "";

@@ -155,14 +155,18 @@ XsltForms_repeat.prototype.build_ = function(ctx) {
 	var nodes0 = this.evaluateBinding(this.binding, ctx);
 	var nodes = [];
 	var r0, r, l, child;
-	for (var n = 0, ln = nodes0.length; n < ln; n++) {
-		if (!XsltForms_browser.getBoolMeta(nodes0[n], "notrelevant")) {
-			nodes.push(nodes0[n]);
+	if (nodes0.isSingle()) {
+		nodes[0] = nodes0;
+	} else {
+		for (let n = 0, ln = nodes0.childNodes.length; n < ln; n++) {
+			if (!XsltForms_browser.getBoolMeta(nodes0.childNodes[n], "notrelevant")) {
+				nodes.push(nodes0.childNodes[n]);
+			}
 		}
 	}
 	var inputids = {ids: {}, fors: {}};
 	this.nodes = nodes;
-	n = nodes.length;
+	let n = nodes.length;
 	if (this.nbsiblings === 0) {
 		r = this.root;
 		while (r.firstChild.nodeType === Fleur.Node.TEXT_NODE) {
@@ -182,7 +186,7 @@ XsltForms_repeat.prototype.build_ = function(ctx) {
 			r.removeChild(r.lastChild);
 		}
 		for (var k = 0; k < n; k++) {
-			XsltForms_browser.setMeta(nodes[k], "repeat", this.element.xfIndex);
+			XsltForms_browser.setMeta(nodes[k], "repeat", String(this.element.xfIndex));
 			if (r.children) {
 				r.children[k].node = nodes[k];
 			} else {
@@ -232,7 +236,7 @@ XsltForms_repeat.prototype.build_ = function(ctx) {
 			}
 		}
 		for (var kb = 0; kb < n; kb++) {
-			XsltForms_browser.setMeta(nodes[k], "repeat", this.element.xfIndex);
+			XsltForms_browser.setMeta(nodes[kb], "repeat", String(this.element.xfIndex));
 			if (r.children) {
 				r.children[i0 + kb*this.nbsiblings].node = nodes[kb];
 			} else {
@@ -352,6 +356,11 @@ XsltForms_repeat.initClone = function(subform, element, inputids) {
 	}
 	if (element.nodeType === Fleur.Node.ELEMENT_NODE && element.hasAttribute("xforms-name") && XsltForms_classes["xforms-" + element.getAttribute("xforms-name")]) {
 		element.xfElement = eval("new " + XsltForms_classes["xforms-" + element.getAttribute("xforms-name")].className + "(subform, element)");
+		element.xfIndex = XsltForms_collection.length;
+		XsltForms_collection.push(element);
+	}
+	if (element.nodeType === Fleur.Node.ELEMENT_NODE && (element.hasAttribute("xf-repeat-ref") || element.hasAttribute("xf-repeat-bind"))) {
+		element.xfElement = new XsltForms_repeat(subform, element);
 		element.xfIndex = XsltForms_collection.length;
 		XsltForms_collection.push(element);
 	}

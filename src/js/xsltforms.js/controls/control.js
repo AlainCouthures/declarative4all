@@ -107,7 +107,7 @@ XsltForms_control.prototype.build_ = function(ctx, varresolver) {
 	}
 	var result = this.evaluateBinding(this.binding, ctx, varresolver);
 	if (typeof result === "object") {
-		var node = result[0];
+		var node = result.head();
 		var element = this.element;
 		var old = element.node;
 		if (old !== node || !XsltForms_globals.ready) {

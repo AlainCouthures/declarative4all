@@ -7,6 +7,10 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_gtOp = function(children) {
+	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.gtOp)");
+};
+
 Fleur.gtOp = function(op1, op2) {
 	if (op1[0] < 4) {
 		return op1[1] > op2[1];

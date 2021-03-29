@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,21 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_exactly$_one_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Node},
+  params_type: [
+    {type: Fleur.Node, occurence: "*"}
+  ]
+};
+Fleur.Context.prototype.fn_exactly$_one_1 = function() {
+	if (this.item.nodeType === Fleur.Node.SEQUENCE_NODE) {
+
+	}
+	return this;
+};
+
 Fleur.XPathFunctions_fn["exactly-one#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:exactly-one",
 	function(arg, ctx) {
 		if (arg.nodeType === Fleur.Node.SEQUENCE_NODE) {

@@ -7,6 +7,16 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_varRef = function(children) {
+	var nsURI;
+	if (children[0][1].length === 1) {
+		nsURI = "";
+	} else {
+		nsURI = children[0][1][1][1][0] + ":";
+	}
+	return this.inst("xqx_varRef('" + children[0][1][0] + "')");
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.varRef] = function(ctx, children, callback) {
 	var nsURI;
 	if (children[0][1].length === 1) {

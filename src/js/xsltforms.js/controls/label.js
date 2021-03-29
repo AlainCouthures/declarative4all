@@ -53,8 +53,8 @@ XsltForms_label.prototype.dispose = function() {
 
 XsltForms_label.prototype.build_ = function(ctx) {
 	var nodes = this.evaluateBinding(this.binding, ctx);
-	this.element.node = nodes[0];
-	this.depsNodesRefresh.push(nodes[0]);
+	this.element.node = nodes.head();
+	this.depsNodesRefresh.push(this.element.node);
 };
 
 

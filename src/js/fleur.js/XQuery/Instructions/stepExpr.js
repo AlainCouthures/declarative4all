@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -7,6 +6,16 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_stepExpr = function(children) {
+	let result = "";
+	for (let i = 0, l = children.length; i < l; i++) {
+		if (children[i][0] !== Fleur.XQueryX.predicates) {
+			result += this.gen(children[i]);
+		}
+	}
+	return result;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 	//console.log("stepExpr - 1 - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
 	var next;

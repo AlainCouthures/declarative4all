@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -7,6 +6,10 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_eqOp = function(children) {
+	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.eqOp)");
+};
+
 Fleur.eqOp = function(op1, op2, c) {
 	if (op1[0] < 4 && op2[0] < 4) {
 		return isNaN(Number(op1[1])) && isNaN(Number(op2[1])) || Number(op1[1]) === Number(op2[1]);

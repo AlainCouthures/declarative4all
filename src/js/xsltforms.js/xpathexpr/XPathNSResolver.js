@@ -1,5 +1,3 @@
-/*eslint-env browser*/
-/*globals XsltForms_globals Fleur*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -8,7 +6,6 @@
  * @description  === XsltForms_FleurConv ===
  * Converter from Fleur XQuery parser result to XPath engine
  */
-
 Fleur.XPathNSResolver_default = {
 	pf: [
 		"xml",
@@ -86,7 +83,8 @@ Fleur.XPathNSResolver_default = {
 	]
 };
 
-Fleur.XPathNSResolver = function(node) {
+if (Fleur.minimal) {
+	Fleur.XPathNSResolver = function(node) {
 	this.pf = Fleur.XPathNSResolver_default.pf.slice();
 	this.uri = Fleur.XPathNSResolver_default.uri.slice();
 	this.node = node;
@@ -126,3 +124,4 @@ Fleur.XPathNSResolver.prototype.declareNamespace = function(prefix, uri) {
 	this.pf.push(prefix);
 	this.uri.push(uri);
 };
+}

@@ -87,9 +87,10 @@ Fleur.XPathNSResolver.prototype.lookupNamespaceURI = function(prefix) {
 		if (uri) {
 			this.pf.push(prefix);
 			this.uri.push(uri);
+			return uri;
 		}
 	}
-	return uri;
+	return null;
 };
 Fleur.XPathNSResolver.prototype.lookupPrefix = function(namespaceURI) {
 	var pf;
@@ -102,9 +103,10 @@ Fleur.XPathNSResolver.prototype.lookupPrefix = function(namespaceURI) {
 		if (pf) {
 			this.pf.push(pf);
 			this.uri.push(namespaceURI);
+			return pf;
 		}
 	}
-	return pf;
+	return null;
 };
 
 Fleur.XPathNSResolver.prototype.declareNamespace = function(prefix, uri) {

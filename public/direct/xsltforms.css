@@ -1,5 +1,5 @@
 /*
-XSLTForms 1.5.2 (658)
+XSLTForms 1.5.3 (659)
 XForms 1.1+ with XPath 1.0+ Engine
 
 Copyright (C) 2021 agenceXML - Alain Couthures
@@ -105,7 +105,7 @@ xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
 	color: #000;
 	text-align: center;
 	background-color: #f8f8f8;
-	background-image: url(../img/titleBackground.png);
+	background-image: url(titleBackground.png);
 }
 .xsltforms-calendar .xsltforms-calendar-title input {
 	width: 3em;
@@ -126,7 +126,7 @@ xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
 	background: #f0f0f0;
 }
 .xsltforms-calendar .xsltforms-calendar-names {
-	background-image: url(../img/thBackground.png);
+	background-image: url(thBackground.png);
 }
 .xsltforms-calendar .xsltforms-calendar-name {
 	border-bottom: 1px solid #000;

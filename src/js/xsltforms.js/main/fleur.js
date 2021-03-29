@@ -31,6 +31,8 @@ if (typeof Fleur === "undefined") {
 	Fleur.Node.ARRAY_NODE = 131;
 	Fleur.Node.MAP_NODE = 132;
 	Fleur.Node.ENTRY_NODE = 133;
+
+	Fleur.minimal = true;
 	
 	Fleur.DocumentType = function() {};
 	Fleur.DocumentType.resolveEntities = function(doctype, s) {

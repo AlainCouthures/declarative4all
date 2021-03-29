@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,19 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_ifThenElseExpr = function(children) {
+  let result = this.gen(children[0][1][0], Fleur.atomicTypes) + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().isTrue()) {";
+  const previndent = this.indent;
+  this.indent += this.step;
+  result += this.gen(children[1][1][0]);
+  this.indent = previndent;
+	result += "\n" + previndent + "} else {";
+  this.indent += this.step;
+  result += this.gen(children[2][1][0]);
+  this.indent = previndent;
+  return result + "\n" + previndent + "}";
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.ifThenElseExpr] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var boolean;

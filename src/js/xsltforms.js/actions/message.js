@@ -31,7 +31,7 @@ XsltForms_message.prototype = new XsltForms_abstractAction();
 XsltForms_message.prototype.run = function(element, ctx) {
 	var text;
 	if (this.binding) {
-		var node = this.binding.bind_evaluate(this.subform, ctx, this.parentAction ? this.parentAction.varResolver : element.xfElement.varResolver)[0];
+		var node = this.binding.bind_evaluate(this.subform, ctx, this.parentAction ? this.parentAction.varResolver : element.xfElement.varResolver).head();
 		if (node) {
 			text = XsltForms_browser.getValue(node);
 		}

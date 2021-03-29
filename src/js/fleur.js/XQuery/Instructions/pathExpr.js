@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -7,6 +6,59 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_pathExpr = function(children, atomicType) {
+	let result = this.inst("xqx_pathExpr()");
+	const children2 = [];
+	for (let i = 0, l = children.length; i < l; i++) {
+		children2.push(children[i]);
+		const arr = children[i][1];
+		for (let j = 0, l2 = arr.length; j < l2; j++) {
+			if (arr[j][0] === Fleur.XQueryX.predicates) {
+				for (let k = 0, l3 = arr[j][1].length; k < l3; k++) {
+					children2.push(arr[j][1][k]);
+				}
+			}
+		}
+	}
+	const previndent = this.indent;
+	for (let i = 0, l = children2.length; i < l; i++) {
+		if (i !== 0) {
+			result += "\n" + this.indent + "if (" + this.ctxvarname + ".item.isNotEmpty()) {";
+			this.indent += this.step;
+		}
+		if (children2[i][0] === Fleur.XQueryX.stepExpr || children2[i][0] === Fleur.XQueryX.rootExpr) {
+			result += this.gen(children2[i]);
+		} else {
+			const predindent = this.indent;
+			this.indent += this.step;
+			const prevasync = this.async;
+			this.async = false;
+			let pred = this.funcdef(children2[i]);
+			this.indent = predindent;
+			result += "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_predicateExpr(" + pred;
+			this.async = this.async || prevasync;
+			result += "\n" + this.indent + ");";
+		}
+	}
+	this.indent = previndent;
+	let closes = "";
+	for (let i = 0, l = children2.length; i < l; i++) {
+		if (i !== 0) {
+			closes = "\n" + this.indent + "}" + closes;
+			this.indent += this.step;
+		}
+	}
+	this.indent = previndent;
+	return result + closes + this.inst("restoreContext()", false, atomicType);
+};
+
+Fleur.Context.prototype.xqx_pathExpr = function() {
+	this.itemstack.push(this.item);
+	this.pathstack.push(this.path);
+	this.item = this.path;
+	return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 //console.log("pathExpr - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
 	var next;

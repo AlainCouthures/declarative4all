@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -7,6 +6,26 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_nameTest = function(children) {
+	const param = children.length !== 1 ? "\"" + children[1][1][0] + "\", " : "";
+	const ns = children.length !== 1 ? children[1][0] === Fleur.XQueryX.prefix ? "_prefix" : "_namespaceURI" : "";
+	return this.inst("xqx_nameTest" + ns + "(" + param + "\"" + children[0] + "\")");
+};
+
+Fleur.Context.prototype.xqx_nameTest = function(localName) {
+  const namespaceURI = this.rs.nsresolver.lookupNamespaceURI("");
+  return this.nodeTest(this.xpathAxis === Fleur.Context.XPATHAXIS_ATTRIBUTE ? Fleur.Node.ATTRIBUTE_NODE : Fleur.Node.ELEMENT_NODE, namespaceURI, localName);
+};
+
+Fleur.Context.prototype.xqx_nameTest_namespaceURI = function(namespaceURI, localName) {
+  return this.nodeTest(this.xpathAxis === Fleur.Context.XPATHAXIS_ATTRIBUTE ? Fleur.Node.ATTRIBUTE_NODE : Fleur.Node.ELEMENT_NODE, namespaceURI, localName);
+};
+
+Fleur.Context.prototype.xqx_nameTest_prefix = function(prefix, localName) {
+  const namespaceURI = this.rs.nsresolver.lookupNamespaceURI(prefix);
+  return this.nodeTest(this.xpathAxis === Fleur.Context.XPATHAXIS_ATTRIBUTE ? Fleur.Node.ATTRIBUTE_NODE : Fleur.Node.ELEMENT_NODE, namespaceURI, localName);
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.nameTest] = function(ctx, children, callback) {
 //console.log("nameTest - " + children[0] + " - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
 	if (ctx._curr.localName !== children[0]) {

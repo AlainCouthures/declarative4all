@@ -73,11 +73,11 @@ XsltForms_group.prototype.clone = function(id) {
  */
 
 XsltForms_group.prototype.build_ = function(ctx) {
-	var nodes = this.evaluateBinding(this.binding, ctx);
-	this.element.node = nodes[0];
-	this.depsNodesRefresh.push(nodes[0]);
+	var node = this.evaluateBinding(this.binding, ctx).head();
+	this.element.node = node;
+	this.depsNodesRefresh.push(node);
 	if (this.casebinding) {
-		var caseref = this.evaluateBinding(this.casebinding, nodes[0]);
+		var caseref = this.evaluateBinding(this.casebinding, node);
 		if (caseref) {
 			XsltForms_toggle.toggle(XsltForms_globals.stringValue(caseref));
 		}

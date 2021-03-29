@@ -32,7 +32,7 @@ XsltForms_wrap.prototype = new XsltForms_abstractAction();
 XsltForms_wrap.prototype.run = function(element, ctx) {
 	var varresolver = this.parentAction ? this.parentAction.varResolver : element.xfElement.varResolver;
 	if (this.context) {
-		ctx = this.context.xpath_evaluate(element.xfElement.subform, ctx, null, varresolver)[0];
+		ctx = this.context.xpath_evaluate(element.xfElement.subform, ctx, null, varresolver).head();
 	}
 	var controlid = this.control;
 	if (controlid && controlid.bind_evaluate) {

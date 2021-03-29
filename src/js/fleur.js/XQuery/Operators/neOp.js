@@ -1,4 +1,3 @@
-/*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -7,6 +6,10 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_neOp = function(children) {
+	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.neOp)");
+};
+
 Fleur.neOp = function(op1, op2, c) {
 	if (op1[0] < 4) {
 		return op1[1] !== op2[1];

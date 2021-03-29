@@ -177,6 +177,9 @@
 </xsl:variable>
 -->
 <xsl:template match="/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:exslt="http://exslt.org/common" xmlns:xalan="http://xml.apache.org/xalan">
+	<xsl:if test="system-property('xsl:vendor') = 'libxslt'">
+		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+	</xsl:if>
 	<xsl:choose>
 		<xsl:when test="$piform != ''">
 			<xsl:apply-templates select="$piformdoc/*"/>

@@ -2,6 +2,7 @@
 	"Components":[
 		"XQueryXNames.js",
 		"XQueryEngine.js",
+		"XQueryParser.js",
 		"Instructions/project.json",
 		"Operators/project.json",
 		"callback.js",

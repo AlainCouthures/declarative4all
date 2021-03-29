@@ -33,7 +33,7 @@ XsltForms_script.prototype.run = function(element, ctx) {
 	switch (this.stype) {
 		case "text/javascript":
 			if (this.binding) {
-				var node = this.binding.bind_evaluate(this.subform, ctx)[0];
+				var node = this.binding.bind_evaluate(this.subform, ctx).head();
 				if (node) {
 					script = XsltForms_browser.getValue(node);
 				}

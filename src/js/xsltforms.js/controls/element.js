@@ -159,6 +159,9 @@ XsltForms_element.prototype.evaluateBinding = function(binding, ctx, varresolver
 			}
 		}
 		this.boundnodes = binding.bind_evaluate(this.subform, ctx, varresolver, this.depsNodesBuild, this.depsIdB, this.depsElements);
+		if (!Fleur.minimal && this.boundnodes.nodeType) {
+			this.boundnodes = this.boundnodes.toArray();
+		}
 		if (this.boundnodes instanceof Array && this.boundnodes.length !== 0) {
 			this.element.setAttribute("xf-bound", "");
 		} else {

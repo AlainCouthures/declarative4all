@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,42 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_rangeSequenceExpr = function(children) {
+	return this.gen(children[0][1][0], Fleur.Type_integer) + this.gen(children[1][1][0], Fleur.Type_integer) + this.inst("xqx_rangeSequenceExpr()");
+};
+
+Fleur.Context.prototype.xqx_rangeSequenceExpr = function() {
+  const arg1 = this.itemstack.pop();
+  const arg2 = this.item;
+  if (arg1.isEmpty()) {
+    this.item = arg1;
+    return this;
+  }
+  if (arg2.isEmpty()) {
+    return this;
+  }
+  const op1 = Fleur.toJSNumber(arg1);
+  if (op1[0] < 0) {
+    this.item = arg1;
+    return this;
+  }
+  const op2 = Fleur.toJSNumber(arg2);
+  if (op2[0] < 0) {
+    return this;
+  }
+	if (op1[1] !== op2[1]) {
+		this.item = new Fleur.Sequence();
+		while (op1[1] <= op2[1]) {
+			const i = new Fleur.Text();
+			i.schemaTypeInfo = Fleur.Type_integer;
+			i.data = String(op1[1]);
+			this.item.appendChild(i);
+			op1[1]++;
+		}
+}
+	return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var op1;

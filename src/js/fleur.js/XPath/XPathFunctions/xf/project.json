@@ -1,0 +1,9 @@
+{
+	"Components":[
+		"choose.js",
+		"if.js",
+		"instance.js",
+		"js-eval.js",
+		"now.js"
+	]
+}

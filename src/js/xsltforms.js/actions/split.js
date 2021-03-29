@@ -35,10 +35,10 @@ XsltForms_split.prototype = new XsltForms_abstractAction();
 XsltForms_split.prototype.run = function(element, ctx) {
 	var node;
 	var varresolver = this.parentAction ? this.parentAction.varResolver : element.xfElement.varResolver;
-	var nodes = this.binding.bind_evaluate(element.xfElement.subform, ctx, varresolver);
+	var nodes = this.binding.bind_evaluate(element.xfElement.subform, ctx, varresolver).toArray();
 	if (nodes.length !== 0) {
 		if (this.context) {
-			ctx = this.context.xpath_evaluate(element.xfElement.subform, ctx, null, varresolver)[0];
+			ctx = this.context.xpath_evaluate(element.xfElement.subform, ctx, null, varresolver).head();
 		}
 		XsltForms_globals.openAction("XsltForms_split.prototype.run");
 		try {

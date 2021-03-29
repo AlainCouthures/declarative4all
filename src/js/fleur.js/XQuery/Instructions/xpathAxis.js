@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,63 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_xpathAxis = function(children) {
+	return this.inst("xqx_xpathAxis_" + children[0].replace(/-/g, "$_") + "()");
+};
+
+Fleur.Context.prototype.xqx_xpathAxis_ancestor = function() {
+  this.xpathAxis = Fleur.Context.XPATHAXIS_ANCESTOR;
+  return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_ancestor$_or$_self = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_ANCESTOR_OR_SELF;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_attribute = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_ATTRIBUTE;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_child = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_CHILD;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_descendant = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_DESCENDANT;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_descendant$_or$_self = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_DESCENDANT_OR_SELF;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_following = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_FOLLOWING;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_following$_sibling = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_FOLLOWING_SIBLING;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_namespace = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_NAMESPACE;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_parent = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_PARENT;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_preceding = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_PRECEDING;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_preceding$_sibling = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_PRECEDING_SIBLING;
+	return this;
+};
+Fleur.Context.prototype.xqx_xpathAxis_self = function() {
+	this.xpathAxis = Fleur.Context.XPATHAXIS_SELF;
+	return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) {
 //console.log("xpathAxis - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, "") + " - " + children[0]);
 	var seq, n, i, l;

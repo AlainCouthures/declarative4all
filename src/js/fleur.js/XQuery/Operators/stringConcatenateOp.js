@@ -1,4 +1,3 @@
- /*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -7,6 +6,25 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_stringConcatenateOp = function(children) {
+	return this.gen(children[0][1][0], Fleur.Type_string) + this.gen(children[1][1][0], Fleur.Type_string) + this.inst("xqx_stringConcatenateOp()");
+};
+
+Fleur.Context.prototype.xqx_stringConcatenateOp = function() {
+  let arg1 = this.itemstack.pop();
+  const arg2 = this.item;
+  if (arg1.isEmpty()) {
+		arg1 = new Fleur.Text();
+		arg1.data = "";
+		arg1.schemaTypeInfo = Fleur.Type_string;
+	}
+	if (arg2.isNotEmpty()) {
+		arg1.data += arg2.data;
+	}
+	this.item = arg1;
+	return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.stringConcatenateOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var a1 = Fleur.Atomize(n, true);
