@@ -1381,6 +1381,8 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 		if (arg[0] !== Fleur.XQueryX.pathExpr) {
 			arg = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[arg]]]]]];
 		}
+		const stepcontent = arg[1][0][1];
+		const laststepcontent = stepcontent[stepcontent.length - 1];
 		if (c === "?") {
 			if (arg.indexOf(",[Fleur.XQueryX.predicates,[") === -1) {
 				p = plen + "." + arg.substr(0, arg.length - 4) + "," + t.substr(t.indexOf(".") + 1) + "]]]]";
@@ -1388,13 +1390,15 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 				p = plen + "." + arg.substr(0, predstart) + predarr.reduce(function(s, pr) {return s + ",[Fleur.XQueryX.predicate,[" + pr + "]]";}, "") + "," + t.substr(t.indexOf(".") + 1) + "]]]]";;
 			}
 			allowpredicates = false;
-		} else if (arg.indexOf(",[Fleur.XQueryX.predicates,[") === -1) {
+		} else if (laststepcontent[0] !== Fleur.XQueryX.predicates) {
 			if (allowpredicates) {
 				predarr = [];
-				predarr.push(t.substr(t.indexOf(".") + 1));
+				predarr.push(t);
 				predstart = arg.length - 4;
 			}
-			p = plen + "." + arg.substr(0, arg.length - 4) + ",[" + (allowpredicates ? "Fleur.XQueryX.predicates" : "Fleur.XQueryX.predicate") + ",[" + t.substr(t.indexOf(".") + 1) + "]]]]]]";
+			stepcontent.push([allowpredicates ? Fleur.XQueryX.predicates : Fleur.XQueryX.predicate,[t]]);
+			p = arg;
+			p[3] = plen;
 		} else {
 			if (allowpredicates) {
 				predarr.push(t.substr(t.indexOf(".") + 1));
@@ -1407,7 +1411,7 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 		var cnext = s.charAt(inext);
 		if (cnext === "(" || cnext === "[" || cnext === "{" || cnext === "?") {
 			//console.log("_getPredParam: cnext = " + cnext);
-			return Fleur.XQueryParser._getPredParam(cnext, s.substr(inext + 1), l + inext + 1, p.substr(p.indexOf(".") + 1), allowpredicates, predstart, predarr, ops);
+			return Fleur.XQueryParser._getPredParam(cnext, s.substr(inext + 1), l + inext + 1, p, allowpredicates, predstart, predarr, ops);
 		}
 	}
 	p[3] += l;

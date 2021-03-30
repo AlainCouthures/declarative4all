@@ -1728,7 +1728,7 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath, fleurpath) {
 	var fleurjsfile = (fleurpath ? "<script type=\"text/javascript\" src=\"" + fleurpath + "\" data-uri=\"http://www.agencexml.com/fleur\">/* */</script>" : "");
 	var xsltformsjsfile = "<script type=\"text/javascript\" src=\"" + jspath + "\" data-uri=\"http://www.agencexml.com/xsltforms\">/* */</script>";
 	var emptyelts = ["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
-	var tableelts = ["thead", "tbody", "tfoot"];
+	var tableelts = ["table", "thead", "tbody", "tfoot"];
 	var tableeltpos;
 	var tablerepeat;
 	var xlinkattrs = ["actuate", "arcrole", "href", "role", "show", "title", "type"];

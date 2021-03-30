@@ -171,7 +171,7 @@
 				</xsl:choose>
 			</xsl:element>
 		</xsl:when>
-		<xsl:when test="self::xforms:repeat and parent::*[local-name() = 'thead' or local-name() = 'tbody' or local-name() = 'tfoot']">
+		<xsl:when test="self::xforms:repeat and parent::*[local-name() = 'table' or local-name() = 'thead' or local-name() = 'tbody' or local-name() = 'tfoot']">
 			<xsl:apply-templates select="node()"/>
 		</xsl:when>
 		<xsl:when test="contains('.bind.submission.itext.translation.text.group.repeat.input.output.textarea.secret.label.alert.hint.help.item.value.itemset.trigger.submit.range.upload.switch.case.select.select1.dialog.function.body.param.include.var.extension.', concat('.', local-name(), '.'))">

@@ -21,7 +21,7 @@
 					<xsl:attribute name="xf-avt"/>
 				</xsl:if>
 				<xsl:apply-templates select="@*"/>
-				<xsl:if test="(local-name() = 'thead' or local-name() = 'tbody' or local-name() = 'tfoot') and xforms:repeat">
+				<xsl:if test="(local-name() = 'table' or local-name() = 'thead' or local-name() = 'tbody' or local-name() = 'tfoot') and xforms:repeat">
 					<xsl:for-each select="xforms:repeat/@*">
 						<xsl:variable name="aname">
 							<xsl:choose>
