@@ -784,7 +784,7 @@ Fleur.XQueryParser._getNodeConstructor = function(s, begin) {
 				index = end;
 			}
 			if (nodename.toLowerCase() === "xml") {
-				throw Error("Invalid processing instruction");
+				Fleur.XQueryError_xqt("XPST0003", null, "Invalid processing instruction", "", new Fleur.Text("xml"));
 			} else if (nodename !== "") {
 				text = "";
 				ii = offset;
@@ -817,7 +817,7 @@ Fleur.XQueryParser._getNodeConstructor = function(s, begin) {
 				locstack.pop();
 				currnodename = parents.pop();
 			} else {
-				throw Error("Malformed XML fragment");
+				Fleur.XQueryError_xqt("XPST0003", null, "Unbalanced XML element", "", new Fleur.Text(nodename));
 			}
 			offset = s.indexOf(">", offset - 1) + 1;
 			if (offset === 0) {
@@ -852,7 +852,7 @@ Fleur.XQueryParser._getNodeConstructor = function(s, begin) {
 						c = s.charAt(offset++);
 					}
 					if (attrname === "") {
-						throw new Error("Invalid character: " + c);
+						Fleur.XQueryError_xqt("XPST0003", null, "Invalid character in XML attribut name", "", new Fleur.Text(c));
 					}
 					while (seps.indexOf(c) !== -1 && offset <= end) {
 						c = s.charAt(offset++);
@@ -1012,7 +1012,7 @@ Fleur.XQueryParser._getNodeConstructor = function(s, begin) {
 					locstack[locstack.length - 1].push(r0);
 				}
 			} else {
-				throw Error("Invalid element name");
+				Fleur.XQueryError_xqt("XPST0003", null, "Invalid character in XML element name", "", new Fleur.Text(c));
 			}
 			offset = index + 1;
 			if (offset === 0) {
@@ -1023,7 +1023,7 @@ Fleur.XQueryParser._getNodeConstructor = function(s, begin) {
 };
 Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, predstart, predarr, ops) {
 	//console.log("_getPredParam: c = " + c + " s = " + s + " ops = " + ops);
-	var t;
+	let t = [];
 	l = l || 0;
 	var p, plen, arg20, arg2;
 	var isret = false;
@@ -1050,7 +1050,7 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 		}
 	} else {
 		var func = [];
-		if (arg[1] !== 0 && arg[1].length !== 0 && arg[1][0][1][1][0] === Fleur.XQueryX.nameTest) {
+		if (arg[0] === Fleur.XQueryX.pathExpr && arg[1][0][1][1][0] === Fleur.XQueryX.nameTest) {
 			func = arg[1][0][1][1];
 		}
 		if (func.length !== 0 && func[1][0] === "function" && func[1].length === 1) {
@@ -1060,17 +1060,8 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 			plen = s.length - t[3] + 1;
 		}
 	}
-	if (t.indexOf("~~~~") !== -1) {
-		var t0 = t + "~#~#";
-		t0 = t0.substr(0, t0.indexOf("~#~#"));
-		t0 = t0.replace('"', "");
-		var msg = '"~~~~' + t0.substr(t0.indexOf("~~~~") + 4) + "in '" + s + "'~#~#" + '"';
-		p = plen + "." + msg;
-		throw Error(t0 + "in '" + s + "'~#~#");
-	} else if (t === "") {
-		var msg2 = '"' + "~~~~Unrecognized expression '" + s + "'~#~#" + '"';
-		p = plen + "." + msg2;
-		throw Error("~~~~Unrecognized expression '" + s + "'~#~#");
+	if (t.length === 0) {
+		Fleur.XQueryError_xqt("XPST0003", null, "Unrecognized expression", "", new Fleur.Text(s));
 	} else if (c === "{") {
 		var cargs = t;
 		if (cargs[0] === Fleur.XQueryX.arguments) {
@@ -1179,13 +1170,13 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 							c = xq.charAt(j);
 							if (c !== ")") {
 								if (c !== "$") {
-									throw Error("Unexpected char at '" + xq.substr(j) + "'");
+									Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
 								}
 								j++;
 								c = xq.charAt(j);
 								d = xq.substr(j + 1);
 								if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
-									throw Error("Unexpected char at '" + xq.substr(j) + "'");
+									Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
 								}
 								var pname = Fleur.XQueryParser._getName(c + d);
 								j = Fleur.XQueryParser._skipSpaces(xq, j + pname.length);
@@ -1221,7 +1212,7 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 							}
 						} while (c === ",");
 						if (c !== ")") {
-							throw Error("Unexpected char at '" + xq.substr(j) + "'");
+							Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
 						}
 						j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
 						c = xq.charAt(j);
@@ -1268,7 +1259,7 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 							}
 							fres += "]]";
 						} else {
-							throw Error("Unexpected char at '" + xq.substr(j) + "'");
+							Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
 						}
 						plen = j + 2;
 						p = [Fleur.XQueryX.inlineFunctionExpr,[fres], 0, plen, 0];
@@ -1391,19 +1382,13 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 			}
 			allowpredicates = false;
 		} else if (laststepcontent[0] !== Fleur.XQueryX.predicates) {
-			if (allowpredicates) {
-				predarr = [];
-				predarr.push(t);
-				predstart = arg.length - 4;
-			}
 			stepcontent.push([allowpredicates ? Fleur.XQueryX.predicates : Fleur.XQueryX.predicate,[t]]);
 			p = arg;
 			p[3] = plen;
 		} else {
-			if (allowpredicates) {
-				predarr.push(t.substr(t.indexOf(".") + 1));
-			}
-			p = plen + "." + arg.substr(0, arg.length - 6) + "," + t.substr(t.indexOf(".") + 1) + "]]]]]]";
+			laststepcontent[1].push(t);
+			p = arg;
+			p[3] = plen;
 		}
 	}
 	if (!isret) {
@@ -1418,8 +1403,9 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
 	return p;
 };
 Fleur.XQueryParser._getPredParams = function(s, len, arg, ops, begin) {
-	var i = Fleur.XQueryParser._skipSpaces(s, 0);
-	if (s.charAt(i) === "(" || s.charAt(i) === "[" || s.charAt(i) === "{" || (s.charAt(i) === "?" && ops.substr(0, 16) !== "13.6.instance of" && ops.substr(0, 16) !== "9.3.cast as" && ops.substr(0, 16) !== "13.4.castable as")) {
+	const i = Fleur.XQueryParser._skipSpaces(s, 0);
+	const op = ops.length !== 0 ? ops[ops.length - 1][1] : "";
+	if (s.charAt(i) === "(" || s.charAt(i) === "[" || s.charAt(i) === "{" || (s.charAt(i) === "?" && op !== "instance of" && op !== "cast as" && op !== "castable as")) {
 		return Fleur.XQueryParser._getPredParam(s.charAt(i), s.substr(i + 1), len + i, arg, true, 0, [], ops, begin + 1);
 	}
   arg[2] += i;
@@ -1555,11 +1541,7 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
 	} else if (c === "<") {
 		r = Fleur.XQueryParser._getNodeConstructor(c + d, begin + i);
 	} else {
-		r = "~~~~Unexpected char at '" + c + d + "'~#~#";
-		throw Error("~~~~Unexpected char at '" + c + d + "'~#~#");
-	}
-	if (r.indexOf("~~~~") !== -1) {
-		return r;
+		Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(c + d));
 	}
 	var rlen = r[3];
 	var rval = r;
@@ -1723,8 +1705,7 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
 		ops3.push([parseInt(opprec, 10), op2 !== "null" ? op2 : op]);
 		return Fleur.XQueryParser._xp2js(xp3, args3, ops3, begin);
 	}
-	throw Error("~~~~Unknown operator at '" + f + "'~#~#");
-	//return "~~~~Unknown operator at '" + f + "'~#~#";
+	Fleur.XQueryError_xqt("XPST0003", null, "Unknown operator", "", new Fleur.Text(f.trim()));
 };
 Fleur.XQueryParser._getVersion = function(xq) {
 	var i = Fleur.XQueryParser._skipSpaces(xq, 0);

@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,9 +5,13 @@
  * @module 
  * @description 
  */
-Fleur.Text = function() {
+Fleur.Text = function(value) {
 	this.nodeType = Fleur.Node.TEXT_NODE;
 	this.nodeName = "#text";
+	if (value !== undefined) {
+		this.data = value;
+		this.length = value.length;
+	}
 };
 Fleur.Text.prototype = new Fleur.CharacterData();
 Object.defineProperties(Fleur.Text.prototype, {

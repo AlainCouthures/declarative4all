@@ -10,6 +10,7 @@
  */
 
 if (typeof Fleur === "undefined") {
+	console.info('Fleur 1.0 (15), XPath 1.0 Parser, copyright (C) $$$VersionYear$$$ agenceXML - Alain Couthures, contact at fleur@agencexml.com');
 	(function(Fleur) {
 
 	Fleur.Node = function() {};

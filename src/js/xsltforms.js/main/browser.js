@@ -1923,19 +1923,20 @@ XsltForms_browser.debugConsole = {
 
     write : function(text) {
 		try {
-			if (this.isOpen()) {
-				var time = new Date().getTime();
-				this.element_.appendChild(document.createTextNode(time - this.time_ + " -> " + text));
-				XsltForms_browser.createElement("br", this.element_);
-				this.time_ = time;
+			//if (this.isOpen()) {
+			//	var time = new Date().getTime();
+			//	this.element_.appendChild(document.createTextNode(time - this.time_ + " -> " + text));
+			//	XsltForms_browser.createElement("br", this.element_);
+			//	this.time_ = time;
+			//}
+			if (!this.doc_) {
+				this.doc_ = XsltForms_browser.createXMLDocument('<tracelog xmlns=""/>');
 			}
-			if (XsltForms_globals.debugMode) {
-				if (!this.doc_) {
-					this.doc_ = XsltForms_browser.createXMLDocument('<tracelog xmlns=""/>');
-				}
-				var elt = this.doc_.createElement("event");
-				elt.appendChild(this.doc_.createTextNode(XsltForms_browser.i18n.format(new Date(), "yyyy-MM-ddThh:mm:ssz", true) + " -> " + text));
-				this.doc_.documentElement.appendChild(elt);
+			var elt = this.doc_.createElement("event");
+			elt.appendChild(this.doc_.createTextNode(XsltForms_browser.i18n.format(new Date(), "yyyy-MM-ddThh:mm:ssz", true) + " " + text));
+			this.doc_.documentElement.appendChild(elt);
+			if (this.doc_.documentElement.children.length === 200) {
+				this.doc_.documentElement.removeChild(this.doc_.documentElement.firstChild);
 			}
 		} catch(e) {
 		}

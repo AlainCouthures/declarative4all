@@ -2,8 +2,9 @@
 <html
    xmlns="http://www.w3.org/1999/xhtml"
    xmlns:xf="http://www.w3.org/2002/xforms"
-	 >
+   lang="en">
    <head>
+      <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover"/>
       <title>XForms Radio Button Usng Select1 appearance="full"</title>
       <xf:model>
          <xf:instance>

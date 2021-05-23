@@ -13,8 +13,8 @@
 function XsltForms_binding(subform, elt, mip, miptype, model) {
 	var xpath = mip ? mip.startsWith("xf-template-") ? XsltForms_binding.t2c(elt.getAttribute(mip)) : elt.getAttribute(mip) : elt.getAttribute("xf-ref") || elt.getAttribute("xf-value");
 	var modelid = elt.getAttribute("xf-model");
-	var bind = elt.getAttribute(mip === "xf-repeat-ref" ? "xf-repeat-bind" : "xf-bind");
-	this.type = miptype || (elt.localName.toLowerCase() === "xforms-var" ? "#nodes or constant" : (elt.hasAttribute("xf-value") && !elt.hasAttribute("xf-ref") && mip !== "xf-repeat-ref" ? "xsd:string" : null));
+	var bind = elt.getAttribute(mip === "xf-repeat-ref" ? "xf-repeat-bind" : mip === "data-xf-repeat-ref" ? "data-xf-repeat-bind" : "xf-bind");
+	this.type = miptype || (elt.localName.toLowerCase() === "xforms-var" ? "#nodes or constant" : (elt.hasAttribute("xf-value") && !elt.hasAttribute("xf-ref") && mip !== "xf-repeat-ref" && mip !== "data-xf-repeat-ref" ? "xsd:string" : null));
 	this.bind = bind ? bind : null;
 	this.xpath = xpath ? XsltForms_xpath.create(subform, xpath) : null;
 	var modelelt;

@@ -6,6 +6,7 @@
 		"constants.js",
 		"globals.js",
 		"browser.js",
+		"debugger.js",
 		"subform.js",
 		"Binding.js",
 		"MIPBinding.js",

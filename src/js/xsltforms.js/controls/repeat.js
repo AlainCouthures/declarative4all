@@ -18,6 +18,12 @@ XsltForms_browser.addLoadListener(new Function(
 	"Array.prototype.slice.call(document.querySelectorAll('*[xf-repeat-bind]')).forEach(function(elt) { if (!elt.xfElement) { elt.xfIndex = XsltForms_collection.length; XsltForms_collection.push(elt); elt.xfElement = new XsltForms_repeat(XsltForms_subform.subforms['xsltforms-mainform'], elt); } });"
 ));
 XsltForms_browser.addLoadListener(new Function(
+	"Array.prototype.slice.call(document.querySelectorAll('*[data-xf-repeat-ref]')).forEach(function(elt) { if (!elt.xfElement) { elt.xfIndex = XsltForms_collection.length; XsltForms_collection.push(elt); elt.xfElement = new XsltForms_repeat(XsltForms_subform.subforms['xsltforms-mainform'], elt); } });"
+));
+XsltForms_browser.addLoadListener(new Function(
+	"Array.prototype.slice.call(document.querySelectorAll('*[data-xf-repeat-bind]')).forEach(function(elt) { if (!elt.xfElement) { elt.xfIndex = XsltForms_collection.length; XsltForms_collection.push(elt); elt.xfElement = new XsltForms_repeat(XsltForms_subform.subforms['xsltforms-mainform'], elt); } });"
+));
+XsltForms_browser.addLoadListener(new Function(
 	"Array.prototype.slice.call(document.querySelectorAll('*[xforms-name=\"repeat\"]')).forEach(function(elt) { if (!elt.xfElement) { elt.xfIndex = XsltForms_collection.length; XsltForms_collection.push(elt); elt.xfElement = new XsltForms_repeat(XsltForms_subform.subforms['xsltforms-mainform'], elt); } });"
 ));
 
@@ -50,7 +56,13 @@ function XsltForms_repeat(subform, elt) {
 			elt.appendChild(ritem);
 		}
 	} else {
-		this.binding = elt.hasAttribute("xf-repeat-ref") || elt.hasAttribute("xf-repeat-bind") ? new XsltForms_binding(subform, elt, "xf-repeat-ref") : null;
+		if (elt.hasAttribute("xf-repeat-ref") || elt.hasAttribute("xf-repeat-bind")) {
+			this.binding = new XsltForms_binding(subform, elt, "xf-repeat-ref");
+		} else if (elt.hasAttribute("data-xf-repeat-ref") || elt.hasAttribute("data-xf-repeat-bind")) {
+			this.binding = new XsltForms_binding(subform, elt, "data-xf-repeat-ref");
+		} else {
+			this.binding = null;
+		}
 		this.nbsiblings = 0;
 		this.root = elt;
 	}

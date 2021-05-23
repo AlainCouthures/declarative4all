@@ -27,8 +27,7 @@ Fleur.Context.prototype.fn_boolean_1 = function() {
       this.item = newitem;
       return this;
     }
-    this.item = Fleur.error(this.ctx, "FORG00006");
-    return this;
+    Fleur.XQueryError_xqt("FORG00006", null, "Wrong argument type for fn:boolean#1", "", this.item);
   }
   if (this.item.nodeType !== Fleur.Node.TEXT_NODE) {
     newitem.appendData("true");
@@ -49,8 +48,7 @@ Fleur.Context.prototype.fn_boolean_1 = function() {
   } else if (schematype && (schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
     newitem.appendData(String(this.item.data !== "0" && this.item.data !== "0.0" && this.item.data !== "0.0e0" && this.item.data !== "NaN"));
   } else {
-    this.item = Fleur.error(this.ctx, "FORG00006");
-    return this;
+    Fleur.XQueryError_xqt("FORG00006", null, "Wrong argument type for fn:boolean#1", "", this.item);
   }
   this.item = newitem;
   return this;

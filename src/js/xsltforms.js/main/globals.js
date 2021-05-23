@@ -8,6 +8,8 @@
  * @description  === "XsltForms_globals" class ===
  * Global class for XSLTForms Management
  */
+console.info('XSLTForms $$$VersionName$$$ ($$$VersionNumber$$$), $$$VersionDescription$$$, copyright (C) $$$VersionYear$$$ agenceXML - Alain Couthures, contact at xsltforms@agencexml.com\nYou can use fleur() Javascript function to evaluate an expression. Example: fleur(\"instance()\")');
+
 var XsltForms_context;
 var XsltForms_globals = {
 
@@ -67,6 +69,8 @@ var XsltForms_globals = {
 		if (document.documentElement.childNodes[0].nodeType === 8 || (XsltForms_browser.isIE && document.documentElement.childNodes[0].childNodes[1] && document.documentElement.childNodes[0].childNodes[1].nodeType === 8)) {
 			var body = XsltForms_browser.isXhtml ? document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "body")[0] : document.getElementsByTagName("body")[0];
 			if (this.debugMode) {
+				XsltForms_debugger.open();
+				/*
 				var dbg = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "div") : document.createElement("div");
 				dbg.setAttribute("style", "border-bottom: thin solid #888888;");
 				dbg.setAttribute("id", "xsltforms_debug");
@@ -176,9 +180,11 @@ var XsltForms_globals = {
 					document.getElementsByTagName("body")[0].appendChild(conselt);
 				}
 				document.getElementById("xsltforms-console").style.display = "block";
+				*/
 			} else {
-				body.removeChild(document.getElementById("xsltforms_debug"));
-				document.getElementById("xsltforms-console").style.display = "none";
+				//body.removeChild(document.getElementById("xsltforms_debug"));
+				//document.getElementById("xsltforms-console").style.display = "none";
+				XsltForms_debugger.close();
 			}
 		}
 	},

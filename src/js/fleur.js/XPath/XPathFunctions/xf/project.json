@@ -1,8 +1,11 @@
 {
 	"Components":[
 		"choose.js",
+		"context.js",
+		"event.js",
 		"if.js",
 		"instance.js",
+		"instance-ids.js",
 		"js-eval.js",
 		"now.js"
 	]

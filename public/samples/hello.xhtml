@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" lang="en">
    <head>
+      <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover"/>
       <title>Hello World in XForms</title>
-      <xf:model>
+      <style type="text/css">
+        @media screen and (prefers-color-scheme: dark) {
+          body, textarea {
+          background-color: black;
+          color: lightgrey;
+          }
+        }
+        @media screen and (prefers-color-scheme: light) {
+          body, textarea {
+          background-color: white;
+          color: black;
+          }
+        }
+      </style>
+        <xf:model>
          <xf:instance>
             <data xmlns="">
                <PersonGivenName/>
@@ -13,12 +28,12 @@
    <body>
       <p>Type your first name in the input box. <br/>
         If you are running XForms, the output should be displayed in the output area.</p>   
-			 <xf:input ref="PersonGivenName" incremental="true">
-					<xf:label>Please enter your first name: </xf:label>
-			 </xf:input>
-			 <br />
-			 <xf:output value="concat('Hello ', PersonGivenName, '. We hope you like XForms!')">
-					<xf:label>Output: </xf:label>
-			 </xf:output>
+       <xf:input ref="PersonGivenName" incremental="true">
+          <xf:label>Please enter your first name: </xf:label>
+       </xf:input>
+       <br />
+       <xf:output value="concat('Hello ', PersonGivenName, '. We hope you like XForms!')">
+          <xf:label>Output: </xf:label>
+       </xf:output>
    </body>
 </html>

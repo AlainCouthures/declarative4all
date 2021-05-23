@@ -7,12 +7,37 @@
  * @description 
  */
 
-Fleur.Context = function(path, rs) {
+Fleur.Context = function(path, rs, nodedeps, xfdeps) {
   this.item = null;
   this.path = path;
-  this.rs = rs;
+  this.initialpath = path;
   this.itemstack = [];
   this.pathstack = [];
+  if (rs) {
+    this.rs = rs;
+  }
+  if (nodedeps) {
+    this.nodedeps = nodedeps;
+    this.nodedepset = new Set();
+    const nodedepset = this.nodedepset;
+    this.nodedeps.forEach(nodedep => nodedepset.add(nodedep.internal_id));
+  }
+  if (xfdeps) {
+    this.xfdeps = xfdeps;
+    this.xfdepset = new Set();
+    const xfdepset = this.xfdepset;
+    this.xfdeps.forEach(xfdep => xfdepset.add(xfdep));
+  }
+};
+
+Fleur.Context.prototype.clone = function(path) {
+  const newcontext = new Fleur.Context(path);
+  newcontext.rs = this.rs;
+  newcontext.nodedeps = this.nodedeps;
+  newcontext.nodedepset = this.nodedepset;
+  newcontext.xfdeps = this.xfdeps;
+  newcontext.xfdepset = this.xfdepset;
+  return newcontext;
 };
 
 Fleur.Context.prototype.emptySequence = function() {
@@ -36,8 +61,28 @@ Fleur.Context.XPATHAXIS_PRECEDING = 10;
 Fleur.Context.XPATHAXIS_PRECEDING_SIBLING = 11;
 Fleur.Context.XPATHAXIS_SELF = 12;
 
+Fleur.Context.prototype.addnodedep = function(item) {
+  if (!this.nodedepset.has(item.internal_id)) {
+    this.nodedepset.add(item.internal_id);
+    this.nodedeps.push(item);
+  }
+};
+
+Fleur.Context.prototype.addxfdep = function(item) {
+  if (!this.xfdepset.has(item)) {
+    this.xfdepset.add(item);
+    this.xfdeps.push(item);
+  }
+};
+
 Fleur.Context.prototype.restoreContext = function() {
   this.path = this.pathstack.pop();
+  if (this.item.isSingle()) {
+    this.addnodedep(this.item);
+  } else {
+    const ctx = this;
+    this.item.childNodes.forEach(item => ctx.addnodedep(item));
+  }
   return this;
 };
 
@@ -70,4 +115,22 @@ Fleur.Context.prototype.isFalse = function() {
 Fleur.Context.prototype.atomize = function() {
   this.item = Fleur.Atomize(this.item);
   return this;
-}
+};
+
+Fleur.Context.prototype.typeConstructor = function(schemaType) {
+  if (this.item.isEmpty()) {
+    return this;
+  }
+  if (this.item.schemaTypeInfo === Fleur.Type_string || this.item.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+    if (!this.item.hasOwnProperty("data")) {
+      Fleur.XQueryError_xqt("FORG00001", null, "Wrong argument type for xs:" + schemaType.atomizerName.substr(3, schemaType.atomizerName - 5) + "#1", "", this.item);
+    }
+  }
+  try {
+    this.item.data = schemaType.canonicalize(this.item.textContent);
+    this.item.schemaTypeInfo = schemaType;
+    return this;
+  } catch (e) {
+    Fleur.XQueryError_xqt(e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001", null, "Wrong argument type for xs:" + schemaType.atomizerName.substr(3, schemaType.atomizerName - 5) + "#1", "", this.item);
+  }
+};

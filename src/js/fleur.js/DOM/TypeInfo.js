@@ -26,6 +26,13 @@ Fleur.TypeInfo = function(typeNamespace, typeName, derivationMethod, derivationT
 			break;
 	}
 };
+
+Fleur.TypeInfo_XMLSchema = function(typeName, derivationMethod, derivationType) {
+	Fleur.TypeInfo.call(this, "http://www.w3.org/2001/XMLSchema", typeName, derivationMethod, derivationType);	
+};
+
+Fleur.TypeInfo_XMLSchema.prototype = Object.create(Fleur.TypeInfo.prototype);
+
 Fleur.TypeInfo.DERIVATION_RESTRICTION = 1;
 Fleur.TypeInfo.DERIVATION_EXTENSION = 2;
 Fleur.TypeInfo.DERIVATION_UNION = 4;

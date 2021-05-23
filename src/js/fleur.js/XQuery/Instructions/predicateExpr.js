@@ -5,8 +5,7 @@
  * @module 
  * @description 
  */
-Fleur.Context.xqx_predicateExpr_ = function(rs, pos, last, item, f) {
-	const ctx = new Fleur.Context(null, rs);
+Fleur.Context.xqx_predicateExpr_ = function(ctx, pos, last, item, f) {
 	ctx.position = pos;
 	ctx.item = item;
 	ctx.path = item;
@@ -25,14 +24,16 @@ Fleur.Context.xqx_predicateExpr_ = function(rs, pos, last, item, f) {
 };
 Fleur.Context.prototype.xqx_predicateExpr = function(f) {
 	if (this.item.isSingle()) {
-		this.item = Fleur.Context.xqx_predicateExpr_(this.rs, 1, 1, this.item, f);
+		const newcontext = this.clone(this.initialpath);
+		this.item = Fleur.Context.xqx_predicateExpr_(newcontext, 1, 1, this.item, f);
 		return this;
 	}
 	const seq = new Fleur.Sequence();
 	const l = this.item.childNodes.length;
 	const children = this.item.childNodes;
 	for (let i = 0; i < l; i++) {
-		const item = Fleur.Context.xqx_predicateExpr_(this.rs, i + 1, l, children[i], f);
+		const newcontext = this.clone(this.initialpath);
+		const item = Fleur.Context.xqx_predicateExpr_(newcontext, i + 1, l, children[i], f);
 		seq.appendChild(item);
 	}
 	this.item = seq.singleton();

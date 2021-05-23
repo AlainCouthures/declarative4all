@@ -51,7 +51,7 @@ XsltForms_xpath.prototype.xpath_evaluate = function(ctx, current, subform, varre
 		ctx.nsresolver = this.nsresolver;
 	}
 	try {
-		var res = Fleur.minimal ? this.compiled.evaluate(ctx) : this.compiled(new Fleur.Context(ctx.node, {nsresolver: ctx.nsresolver})).item;
+		var res = Fleur.minimal ? this.compiled.evaluate(ctx) : this.compiled(new Fleur.Context(ctx.node, {nsresolver: ctx.nsresolver}, ctx.depsNodes, ctx.depsElements)).item;
 		if (this.unordered && (res instanceof Array) && res.length > 1) {
 			var posres = [];
 			for (var i = 0, len = res.length; i < len; i++) {

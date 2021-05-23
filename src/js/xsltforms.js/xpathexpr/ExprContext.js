@@ -70,8 +70,8 @@ XsltForms_exprContext.prototype.setNode = function(node, position) {
  */
 
 XsltForms_exprContext.prototype.initDeps = function(depsNodes, depsElements) {
-	this.depsNodes = depsNodes;
-	this.depsElements = depsElements;
+	this.depsNodes = depsNodes || [];
+	this.depsElements = depsElements || [];
 };
 
 

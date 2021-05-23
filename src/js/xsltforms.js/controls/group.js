@@ -91,8 +91,13 @@ XsltForms_group.prototype.build_ = function(ctx) {
  */
 
 XsltForms_group.prototype.refresh = function() {
-	//var element = this.element;
-	//var disabled = !element.node || XsltForms_browser.getBoolMeta(element.node, "notrelevant");
+	var element = this.element;
+	var disabled = !element.node || XsltForms_browser.getBoolMeta(element.node, "notrelevant");
+	if (disabled) {
+		this.element.setAttribute("xf-notrelevant", "");
+	} else {
+		this.element.removeAttribute("xf-notrelevant");
+	}
 	//XsltForms_browser.setClass(element, "xforms-disabled", disabled);
 	//var ul = element.parentNode.children ? element.parentNode.children[0] : element.parentNode.childNodes[0];
 	//if (ul.nodeName.toLowerCase() === "ul") {

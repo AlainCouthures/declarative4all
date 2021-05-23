@@ -7,6 +7,29 @@
  * @module 
  * @description 
  */
+ Fleur.signatures.fn_number_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_double},
+  params_type: [
+    {type: Fleur.atomicTypes, occurence: "?"}
+  ]
+};
+Fleur.Context.prototype.fn_number_1 = function() {
+  if (this.item.isNotEmpty()) {
+		try {
+	    this.item.data = Fleur.Type_double.canonicalize(this.item.data);
+		} catch {
+			this.item.data = "NaN";
+		}
+  } else {
+		this.item = new Fleur.Text();
+		this.item.data = "NaN";
+	}
+	this.item.schemaTypeInfo = Fleur.Type_double;
+  return this;
+};
+
 Fleur.XPathFunctions_fn["number#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:number",
 	function(ctx) {
 		return Fleur.XPathFunctions_fn["number#1"].jsfunc(ctx._curr);

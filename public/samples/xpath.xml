@@ -1,8 +1,10 @@
 <?xml-stylesheet href="xsl/xsltforms.xsl" type="text/xsl"?>
 <html menu="samples" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:xf="http://www.w3.org/2002/xforms"
-      xmlns:ajx="http://www.ajaxforms.net/2006/ajx">
+      xmlns:ajx="http://www.ajaxforms.net/2006/ajx"
+			lang="en">
 	<head>
+		<meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover"/>
 		<title>XPath</title>
 		<meta name="description" content="Samples about XPath expresions."/>
 		<meta name="keywords" content="AJAX, Javascript, Web, XForms, AJAXForms, Ejemplos, Samples, XPath, Function"/>

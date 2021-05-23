@@ -205,11 +205,11 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 				}
 				names.sort();
 				for (i = 0, l = names.length; i < l; i++) {
-					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true, false) + "\"";
+					s += " " + names[i] + "='" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true, false) + "'";
 				}
 			} else {
 				for (i = 0, l = node.attributes.length; i < l; i++) {
-					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true, true) + "\"";
+					s += " " + node.attributes[i].nodeName + "='" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true, true) + "'";
 				}
 			}
 			if (node.childNodes.length === 0) {
@@ -332,7 +332,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			//		fdata += ".0";
 			//	}
 			//}
-			return (indent ? offset : "") + prefix + ":" + typeName + "(\"" + Fleur.Serializer.escapeXML(node.data, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
+			return (indent ? offset : "") + prefix + ":" + typeName + "('" + Fleur.Serializer.escapeXML(node.data, !indent, !indent).replace(/\'/gm, "\'\'") + "')" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
@@ -2230,7 +2230,7 @@ Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath, fleurpath) {
 								}
 								r += " xf-template-" + (attr.namespaceURI === eventuri ? "ev-" : n.namespaceURI === xformsuri && attr.localName !== "id" && attr.localName !== "style" && attr.localName !== "class" ? "xf-" + (tablerepeat ? "repeat-" : "") : "") + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
 							} else {
-								r += " " + (attr.namespaceURI === eventuri ? "ev-" : n.namespaceURI === xformsuri && attr.localName !== "id" && attr.localName !== "style" && attr.localName !== "class" ? "xf-" + (tablerepeat ? "repeat-" : "") : "") + (n.namespaceURI === xformsuri && attr.localName === "nodeset" ? "ref" : attr.localName) + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
+								r += " " + (attr.namespaceURI === eventuri ? "ev-" : n.namespaceURI === xformsuri && attr.localName !== "id" && attr.localName !== "style" && attr.localName !== "class" ? (tablerepeat ? "data-xf-repeat-" : "xf-") : "") + (n.namespaceURI === xformsuri && attr.localName === "nodeset" ? "ref" : attr.localName) + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
 							}
 						}
 					}

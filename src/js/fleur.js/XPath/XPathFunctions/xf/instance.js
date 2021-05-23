@@ -22,10 +22,12 @@ Fleur.signatures.xf_instance_1 = {
 Fleur.Context.prototype.xf_instance_0 = function() {
   this.itemstack.push(this.item);
   this.item = this.path.ownerDocument ? this.path.ownerDocument.documentElement : this.path.documentElement;
+  this.addnodedep(this.item);
   return this;
 };
 Fleur.Context.prototype.xf_instance_1 = function() {
   const instance = document.getElementById(this.item.data);
   this.item = instance.xfElement.doc.documentElement;
+  this.addnodedep(this.item);
   return this;
 };

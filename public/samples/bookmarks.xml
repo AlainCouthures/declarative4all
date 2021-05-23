@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="iso-8859-1" ?>
 <?xml-stylesheet href="xsl/xsltforms.xsl" type="text/xsl"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xf="http://www.w3.org/2002/xforms"
-    xmlns:ev="http://www.w3.org/2001/xml-events">
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+		lang="en">
     <head>
+			<meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover"/>
 			<title>Bookmarks</title>
     	<meta name="description" content="Bookmarks management sample."/>
     	<meta name="keywords" content="AJAX, Javascript, Web, XForms, AJAXForms, Ejemplos, Samples"/>
@@ -31,7 +32,7 @@
 			<h3>Bookmarks</h3>
 			<xf:repeat id="repeatSections" nodeset="section" appearance="full">
 					<xf:input ref="title">
-						<xf:label>Sección</xf:label>
+						<xf:label>Secciï¿½n</xf:label>
 					</xf:input>
 					<xf:repeat id="repeatBookmarks" nodeset="bookmark" appearance="compact">
 						<xf:input ref=".">

@@ -22,24 +22,24 @@ Fleur.Context.prototype.fn_abs_1 = function() {
 			const t = this.item.schemaTypeInfo;
       this.item.data = String(a2);
 			let t2;
-			switch (t.getPrimitiveType([Fleur.Types_XMLSchema["nonPositiveInteger"], Fleur.Types_XMLSchema["negativeInteger"], Fleur.Types_XMLSchema["byte"], Fleur.Types_XMLSchema["short"], Fleur.Types_XMLSchema["int"], Fleur.Types_XMLSchema["long"]], Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				case Fleur.Types_XMLSchema["nonPositiveInteger"]:
-					t2 = Fleur.Types_XMLSchema["nonNegativeInteger"];
+			switch (t.getPrimitiveType([Fleur.Type_nonPositiveInteger, Fleur.Type_negativeInteger, Fleur.Type_byte, Fleur.Type_short, Fleur.Type_int, Fleur.Type_long], Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				case Fleur.Type_nonPositiveInteger:
+					t2 = Fleur.Type_nonNegativeInteger;
 					break;
-				case Fleur.Types_XMLSchema["negativeInteger"]:
-					t2 = Fleur.Types_XMLSchema["positiveInteger"];
+				case Fleur.Type_negativeInteger:
+					t2 = Fleur.Type_positiveInteger;
 					break;
-				case Fleur.Types_XMLSchema["byte"]:
-					t2 = a2 === Fleur.BigInt(128) ? Fleur.Types_XMLSchema["short"] : Fleur.Types_XMLSchema["byte"];
+				case Fleur.Type_byte:
+					t2 = a2 === Fleur.BigInt(128) ? Fleur.Type_short : Fleur.Type_byte;
 					break;
-				case Fleur.Types_XMLSchema["short"]:
-					t2 = a2 === Fleur.BigInt(32768) ? Fleur.Types_XMLSchema["int"] : Fleur.Types_XMLSchema["short"];
+				case Fleur.Type_short:
+					t2 = a2 === Fleur.BigInt(32768) ? Fleur.Type_int : Fleur.Type_short;
 					break;
-				case Fleur.Types_XMLSchema["int"]:
-					t2 = a2 === Fleur.BigInt(2147483648) ? Fleur.Types_XMLSchema["long"] : Fleur.Types_XMLSchema["int"];
+				case Fleur.Type_int:
+					t2 = a2 === Fleur.BigInt(2147483648) ? Fleur.Type_long : Fleur.Type_int;
 					break;
-				case Fleur.Types_XMLSchema["long"]:
-					t2 = a2 === Fleur.BigInt(9223372036854775808) ? Fleur.Types_XMLSchema["integer"] : Fleur.Types_XMLSchema["long"];
+				case Fleur.Type_long:
+					t2 = a2 === Fleur.BigInt(9223372036854775808) ? Fleur.Type_integer : Fleur.Type_long;
 					break;
 				default:
 					t2 = t;
@@ -59,24 +59,24 @@ Fleur.XPathFunctions_fn["abs#1"] = new Fleur.Function("http://www.w3.org/2005/xp
 		var t = arg[1];
 		var a2, t2;
 		a2 = a < 0 ? -a : a;
-		switch (t.getPrimitiveType([Fleur.Types_XMLSchema["nonPositiveInteger"], Fleur.Types_XMLSchema["negativeInteger"], Fleur.Types_XMLSchema["byte"], Fleur.Types_XMLSchema["short"], Fleur.Types_XMLSchema["int"], Fleur.Types_XMLSchema["long"]], Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			case Fleur.Types_XMLSchema["nonPositiveInteger"]:
-				t2 = Fleur.Types_XMLSchema["nonNegativeInteger"];
+		switch (t.getPrimitiveType([Fleur.Type_nonPositiveInteger, Fleur.Type_negativeInteger, Fleur.Type_byte, Fleur.Type_short, Fleur.Type_int, Fleur.Type_long], Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			case Fleur.Type_nonPositiveInteger:
+				t2 = Fleur.Type_nonNegativeInteger;
 				break;
-			case Fleur.Types_XMLSchema["negativeInteger"]:
-				t2 = Fleur.Types_XMLSchema["positiveInteger"];
+			case Fleur.Type_negativeInteger:
+				t2 = Fleur.Type_positiveInteger;
 				break;
-			case Fleur.Types_XMLSchema["byte"]:
-				t2 = a2 === Fleur.BigInt(128) ? Fleur.Types_XMLSchema["short"] : Fleur.Types_XMLSchema["byte"];
+			case Fleur.Type_byte:
+				t2 = a2 === Fleur.BigInt(128) ? Fleur.Type_short : Fleur.Type_byte;
 				break;
-			case Fleur.Types_XMLSchema["short"]:
-				t2 = a2 === Fleur.BigInt(32768) ? Fleur.Types_XMLSchema["int"] : Fleur.Types_XMLSchema["short"];
+			case Fleur.Type_short:
+				t2 = a2 === Fleur.BigInt(32768) ? Fleur.Type_int : Fleur.Type_short;
 				break;
-			case Fleur.Types_XMLSchema["int"]:
-				t2 = a2 === Fleur.BigInt(2147483648) ? Fleur.Types_XMLSchema["long"] : Fleur.Types_XMLSchema["int"];
+			case Fleur.Type_int:
+				t2 = a2 === Fleur.BigInt(2147483648) ? Fleur.Type_long : Fleur.Type_int;
 				break;
-			case Fleur.Types_XMLSchema["long"]:
-				t2 = a2 === Fleur.BigInt(9223372036854775808) ? Fleur.Types_XMLSchema["integer"] : Fleur.Types_XMLSchema["long"];
+			case Fleur.Type_long:
+				t2 = a2 === Fleur.BigInt(9223372036854775808) ? Fleur.Type_integer : Fleur.Type_long;
 				break;
 			default:
 				t2 = t;

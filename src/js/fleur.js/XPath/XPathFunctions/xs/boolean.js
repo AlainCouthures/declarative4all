@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -12,21 +10,21 @@ Fleur.signatures.xs_boolean_1 = {
   is_async: false,
   return_type: Fleur.Type_boolean,
   params_type: [
-    Fleur.Node
+    Fleur.atomicTypes
   ]
 };
 Fleur.Context.prototype.xs_boolean_1 = function() {
 	if (this.item.isNotEmpty()) {
     const schematype = this.item.schemaTypeInfo;
-    if (schematype !== Fleur.Type_error && schematype !== Fleur.Type_booelan) {
+    if (schematype !== Fleur.Type_boolean) {
       if (schematype === Fleur.Type_integer || schematype === Fleur.Type_decimal || schematype === Fleur.Type_float || schematype === Fleur.Type_double) {
         this.item.data = (this.item.data === "0" || this.item.data === "NaN") ? "false" : "true";
       }
-      this.item.schemaTypeInfo = Fleur.Type_boolean;
       try {
-        this.item.data = this.item.schemaTypeInfo.canonicalize(this.item.data);
+        this.item.data = Fleur.Type_boolean.canonicalize(this.item.textContent);
+        this.item.schemaTypeInfo = Fleur.Type_boolean;
       } catch (e) {
-        this.item = Fleur.error(this.ctx, e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001");
+        Fleur.XQueryError_xqt(e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001", null, "Wrong argument type for xs:boolean#1", "", this.item);
       }
     }
   }

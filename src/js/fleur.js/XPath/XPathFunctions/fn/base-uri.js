@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,17 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_base_$uri_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_boolean},
+  params_type: [
+    Fleur.Node
+  ]
+};
+Fleur.Context.prototype.fn_base_$uri_1 = function() {
+};
+
 Fleur.XPathFunctions_fn["base-uri#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:base-uri",
 	function(ctx) {
 		return Fleur.XPathFunctions_fn["base-uri#1"].jsfunc(ctx._curr);

@@ -1,6 +1,7 @@
 {
 	"Components":[
 		"XQueryXNames.js",
+		"XQueryError.js",
 		"XQueryEngine.js",
 		"XQueryParser.js",
 		"Instructions/project.json",

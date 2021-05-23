@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,8 +5,21 @@
  * @module 
  * @description 
  */
+Fleur.signatures.xs_hexBinary_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: Fleur.Type_hexBinary,
+  params_type: [
+    Fleur.atomicTypes
+  ]
+};
+Fleur.Context.prototype.xs_hexBinary_1 = function() {
+	this.typeConstructor(Fleur.Type_hexBinary);
+	return this;
+};
+
 Fleur.XPathFunctions_xs["hexBinary#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:hexBinary",
 	function(arg) {
-		return Fleur.XPathConstructor(arg, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["hexBinary"], function() {});
+		return Fleur.XPathConstructor(arg, Fleur.Type_hexBinary, function() {});
 	},
 	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

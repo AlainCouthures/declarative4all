@@ -94,6 +94,7 @@ XsltForms_element.prototype.build = function(ctx, varresolver) {
 		var depsN = this.depsNodesBuild;
 		var depsR = this.depsNodesRefresh;
 		var build = !XsltForms_globals.ready || (deps.length === 0) || ctx !== this.ctx;
+		//console.log(this.element.localName + " [" + deps.reduce((s, d) => s + (s === "" ? "" : ", ") + d.element.nodeName, "") + "] [" + depsN.reduce((s, d) => s + (s === "" ? "" : ", ") + d.nodeName, "") + "] [" + depsR.reduce((s, d) => s + (s === "" ? "" : ", ") + (d ? d.nodeName : "undefined"), "") + "] " + build);
 		var refresh = false;
 		var changes = XsltForms_globals.changes;
 		for (var i0 = 0, len0 = depsN.length; !build && i0 < len0; i0++) {

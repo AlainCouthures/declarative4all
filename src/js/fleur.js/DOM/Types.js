@@ -9,18 +9,20 @@
  */
 Fleur.Types = {};
 Fleur.Types["http://www.w3.org/2001/XMLSchema"] = {};
+
 Fleur.Types_XMLSchema = Fleur.Types["http://www.w3.org/2001/XMLSchema"];
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "error");
-Fleur.Type_error = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["error"];
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "untypedAtomic");
-Fleur.Type_untypedAtomic = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["untypedAtomic"];
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "anySimpleType");
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "anyAtomicType");
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "string");
-Fleur.Type_string = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["string"];
+
+Fleur.Type_error = new Fleur.TypeInfo_XMLSchema("error");
+
+Fleur.Type_untypedAtomic = new Fleur.TypeInfo_XMLSchema("untypedAtomic");
+
+Fleur.Type_anySimpleType = new Fleur.TypeInfo_XMLSchema("anySimpleType");
+Fleur.Type_anyAtomicType = new Fleur.TypeInfo_XMLSchema("anyAtomicType");
+
+Fleur.Type_string = new Fleur.TypeInfo_XMLSchema("string");
 Fleur.Type_string.atomizerName = "xs_string_1";
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "boolean");
-Fleur.Type_boolean = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["boolean"];
+
+Fleur.Type_boolean = new Fleur.TypeInfo_XMLSchema("boolean");
 Fleur.Type_boolean.atomizerName = "xs_boolean_1";
 Fleur.Type_boolean.canonicalize = function(s) {
 	if (/^\s*(true|false|0|1)\s*$/.test(s)) {
@@ -35,8 +37,9 @@ Fleur.Type_boolean.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "decimal");
-Fleur.Type_decimal = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["decimal"];
+
+Fleur.Type_decimal = new Fleur.TypeInfo_XMLSchema("decimal");
+Fleur.Type_decimal.atomizerName = "xs_decimal_1";
 Fleur.Type_decimal.canonicalize = function(s) {
 	if (/^\s*[\-+]?([0-9]+(\.[0-9]*)?|[\-+]?\.[0-9]+)\s*$/.test(s)) {
 		s = s.trim();
@@ -80,8 +83,9 @@ Fleur.Type_decimal.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "float");
-Fleur.Type_float = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["float"];
+
+Fleur.Type_float = new Fleur.TypeInfo_XMLSchema("float");
+Fleur.Type_float.atomizerName = "xs_float_1";
 Fleur.Type_float.canonicalize = function(s) {
 	if (/^\s*(([\-+]?([0-9]+(\.[0-9]*)?)|[\-+]?(\.[0-9]+))([eE][\-+]?[0-9]+)?|[\-+]?INF|NaN)\s*$/.test(s)) {
 		s = s.trim();
@@ -121,12 +125,12 @@ Fleur.Type_float.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "double");
-Fleur.Type_double = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["double"];
+
+Fleur.Type_double = new Fleur.TypeInfo_XMLSchema("double");
 Fleur.Type_double.atomizerName = "xs_double_1";
 Fleur.Type_double.canonicalize = Fleur.Type_float.canonicalize;
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "duration");
-Fleur.Type_duration = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["duration"];
+
+Fleur.Type_duration = new Fleur.TypeInfo_XMLSchema("duration");
 Fleur.Type_duration.canonicalize = function(s) {
 	if (/^\s*-?P(?!$)([0-9]+Y)?([0-9]+M)?([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\.[0-9]+)?S)?)?\s*$/.test(s)) {
 		var dur = Fleur.toJSONDuration(s);
@@ -137,8 +141,9 @@ Fleur.Type_duration.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "dateTime");
-Fleur.Type_dateTime = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTime"];
+
+Fleur.Type_dateTime = new Fleur.TypeInfo_XMLSchema("dateTime");
+Fleur.Type_dateTime.atomizerName = "xs_dateTime_1";
 Fleur.Type_dateTime.canonicalize = function(s) {
 	if (/^\s*([0-9]{4})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
 		s = s.trim();
@@ -149,8 +154,9 @@ Fleur.Type_dateTime.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "time");
-Fleur.Type_time = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["time"];
+
+Fleur.Type_time = new Fleur.TypeInfo_XMLSchema("time");
+Fleur.Type_time.atomizerName = "xs_time_1";
 Fleur.Type_time.canonicalize = function(s) {
 	if (/^\s*(([0-9]{4})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T)?(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?)(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
 		s = s.trim();
@@ -161,8 +167,9 @@ Fleur.Type_time.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "date");
-Fleur.Type_date = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["date"];
+
+Fleur.Type_date = new Fleur.TypeInfo_XMLSchema("date");
+Fleur.Type_date.atomizerName = "xs_date_1";
 Fleur.Type_date.canonicalize = function(s) {
 	if (/^\s*([0-9]{4})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(T(24:00:00(\.0+)?|([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?))?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?\s*$/.test(s)) {
 		return Fleur.dateToDate(Fleur.toDate(s.trim()));
@@ -172,133 +179,174 @@ Fleur.Type_date.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gYearMonth");
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYearMonth"].canonicalize = function(s) {
+
+Fleur.Type_gYearMonth = new Fleur.TypeInfo_XMLSchema("gYearMonth");
+Fleur.Type_gYearMonth.atomizerName = "xs_gYearMonth_1";
+Fleur.Type_gYearMonth.canonicalize = function(s) {
 	if (/^\s*([0-9]{4})-(0[1-9]|1[012])\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gYear");
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYear"].canonicalize = function(s) {
+
+Fleur.Type_gYear = new Fleur.TypeInfo_XMLSchema("gYear");
+Fleur.Type_gYear.atomizerName = "xs_gYear_1";
+Fleur.Type_gYear.canonicalize = function(s) {
 	if (/^\s*([\-+]?([0-9]{4}|[1-9][0-9]{4,}))?\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gMonthDay");
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonthDay"].canonicalize = function(s) {
+
+Fleur.Type_gMonthDay = new Fleur.TypeInfo_XMLSchema("gMonthDay");
+Fleur.Type_gMonthDay.atomizerName = "xs_gMonthDay_1";
+Fleur.Type_gMonthDay.canonicalize = function(s) {
 	if (/^\s*--(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gDay");
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gDay"].canonicalize = function(s) {
+
+Fleur.Type_gDay = new Fleur.TypeInfo_XMLSchema("gDay");
+Fleur.Type_gDay.atomizerName = "xs_gDay_1";
+Fleur.Type_gDay.canonicalize = function(s) {
 	if (/^\s*---(0[1-9]|[12][0-9]|3[01])\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gMonth");
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonth"].canonicalize = function(s) {
+
+Fleur.Type_gMonth = new Fleur.TypeInfo_XMLSchema("gMonth");
+Fleur.Type_gMonth.atomizerName = "xs_gMonth_1";
+Fleur.Type_gMonth.canonicalize = function(s) {
 	if (/^\s*--(0[1-9]|1[012])\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "hexBinary");
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["hexBinary"].canonicalize = function(s) {
+
+Fleur.Type_hexBinary = new Fleur.TypeInfo_XMLSchema("hexBinary");
+Fleur.Type_hexBinary.atomizerName = "xs_hexBinary_1";
+Fleur.Type_hexBinary.canonicalize = function(s) {
 	if (/^\s*([0-9A-Fa-f]{2})+\s*$/.test(s)) {
 		return s.trim().toUpperCase();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "base64Binary");
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["base64Binary"].canonicalize = function(s) {
+
+Fleur.Type_base64Binary = new Fleur.TypeInfo_XMLSchema("base64Binary");
+Fleur.Type_base64Binary.atomizerName = "xs_base64Binary_1";
+Fleur.Type_base64Binary.canonicalize = function(s) {
 	if (/^\s*(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "anyURI");
-Fleur.Type_anyURI = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["anyURI"];
+
+Fleur.Type_anyURI = new Fleur.TypeInfo_XMLSchema("anyURI");
+Fleur.Type_anyURI.atomizerName = "xs_anyURI_1";
 Fleur.Type_anyURI.canonicalize = function(s) {
 	if (/^\s*((([^ :\/?#]+):\/\/)?[^ \/\?#]+([^ \?#]*)(\?([^ #]*))?(#([^ \:#\[\]\@\!\$\&\\'\(\)\*\+\,\;\=]*))?)?\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "QName");
-Fleur.Type_QName = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["QName"];
+
+Fleur.Type_QName = new Fleur.TypeInfo_XMLSchema("QName");
+Fleur.Type_QName.atomizerName = "xs_QName_1";
 Fleur.Type_QName.canonicalize = function(s) {
 	if (/^\s*[A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF][A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF\\-\\.0-9\\xB7]*(\:[A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF][A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF\\-\\.0-9\\xB7]*)?\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "normalizedString", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["normalizedString"].canonicalize = function(s) {
+
+Fleur.Type_normalizedString = new Fleur.TypeInfo_XMLSchema("normalizedString", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
+Fleur.Type_normalizedString.atomizerName = "xs_normalizedString_1";
+Fleur.Type_normalizedString.canonicalize = function(s) {
 	return s.replace(/[\t\r\n]/g, " ");
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "token", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].normalizedString);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["token"].canonicalize = function(s) {
+
+Fleur.Type_token = new Fleur.TypeInfo_XMLSchema("token", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_normalizedString);
+Fleur.Type_token.atomizerName = "xs_token_1";
+Fleur.Type_token.canonicalize = function(s) {
 	return s.trim().replace(/\s+/g, " ");
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "NOTATION");
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["NOTATION"].canonicalize = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["token"].canonicalize;
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "language", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].token);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["language"].canonicalize = function(s) {
+
+Fleur.Type_NOTATION = new Fleur.TypeInfo_XMLSchema("NOTATION");
+Fleur.Type_NOTATION.atomizerName = "xs_NOTATION_1";
+Fleur.Type_NOTATION.canonicalize = Fleur.Type_token.canonicalize;
+
+Fleur.Type_language = new Fleur.TypeInfo_XMLSchema("language", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_token);
+Fleur.Type_language.canonicalize = function(s) {
 	if (/^\s*[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "NMTOKEN", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].token);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["NMTOKEN"].canonicalize = function(s) {
+
+Fleur.Type_NMTOKEN = new Fleur.TypeInfo_XMLSchema("NMTOKEN", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_token);
+Fleur.Type_NMTOKEN.atomizerName = "xs_NMTOKEN_1";
+Fleur.Type_NMTOKEN.canonicalize = function(s) {
 	if (/^\s*[A-Za-z_\:\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF\\-\\.0-9\\xB7]+\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "NMTOKENS", Fleur.TypeInfo.DERIVATION_LIST, Fleur.Types["http://www.w3.org/2001/XMLSchema"].NMTOKEN);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["NMTOKENS"].canonicalize = function(s) {
+
+Fleur.Type_NMTOKENS = new Fleur.TypeInfo_XMLSchema("NMTOKENS", Fleur.TypeInfo.DERIVATION_LIST, Fleur.Type_NMTOKEN);
+Fleur.Type_NMTOKENS.atomizerName = "xs_NMTOKENS_1";
+Fleur.Type_NMTOKENS.canonicalize = function(s) {
 	if (/^\s*[A-Za-z_\:\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF\\-\\.0-9\\xB7]+(\s+[A-Za-z_\:\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF\\-\\.0-9\\xB7]+)*\s*$/.test(s)) {
 		return s.trim().replace(/\s+/g, " ");
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "Name", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].token);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["Name"].canonicalize = function(s) {
+
+Fleur.Type_Name = new Fleur.TypeInfo_XMLSchema("Name", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_token);
+Fleur.Type_Name.atomizerName = "xs_Name_1";
+Fleur.Type_Name.canonicalize = function(s) {
 	if (/^\s*[A-Za-z_\:\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF][A-Za-z_\:\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF\\-\\.0-9\\xB7]*\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "NCName", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].Name);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["NCName"].canonicalize = function(s) {
+
+Fleur.Type_NCName = new Fleur.TypeInfo_XMLSchema("NCName", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_Name);
+Fleur.Type_NCName.atomizerName = "xs_NCName_1";
+Fleur.Type_NCName.canonicalize = function(s) {
 	if (/^\s*[A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF][A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF\\-\\.0-9\\xB7]*\s*$/.test(s)) {
 		return s.trim();
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "ID", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].NCName);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["ID"].canonicalize = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["NCName"].canonicalize;
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "IDREF", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].NCName);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["IDREF"].canonicalize = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["NCName"].canonicalize;
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "IDREFS", Fleur.TypeInfo.DERIVATION_LIST, Fleur.Types["http://www.w3.org/2001/XMLSchema"].IDREF);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["IDREFS"].canonicalize = function(s) {
+
+Fleur.Type_ID = new Fleur.TypeInfo_XMLSchema("ID", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_NCName);
+Fleur.Type_ID.atomizerName = "xs_ID_1";
+Fleur.Type_ID.canonicalize = Fleur.Type_NCName.canonicalize;
+
+Fleur.Type_IDREF = new Fleur.TypeInfo_XMLSchema("IDREF", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_NCName);
+Fleur.Type_IDREF.atomizerName = "xs_IDREF_1";
+Fleur.Type_IDREF.canonicalize = Fleur.Type_NCName.canonicalize;
+
+Fleur.Type_IDREFS = new Fleur.TypeInfo_XMLSchema("IDREFS", Fleur.TypeInfo.DERIVATION_LIST, Fleur.Type_IDREF);
+Fleur.Type_IDREFS.atomizerName = "xs_IDREFS_1";
+Fleur.Type_IDREFS.canonicalize = function(s) {
 	if (/^\s*[A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF][A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF\\-\\.0-9\\xB7]*(\s+[A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF][A-Za-z_\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\xFF\\-\\.0-9\\xB7]*)*\s*$/.test(s)) {
 		return s.trim().replace(/\s+/g, " ");
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "ENTITY", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].NCName);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["ENTITY"].canonicalize = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["NCName"].canonicalize;
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "ENTITIES", Fleur.TypeInfo.DERIVATION_LIST, Fleur.Types["http://www.w3.org/2001/XMLSchema"].IDREFS);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["ENTITIES"].canonicalize = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["IDREFS"].canonicalize;
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].decimal);
-Fleur.Type_integer = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["integer"];
+
+Fleur.Type_ENTITY = new Fleur.TypeInfo_XMLSchema("ENTITY", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_NCName);
+Fleur.Type_ENTITY.atomizerName = "xs_ENTITY_1";
+Fleur.Type_ENTITY.canonicalize = Fleur.Type_NCName.canonicalize;
+
+Fleur.Type_ENTITIES = new Fleur.TypeInfo_XMLSchema("ENTITIES", Fleur.TypeInfo.DERIVATION_LIST, Fleur.Type_IDREFS);
+Fleur.Type_ENTITIES.atomizerName = "xs_ENTITIES_1";
+Fleur.Type_ENTITIES.canonicalize = Fleur.Type_IDREFS.canonicalize;
+
+Fleur.Type_integer = new Fleur.TypeInfo_XMLSchema("integer", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_decimal);
 Fleur.Type_integer.atomizerName = "xs_integer_1";
 Fleur.Type_integer.canonicalize = function(s) {
 	if (/^\s*[\-+]?[0-9]+\s*$/.test(s)) {
@@ -327,8 +375,10 @@ Fleur.Type_integer.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "nonPositiveInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].integer);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonPositiveInteger"].canonicalize = function(s) {
+
+Fleur.Type_nonPositiveInteger = new Fleur.TypeInfo_XMLSchema("nonPositiveInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_integer);
+Fleur.Type_nonPositiveInteger.atomizerName = "xs_nonPositiveInteger_1";
+Fleur.Type_nonPositiveInteger.canonicalize = function(s) {
 	if (/^\s*(-[0-9]+|0)\s*$/.test(s)) {
 		s = s.trim();
 		var ret = "";
@@ -352,8 +402,10 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonPositiveInteger"].canonicali
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "negativeInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].nonPositiveInteger);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["negativeInteger"].canonicalize = function(s) {
+
+Fleur.Type_negativeInteger = new Fleur.TypeInfo_XMLSchema("negativeInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_nonPositiveInteger);
+Fleur.Type_negativeInteger.atomizerName = "xs_negativeInteger_1";
+Fleur.Type_negativeInteger.canonicalize = function(s) {
 	if (/^\s*-0*[1-9][0-9]*\s*$/.test(s)) {
 		s = s.trim();
 		var ret = "-";
@@ -372,8 +424,10 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["negativeInteger"].canonicalize 
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "long", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].integer);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"].canonicalize = function(s) {
+
+Fleur.Type_long = new Fleur.TypeInfo_XMLSchema("long", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_integer);
+Fleur.Type_long.atomizerName = "xs_long_1";
+Fleur.Type_long.canonicalize = function(s) {
 	if (/^\s*[\-+]?[0-9]+\s*$/.test(s)) {
 		s = s.trim();
 		var value = Fleur.BigInt(s);
@@ -383,8 +437,9 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"].canonicalize = function(
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "int", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].long);
-Fleur.Type_int = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["int"];
+
+Fleur.Type_int = new Fleur.TypeInfo_XMLSchema("int", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_long);
+Fleur.Type_int.atomizerName = "xs_int_1";
 Fleur.Type_int.canonicalize = function(s) {
 	if (/^\s*[\-+]?[0-9]+\s*$/.test(s)) {
 		s = s.trim();
@@ -395,8 +450,10 @@ Fleur.Type_int.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "short", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].int);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["short"].canonicalize = function(s) {
+
+Fleur.Type_short = new Fleur.TypeInfo_XMLSchema("short", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_int);
+Fleur.Type_short.atomizerName = "xs_short_1";
+Fleur.Type_short.canonicalize = function(s) {
 	if (/^\s*[\-+]?[0-9]+\s*$/.test(s)) {
 		s = s.trim();
 		var value = parseInt(s, 10);
@@ -406,8 +463,10 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["short"].canonicalize = function
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "byte", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].short);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["byte"].canonicalize = function(s) {
+
+Fleur.Type_byte = new Fleur.TypeInfo_XMLSchema("byte", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_short);
+Fleur.Type_byte.atomizerName = "xs_byte_1";
+Fleur.Type_byte.canonicalize = function(s) {
 	if (/^\s*[\-+]?[0-9]+\s*$/.test(s)) {
 		s = s.trim();
 		var value = parseInt(s, 10);
@@ -417,9 +476,10 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["byte"].canonicalize = function(
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "nonNegativeInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].integer);
-Fleur.Type_nonNegativeInteger = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"];
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"].canonicalize = function(s) {
+
+Fleur.Type_nonNegativeInteger = new Fleur.TypeInfo_XMLSchema("nonNegativeInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_integer);
+Fleur.Type_nonNegativeInteger.atomizerName = "xs_nonNegativeInteger_1";
+Fleur.Type_nonNegativeInteger.canonicalize = function(s) {
 	if (/^\s*(\+?[0-9]+|-0+)\s*$/.test(s)) {
 		s = s.trim();
 		var ret = "";
@@ -442,8 +502,10 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"].canonicali
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedLong", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].nonNegativeInteger);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedLong"].canonicalize = function(s) {
+
+Fleur.Type_unsignedLong = new Fleur.TypeInfo_XMLSchema("unsignedLong", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_nonNegativeInteger);
+Fleur.Type_unsignedLong.atomizerName = "xs_unsignedLong_1";
+Fleur.Type_unsignedLong.canonicalize = function(s) {
 	if (/^\s*(\+?[0-9]+|-0+)\s*$/.test(s)) {
 		s = s.trim();
 		var value = Fleur.BigInt(s);
@@ -453,8 +515,10 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedLong"].canonicalize = f
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedInt", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedLong);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedInt"].canonicalize = function(s) {
+
+Fleur.Type_unsignedInt = new Fleur.TypeInfo_XMLSchema("unsignedInt", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_unsignedLong);
+Fleur.Type_unsignedInt.atomizerName = "xs_unsignedInt_1";
+Fleur.Type_unsignedInt.canonicalize = function(s) {
 	if (/^\s*(\+?[0-9]+|-0+)\s*$/.test(s)) {
 		s = s.trim();
 		var value = parseInt(s, 10);
@@ -464,8 +528,10 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedInt"].canonicalize = fu
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedShort", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedInt);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedShort"].canonicalize = function(s) {
+
+Fleur.Type_unsignedShort = new Fleur.TypeInfo_XMLSchema("unsignedShort", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_unsignedInt);
+Fleur.Type_unsignedShort.atomizerName = "xs_unsignedShort_1";
+Fleur.Type_unsignedShort.canonicalize = function(s) {
 	if (/^\s*(\+?[0-9]+|-0+)\s*$/.test(s)) {
 		s = s.trim();
 		var value = parseInt(s, 10);
@@ -475,8 +541,10 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedShort"].canonicalize = 
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedByte", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedShort);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedByte"].canonicalize = function(s) {
+
+Fleur.Type_unsignedByte = new Fleur.TypeInfo_XMLSchema("unsignedByte", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_unsignedShort);
+Fleur.Type_unsignedByte.atomizerName = "xs_unsignedByte_1";
+Fleur.Type_unsignedByte.canonicalize = function(s) {
 	if (/^\s*(\+?[0-9]+|-0+)\s*$/.test(s)) {
 		s = s.trim();
 		var value = parseInt(s, 10);
@@ -486,8 +554,9 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedByte"].canonicalize = f
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "positiveInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].nonNegativeInteger);
-Fleur.Type_positiveInteger = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["positiveInteger"];
+
+Fleur.Type_positiveInteger = new Fleur.TypeInfo_XMLSchema("positiveInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_nonNegativeInteger);
+Fleur.Type_positiveInteger.atomizerName = "xs_positiveInteger_1";
 Fleur.Type_positiveInteger.canonicalize = function(s) {
 	if (/^\s*\+?0*[1-9][0-9]*\s*$/.test(s)) {
 		s = s.trim();
@@ -511,8 +580,9 @@ Fleur.Type_positiveInteger.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "yearMonthDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].duration);
-Fleur.Type_yearMonthDuration = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["yearMonthDuration"];
+
+Fleur.Type_yearMonthDuration = new Fleur.TypeInfo_XMLSchema("yearMonthDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_duration);
+Fleur.Type_yearMonthDuration.atomizerName = "xs_yearMonthDuration_1";
 Fleur.Type_yearMonthDuration.canonicalize = function(s) {
 	if (/^\s*-?P(?!$)([0-9]+Y)?([0-9]+M)?\s*$/.test(s)) {
 		var res = Fleur.toJSONYearMonthDuration(s.trim());
@@ -520,8 +590,9 @@ Fleur.Type_yearMonthDuration.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "dayTimeDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].duration);
-Fleur.Type_dayTimeDuration = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dayTimeDuration"];
+
+Fleur.Type_dayTimeDuration = new Fleur.TypeInfo_XMLSchema("dayTimeDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_duration);
+Fleur.Type_dayTimeDuration.atomizerName = "xs_dayTimeDuration_1";
 Fleur.Type_dayTimeDuration.canonicalize = function(s) {
 	if (/^\s*-?P(?!$)([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\.[0-9]+)?S)?)?\s*$/.test(s)) {
 		var res = Fleur.toJSONDayTimeDuration(s.trim());
@@ -529,8 +600,10 @@ Fleur.Type_dayTimeDuration.canonicalize = function(s) {
 	}
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "dateTimeStamp", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].dateTime);
-Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTimeStamp"].canonicalize = function(s) {
+
+Fleur.Type_dateTimeStamp = new Fleur.TypeInfo_XMLSchema("dateTimeStamp", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_dateTime);
+Fleur.Type_dateTimeStamp.atomizerName = "xs_dateTimeStamp_1";
+Fleur.Type_dateTimeStamp.canonicalize = function(s) {
 	if (/^\s*([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])\s*$/.test(s)) {
 		return s.trim();
 	}
@@ -539,13 +612,13 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTimeStamp"].canonicalize = 
 
 Fleur.Types["http://www.agencexml.com/fleur"] = {};
 new Fleur.TypeInfo("http://www.agencexml.com/fleur", "regex", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
-Fleur.Type_regex = Fleur.Types["http://www.agencexml.com/fleur"]["regex"];
+Fleur.Type_regex = Fleur.Types["http://www.agencexml.com/fleur"].regex;
 new Fleur.TypeInfo("http://www.agencexml.com/fleur", "handler");
-Fleur.Type_handler = Fleur.Types["http://www.agencexml.com/fleur"]["handler"];
+Fleur.Type_handler = Fleur.Types["http://www.agencexml.com/fleur"].handler;
 
 Fleur.Types["https://tools.ietf.org/rfc/index"] = {};
 new Fleur.TypeInfo("https://tools.ietf.org/rfc/index", "ipv4", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
-Fleur.Type_ipv4 = Fleur.Types["https://tools.ietf.org/rfc/index"]["ipv4"];
+Fleur.Type_ipv4 = Fleur.Types["https://tools.ietf.org/rfc/index"].ipv4;
 Fleur.Type_ipv4.canonicalize = function(s) {
 	if (/^\s*((1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]).){3}(1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\s*$/.test(s)) {
 		return s.trim();
@@ -553,9 +626,9 @@ Fleur.Type_ipv4.canonicalize = function(s) {
 	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
 new Fleur.TypeInfo("https://tools.ietf.org/rfc/index", "mac", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
-Fleur.Type_mac = Fleur.Types["https://tools.ietf.org/rfc/index"]["mac"];
-new Fleur.TypeInfo("https://tools.ietf.org/rfc/index", "port", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedShort);
-Fleur.Type_port = Fleur.Types["https://tools.ietf.org/rfc/index"]["port"];
+Fleur.Type_mac = Fleur.Types["https://tools.ietf.org/rfc/index"].mac;
+new Fleur.TypeInfo("https://tools.ietf.org/rfc/index", "port", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_unsignedShort);
+Fleur.Type_port = Fleur.Types["https://tools.ietf.org/rfc/index"].port;
 Fleur.Type_port.canonicalize = function(s) {
 	if (/^\s*[0-9]+\s*$/.test(s)) {
 		var value = parseInt(s.trim(), 10);
@@ -568,7 +641,7 @@ Fleur.Type_port.canonicalize = function(s) {
 
 Fleur.Types["http://www.agencexml.com/fleur/unit"] = {};
 new Fleur.TypeInfo("http://www.agencexml.com/fleur/unit", "information", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
-Fleur.Type_unit_information = Fleur.Types["http://www.agencexml.com/fleur/unit"]["information"];
+Fleur.Type_unit_information = Fleur.Types["http://www.agencexml.com/fleur/unit"].information;
 Fleur.Type_unit_information.canonicalize = function(s) {
 	return s;
 };

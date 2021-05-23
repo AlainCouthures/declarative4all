@@ -20,7 +20,7 @@ Fleur.Transpiler.prototype.xqx_filterExpr = function(children) {
 
 Fleur.Context.prototype.xqx_filterExpr = function(f) {
 	if (!this.item || this.item.isSingle()) {
-		const ctx = new Fleur.Context(null, this.rs);
+		const ctx = this.clone(this.initialpath);
 		ctx.position = 1;
 		ctx.item = this.item;
 		ctx.path = this.item;
@@ -33,9 +33,10 @@ Fleur.Context.prototype.xqx_filterExpr = function(f) {
 	const l = this.item.childNodes.length;
 	const children = this.item.childNodes;
 	for (let i = 0; i < l; i++) {
-		const ctx = new Fleur.Context();
+		const ctx = this.clone(this.initialpath);
 		ctx.position = i + 1;
 		ctx.item = children[i];
+		ctx.path = children[i];
 		ctx.last = l;
 		f(ctx);
 		seq.appendChild(ctx.item);
@@ -46,7 +47,7 @@ Fleur.Context.prototype.xqx_filterExpr = function(f) {
 
 Fleur.Context.prototype.xqx_filterExpr_async = async function(f) {
 	if (!this.item || this.item.isSingle()) {
-		const ctx = new Fleur.Context(null, this.rs);
+		const ctx = this.clone(this.initialpath);
 		ctx.position = 1;
 		ctx.item = this.item;
 		ctx.path = this.item;
@@ -59,9 +60,10 @@ Fleur.Context.prototype.xqx_filterExpr_async = async function(f) {
 	const l = this.item.childNodes.length;
 	const children = this.item.childNodes;
 	for (let i = 0; i < l; i++) {
-		const ctx = new Fleur.Context();
+		const ctx = this.clone(this.initialpath);
 		ctx.position = i + 1;
 		ctx.item = children[i];
+		ctx.path = children[i];
 		ctx.last = l;
 		await f(ctx);
 		seq.appendChild(ctx.item);

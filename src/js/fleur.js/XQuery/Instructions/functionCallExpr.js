@@ -21,7 +21,7 @@ Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, atomicType)
 		} else {
 			pf2 = pf;
 		}
-	} else if (" boolean-from-string is-card-number count-non-empty index power random if choose property digest hmac local-date local-dateTime now days-from-date days-to-date seconds-from-dateTime seconds-to-dateTime adjust-dateTime-to-timezone seconds months instance current context event nodeindex is-valid serialize transform js-eval ".indexOf(" " + children[0][1][0] + " ") !== -1) {
+	} else if (" boolean-from-string is-card-number count-non-empty index power random if choose property digest hmac local-date local-dateTime now days-from-date days-to-date seconds-from-dateTime seconds-to-dateTime adjust-dateTime-to-timezone seconds months instance instance-ids current context event nodeindex is-valid serialize transform js-eval ".indexOf(" " + children[0][1][0] + " ") !== -1) {
 		pf2 = "xf";
 	}
 	const shortname = children[0][1][0].replace(/-/g, "$_");
@@ -39,6 +39,9 @@ Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, atomicType)
   for (let i = 0, l = args.length; i < l; i++) {
     params += this.gen(args[i], libfunc && fname !== "fn_concat" ? paramstype[i].type : Fleur.Type_string);
   }
+	if (!libfunc && typeof window[shortname] !== "function") {
+		Fleur.XQueryError_xqt("XPST0017", null, "Unknown Javascript function", "", new Fleur.Text(shortname));
+	}
   return params + this.inst((libfunc ? fname : "xqx_functionCallExpr") + (fasync ? "_async" : "") + "(" + (libfunc ? "" : shortname + ", ") + (fname === "fn_concat" || !libfunc ? String(args.length) : "") + ")", fasync, libfunc && (atomicType !== Fleur.atomicTypes && atomicType !== libfunc.return_type.type || atomicType === Fleur.atomicTypes && libfunc.return_type.type === Fleur.Node) ? atomicType : null);
 };
 Fleur.Context.prototype.xqx_functionCallExpr = function(shortname, arglen) {

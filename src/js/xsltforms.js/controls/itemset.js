@@ -94,7 +94,7 @@ XsltForms_itemset.prototype.build_ = function(ctx) {
 					nvalue = result;
 				}
 			} else {
-				if (result.nodeType !== Fleur.Node.TEXT_NODE || !result.head) {
+				if (result.nodeType !== Fleur.Node.TEXT_NODE && result.head) {
 					nodeValue = result.head();
 					xfelt.depsNodesRefresh.push(nodeValue);
 					try {

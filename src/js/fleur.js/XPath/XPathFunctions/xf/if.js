@@ -10,16 +10,16 @@ Fleur.signatures.xf_if_3 = {
   is_async: false,
   return_type: {type: Fleur.Node},
   params_type: [
-    {type: Fleur.Type_boolean},
+    {type: Fleur.Node},
     {type: Fleur.Node},
     {type: Fleur.Node}
   ]
 };
 Fleur.Context.prototype.xf_if_3 = function() {
+  let arg3 = this.item;
   let arg2 = this.itemstack.pop();
-  let arg1 = this.itemstack.pop();
-  if (arg1.data === "true") {
-    this.item = arg2;
-  }
+  this.item = this.itemstack.pop()
+  this.fn_boolean_1();
+  this.item = this.item.data === "true" ? arg2 : arg3;
   return this;
 };

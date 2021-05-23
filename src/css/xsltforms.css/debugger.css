@@ -1,0 +1,55 @@
+xforms-debugger {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-left: 0;
+  margin-top: -1ex;
+}
+
+xforms-debugger > xforms-body, xforms-board {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+
+xforms-debugger > xforms-body {
+  min-height: 200px;
+}
+
+xforms-board {
+  padding: 0;
+  font-size: 12px;
+}
+
+xforms-gutter {
+  height: 4px;
+  padding: 0;
+  cursor: ns-resize;
+  flex: 0 0 auto;
+}
+
+xforms-gutter::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: grey;
+  margin: 0 auto;
+}
+
+xforms-board > xforms-body > textarea {
+  border: 0;
+  resize: none;
+  outline: none;
+  width: 90%;
+}
+
+xforms-console-history {
+  display: block;
+}
+
+xforms-expression {
+  display: block;
+}

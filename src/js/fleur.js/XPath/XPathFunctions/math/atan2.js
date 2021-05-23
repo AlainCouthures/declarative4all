@@ -14,8 +14,8 @@ Fleur.signatures.math_atan2_2 = {
     {type: Fleur.Type_double}  ]
 };
 Fleur.Context.prototype.math_atan2_2 = function() {
-  const arg1 = this.itemstack.pop();
   const arg2 = this.item;
+  const arg1 = this.itemstack.pop();
   const op1 = Fleur.toJSValue(arg1, true, true, false, true, false, true);
   if (op1[0] < 0) {
     this.item = arg1;
