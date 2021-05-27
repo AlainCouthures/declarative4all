@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,21 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_elementConstructor = function(children) {
+  let r = "";
+  let l = 0;
+  if (children.length > 1) {
+    const transp = this;
+    r = children[1][1].reduce((inst, child) => inst + transp.gen(child), "");
+    l += children[1][1].length;
+    if (children.length === 3) {
+      r += children[2][1].reduce((inst, child) => inst + transp.gen(child), "");
+      l += children[2][1].length;
+    }
+  }
+	return r + this.inst("xqx_elementConstructor('" +  children[0][1][0] + "', " + String(l) + ")");
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.elementConstructor] = function(ctx, children, callback) {
 	var elt = new Fleur.Element();
 	elt.internal_id = String(Fleur.Document_index++);

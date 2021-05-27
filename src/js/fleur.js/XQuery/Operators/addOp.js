@@ -135,7 +135,7 @@ Fleur.Context.prototype.xqx_addOp = function() {
     }
     this.item.schemaTypeInfo = Fleur.JSTypes[restype];
   } else {
-    this.item = Fleur.error(this.ctx, arg1.nodeType === Fleur.Node.ELEMENT_NODE || arg2.nodeType === Fleur.Node.ELEMENT_NODE ? "FORG0001" : "XPTY0004");
+    Fleur.XQueryError_xqt(arg1.nodeType === Fleur.Node.ELEMENT_NODE || arg2.nodeType === Fleur.Node.ELEMENT_NODE ? "FORG0001" : "XPTY0004");
   }
   return this;
 };

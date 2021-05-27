@@ -7,6 +7,11 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_attributeConstructor = function(children) {
+  let r = "";
+	return r + this.inst("xqx_attributeConstructor('" +  children[0][1][0] + "')");
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.attributeConstructor] = function(ctx, children, callback, elt) {
 	var attr = new Fleur.Attr();
 	var t;

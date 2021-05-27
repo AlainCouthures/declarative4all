@@ -56,10 +56,15 @@ Fleur.Context.prototype.xqx_pathExpr = function() {
 	this.itemstack.push(this.item);
 	this.pathstack.push(this.path);
 	this.item = this.path;
-	const m = this.item ? (this.item.nodeType === Fleur.Node.DOCUMENT_NODE ? this.item : this.item.ownerDocument).getUserData("model") : null;
-	if (m) {
-		this.addxfdep(document.getElementById(m).xfElement);
-	}
+  if (this.item) {
+    const doc = this.item.nodeType === Fleur.Node.DOCUMENT_NODE ? this.item : this.item.ownerDocument;
+    if (doc) {
+      const m = doc.getUserData("model");
+      if (m) {
+        this.addxfdep(document.getElementById(m).xfElement);
+      }
+    }  
+  }
 	return this;
 };
 

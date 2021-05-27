@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,72 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_simpleMapExpr = function(children) {
+	const previndent = this.indent;
+	this.indent += this.step;
+	const prevasync = this.async;
+	this.async = false;
+	let result = this.funcdef(children[1][1].length === 1 && children[1][1][0][1][0][0] === Fleur.XQueryX.filterExpr ? children[1][1][0][1][0][1][0] : children[1]);
+	this.indent = previndent;
+	result = "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_simpleMapExpr" + (this.async ? "_async" : "") + "(" + result;
+	this.async = this.async || prevasync;
+	return this.gen(children[0][1].length === 1 && children[0][1][0][1][0][0] === Fleur.XQueryX.filterExpr ? children[0][1][0][1][0][1][0] : children[0]) + result + "\n" + this.indent + ");";
+};
+
+Fleur.Context.prototype.xqx_simpleMapExpr = function(f) {
+	if (!this.item || this.item.isSingle()) {
+		const ctx = this.clone(this.initialpath);
+		ctx.position = 1;
+		ctx.item = this.item;
+		ctx.path = this.item;
+		ctx.last = 1;
+		f(ctx);
+		this.item = ctx.item;
+		return this;
+	}
+	const seq = new Fleur.Sequence();
+	const l = this.item.childNodes.length;
+	const children = this.item.childNodes;
+	for (let i = 0; i < l; i++) {
+		const ctx = this.clone(this.initialpath);
+		ctx.position = i + 1;
+		ctx.item = children[i];
+		ctx.path = children[i];
+		ctx.last = l;
+		f(ctx);
+		seq.appendChild(ctx.item);
+	}
+	this.item = seq.singleton();
+	return this;
+};
+
+Fleur.Context.prototype.xqx_simpleMapExpr_async = async function(f) {
+	if (!this.item || this.item.isSingle()) {
+		const ctx = this.clone(this.initialpath);
+		ctx.position = 1;
+		ctx.item = this.item;
+		ctx.path = this.item;
+		ctx.last = 1;
+		await f(ctx);
+		this.item = ctx.item;
+		return this;
+	}
+	const seq = new Fleur.Sequence();
+	const l = this.item.childNodes.length;
+	const children = this.item.childNodes;
+	for (let i = 0; i < l; i++) {
+		const ctx = this.clone(this.initialpath);
+		ctx.position = i + 1;
+		ctx.item = children[i];
+		ctx.path = children[i];
+		ctx.last = l;
+		await f(ctx);
+		seq.appendChild(ctx.item);
+	}
+	this.item = seq.singleton();
+	return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		//console.log("simpleMapExpr - " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
