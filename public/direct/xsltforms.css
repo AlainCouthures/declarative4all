@@ -1,5 +1,5 @@
 /*
-XSLTForms 1.5.5 (661)
+XSLTForms 1.5.6 (662)
 XForms 1.1+ Engine
 
 Copyright (C) 2021 agenceXML - Alain Couthures
@@ -105,7 +105,7 @@ xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
 	color: #000;
 	text-align: center;
 	background-color: #f8f8f8;
-	background-image: url(titleBackground.png);
+	background-image: url(../img/titleBackground.png);
 }
 .xsltforms-calendar .xsltforms-calendar-title input {
 	width: 3em;
@@ -126,7 +126,7 @@ xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
 	background: #f0f0f0;
 }
 .xsltforms-calendar .xsltforms-calendar-names {
-	background-image: url(thBackground.png);
+	background-image: url(../img/thBackground.png);
 }
 .xsltforms-calendar .xsltforms-calendar-name {
 	border-bottom: 1px solid #000;
@@ -327,6 +327,8 @@ xforms-group[xf-ref]:not([xf-bound]),
 xforms-group[xf-bind]:not([xf-bound]),
 *[xf-repeat-ref]:not([xf-bound]),
 *[xf-repeat-bind]:not([xf-bound]) ,
+*[data-xf-repeat-ref]:not([xf-bound]),
+*[data-xf-repeat-bind]:not([xf-bound]) ,
 xforms-case:not([xf-selected = "true"]),
 xforms-trigger[xf-ref]:not([xf-bound]),
 xforms-trigger[xf-bind]:not([xf-bound]),
@@ -481,7 +483,7 @@ xforms-range-cursor {
 	width: 17px; 
 	height: 17px;
 	position: absolute;
-	background-image:url('ball.png');
+	background-image:url('../img/ball.png');
 	outline-style: none;
 }
 xforms-input[xf-bound][xf-required]:not([xf-invalid]) > xforms-label::after {
