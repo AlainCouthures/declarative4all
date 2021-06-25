@@ -8,5 +8,5 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.elementTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ELEMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ELEMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
 };

@@ -8,5 +8,5 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.xsi] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._result);});
+  Fleur.callback(function() {callback(ctx._result);});
 };

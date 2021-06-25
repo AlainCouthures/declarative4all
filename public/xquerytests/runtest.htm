@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Run XQuery Test</title>
-		<script type="text/javascript" src="js/fleur.js"></script>
-	</head>
-	<body>
-		<button id="run" disabled onclick="run()">Run</button>
-		<br>
-		<textarea id="expression" style="height: 150px; width: 1300px"></textarea>
-		<hr>
-		<pre id="resultstring"></pre>
-		<hr>
-		<pre id="effectiveresult"></pre>
-		<hr>
-		<pre id="doc"></pre>
-		<hr>
-		<pre id="xqueryx"></pre>
-		<hr>
-		<pre id="xqueryarr"></pre>
-		<script type="text/javascript" src="set-run.js"></script>
-		<script type="text/javascript">
-			initialize();
-		</script>
-	</body>
+  <head>
+    <title>Run XQuery Test</title>
+    <style type="text/css">
+      @media screen and (prefers-color-scheme: dark) {
+        body, textarea {
+        background-color: black;
+        color: lightgrey;
+        }
+      }
+      @media screen and (prefers-color-scheme: light) {
+        body, textarea {
+        background-color: white;
+        color: black;
+        }
+      }
+    </style>
+    <script type="text/javascript" src="js/fleur.js"></script>
+  </head>
+  <body>
+    <button id="run" disabled onclick="run()">Run</button>
+    <br>
+    <textarea id="expression" style="height: 150px; width: 1300px"></textarea>
+    <hr>
+    <pre id="resultstring"></pre>
+    <hr>
+    <pre id="effectiveresult"></pre>
+    <hr>
+    <pre id="doc"></pre>
+    <hr>
+    <pre id="xqueryx"></pre>
+    <script type="text/javascript" src="set-run.js"></script>
+    <script type="text/javascript">
+      initialize();
+    </script>
+  </body>
 </html>

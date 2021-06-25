@@ -8,34 +8,34 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_geOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.geOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.geOp)");
 };
 
 Fleur.geOp = function(op1, op2) {
-	if (op1[0] < 4) {
-		return op1[1] >= op2[1];
-	}
-	if (op1[0] === 4) {
-		return op1[1] >= op2[1]
-	}
-	if (op1[0] === 5) {
-		return (op1[1] === "true") >= (op2[1] === "true");
-	}
-	if (op1[0] > 5 && op1[0] < 9) {
-		var d1 = op1[1].d;
-		d1.setMinutes(d1.getMinutes() - op1[1].tz);
-		var d2 = op2[1].d;
-		d2.setMinutes(d2.getMinutes() - op2[1].tz);
-		return d1 >= d2;
-	}
-	if (op1[0] === 9) {
-		return op1[1].sign * (op1[1].year * 12 + op1[1].month) >= op2[1].sign * (op2[1].year * 12 + op2[1].month);
-	}
-	if (op1[0] === 10) {
-		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) >= op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-	}
-	return false;
+  if (op1[0] < 4) {
+    return op1[1] >= op2[1];
+  }
+  if (op1[0] === 4) {
+    return op1[1] >= op2[1]
+  }
+  if (op1[0] === 5) {
+    return (op1[1] === "true") >= (op2[1] === "true");
+  }
+  if (op1[0] > 5 && op1[0] < 9) {
+    var d1 = op1[1].d;
+    d1.setMinutes(d1.getMinutes() - op1[1].tz);
+    var d2 = op2[1].d;
+    d2.setMinutes(d2.getMinutes() - op2[1].tz);
+    return d1 >= d2;
+  }
+  if (op1[0] === 9) {
+    return op1[1].sign * (op1[1].year * 12 + op1[1].month) >= op2[1].sign * (op2[1].year * 12 + op2[1].month);
+  }
+  if (op1[0] === 10) {
+    return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) >= op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+  }
+  return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.geOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, Fleur.geOp, callback);
+  Fleur.XPathTestOpFunction(ctx, children, Fleur.geOp, callback);
 };

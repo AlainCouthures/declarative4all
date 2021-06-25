@@ -8,18 +8,26 @@
 Fleur.signatures.xs_decimal_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: Fleur.Type_decimal,
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_decimal,
+    occurrence: "?"
+  },
   params_type: [
-    Fleur.atomicTypes
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_anySimpleType,
+      occurrence: "?"
+    }
   ]
 };
 Fleur.Context.prototype.xs_decimal_1 = function() {
-	this.typeConstructor(Fleur.Type_decimal);
-	return this;
+  this.typeConstructor(Fleur.Type_decimal);
+  return this;
 };
 
 Fleur.XPathFunctions_xs["decimal#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:decimal",
-	function(arg) {
-		return Fleur.XPathConstructor(arg, Fleur.Type_decimal, function() {});
-	},
-	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
+  function(arg) {
+    return Fleur.XPathConstructor(arg, Fleur.Type_decimal, function() {});
+  },
+  null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

@@ -30,9 +30,9 @@ Fleur.NodeList.prototype.item = function(index) {
 	return this[index];
 };
 Fleur.Node = function() {
-	this._userData = {};
-	this.childNodes = new Fleur.NodeList();
-	this.children = new Fleur.NodeList();
+  this._userData = {};
+  this.childNodes = new Fleur.NodeList();
+  this.children = new Fleur.NodeList();
 };
 Fleur.Node.ELEMENT_NODE = 1;
 Fleur.Node.ATTRIBUTE_NODE = 2;
@@ -65,765 +65,765 @@ Fleur.Node.QNameCharsReg = /^[-_.\w:]+$/i;
 Fleur.Node.prefixReg = /^[-_.\w]+$/i;
 Fleur.Node.JSNameReg = /^(?!(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$)[a-zA-Z_$][0-9a-zA-Z_$]*$/;
 Object.defineProperties(Fleur.Node.prototype, {
-	prefix: {
-		set: function(value) {
-			if ((value === "xml" && this.namespaceURI !== "http://www.w3.org/XML/1998/namespace") ||
-				(value === "xmlns" && this.namespaceURI !== "http://www.w3.org/2000/xmlns/")) {
-				throw new Fleur.DOMException(Fleur.DOMException.NAMESPACE_ERR);
-			}
-			if (!Fleur.Node.prefixReg.test(value)) {
-				throw new Fleur.DOMException(Fleur.DOMException.INVALID_CHARACTER_ERR);
-			}
-			this._prefix = value;
-			if (value) {
-				this.nodeName = value + ":" + this.localName;
-			}
-		},
-		get: function() {
-			return this._prefix;
-		}
-	},
-	textContent: {
-		set: function(value) {
-			if (this.nodeType === Fleur.Node.TEXT_NODE || this.nodeType === Fleur.Node.CDATA_NODE || this.nodeType === Fleur.Node.COMMENT_NODE) {
-				this.data = value;
-			} else {
-				while (this.firstChild) {
-					this.removeChild(this.firstChild);
-				}
-				if (value !== "") {
-					this.appendChild(new Fleur.Text());
-					this.firstChild.data = value;
-				}
-			}
-		},
-		get: function() {
-			var _textContent = "", i = 0, li = this.childNodes.length;
-			if (this.nodeType === Fleur.Node.TEXT_NODE || this.nodeType === Fleur.Node.CDATA_NODE) {
-				return this.data;
-			}
-			while (i < li) {
-				_textContent += this.childNodes[i++].textContent;
-			}
-			return _textContent;
-		}
-	}
+  prefix: {
+    set: function(value) {
+      if ((value === "xml" && this.namespaceURI !== "http://www.w3.org/XML/1998/namespace") ||
+        (value === "xmlns" && this.namespaceURI !== "http://www.w3.org/2000/xmlns/")) {
+        throw new Fleur.DOMException(Fleur.DOMException.NAMESPACE_ERR);
+      }
+      if (!Fleur.Node.prefixReg.test(value)) {
+        throw new Fleur.DOMException(Fleur.DOMException.INVALID_CHARACTER_ERR);
+      }
+      this._prefix = value;
+      if (value) {
+        this.nodeName = value + ":" + this.localName;
+      }
+    },
+    get: function() {
+      return this._prefix;
+    }
+  },
+  textContent: {
+    set: function(value) {
+      if (this.nodeType === Fleur.Node.TEXT_NODE || this.nodeType === Fleur.Node.CDATA_NODE || this.nodeType === Fleur.Node.COMMENT_NODE) {
+        this.data = value;
+      } else {
+        while (this.firstChild) {
+          this.removeChild(this.firstChild);
+        }
+        if (value !== "") {
+          this.appendChild(new Fleur.Text());
+          this.firstChild.data = value;
+        }
+      }
+    },
+    get: function() {
+      var _textContent = "", i = 0, li = this.childNodes.length;
+      if (this.nodeType === Fleur.Node.TEXT_NODE || this.nodeType === Fleur.Node.CDATA_NODE) {
+        return this.data;
+      }
+      while (i < li) {
+        _textContent += this.childNodes[i++].textContent;
+      }
+      return _textContent;
+    }
+  }
 });
 Fleur.Node.prototype.appendChild = function(newChild) {
-	var n = this, i = 0, l;
-	if (newChild.nodeType === Fleur.Node.DOCUMENT_FRAGMENT_NODE) {
-		l = newChild.childNodes.length;
-		while (i < l) {
-			this.appendChild(newChild.childNodes[0]);
-			i++;
-		}
-		return newChild;
-	}
-	if ((this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.ownerDocument) && (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE || (this.nodeType === Fleur.Node.ATTRIBUTE_NODE && newChild.nodeType !== Fleur.Node.TEXT_NODE))) {
-		throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
-	} else {
-		if ((this.nodeType !== Fleur.Node.SEQUENCE_NODE && this.nodeType !== Fleur.Node.MULTIDIM_NODE) || this.ownerDocument) {
-			while (n) {
-				if (n === newChild) {
-					throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
-				}
-				n = n.parentNode || n.ownerElement;
-			}
-			if (newChild.ownerDocument && (this.ownerDocument || this) !== newChild.ownerDocument) {
-				throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
-			}
-			if (newChild.parentNode) {
-				newChild.parentNode.removeChild(newChild);
-			}
-			if (this.childNodes.length === 0) {
-				this.firstChild = newChild;
-			}
-			newChild.previousSibling = this.lastChild;
-			newChild.nextSibling = null;
-			if (this.lastChild) {
-				this.lastChild.nextSibling = newChild;
-			}
-			newChild.parentNode = this;
-			this.lastChild = newChild;
-		}
-		if (newChild.isNotEmpty()) {
-			this.childNodes.push(newChild);
-			if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.MULTIDIM_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
-				this.children.push(newChild);
-			}
-		}
-	}
-	if (this.nodeType !== Fleur.Node.SEQUENCE_NODE && this.nodeType !== Fleur.Node.MULTIDIM_NODE) {
-		newChild.idRecalculate(String(this.childNodes.length - 1));
-	}
-	return newChild;
+  var n = this, i = 0, l;
+  if (newChild.nodeType === Fleur.Node.DOCUMENT_FRAGMENT_NODE) {
+    l = newChild.childNodes.length;
+    while (i < l) {
+      this.appendChild(newChild.childNodes[0]);
+      i++;
+    }
+    return newChild;
+  }
+  if ((this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.ownerDocument) && (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE || (this.nodeType === Fleur.Node.ATTRIBUTE_NODE && newChild.nodeType !== Fleur.Node.TEXT_NODE))) {
+    throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
+  } else {
+    if ((this.nodeType !== Fleur.Node.SEQUENCE_NODE && this.nodeType !== Fleur.Node.MULTIDIM_NODE) || this.ownerDocument) {
+      while (n) {
+        if (n === newChild) {
+          throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
+        }
+        n = n.parentNode || n.ownerElement;
+      }
+      if (newChild.ownerDocument && (this.ownerDocument || this) !== newChild.ownerDocument) {
+        throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
+      }
+      if (newChild.parentNode) {
+        newChild.parentNode.removeChild(newChild);
+      }
+      if (this.childNodes.length === 0) {
+        this.firstChild = newChild;
+      }
+      newChild.previousSibling = this.lastChild;
+      newChild.nextSibling = null;
+      if (this.lastChild) {
+        this.lastChild.nextSibling = newChild;
+      }
+      newChild.parentNode = this;
+      this.lastChild = newChild;
+    }
+    if (newChild.isNotEmpty()) {
+      this.childNodes.push(newChild);
+      if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.MULTIDIM_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
+        this.children.push(newChild);
+      }
+    }
+  }
+  if (this.nodeType !== Fleur.Node.SEQUENCE_NODE && this.nodeType !== Fleur.Node.MULTIDIM_NODE) {
+    newChild.idRecalculate(String(this.childNodes.length - 1));
+  }
+  return newChild;
 };
 Fleur.Node.prototype.idRecalculate = function(strpos) {
-	var i, l;
-	var upper = this.parentNode || this.ownerElement;
-	if (upper) {
-		upper = upper.internal_id;
-	}
-	if (upper) {
-		this.internal_id = (this.parentNode || this.ownerElement).internal_id + (this.parentNode ? "-" : "+") + String.fromCharCode(96 + strpos.length) + strpos;
-		if (this.attributes) {
-			for (i = 0, l = this.attributes.length; i < l; i++) {
-				this.attributes[i].idRecalculate(String(i));
-			}
-		}
-		for (i = 0, l = this.childNodes.length; i < l; i++) {
-			this.childNodes[i].idRecalculate(String(i));
-		}
-	}
+  var i, l;
+  var upper = this.parentNode || this.ownerElement;
+  if (upper) {
+    upper = upper.internal_id;
+  }
+  if (upper) {
+    this.internal_id = (this.parentNode || this.ownerElement).internal_id + (this.parentNode ? "-" : "+") + String.fromCharCode(96 + strpos.length) + strpos;
+    if (this.attributes) {
+      for (i = 0, l = this.attributes.length; i < l; i++) {
+        this.attributes[i].idRecalculate(String(i));
+      }
+    }
+    for (i = 0, l = this.childNodes.length; i < l; i++) {
+      this.childNodes[i].idRecalculate(String(i));
+    }
+  }
 };
 Fleur.Node.prototype.appendDescendants = function(src) {
-	if (src.childNodes) {
-		var dest = this;
-		if (src.childNodes.forEach) {
-			src.childNodes.forEach(function(n) {dest.appendChild(n); dest.appendDescendants(n);});
-		} else {
-			for (var i = 0, l = src.childNodes.length; i < l; i++) {
-				dest.appendChild(src.childNodes[i]);
-				dest.appendDescendants(src.childNodes[i]);
-			}
-		}
-	}
+  if (src.childNodes) {
+    var dest = this;
+    if (src.childNodes.forEach) {
+      src.childNodes.forEach(function(n) {dest.appendChild(n); dest.appendDescendants(n);});
+    } else {
+      for (var i = 0, l = src.childNodes.length; i < l; i++) {
+        dest.appendChild(src.childNodes[i]);
+        dest.appendDescendants(src.childNodes[i]);
+      }
+    }
+  }
 };
 Fleur.Node.prototype.appendDescendantsRev = function(src) {
-	if (src.childNodes) {
-		var dest = this;
-		if (src.childNodes.forEach) {
-			src.childNodes.forEach(function(n) {dest.appendDescendantsRev(n); dest.appendChild(n);});
-		} else {
-			for (var i = 0, l = src.childNodes.length; i < l; i++) {
-				dest.appendDescendantsRev(src.childNodes[i]);
-				dest.appendChild(src.childNodes[i]);
-			}
-		}
-	}
+  if (src.childNodes) {
+    var dest = this;
+    if (src.childNodes.forEach) {
+      src.childNodes.forEach(function(n) {dest.appendDescendantsRev(n); dest.appendChild(n);});
+    } else {
+      for (var i = 0, l = src.childNodes.length; i < l; i++) {
+        dest.appendDescendantsRev(src.childNodes[i]);
+        dest.appendChild(src.childNodes[i]);
+      }
+    }
+  }
 };
 Fleur.Node.prototype.appendContent = function(n, sep) {
-	var n2;
-	switch(n.nodeType) {
-		case Fleur.Node.TEXT_NODE:
-			if (this.lastChild && this.lastChild.nodeType === Fleur.Node.TEXT_NODE) {
-				this.lastChild.data += sep + n.data;
-			} else if (n.data && n.data !== "") {
-				n2 = new Fleur.Text();
-				n2.data = n.data;
-				n2.schemaTypeInfo = Fleur.Type_untypedAtomic;
-				this.appendChild(n2);
-			}
-			break;
-		case Fleur.Node.COMMENT_NODE:
-			n2 = new Fleur.Comment();
-			n2.data = n.data;
-			this.appendChild(n2);
-			break;
-		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			n2 = new Fleur.ProcessingInstruction();
-			n2.nodeName = n2.target = n.target;
-			n2.data = n.data;
-			this.appendChild(n2);
-			break;
-		case Fleur.Node.ATTRIBUTE_NODE:
-			n2 = new Fleur.Attr();
-			n2.nodeName = n.nodeName;
-			n2.localName = n.localName;
-			n2.schemaTypeInfo = n.schemaTypeInfo;
-			n2.namespaceURI = n.namespaceURI;
-			n2.prefix = n.prefix;
-			n.childNodes.forEach(function(c) {
-				n2.appendContent(c);
-			});
-			this.setAttributeNodeNS(n2);
-			break;
-		case Fleur.Node.ELEMENT_NODE:
-			n2 = new Fleur.Element();
-			n2.nodeName = n.nodeName;
-			n2.localName = n.localName;
-			n2.schemaTypeInfo = n.schemaTypeInfo;
-			n2.namespaceURI = n.namespaceURI;
-			n2.prefix = n.prefix;
-			n.attributes.forEach(function(c) {
-				n2.appendContent(c, "");
-			});
-			n.childNodes.forEach(function(c) {
-				n2.appendContent(c, "");
-			});
-			this.appendChild(n2);
-			break;
-		case Fleur.Node.SEQUENCE_NODE:
-			var n0 = this;
-			n.childNodes.forEach(function(c) {
-				n0.appendContent(c, " ");
-			});
-			break;
-		case Fleur.Node.DOCUMENT_NODE:
-		case Fleur.Node.DOCUMENT_TYPE_NODE:
-			throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
-	}
+  var n2;
+  switch(n.nodeType) {
+    case Fleur.Node.TEXT_NODE:
+      if (this.lastChild && this.lastChild.nodeType === Fleur.Node.TEXT_NODE) {
+        this.lastChild.data += sep + n.data;
+      } else if (n.data && n.data !== "") {
+        n2 = new Fleur.Text();
+        n2.data = n.data;
+        n2.schemaTypeInfo = Fleur.Type_untypedAtomic;
+        this.appendChild(n2);
+      }
+      break;
+    case Fleur.Node.COMMENT_NODE:
+      n2 = new Fleur.Comment();
+      n2.data = n.data;
+      this.appendChild(n2);
+      break;
+    case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+      n2 = new Fleur.ProcessingInstruction();
+      n2.nodeName = n2.target = n.target;
+      n2.data = n.data;
+      this.appendChild(n2);
+      break;
+    case Fleur.Node.ATTRIBUTE_NODE:
+      n2 = new Fleur.Attr();
+      n2.nodeName = n.nodeName;
+      n2.localName = n.localName;
+      n2.schemaTypeInfo = n.schemaTypeInfo;
+      n2.namespaceURI = n.namespaceURI;
+      n2.prefix = n.prefix;
+      n.childNodes.forEach(function(c) {
+        n2.appendContent(c);
+      });
+      this.setAttributeNodeNS(n2);
+      break;
+    case Fleur.Node.ELEMENT_NODE:
+      n2 = new Fleur.Element();
+      n2.nodeName = n.nodeName;
+      n2.localName = n.localName;
+      n2.schemaTypeInfo = n.schemaTypeInfo;
+      n2.namespaceURI = n.namespaceURI;
+      n2.prefix = n.prefix;
+      n.attributes.forEach(function(c) {
+        n2.appendContent(c, "");
+      });
+      n.childNodes.forEach(function(c) {
+        n2.appendContent(c, "");
+      });
+      this.appendChild(n2);
+      break;
+    case Fleur.Node.SEQUENCE_NODE:
+      var n0 = this;
+      n.childNodes.forEach(function(c) {
+        n0.appendContent(c, " ");
+      });
+      break;
+    case Fleur.Node.DOCUMENT_NODE:
+    case Fleur.Node.DOCUMENT_TYPE_NODE:
+      throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
+  }
 };
 Fleur.Node.prototype.canonicalize = function() {
-	if (this.nodeType === Fleur.Node.TEXT_NODE && this.schemaTypeInfo) {
-		try {
-			this.data = this.schemaTypeInfo.canonicalize(this.data);
-			return true;
-		} catch (e) {}
-	}
-	return false;
+  if (this.nodeType === Fleur.Node.TEXT_NODE && this.schemaTypeInfo) {
+    try {
+      this.data = this.schemaTypeInfo.canonicalize(this.data);
+      return true;
+    } catch (e) {}
+  }
+  return false;
 };
 Fleur.Node.prototype.clearUserData = function() {
-	this._userData = {};
+  this._userData = {};
 };
 Fleur.Node.prototype.cloneNode = function(deep) {
-	var i = 0, li = 0, j = 0, lj = 0, clone = null;
-	switch (this.nodeType) {
-		case Fleur.Node.TEXT_NODE:
-			if (this.ownerDocument) {
-				clone = this.ownerDocument.createTextNode(this.data);
-			} else {
-				clone = new Fleur.Text();
-				clone.appendData(this.data);
-			}
-			clone.schemaTypeInfo = this.schemaTypeInfo;
-			break;
-		case Fleur.Node.COMMENT_NODE:
-			clone = this.ownerDocument.createComment(this.data);
-			break;
-		case Fleur.Node.CDATA_NODE:
-			clone = this.ownerDocument.createCDATASection(this.data);
-			break;
-		case Fleur.Node.ATTRIBUTE_NODE:
-			clone = this.ownerDocument.createAttributeNS(this.namespaceURI, this.nodeName);
-			clone.schemaTypeInfo = this.schemaTypeInfo;
-			lj = this.childNodes.length;
-			while (j < lj) {
-				clone.appendChild(this.childNodes[j++].cloneNode(true));
-			}
-			break;
-		case Fleur.Node.ENTRY_NODE:
-			if (this.ownerDocument) {
-				clone = this.ownerDocument.createEntry(this.nodeName);
-			} else {
-				clone = new Fleur.Entry();
-				clone.childNodes = new Fleur.NodeList();
-				clone.children = new Fleur.NodeList();
-				clone.nodeName = clone.localName = this.nodeName;
-				clone.textContent = "";
-			}
-			lj = this.childNodes.length;
-			while (j < lj) {
-				clone.appendChild(this.childNodes[j++].cloneNode(true));
-			}
-			break;
-		case Fleur.Node.ELEMENT_NODE:
-			clone = this.ownerDocument.createElementNS(this.namespaceURI, this.nodeName);
-			clone.schemaTypeInfo = this.schemaTypeInfo;
-			li = this.attributes.length;
-			while (i < li) {
-				clone.setAttributeNode(this.attributes[i++].cloneNode(false));
-			}
-			if (deep) {
-				lj = this.childNodes.length;
-				while (j < lj) {
-					clone.appendChild(this.childNodes[j++].cloneNode(true));
-				}
-			}
-			break;
-		case Fleur.Node.MAP_NODE:
-			clone = this.ownerDocument ? this.ownerDocument.createMap() : new Fleur.Map();
-			li = this.entries.length;
-			while (i < li) {
-				clone.setEntryNode(this.entries[i++].cloneNode(false));
-			}
-			break;
-		case Fleur.Node.SEQUENCE_NODE:
-			clone = this.ownerDocument ? this.ownerDocument.createSequence() : new Fleur.Sequence();
-			lj = this.childNodes.length;
-			while (j < lj) {
-				clone.appendChild(this.childNodes[j++].cloneNode(true));
-			}
-			break;
-		case Fleur.Node.ARRAY_NODE:
-			clone = this.ownerDocument.createArray();
-			lj = this.childNodes.length;
-			while (j < lj) {
-				clone.appendChild(this.childNodes[j++].cloneNode(true));
-			}
-			break;
-		case Fleur.Node.DOCUMENT_NODE:
-			break;
-		case Fleur.Node.FUNCTION_NODE:
-			clone = new Fleur.Function(this.namespaceURI, this.nodeName, this.jsfunc, this.xqxfunc, this.argtypes, this.needctx, this.needcallback, this.restype, this.updating);
-			break;
-	}
-	return clone;
+  var i = 0, li = 0, j = 0, lj = 0, clone = null;
+  switch (this.nodeType) {
+    case Fleur.Node.TEXT_NODE:
+      if (this.ownerDocument) {
+        clone = this.ownerDocument.createTextNode(this.data);
+      } else {
+        clone = new Fleur.Text();
+        clone.appendData(this.data);
+      }
+      clone.schemaTypeInfo = this.schemaTypeInfo;
+      break;
+    case Fleur.Node.COMMENT_NODE:
+      clone = this.ownerDocument.createComment(this.data);
+      break;
+    case Fleur.Node.CDATA_NODE:
+      clone = this.ownerDocument.createCDATASection(this.data);
+      break;
+    case Fleur.Node.ATTRIBUTE_NODE:
+      clone = this.ownerDocument.createAttributeNS(this.namespaceURI, this.nodeName);
+      clone.schemaTypeInfo = this.schemaTypeInfo;
+      lj = this.childNodes.length;
+      while (j < lj) {
+        clone.appendChild(this.childNodes[j++].cloneNode(true));
+      }
+      break;
+    case Fleur.Node.ENTRY_NODE:
+      if (this.ownerDocument) {
+        clone = this.ownerDocument.createEntry(this.nodeName);
+      } else {
+        clone = new Fleur.Entry();
+        clone.childNodes = new Fleur.NodeList();
+        clone.children = new Fleur.NodeList();
+        clone.nodeName = clone.localName = this.nodeName;
+        clone.textContent = "";
+      }
+      lj = this.childNodes.length;
+      while (j < lj) {
+        clone.appendChild(this.childNodes[j++].cloneNode(true));
+      }
+      break;
+    case Fleur.Node.ELEMENT_NODE:
+      clone = this.ownerDocument.createElementNS(this.namespaceURI, this.nodeName);
+      clone.schemaTypeInfo = this.schemaTypeInfo;
+      li = this.attributes.length;
+      while (i < li) {
+        clone.setAttributeNode(this.attributes[i++].cloneNode(false));
+      }
+      if (deep) {
+        lj = this.childNodes.length;
+        while (j < lj) {
+          clone.appendChild(this.childNodes[j++].cloneNode(true));
+        }
+      }
+      break;
+    case Fleur.Node.MAP_NODE:
+      clone = this.ownerDocument ? this.ownerDocument.createMap() : new Fleur.Map();
+      li = this.entries.length;
+      while (i < li) {
+        clone.setEntryNode(this.entries[i++].cloneNode(false));
+      }
+      break;
+    case Fleur.Node.SEQUENCE_NODE:
+      clone = this.ownerDocument ? this.ownerDocument.createSequence() : new Fleur.Sequence();
+      lj = this.childNodes.length;
+      while (j < lj) {
+        clone.appendChild(this.childNodes[j++].cloneNode(true));
+      }
+      break;
+    case Fleur.Node.ARRAY_NODE:
+      clone = this.ownerDocument.createArray();
+      lj = this.childNodes.length;
+      while (j < lj) {
+        clone.appendChild(this.childNodes[j++].cloneNode(true));
+      }
+      break;
+    case Fleur.Node.DOCUMENT_NODE:
+      break;
+    case Fleur.Node.FUNCTION_NODE:
+      clone = new Fleur.Function(this.namespaceURI, this.nodeName, this.jsfunc, this.xqxfunc, this.argtypes, this.needctx, this.needcallback, this.restype, this.updating);
+      break;
+  }
+  return clone;
 };
 Fleur.Node.prototype.compareDocumentPosition = function(other) {
-	var nancestor = this.ownerElement || this.parentNode;
-	var nancestors = [];
-	var oancestor = other.ownerElement || other.parentNode;
-	var oancestors = [];
-	var i = 0, j = 0;
-	if (this.ownerDocument.implementation !== other.ownerDocument.implementation) {
-		throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
-	}
-	if (this === other) {
-		return 0;
-	}
-	while (nancestor) {
-		nancestors.splice(0, 0, nancestor);
-		nancestor = nancestor.parentNode;
-	}
-	while (oancestor) {
-		oancestors.splice(0, 0, oancestor);
-		oancestor = oancestor.parentNode;
-	}
-	do {
-		if (nancestors[i] !== oancestors[i]) {
-			if (i === 0) {
-				return Fleur.Node.DOCUMENT_POSITION_DISCONNECTED;
-			}
-			if (!nancestors[i]) {
-				return Fleur.Node.DOCUMENT_POSITION_CONTAINS | Fleur.Node.DOCUMENT_POSITION_PRECEDING;
-			}
-			if (!oancestors[i]) {
-				return Fleur.Node.DOCUMENT_POSITION_CONTAINED_BY | Fleur.Node.DOCUMENT_POSITION_FOLLOWING;
-			}
-			do {
-				if (nancestors[i - 1].childNodes[j] === nancestors[i]) {
-					return Fleur.Node.DOCUMENT_POSITION_PRECEDING;
-				}
-				if (nancestors[i - 1].childNodes[j] === oancestors[i]) {
-					return Fleur.Node.DOCUMENT_POSITION_FOLLOWING;
-				}
-			} while (j++);
-		}
-		if (!nancestors[i]) {
-			return (this.localName < other.localName ? Fleur.Node.DOCUMENT_POSITION_PRECEDING : Fleur.Node.DOCUMENT_POSITION_FOLLOWING) | Fleur.Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC;
-		}
-	} while (i++);
+  var nancestor = this.ownerElement || this.parentNode;
+  var nancestors = [];
+  var oancestor = other.ownerElement || other.parentNode;
+  var oancestors = [];
+  var i = 0, j = 0;
+  if (this.ownerDocument.implementation !== other.ownerDocument.implementation) {
+    throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
+  }
+  if (this === other) {
+    return 0;
+  }
+  while (nancestor) {
+    nancestors.splice(0, 0, nancestor);
+    nancestor = nancestor.parentNode;
+  }
+  while (oancestor) {
+    oancestors.splice(0, 0, oancestor);
+    oancestor = oancestor.parentNode;
+  }
+  do {
+    if (nancestors[i] !== oancestors[i]) {
+      if (i === 0) {
+        return Fleur.Node.DOCUMENT_POSITION_DISCONNECTED;
+      }
+      if (!nancestors[i]) {
+        return Fleur.Node.DOCUMENT_POSITION_CONTAINS | Fleur.Node.DOCUMENT_POSITION_PRECEDING;
+      }
+      if (!oancestors[i]) {
+        return Fleur.Node.DOCUMENT_POSITION_CONTAINED_BY | Fleur.Node.DOCUMENT_POSITION_FOLLOWING;
+      }
+      do {
+        if (nancestors[i - 1].childNodes[j] === nancestors[i]) {
+          return Fleur.Node.DOCUMENT_POSITION_PRECEDING;
+        }
+        if (nancestors[i - 1].childNodes[j] === oancestors[i]) {
+          return Fleur.Node.DOCUMENT_POSITION_FOLLOWING;
+        }
+      } while (j++);
+    }
+    if (!nancestors[i]) {
+      return (this.localName < other.localName ? Fleur.Node.DOCUMENT_POSITION_PRECEDING : Fleur.Node.DOCUMENT_POSITION_FOLLOWING) | Fleur.Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC;
+    }
+  } while (i++);
 };
 Fleur.Node.prototype.copyNode = function() {
-	var i = 0, li = 0, j = 0, lj = 0, copy = null;
-	switch (this.nodeType) {
-		case Fleur.Node.TEXT_NODE:
-			copy = new Fleur.Text();
-			copy.appendData(this.data);
-			copy.schemaTypeInfo = this.schemaTypeInfo;
-			break;
-		case Fleur.Node.ENTRY_NODE:
-			copy = new Fleur.Entry();
-			copy.childNodes = new Fleur.NodeList();
-			copy.children = new Fleur.NodeList();
-			copy.nodeName = copy.localName = this.nodeName;
-			copy.textContent = "";
-			lj = this.childNodes.length;
-			while (j < lj) {
-				copy.appendChild(this.childNodes[j++].copyNode());
-			}
-			break;
-		case Fleur.Node.MAP_NODE:
-			copy = new Fleur.Map();
-			li = this.entries.length;
-			while (i < li) {
-				copy.setEntryNode(this.entries[i++].copyNode());
-			}
-			break;
-		case Fleur.Node.SEQUENCE_NODE:
-			if (this === Fleur.EmptySequence) {
-				return this;
-			}
-			copy = new Fleur.Sequence();
-			lj = this.childNodes.length;
-			while (j < lj) {
-				copy.appendChild(this.childNodes[j++].copyNode());
-			}
-			break;
-		case Fleur.Node.ARRAY_NODE:
-			copy = new Fleur.Array();
-			lj = this.childNodes.length;
-			while (j < lj) {
-				copy.appendChild(this.childNodes[j++].copyNode());
-			}
-			break;
-		case Fleur.Node.ATTRIBUTE_NODE:
-			copy = new Fleur.Attr();
-			copy.nodeName = this.nodeName;
-			copy.localName = this.localName;
-			copy.prefix = this.prefix;
-			copy.namespaceURI = this.namespaceURI;
-			copy.schemaTypeInfo = this.schemaTypeInfo;
-			lj = this.childNodes.length;
-			while (j < lj) {
-				copy.appendChild(this.childNodes[j++].copyNode());
-			}
-			break;
-		case Fleur.Node.ELEMENT_NODE:
-			copy = new Fleur.Element();
-			copy.nodeName = this.nodeName;
-			copy.localName = this.localName;
-			copy.prefix = this.prefix;
-			copy.namespaceURI = this.namespaceURI;
-			copy.schemaTypeInfo = this.schemaTypeInfo;
-			li = this.attributes.length;
-			while (i < li) {
-				copy.setAttributeNode(this.attributes[i++].copyNode());
-			}
-			lj = this.childNodes.length;
-			while (j < lj) {
-				copy.appendChild(this.childNodes[j++].copyNode());
-			}
-			break;
-		case Fleur.Node.DOCUMENT_NODE:
-			break;
-		case Fleur.Node.FUNCTION_NODE:
-			copy = new Fleur.Function(this.namespaceURI, this.nodeName, this.jsfunc, this.xqxfunc, this.argtypes, this.needctx, this.needcallback, this.restype, this.updating);
-			break;
-	}
-	return copy;
+  var i = 0, li = 0, j = 0, lj = 0, copy = null;
+  switch (this.nodeType) {
+    case Fleur.Node.TEXT_NODE:
+      copy = new Fleur.Text();
+      copy.appendData(this.data);
+      copy.schemaTypeInfo = this.schemaTypeInfo;
+      break;
+    case Fleur.Node.ENTRY_NODE:
+      copy = new Fleur.Entry();
+      copy.childNodes = new Fleur.NodeList();
+      copy.children = new Fleur.NodeList();
+      copy.nodeName = copy.localName = this.nodeName;
+      copy.textContent = "";
+      lj = this.childNodes.length;
+      while (j < lj) {
+        copy.appendChild(this.childNodes[j++].copyNode());
+      }
+      break;
+    case Fleur.Node.MAP_NODE:
+      copy = new Fleur.Map();
+      li = this.entries.length;
+      while (i < li) {
+        copy.setEntryNode(this.entries[i++].copyNode());
+      }
+      break;
+    case Fleur.Node.SEQUENCE_NODE:
+      if (this === Fleur.EmptySequence) {
+        return this;
+      }
+      copy = new Fleur.Sequence();
+      lj = this.childNodes.length;
+      while (j < lj) {
+        copy.appendChild(this.childNodes[j++].copyNode());
+      }
+      break;
+    case Fleur.Node.ARRAY_NODE:
+      copy = new Fleur.Array();
+      lj = this.childNodes.length;
+      while (j < lj) {
+        copy.appendChild(this.childNodes[j++].copyNode());
+      }
+      break;
+    case Fleur.Node.ATTRIBUTE_NODE:
+      copy = new Fleur.Attr();
+      copy.nodeName = this.nodeName;
+      copy.localName = this.localName;
+      copy.prefix = this.prefix;
+      copy.namespaceURI = this.namespaceURI;
+      copy.schemaTypeInfo = this.schemaTypeInfo;
+      lj = this.childNodes.length;
+      while (j < lj) {
+        copy.appendChild(this.childNodes[j++].copyNode());
+      }
+      break;
+    case Fleur.Node.ELEMENT_NODE:
+      copy = new Fleur.Element();
+      copy.nodeName = this.nodeName;
+      copy.localName = this.localName;
+      copy.prefix = this.prefix;
+      copy.namespaceURI = this.namespaceURI;
+      copy.schemaTypeInfo = this.schemaTypeInfo;
+      li = this.attributes.length;
+      while (i < li) {
+        copy.setAttributeNode(this.attributes[i++].copyNode());
+      }
+      lj = this.childNodes.length;
+      while (j < lj) {
+        copy.appendChild(this.childNodes[j++].copyNode());
+      }
+      break;
+    case Fleur.Node.DOCUMENT_NODE:
+      break;
+    case Fleur.Node.FUNCTION_NODE:
+      copy = new Fleur.Function(this.namespaceURI, this.nodeName, this.jsfunc, this.xqxfunc, this.argtypes, this.needctx, this.needcallback, this.restype, this.updating);
+      break;
+  }
+  return copy;
 };
 Fleur.Node.prototype.getFeature = function(feature, version) {
-	return this.ownerDocument.implementation.getFeature(feature, version);
+  return this.ownerDocument.implementation.getFeature(feature, version);
 };
 Fleur.Node.prototype.getUserData = function(key) {
-	return this._userData[key];
+  return this._userData[key];
 };
 Fleur.Node.prototype.hasAttributes = function() {
-	return !!this.attributes && this.attributes.length !== 0;
+  return !!this.attributes && this.attributes.length !== 0;
 };
 Fleur.Node.prototype.hasEntries = function() {
-	return !!this.entries && this.entries.length !== 0;
+  return !!this.entries && this.entries.length !== 0;
 };
 Fleur.Node.prototype.hasChildNodes = function() {
-	return !!this.childNodes && this.childNodes.length !== 0;
+  return !!this.childNodes && this.childNodes.length !== 0;
 };
 Fleur.Node.prototype.insertBefore = function(newChild, refChild) {
-	var i = 0, j = 0, l = this.childNodes.length, n = refChild, ln;
-	if (newChild.nodeType === Fleur.Node.DOCUMENT_FRAGMENT_NODE) {
-		ln = newChild.childNodes.length;
-		while (i < ln) {
-			this.insertBefore(newChild.childNodes[i], refChild);
-			i++;
-		}
-		return newChild;
-	} else if (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE || (this.nodeType === Fleur.Node.ATTRIBUTE_NODE && newChild.nodeType !== Fleur.Node.TEXT_NODE)) {
-		throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
-	} else {
-		if (refChild) {
-			while (n) {
-				if (n === newChild) {
-					throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
-				}
-				n = n.parentNode || n.ownerElement;
-			}
-			if (refChild.ownerDocument !== newChild.ownerDocument) {
-				throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
-			}
-			if (refChild.parentNode !== this) {
-				throw new Fleur.DOMException(Fleur.DOMException.NOT_FOUND_ERR);
-			}
-			if (newChild.parentNode) {
-				newChild.parentNode.removeChild(newChild);
-			}
-			while (i < l) {
-				if (this.childNodes[i] === refChild) {
-					newChild.parentNode = this;
-					newChild.previousSibling = refChild.previousSibling;
-					refChild.previousSibling = newChild;
-					if (newChild.previousSibling) {
-						newChild.previousSibling.nextSibling = newChild;
-					} else {
-						this.firstChild = newChild;
-					}
-					newChild.nextSibling = refChild;
-					if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
-						this.children.splice(j, 0, newChild);
-					}
-					this.childNodes.splice(i, 0, newChild);
-					return newChild;
-				}
-				if (this.childNodes[i] === this.children[j]) {
-					j++;
-				}
-				i++;
-			}
-		} else {
-			if (newChild.parentNode) {
-				newChild.parentNode.removeChild(newChild);
-			}
-			newChild.parentNode = this;
-			if (this.childNodes.length !== 0) {
-				newChild.previousSibling = this.childNodes[this.childNodes.length - 1];
-				this.childNodes[this.childNodes.length - 1].nextSibling = newChild;
-			} else {
-				newChild.previousSibling = null;
-			}
-			newChild.nextSibling = null;
-			if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
-				this.children.push(newChild);
-			}
-			this.childNodes.push(newChild);
-			this.lastChild = newChild;
-			return newChild;
-		}
-	}
+  var i = 0, j = 0, l = this.childNodes.length, n = refChild, ln;
+  if (newChild.nodeType === Fleur.Node.DOCUMENT_FRAGMENT_NODE) {
+    ln = newChild.childNodes.length;
+    while (i < ln) {
+      this.insertBefore(newChild.childNodes[i], refChild);
+      i++;
+    }
+    return newChild;
+  } else if (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE || (this.nodeType === Fleur.Node.ATTRIBUTE_NODE && newChild.nodeType !== Fleur.Node.TEXT_NODE)) {
+    throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
+  } else {
+    if (refChild) {
+      while (n) {
+        if (n === newChild) {
+          throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
+        }
+        n = n.parentNode || n.ownerElement;
+      }
+      if (refChild.ownerDocument !== newChild.ownerDocument) {
+        throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
+      }
+      if (refChild.parentNode !== this) {
+        throw new Fleur.DOMException(Fleur.DOMException.NOT_FOUND_ERR);
+      }
+      if (newChild.parentNode) {
+        newChild.parentNode.removeChild(newChild);
+      }
+      while (i < l) {
+        if (this.childNodes[i] === refChild) {
+          newChild.parentNode = this;
+          newChild.previousSibling = refChild.previousSibling;
+          refChild.previousSibling = newChild;
+          if (newChild.previousSibling) {
+            newChild.previousSibling.nextSibling = newChild;
+          } else {
+            this.firstChild = newChild;
+          }
+          newChild.nextSibling = refChild;
+          if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
+            this.children.splice(j, 0, newChild);
+          }
+          this.childNodes.splice(i, 0, newChild);
+          return newChild;
+        }
+        if (this.childNodes[i] === this.children[j]) {
+          j++;
+        }
+        i++;
+      }
+    } else {
+      if (newChild.parentNode) {
+        newChild.parentNode.removeChild(newChild);
+      }
+      newChild.parentNode = this;
+      if (this.childNodes.length !== 0) {
+        newChild.previousSibling = this.childNodes[this.childNodes.length - 1];
+        this.childNodes[this.childNodes.length - 1].nextSibling = newChild;
+      } else {
+        newChild.previousSibling = null;
+      }
+      newChild.nextSibling = null;
+      if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
+        this.children.push(newChild);
+      }
+      this.childNodes.push(newChild);
+      this.lastChild = newChild;
+      return newChild;
+    }
+  }
 };
 Fleur.Node.prototype.isDefaultNamespace = function(namespaceURI) {
-	var pnode = this.parentNode || this.ownerElement || this.documentElement;
-	if (this.nodeType === Fleur.Node.ELEMENT_NODE) {
-		return this.prefix ? this.getAttribute("xmlns") === namespaceURI : this.namespaceURI === namespaceURI;
-	}
-	return pnode ? pnode.isDefaultNamespace(namespaceURI) : false;
+  var pnode = this.parentNode || this.ownerElement || this.documentElement;
+  if (this.nodeType === Fleur.Node.ELEMENT_NODE) {
+    return this.prefix ? this.getAttribute("xmlns") === namespaceURI : this.namespaceURI === namespaceURI;
+  }
+  return pnode ? pnode.isDefaultNamespace(namespaceURI) : false;
 };
 Fleur.Node.prototype.isEqualNode = function(arg) {
-	var i = 0, j = 0, li, lj;
-	if (!arg || this.nodeType !== arg.nodeType || this.nodeName !== arg.nodeName || this.localName !== arg.localName || this.namespaceURI !== arg.namespaceURI || this.prefix !== arg.prefix || this.nodeValue !== arg.nodeValue) {
-		return false;
-	}
-	if (this.attributes) {
-		li = this.attributes.length;
-		if (!arg.attributes || arg.attributes.length !== li) {
-			return false;
-		}
-		while (i < li) {
-			if (!this.attributes[i].isEqualNode(arg.getAttributeNodeNS(this.attributes[i].namespaceURI, this.attributes[i].localName))) {
-				return false;
-			}
-			i++;
-		}
-	}
-	if (this.entries) {
-		li = this.entries.length;
-		if (!arg.entries || arg.entries.length !== li) {
-			return false;
-		}
-		while (i < li) {
-			if (!this.entries[i].isEqualNode(arg.getEntryNode(this.entries[i].nodeName))) {
-				return false;
-			}
-			i++;
-		}
-	}
-	if (this.childNodes) {
-		lj = this.childNodes.length;
-		if (!arg.childNodes || arg.childNodes.length !== lj) {
-			return false;
-		}
-		while (j < lj) {
-			if (!this.childNodes[j].isEqualNode(arg.childNodes[j])) {
-				return false;
-			}
-			j++;
-		}
-	}
-	if (this.nodeType === Fleur.Node.DOCUMENT_TYPE_NODE) {
-		if (this.publicId !== arg.publicId || this.systemId !== arg.systemId || this.internalSubset !== arg.internalSubset) {
-			return false;
-		}
-	}
-	return true;
+  var i = 0, j = 0, li, lj;
+  if (!arg || this.nodeType !== arg.nodeType || this.nodeName !== arg.nodeName || this.localName !== arg.localName || this.namespaceURI !== arg.namespaceURI || this.prefix !== arg.prefix || this.nodeValue !== arg.nodeValue) {
+    return false;
+  }
+  if (this.attributes) {
+    li = this.attributes.length;
+    if (!arg.attributes || arg.attributes.length !== li) {
+      return false;
+    }
+    while (i < li) {
+      if (!this.attributes[i].isEqualNode(arg.getAttributeNodeNS(this.attributes[i].namespaceURI, this.attributes[i].localName))) {
+        return false;
+      }
+      i++;
+    }
+  }
+  if (this.entries) {
+    li = this.entries.length;
+    if (!arg.entries || arg.entries.length !== li) {
+      return false;
+    }
+    while (i < li) {
+      if (!this.entries[i].isEqualNode(arg.getEntryNode(this.entries[i].nodeName))) {
+        return false;
+      }
+      i++;
+    }
+  }
+  if (this.childNodes) {
+    lj = this.childNodes.length;
+    if (!arg.childNodes || arg.childNodes.length !== lj) {
+      return false;
+    }
+    while (j < lj) {
+      if (!this.childNodes[j].isEqualNode(arg.childNodes[j])) {
+        return false;
+      }
+      j++;
+    }
+  }
+  if (this.nodeType === Fleur.Node.DOCUMENT_TYPE_NODE) {
+    if (this.publicId !== arg.publicId || this.systemId !== arg.systemId || this.internalSubset !== arg.internalSubset) {
+      return false;
+    }
+  }
+  return true;
 };
 Fleur.Node.prototype.isSameNode = function(other) {
-	return other === this;
+  return other === this;
 };
 Fleur.Node.prototype.isSupported = function(feature, version) {
  var doc = this.ownerDocument ? this.ownerDocument : this;
  return doc.implementation.hasFeature(feature, version);
 };
 Fleur.Node.prototype.lookupNamespaceURI = function(prefix) {
-	var namespaceURI, xmlns, pnode = this;
-	if (pnode.nodeType === Fleur.Node.DOCUMENT_NODE) {
-		pnode = pnode.documentElement;
-	}
-	if (prefix === null || prefix === '') {
-		while (pnode) {
-			if (pnode.nodeType === Fleur.Node.ELEMENT_NODE) {
-				xmlns = pnode.getAttributeNode("xmlns");
-				if (xmlns) {
-					return xmlns.textContent;
-				}
-			}
-			pnode = pnode.parentNode || pnode.ownerElement;
-		}
-		return null;
-	}
-	while (pnode) {
-		if (pnode.nodeType === Fleur.Node.ELEMENT_NODE) {
-			namespaceURI = pnode.getAttributeNS("http://www.w3.org/2000/xmlns/", prefix);
-			if (namespaceURI !== '') {
-				return namespaceURI;
-			}
-		}
-		pnode = pnode.parentNode || pnode.ownerElement;
-	}
-	return null;
+  var namespaceURI, xmlns, pnode = this;
+  if (pnode.nodeType === Fleur.Node.DOCUMENT_NODE) {
+    pnode = pnode.documentElement;
+  }
+  if (prefix === null || prefix === '') {
+    while (pnode) {
+      if (pnode.nodeType === Fleur.Node.ELEMENT_NODE) {
+        xmlns = pnode.getAttributeNode("xmlns");
+        if (xmlns) {
+          return xmlns.textContent;
+        }
+      }
+      pnode = pnode.parentNode || pnode.ownerElement;
+    }
+    return null;
+  }
+  while (pnode) {
+    if (pnode.nodeType === Fleur.Node.ELEMENT_NODE) {
+      namespaceURI = pnode.getAttributeNS("http://www.w3.org/2000/xmlns/", prefix);
+      if (namespaceURI !== '') {
+        return namespaceURI;
+      }
+    }
+    pnode = pnode.parentNode || pnode.ownerElement;
+  }
+  return null;
 };
 Fleur.Node.prototype.lookupPrefix = function(namespaceURI) {
-	var pnode = this;
-	if (namespaceURI === null || namespaceURI === '') {
-		return null;
-	}
-	if (pnode.nodeType === Fleur.Node.DOCUMENT_NODE) {
-		pnode = pnode.documentElement;
-	}
-	while (pnode) {
-		if (pnode.nodeType === Fleur.Node.ELEMENT_NODE) {
-			for (var i = 0, l = pnode.attributes.length; i < l; i++) {
-				if (pnode.attributes[i].namespaceURI === "http://www.w3.org/2000/xmlns/" && pnode.attributes[i].value === namespaceURI) {
-					return pnode.attributes[i].localName;
-				}
-			}
-		}
-		pnode = pnode.parentNode || pnode.ownerElement;
-	}
-	return null;
+  var pnode = this;
+  if (namespaceURI === null || namespaceURI === '') {
+    return null;
+  }
+  if (pnode.nodeType === Fleur.Node.DOCUMENT_NODE) {
+    pnode = pnode.documentElement;
+  }
+  while (pnode) {
+    if (pnode.nodeType === Fleur.Node.ELEMENT_NODE) {
+      for (var i = 0, l = pnode.attributes.length; i < l; i++) {
+        if (pnode.attributes[i].namespaceURI === "http://www.w3.org/2000/xmlns/" && pnode.attributes[i].value === namespaceURI) {
+          return pnode.attributes[i].localName;
+        }
+      }
+    }
+    pnode = pnode.parentNode || pnode.ownerElement;
+  }
+  return null;
 };
 Fleur.Node.prototype.normalize = function() {
-	var i = 0;
-	while (i < this.childNodes.length) {
-		switch (this.childNodes[i].nodeType) {
-			case Fleur.Node.DOCUMENT_NODE:
-			case Fleur.Node.ATTRIBUTE_NODE:
-			case Fleur.Node.ELEMENT_NODE:
-			case Fleur.Node.SEQUENCE_NODE:
-			case Fleur.Node.ARRAY_NODE:
-			case Fleur.Node.MAP_NODE:
-			case Fleur.Node.ENTRY_NODE:
-				this.childNodes[i].normalize();
-				break;
-			case Fleur.Node.TEXT_NODE:
-				while (i + 1 < this.childNodes.length) {
-					if (this.childNodes[i + 1].nodeType !== Fleur.Node.TEXT_NODE) {
-						break;
-					}
-					this.childNodes[i].appendData(this.childNodes[i + 1].nodeValue);
-					this.removeChild(this.childNodes[i + 1]);
-				}
-				if (this.childNodes[i].data.length === 0) {
-					this.removeChild(this.childNodes[i]);
-				}
-				break;
-		}
-		i++;
-	}
+  var i = 0;
+  while (i < this.childNodes.length) {
+    switch (this.childNodes[i].nodeType) {
+      case Fleur.Node.DOCUMENT_NODE:
+      case Fleur.Node.ATTRIBUTE_NODE:
+      case Fleur.Node.ELEMENT_NODE:
+      case Fleur.Node.SEQUENCE_NODE:
+      case Fleur.Node.ARRAY_NODE:
+      case Fleur.Node.MAP_NODE:
+      case Fleur.Node.ENTRY_NODE:
+        this.childNodes[i].normalize();
+        break;
+      case Fleur.Node.TEXT_NODE:
+        while (i + 1 < this.childNodes.length) {
+          if (this.childNodes[i + 1].nodeType !== Fleur.Node.TEXT_NODE) {
+            break;
+          }
+          this.childNodes[i].appendData(this.childNodes[i + 1].nodeValue);
+          this.removeChild(this.childNodes[i + 1]);
+        }
+        if (this.childNodes[i].data.length === 0) {
+          this.removeChild(this.childNodes[i]);
+        }
+        break;
+    }
+    i++;
+  }
 };
 Fleur.Node.prototype.removeChild = function(oldChild) {
-	var i = 0, j = 0, l = this.childNodes.length;
-	if (oldChild.parentNode !== this) {
-		throw new Fleur.DOMException(Fleur.DOMException.NOT_FOUND_ERR);
-	}
-	while (i < l) {
-		if (this.childNodes[i] === oldChild) {
-			if (oldChild.previousSibling) {
-				oldChild.previousSibling.nextSibling = oldChild.nextSibling;
-			} else {
-				this.firstChild = oldChild.nextSibling;
-			}
-			if (oldChild.nextSibling) {
-				oldChild.nextSibling.previousSibling = oldChild.previousSibling;
-			} else {
-				this.lastChild = oldChild.previousSibling;
-			}
-			this.childNodes.splice(i, 1);
-			if (this.children[j] === oldChild) {
-				this.children.splice(j, 1);
-			}
-			oldChild.parentNode = null;
-			oldChild.previousSibling = null;
-			oldChild.nextSibling = null;
-			return oldChild;
-		}
-		if (this.childNodes[i] === this.children[j]) {
-			j++;
-		}
-		i++;
-	}
+  var i = 0, j = 0, l = this.childNodes.length;
+  if (oldChild.parentNode !== this) {
+    throw new Fleur.DOMException(Fleur.DOMException.NOT_FOUND_ERR);
+  }
+  while (i < l) {
+    if (this.childNodes[i] === oldChild) {
+      if (oldChild.previousSibling) {
+        oldChild.previousSibling.nextSibling = oldChild.nextSibling;
+      } else {
+        this.firstChild = oldChild.nextSibling;
+      }
+      if (oldChild.nextSibling) {
+        oldChild.nextSibling.previousSibling = oldChild.previousSibling;
+      } else {
+        this.lastChild = oldChild.previousSibling;
+      }
+      this.childNodes.splice(i, 1);
+      if (this.children[j] === oldChild) {
+        this.children.splice(j, 1);
+      }
+      oldChild.parentNode = null;
+      oldChild.previousSibling = null;
+      oldChild.nextSibling = null;
+      return oldChild;
+    }
+    if (this.childNodes[i] === this.children[j]) {
+      j++;
+    }
+    i++;
+  }
 };
 Fleur.Node.prototype.replaceChild = function(newChild, oldChild) {
-	var i = 0, j = 0, l = this.childNodes.length, n = this;
-	if (this.nodeType === Fleur.Node.DOCUMENT_NODE && oldChild.nodeType === Fleur.Node.DOCUMENT_TYPE_NODE) {
-		throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
-	}
-	if (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-		throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
-	}
-	while (n) {
-		if (n === newChild) {
-			throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
-		}
-		n = n.parentNode || n.ownerElement;
-	}
-	if (oldChild.parentNode !== this) {
-		throw new Fleur.DOMException(Fleur.DOMException.NOT_FOUND_ERR);
-	}
-	if (newChild.ownerDocument && newChild.ownerDocument !== (this.ownerDocument || this)) {
-		throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
-	}
-	if (oldChild === newChild) {
-		return oldChild;
-	}
-	while (i < l) {
-		if (this.childNodes[i] === oldChild) {
-			this.childNodes[i] = newChild;
-			if (this.childNodes[i].nodeType === Fleur.Node.ELEMENT_NODE || this.childNodes[i].nodeType === Fleur.Node.SEQUENCE_NODE || this.childNodes[i].nodeType === Fleur.Node.ARRAY_NODE || this.childNodes[i].nodeType === Fleur.Node.MAP_NODE || this.childNodes[i].nodeType === Fleur.Node.ENTRY_NODE) {
-				this.children[j] = newChild; //Incomplete
-			}
-			newChild.parentNode = this;
-			newChild.previousSibling = oldChild.previousSibling;
-			if (newChild.previousSibling) {
-				newChild.previousSibling.nextSibling = newChild;
-			} else {
-				this.firstChild = newChild;
-			}
-			newChild.nextSibling = oldChild.nextSibling;
-			if (newChild.nextSibling) {
-				newChild.nextSibling.previousSibling = newChild;
-			} else {
-				this.lastChild = newChild;
-			}
-			oldChild.parentNode = null;
-			oldChild.previousSibling = null;
-			oldChild.nextSibling = null;
-			return oldChild;
-		}
-		if (this.childNodes[i].nodeType === Fleur.Node.ELEMENT_NODE || this.childNodes[i].nodeType === Fleur.Node.SEQUENCE_NODE || this.childNodes[i].nodeType === Fleur.Node.ARRAY_NODE || this.childNodes[i].nodeType === Fleur.Node.MAP_NODE || this.childNodes[i].nodeType === Fleur.Node.ENTRY_NODE) {
-			j++;
-		}
-		i++;
-	}
-	return oldChild;
+  var i = 0, j = 0, l = this.childNodes.length, n = this;
+  if (this.nodeType === Fleur.Node.DOCUMENT_NODE && oldChild.nodeType === Fleur.Node.DOCUMENT_TYPE_NODE) {
+    throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
+  }
+  if (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+    throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
+  }
+  while (n) {
+    if (n === newChild) {
+      throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
+    }
+    n = n.parentNode || n.ownerElement;
+  }
+  if (oldChild.parentNode !== this) {
+    throw new Fleur.DOMException(Fleur.DOMException.NOT_FOUND_ERR);
+  }
+  if (newChild.ownerDocument && newChild.ownerDocument !== (this.ownerDocument || this)) {
+    throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
+  }
+  if (oldChild === newChild) {
+    return oldChild;
+  }
+  while (i < l) {
+    if (this.childNodes[i] === oldChild) {
+      this.childNodes[i] = newChild;
+      if (this.childNodes[i].nodeType === Fleur.Node.ELEMENT_NODE || this.childNodes[i].nodeType === Fleur.Node.SEQUENCE_NODE || this.childNodes[i].nodeType === Fleur.Node.ARRAY_NODE || this.childNodes[i].nodeType === Fleur.Node.MAP_NODE || this.childNodes[i].nodeType === Fleur.Node.ENTRY_NODE) {
+        this.children[j] = newChild; //Incomplete
+      }
+      newChild.parentNode = this;
+      newChild.previousSibling = oldChild.previousSibling;
+      if (newChild.previousSibling) {
+        newChild.previousSibling.nextSibling = newChild;
+      } else {
+        this.firstChild = newChild;
+      }
+      newChild.nextSibling = oldChild.nextSibling;
+      if (newChild.nextSibling) {
+        newChild.nextSibling.previousSibling = newChild;
+      } else {
+        this.lastChild = newChild;
+      }
+      oldChild.parentNode = null;
+      oldChild.previousSibling = null;
+      oldChild.nextSibling = null;
+      return oldChild;
+    }
+    if (this.childNodes[i].nodeType === Fleur.Node.ELEMENT_NODE || this.childNodes[i].nodeType === Fleur.Node.SEQUENCE_NODE || this.childNodes[i].nodeType === Fleur.Node.ARRAY_NODE || this.childNodes[i].nodeType === Fleur.Node.MAP_NODE || this.childNodes[i].nodeType === Fleur.Node.ENTRY_NODE) {
+      j++;
+    }
+    i++;
+  }
+  return oldChild;
 };
 Fleur.Node.prototype.setUserData = function(key, data, handler) {
-	if (data) {
-		this._userData[key] = data;
-	} else {
-		delete this._userData[key];
-	}
+  if (data) {
+    this._userData[key] = data;
+  } else {
+    delete this._userData[key];
+  }
 };
 Fleur.Node.prototype._setOwnerDocument = function(doc) {
-	if (this.ownerDocument) {
-		throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
-	}
-	this.ownerDocument = doc;
+  if (this.ownerDocument) {
+    throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
+  }
+  this.ownerDocument = doc;
 };
 Fleur.Node.prototype._setNodeNameLocalNamePrefix = function(namespaceURI, qualifiedName) {
-	var pos = qualifiedName.indexOf(":");
-	if ( pos === 0 || pos === qualifiedName.length - 1 || (!namespaceURI && pos > 0)) {
-		throw new Fleur.DOMException(Fleur.DOMException.NAMESPACE_ERR);
-	}
-	this.nodeName = qualifiedName;
-	this.namespaceURI = namespaceURI;
-	this.localName = qualifiedName.substr(pos + 1);
-	this.prefix = pos > 0 ? qualifiedName.substr(0, pos) : null;
+  var pos = qualifiedName.indexOf(":");
+  if ( pos === 0 || pos === qualifiedName.length - 1 || (!namespaceURI && pos > 0)) {
+    throw new Fleur.DOMException(Fleur.DOMException.NAMESPACE_ERR);
+  }
+  this.nodeName = qualifiedName;
+  this.namespaceURI = namespaceURI;
+  this.localName = qualifiedName.substr(pos + 1);
+  this.prefix = pos > 0 ? qualifiedName.substr(0, pos) : null;
 };
 Fleur.Node.prototype.then = function(resolve, reject) {
-	if (this.schemaTypeInfo === Fleur.Type_error) {
-		reject(this);
-	} else {
-		resolve(this);
-	}
+  if (this.schemaTypeInfo === Fleur.Type_error) {
+    reject(this);
+  } else {
+    resolve(this);
+  }
 };
 Fleur.Node.prototype.singleton = function() {
   if (this.nodeType === Fleur.Node.SEQUENCE_NODE && this.childNodes.length === 1) {
@@ -847,13 +847,13 @@ Fleur.Node.prototype.isSingle = function() {
   return this.nodeType !== Fleur.Node.SEQUENCE_NODE;
 };
 Fleur.Node.prototype.toArray = function() {
-	if (this.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-		return [this];
-	}
-	return this.childNodes;
+  if (this.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+    return [this];
+  }
+  return this.childNodes;
 };
 Fleur.Node.prototype.hasNumericType = function() {
-	return Fleur.numericTypes.indexOf(this.schemaTypeInfo) !== -1;
+  return Fleur.numericTypes.indexOf(this.schemaTypeInfo) !== -1;
 };
 Fleur.CharacterData = function() {
 	this.data = "";
@@ -1722,1073 +1722,1076 @@ Fleur.DOMImplementationSource.prototype.getDOMImplementationList = function(feat
 Fleur.DOMLocator = function() {};
 Fleur.DOMParser = function() {};
 Fleur.DOMParser._appendFromCSVString = function(node, s, config) {
-	var offset = 0, end, sep, head = config.header === "present", ignore;
-	var first = head;
-	var row, a;
-	sep = config.separator ? decodeURIComponent(config.separator) : ",";
-	s = s.replace(/\r\n/g,"\n").replace(/\r/g,"\n");
-	if (s.charAt(s.length - 1) !== "\n") {
-		s += "\n";
-	}
-	ignore = Math.max(parseInt(config.ignore, 10) || 0, 0);
-	end = s.length;
-	if (ignore !== 0) {
-		while (offset !== end) {
-			if (s.charAt(offset) === "\n") {
-				ignore--;
-				if (ignore === 0) {
-					offset++;
-					break;
-				}
-			}
-			offset++;
-		}
-	}
-	row = new Fleur.Multidim();
-	if (head) {
-		node.collabels = [];
-	}
-	while (offset !== end) {
-		var v = "";
-		if (s.charAt(offset) === '"') {
-			offset++;
-			do {
-				if (s.charAt(offset) !== '"') {
-					v += s.charAt(offset);
-					offset++;
-				} else {
-					if (s.substr(offset, 2) === '""') {
-						v += '"';
-						offset += 2;
-					} else {
-						offset++;
-						break;
-					}
-				}
-			} while (offset !== end);
-		} else {
-			while (s.substr(offset, sep.length) !== sep && s.charAt(offset) !== "\n") {
-				v += s.charAt(offset);
-				offset++;
-			}
-		}
-		if (first) {
-			node.collabels.push(v);
-		} else {
-			a = new Fleur.Text();
-			a.data = v;
-			a.schemaTypeInfo = Fleur.Type_untypedAtomic;
-			row.appendChild(a);
-		}
-		if (s.charAt(offset) === "\n") {
-			if (!first) {
-				node.appendChild(row);
-			}
-			row = new Fleur.Multidim();
-			first = false;
-		}
-		offset++;
-	}
-	if (node.childNodes.length < 2) {
-		node.childNodes = node.childNodes[0].childNodes;
-	}
+  var offset = 0, end, sep, head = config.header === "present", ignore;
+  var first = head;
+  var row, a;
+  sep = config.separator ? decodeURIComponent(config.separator) : ",";
+  s = s.replace(/\r\n/g,"\n").replace(/\r/g,"\n");
+  if (s.charAt(s.length - 1) !== "\n") {
+    s += "\n";
+  }
+  ignore = Math.max(parseInt(config.ignore, 10) || 0, 0);
+  end = s.length;
+  if (ignore !== 0) {
+    while (offset !== end) {
+      if (s.charAt(offset) === "\n") {
+        ignore--;
+        if (ignore === 0) {
+          offset++;
+          break;
+        }
+      }
+      offset++;
+    }
+  }
+  row = new Fleur.Multidim();
+  if (head) {
+    node.collabels = [];
+  }
+  while (offset !== end) {
+    var v = "";
+    if (s.charAt(offset) === '"') {
+      offset++;
+      do {
+        if (s.charAt(offset) !== '"') {
+          v += s.charAt(offset);
+          offset++;
+        } else {
+          if (s.substr(offset, 2) === '""') {
+            v += '"';
+            offset += 2;
+          } else {
+            offset++;
+            break;
+          }
+        }
+      } while (offset !== end);
+    } else {
+      while (s.substr(offset, sep.length) !== sep && s.charAt(offset) !== "\n") {
+        v += s.charAt(offset);
+        offset++;
+      }
+    }
+    if (first) {
+      node.collabels.push(v);
+    } else {
+      a = new Fleur.Text();
+      a.data = v;
+      a.schemaTypeInfo = Fleur.Type_untypedAtomic;
+      row.appendChild(a);
+    }
+    if (s.charAt(offset) === "\n") {
+      if (!first) {
+        node.appendChild(row);
+      }
+      row = new Fleur.Multidim();
+      first = false;
+    }
+    offset++;
+  }
+  if (node.childNodes.length < 2) {
+    node.childNodes = node.childNodes[0].childNodes;
+  }
 };
 Fleur.DOMParser._appendFromXMLString = function(node, s, leaftags) {
-	var ii, ll, text, entstart, entityname, index, offset = 0, end = s.length, nodename, attrname, attrvalue, attrs, parents = [], doc = node.ownerDocument || node, currnode = node, eltnode, attrnode, c,
-		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
-		n, namespaces = {}, newnamespaces = {}, pindex, prefix, localName, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue, uri;
-	while (offset !== end) {
-		text = "";
-		c = s.charAt(offset);
-		while (c !== "<" && offset !== end) {
-			if (c === "&") {
-				c = s.charAt(++offset);
-				entstart = offset;
-				entityname = "";
-				while (c !== ";" && offset !== end) {
-					entityname += c;
-					c = s.charAt(++offset);
-				}
-				if (offset === end) {
-					break;
-				}
-				entityvalue = "";
-				switch (entityname) {
-					case "amp":
-						text += "&";
-						break;
-					case "lt":
-						text += "<";
-						break;
-					case "gt":
-						text += ">";
-						break;
-					case "apos":
-						text += "'";
-						break;
-					case "quot":
-						text += '"';
-						break;
-					default:
-						if (entityname.charAt(0) === "#") {
-							text += String.fromCharCode(parseInt(entityname.charAt(1).toLowerCase() === 'x' ? "0" + entityname.substr(1).toLowerCase() : entityname.substr(1), entityname.charAt(1).toLowerCase() === 'x' ? 16 : 10));
-						} else if (doc.doctype) {
-							entityvalue = doc.doctype.getEntity(entityname);
-							s = s.substr(0, entstart) + entityvalue + s.substr(offset + 1);
-							offset = entstart;
-							end = s.length;
-						}
-				}
-			} else {
-				text += c;
-			}
-			c = s.charAt(++offset);
-		}
-		if (text !== "") {
-			currnode.appendChild(doc.createTextNode(text));
-		}
-		if (offset === end) {
-			break;
-		}
-		if (leaftags && leaftags.indexOf(currnode.nodeName) !== -1) {
-			if (currnode.firstChild.data.endsWith("\r\n")) {
-				currnode.firstChild.data = currnode.firstChild.data.substring(0, currnode.firstChild.data.length - 2);
-			}
-			n = parents.pop();
-			namespaces = {};
-			for (prefix in n.namespaces) {
-				if (n.namespaces.hasOwnProperty(prefix)) {
-					namespaces[prefix] = n.namespaces[prefix];
-				}
-			}
-			currnode = n.node;
-		}
-		offset++;
-		if (s.charAt(offset) === "!") {
-			offset++;
-			if (s.substr(offset, 2) === "--") {
-				offset += 2;
-				index = s.indexOf("-->", offset);
-				if (index !== offset) {
-					if (index === -1) {
-						index = end;
-					}
-					text = "";
-					ii = offset;
-					while (ii < index) {
-						text += s.charAt(ii++);
-					}
-					text = text.replace(/\x01/gm,"<");
-					currnode.appendChild(doc.createComment(text));
-					if (index === end) {
-						break;
-					}
-					offset = index;
-				}
-				offset += 3;
-			} else if (s.substr(offset, 7) === "[CDATA[") {
-				offset += 7;
-				index = s.indexOf("]]>", offset);
-				if (index !== offset) {
-					if (index === -1) {
-						index = end;
-					}
-					text = "";
-					ii = offset;
-					while (ii < index) {
-						text += s.charAt(ii++);
-					}
-					text = text.replace(/\x01/gm,"<");
-					currnode.appendChild(doc.createCDATASection(text));
-					if (index === end) {
-						break;
-					}
-					offset = index;
-				}
-				offset += 3;
-			} else if (s.substr(offset, 7) === "DOCTYPE") {
-				offset += 7;
-				index = s.indexOf(">", offset);
-				while (seps.indexOf(c) !== -1) {
-					c = s.charAt(offset++);
-				}
-				nodename = "";
-				while (seps_dtd.indexOf(c) === -1) {
-					nodename += c;
-					c = s.charAt(offset++);
-				}
-				while (seps.indexOf(c) !== -1) {
-					c = s.charAt(offset++);
-				}
-				dtdtype = "";
-				while (seps_dtd.indexOf(c) === -1) {
-					dtdtype += c;
-					c = s.charAt(offset++);
-				}
-				if (dtdtype === "PUBLIC" || dtdtype === "SYSTEM") {
-					if (dtdtype === "PUBLIC") {
-						while (seps.indexOf(c) !== -1) {
-							c = s.charAt(offset++);
-						}
-						dtdpublicid = "";
-						ii = offset;
-						ll = Math.min(index - 1, s.indexOf(c, offset));
-						while (ii < ll) {
-							dtdpublicid += s.charAt(ii++);
-						}
-						offset += dtdpublicid.length + 1;
-						c = s.charAt(offset++);
-					}
-					while (seps.indexOf(c) !== -1) {
-						c = s.charAt(offset++);
-					}
-					dtdsystemid = "";
-					ii = offset;
-					ll = Math.min(index - 1, s.indexOf(c, offset));
-					while (ii < ll) {
-						dtdsystemid += s.charAt(ii++);
-					}
-					offset += dtdsystemid.length + 1;
-					c = s.charAt(offset++);
-					while (seps.indexOf(c) !== -1) {
-						c = s.charAt(offset++);
-					}
-				} else {
-					dtdpublicid = dtdsystemid = null;
-				}
-				currnode.appendChild(doc.doctype = doc.implementation.createDocumentType(nodename, dtdpublicid, dtdsystemid));
-				doc.doctype.ownerDocument = doc;
-				if (c === "[") {
-					index = s.indexOf("]", offset);
-					c = s.charAt(offset++);
-					while (c !== "]" && offset < end) {
-						while (seps.indexOf(c) !== -1) {
-							c = s.charAt(offset++);
-						}
-						if (c === "]") {
-							break;
-						}
-						if (s.substr(offset, 7) === "!ENTITY") {
-							offset += 7;
-							c = s.charAt(offset++);
-							while (seps.indexOf(c) !== -1) {
-								c = s.charAt(offset++);
-							}
-							if (c === "%") {
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							}
-							nodename = "";
-							while (seps_dtd.indexOf(c) === -1) {
-								nodename += c;
-								c = s.charAt(offset++);
-							}
-							while (seps.indexOf(c) !== -1) {
-								c = s.charAt(offset++);
-							}
-							if (s.substr(offset - 1, 6) === "SYSTEM") {
-								offset += 5;
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							} else if (s.substr(offset -1, 6) === "PUBLIC") {
-								offset += 5;
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-								while (seps_dtd.indexOf(c) === -1) {
-									c = s.charAt(offset++);
-								}
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							}
-							entityvalue = "";
-							ii = offset;
-							ll = Math.min(index - 1, s.indexOf(c, offset));
-							while (ii < ll) {
-								entityvalue += s.charAt(ii++);
-							}
-							offset += entityvalue.length + 1;
-							c = s.charAt(offset++);
-							doc.doctype.setEntity(nodename, entityvalue);
-						} else if (s.substr(offset, 9) === "!NOTATION") {
-							offset += 9;
-							c = s.charAt(offset++);
-							while (seps.indexOf(c) !== -1) {
-								c = s.charAt(offset++);
-							}
-							nodename = "";
-							while (seps_dtd.indexOf(c) === -1) {
-								nodename += c;
-								c = s.charAt(offset++);
-							}
-							while (seps.indexOf(c) !== -1) {
-								c = s.charAt(offset++);
-							}
-							if (s.substr(offset - 1, 6) === "SYSTEM") {
-								offset += 5;
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							} else if (s.substr(offset -1, 6) === "PUBLIC") {
-								offset += 5;
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-								while (seps_dtd.indexOf(c) === -1) {
-									c = s.charAt(offset++);
-								}
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							}
-							if (c === '"' || c === "'") {
-								notationvalue = "";
-								ii = offset;
-								ll = Math.min(index - 1, s.indexOf(c, offset));
-								while (ii < ll) {
-									notationvalue += s.charAt(ii++);
-								}
-								offset += notationvalue.length + 1;
-								c = s.charAt(offset++);
-							}
-						}
-						offset = s.indexOf(">", offset - 1) + 1;
-						c = s.charAt(offset++);
-					}
-					index = s.indexOf(">", offset);
-				}
-				if (index !== offset) {
-					if (index === -1) {
-						index = end;
-					}
-					if (index === end) {
-						break;
-					}
-					offset = index;
-				}
-				offset++;
-			}
-		} else if (s.charAt(offset) === "?") {
-			offset++;
-			c = s.charAt(offset++);
-			nodename = "";
-			while (seps_pi.indexOf(c) === -1) {
-				nodename += c;
-				c = s.charAt(offset++);
-			}
-			index = s.indexOf("?>", offset - 1);
-			if (index === -1) {
-				index = end;
-			}
-			if (nodename === "xml") {
-				if (s.charCodeAt(index + 2) === 13) {
-					index++;
-				}
-				if (s.charCodeAt(index + 2) === 10) {
-					index++;
-				}
-			} else if (nodename !== "") {
-				text = "";
-				ii = offset;
-				while (ii < index) {
-					text += s.charAt(ii++);
-				}
-				text = text.replace(/\x01/gm,"<");
-				currnode.appendChild(doc.createProcessingInstruction(nodename, index === offset - 1 ? "" : text));
-			}
-			if (index === end) {
-				break;
-			}
-			offset = index + 2;
-		} else if (s.charAt(offset) === "/") {
-			offset++;
-			c = s.charAt(offset++);
-			nodename = "";
-			while (seps_close.indexOf(c) === -1 && offset <= end) {
-				nodename += c;
-				c = s.charAt(offset++);
-			}
-			if (nodename === currnode.nodeName) {
-				n = parents.pop();
-				namespaces = {};
-				for (prefix in n.namespaces) {
-					if (n.namespaces.hasOwnProperty(prefix)) {
-						namespaces[prefix] = n.namespaces[prefix];
-					}
-				}
-				currnode = n.node;
-			} else {
-				while (parents.length !== 0) {
-					n = parents.pop();
-					if (nodename === n.node.nodeName) {
-						namespaces = {};
-						for (prefix in n.namespaces) {
-							if (n.namespaces.hasOwnProperty(prefix)) {
-								namespaces[prefix] = n.namespaces[prefix];
-							}
-						}
-						currnode = n.node;
-						break;
-					}
-				}
-			}
-			offset = s.indexOf(">", offset - 1) + 1;
-			if (offset === 0) {
-				break;
-			}
-		} else {
-			c = s.charAt(offset++);
-			nodename = "";
-			while (seps_elt.indexOf(c) === -1 && offset <= end) {
-				nodename += c;
-				c = s.charAt(offset++);
-			}
-			index = s.indexOf(">", offset - 1);
-			if (nodename !== "") {
-				newnamespaces = {};
-				for (prefix in namespaces) {
-					if (namespaces.hasOwnProperty(prefix)) {
-						newnamespaces[prefix] = namespaces[prefix];
-					}
-				}
-				attrs = {};
-				while (offset <= end) {
-					while (seps.indexOf(c) !== -1) {
-						c = s.charAt(offset++);
-					}
-					if (c === "/" || c === ">" || offset === end) {
-						break;
-					}
-					attrname = "";
-					while (seps_attr.indexOf(c) === -1 && offset <= end) {
-						attrname += c;
-						c = s.charAt(offset++);
-					}
-					while (seps.indexOf(c) !== -1 && offset <= end) {
-						c = s.charAt(offset++);
-					}
-					if (c === "=") {
-						c = s.charAt(offset++);
-						while (seps.indexOf(c) !== -1 && offset <= end) {
-							c = s.charAt(offset++);
-						}
-						attrvalue = "";
-						if (c === "'" || c === "\"") {
-							attrvalue = "";
-							ii = offset;
-							ll = Math.min(index - 1, s.indexOf(c, offset));
-							while (ii < ll) {
-								attrvalue += s.charAt(ii++);
-							}
-							offset += attrvalue.length + 1;
-							c = s.charAt(offset++);
-						} else {
-							while (seps_elt.indexOf(c) === -1 && offset <= end) {
-								attrvalue += c;
-								c = s.charAt(offset++);
-							}
-						}
-					} else {
-						attrvalue = attrname;
-					}
-					pindex = attrname.indexOf(":");
-					prefix = pindex !== -1 ? attrname.substr(0, pindex) : " ";
-					localName = pindex !== -1 ? attrname.substr(pindex + 1) : attrname;
-					if (!attrs[prefix]) {
-						attrs[prefix] = {};
-					}
-					attrs[prefix][localName] = attrvalue;
-					if (prefix === "xmlns") {
-						newnamespaces[localName] = attrvalue;
-					} else if (prefix === " " && localName === "xmlns") {
-						newnamespaces[" "] = attrvalue;
-					}
-				}
-				pindex = nodename.indexOf(":");
-				uri = newnamespaces[pindex !== -1 ? nodename.substr(0, pindex) : " "];
-				eltnode = doc.createElementNS(uri, nodename);
-				if (!doc._elementsByTagName[uri]) {
-					doc._elementsByTagName[uri] = {};
-					doc._elementsByTagName[uri][nodename] = [eltnode];
-				} else if (!doc._elementsByTagName[uri][nodename]) {
-					doc._elementsByTagName[uri][nodename] = [eltnode];
-				} else {
-					doc._elementsByTagName[uri][nodename].push(eltnode);
-				}
-				for (prefix in attrs) {
-					if (attrs.hasOwnProperty(prefix)) {
-						for (attrname in attrs[prefix]) {
-							if (attrs[prefix].hasOwnProperty(attrname)) {
-								attrvalue = Fleur.DocumentType.resolveEntities(doc.doctype, attrs[prefix][attrname]).replace(/\x01/gm,"<");
-								if (attrname === "id" && (prefix === " " || prefix === "xml")) {
-									doc._elementById[attrvalue] = eltnode;
-								}
-								attrnode = doc.createAttributeNS(prefix === "xmlns" || prefix === " " && attrname === "xmlns" ? "http://www.w3.org/2000/xmlns/" : prefix === "xml" ? "http://www.w3.org/XML/1998/namespace" : prefix !== " " ? newnamespaces[prefix] : null, prefix !== " " ? prefix + ":" + attrname : attrname);
-								eltnode.setAttributeNodeNS(attrnode);
-								attrnode.appendChild(doc.createTextNode(attrvalue));
-							}
-						}
-					}
-				}
-				currnode.appendChild(eltnode);
-				if (s.charAt(offset - 1) !== "/") {
-					parents.push({node: currnode, namespaces: namespaces});
-					currnode = eltnode;
-					namespaces = {};
-					for (prefix in newnamespaces) {
-						if (newnamespaces.hasOwnProperty(prefix)) {
-							namespaces[prefix] = newnamespaces[prefix];
-						}
-					}
-				}
-			}
-			offset = index + 1;
-			if (offset === 0) {
-				break;
-			}
-		}
-	}
+  var ii, ll, text, entstart, entityname, index, offset = 0, end = s.length, nodename, attrname, attrvalue, attrs, parents = [], doc = node.ownerDocument || node, currnode = node, eltnode, attrnode, c,
+    seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
+    n, namespaces = {}, newnamespaces = {}, pindex, prefix, localName, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue, uri;
+  while (offset !== end) {
+    text = "";
+    c = s.charAt(offset);
+    while (c !== "<" && offset !== end) {
+      if (c === "&") {
+        c = s.charAt(++offset);
+        entstart = offset;
+        entityname = "";
+        while (c !== ";" && offset !== end) {
+          entityname += c;
+          c = s.charAt(++offset);
+        }
+        if (offset === end) {
+          break;
+        }
+        entityvalue = "";
+        switch (entityname) {
+          case "amp":
+            text += "&";
+            break;
+          case "lt":
+            text += "<";
+            break;
+          case "gt":
+            text += ">";
+            break;
+          case "apos":
+            text += "'";
+            break;
+          case "quot":
+            text += '"';
+            break;
+          default:
+            if (entityname.charAt(0) === "#") {
+              text += String.fromCharCode(parseInt(entityname.charAt(1).toLowerCase() === 'x' ? "0" + entityname.substr(1).toLowerCase() : entityname.substr(1), entityname.charAt(1).toLowerCase() === 'x' ? 16 : 10));
+            } else if (doc.doctype) {
+              entityvalue = doc.doctype.getEntity(entityname);
+              s = s.substr(0, entstart) + entityvalue + s.substr(offset + 1);
+              offset = entstart;
+              end = s.length;
+            }
+        }
+      } else {
+        text += c;
+      }
+      c = s.charAt(++offset);
+    }
+    if (text !== "") {
+      currnode.appendChild(doc.createTextNode(text));
+    }
+    if (offset === end) {
+      break;
+    }
+    if (leaftags && leaftags.indexOf(currnode.nodeName) !== -1) {
+      if (currnode.firstChild.data.endsWith("\r\n")) {
+        currnode.firstChild.data = currnode.firstChild.data.substring(0, currnode.firstChild.data.length - 2);
+      }
+      n = parents.pop();
+      namespaces = {};
+      for (prefix in n.namespaces) {
+        if (n.namespaces.hasOwnProperty(prefix)) {
+          namespaces[prefix] = n.namespaces[prefix];
+        }
+      }
+      currnode = n.node;
+    }
+    offset++;
+    if (s.charAt(offset) === "!") {
+      offset++;
+      if (s.substr(offset, 2) === "--") {
+        offset += 2;
+        index = s.indexOf("-->", offset);
+        if (index !== offset) {
+          if (index === -1) {
+            index = end;
+          }
+          text = "";
+          ii = offset;
+          while (ii < index) {
+            text += s.charAt(ii++);
+          }
+          text = text.replace(/\x01/gm,"<");
+          currnode.appendChild(doc.createComment(text));
+          if (index === end) {
+            break;
+          }
+          offset = index;
+        }
+        offset += 3;
+      } else if (s.substr(offset, 7) === "[CDATA[") {
+        offset += 7;
+        index = s.indexOf("]]>", offset);
+        if (index !== offset) {
+          if (index === -1) {
+            index = end;
+          }
+          text = "";
+          ii = offset;
+          while (ii < index) {
+            text += s.charAt(ii++);
+          }
+          text = text.replace(/\x01/gm,"<");
+          currnode.appendChild(doc.createCDATASection(text));
+          if (index === end) {
+            break;
+          }
+          offset = index;
+        }
+        offset += 3;
+      } else if (s.substr(offset, 7) === "DOCTYPE") {
+        offset += 7;
+        index = s.indexOf(">", offset);
+        while (seps.indexOf(c) !== -1) {
+          c = s.charAt(offset++);
+        }
+        nodename = "";
+        while (seps_dtd.indexOf(c) === -1) {
+          nodename += c;
+          c = s.charAt(offset++);
+        }
+        while (seps.indexOf(c) !== -1) {
+          c = s.charAt(offset++);
+        }
+        dtdtype = "";
+        while (seps_dtd.indexOf(c) === -1) {
+          dtdtype += c;
+          c = s.charAt(offset++);
+        }
+        if (dtdtype === "PUBLIC" || dtdtype === "SYSTEM") {
+          if (dtdtype === "PUBLIC") {
+            while (seps.indexOf(c) !== -1) {
+              c = s.charAt(offset++);
+            }
+            dtdpublicid = "";
+            ii = offset;
+            ll = Math.min(index - 1, s.indexOf(c, offset));
+            while (ii < ll) {
+              dtdpublicid += s.charAt(ii++);
+            }
+            offset += dtdpublicid.length + 1;
+            c = s.charAt(offset++);
+          }
+          while (seps.indexOf(c) !== -1) {
+            c = s.charAt(offset++);
+          }
+          dtdsystemid = "";
+          ii = offset;
+          ll = Math.min(index - 1, s.indexOf(c, offset));
+          while (ii < ll) {
+            dtdsystemid += s.charAt(ii++);
+          }
+          offset += dtdsystemid.length + 1;
+          c = s.charAt(offset++);
+          while (seps.indexOf(c) !== -1) {
+            c = s.charAt(offset++);
+          }
+        } else {
+          dtdpublicid = dtdsystemid = null;
+        }
+        currnode.appendChild(doc.doctype = doc.implementation.createDocumentType(nodename, dtdpublicid, dtdsystemid));
+        doc.doctype.ownerDocument = doc;
+        if (c === "[") {
+          index = s.indexOf("]", offset);
+          c = s.charAt(offset++);
+          while (c !== "]" && offset < end) {
+            while (seps.indexOf(c) !== -1) {
+              c = s.charAt(offset++);
+            }
+            if (c === "]") {
+              break;
+            }
+            if (s.substr(offset, 7) === "!ENTITY") {
+              offset += 7;
+              c = s.charAt(offset++);
+              while (seps.indexOf(c) !== -1) {
+                c = s.charAt(offset++);
+              }
+              if (c === "%") {
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              }
+              nodename = "";
+              while (seps_dtd.indexOf(c) === -1) {
+                nodename += c;
+                c = s.charAt(offset++);
+              }
+              while (seps.indexOf(c) !== -1) {
+                c = s.charAt(offset++);
+              }
+              if (s.substr(offset - 1, 6) === "SYSTEM") {
+                offset += 5;
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              } else if (s.substr(offset -1, 6) === "PUBLIC") {
+                offset += 5;
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+                while (seps_dtd.indexOf(c) === -1) {
+                  c = s.charAt(offset++);
+                }
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              }
+              entityvalue = "";
+              ii = offset;
+              ll = Math.min(index - 1, s.indexOf(c, offset));
+              while (ii < ll) {
+                entityvalue += s.charAt(ii++);
+              }
+              offset += entityvalue.length + 1;
+              c = s.charAt(offset++);
+              doc.doctype.setEntity(nodename, entityvalue);
+            } else if (s.substr(offset, 9) === "!NOTATION") {
+              offset += 9;
+              c = s.charAt(offset++);
+              while (seps.indexOf(c) !== -1) {
+                c = s.charAt(offset++);
+              }
+              nodename = "";
+              while (seps_dtd.indexOf(c) === -1) {
+                nodename += c;
+                c = s.charAt(offset++);
+              }
+              while (seps.indexOf(c) !== -1) {
+                c = s.charAt(offset++);
+              }
+              if (s.substr(offset - 1, 6) === "SYSTEM") {
+                offset += 5;
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              } else if (s.substr(offset -1, 6) === "PUBLIC") {
+                offset += 5;
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+                while (seps_dtd.indexOf(c) === -1) {
+                  c = s.charAt(offset++);
+                }
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              }
+              if (c === '"' || c === "'") {
+                notationvalue = "";
+                ii = offset;
+                ll = Math.min(index - 1, s.indexOf(c, offset));
+                while (ii < ll) {
+                  notationvalue += s.charAt(ii++);
+                }
+                offset += notationvalue.length + 1;
+                c = s.charAt(offset++);
+              }
+            }
+            offset = s.indexOf(">", offset - 1) + 1;
+            c = s.charAt(offset++);
+          }
+          index = s.indexOf(">", offset);
+        }
+        if (index !== offset) {
+          if (index === -1) {
+            index = end;
+          }
+          if (index === end) {
+            break;
+          }
+          offset = index;
+        }
+        offset++;
+      }
+    } else if (s.charAt(offset) === "?") {
+      offset++;
+      c = s.charAt(offset++);
+      nodename = "";
+      while (seps_pi.indexOf(c) === -1) {
+        nodename += c;
+        c = s.charAt(offset++);
+      }
+      index = s.indexOf("?>", offset - 1);
+      if (index === -1) {
+        index = end;
+      }
+      if (nodename === "xml") {
+        if (s.charCodeAt(index + 2) === 13) {
+          index++;
+        }
+        if (s.charCodeAt(index + 2) === 10) {
+          index++;
+        }
+      } else if (nodename !== "") {
+        text = "";
+        ii = offset;
+        while (ii < index) {
+          text += s.charAt(ii++);
+        }
+        text = text.replace(/\x01/gm,"<");
+        currnode.appendChild(doc.createProcessingInstruction(nodename, index === offset - 1 ? "" : text));
+      }
+      if (index === end) {
+        break;
+      }
+      offset = index + 2;
+    } else if (s.charAt(offset) === "/") {
+      offset++;
+      c = s.charAt(offset++);
+      nodename = "";
+      while (seps_close.indexOf(c) === -1 && offset <= end) {
+        nodename += c;
+        c = s.charAt(offset++);
+      }
+      if (nodename === currnode.nodeName) {
+        n = parents.pop();
+        namespaces = {};
+        for (prefix in n.namespaces) {
+          if (n.namespaces.hasOwnProperty(prefix)) {
+            namespaces[prefix] = n.namespaces[prefix];
+          }
+        }
+        currnode = n.node;
+      } else {
+        while (parents.length !== 0) {
+          n = parents.pop();
+          if (nodename === n.node.nodeName) {
+            namespaces = {};
+            for (prefix in n.namespaces) {
+              if (n.namespaces.hasOwnProperty(prefix)) {
+                namespaces[prefix] = n.namespaces[prefix];
+              }
+            }
+            currnode = n.node;
+            break;
+          }
+        }
+      }
+      offset = s.indexOf(">", offset - 1) + 1;
+      if (offset === 0) {
+        break;
+      }
+    } else {
+      c = s.charAt(offset++);
+      nodename = "";
+      while (seps_elt.indexOf(c) === -1 && offset <= end) {
+        nodename += c;
+        c = s.charAt(offset++);
+      }
+      index = s.indexOf(">", offset - 1);
+      if (nodename !== "") {
+        newnamespaces = {};
+        for (prefix in namespaces) {
+          if (namespaces.hasOwnProperty(prefix)) {
+            newnamespaces[prefix] = namespaces[prefix];
+          }
+        }
+        attrs = {};
+        while (offset <= end) {
+          while (seps.indexOf(c) !== -1) {
+            c = s.charAt(offset++);
+          }
+          if (c === "/" || c === ">" || offset === end) {
+            break;
+          }
+          attrname = "";
+          while (seps_attr.indexOf(c) === -1 && offset <= end) {
+            attrname += c;
+            c = s.charAt(offset++);
+          }
+          while (seps.indexOf(c) !== -1 && offset <= end) {
+            c = s.charAt(offset++);
+          }
+          if (c === "=") {
+            c = s.charAt(offset++);
+            while (seps.indexOf(c) !== -1 && offset <= end) {
+              c = s.charAt(offset++);
+            }
+            attrvalue = "";
+            if (c === "'" || c === "\"") {
+              attrvalue = "";
+              ii = offset;
+              ll = Math.min(index - 1, s.indexOf(c, offset));
+              while (ii < ll) {
+                attrvalue += s.charAt(ii++);
+              }
+              offset += attrvalue.length + 1;
+              c = s.charAt(offset++);
+            } else {
+              while (seps_elt.indexOf(c) === -1 && offset <= end) {
+                attrvalue += c;
+                c = s.charAt(offset++);
+              }
+            }
+          } else {
+            attrvalue = attrname;
+          }
+          pindex = attrname.indexOf(":");
+          prefix = pindex !== -1 ? attrname.substr(0, pindex) : " ";
+          localName = pindex !== -1 ? attrname.substr(pindex + 1) : attrname;
+          if (!attrs[prefix]) {
+            attrs[prefix] = {};
+          }
+          attrs[prefix][localName] = attrvalue;
+          if (prefix === "xmlns") {
+            newnamespaces[localName] = attrvalue;
+          } else if (prefix === " " && localName === "xmlns") {
+            newnamespaces[" "] = attrvalue;
+          }
+        }
+        pindex = nodename.indexOf(":");
+        uri = newnamespaces[pindex !== -1 ? nodename.substr(0, pindex) : " "];
+        eltnode = doc.createElementNS(uri, nodename);
+        if (!doc._elementsByTagName[uri]) {
+          doc._elementsByTagName[uri] = {};
+          doc._elementsByTagName[uri][nodename] = [eltnode];
+        } else if (!doc._elementsByTagName[uri][nodename]) {
+          doc._elementsByTagName[uri][nodename] = [eltnode];
+        } else {
+          doc._elementsByTagName[uri][nodename].push(eltnode);
+        }
+        for (prefix in attrs) {
+          if (attrs.hasOwnProperty(prefix)) {
+            for (attrname in attrs[prefix]) {
+              if (attrs[prefix].hasOwnProperty(attrname)) {
+                attrvalue = Fleur.DocumentType.resolveEntities(doc.doctype, attrs[prefix][attrname]).replace(/\x01/gm,"<");
+                if (attrname === "id" && (prefix === " " || prefix === "xml")) {
+                  doc._elementById[attrvalue] = eltnode;
+                }
+                attrnode = doc.createAttributeNS(prefix === "xmlns" || prefix === " " && attrname === "xmlns" ? "http://www.w3.org/2000/xmlns/" : prefix === "xml" ? "http://www.w3.org/XML/1998/namespace" : prefix !== " " ? newnamespaces[prefix] : null, prefix !== " " ? prefix + ":" + attrname : attrname);
+                eltnode.setAttributeNodeNS(attrnode);
+                attrnode.appendChild(doc.createTextNode(attrvalue));
+              }
+            }
+          }
+        }
+        currnode.appendChild(eltnode);
+        if (s.charAt(offset - 1) !== "/") {
+          parents.push({node: currnode, namespaces: namespaces});
+          currnode = eltnode;
+          namespaces = {};
+          for (prefix in newnamespaces) {
+            if (newnamespaces.hasOwnProperty(prefix)) {
+              namespaces[prefix] = newnamespaces[prefix];
+            }
+          }
+        }
+      }
+      offset = index + 1;
+      if (offset === 0) {
+        break;
+      }
+    }
+  }
 };
 Fleur.DOMParser._parseTextAdvance = function(n, states, grammar, selection) {
-	for (var i = 0; i < states[n].length; i++) {
-		var state = states[n][i];
-		if (state[2] === state[1].length) {
-			var join = [];
-			var prevtext = false;
-			for (var j = 0, l = state[4].length; j < l ; j++) {
-				if (state[4][j] !== "") {
-					if (state[1][j][0] === 2 && !state[1][j][2]) {
-						if (prevtext && typeof (state[4][j][1][0]) === "string") {
-							join[join.length - 1] += state[4][j][1][0];
-						} else {
-							join = join.concat(state[4][j][1]);
-							prevtext = typeof (state[4][j][1][0]) === "string";
-						}
-					} else if (state[1][j][2]) {
-						if (state[1][j][0] === 2) {
-							join.push([state[1][j][2], state[4][j][1]]);
-							prevtext = false;
-						} else {
-							var joinitem = state[4][j];
-							if (prevtext) {
-								join[join.length - 1] += joinitem;
-							} else if (joinitem !== "") {
-								join.push(joinitem);
-								prevtext = true;
-							}
-						}
-					}
-				}
-			}
-			state[4] = [[1, join]];
-			for (var k = 0; k < states[state[3]].length; k++) {
-				var state2 = states[state[3]][k];
-				if (state2[1][state2[2]] && state2[1][state2[2]][0] === 2 && state2[1][state2[2]][1] === state[0]) {
-					var data3 = state2[4].slice(0);
-					data3.push(state[4][0]);
-					states[n].push([state2[0], state2[1], state2[2] + 1, state2[3], data3]);
-				}
-			}
-		} else {
-			if (state[1][state[2]][0] === 2) {
-				var next = state[1][state[2]][1];
-				for (var i2 = 0, l2 = grammar[next].length; i2 < l2; i2++) {
-					var r = grammar[next][i2];
-					if (selection.indexOf(r) === -1) {
-						if (r.length > 0) {
-							selection.push(r);
-							states[n].push([next, r, 0, n, []]);
-						} else {
-							var data4 = state[4].slice(0);
-							data4.push("");
-							states[n].push([state[0], state[1], state[2] + 1, state[3], data4]);
-						}
-					}
-				}
-			}
-		}
-	}
+  for (var i = 0; i < states[n].length; i++) {
+    var state = states[n][i];
+    if (state[2] === state[1].length) {
+      var join = [];
+      var prevtext = false;
+      for (var j = 0, l = state[4].length; j < l ; j++) {
+        if (state[4][j] !== "") {
+          if (state[1][j][0] === 2 && !state[1][j][2]) {
+            if (prevtext && typeof (state[4][j][1][0]) === "string") {
+              join[join.length - 1] += state[4][j][1][0];
+            } else {
+              join = join.concat(state[4][j][1]);
+              prevtext = typeof (state[4][j][1][0]) === "string";
+            }
+          } else if (state[1][j][2]) {
+            if (state[1][j][0] === 2) {
+              join.push([state[1][j][2], state[4][j][1]]);
+              prevtext = false;
+            } else {
+              var joinitem = state[4][j];
+              if (prevtext) {
+                join[join.length - 1] += joinitem;
+              } else if (joinitem !== "") {
+                join.push(joinitem);
+                prevtext = true;
+              }
+            }
+          }
+        }
+      }
+      state[4] = [[1, join]];
+      for (var k = 0; k < states[state[3]].length; k++) {
+        var state2 = states[state[3]][k];
+        if (state2[1][state2[2]] && state2[1][state2[2]][0] === 2 && state2[1][state2[2]][1] === state[0]) {
+          var data3 = state2[4].slice(0);
+          data3.push(state[4][0]);
+          states[n].push([state2[0], state2[1], state2[2] + 1, state2[3], data3]);
+        }
+      }
+    } else {
+      if (state[1][state[2]][0] === 2) {
+        var next = state[1][state[2]][1];
+        for (var i2 = 0, l2 = grammar[next].length; i2 < l2; i2++) {
+          var r = grammar[next][i2];
+          if (selection.indexOf(r) === -1) {
+            if (r.length > 0) {
+              selection.push(r);
+              states[n].push([next, r, 0, n, []]);
+            } else {
+              var data4 = state[4].slice(0);
+              data4.push("");
+              states[n].push([state[0], state[1], state[2] + 1, state[3], data4]);
+            }
+          }
+        }
+      }
+    }
+  }
 };
 Fleur.DOMParser._appendFromGrammarString = function(node, s, grammar) {
-	var states = [[]];
-	var selection = [];
-	for (var i = 0, l = grammar[0][0].length; i < l; i++) {
-		selection[i] = grammar[0][0][i];
-		states[0][i] = [0, grammar[0][0][i], 0, 0, []];
-	}
-	Fleur.DOMParser._parseTextAdvance(0, states, grammar[0], selection);
-	for (var j = 0; j < s.length; j++) {
-		states[j + 1] = [];
-		for (var k = 0; k < states[j].length; k++) {
-			var state = states[j][k];
-			var c = s.charAt(j);
-			if (state[1][state[2]]) {
-				if ((state[1][state[2]][0] === 0 && state[1][state[2]][1] === c) || (state[1][state[2]][0] === 1 && state[1][state[2]][1].test(c))) {
-					var data = state[4].slice(0);
-					data.push(c);
-					states[j + 1].push([state[0], state[1], state[2] + 1, state[3], data]);
-				}
-			}
-		}
-		Fleur.DOMParser._parseTextAdvance(j + 1, states, grammar[0], []);
-		if (states[states.length - 1].length === 0) {
-			return "error";
-		}
-	}
-	var laststates = states[states.length - 1];
-	for (i = 0, l = laststates.length; i < l; i++) {
-		if (laststates[i][0] === 0 && laststates[i][1].length === laststates[i][2] && laststates[i][3] === 0) {
-			Fleur.DOMParser._appendFromArray(node, grammar[1], [laststates[i][4][0]]);
-			break;
-		}
-	}
-	return node;
+  var states = [[]];
+  var selection = [];
+  for (var i = 0, l = grammar[0][0].length; i < l; i++) {
+    selection[i] = grammar[0][0][i];
+    states[0][i] = [0, grammar[0][0][i], 0, 0, []];
+  }
+  Fleur.DOMParser._parseTextAdvance(0, states, grammar[0], selection);
+  for (var j = 0; j < s.length; j++) {
+    states[j + 1] = [];
+    for (var k = 0; k < states[j].length; k++) {
+      var state = states[j][k];
+      var c = s.charAt(j);
+      if (state[1][state[2]]) {
+        if ((state[1][state[2]][0] === 0 && state[1][state[2]][1] === c) || (state[1][state[2]][0] === 1 && state[1][state[2]][1].test(c))) {
+          var data = state[4].slice(0);
+          data.push(c);
+          states[j + 1].push([state[0], state[1], state[2] + 1, state[3], data]);
+        }
+      }
+    }
+    Fleur.DOMParser._parseTextAdvance(j + 1, states, grammar[0], []);
+    if (states[states.length - 1].length === 0) {
+      return "error";
+    }
+  }
+  var laststates = states[states.length - 1];
+  for (i = 0, l = laststates.length; i < l; i++) {
+    if (laststates[i][0] === 0 && laststates[i][1].length === laststates[i][2] && laststates[i][3] === 0) {
+      Fleur.DOMParser._appendFromArray(node, grammar[1], [laststates[i][4][0]]);
+      break;
+    }
+  }
+  return node;
 };
 Fleur.DOMParser._appendFromZIP = function(node, s) {
-	var f, doc = node.ownerDocument || node, filename;
-	var m = doc.createMap();
-	node.appendChild(m);
-	var offset = s.lastIndexOf("PK\x05\x06") + 16;
-	var r2 = function() {
-		return offset += 2, ((s.charCodeAt(offset - 1) & 0xFF) << 8) | s.charCodeAt(offset - 2) & 0xFF;
-	};
-	var r4 = function() {
-		return offset += 4, ((((((s.charCodeAt(offset - 1) & 0xFF) << 8) | s.charCodeAt(offset - 2) & 0xFF) << 8) | s.charCodeAt(offset - 3) & 0xFF) << 8) | s.charCodeAt(offset - 4) & 0xFF;
-	};
-	offset = r4();
-	while (s.charCodeAt(offset) === 80 && s.charCodeAt(offset + 1) === 75 && s.charCodeAt(offset + 2) === 1 && s.charCodeAt(offset + 3) === 2) {
-		f = {};
-		offset += 4;
-		f.versionMadeBy = r2();
-		f.versionNeeded = r2();
-		f.bitFlag = r2();
-		f.compressionMethod = r2();
-		f.date = r4();
-		f.crc32 = r4();
-		f.compressedSize = r4();
-		f.uncompressedSize = r4();
-		f.fileNameLength = r2();
-		f.extraFieldsLength = r2();
-		f.fileCommentLength = r2();
-		f.diskNumber = r2();
-		f.internalFileAttributes = r2();
-		f.externalFileAttributes = r4();
-		f.localHeaderOffset = r4();
-		filename = s.substr(offset, f.fileNameLength);
-		offset += f.fileNameLength;
-		f.extraFields = s.substr(offset, f.extraFieldsLength);
-		offset += f.extraFieldsLength;
-		f.fileComment = s.substr(offset, f.fileCommentLength);
-		offset += f.fileCommentLength;
-		f.dir = f.externalFileAttributes & 0x00000010 ? true : false;
-		var offset2 = offset;
-		offset = f.localHeaderOffset + 28;
-		f.lextraFieldsLength = r2();
-		offset += f.fileNameLength;
-		f.lextraFields = s.substr(offset, f.lextraFieldsLength);
-		offset += f.lextraFieldsLength;
-		f.compressedFileData = s.substr(offset, f.compressedSize);
-		offset = offset2;
-		var e = doc.createEntry(filename);
-		Fleur.DOMParser._appendFromJSON(e, f);
-		m.setEntryNode(e);
-	}
-	return node;
+  var f, doc = node.ownerDocument || node, filename;
+  var m = doc.createMap();
+  node.appendChild(m);
+  var offset = s.lastIndexOf("PK\x05\x06") + 16;
+  var r2 = function() {
+    return offset += 2, ((s.charCodeAt(offset - 1) & 0xFF) << 8) | s.charCodeAt(offset - 2) & 0xFF;
+  };
+  var r4 = function() {
+    return offset += 4, ((((((s.charCodeAt(offset - 1) & 0xFF) << 8) | s.charCodeAt(offset - 2) & 0xFF) << 8) | s.charCodeAt(offset - 3) & 0xFF) << 8) | s.charCodeAt(offset - 4) & 0xFF;
+  };
+  offset = r4();
+  while (s.charCodeAt(offset) === 80 && s.charCodeAt(offset + 1) === 75 && s.charCodeAt(offset + 2) === 1 && s.charCodeAt(offset + 3) === 2) {
+    f = {};
+    offset += 4;
+    f.versionMadeBy = r2();
+    f.versionNeeded = r2();
+    f.bitFlag = r2();
+    f.compressionMethod = r2();
+    f.date = r4();
+    f.crc32 = r4();
+    f.compressedSize = r4();
+    f.uncompressedSize = r4();
+    f.fileNameLength = r2();
+    f.extraFieldsLength = r2();
+    f.fileCommentLength = r2();
+    f.diskNumber = r2();
+    f.internalFileAttributes = r2();
+    f.externalFileAttributes = r4();
+    f.localHeaderOffset = r4();
+    filename = s.substr(offset, f.fileNameLength);
+    offset += f.fileNameLength;
+    f.extraFields = s.substr(offset, f.extraFieldsLength);
+    offset += f.extraFieldsLength;
+    f.fileComment = s.substr(offset, f.fileCommentLength);
+    offset += f.fileCommentLength;
+    f.dir = f.externalFileAttributes & 0x00000010 ? true : false;
+    var offset2 = offset;
+    offset = f.localHeaderOffset + 28;
+    f.lextraFieldsLength = r2();
+    offset += f.fileNameLength;
+    f.lextraFields = s.substr(offset, f.lextraFieldsLength);
+    offset += f.lextraFieldsLength;
+    f.compressedFileData = s.substr(offset, f.compressedSize);
+    offset = offset2;
+    var e = doc.createEntry(filename);
+    Fleur.DOMParser._appendFromJSON(e, f);
+    m.setEntryNode(e);
+  }
+  return node;
 };
 Fleur.DOMParser._appendFromArray = function(node, names, os) {
-	var i, l, o, n, nodename, doc = node.ownerDocument || node;
-	for (i = 0, l = os.length; i < l; i++) {
-		o = os[i];
-		if (typeof o === "string") {
-			n = doc.createTextNode(o);
-		} else {
-			nodename = names[1][o[0]];
-			switch (nodename[0]) {
-				case Fleur.Node.ELEMENT_NODE:
-					n = doc.createElementNS(names[0][nodename[1]], nodename[2]);
-					Fleur.DOMParser._appendFromArray(n, names, o[1]);
-					break;
-				case Fleur.Node.ATTRIBUTE_NODE:
-					n = doc.createAttributeNS(names[0][nodename[1]], nodename[2]);
-					n.nodeValue = o[1][0];
-					node.setAttributeNodeNS(n);
-					continue;
-				case Fleur.Node.CDATA_NODE:
-					n = doc.createCDATASection(o[1][0]);
-					break;
-				case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-					n = doc.createProcessingInstruction(o[1], o[2]);
-					break;
-				case Fleur.Node.COMMENT_NODE:
-					n = doc.createComment(o[1][0]);
-					break;
-			}
-		}
-		node.appendChild(n);
-	}
-	return node;
+  var i, l, o, n, nodename, doc = node.ownerDocument || node;
+  for (i = 0, l = os.length; i < l; i++) {
+    o = os[i];
+    if (typeof o === "string") {
+      if (o === "") {
+        continue;
+      }
+      n = doc.createTextNode(o);
+    } else {
+      nodename = names[1][o[0]];
+      switch (nodename[0]) {
+        case Fleur.Node.ELEMENT_NODE:
+          n = doc.createElementNS(names[0][nodename[1]], nodename[2]);
+          Fleur.DOMParser._appendFromArray(n, names, o[1]);
+          break;
+        case Fleur.Node.ATTRIBUTE_NODE:
+          n = doc.createAttributeNS(names[0][nodename[1]], nodename[2]);
+          n.nodeValue = o[1][0];
+          node.setAttributeNodeNS(n);
+          continue;
+        case Fleur.Node.CDATA_NODE:
+          n = doc.createCDATASection(o[1][0]);
+          break;
+        case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+          n = doc.createProcessingInstruction(o[1], o[2]);
+          break;
+        case Fleur.Node.COMMENT_NODE:
+          n = doc.createComment(o[1][0]);
+          break;
+      }
+    }
+    node.appendChild(n);
+  }
+  return node;
 };
 Fleur.DOMParser.prototype.parseFromArray = function(o) {
-	var doc, impl, domSource = new Fleur.DOMImplementationSource();
-	impl = domSource.getDOMImplementation("XML");
-	doc = impl.createDocument();
-	return Fleur.DOMParser._appendFromArray(doc, o[0], o[1]);
+  var doc, impl, domSource = new Fleur.DOMImplementationSource();
+  impl = domSource.getDOMImplementation("XML");
+  doc = impl.createDocument();
+  return Fleur.DOMParser._appendFromArray(doc, o[0], o[1]);
 };
 Fleur.DOMParser._appendFromEXML = function(node, enode) {
-	var i, l;
-	if (enode.nodeType === Fleur.Node.ELEMENT_NODE) {
-		switch (enode.localName) {
-			case "element":
-		}
-		i = 0;
-		l = enode.childNodes.length;
-		while (i < l) {
-			i++;
-		}
-	} else if (enode.nodeType === Fleur.Node.TEXT_NODE && enode.textContent.trim() !== "") {
-		node.appendChild(node.ownerDocument.importNode(enode, true));
-	}
+  var i, l;
+  if (enode.nodeType === Fleur.Node.ELEMENT_NODE) {
+    switch (enode.localName) {
+      case "element":
+    }
+    i = 0;
+    l = enode.childNodes.length;
+    while (i < l) {
+      i++;
+    }
+  } else if (enode.nodeType === Fleur.Node.TEXT_NODE && enode.textContent.trim() !== "") {
+    node.appendChild(node.ownerDocument.importNode(enode, true));
+  }
 };
 Fleur.DOMParser._appendFromJSON = function(node, o) {
-	if (o === null) {
-		return;
-	}
-	var doc = node.ownerDocument || node, n;
-	switch (typeof o) {
-		case "string":
-			n = doc.createTypedValueNode("http://www.w3.org/2001/XMLSchema", "string", o);
-			break;
-		case "number":
-			n = doc.createTypedValueNode("http://www.w3.org/2001/XMLSchema", "double", o);
-			break;
-		case "boolean":
-			n = doc.createTypedValueNode("http://www.w3.org/2001/XMLSchema", "boolean", o);
-			break;
-		default:
-			if (o instanceof RegExp) {
-				n = doc.createTypedValueNode("http://www.agencexml.com/types", "regex", o);
-			} else if (typeof o.length === "number") {
-				n = doc.createArray();
-				for (var i = 0, l = o.length; i < l; i++) {
-					Fleur.DOMParser._appendFromJSON(n, o[i]);
-				}
-			} else {
-				n = doc.createMap();
-				for (var k in o) {
-					if (o.hasOwnProperty(k)) {
-						var e = doc.createEntry(k);
-						n.setEntryNode(e);
-						Fleur.DOMParser._appendFromJSON(e, o[k]);
-					}
-				}
-			}
-	}
-	node.appendChild(n);
-	return node;
+  if (o === null) {
+    return;
+  }
+  var doc = node.ownerDocument || node, n;
+  switch (typeof o) {
+    case "string":
+      n = doc.createTypedValueNode("http://www.w3.org/2001/XMLSchema", "string", o);
+      break;
+    case "number":
+      n = doc.createTypedValueNode("http://www.w3.org/2001/XMLSchema", "double", o);
+      break;
+    case "boolean":
+      n = doc.createTypedValueNode("http://www.w3.org/2001/XMLSchema", "boolean", o);
+      break;
+    default:
+      if (o instanceof RegExp) {
+        n = doc.createTypedValueNode("http://www.agencexml.com/types", "regex", o);
+      } else if (typeof o.length === "number") {
+        n = doc.createArray();
+        for (var i = 0, l = o.length; i < l; i++) {
+          Fleur.DOMParser._appendFromJSON(n, o[i]);
+        }
+      } else {
+        n = doc.createMap();
+        for (var k in o) {
+          if (o.hasOwnProperty(k)) {
+            var e = doc.createEntry(k);
+            n.setEntryNode(e);
+            Fleur.DOMParser._appendFromJSON(e, o[k]);
+          }
+        }
+      }
+  }
+  node.appendChild(n);
+  return node;
 };
 Fleur.DOMParser._appendFromMD = function(node, s) {
-	var lines = s.split("\n");
-	var items = [], lseps = [];
-	var blocks = [];
-	var ser = "";
-	for (var i = 0, l = lines.length; i < l; i++) {
-		if (lines[i].trim() !== "") {
-			items.push(lines[i]);
-			lseps.push(0);
-		} else if (lseps.length !== 0) {
-			lseps[lseps.length - 1]++;
-		}
-	}
-	var dashtrim = function(s) {
-		var t = s.trim();
-		for (var i0 = t.length - 1; i0 >= 0; i0--) {
-			if (t.charAt(i0) !== "#") {
-				return t.substr(0, i0 + 1).trim();
-			}
-		}
-		return "";
-	};
-	var oi;
-	var outol = true;
-	var pol = false;
-	var orderitem = function(s) {
-		oi = 0;
-		var c = s.charCodeAt(oi);
-		if (outol || c !== 42 || c !== 43 || c !== 45) {
-			while (c >= 48 && c <= 57) {
-				oi++;
-				c = s.charCodeAt(oi);
-			}
-			return c === 46 && oi !== 0 && s.charCodeAt(oi + 1) === 32 ? oi + 2 : -1;
-		}
-		return s.charCodeAt(1) === 32 ? 2 : -1;
-	};
-	var ui;
-	var outul = true;
-	var pul = false;
-	var unorderitem = function(s) {
-		ui = 0;
-		var c = s.charCodeAt(ui);
-		if (c === 42 || c === 43 || c === 45) {
-			return s.charCodeAt(1) === 32 ? 2 : -1;
-		}
-		while (c >= 48 && c <= 57) {
-			ui++;
-			c = s.charCodeAt(ui);
-		}
-		return !outul && c === 46 && ui !== 0 && s.charCodeAt(ui + 1) === 32 ? ui + 2 : -1;
-	};
-	var inlinemd = function(s) {
-		var r = "";
-		var outem = true;
-		var outstrong = true;
-		var outdel = true;
-		for (var il = 0, ll = s.length; il < ll; il++) {
-			var c = s.charAt(il);
-			if (c === "*" || c === "_") {
-				if (s.charAt(il + 1) === c) {
-					if ((outstrong && s.substr(il + 2).indexOf(c + c) !== -1) || !outstrong) {
-						r += "<" + (outstrong ? "" : "/") + "strong>";
-						outstrong = !outstrong;
-						il++;
-					} else {
-						r += c + c;
-					}
-				} else {
-					if ((outem && s.substr(il + 1).replace(c + c, "").indexOf(c) !== -1) || !outem) {
-						r += "<" + (outem ? "" : "/") + "em>";
-						outem = !outem;
-					} else {
-						r += c;
-					}
-				}
-			} else if (c === "~" && s.charAt(il + 1) === "~") {
-				if ((outdel && s.substr(il + 2).indexOf("~~") !== -1) || !outdel) {
-					r += "<" + (outdel ? "" : "/") + "del>";
-					outdel = !outdel;
-					il++;
-				} else {
-					r += "~~";
-				}
-			} else {
-				r += c;
-			}
-		}
-		return r;
-	};
-	var lastli = 0;
-	for (i = 0, l = items.length; i < l; i++) {
-		if (items[i].startsWith("# ")) {
-			blocks.push(["h1", inlinemd(dashtrim(items[i].substr(2)))]);
-		} else if (items[i].startsWith("## ")) {
-			blocks.push(["h2", inlinemd(dashtrim(items[i].substr(3)))]);
-		} else if (items[i].startsWith("### ")) {
-			blocks.push(["h3", inlinemd(dashtrim(items[i].substr(4)))]);
-		} else if (items[i].startsWith("#### ")) {
-			blocks.push(["h4", inlinemd(dashtrim(items[i].substr(5)))]);
-		} else if (items[i].startsWith("##### ")) {
-			blocks.push(["h5", inlinemd(dashtrim(items[i].substr(6)))]);
-		} else if (items[i].startsWith("###### ")) {
-			blocks.push(["h6", inlinemd(dashtrim(items[i].substr(7)))]);
-		} else if (items[i].startsWith("---") && items[i].trim() === "-".repeat(items[i].trim().length)) {
-			if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
-				blocks.push(["hr"]);
-			} else  {
-				blocks[blocks.length - 1][0] = "h2";
-			}
-		} else if (items[i].startsWith("===") && items[i].trim() === "=".repeat(items[i].trim().length) && blocks.length !== 0 && blocks[blocks.length - 1][0] === "p" && lseps[i - 1] === 0) {
-			blocks[blocks.length - 1][0] = "h1";
-		} else if (orderitem(items[i]) !== -1 && outul) {
-			if (outol) {
-				pol = false;
-			}
-			blocks.push(["", (outol ? "<ol><li>" : "<li>") + (lseps[i] !== 0 || pol ? "<p>" : "") + inlinemd(items[i].substr(oi + 1).trim()) + (lseps[i] !== 0 || pol ? "</p>" : "") + "</li></ol>"]);
-			if (!outol) {
-				blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
-			}
-			lastli = blocks.length - 1;
-			outol = false;
-			pol = lseps[i] !== 0;
-		} else if (unorderitem(items[i]) !== -1) {
-			if (outul) {
-				pul = false;
-			}
-			blocks.push(["", (outul ? "<ul><li>" : "<li>") + (lseps[i] !== 0 || pul ? "<p>" : "") + inlinemd(items[i].substr(oi + 1).trim()) + (lseps[i] !== 0 || pul ? "</p>" : "") + "</li></ul>"]);
-			if (!outul) {
-				blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
-			}
-			lastli = blocks.length - 1;
-			outul = false;
-			pul = lseps[i] !== 0;
-		} else if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
-			blocks.push(["p", [inlinemd(items[i])]]);
-		} else {
-			blocks[blocks.length - 1][1].push(inlinemd(items[i]));
-		}
-	}
-	for (i = 0, l = blocks.length; i < l; i++) {
-		if (blocks[i][0] !== "") {
-			ser += "<" + blocks[i][0] + ">";
-		}
-		if (blocks[i][0] === "p") {
-			for (var j = 0, l2 = blocks[i][1].length; j < l2; j++) {
-				if (j !== 0) {
-					ser += "<br/>";
-				}
-				ser += blocks[i][1][j];
-			}
-		} else if (blocks[i].length === 2) {
-			ser += blocks[i][1];
-		}
-		if (blocks[i][0] !== "") {
-			ser += "</" + blocks[i][0] + ">";
-		}
-	}
-	if (node.nodeType === Fleur.Node.DOCUMENT_NODE) {
-		ser = "<div>" + ser + "</div>";
-	}
-	Fleur.DOMParser._appendFromXMLString(node, ser);
-	return node;
+  var lines = s.split("\n");
+  var items = [], lseps = [];
+  var blocks = [];
+  var ser = "";
+  for (var i = 0, l = lines.length; i < l; i++) {
+    if (lines[i].trim() !== "") {
+      items.push(lines[i]);
+      lseps.push(0);
+    } else if (lseps.length !== 0) {
+      lseps[lseps.length - 1]++;
+    }
+  }
+  var dashtrim = function(s) {
+    var t = s.trim();
+    for (var i0 = t.length - 1; i0 >= 0; i0--) {
+      if (t.charAt(i0) !== "#") {
+        return t.substr(0, i0 + 1).trim();
+      }
+    }
+    return "";
+  };
+  var oi;
+  var outol = true;
+  var pol = false;
+  var orderitem = function(s) {
+    oi = 0;
+    var c = s.charCodeAt(oi);
+    if (outol || c !== 42 || c !== 43 || c !== 45) {
+      while (c >= 48 && c <= 57) {
+        oi++;
+        c = s.charCodeAt(oi);
+      }
+      return c === 46 && oi !== 0 && s.charCodeAt(oi + 1) === 32 ? oi + 2 : -1;
+    }
+    return s.charCodeAt(1) === 32 ? 2 : -1;
+  };
+  var ui;
+  var outul = true;
+  var pul = false;
+  var unorderitem = function(s) {
+    ui = 0;
+    var c = s.charCodeAt(ui);
+    if (c === 42 || c === 43 || c === 45) {
+      return s.charCodeAt(1) === 32 ? 2 : -1;
+    }
+    while (c >= 48 && c <= 57) {
+      ui++;
+      c = s.charCodeAt(ui);
+    }
+    return !outul && c === 46 && ui !== 0 && s.charCodeAt(ui + 1) === 32 ? ui + 2 : -1;
+  };
+  var inlinemd = function(s) {
+    var r = "";
+    var outem = true;
+    var outstrong = true;
+    var outdel = true;
+    for (var il = 0, ll = s.length; il < ll; il++) {
+      var c = s.charAt(il);
+      if (c === "*" || c === "_") {
+        if (s.charAt(il + 1) === c) {
+          if ((outstrong && s.substr(il + 2).indexOf(c + c) !== -1) || !outstrong) {
+            r += "<" + (outstrong ? "" : "/") + "strong>";
+            outstrong = !outstrong;
+            il++;
+          } else {
+            r += c + c;
+          }
+        } else {
+          if ((outem && s.substr(il + 1).replace(c + c, "").indexOf(c) !== -1) || !outem) {
+            r += "<" + (outem ? "" : "/") + "em>";
+            outem = !outem;
+          } else {
+            r += c;
+          }
+        }
+      } else if (c === "~" && s.charAt(il + 1) === "~") {
+        if ((outdel && s.substr(il + 2).indexOf("~~") !== -1) || !outdel) {
+          r += "<" + (outdel ? "" : "/") + "del>";
+          outdel = !outdel;
+          il++;
+        } else {
+          r += "~~";
+        }
+      } else {
+        r += c;
+      }
+    }
+    return r;
+  };
+  var lastli = 0;
+  for (i = 0, l = items.length; i < l; i++) {
+    if (items[i].startsWith("# ")) {
+      blocks.push(["h1", inlinemd(dashtrim(items[i].substr(2)))]);
+    } else if (items[i].startsWith("## ")) {
+      blocks.push(["h2", inlinemd(dashtrim(items[i].substr(3)))]);
+    } else if (items[i].startsWith("### ")) {
+      blocks.push(["h3", inlinemd(dashtrim(items[i].substr(4)))]);
+    } else if (items[i].startsWith("#### ")) {
+      blocks.push(["h4", inlinemd(dashtrim(items[i].substr(5)))]);
+    } else if (items[i].startsWith("##### ")) {
+      blocks.push(["h5", inlinemd(dashtrim(items[i].substr(6)))]);
+    } else if (items[i].startsWith("###### ")) {
+      blocks.push(["h6", inlinemd(dashtrim(items[i].substr(7)))]);
+    } else if (items[i].startsWith("---") && items[i].trim() === "-".repeat(items[i].trim().length)) {
+      if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
+        blocks.push(["hr"]);
+      } else  {
+        blocks[blocks.length - 1][0] = "h2";
+      }
+    } else if (items[i].startsWith("===") && items[i].trim() === "=".repeat(items[i].trim().length) && blocks.length !== 0 && blocks[blocks.length - 1][0] === "p" && lseps[i - 1] === 0) {
+      blocks[blocks.length - 1][0] = "h1";
+    } else if (orderitem(items[i]) !== -1 && outul) {
+      if (outol) {
+        pol = false;
+      }
+      blocks.push(["", (outol ? "<ol><li>" : "<li>") + (lseps[i] !== 0 || pol ? "<p>" : "") + inlinemd(items[i].substr(oi + 1).trim()) + (lseps[i] !== 0 || pol ? "</p>" : "") + "</li></ol>"]);
+      if (!outol) {
+        blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
+      }
+      lastli = blocks.length - 1;
+      outol = false;
+      pol = lseps[i] !== 0;
+    } else if (unorderitem(items[i]) !== -1) {
+      if (outul) {
+        pul = false;
+      }
+      blocks.push(["", (outul ? "<ul><li>" : "<li>") + (lseps[i] !== 0 || pul ? "<p>" : "") + inlinemd(items[i].substr(oi + 1).trim()) + (lseps[i] !== 0 || pul ? "</p>" : "") + "</li></ul>"]);
+      if (!outul) {
+        blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
+      }
+      lastli = blocks.length - 1;
+      outul = false;
+      pul = lseps[i] !== 0;
+    } else if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
+      blocks.push(["p", [inlinemd(items[i])]]);
+    } else {
+      blocks[blocks.length - 1][1].push(inlinemd(items[i]));
+    }
+  }
+  for (i = 0, l = blocks.length; i < l; i++) {
+    if (blocks[i][0] !== "") {
+      ser += "<" + blocks[i][0] + ">";
+    }
+    if (blocks[i][0] === "p") {
+      for (var j = 0, l2 = blocks[i][1].length; j < l2; j++) {
+        if (j !== 0) {
+          ser += "<br/>";
+        }
+        ser += blocks[i][1][j];
+      }
+    } else if (blocks[i].length === 2) {
+      ser += blocks[i][1];
+    }
+    if (blocks[i][0] !== "") {
+      ser += "</" + blocks[i][0] + ">";
+    }
+  }
+  if (node.nodeType === Fleur.Node.DOCUMENT_NODE) {
+    ser = "<div>" + ser + "</div>";
+  }
+  Fleur.DOMParser._appendFromXMLString(node, ser);
+  return node;
 };
 Fleur.DOMParser.prototype.parseFromJSON = function(o) {
-	var doc, impl, domSource = new Fleur.DOMImplementationSource();
-	impl = domSource.getDOMImplementation("XML");
-	doc = impl.createDocument();
-	return Fleur.DOMParser._appendFromJSON(doc, o);
+  var doc, impl, domSource = new Fleur.DOMImplementationSource();
+  impl = domSource.getDOMImplementation("XML");
+  doc = impl.createDocument();
+  return Fleur.DOMParser._appendFromJSON(doc, o);
 };
 Fleur.DOMParser._appendFromString = function(node, s, mediatype, grammar) {
-	var media = mediatype.split(";"), config = {}, param, paramreg = /^\s*(\S*)\s*=\s*(\S*)\s*$/, i = 1, l = media.length, handler;
-	while (i < l) {
-		param = paramreg.exec(media[i]);
-		config[param[1]] = param[2];
-		i++;
-	}
-	var mime = media[0].replace(/^\s+|\s+$/gm,'');
-	if (mime.endsWith("+xml") && mime !== "application/exml+xml") {
-		mime = "application/xml";
-	}
-	handler = Fleur.DOMParser.Handlers[mime];
-	if (!handler) {
-		return;
-	}
-	handler(node, s, config, grammar);
-	return node;
+  var media = mediatype.split(";"), config = {}, param, paramreg = /^\s*(\S*)\s*=\s*(\S*)\s*$/, i = 1, l = media.length, handler;
+  while (i < l) {
+    param = paramreg.exec(media[i]);
+    config[param[1]] = param[2];
+    i++;
+  }
+  var mime = media[0].replace(/^\s+|\s+$/gm,'');
+  if (mime.endsWith("+xml") && mime !== "application/exml+xml") {
+    mime = "application/xml";
+  }
+  handler = Fleur.DOMParser.Handlers[mime];
+  if (!handler) {
+    return;
+  }
+  handler(node, s, config, grammar);
+  return node;
 };
 Fleur.OFXtags = [
-	"ACCTID",
-	"ACCTTYPE",
-	"BALAMT",
-	"BANKID",
-	"BRANCHID",
-	"CODE",
-	"CURDEF",
-	"DTASOF",
-	"DTEND",
-	"DTPOSTED",
-	"DTSERVER",
-	"DTSTART",
-	"FITID",
-	"LANGUAGE",
-	"MEMO",
-	"NAME",
-	"SEVERITY",
-	"TRNAMT",
-	"TRNTYPE",
-	"TRNUID"
+  "ACCTID",
+  "ACCTTYPE",
+  "BALAMT",
+  "BANKID",
+  "BRANCHID",
+  "CODE",
+  "CURDEF",
+  "DTASOF",
+  "DTEND",
+  "DTPOSTED",
+  "DTSERVER",
+  "DTSTART",
+  "FITID",
+  "LANGUAGE",
+  "MEMO",
+  "NAME",
+  "SEVERITY",
+  "TRNAMT",
+  "TRNTYPE",
+  "TRNUID"
 ];
 Fleur.DOMParser.Handlers = {
-	"text/csv": function(node, s, config) {
-		Fleur.DOMParser._appendFromCSVString(node, s, config);
-	},
-	"application/xquery": function(node, s) {
-		Fleur.DOMParser.xpatharr = Fleur.XPathEvaluator._xp2js(s, "", "");
-		eval("Fleur.DOMParser.xpatharr = [Fleur.XQueryX.module,[[Fleur.XQueryX.mainModule,[[Fleur.XQueryX.queryBody,[" + Fleur.DOMParser.xpatharr + ']]]],[Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]]]];');
-		Fleur.DOMParser._appendFromArray(node, Fleur.XQueryXNames, [Fleur.DOMParser.xpatharr]);
-		delete Fleur.DOMParser.xpatharr;
-	},
-	"application/json": function(node, s) {
-		try {
-			eval("Fleur.DOMParser.json = " + s);
-			Fleur.DOMParser._appendFromJSON(node, Fleur.DOMParser.json);
-			delete Fleur.DOMParser.json;
-		} catch (e) {}
-	},
-	"application/xml": function(node, s) {
-		Fleur.DOMParser._appendFromXMLString(node, s);
-	},
-	"application/x-ofx": function(node, s) {
-		if (s.startsWith("OFXHEADER:")) {
-			var propertyname = "", propertyvalue = "", text ="", offset = 0, end = s.length, c, state = 0, doc = node.ownerDocument || node;
-			c = s.charAt(offset);
-			while (c !== "<" && offset !== end) {
-				if (state === 0) {
-					if (c === ":") {
-						state = 1;
-					} else {
-						propertyname += c;
-					}
-				} else {
-					if (c === "\n") {
-						text += (text !== "" ? " " : "") + propertyname + "=\"" + propertyvalue + "\"";
-						state = 0;
-						propertyname = "";
-						propertyvalue = "";
-					} else if (c !== "\r") {
-						propertyvalue += c;
-					}
-				}
-				c = s.charAt(++offset);
-			}
-			node.appendChild(doc.createProcessingInstruction("OFX", text));
-			Fleur.DOMParser._appendFromXMLString(node, s.substr(offset), Fleur.OFXtags);
-		} else {
-			Fleur.DOMParser._appendFromXMLString(node, s);
-		}
-	},
-	"application/exml+xml": function(node, s) {
-		var enode = node.ownerDocument.implementation.createDocument();
-		Fleur.DOMParser._appendFromXMLString(enode, s);
-		Fleur.DOMParser._appendFromEXML(node, enode.documentElement);
-		enode.removeChild(enode.documentElement);
-		enode = null;
-	},
-	"application/zip": function(node, s) {
-		Fleur.DOMParser._appendFromZIP(node, s);
-	},
-	"text/markdown": function(node, s) {
-		Fleur.DOMParser._appendFromMD(node, s);
-	},
-	"text/plain":  function(node, s, config, grammar) {
-		if (grammar) {
-			Fleur.DOMParser._appendFromGrammarString(node, s, grammar);
-		} else {
-			var t = new Fleur.Text();
-			t.data = s;
-			node.appendChild(t);
-		}
-	}
+  "text/csv": function(node, s, config) {
+    Fleur.DOMParser._appendFromCSVString(node, s, config);
+  },
+  "application/xquery": function(node, s) {
+    Fleur.DOMParser.xpatharr = Fleur.XPathEvaluator._xp2js(s, "", "");
+    eval("Fleur.DOMParser.xpatharr = [Fleur.XQueryX.module,[[Fleur.XQueryX.mainModule,[[Fleur.XQueryX.queryBody,[" + Fleur.DOMParser.xpatharr + ']]]],[Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]]]];');
+    Fleur.DOMParser._appendFromArray(node, Fleur.XQueryXNames, [Fleur.DOMParser.xpatharr]);
+    delete Fleur.DOMParser.xpatharr;
+  },
+  "application/json": function(node, s) {
+    try {
+      eval("Fleur.DOMParser.json = " + s);
+      Fleur.DOMParser._appendFromJSON(node, Fleur.DOMParser.json);
+      delete Fleur.DOMParser.json;
+    } catch (e) {}
+  },
+  "application/xml": function(node, s) {
+    Fleur.DOMParser._appendFromXMLString(node, s);
+  },
+  "application/x-ofx": function(node, s) {
+    if (s.startsWith("OFXHEADER:")) {
+      var propertyname = "", propertyvalue = "", text ="", offset = 0, end = s.length, c, state = 0, doc = node.ownerDocument || node;
+      c = s.charAt(offset);
+      while (c !== "<" && offset !== end) {
+        if (state === 0) {
+          if (c === ":") {
+            state = 1;
+          } else {
+            propertyname += c;
+          }
+        } else {
+          if (c === "\n") {
+            text += (text !== "" ? " " : "") + propertyname + "=\"" + propertyvalue + "\"";
+            state = 0;
+            propertyname = "";
+            propertyvalue = "";
+          } else if (c !== "\r") {
+            propertyvalue += c;
+          }
+        }
+        c = s.charAt(++offset);
+      }
+      node.appendChild(doc.createProcessingInstruction("OFX", text));
+      Fleur.DOMParser._appendFromXMLString(node, s.substr(offset), Fleur.OFXtags);
+    } else {
+      Fleur.DOMParser._appendFromXMLString(node, s);
+    }
+  },
+  "application/exml+xml": function(node, s) {
+    var enode = node.ownerDocument.implementation.createDocument();
+    Fleur.DOMParser._appendFromXMLString(enode, s);
+    Fleur.DOMParser._appendFromEXML(node, enode.documentElement);
+    enode.removeChild(enode.documentElement);
+    enode = null;
+  },
+  "application/zip": function(node, s) {
+    Fleur.DOMParser._appendFromZIP(node, s);
+  },
+  "text/markdown": function(node, s) {
+    Fleur.DOMParser._appendFromMD(node, s);
+  },
+  "text/plain":  function(node, s, config, grammar) {
+    if (grammar) {
+      Fleur.DOMParser._appendFromGrammarString(node, s, grammar);
+    } else {
+      var t = new Fleur.Text();
+      t.data = s;
+      node.appendChild(t);
+    }
+  }
 };
 Fleur.DOMParser.Handlers["text/xml"] = Fleur.DOMParser.Handlers["application/xml"];
 Fleur.DOMParser.Handlers["application/vnd.openxmlformats-officedocument.wordprocessingml.document"] = Fleur.DOMParser.Handlers["application/zip"];
 Fleur.DOMParser.Handlers["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"] = Fleur.DOMParser.Handlers["application/zip"];
 Fleur.DOMParser.Handlers["text/json"] = Fleur.DOMParser.Handlers["application/json"];
 Fleur.DOMParser.prototype.parseFromString = function(s, mediatype, grammar) {
-	if (mediatype.startsWith("text/csv")) {
-		var seq = new Fleur.Sequence();
-		return Fleur.DOMParser._appendFromString(seq, s, mediatype, grammar);
-	}
-	var doc, impl, domSource = new Fleur.DOMImplementationSource();
-	impl = domSource.getDOMImplementation("XML");
-	doc = impl.createDocument();
-	return Fleur.DOMParser._appendFromString(doc, s, mediatype, grammar);
+  if (mediatype.startsWith("text/csv")) {
+    var seq = new Fleur.Sequence();
+    return Fleur.DOMParser._appendFromString(seq, s, mediatype, grammar);
+  }
+  var doc, impl, domSource = new Fleur.DOMImplementationSource();
+  impl = domSource.getDOMImplementation("XML");
+  doc = impl.createDocument();
+  return Fleur.DOMParser._appendFromString(doc, s, mediatype, grammar);
 };
 Fleur.DOMStringList = function() {};
 Fleur.DOMStringList.prototype = new Array();
@@ -2806,155 +2809,155 @@ Fleur.DOMStringList.prototype.contains = function(str) {
 	return false;
 };
 Fleur.Element = function() {
-	Fleur.Node.apply(this);
-	this.attributes = new Fleur.NamedNodeMap();
-	this.attributes.ownerNode = this;
-	this.namespaces = new Fleur.NamedNodeMap();
-	this.nodeType = Fleur.Node.ELEMENT_NODE;
+  Fleur.Node.apply(this);
+  this.attributes = new Fleur.NamedNodeMap();
+  this.attributes.ownerNode = this;
+  this.namespaces = new Fleur.NamedNodeMap();
+  this.nodeType = Fleur.Node.ELEMENT_NODE;
 };
 Fleur.Element.prototype = new Fleur.Node();
 Object.defineProperties(Fleur.Element.prototype, {
-	nodeValue: {
-		set: function() {},
-		get: function() {
-			return null;
-		}
-	},
-	tagName: {
-		set: function(value) {
-			this.nodeName = value;
-		},
-		get: function() {
-			return this.nodeName;
-		}
-	}
+  nodeValue: {
+    set: function() {},
+    get: function() {
+      return null;
+    }
+  },
+  tagName: {
+    set: function(value) {
+      this.nodeName = value;
+    },
+    get: function() {
+      return this.nodeName;
+    }
+  }
 });
 Fleur.Element.prototype.getAttribute = function(attrname) {
-	return this.getAttributeNS(null, attrname);
+  return this.getAttributeNS(null, attrname);
 };
 Fleur.Element.prototype.getAttributeNode = function(attrname) {
-	var i = 0, l = this.attributes.length;
-	while (i < l) {
-		if (this.attributes[i].nodeName === attrname) {
-			return this.attributes[i];
-		}
-		i++;
-	}
-	return null;
+  var i = 0, l = this.attributes.length;
+  while (i < l) {
+    if (this.attributes[i].nodeName === attrname) {
+      return this.attributes[i];
+    }
+    i++;
+  }
+  return null;
 };
 Fleur.Element.prototype.getAttributeNodeNS = function(namespaceURI, localName) {
-	var i = 0, l = this.attributes.length;
-	while (i < l) {
-		if (this.attributes[i].localName === localName && (!namespaceURI || this.attributes[i].namespaceURI === namespaceURI)) {
-			return this.attributes[i];
-		}
-		i++;
-	}
-	return null;
+  var i = 0, l = this.attributes.length;
+  while (i < l) {
+    if (this.attributes[i].localName === localName && (!namespaceURI || this.attributes[i].namespaceURI === namespaceURI)) {
+      return this.attributes[i];
+    }
+    i++;
+  }
+  return null;
 };
 Fleur.Element.prototype.getAttributeNS = function(namespaceURI, localName) {
-	var i = 0, l = this.attributes.length;
-	while (i < l) {
-		if ( !namespaceURI && this.attributes[i].nodeName === localName || this.attributes[i].localName === localName && this.attributes[i].namespaceURI === namespaceURI) {
-			return this.attributes[i].nodeValue;
-		}
-		i++;
-	}
-	return "";
+  var i = 0, l = this.attributes.length;
+  while (i < l) {
+    if ( !namespaceURI && this.attributes[i].nodeName === localName || this.attributes[i].localName === localName && this.attributes[i].namespaceURI === namespaceURI) {
+      return this.attributes[i].nodeValue;
+    }
+    i++;
+  }
+  return "";
 };
 Fleur.Element.prototype._getElementsByTagNameNS = function(namespaceURI, localName, elts) {
-	var i = 0, l = this.children.length;
-	if ((namespaceURI === "*" || this.namespaceURI === namespaceURI) && (localName === "*" || this.localName === localName)) {
-		elts.push(this);
-	}
-	while (i < l) {
-		this.children[i++]._getElementsByTagNameNS(namespaceURI, localName, elts);
-	}
+  var i = 0, l = this.children.length;
+  if ((namespaceURI === "*" || this.namespaceURI === namespaceURI) && (localName === "*" || this.localName === localName)) {
+    elts.push(this);
+  }
+  while (i < l) {
+    this.children[i++]._getElementsByTagNameNS(namespaceURI, localName, elts);
+  }
 };
 Fleur.Element.prototype.getElementsByTagNameNS = function(namespaceURI, localName) {
-	var elts = new Fleur.NodeList();
-	var i = 0, l = this.children.length;
-	if (!namespaceURI) {
-		return this.getElementsByTagName(localName);
-	}
-	while (i < l) {
-		this.children[i++]._getElementsByTagNameNS(namespaceURI, localName, elts);
-	}
-	return elts;
+  var elts = new Fleur.NodeList();
+  var i = 0, l = this.children.length;
+  if (!namespaceURI) {
+    return this.getElementsByTagName(localName);
+  }
+  while (i < l) {
+    this.children[i++]._getElementsByTagNameNS(namespaceURI, localName, elts);
+  }
+  return elts;
 };
 Fleur.Element.prototype._getElementsByTagName = function(eltname, elts) {
-	var i = 0, l = this.children.length;
-	if (eltname === "*" || this.tagName === eltname) {
-		elts.push(this);
-	}
-	while (i < l) {
-		this.children[i++]._getElementsByTagName(eltname, elts);
-	}
+  var i = 0, l = this.children.length;
+  if (eltname === "*" || this.tagName === eltname) {
+    elts.push(this);
+  }
+  while (i < l) {
+    this.children[i++]._getElementsByTagName(eltname, elts);
+  }
 };
 Fleur.Element.prototype.getElementsByTagName = function(eltname) {
-	var elts = new Fleur.NodeList();
-	var i = 0, l = this.children.length;
-	while (i < l) {
-		this.children[i++]._getElementsByTagName(eltname, elts);
-	}
-	return elts;
+  var elts = new Fleur.NodeList();
+  var i = 0, l = this.children.length;
+  while (i < l) {
+    this.children[i++]._getElementsByTagName(eltname, elts);
+  }
+  return elts;
 };
 Fleur.Element.prototype.hasAttribute = function(attrname) {
-	return Boolean(this.attributes.getNamedItem(attrname));
+  return Boolean(this.attributes.getNamedItem(attrname));
 };
 Fleur.Element.prototype.hasAttributeNS = function(namespaceURI, localName) {
-	return this.attributes.getNamedItemNS(namespaceURI, localName) !== null;
+  return this.attributes.getNamedItemNS(namespaceURI, localName) !== null;
 };
 Fleur.Element.prototype.removeAttribute = function(attrname) {
-	this.attributes.removeNamedItem(attrname);
+  this.attributes.removeNamedItem(attrname);
 };
 Fleur.Element.prototype.removeAttributeNode = function(oldAttr) {
-	if (oldAttr.ownerElement !== this) {
-		throw new Fleur.DOMException(Fleur.DOMException.NOT_FOUND_ERR);
-	}
-	this.attributes.removeNamedItemNS(oldAttr.namespaceURI, oldAttr.localName);
-	return oldAttr;
+  if (oldAttr.ownerElement !== this) {
+    throw new Fleur.DOMException(Fleur.DOMException.NOT_FOUND_ERR);
+  }
+  this.attributes.removeNamedItemNS(oldAttr.namespaceURI, oldAttr.localName);
+  return oldAttr;
 };
 Fleur.Element.prototype.removeAttributeNS = function(namespaceURI, localName) {
-	this.attributes.removeNamedItemNS(namespaceURI, localName);
+  this.attributes.removeNamedItemNS(namespaceURI, localName);
 };
 Fleur.Element.prototype.setAttribute = function(attrname, value) {
-	var attr;
-	if (this.hasAttribute(attrname)) {
-		attr = this.attributes.getNamedItem(attrname);
-		attr.nodeValue = value;
-		return;
-	}
-	attr = this.ownerDocument.createAttribute(attrname);
-	this.attributes.setNamedItem(attr);
-	attr.ownerElement = this;
-	attr.idRecalculate(String(this.attributes.length - 1));
-	attr.appendChild(this.ownerDocument.createTextNode(value));
+  var attr;
+  if (this.hasAttribute(attrname)) {
+    attr = this.attributes.getNamedItem(attrname);
+    attr.nodeValue = value;
+    return;
+  }
+  attr = this.ownerDocument.createAttribute(attrname);
+  this.attributes.setNamedItem(attr);
+  attr.ownerElement = this;
+  attr.idRecalculate(String(this.attributes.length - 1));
+  attr.appendChild(this.ownerDocument.createTextNode(value));
 };
 Fleur.Element.prototype.setAttributeNode = function(newAttr) {
-	var n = this.attributes.setNamedItem(newAttr);
-	newAttr.ownerElement = this;
-	newAttr.idRecalculate(String(this.attributes.length - 1));
-	return n;
+  var n = this.attributes.setNamedItem(newAttr);
+  newAttr.ownerElement = this;
+  newAttr.idRecalculate(String(this.attributes.length - 1));
+  return n;
 };
 Fleur.Element.prototype.setAttributeNodeNS = function(newAttr) {
-	var n = this.attributes.setNamedItemNS(newAttr);
-	newAttr.ownerElement = this;
-	newAttr.idRecalculate(String(this.attributes.length - 1));
-	return n;
+  var n = this.attributes.setNamedItemNS(newAttr);
+  newAttr.ownerElement = this;
+  newAttr.idRecalculate(String(this.attributes.length - 1));
+  return n;
 };
 Fleur.Element.prototype.setAttributeNS = function(namespaceURI, qualifiedName, value) {
-	var attr;
-	if (this.hasAttributeNS(namespaceURI, qualifiedName)) {
-		attr = this.attributes.getNamedItemNS(namespaceURI, qualifiedName);
-		attr.nodeValue = value;
-		return;
-	}
-	attr = this.ownerDocument.createAttributeNS(namespaceURI, qualifiedName);
-	this.attributes.setNamedItemNS(attr);
-	attr.ownerElement = this;
-	attr.idRecalculate(String(this.attributes.length - 1));
-	attr.nodeValue = value;
+  var attr;
+  if (this.hasAttributeNS(namespaceURI, qualifiedName)) {
+    attr = this.attributes.getNamedItemNS(namespaceURI, qualifiedName);
+    attr.nodeValue = value;
+    return;
+  }
+  attr = this.ownerDocument.createAttributeNS(namespaceURI, qualifiedName);
+  this.attributes.setNamedItemNS(attr);
+  attr.ownerElement = this;
+  attr.idRecalculate(String(this.attributes.length - 1));
+  attr.nodeValue = value;
 };
 Fleur.Entity = function() {
 	Fleur.Node.apply(this);
@@ -3652,1864 +3655,1865 @@ Fleur.Sequence.prototype.merge = function(newChild) {
 };
 Fleur.Serializer = function() {};
 Fleur.Serializer.escapeXML = function(s, quotes, inline) {
-	var i = 0, c, code, l = s.length, r = "";
-	while (i < l) {
-		c = s.charAt(i);
-		switch (c) {
-			case '&':
-				r += '&amp;';
-				break;
-			case '<':
-				r += '&lt;';
-				break;
-			case '>':
-				r += '&gt;';
-				break;
-			case "'":
-				r += '&apos;';
-				break;
-			case '"':
-				r += quotes ? '&quot;' : '"';
-				break;
-			default:
-				code = c.charCodeAt(0);
-				if ((!inline && (code === 9 || code === 10 || code === 13)) || (code > 31 && code < 127)) {
-					r += c;
-				} else {
-					r += '&#' + code + ';';
-				}
-		}
-		i++;
-	}
-	return r;
+  var i = 0, c, code, l = s.length, r = "";
+  while (i < l) {
+    c = s.charAt(i);
+    switch (c) {
+      case '&':
+        r += '&amp;';
+        break;
+      case '<':
+        r += '&lt;';
+        break;
+      case '>':
+        r += '&gt;';
+        break;
+      case "'":
+        r += '&apos;';
+        break;
+      case '"':
+        r += quotes ? '&quot;' : '"';
+        break;
+      default:
+        code = c.charCodeAt(0);
+        if ((!inline && (code === 9 || code === 10 || code === 13)) || (code > 31 && code < 127)) {
+          r += c;
+        } else {
+          r += '&#' + code + ';';
+        }
+    }
+    i++;
+  }
+  return r;
 };
 Fleur.Serializer._serializeXMLToString = function(node, indent, offset, knownns) {
-	var s, i, l, index, nsl;
-	knownns = knownns || {pf: [], uri: []};
-	switch (node.nodeType) {
-		case Fleur.Node.ELEMENT_NODE:
-			s = (indent ? offset + "<" : "<") + node.nodeName;
-			nsl = knownns.pf.length;
-			if (indent) {
-				var names = [];
-				for (i = 0, l = node.attributes.length; i < l; i++) {
-					names.push(node.attributes[i].nodeName);
-				}
-				names.sort();
-				for (i = 0, l = names.length; i < l; i++) {
-					if (names[i] === "xmlns") {
-						index = knownns.pf.lastIndexOf(" ");
-						if (index !== -1 && knownns.uri[index] === node.getAttribute(names[i])) {
-							continue;
-						}
-						knownns.pf.push(" ");
-						knownns.uri.push(node.getAttribute(names[i]));
-					} else if (node.getAttributeNode(names[i]).namespaceURI === "http://www.w3.org/2000/xmlns/") {
-						index = knownns.pf.lastIndexOf(node.getAttributeNode(names[i]).localName);
-						if (index !== -1 && knownns.uri[index] === node.getAttributeNode(names[i]).nodeValue) {
-							continue;
-						}
-						knownns.pf.push(node.getAttributeNode(names[i]).localName);
-						knownns.uri.push(node.getAttributeNode(names[i]).nodeValue);
-					}
-					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true) + "\"";
-				}
-			} else {
-				for (i = 0, l = node.attributes.length; i < l; i++) {
-					if (node.attributes[i].nodeName === "xmlns") {
-						index = knownns.pf.lastIndexOf(" ");
-						if (index !== -1 && knownns.uri[index] === node.attributes[i].nodeValue) {
-							continue;
-						}
-						knownns.pf.push(" ");
-						knownns.uri.push(node.attributes[i].nodeValue);
-					} else if (node.attributes[i].namespaceURI === "http://www.w3.org/2000/xmlns/") {
-						index = knownns.pf.lastIndexOf(node.attributes[i].localName);
-						if (index !== -1 && knownns.uri[index] === node.attributes[i].nodeValue) {
-							continue;
-						}
-						knownns.pf.push(node.attributes[i].localName);
-						knownns.uri.push(node.attributes[i].nodeValue);
-					}
-					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true) + "\"";
-				}
-			}
-			if (node.childNodes.length === 0) {
-				knownns.pf.length = nsl;
-				knownns.uri.length = nsl;
-				return s + (indent ? "/>\n" : "/>");
-			}
-			s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset + "  ", knownns);
-			}
-			knownns.pf.length = nsl;
-			knownns.uri.length = nsl;
-			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + (indent ? ">\n" : ">");
-		case Fleur.Node.TEXT_NODE:
-			if ((indent || (node.ownerDocument && node === node.ownerDocument.firstChild)) && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
-				return "";
-			}
-			return Fleur.Serializer.escapeXML(node.data);
-		case Fleur.Node.CDATA_NODE:
-			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
-		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
-		case Fleur.Node.COMMENT_NODE:
-			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
-		case Fleur.Node.SEQUENCE_NODE:
-			s = "";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset, knownns);
-			}
-			return s;
-		case Fleur.Node.DOCUMENT_NODE:
-			s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset);
-			}
-			return s;
-	}
+  var s, i, l, index, nsl;
+  knownns = knownns || {pf: [], uri: []};
+  switch (node.nodeType) {
+    case Fleur.Node.ELEMENT_NODE:
+      s = (indent ? offset + "<" : "<") + node.nodeName;
+      nsl = knownns.pf.length;
+      if (indent) {
+        var names = [];
+        for (i = 0, l = node.attributes.length; i < l; i++) {
+          names.push(node.attributes[i].nodeName);
+        }
+        names.sort();
+        for (i = 0, l = names.length; i < l; i++) {
+          if (names[i] === "xmlns") {
+            index = knownns.pf.lastIndexOf(" ");
+            if (index !== -1 && knownns.uri[index] === node.getAttribute(names[i])) {
+              continue;
+            }
+            knownns.pf.push(" ");
+            knownns.uri.push(node.getAttribute(names[i]));
+          } else if (node.getAttributeNode(names[i]).namespaceURI === "http://www.w3.org/2000/xmlns/") {
+            index = knownns.pf.lastIndexOf(node.getAttributeNode(names[i]).localName);
+            if (index !== -1 && knownns.uri[index] === node.getAttributeNode(names[i]).nodeValue) {
+              continue;
+            }
+            knownns.pf.push(node.getAttributeNode(names[i]).localName);
+            knownns.uri.push(node.getAttributeNode(names[i]).nodeValue);
+          }
+          s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true) + "\"";
+        }
+      } else {
+        for (i = 0, l = node.attributes.length; i < l; i++) {
+          if (node.attributes[i].nodeName === "xmlns") {
+            index = knownns.pf.lastIndexOf(" ");
+            if (index !== -1 && knownns.uri[index] === node.attributes[i].nodeValue) {
+              continue;
+            }
+            knownns.pf.push(" ");
+            knownns.uri.push(node.attributes[i].nodeValue);
+          } else if (node.attributes[i].namespaceURI === "http://www.w3.org/2000/xmlns/") {
+            index = knownns.pf.lastIndexOf(node.attributes[i].localName);
+            if (index !== -1 && knownns.uri[index] === node.attributes[i].nodeValue) {
+              continue;
+            }
+            knownns.pf.push(node.attributes[i].localName);
+            knownns.uri.push(node.attributes[i].nodeValue);
+          }
+          s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true) + "\"";
+        }
+      }
+      if (node.childNodes.length === 0) {
+        knownns.pf.length = nsl;
+        knownns.uri.length = nsl;
+        return s + (indent ? "/>\n" : "/>");
+      }
+      s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset + "  ", knownns);
+      }
+      knownns.pf.length = nsl;
+      knownns.uri.length = nsl;
+      return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + (indent ? ">\n" : ">");
+    case Fleur.Node.TEXT_NODE:
+      if ((indent || (node.ownerDocument && node === node.ownerDocument.firstChild)) && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
+        return "";
+      }
+      return Fleur.Serializer.escapeXML(node.data);
+    case Fleur.Node.CDATA_NODE:
+      return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
+    case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+      return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
+    case Fleur.Node.COMMENT_NODE:
+      return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
+    case Fleur.Node.SEQUENCE_NODE:
+      s = "";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset, knownns);
+      }
+      return s;
+    case Fleur.Node.DOCUMENT_NODE:
+      s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset);
+      }
+      return s;
+  }
 };
 Fleur.Serializer._serializeHTMLToString = function(node, indent, offset) {
-	var s, i, l;
-	switch (node.nodeType) {
-		case Fleur.Node.ELEMENT_NODE:
-			s = "";
-			if (node.localName.toLowerCase() === "html") {
-				s += indent ? "<!DOCTYPE html>\n" : "<!DOCTYPE html>";
-			}
-			s += (indent ? offset + "<" : "<") + node.localName.toLowerCase();
-			if (indent) {
-				var names = [];
-				for (i = 0, l = node.attributes.length; i < l; i++) {
-					if (node.attributes[i].localName !== "xmlns" && node.attributes[i].prefix !== "xmlns") {
-						names.push(node.attributes[i].localName.toLowerCase());
-					}
-				}
-				names.sort();
-				for (i = 0, l = names.length; i < l; i++) {
-					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true) + "\"";
-				}
-			} else {
-				for (i = 0, l = node.attributes.length; i < l; i++) {
-					if (node.attributes[i].localName !== "xmlns" && node.attributes[i].prefix !== "xmlns") {
-						s += " " + node.attributes[i].localName.toLowerCase() + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true) + "\"";
-					}
-				}
-			}
-			if (node.childNodes.length === 0) {
-				if (["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"].indexOf(node.localName.toLowerCase()) !== -1) {
-					return s + (indent ? ">\n" : ">");
-				}
-				return s + (indent ? "></" + node.localName.toLowerCase() + ">\n" : "></" + node.localName.toLowerCase() + ">");
-			}
-			s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeHTMLToString(node.childNodes[i], indent, offset + "  ");
-			}
-			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName.toLowerCase() + (indent ? ">\n" : ">");
-		case Fleur.Node.TEXT_NODE:
-			if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
-				return "";
-			}
-			return node.parentNode.localName && ["script", "style"].indexOf(node.parentNode.localName.toLowerCase()) !== -1 ? node.data : Fleur.Serializer.escapeXML(node.data);
-		case Fleur.Node.CDATA_NODE:
-			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
-		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
-		case Fleur.Node.COMMENT_NODE:
-			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
-		case Fleur.Node.DOCUMENT_NODE:
-			s = "";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeHTMLToString(node.childNodes[i], indent, offset);
-			}
-			return s;
-	}
+  var s, i, l;
+  switch (node.nodeType) {
+    case Fleur.Node.ELEMENT_NODE:
+      s = "";
+      if (node.localName.toLowerCase() === "html") {
+        s += indent ? "<!DOCTYPE html>\n" : "<!DOCTYPE html>";
+      }
+      s += (indent ? offset + "<" : "<") + node.localName.toLowerCase();
+      if (indent) {
+        var names = [];
+        for (i = 0, l = node.attributes.length; i < l; i++) {
+          if (node.attributes[i].localName !== "xmlns" && node.attributes[i].prefix !== "xmlns") {
+            names.push(node.attributes[i].localName.toLowerCase());
+          }
+        }
+        names.sort();
+        for (i = 0, l = names.length; i < l; i++) {
+          s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true) + "\"";
+        }
+      } else {
+        for (i = 0, l = node.attributes.length; i < l; i++) {
+          if (node.attributes[i].localName !== "xmlns" && node.attributes[i].prefix !== "xmlns") {
+            s += " " + node.attributes[i].localName.toLowerCase() + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true) + "\"";
+          }
+        }
+      }
+      if (node.childNodes.length === 0) {
+        if (["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"].indexOf(node.localName.toLowerCase()) !== -1) {
+          return s + (indent ? ">\n" : ">");
+        }
+        return s + (indent ? "></" + node.localName.toLowerCase() + ">\n" : "></" + node.localName.toLowerCase() + ">");
+      }
+      s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeHTMLToString(node.childNodes[i], indent, offset + "  ");
+      }
+      return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName.toLowerCase() + (indent ? ">\n" : ">");
+    case Fleur.Node.TEXT_NODE:
+      if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
+        return "";
+      }
+      return node.parentNode.localName && ["script", "style"].indexOf(node.parentNode.localName.toLowerCase()) !== -1 ? node.data : Fleur.Serializer.escapeXML(node.data);
+    case Fleur.Node.CDATA_NODE:
+      return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
+    case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+      return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
+    case Fleur.Node.COMMENT_NODE:
+      return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
+    case Fleur.Node.DOCUMENT_NODE:
+      s = "";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeHTMLToString(node.childNodes[i], indent, offset);
+      }
+      return s;
+  }
 };
-Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, postfix, inmap) {
-	var s, i, l;
-	postfix = postfix || "";
-	switch (node.nodeType) {
-		case Fleur.Node.ELEMENT_NODE:
-			s = (indent ? offset + "<" : "<") + node.nodeName;
-			if (indent) {
-				var names = [];
-				for (i = 0, l = node.attributes.length; i < l; i++) {
-					names.push(node.attributes[i].nodeName);
-				}
-				names.sort();
-				for (i = 0, l = names.length; i < l; i++) {
-					s += " " + names[i] + "='" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true, false) + "'";
-				}
-			} else {
-				for (i = 0, l = node.attributes.length; i < l; i++) {
-					s += " " + node.attributes[i].nodeName + "='" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true, true) + "'";
-				}
-			}
-			if (node.childNodes.length === 0) {
-				return s + (indent ? "/>" + postfix + "\n" : "/>" + postfix);
-			}
-			s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", true);
-			}
-			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + ">" + postfix + (indent ? "\n" : "");
-		case Fleur.Node.SEQUENCE_NODE:
-			if (node.rowlabels || node.collabels) {
-				s = (indent ? offset : "") + "matrix:labels(";
-				var seriarr = function(arr) {
-					if (!arr) {
-						return "()";
-					}
-					if (arr.length === 1) {
-						return "'" + arr[0] + "'";
-					}
-					var sarr = "";
-					arr.forEach(function(l, index) {
-						sarr += (index !== 0 ? ", " : "") + "'" + l + "'";
-					});
-					return "(" +  sarr + ")";
-				};
-				s += seriarr(node.rowlabels) + ", ";
-				s += seriarr(node.collabels) + ", (";
-			} else {
-				s = indent ? offset + "(" : "(";
-			}
-			if (node.childNodes.length === 0) {
-				return s + (indent ? ")\n" : ")");
-			}
-			s += indent ? "\n" : "";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? node.childNodes[i].nodeType === Fleur.Node.MULTIDIM_NODE ? ";" : "," : "");
-			}
-			if (node.rowlabels || node.collabels) {
-				return s + (indent ? offset + "))\n" : "))");
-			}
-			return s + (indent ? offset + ")\n" : ")");
-		case Fleur.Node.MULTIDIM_NODE:
-			s = indent ? offset : "";
-			if (node.childNodes.length === 0) {
-				return s + (indent ? "\n" : "");
-			}
-			s += indent ? "\n" : "";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "");
-			}
-			return s + (indent ? offset + postfix + "\n" : postfix);
-		case Fleur.Node.ATTRIBUTE_NODE:
-			return (indent ? offset : "") + "attribute " + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.value).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
-		case Fleur.Node.FUNCTION_NODE:
-			return (indent ? offset : "") + node.nodeName + "#" + String(node.argtypes.length);
-		case Fleur.Node.MAP_NODE:
-			s = (indent ? offset : "") + "map {"; 
-			if (node.entries.length === 0) {
-				return s + "}" + (indent ? "\n" : "");
-			}
-			s += indent ? "\n" : "";
-			for (i = 0, l = node.entries.length; i < l; i++) {
-				s += Fleur.Serializer._serializeNodeToXQuery(node.entries[i], indent, offset + "  ", false, i !== l - 1 ? ", " : "", true);
-			}
-			return s + "}" + postfix + (indent ? "\n" : "");
-		case Fleur.Node.ARRAY_NODE:
-			s = (indent ? offset : "") + "array {"; 
-			if (node.childNodes.length === 0) {
-				return s + "}" + (indent ? "\n" : "");
-			}
-			s += indent ? "\n" : "";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "");
-			}
-			return s + "}" + postfix + (indent ? "\n" : "");
-		case Fleur.Node.ENTRY_NODE:
-			if (inmap) {
-				return (indent ? offset : "") + "\"" + node.nodeName + "\": " + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ") + postfix + (indent ? "\n" : "");
-			}
-			return (indent ? offset : "") + "entry " + node.nodeName + " {" + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ") + "}" + postfix + (indent ? "\n" : "");
-		case Fleur.Node.TEXT_NODE:
-			var typeName;
-			var prefix;
-			if (node.schemaTypeInfo) {
-				var nres = new Fleur.XPathNSResolver(node);
-				typeName = node.schemaTypeInfo.typeName;
-				prefix = nres.lookupPrefix(node.schemaTypeInfo.typeNamespace);
-			} else {
-				typeName = "untypedAtomic";
-				prefix = "xs";
-			}
-			if (tree) {
-				if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
-					return "";
-				}
-				return Fleur.Serializer.escapeXML(node.data, !indent, !indent);
-			}
-			if (node.schemaTypeInfo === Fleur.Type_error) {
-				var errmess = Fleur.noErrorMessage ? null : node.textContent;
-				return "fn:error(fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\")" + (errmess ? ",\"" + Fleur.Serializer.escapeXML(errmess, false, false).replace(/"/gm, "\"\"") + "\"" : "") + ")" + postfix;
-			}
-			if (node.schemaTypeInfo === Fleur.Type_QName) {
-				return "fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\")" + postfix;
-			}
-			return (indent ? offset : "") + prefix + ":" + typeName + "('" + Fleur.Serializer.escapeXML(node.data, !indent, !indent).replace(/\'/gm, "\'\'") + "')" + postfix + (indent ? "\n" : "");
-		case Fleur.Node.CDATA_NODE:
-			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
-		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "processing-instruction " : "processing-instruction ") + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.data, false, false).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
-		case Fleur.Node.COMMENT_NODE:
-			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
-		case Fleur.Node.DOCUMENT_NODE:
-			if (node.childNodes.length === 0) {
-				return "document {}";
-			}
-			s = 'document {';
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset, true);
-			}
-			return s + "}" + postfix;
-	}
+Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, postfix, inmap, defquot) {
+  var s, i, l;
+  postfix = postfix || "";
+  defquot = defquot || "'";
+  switch (node.nodeType) {
+    case Fleur.Node.ELEMENT_NODE:
+      s = (indent ? offset + "<" : "<") + node.nodeName;
+      if (indent) {
+        var names = [];
+        for (i = 0, l = node.attributes.length; i < l; i++) {
+          names.push(node.attributes[i].nodeName);
+        }
+        names.sort();
+        for (i = 0, l = names.length; i < l; i++) {
+          s += " " + names[i] + "=" + defquot + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true, false) + defquot;
+        }
+      } else {
+        for (i = 0, l = node.attributes.length; i < l; i++) {
+          s += " " + node.attributes[i].nodeName + "=" + defquot + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true, true) + defquot;
+        }
+      }
+      if (node.childNodes.length === 0) {
+        return s + (indent ? "/>" + postfix + "\n" : "/>" + postfix);
+      }
+      s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", true, null, null, defquot);
+      }
+      return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + ">" + postfix + (indent ? "\n" : "");
+    case Fleur.Node.SEQUENCE_NODE:
+      if (node.rowlabels || node.collabels) {
+        s = (indent ? offset : "") + "matrix:labels(";
+        var seriarr = function(arr) {
+          if (!arr) {
+            return "()";
+          }
+          if (arr.length === 1) {
+            return defquot + arr[0] + defquot;
+          }
+          var sarr = "";
+          arr.forEach(function(l, index) {
+            sarr += (index !== 0 ? ", " : "") + defquot + l + defquot;
+          });
+          return "(" +  sarr + ")";
+        };
+        s += seriarr(node.rowlabels) + ", ";
+        s += seriarr(node.collabels) + ", (";
+      } else {
+        s = indent ? offset + "(" : "(";
+      }
+      if (node.childNodes.length === 0) {
+        return s + (indent ? ")\n" : ")");
+      }
+      s += indent ? "\n" : "";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? node.childNodes[i].nodeType === Fleur.Node.MULTIDIM_NODE ? ";" : "," : "", null, defquot);
+      }
+      if (node.rowlabels || node.collabels) {
+        return s + (indent ? offset + "))\n" : "))");
+      }
+      return s + (indent ? offset + ")\n" : ")");
+    case Fleur.Node.MULTIDIM_NODE:
+      s = indent ? offset : "";
+      if (node.childNodes.length === 0) {
+        return s + (indent ? "\n" : "");
+      }
+      s += indent ? "\n" : "";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "", null, defquot);
+      }
+      return s + (indent ? offset + postfix + "\n" : postfix);
+    case Fleur.Node.ATTRIBUTE_NODE:
+      return (indent ? offset : "") + "attribute " + (node.namespaceURI !== "" ? "Q{" + node.namespaceURI + "}" : "") + node.localName + " {" + defquot + Fleur.Serializer.escapeXML(node.value).replace(/"/gm, "\"\"") + defquot + "}" + postfix + (indent ? "\n" : "");
+    case Fleur.Node.FUNCTION_NODE:
+      return (indent ? offset : "") + node.nodeName + "#" + String(node.argtypes.length);
+    case Fleur.Node.MAP_NODE:
+      s = (indent ? offset : "") + "map {"; 
+      if (node.entries.length === 0) {
+        return s + "}" + (indent ? "\n" : "");
+      }
+      s += indent ? "\n" : "";
+      for (i = 0, l = node.entries.length; i < l; i++) {
+        s += Fleur.Serializer._serializeNodeToXQuery(node.entries[i], indent, offset + "  ", false, i !== l - 1 ? ", " : "", true, null, defquot);
+      }
+      return s + "}" + postfix + (indent ? "\n" : "");
+    case Fleur.Node.ARRAY_NODE:
+      s = (indent ? offset : "") + "array {"; 
+      if (node.childNodes.length === 0) {
+        return s + "}" + (indent ? "\n" : "");
+      }
+      s += indent ? "\n" : "";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "", null, defquot);
+      }
+      return s + "}" + postfix + (indent ? "\n" : "");
+    case Fleur.Node.ENTRY_NODE:
+      if (inmap) {
+        return (indent ? offset : "") + defquot + node.nodeName + defquot + ": " + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ", false, null, null, defquot) + postfix + (indent ? "\n" : "");
+      }
+      return (indent ? offset : "") + "entry " + node.nodeName + " {" + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ", false, null, null, defquot) + "}" + postfix + (indent ? "\n" : "");
+    case Fleur.Node.TEXT_NODE:
+      var typeName;
+      var prefix;
+      if (node.schemaTypeInfo) {
+        var nres = new Fleur.XPathNSResolver(node);
+        typeName = node.schemaTypeInfo.typeName;
+        prefix = nres.lookupPrefix(node.schemaTypeInfo.typeNamespace);
+      } else {
+        typeName = "untypedAtomic";
+        prefix = "xs";
+      }
+      if (tree) {
+        if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
+          return "";
+        }
+        return Fleur.Serializer.escapeXML(node.data, !indent, !indent);
+      }
+      if (node.schemaTypeInfo === Fleur.Type_error) {
+        var errmess = Fleur.noErrorMessage ? null : node.textContent;
+        return "fn:error(fn:QName(" + defquot + node.namespaceURI + defquot + ", " + defquot + node.nodeName + defquot + ")" + (errmess ? "," + defquot + Fleur.Serializer.escapeXML(errmess, false, false).replace(/"/gm, "\"\"") + defquot + "" : "") + ")" + postfix;
+      }
+      if (node.schemaTypeInfo === Fleur.Type_QName) {
+        return "fn:QName(" + defquot + node.namespaceURI + defquot + ", " + defquot + node.nodeName + defquot + ")" + postfix;
+      }
+      return (indent ? offset : "") + prefix + ":" + typeName + "(" + defquot + Fleur.Serializer.escapeXML(node.data, !indent, !indent).replace(/\'/gm, "\'\'") + defquot + ")" + postfix + (indent ? "\n" : "");
+    case Fleur.Node.CDATA_NODE:
+      return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
+    case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+      return (indent ? offset + "<?" : "<?") + node.nodeName + (node.data ? " " + Fleur.Serializer.escapeXML(node.data, false, false).replace(/"/gm, "\"\"") : "") + "?>" + postfix + (indent ? "\n" : "");
+    case Fleur.Node.COMMENT_NODE:
+      return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
+    case Fleur.Node.DOCUMENT_NODE:
+      if (node.childNodes.length === 0) {
+        return "document {}";
+      }
+      s = 'document {';
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset, true, null, null, defquot);
+      }
+      return s + "}" + postfix;
+  }
 };
 Fleur.Serializer._serializeEXMLToString = function(node, indent, offset) {
-	var s, i, l, nodeName, isqname;
-	switch (node.nodeType) {
-		case Fleur.Node.ELEMENT_NODE:
-		case Fleur.Node.ENTRY_NODE:
-			isqname = node.nodeType === Fleur.Node.ELEMENT_NODE && Fleur.Node.QNameReg.test(node.nodeName);
-			nodeName = isqname ? node.nodeName : "exml:" + (node.nodeType === Fleur.Node.ELEMENT_NODE ? "element" : "entry");
-			s = (indent ? offset + "<" : "<") + nodeName;
-			if (!isqname) {
-				s += " name=\"" + Fleur.Serializer.escapeXML(node.nodeName) + "\"";
-			}
-			if (node.attributes) {
-				if (indent) {
-					var names = [];
-					for (i = 0, l = node.attributes.length; i < l; i++) {
-						names.push(node.attributes[i].nodeName);
-					}
-					names.sort();
-					for (i = 0, l = names.length; i < l; i++) {
-						s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i])) + "\"";
-					}
-				} else {
-					for (i = 0, l = node.attributes.length; i < l; i++) {
-						s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue) + "\"";
-					}
-				}
-			}
-			if (node.childNodes.length === 0) {
-				return s + (indent ? "/>\n" : "/>");
-			}
-			s += indent ? ">\n" : ">";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeEXMLToString(node.childNodes[i], indent, offset + "  ");
-			}
-			return s + (indent ? offset + "</" : "</") + nodeName + (indent ? ">\n" : ">");
-		case Fleur.Node.TEXT_NODE:
-			s = indent ? offset + '<exml:atom' : '<exml:atom';
-			return s +  ' type="Q{' + node.schemaTypeInfo.typeNamespace + '}' + node.schemaTypeInfo.typeName + '">' + Fleur.Serializer.escapeXML(node.data) + (indent ? "</exml:atom>\n" : "</exml:atom>");
-		case Fleur.Node.CDATA_NODE:
-			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
-		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
-		case Fleur.Node.COMMENT_NODE:
-			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
-		case Fleur.Node.DOCUMENT_NODE:
-			s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
-			s += '<exml:document xmlns:exml="http://www.agencexml.com/exml">' + (indent ? "\n" : "");
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeEXMLToString(node.childNodes[i], indent, "  ");
-			}
-			return  s + "</exml:document>";
-		case Fleur.Node.ARRAY_NODE:
-			s = indent ? offset + "<exml:array" : "<exml:array";
-			if (node.childNodes.length === 0) {
-				return s + (indent ? "/>\n" : "/>");
-			}
-			s += indent ? ">\n" : ">";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeEXMLToString(node.childNodes[i], indent, offset + "  ");
-			}
-			return s + (indent ? offset + "</" : "</") + "exml:array" + (indent ? ">\n" : ">");
-		case Fleur.Node.MAP_NODE:
-			s = indent ? offset + "<exml:map" : "<exml:map";
-			if (node.entries.length === 0) {
-				return s + (indent ? "/>\n" : "/>");
-			}
-			s += indent ? ">\n" : ">";
-			for (i = 0, l = node.entries.length; i < l; i++) {
-				s += Fleur.Serializer._serializeEXMLToString(node.entries[i], indent, offset + "  ");
-			}
-			return s + (indent ? offset + "</exml:map>\n" : "</exml:map>");
-	}
+  var s, i, l, nodeName, isqname;
+  switch (node.nodeType) {
+    case Fleur.Node.ELEMENT_NODE:
+    case Fleur.Node.ENTRY_NODE:
+      isqname = node.nodeType === Fleur.Node.ELEMENT_NODE && Fleur.Node.QNameReg.test(node.nodeName);
+      nodeName = isqname ? node.nodeName : "exml:" + (node.nodeType === Fleur.Node.ELEMENT_NODE ? "element" : "entry");
+      s = (indent ? offset + "<" : "<") + nodeName;
+      if (!isqname) {
+        s += " name=\"" + Fleur.Serializer.escapeXML(node.nodeName) + "\"";
+      }
+      if (node.attributes) {
+        if (indent) {
+          var names = [];
+          for (i = 0, l = node.attributes.length; i < l; i++) {
+            names.push(node.attributes[i].nodeName);
+          }
+          names.sort();
+          for (i = 0, l = names.length; i < l; i++) {
+            s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i])) + "\"";
+          }
+        } else {
+          for (i = 0, l = node.attributes.length; i < l; i++) {
+            s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue) + "\"";
+          }
+        }
+      }
+      if (node.childNodes.length === 0) {
+        return s + (indent ? "/>\n" : "/>");
+      }
+      s += indent ? ">\n" : ">";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeEXMLToString(node.childNodes[i], indent, offset + "  ");
+      }
+      return s + (indent ? offset + "</" : "</") + nodeName + (indent ? ">\n" : ">");
+    case Fleur.Node.TEXT_NODE:
+      s = indent ? offset + '<exml:atom' : '<exml:atom';
+      return s +  ' type="Q{' + node.schemaTypeInfo.typeNamespace + '}' + node.schemaTypeInfo.typeName + '">' + Fleur.Serializer.escapeXML(node.data) + (indent ? "</exml:atom>\n" : "</exml:atom>");
+    case Fleur.Node.CDATA_NODE:
+      return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
+    case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+      return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
+    case Fleur.Node.COMMENT_NODE:
+      return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
+    case Fleur.Node.DOCUMENT_NODE:
+      s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
+      s += '<exml:document xmlns:exml="http://www.agencexml.com/exml">' + (indent ? "\n" : "");
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeEXMLToString(node.childNodes[i], indent, "  ");
+      }
+      return  s + "</exml:document>";
+    case Fleur.Node.ARRAY_NODE:
+      s = indent ? offset + "<exml:array" : "<exml:array";
+      if (node.childNodes.length === 0) {
+        return s + (indent ? "/>\n" : "/>");
+      }
+      s += indent ? ">\n" : ">";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeEXMLToString(node.childNodes[i], indent, offset + "  ");
+      }
+      return s + (indent ? offset + "</" : "</") + "exml:array" + (indent ? ">\n" : ">");
+    case Fleur.Node.MAP_NODE:
+      s = indent ? offset + "<exml:map" : "<exml:map";
+      if (node.entries.length === 0) {
+        return s + (indent ? "/>\n" : "/>");
+      }
+      s += indent ? ">\n" : ">";
+      for (i = 0, l = node.entries.length; i < l; i++) {
+        s += Fleur.Serializer._serializeEXMLToString(node.entries[i], indent, offset + "  ");
+      }
+      return s + (indent ? offset + "</exml:map>\n" : "</exml:map>");
+  }
 };
 Fleur.Serializer.escapeJSON = function(s) {
-	var i = 0, c, code, l = s.length, r = "";
-	while (i < l) {
-		c = s.charAt(i);
-		switch (c) {
-			case '\t':
-				r += '\\t';
-				break;
-			case '\n':
-				r += '\\n';
-				break;
-			case '\r':
-				r += '\\r';
-				break;
-			case '\\':
-				r += '\\\\';
-				break;
-			case '"':
-				r += '\\"';
-				break;
-			default:
-				code = c.charCodeAt(0);
-				if (code > 31 && code < 127) {
-					r += c;
-				} else {
-					r += '\\u' + ('000' + code.toString(16)).slice(-4);
-				}
-		}
-		i++;
-	}
-	return r;
+  var i = 0, c, code, l = s.length, r = "";
+  while (i < l) {
+    c = s.charAt(i);
+    switch (c) {
+      case '\t':
+        r += '\\t';
+        break;
+      case '\n':
+        r += '\\n';
+        break;
+      case '\r':
+        r += '\\r';
+        break;
+      case '\\':
+        r += '\\\\';
+        break;
+      case '"':
+        r += '\\"';
+        break;
+      default:
+        code = c.charCodeAt(0);
+        if (code > 31 && code < 127) {
+          r += c;
+        } else {
+          r += '\\u' + ('000' + code.toString(16)).slice(-4);
+        }
+    }
+    i++;
+  }
+  return r;
 };
 Fleur.Serializer._serializeJSONToString = function(node, indent, offset, inline, comma) {
-	var s, i, l, quote;
-	switch (node.nodeType) {
-		case Fleur.Node.MAP_NODE:
-			s = indent && !inline ? offset + "{" : "{";
-			if (node.entries.length === 0) {
-				return s + (indent ? "}" + comma + "\n" : "}" + comma);
-			}
-			if (indent) {
-				s += "\n";
-			}
-			if (indent) {
-				var names = [];
-				for (i = 0, l = node.entries.length; i < l; i++) {
-					names.push(node.entries[i].nodeName);
-				}
-				names.sort();
-				for (i = 0, l = names.length; i < l; i++) {
-					s += Fleur.Serializer._serializeJSONToString(node.getEntryNode(names[i]), indent, offset + "  ", false, (i === l - 1 ? "" : ","));
-				}
-			} else {
-				for (i = 0, l = node.entries.length; i < l; i++) {
-					s += Fleur.Serializer._serializeJSONToString(node.entries[i], indent, offset + "  ", false, (i === l - 1 ? "" : ","));
-				}
-			}
-			return s + (indent ? offset + "}" + comma + "\n" : "}" + comma);
-		case Fleur.Node.ENTRY_NODE:
-			if (indent && Fleur.Node.JSNameReg.test(node.nodeName)) {
-				s = offset + node.nodeName + ": ";
-			} else {
-				s = (indent ? offset + '"' : '"') + Fleur.Serializer.escapeJSON(node.nodeName) + '":' + (indent ? " " : "");
-			}
-			s += Fleur.Serializer._serializeJSONToString(node.firstChild, indent, offset, true, comma);
-			return s;
-		case Fleur.Node.TEXT_NODE:
-			quote = node.schemaTypeInfo === Fleur.Type_string  || node.schemaTypeInfo === Fleur.Type_untypedAtomic ? '"' : node.schemaTypeInfo === Fleur.Type_regex ? '/' : "";
-			return (indent && !inline ? offset + quote : quote) + Fleur.Serializer.escapeJSON(node.data) + quote + comma + (indent ? "\n" : "");
-		case Fleur.Node.ARRAY_NODE:
-		case Fleur.Node.SEQUENCE_NODE:
-			s = indent && !inline ? offset + "[" : "[";
-			if (node.childNodes.length === 0) {
-				return s + (indent ? "]" + comma + "\n" : "]" + comma);
-			}
-			if (indent) {
-				s += "\n";
-			}
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeJSONToString(node.childNodes[i], indent, offset + "  ", false, (i === l - 1 ? "" : ","));
-			}
-			return s + (indent ? offset + "]" + comma + "\n" : "]" + comma);
-		case Fleur.Node.DOCUMENT_NODE:
-			s = "";
-			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeJSONToString(node.childNodes[i], indent, offset, false, "");
-			}
-			return s;
-	}
+  var s, i, l, quote;
+  switch (node.nodeType) {
+    case Fleur.Node.MAP_NODE:
+      s = indent && !inline ? offset + "{" : "{";
+      if (node.entries.length === 0) {
+        return s + (indent ? "}" + comma + "\n" : "}" + comma);
+      }
+      if (indent) {
+        s += "\n";
+      }
+      if (indent) {
+        var names = [];
+        for (i = 0, l = node.entries.length; i < l; i++) {
+          names.push(node.entries[i].nodeName);
+        }
+        names.sort();
+        for (i = 0, l = names.length; i < l; i++) {
+          s += Fleur.Serializer._serializeJSONToString(node.getEntryNode(names[i]), indent, offset + "  ", false, (i === l - 1 ? "" : ","));
+        }
+      } else {
+        for (i = 0, l = node.entries.length; i < l; i++) {
+          s += Fleur.Serializer._serializeJSONToString(node.entries[i], indent, offset + "  ", false, (i === l - 1 ? "" : ","));
+        }
+      }
+      return s + (indent ? offset + "}" + comma + "\n" : "}" + comma);
+    case Fleur.Node.ENTRY_NODE:
+      if (indent && Fleur.Node.JSNameReg.test(node.nodeName)) {
+        s = offset + node.nodeName + ": ";
+      } else {
+        s = (indent ? offset + '"' : '"') + Fleur.Serializer.escapeJSON(node.nodeName) + '":' + (indent ? " " : "");
+      }
+      s += Fleur.Serializer._serializeJSONToString(node.firstChild, indent, offset, true, comma);
+      return s;
+    case Fleur.Node.TEXT_NODE:
+      quote = node.schemaTypeInfo === Fleur.Type_string  || node.schemaTypeInfo === Fleur.Type_untypedAtomic ? '"' : node.schemaTypeInfo === Fleur.Type_regex ? '/' : "";
+      return (indent && !inline ? offset + quote : quote) + Fleur.Serializer.escapeJSON(node.data) + quote + comma + (indent ? "\n" : "");
+    case Fleur.Node.ARRAY_NODE:
+    case Fleur.Node.SEQUENCE_NODE:
+      s = indent && !inline ? offset + "[" : "[";
+      if (node.childNodes.length === 0) {
+        return s + (indent ? "]" + comma + "\n" : "]" + comma);
+      }
+      if (indent) {
+        s += "\n";
+      }
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeJSONToString(node.childNodes[i], indent, offset + "  ", false, (i === l - 1 ? "" : ","));
+      }
+      return s + (indent ? offset + "]" + comma + "\n" : "]" + comma);
+    case Fleur.Node.DOCUMENT_NODE:
+      s = "";
+      for (i = 0, l = node.childNodes.length; i < l; i++) {
+        s += Fleur.Serializer._serializeJSONToString(node.childNodes[i], indent, offset, false, "");
+      }
+      return s;
+  }
 };
 Fleur.Serializer.escapeCSV = function(s, sep) {
-	if (s.indexOf(sep) !== -1) {
-		return '"' + s.replace(/"/g, '""') + '"';
-	}
-	return s;
+  if (s.indexOf(sep) !== -1) {
+    return '"' + s.replace(/"/g, '""') + '"';
+  }
+  return s;
 };
 Fleur.Serializer._serializeMatrixToString = function(node, head, sep) {
-	var s;
-	if (head && node.collabels) {
-		s = node.collabels.join(sep) + "\n";
-	} else {
-		s = "";
-	}
-	var seq2string = function(seq) {
-		seq.childNodes.forEach(function(n, index) {
-			s += (index !== 0 ? sep : "") + n.data;
-		});
-		s += "\n";
-	};
-	if (node.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-		node.childNodes.forEach(seq2string);
-	} else {
-		seq2string(node);
-	}
-	return s;
+  var s;
+  if (head && node.collabels) {
+    s = node.collabels.join(sep) + "\n";
+  } else {
+    s = "";
+  }
+  var seq2string = function(seq) {
+    seq.childNodes.forEach(function(n, index) {
+      s += (index !== 0 ? sep : "") + n.data;
+    });
+    s += "\n";
+  };
+  if (node.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+    node.childNodes.forEach(seq2string);
+  } else {
+    seq2string(node);
+  }
+  return s;
 };
 Fleur.Serializer._serializeCSVToString = function(node, head, key, sep, level) {
-	var s = "", s2, s3, i, l, rowname, nextlevel = level, headref;
-	switch (node.nodeType) {
-		case Fleur.Node.ELEMENT_NODE:
-		case Fleur.Node.ARRAY_NODE:
-		case Fleur.Node.DOCUMENT_NODE:
-			if (node.childNodes.length === 0) {
-				nextlevel = 2;
-			} else if (node.nodeType !== Fleur.Node.DOCUMENT_NODE || node.childNodes[0].nodeType === Fleur.Node.ARRAY_NODE) {
-				nextlevel = level + 1;
-			}
-			if (node.childNodes.length > 1 && nextlevel < 2) {
-				l = node.childNodes.length;
-				i = 1;
-				rowname = node.childNodes[0].nodeName;
-				while (i < l) {
-					if (rowname !== node.childNodes[i].nodeName) {
-						nextlevel++;
-						break;
-					}
-					i++;
-				}
-			}
-			if (head && level === 0 && nextlevel !== 0) {
-				if (key !== null) {
-					headref = node.childNodes[0].entries[0];
-					l = headref.childNodes.length;
-					i = 0;
-					while (i < l) {
-						if (s !== "") {
-							s += sep;
-						}
-						if (i === key) {
-							s += node.nodeName + sep;
-						}
-						s += headref.childNodes[i].nodeName;
-						i++;
-					}
-					if (l === key) {
-						if (s !== "") {
-							s += sep;
-						}
-						s += node.nodeName;
-					}
-					head = false;
-				} else {
-					if (node.childNodes.length !== 0) {
-						headref = nextlevel === level + 1 ? node.childNodes[0] : node;
-						l = headref.childNodes.length;
-						i = 0;
-						while (i < l) {
-							if (s !== "") {
-								s += sep;
-							}
-							s += headref.childNodes[i].nodeName;
-							i++;
-						}
-					} else {
-						s  = node.nodeName;
-					}
-				}
-				s += "\n";
-			}
-			l = node.childNodes.length;
-			i = 0;
-			s3 = "";
-			while (i < l) {
-				s2 = Fleur.Serializer._serializeCSVToString(node.childNodes[i], key ? head : level === 0, key, sep, nextlevel);
-				if (s2) {
-					if (s3 !== "") {
-						s3 += nextlevel === 1 ? "\n" : ((nextlevel - level === 2 || node.nodeType === Fleur.Node.ARRAY_NODE) ? sep : "");
-					}
-					s3 += s2;
-				}
-				i++;
-			}
-			return s + s3;
-		case Fleur.Node.SEQUENCE_NODE:
-			return null;
-		case Fleur.Node.MAP_NODE:
-			l = node.entries.length;
-			i = 0;
-			while (i < l) {
-				s += Fleur.Serializer._serializeCSVToString(node.entries[i], false, key, sep, nextlevel) + "\n";
-				i++;
-			}
-			return s;
-		case Fleur.Node.ENTRY_NODE:
-			l = node.childNodes.length;
-			i = 0;
-			s3 = "";
-			while (i < l) {
-				if (i === key) {
-					if (s3 !== "") {
-						s3 += sep;
-					}
-					s3 += Fleur.Serializer.escapeCSV(node.nodeName);
-				}
-				s2 = Fleur.Serializer._serializeCSVToString(node.childNodes[i], false, key, sep, nextlevel);
-				if (s2) {
-					if (s3 !== "") {
-						s3 += sep;
-					}
-					s3 += s2;
-				}
-				i++;
-			}
-			return s + s3;
-		case Fleur.Node.TEXT_NODE:
-			if (head && level !== 2) {
-				s = (node.parentNode ? Fleur.Serializer.escapeCSV(node.nodeName) : "#text") + "\n";
-			}
-			s += Fleur.Serializer.escapeCSV(node.data);
-			return s;
-		default:
-			return null;
-	}
+  var s = "", s2, s3, i, l, rowname, nextlevel = level, headref;
+  switch (node.nodeType) {
+    case Fleur.Node.ELEMENT_NODE:
+    case Fleur.Node.ARRAY_NODE:
+    case Fleur.Node.DOCUMENT_NODE:
+      if (node.childNodes.length === 0) {
+        nextlevel = 2;
+      } else if (node.nodeType !== Fleur.Node.DOCUMENT_NODE || node.childNodes[0].nodeType === Fleur.Node.ARRAY_NODE) {
+        nextlevel = level + 1;
+      }
+      if (node.childNodes.length > 1 && nextlevel < 2) {
+        l = node.childNodes.length;
+        i = 1;
+        rowname = node.childNodes[0].nodeName;
+        while (i < l) {
+          if (rowname !== node.childNodes[i].nodeName) {
+            nextlevel++;
+            break;
+          }
+          i++;
+        }
+      }
+      if (head && level === 0 && nextlevel !== 0) {
+        if (key !== null) {
+          headref = node.childNodes[0].entries[0];
+          l = headref.childNodes.length;
+          i = 0;
+          while (i < l) {
+            if (s !== "") {
+              s += sep;
+            }
+            if (i === key) {
+              s += node.nodeName + sep;
+            }
+            s += headref.childNodes[i].nodeName;
+            i++;
+          }
+          if (l === key) {
+            if (s !== "") {
+              s += sep;
+            }
+            s += node.nodeName;
+          }
+          head = false;
+        } else {
+          if (node.childNodes.length !== 0) {
+            headref = nextlevel === level + 1 ? node.childNodes[0] : node;
+            l = headref.childNodes.length;
+            i = 0;
+            while (i < l) {
+              if (s !== "") {
+                s += sep;
+              }
+              s += headref.childNodes[i].nodeName;
+              i++;
+            }
+          } else {
+            s  = node.nodeName;
+          }
+        }
+        s += "\n";
+      }
+      l = node.childNodes.length;
+      i = 0;
+      s3 = "";
+      while (i < l) {
+        s2 = Fleur.Serializer._serializeCSVToString(node.childNodes[i], key ? head : level === 0, key, sep, nextlevel);
+        if (s2) {
+          if (s3 !== "") {
+            s3 += nextlevel === 1 ? "\n" : ((nextlevel - level === 2 || node.nodeType === Fleur.Node.ARRAY_NODE) ? sep : "");
+          }
+          s3 += s2;
+        }
+        i++;
+      }
+      return s + s3;
+    case Fleur.Node.SEQUENCE_NODE:
+      return null;
+    case Fleur.Node.MAP_NODE:
+      l = node.entries.length;
+      i = 0;
+      while (i < l) {
+        s += Fleur.Serializer._serializeCSVToString(node.entries[i], false, key, sep, nextlevel) + "\n";
+        i++;
+      }
+      return s;
+    case Fleur.Node.ENTRY_NODE:
+      l = node.childNodes.length;
+      i = 0;
+      s3 = "";
+      while (i < l) {
+        if (i === key) {
+          if (s3 !== "") {
+            s3 += sep;
+          }
+          s3 += Fleur.Serializer.escapeCSV(node.nodeName);
+        }
+        s2 = Fleur.Serializer._serializeCSVToString(node.childNodes[i], false, key, sep, nextlevel);
+        if (s2) {
+          if (s3 !== "") {
+            s3 += sep;
+          }
+          s3 += s2;
+        }
+        i++;
+      }
+      return s + s3;
+    case Fleur.Node.TEXT_NODE:
+      if (head && level !== 2) {
+        s = (node.parentNode ? Fleur.Serializer.escapeCSV(node.nodeName) : "#text") + "\n";
+      }
+      s += Fleur.Serializer.escapeCSV(node.data);
+      return s;
+    default:
+      return null;
+  }
 };
 Fleur.Serializer.XQX_delimitedList = function(node, delimiter, leftEncloser, rightEncloser, selector) {
-	var s = leftEncloser, i = 0, l = node.childNodes.length;
-	while (i < l) {
-		Fleur.Serializer._serializeXQXToString(node.childNodes[i]);
-		i++;
-		if (i !== l) {
-			s += delimiter;
-		}
-	}
-	return s + rightEncloser;
+  var s = leftEncloser, i = 0, l = node.childNodes.length;
+  while (i < l) {
+    Fleur.Serializer._serializeXQXToString(node.childNodes[i]);
+    i++;
+    if (i !== l) {
+      s += delimiter;
+    }
+  }
+  return s + rightEncloser;
 };
 Fleur.Serializer.XQX_parenthesizedList = function(node, delimiter) {
-	delimiter = delimiter || ", ";
-	return Fleur.Serializer.XQX_delimitedList(node, delimiter, "(", ")");
+  delimiter = delimiter || ", ";
+  return Fleur.Serializer.XQX_delimitedList(node, delimiter, "(", ")");
 };
 Fleur.Serializer.XQX_commaSeparatedList = function(node) {
-	return Fleur.Serializer.XQX_delimitedList(node, ", ");
+  return Fleur.Serializer.XQX_delimitedList(node, ", ");
 };
 Fleur.Serializer.XQX_quote = function(item) {
-	return '"' + item.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\x85/g, "&amp;#x85;").replace(/\x2028/g, "&#x2028;").replace (/\"/g, '""') + '"';
+  return '"' + item.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\x85/g, "&amp;#x85;").replace(/\x2028/g, "&#x2028;").replace (/\"/g, '""') + '"';
 };
 Fleur.Serializer.XQX_renderQName = function(node) {
-	return (node.hasAttributeNS("http://www.w3.org/2005/XQueryX", "prefix") ? node.getAttributeNS("http://www.w3.org/2005/XQueryX", "prefix") + ":" : "") + node.textContent;
+  return (node.hasAttributeNS("http://www.w3.org/2005/XQueryX", "prefix") ? node.getAttributeNS("http://www.w3.org/2005/XQueryX", "prefix") + ":" : "") + node.textContent;
 };
 Fleur.Serializer.XQX_renderEQName = function(node) {
-	if (node.localName === "elementConstructor" && node.namespaceURI === "http://www.w3.org/2005/XQueryX") {
-		var i = 0, l = node.children.length;
-		while (i < l) {
-			if (node.children[i].localName === "tagName" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-				return Fleur.Serializer.XQX_renderQName(node.children[i]);
-			}
-			i++;
-		}
-	}
-	if (node.hasAttributeNS("http://www.w3.org/2005/XQueryX", "prefix")) {
-		return node.getAttributeNS("http://www.w3.org/2005/XQueryX", "prefix") + ":" + node.textContent;
-	}
-	if (node.hasAttributeNS("http://www.w3.org/2005/XQueryX", "URI")) {
-		return "Q{" + node.getAttributeNS("http://www.w3.org/2005/XQueryX", "URI") + "}" + node.textContent;
-	}
-	return node.textContent;
+  if (node.localName === "elementConstructor" && node.namespaceURI === "http://www.w3.org/2005/XQueryX") {
+    var i = 0, l = node.children.length;
+    while (i < l) {
+      if (node.children[i].localName === "tagName" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+        return Fleur.Serializer.XQX_renderQName(node.children[i]);
+      }
+      i++;
+    }
+  }
+  if (node.hasAttributeNS("http://www.w3.org/2005/XQueryX", "prefix")) {
+    return node.getAttributeNS("http://www.w3.org/2005/XQueryX", "prefix") + ":" + node.textContent;
+  }
+  if (node.hasAttributeNS("http://www.w3.org/2005/XQueryX", "URI")) {
+    return "Q{" + node.getAttributeNS("http://www.w3.org/2005/XQueryX", "URI") + "}" + node.textContent;
+  }
+  return node.textContent;
 };
 Fleur.Serializer.XQX_renderChildren = function(node, filter) {
-	var i = 0, l, s = "";
-	l = node.children.length;
-	while (i < l) {
-		if (!filter || (filter.indexOf(node.children[i].localName) !== -1 && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX")) {
-			s += Fleur.Serializer._serializeXQXToString(node.children[i]);
-		}
-		i++;
-	}
-	return s;
+  var i = 0, l, s = "";
+  l = node.children.length;
+  while (i < l) {
+    if (!filter || (filter.indexOf(node.children[i].localName) !== -1 && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX")) {
+      s += Fleur.Serializer._serializeXQXToString(node.children[i]);
+    }
+    i++;
+  }
+  return s;
 };
 Fleur.Serializer.XQX_ops = {
-	"unaryMinusOp": "-",
-	"unaryPlusOp": "+",
-	"addOp": "+",
-	"subtractOp": " - ",
-	"multiplyOp": "*",
-	"divOp": " div ",
-	"idivOp": " idiv ",
-	"modOp": " mod ",
-	"stringConcatenateOp": "||",
-	"eqOp": " eq ",
-	"neOp": " ne ",
-	"ltOp": " lt ",
-	"gtOp": " gt ",
-	"leOp": " le ",
-	"geOp": " ge ",
-	"equalOp": " = ",
-	"notEqualOp": " != ",
-	"lessThanOp": " < ",
-	"greaterThanOp": " > ",
-	"lessThanOrEqualOp": " <= ",
-	"greaterThanOrEqualOp": " >= ",
-	"isOp": " is ",
-	"nodeBeforeOp": " << ",
-	"nodeAfterOp": " >> ",
-	"andOp": " and ",
-	"orOp": " or ",
-	"unionOp": " union ",
-	"intersectOp": " intersect ",
-	"exceptOp": " except "
+  "unaryMinusOp": "-",
+  "unaryPlusOp": "+",
+  "addOp": "+",
+  "subtractOp": " - ",
+  "multiplyOp": "*",
+  "divOp": " div ",
+  "idivOp": " idiv ",
+  "modOp": " mod ",
+  "stringConcatenateOp": "||",
+  "eqOp": " eq ",
+  "neOp": " ne ",
+  "ltOp": " lt ",
+  "gtOp": " gt ",
+  "leOp": " le ",
+  "geOp": " ge ",
+  "equalOp": " = ",
+  "notEqualOp": " != ",
+  "lessThanOp": " < ",
+  "greaterThanOp": " > ",
+  "lessThanOrEqualOp": " <= ",
+  "greaterThanOrEqualOp": " >= ",
+  "isOp": " is ",
+  "nodeBeforeOp": " << ",
+  "nodeAfterOp": " >> ",
+  "andOp": " and ",
+  "orOp": " or ",
+  "unionOp": " union ",
+  "intersectOp": " intersect ",
+  "exceptOp": " except "
 };
 Fleur.Serializer._serializeXQXToString = function(node) {
-	var i = 0, l, s, n;
-	if (node.nodeType === Fleur.Node.DOCUMENT_NODE) {
-		return Fleur.Serializer._serializeXQXToString(node.documentElement);
-	}
-	if (node.namespaceURI !== "http://www.w3.org/2005/XQueryX") {
-		return;
-	}
-	switch(node.localName) {
-		case "attributeName":
-			return Fleur.Serializer.XQX_renderQName(node);
-		case "NCName":
-			return node.textContent;
-		case "rootExpr":
-			return "/";
-		case "argumentPlaceholder":
-			return "?";
-		case "contextItemExpr":
-			return ".";
-		case "stringConstantExpr":
-		case "stringLiteral":
-			l = node.children.length;
-			while (i < l) {
-				if (node.children[i].localName === "value" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					return Fleur.Serializer.XQX_quote(node.children[i].textContent);
-				}
-				i++;
-			}
-			return "";
-		case "integerConstantExpr":
-		case "integerLiteral":
-		case "decimalConstantExpr":
-		case "doubleConstantExpr":
-			l = node.children.length;
-			while (i < l) {
-				if (node.children[i].localName === "value" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					return node.children[i].textContent;
-				}
-				i++;
-			}
-			return "";
-		case "varRef":
-		case "variableRef":
-			return "$" + Fleur.Serializer.XQX_renderChildren(node, ["name"]);
-		case "pragma":
-			return "(# " + Fleur.Serializer.XQX_renderChildren(node, ["pragmaName"]) + " " + Fleur.Serializer.XQX_renderChildren(node, ["pragmaContents"]) + " #)";
-		case "extensionExpr":
-			return Fleur.Serializer.XQX_renderChildren(node, ["pragma"]) + "{" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + "}";
-		case "simpleMapExpr":
-			l = node.children.length;
-			s = "";
-			while (i < l) {
-				if (node.children[i].localName === "pathExpr" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s += (s === "" ? "( " : "\n! ( ") + Fleur.Serializer._serializeXQXToString(node.children[i]) + " )";
-				}
-				i++;
-			}
-			return s;
-		case "functionCallExpr":
-			l = node.children.length;
-			s = "";
-			while (i < l) {
-				if (node.children[i].localName === "arguments" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s += Fleur.Serializer.XQX_parenthesizedList(node.children[i]) ;
-				}
-				i++;
-			}
-			return Fleur.Serializer.XQX_renderChildren(node, ["functionName"]) + (s === "" ? "()" : s);
-		case "constructorFunctionExpr":
-			l = node.children.length;
-			s = "";
-			while (i < l) {
-				if (node.children[i].localName === "argExpr" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s += Fleur.Serializer.XQX_parenthesizedList(node.children[i]) ;
-				}
-				i++;
-			}
-			return Fleur.Serializer.XQX_renderChildren(node, ["typeName"]) + (s === "" ? "()" : s);
-		case "unaryMinusOp":
-		case "unaryPlusOp":
-			return "(" + Fleur.Serializer.XQX_ops[node.localName] + Fleur.Serializer.XQX_renderChildren(node, ["operand"]) + ")";
-		case "addOp":
-		case "subtractOp":
-		case "multiplyOp":
-		case "divOp":
-		case "idivOp":
-		case "modOp":
-		case "stringConcatenateOp":
-		case "eqOp":
-		case "neOp":
-		case "ltOp":
-		case "gtOp":
-		case "leOp":
-		case "geOp":
-		case "equalOp":
-		case "notEqualOp":
-		case "lessThanOp":
-		case "greaterThanOp":
-		case "lessThanOrEqualOp":
-		case "greaterThanOrEqualOp":
-		case "isOp":
-		case "nodeBeforeOp":
-		case "nodeAfterOp":
-		case "andOp":
-		case "orOp":
-		case "unionOp":
-		case "intersectOp":
-		case "exceptOp":
-			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["firstOperand"]) + Fleur.Serializer.XQX_ops[node.localName] + Fleur.Serializer.XQX_renderChildren(node, ["secondOperand"]) + ")";
-		case "sequenceExpr":
-			return Fleur.Serializer.XQX_parenthesizedList(node, ",\n");
-		case "firstOperand":
-		case "secondOperand":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "rangeSequenceExpr":
-			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["startExpr"]) + " to " + Fleur.Serializer.XQX_renderChildren(node, ["endExpr"]) + ")";
-		case "forClause":
-			return " for " + Fleur.Serializer.XQX_commaSeparatedList(node) + "\n";
-		case "forClauseItem":
-		case "letClauseItem":
-			s = "";
-			l = node.children.length;
-			while (i < l) {
-				s += Fleur.Serializer._serializeXQXToString(node.children[i]);
-				i++;
-			}
-			return s;
-		case "allowingEmpty":
-			return " allowing empty ";
-		case "forExpr":
-			return "\n    in " + Fleur.Serializer.XQX_renderChildren(node);
-		case "letClause":
-			return " let " + Fleur.Serializer.XQX_commaSeparatedList(node) + "\n";
-		case "letExpr":
-			return " := " + Fleur.Serializer.XQX_renderChildren(node);
-		case "windowClause":
-			return " for " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
-		case "tumblingWindowClause":
-			return "   tumbling window " + Fleur.Serializer.XQX_renderChildren(node, ["typedVariableBinding"]) +
-				" in " + Fleur.Serializer.XQX_renderChildren(node, ["bindingSequence"]) + "\n" +
-				"      " + Fleur.Serializer.XQX_renderChildren(node, ["windowStartCondition"]) + "\n" +
-				"      " + Fleur.Serializer.XQX_renderChildren(node, ["windowEndCondition"]);
-		case "slidingWindowClause":
-			return "   sliding window " + Fleur.Serializer.XQX_renderChildren(node, ["typedVariableBinding"]) +
-				" in " + Fleur.Serializer.XQX_renderChildren(node, ["bindingSequence"]) + "\n" +
-				"      " + Fleur.Serializer.XQX_renderChildren(node, ["windowStartCondition"]) + "\n" +
-				"      " + Fleur.Serializer.XQX_renderChildren(node, ["windowEndCondition"]);
-		case "bindingSequence":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "windowStartCondition":
-			return "start " + Fleur.Serializer.XQX_renderChildren(node, ["windowVars"]) +
-				" when " + Fleur.Serializer.XQX_renderChildren(node, ["winStartExpr"]);
-		case "windowEndCondition":
-			return (node.getAttributeNS("http://www.w3.org/2005/XQueryX", "onlyEnd") === "true" ? "only end " : "end " ) +
-				Fleur.Serializer.XQX_renderChildren(node, ["windowVars"]) + " when " + Fleur.Serializer.XQX_renderChildren(node, ["winEndExpr"]);
-		case "windowVars":
-			return Fleur.Serializer.XQX_renderChildren(node, ["currentItem"]) + Fleur.Serializer.XQX_renderChildren(node, ["positionalVariableBinding"]) +
-				Fleur.Serializer.XQX_renderChildren(node, ["previousItem"]) + Fleur.Serializer.XQX_renderChildren(node, ["nextItem"]);
-		case "currentItem":
-			return "$" + Fleur.Serializer.XQX_renderEQName(node);
-		case "previousItem":
-			return " previous $" + Fleur.Serializer.XQX_renderEQName(node);
-		case "nextItem":
-			return " next $" + Fleur.Serializer.XQX_renderEQName(node);
-		case "countClause":
-			return " count " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
-		case "whereClause":
-			return " where " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
-		case "groupByClause":
-			return "  group by " + Fleur.Serializer.XQX_commaSeparatedList(node) + "\n";
-		case "groupingSpec":
-			return "$" + Fleur.Serializer.XQX_renderChildren(node);
-		case "groupVarInitialize":
-		case "collation":
-			return " collation " + Fleur.Serializer.XQX_quote(node.textContent);
-		case "emptyOrderingMode":
-		case "orderingKind":
-			return " " + node.textContent;
-		case "orderModifier":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "orderBySpec":
-			return Fleur.Serializer.XQX_renderChildren(node, ["orderByExpr"]) + " " + Fleur.Serializer.XQX_renderChildren(node, ["orderModifier"]);
- 		case "orderByClause":
-		case "returnClause":
-			return " return " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
-		case "flworExpr":
-			return "\n(" + Fleur.Serializer.XQX_renderChildren(node) + ")";
-		case "ifThenElseExpr":
-			return "( if (" + Fleur.Serializer.XQX_renderChildren(node, ["ifClause"]) + ") then " + Fleur.Serializer.XQX_renderChildren(node, ["thenClause"]) + " else " + Fleur.Serializer.XQX_renderChildren(node, ["elseClause"]) + ")";
-		case "positionalVariableBinding":
-			return " at $" + Fleur.Serializer.XQX_renderEQName(node);
-		case "variableBinding":
-			return "$" + Fleur.Serializer.XQX_renderEQName(node) + (node.parentNode.localName === "typeswitchExprCaseClause" && node.parentNode.namespaceURI === "http://www.w3.org/2005/XQueryX" ? " as " : "");
-		case "typedVariableBinding": 
-			return "$" + Fleur.Serializer.XQX_renderChildren(node, ["varName"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]);
-		case "quantifiedExprInClause":
-			return Fleur.Serializer.XQX_renderChildren(node, ["typedVariableBinding"]) + " in " + Fleur.Serializer.XQX_renderChildren(node, ["sourceExpr"]);
-		case "quantifiedExpr":
-		case "instanceOfExpr":
-			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " instance of " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ")";
-		case "castExpr":
-			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " cast as " + Fleur.Serializer.XQX_renderChildren(node, ["singleType"]) + ")";
-		case "castableExpr":
-			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " castable as " + Fleur.Serializer.XQX_renderChildren(node, ["singleType"]) + ")";
-		case "treatExpr":
-			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " treat as " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ")";
-		case "switchExprCaseClause":
-		case "switchExprDefaultClause":
-			return "\n   default return " + Fleur.Serializer.XQX_renderChildren(node, ["resultExpr"]);
-		case "switchExpr":
-			return "(switch(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + ")" +
-				Fleur.Serializer.XQX_renderChildren(node, ["switchExprCaseClause"]) + Fleur.Serializer.XQX_renderChildren(node, ["switchExprDefaultClause"]) + ")";
-		case "typeswitchExprCaseClause":
-			return " case " + Fleur.Serializer.XQX_renderChildren(node, ["variableBinding"]) +
-				Fleur.Serializer.XQX_renderChildren(node, ["sequenceType", "sequenceTypeUnion"]) + " return " +
-				Fleur.Serializer.XQX_renderChildren(node, ["resultExpr"]);
-		case "typeswitchExprDefaultClause":
-			return " default " + Fleur.Serializer.XQX_renderChildren(node, ["variableBinding"]) + " return " + Fleur.Serializer.XQX_renderChildren(node, ["resultExpr"]);
-		case "typeswitchExpr":
-			return "(typeswitch(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + ")" +
-				Fleur.Serializer.XQX_renderChildren(node, ["typeswitchExprCaseClause"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeswitchExprDefaultClause"]) +
-				")";
-		case "tryCatchExpr":
-			return "\n(try " + Fleur.Serializer.XQX_renderChildren(node, ["tryClause"]) + Fleur.Serializer.XQX_renderChildren(node, ["catchClause"]) + ")";
-		case "tryClause":
-			return "{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
-		case "catchClause":
-			return "\n  catch " + Fleur.Serializer.XQX_renderChildren(node, ["catchErrorList"]) + Fleur.Serializer.XQX_renderChildren(node, ["catchExpr"]);
-		case "catchErrorList":
-		case "catchExpr":
-			return "\n{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
-		case "validateExpr":
-		case "xpathAxis":
-			return node.textContent + "::";
-		case "predicates":
-			s = "";
-			l = node.children.length;
-			while (i < l) {
-				s += "[" + Fleur.Serializer._serializeXQXToString(node.children[i]) + "]";
-				i++;
-			}
-			return s;
-		case "predicate":
-			return "[" + Fleur.Serializer.XQX_renderChildren(node) + "]";
-		case "dynamicFunctionInvocationExpr":
-		case "functionItem":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "mapConstructor":
-		case "mapConstructorEntry":
-		case "arrayConstructor":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "squareArray":
-		case "curlyArray":
-			return " array { " + Fleur.Serializer.XQX_renderChildren(node) + " } ";
-		case "star":
-			return "*";
-		case "textTest":
-			return "text()";
-		case "commentTest":
-			return "comment()";
-		case "namespaceTest":
-			return "namespace-node()";
-		case "anyKindTest":
-			return "node()";
-		case "piTest":
-			return "processing-instruction(" + Fleur.Serializer.XQX_renderChildren(node) + ")";
-		case "documentTest":
-			return "document-node(" + Fleur.Serializer.XQX_renderChildren(node) + ")";
-		case "nameTest":
-			return Fleur.Serializer.XQX_renderEQName(node);
-		case "attributeTest":
-		case "elementTest":
-		case "schemaElementTest":
-			return "schema-element(" + Fleur.Serializer.XQX_renderEQName(node) + ")";
-		case "schemaAttributeTest":
-			return "schema-attribute(" + Fleur.Serializer.XQX_renderEQName(node) + ")";
-		case "anyFunctionTest":
-			return Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function(*)";
-		case "typedFunctionTest":
-			return Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function" + Fleur.Serializer.XQX_renderChildren(node, ["paramTypeList"]) +
-				" as " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]);
-		case "paramTypeList":
-			return Fleur.Serializer.XQX_parenthesizedList(node);
-		case "anyMapTest":
-			return " map(*)";
-		case "typedMapTest":
-			return " map(" + Fleur.Serializer.XQX_renderChildren(node, ["atomicType"]) + ", " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ") ";
-		case "lookup":
-			return " ?" + Fleur.Serializer.XQX_renderChildren(node);
-		case "arrowPostfix":
-		case "anyArrayTest":
-			return " array(*)";
-		case "typedArrayTest":
-			return " array(" + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ") ";
-		case "parenthesizedItemType":
-			return " ( " + Fleur.Serializer.XQX_renderChildren(node) + " ) ";
-		case "stepExpr":
-			s = "";
-			n = node.previousSibling;
-			while (n) {
-				if (n.localName === "stepExpr" && n.namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s = "/";
-					break;
-				}
-				n = n.previousSibling;
-			}
-			return s + Fleur.Serializer.XQX_renderChildren(node);
-		case "filterExpr":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "namedFunctionRef":
-			return Fleur.Serializer.XQX_renderChildren(node, ["functionName"]) + "#" + Fleur.Serializer.XQX_renderChildren(node, ["integerConstantExpr"]);
-		case "inlineFunctionExpr":
-			return Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function " + Fleur.Serializer.XQX_renderChildren(node, ["paramList"]) +
-				Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]) +	 Fleur.Serializer.XQX_renderChildren(node, ["functionBody"]);
-		case "pathExpr":
-			return Fleur.Serializer.XQX_renderChildren(node, ["rootExpr", "stepExpr"]);
-		case "attributeConstructor":
-		case "namespaceDeclaration":
-		case "attributeList":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "elementContent":
-			l = node.children.length;
-			s = "";
-			while (i < l) {
-				if (node.children[i].localName !== "elementConstructor" || node.children[i].namespaceURI !== "http://www.w3.org/2005/XQueryX") {
-					s += " {" + Fleur.Serializer._serializeXQXToString(node.children[i]) + " }";
-				} else {
-					s += Fleur.Serializer._serializeXQXToString(node.children[i]);
-				}
-				i++;
-			}
-			return s;
-		case "elementConstructor":
-			return "<" + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + Fleur.Serializer.XQX_renderChildren(node, ["xqx:attributeList"]) +
-				">" + Fleur.Serializer.XQX_renderChildren(node, ["elementContent"]) + "</" + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + ">";
-		case "tagNameExpr":
-			return "{" + Fleur.Serializer.XQX_renderChildren(node) + "}";
-		case "computedElementConstructor":
-			return " element " + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + Fleur.Serializer.XQX_renderChildren(node, ["tagNameExpr"]) +
-				" { " + Fleur.Serializer.XQX_renderChildren(node, ["contentExpr"]) + " }";
-		case "contentExpr":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "computedAttributeConstructor":
-			return " attribute " + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + Fleur.Serializer.XQX_renderChildren(node, ["tagNameExpr"]) +
-				" { " + Fleur.Serializer.XQX_renderChildren(node, ["valueExpr"]) + " }";
-		case "computedDocumentConstructor":
-			return " document {" + Fleur.Serializer.XQX_renderChildren(node) + " }";
-		case "computedTextConstructor":
-			return " text {" + Fleur.Serializer.XQX_renderChildren(node) + " }";
-		case "computedCommentConstructor":
-			return " comment {" + Fleur.Serializer.XQX_renderChildren(node) + " }";
-		case "computedNamespaceConstructor":
-		case "piTargetExpr":
-			return "{" + Fleur.Serializer.XQX_renderChildren(node) + "}";
-		case "piValueExpr":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "computedPIConstructor":
-		case "unorderedExpr":
-			return " unordered{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
-		case "orderedExpr":
-			return " ordered{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
-		case "versionDecl":
-		case "namespaceDecl":
- 			s = "declare namespace ";
-			l = node.children.length;
-			while (i < l) {
-				if (node.children[i].localName === "prefix" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s += node.children[i].textContent;
-					break;
-				}
-				i++;
-			}
-			s += "=";
-			i = 0;
-			while (i < l) {
-				if (node.children[i].localName === "uri" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					return s + Fleur.Serializer.XQX_quote(node.children[i].textContent);
-				}
-				i++;
-			}
-			return s;
-		case "defaultNamespaceDecl":
-			s = "declare default ";
-			l = node.children.length;
-			while (i < l) {
-				if (node.children[i].localName === "defaultNamespaceCategory" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s += node.children[i].textContent;
-					break;
-				}
-				i++;
-			}
-			s += " namespace ";
-			i = 0;
-			while (i < l) {
-				if (node.children[i].localName === "uri" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					return s + Fleur.Serializer.XQX_quote(node.children[i].textContent);
-				}
-				i++;
-			}
-			return s;
-		case "boundarySpaceDecl":
-			return "declare boundary-space " + node.textContent;
-		case "defaultCollationDecl":
-			return "declare default collation " + Fleur.Serializer.XQX_quote(node.textContent);
-		case "baseUriDecl":
-			return "declare base-uri " + Fleur.Serializer.XQX_quote(node.textContent);
-		case "constructionDecl":
-			return "declare construction " + node.textContent;
-		case "orderingModeDecl":
-			return "declare ordering " + node.textContent;
-		case "emptyOrderingDecl":
-			return "declare default order " + node.textContent;
-		case "copyNamespacesDecl":
-		case "optionDecl":
-			s = "declare option " + Fleur.Serializer.XQX_renderChildren(node, ["optionName"]) + " ";
-			l = node.children.length;
-			while (i < l) {
-				if (node.children[i].localName === "optionContents" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s += Fleur.Serializer.XQX_quote(node.children[i].textContent);
-					break;
-				}
-				i++;
-			}
-			return s;
-		case "decimalFormatDecl":
-		case "decimalFormatParam":
-			s = Fleur.Serializer.XQX_renderChildren(node, ["decimalFormatParamName"]) + " = ";
-			l = node.children.length;
-			while (i < l) {
-				if (node.children[i].localName === "decimalFormatParamValue" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s += Fleur.Serializer.XQX_quote(node.children[i].textContent);
-					break;
-				}
-				i++;
-			}
-			return s + " ";
-		case "voidSequenceType":
-			return "empty-sequence()";
-		case "occurrenceIndicator":
-			return node.textContent;
-		case "anyItemType":
-			return "item()";
-		case "sequenceType":
-			return Fleur.Serializer.XQX_renderChildren(node);
-		case "sequenceTypeUnion":
-		case "singleType":
-		case "typeDeclaration":
-		case "contextItemType":
-			return " as " + Fleur.Serializer.XQX_renderChildren(node);
-		case "contextItemDecl":
-		case "annotation":
-		case "varDecl":
-		case "targetLocation":
-		case "schemaImport":
-		case "moduleImport":
-		case "javascriptImport":
-		case "param":
-			return "$" + Fleur.Serializer.XQX_renderChildren(node, ["varName"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]);
-		case "paramList":
-			return Fleur.Serializer.XQX_parenthesizedList(node);
-		case "functionBody":
-			return "\n{\n" + Fleur.Serializer.XQX_renderChildren(node) + "\n}";
-		case "functionDecl":
-			s = "declare" + Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function " + Fleur.Serializer.XQX_renderChildren(node, ["functionName"]) + Fleur.Serializer.XQX_renderChildren(node, ["paramList"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]);
-			l = node.children.length;
-			while (i < l) {
-				if (node.children[i].localName === "externalDefinition" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					return s + " external ";
-				}
-				i++;
-			}
-			return s + Fleur.Serializer.XQX_renderChildren(node, ["functionBody"]);
-		case "queryBody":
-			return Fleur.Serializer.XQX_renderChildren(node) + "\n";
-		case "moduleDecl":
-			s = " module namespace ";
-			l = node.children.length;
-			while (i < l) {
-				if (node.children[i].localName === "prefix" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s += node.children[i].textContent;
-					break;
-				}
-				i++;
-			}
-			s += "=";
-			i = 0;
-			l = node.children.length;
-			while (i < l) {
-				if (node.children[i].localName === "uri" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
-					s += Fleur.Serializer.XQX_quote(node.children[i].textContent);
-					break;
-				}
-				i++;
-			}
-			return s + ";\n";
-		case "prolog":
-			s = "";
-			l = node.children.length;
-			while (i < l) {
-				s += Fleur.Serializer._serializeXQXToString(node.children[i]) + ";\n";
-				i++;
-			}
-			return s + ";\n";
-		case "libraryModule":
-			return Fleur.Serializer.XQX_renderChildren(node, ["moduleDecl"]) + Fleur.Serializer.XQX_renderChildren(node, ["prolog"]);
-		case "mainModule":
-			return Fleur.Serializer.XQX_renderChildren(node, ["prolog"]) + Fleur.Serializer.XQX_renderChildren(node, ["queryBody"]);
-		case "module":
-			return Fleur.Serializer.XQX_renderChildren(node);
-	}
+  var i = 0, l, s, n;
+  if (node.nodeType === Fleur.Node.DOCUMENT_NODE) {
+    return Fleur.Serializer._serializeXQXToString(node.documentElement);
+  }
+  if (node.namespaceURI !== "http://www.w3.org/2005/XQueryX") {
+    return;
+  }
+  switch(node.localName) {
+    case "attributeName":
+      return Fleur.Serializer.XQX_renderQName(node);
+    case "NCName":
+      return node.textContent;
+    case "rootExpr":
+      return "/";
+    case "argumentPlaceholder":
+      return "?";
+    case "contextItemExpr":
+      return ".";
+    case "stringConstantExpr":
+    case "stringLiteral":
+      l = node.children.length;
+      while (i < l) {
+        if (node.children[i].localName === "value" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          return Fleur.Serializer.XQX_quote(node.children[i].textContent);
+        }
+        i++;
+      }
+      return "";
+    case "integerConstantExpr":
+    case "integerLiteral":
+    case "decimalConstantExpr":
+    case "doubleConstantExpr":
+      l = node.children.length;
+      while (i < l) {
+        if (node.children[i].localName === "value" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          return node.children[i].textContent;
+        }
+        i++;
+      }
+      return "";
+    case "varRef":
+    case "variableRef":
+      return "$" + Fleur.Serializer.XQX_renderChildren(node, ["name"]);
+    case "pragma":
+      return "(# " + Fleur.Serializer.XQX_renderChildren(node, ["pragmaName"]) + " " + Fleur.Serializer.XQX_renderChildren(node, ["pragmaContents"]) + " #)";
+    case "extensionExpr":
+      return Fleur.Serializer.XQX_renderChildren(node, ["pragma"]) + "{" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + "}";
+    case "simpleMapExpr":
+      l = node.children.length;
+      s = "";
+      while (i < l) {
+        if (node.children[i].localName === "pathExpr" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s += (s === "" ? "( " : "\n! ( ") + Fleur.Serializer._serializeXQXToString(node.children[i]) + " )";
+        }
+        i++;
+      }
+      return s;
+    case "functionCallExpr":
+      l = node.children.length;
+      s = "";
+      while (i < l) {
+        if (node.children[i].localName === "arguments" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s += Fleur.Serializer.XQX_parenthesizedList(node.children[i]) ;
+        }
+        i++;
+      }
+      return Fleur.Serializer.XQX_renderChildren(node, ["functionName"]) + (s === "" ? "()" : s);
+    case "constructorFunctionExpr":
+      l = node.children.length;
+      s = "";
+      while (i < l) {
+        if (node.children[i].localName === "argExpr" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s += Fleur.Serializer.XQX_parenthesizedList(node.children[i]) ;
+        }
+        i++;
+      }
+      return Fleur.Serializer.XQX_renderChildren(node, ["typeName"]) + (s === "" ? "()" : s);
+    case "unaryMinusOp":
+    case "unaryPlusOp":
+      return "(" + Fleur.Serializer.XQX_ops[node.localName] + Fleur.Serializer.XQX_renderChildren(node, ["operand"]) + ")";
+    case "addOp":
+    case "subtractOp":
+    case "multiplyOp":
+    case "divOp":
+    case "idivOp":
+    case "modOp":
+    case "stringConcatenateOp":
+    case "eqOp":
+    case "neOp":
+    case "ltOp":
+    case "gtOp":
+    case "leOp":
+    case "geOp":
+    case "equalOp":
+    case "notEqualOp":
+    case "lessThanOp":
+    case "greaterThanOp":
+    case "lessThanOrEqualOp":
+    case "greaterThanOrEqualOp":
+    case "isOp":
+    case "nodeBeforeOp":
+    case "nodeAfterOp":
+    case "andOp":
+    case "orOp":
+    case "unionOp":
+    case "intersectOp":
+    case "exceptOp":
+      return "(" + Fleur.Serializer.XQX_renderChildren(node, ["firstOperand"]) + Fleur.Serializer.XQX_ops[node.localName] + Fleur.Serializer.XQX_renderChildren(node, ["secondOperand"]) + ")";
+    case "sequenceExpr":
+      return Fleur.Serializer.XQX_parenthesizedList(node, ",\n");
+    case "firstOperand":
+    case "secondOperand":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "rangeSequenceExpr":
+      return "(" + Fleur.Serializer.XQX_renderChildren(node, ["startExpr"]) + " to " + Fleur.Serializer.XQX_renderChildren(node, ["endExpr"]) + ")";
+    case "forClause":
+      return " for " + Fleur.Serializer.XQX_commaSeparatedList(node) + "\n";
+    case "forClauseItem":
+    case "letClauseItem":
+      s = "";
+      l = node.children.length;
+      while (i < l) {
+        s += Fleur.Serializer._serializeXQXToString(node.children[i]);
+        i++;
+      }
+      return s;
+    case "allowingEmpty":
+      return " allowing empty ";
+    case "forExpr":
+      return "\n    in " + Fleur.Serializer.XQX_renderChildren(node);
+    case "letClause":
+      return " let " + Fleur.Serializer.XQX_commaSeparatedList(node) + "\n";
+    case "letExpr":
+      return " := " + Fleur.Serializer.XQX_renderChildren(node);
+    case "windowClause":
+      return " for " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
+    case "tumblingWindowClause":
+      return "   tumbling window " + Fleur.Serializer.XQX_renderChildren(node, ["typedVariableBinding"]) +
+        " in " + Fleur.Serializer.XQX_renderChildren(node, ["bindingSequence"]) + "\n" +
+        "      " + Fleur.Serializer.XQX_renderChildren(node, ["windowStartCondition"]) + "\n" +
+        "      " + Fleur.Serializer.XQX_renderChildren(node, ["windowEndCondition"]);
+    case "slidingWindowClause":
+      return "   sliding window " + Fleur.Serializer.XQX_renderChildren(node, ["typedVariableBinding"]) +
+        " in " + Fleur.Serializer.XQX_renderChildren(node, ["bindingSequence"]) + "\n" +
+        "      " + Fleur.Serializer.XQX_renderChildren(node, ["windowStartCondition"]) + "\n" +
+        "      " + Fleur.Serializer.XQX_renderChildren(node, ["windowEndCondition"]);
+    case "bindingSequence":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "windowStartCondition":
+      return "start " + Fleur.Serializer.XQX_renderChildren(node, ["windowVars"]) +
+        " when " + Fleur.Serializer.XQX_renderChildren(node, ["winStartExpr"]);
+    case "windowEndCondition":
+      return (node.getAttributeNS("http://www.w3.org/2005/XQueryX", "onlyEnd") === "true" ? "only end " : "end " ) +
+        Fleur.Serializer.XQX_renderChildren(node, ["windowVars"]) + " when " + Fleur.Serializer.XQX_renderChildren(node, ["winEndExpr"]);
+    case "windowVars":
+      return Fleur.Serializer.XQX_renderChildren(node, ["currentItem"]) + Fleur.Serializer.XQX_renderChildren(node, ["positionalVariableBinding"]) +
+        Fleur.Serializer.XQX_renderChildren(node, ["previousItem"]) + Fleur.Serializer.XQX_renderChildren(node, ["nextItem"]);
+    case "currentItem":
+      return "$" + Fleur.Serializer.XQX_renderEQName(node);
+    case "previousItem":
+      return " previous $" + Fleur.Serializer.XQX_renderEQName(node);
+    case "nextItem":
+      return " next $" + Fleur.Serializer.XQX_renderEQName(node);
+    case "countClause":
+      return " count " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
+    case "whereClause":
+      return " where " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
+    case "groupByClause":
+      return "  group by " + Fleur.Serializer.XQX_commaSeparatedList(node) + "\n";
+    case "groupingSpec":
+      return "$" + Fleur.Serializer.XQX_renderChildren(node);
+    case "groupVarInitialize":
+    case "collation":
+      return " collation " + Fleur.Serializer.XQX_quote(node.textContent);
+    case "emptyOrderingMode":
+    case "orderingKind":
+      return " " + node.textContent;
+    case "orderModifier":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "orderBySpec":
+      return Fleur.Serializer.XQX_renderChildren(node, ["orderByExpr"]) + " " + Fleur.Serializer.XQX_renderChildren(node, ["orderModifier"]);
+     case "orderByClause":
+    case "returnClause":
+      return " return " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
+    case "flworExpr":
+      return "\n(" + Fleur.Serializer.XQX_renderChildren(node) + ")";
+    case "ifThenElseExpr":
+      return "( if (" + Fleur.Serializer.XQX_renderChildren(node, ["ifClause"]) + ") then " + Fleur.Serializer.XQX_renderChildren(node, ["thenClause"]) + " else " + Fleur.Serializer.XQX_renderChildren(node, ["elseClause"]) + ")";
+    case "positionalVariableBinding":
+      return " at $" + Fleur.Serializer.XQX_renderEQName(node);
+    case "variableBinding":
+      return "$" + Fleur.Serializer.XQX_renderEQName(node) + (node.parentNode.localName === "typeswitchExprCaseClause" && node.parentNode.namespaceURI === "http://www.w3.org/2005/XQueryX" ? " as " : "");
+    case "typedVariableBinding": 
+      return "$" + Fleur.Serializer.XQX_renderChildren(node, ["varName"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]);
+    case "quantifiedExprInClause":
+      return Fleur.Serializer.XQX_renderChildren(node, ["typedVariableBinding"]) + " in " + Fleur.Serializer.XQX_renderChildren(node, ["sourceExpr"]);
+    case "quantifiedExpr":
+    case "instanceOfExpr":
+      return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " instance of " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ")";
+    case "castExpr":
+      return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " cast as " + Fleur.Serializer.XQX_renderChildren(node, ["singleType"]) + ")";
+    case "castableExpr":
+      return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " castable as " + Fleur.Serializer.XQX_renderChildren(node, ["singleType"]) + ")";
+    case "treatExpr":
+      return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " treat as " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ")";
+    case "switchExprCaseClause":
+    case "switchExprDefaultClause":
+      return "\n   default return " + Fleur.Serializer.XQX_renderChildren(node, ["resultExpr"]);
+    case "switchExpr":
+      return "(switch(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + ")" +
+        Fleur.Serializer.XQX_renderChildren(node, ["switchExprCaseClause"]) + Fleur.Serializer.XQX_renderChildren(node, ["switchExprDefaultClause"]) + ")";
+    case "typeswitchExprCaseClause":
+      return " case " + Fleur.Serializer.XQX_renderChildren(node, ["variableBinding"]) +
+        Fleur.Serializer.XQX_renderChildren(node, ["sequenceType", "sequenceTypeUnion"]) + " return " +
+        Fleur.Serializer.XQX_renderChildren(node, ["resultExpr"]);
+    case "typeswitchExprDefaultClause":
+      return " default " + Fleur.Serializer.XQX_renderChildren(node, ["variableBinding"]) + " return " + Fleur.Serializer.XQX_renderChildren(node, ["resultExpr"]);
+    case "typeswitchExpr":
+      return "(typeswitch(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + ")" +
+        Fleur.Serializer.XQX_renderChildren(node, ["typeswitchExprCaseClause"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeswitchExprDefaultClause"]) +
+        ")";
+    case "tryCatchExpr":
+      return "\n(try " + Fleur.Serializer.XQX_renderChildren(node, ["tryClause"]) + Fleur.Serializer.XQX_renderChildren(node, ["catchClause"]) + ")";
+    case "tryClause":
+      return "{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
+    case "catchClause":
+      return "\n  catch " + Fleur.Serializer.XQX_renderChildren(node, ["catchErrorList"]) + Fleur.Serializer.XQX_renderChildren(node, ["catchExpr"]);
+    case "catchErrorList":
+    case "catchExpr":
+      return "\n{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
+    case "validateExpr":
+    case "xpathAxis":
+      return node.textContent + "::";
+    case "predicates":
+      s = "";
+      l = node.children.length;
+      while (i < l) {
+        s += "[" + Fleur.Serializer._serializeXQXToString(node.children[i]) + "]";
+        i++;
+      }
+      return s;
+    case "predicate":
+      return "[" + Fleur.Serializer.XQX_renderChildren(node) + "]";
+    case "dynamicFunctionInvocationExpr":
+    case "functionItem":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "mapConstructor":
+    case "mapConstructorEntry":
+    case "arrayConstructor":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "squareArray":
+    case "curlyArray":
+      return " array { " + Fleur.Serializer.XQX_renderChildren(node) + " } ";
+    case "star":
+      return "*";
+    case "textTest":
+      return "text()";
+    case "commentTest":
+      return "comment()";
+    case "namespaceTest":
+      return "namespace-node()";
+    case "anyKindTest":
+      return "node()";
+    case "piTest":
+      return "processing-instruction(" + Fleur.Serializer.XQX_renderChildren(node) + ")";
+    case "documentTest":
+      return "document-node(" + Fleur.Serializer.XQX_renderChildren(node) + ")";
+    case "nameTest":
+      return Fleur.Serializer.XQX_renderEQName(node);
+    case "attributeTest":
+    case "elementTest":
+    case "schemaElementTest":
+      return "schema-element(" + Fleur.Serializer.XQX_renderEQName(node) + ")";
+    case "schemaAttributeTest":
+      return "schema-attribute(" + Fleur.Serializer.XQX_renderEQName(node) + ")";
+    case "anyFunctionTest":
+      return Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function(*)";
+    case "typedFunctionTest":
+      return Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function" + Fleur.Serializer.XQX_renderChildren(node, ["paramTypeList"]) +
+        " as " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]);
+    case "paramTypeList":
+      return Fleur.Serializer.XQX_parenthesizedList(node);
+    case "anyMapTest":
+      return " map(*)";
+    case "typedMapTest":
+      return " map(" + Fleur.Serializer.XQX_renderChildren(node, ["atomicType"]) + ", " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ") ";
+    case "lookup":
+      return " ?" + Fleur.Serializer.XQX_renderChildren(node);
+    case "arrowPostfix":
+    case "anyArrayTest":
+      return " array(*)";
+    case "typedArrayTest":
+      return " array(" + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ") ";
+    case "parenthesizedItemType":
+      return " ( " + Fleur.Serializer.XQX_renderChildren(node) + " ) ";
+    case "stepExpr":
+      s = "";
+      n = node.previousSibling;
+      while (n) {
+        if (n.localName === "stepExpr" && n.namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s = "/";
+          break;
+        }
+        n = n.previousSibling;
+      }
+      return s + Fleur.Serializer.XQX_renderChildren(node);
+    case "filterExpr":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "namedFunctionRef":
+      return Fleur.Serializer.XQX_renderChildren(node, ["functionName"]) + "#" + Fleur.Serializer.XQX_renderChildren(node, ["integerConstantExpr"]);
+    case "inlineFunctionExpr":
+      return Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function " + Fleur.Serializer.XQX_renderChildren(node, ["paramList"]) +
+        Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]) +   Fleur.Serializer.XQX_renderChildren(node, ["functionBody"]);
+    case "pathExpr":
+      return Fleur.Serializer.XQX_renderChildren(node, ["rootExpr", "stepExpr"]);
+    case "attributeConstructor":
+    case "namespaceDeclaration":
+    case "attributeList":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "elementContent":
+      l = node.children.length;
+      s = "";
+      while (i < l) {
+        if (node.children[i].localName !== "elementConstructor" || node.children[i].namespaceURI !== "http://www.w3.org/2005/XQueryX") {
+          s += " {" + Fleur.Serializer._serializeXQXToString(node.children[i]) + " }";
+        } else {
+          s += Fleur.Serializer._serializeXQXToString(node.children[i]);
+        }
+        i++;
+      }
+      return s;
+    case "elementConstructor":
+      return "<" + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + Fleur.Serializer.XQX_renderChildren(node, ["xqx:attributeList"]) +
+        ">" + Fleur.Serializer.XQX_renderChildren(node, ["elementContent"]) + "</" + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + ">";
+    case "tagNameExpr":
+      return "{" + Fleur.Serializer.XQX_renderChildren(node) + "}";
+    case "computedElementConstructor":
+      return " element " + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + Fleur.Serializer.XQX_renderChildren(node, ["tagNameExpr"]) +
+        " { " + Fleur.Serializer.XQX_renderChildren(node, ["contentExpr"]) + " }";
+    case "contentExpr":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "computedAttributeConstructor":
+      return " attribute " + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + Fleur.Serializer.XQX_renderChildren(node, ["tagNameExpr"]) +
+        " { " + Fleur.Serializer.XQX_renderChildren(node, ["valueExpr"]) + " }";
+    case "computedDocumentConstructor":
+      return " document {" + Fleur.Serializer.XQX_renderChildren(node) + " }";
+    case "computedTextConstructor":
+      return " text {" + Fleur.Serializer.XQX_renderChildren(node) + " }";
+    case "computedCommentConstructor":
+      return " comment {" + Fleur.Serializer.XQX_renderChildren(node) + " }";
+    case "computedNamespaceConstructor":
+    case "piTargetExpr":
+      return "{" + Fleur.Serializer.XQX_renderChildren(node) + "}";
+    case "piValueExpr":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "computedPIConstructor":
+    case "unorderedExpr":
+      return " unordered{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
+    case "orderedExpr":
+      return " ordered{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
+    case "versionDecl":
+    case "namespaceDecl":
+       s = "declare namespace ";
+      l = node.children.length;
+      while (i < l) {
+        if (node.children[i].localName === "prefix" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s += node.children[i].textContent;
+          break;
+        }
+        i++;
+      }
+      s += "=";
+      i = 0;
+      while (i < l) {
+        if (node.children[i].localName === "uri" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          return s + Fleur.Serializer.XQX_quote(node.children[i].textContent);
+        }
+        i++;
+      }
+      return s;
+    case "defaultNamespaceDecl":
+      s = "declare default ";
+      l = node.children.length;
+      while (i < l) {
+        if (node.children[i].localName === "defaultNamespaceCategory" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s += node.children[i].textContent;
+          break;
+        }
+        i++;
+      }
+      s += " namespace ";
+      i = 0;
+      while (i < l) {
+        if (node.children[i].localName === "uri" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          return s + Fleur.Serializer.XQX_quote(node.children[i].textContent);
+        }
+        i++;
+      }
+      return s;
+    case "boundarySpaceDecl":
+      return "declare boundary-space " + node.textContent;
+    case "defaultCollationDecl":
+      return "declare default collation " + Fleur.Serializer.XQX_quote(node.textContent);
+    case "baseUriDecl":
+      return "declare base-uri " + Fleur.Serializer.XQX_quote(node.textContent);
+    case "constructionDecl":
+      return "declare construction " + node.textContent;
+    case "orderingModeDecl":
+      return "declare ordering " + node.textContent;
+    case "emptyOrderingDecl":
+      return "declare default order " + node.textContent;
+    case "copyNamespacesDecl":
+    case "optionDecl":
+      s = "declare option " + Fleur.Serializer.XQX_renderChildren(node, ["optionName"]) + " ";
+      l = node.children.length;
+      while (i < l) {
+        if (node.children[i].localName === "optionContents" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s += Fleur.Serializer.XQX_quote(node.children[i].textContent);
+          break;
+        }
+        i++;
+      }
+      return s;
+    case "decimalFormatDecl":
+    case "decimalFormatParam":
+      s = Fleur.Serializer.XQX_renderChildren(node, ["decimalFormatParamName"]) + " = ";
+      l = node.children.length;
+      while (i < l) {
+        if (node.children[i].localName === "decimalFormatParamValue" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s += Fleur.Serializer.XQX_quote(node.children[i].textContent);
+          break;
+        }
+        i++;
+      }
+      return s + " ";
+    case "voidSequenceType":
+      return "empty-sequence()";
+    case "occurrenceIndicator":
+      return node.textContent;
+    case "anyItemType":
+      return "item()";
+    case "sequenceType":
+      return Fleur.Serializer.XQX_renderChildren(node);
+    case "sequenceTypeUnion":
+    case "singleType":
+    case "typeDeclaration":
+    case "contextItemType":
+      return " as " + Fleur.Serializer.XQX_renderChildren(node);
+    case "contextItemDecl":
+    case "annotation":
+    case "varDecl":
+    case "targetLocation":
+    case "schemaImport":
+    case "moduleImport":
+    case "javascriptImport":
+    case "param":
+      return "$" + Fleur.Serializer.XQX_renderChildren(node, ["varName"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]);
+    case "paramList":
+      return Fleur.Serializer.XQX_parenthesizedList(node);
+    case "functionBody":
+      return "\n{\n" + Fleur.Serializer.XQX_renderChildren(node) + "\n}";
+    case "functionDecl":
+      s = "declare" + Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function " + Fleur.Serializer.XQX_renderChildren(node, ["functionName"]) + Fleur.Serializer.XQX_renderChildren(node, ["paramList"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]);
+      l = node.children.length;
+      while (i < l) {
+        if (node.children[i].localName === "externalDefinition" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          return s + " external ";
+        }
+        i++;
+      }
+      return s + Fleur.Serializer.XQX_renderChildren(node, ["functionBody"]);
+    case "queryBody":
+      return Fleur.Serializer.XQX_renderChildren(node) + "\n";
+    case "moduleDecl":
+      s = " module namespace ";
+      l = node.children.length;
+      while (i < l) {
+        if (node.children[i].localName === "prefix" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s += node.children[i].textContent;
+          break;
+        }
+        i++;
+      }
+      s += "=";
+      i = 0;
+      l = node.children.length;
+      while (i < l) {
+        if (node.children[i].localName === "uri" && node.children[i].namespaceURI === "http://www.w3.org/2005/XQueryX") {
+          s += Fleur.Serializer.XQX_quote(node.children[i].textContent);
+          break;
+        }
+        i++;
+      }
+      return s + ";\n";
+    case "prolog":
+      s = "";
+      l = node.children.length;
+      while (i < l) {
+        s += Fleur.Serializer._serializeXQXToString(node.children[i]) + ";\n";
+        i++;
+      }
+      return s + ";\n";
+    case "libraryModule":
+      return Fleur.Serializer.XQX_renderChildren(node, ["moduleDecl"]) + Fleur.Serializer.XQX_renderChildren(node, ["prolog"]);
+    case "mainModule":
+      return Fleur.Serializer.XQX_renderChildren(node, ["prolog"]) + Fleur.Serializer.XQX_renderChildren(node, ["queryBody"]);
+    case "module":
+      return Fleur.Serializer.XQX_renderChildren(node);
+  }
 };
 Fleur.Serializer.xhtml2html5 = function(s, jspath, csspath, fleurpath) {
-	var ii, ll, text, index, offset = 0, end = s.length,
-		nodename, attrs, parents = [], c,
-		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
-		n, newnamespaces = {}, pindex, prefix, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue, uri;
-	var r0 = "", r = "", rmodel = "", rsave = "", roptions = "";
-	var xformsinside = false;
-	var xmlser = false;
-	var lt = "<";
-	var gt = ">";
-	var amp = "&";
-	var xsltformscssfile = "<link type=\"text/css\" href=\"" + csspath + "\" rel=\"stylesheet\">";
-	var fleurjsfile = (fleurpath ? "<script type=\"text/javascript\" src=\"" + fleurpath + "\" data-uri=\"http://www.agencexml.com/fleur\"></script>" : "");
-	var xsltformsjsfile = "<script type=\"text/javascript\" src=\"" + jspath + "\" data-uri=\"http://www.agencexml.com/xsltforms\"></script>";
-	var emptyelts = ["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
-	var tableelts = ["table", "thead", "tbody", "tfoot"];
-	var tableeltpos;
-	var tablerepeat;
-	var xlinkattrs = ["actuate", "arcrole", "href", "role", "show", "title", "type"];
-	var xmlattrs = ["base", "lang", "space"];
-	var xmlnsattrs = ["xlink"];
-	var htmluri = "http://www.w3.org/1999/xhtml";
-	var mathmluri = "http://www.w3.org/1998/Math/MathML";
-	var svguri = "http://www.w3.org/2000/svg";
-	var xlinkuri = "http://www.w3.org/1999/xlink";
-	var xmluri = "http://www.w3.org/XML/1998/namespace";
-	var xmlnsuri = "http://www.w3.org/2000/xmlns/";
-	var xformsuri = "http://www.w3.org/2002/xforms";
-	var eventuri = "http://www.w3.org/2001/xml-events";
-	var xsuri = "http://www.w3.org/2001/XMLSchema";
-	var avt;
-	var nsi;
-	var namespaces = [
-		{ prefix: "xml", namespaceURI: xmluri, htmlimplicit: true, xmlimplicit: true },
-		{ prefix: "xmlns", namespaceURI: xmlnsuri, htmlimplicit: true, xmlimplicit: true },
-		{ prefix: "", namespaceURI: htmluri, htmlimplicit: true, xmlimplicit: false },
-		{ prefix: "xlink", namespaceURI: xlinkuri, htmlimplicit: false, xmlimplicit: false }
-	];
-	var nsLookupFirstpos = 0;
-	var nsLookupLastpos = 3;
-	var attr;
-	var nsattr;
-	let indentlevel = 0;
-	let okindent = true;
-	while (offset !== end) {
-		text = "";
-		c = s.charAt(offset);
-		while (c !== "<" && offset !== end) {
-			if (c === ">") {
-				text += gt;
-			} else if (c === "&") {
-				text += amp;
-			} else if (r !== "" || r0 !== "" || (c !== "\r" && c !== "\n" && c !== "\t" && c !== " ")) {
-				text += c;
-			}
-			c = s.charAt(++offset);
-		}
-		if (text.trim() !== "") {
-			r += text;
-		}
-		if (offset === end) {
-			break;
-		}
-		offset++;
-		if (s.charAt(offset) === "!") {
-			offset++;
-			if (s.substr(offset, 2) === "--") {
-				offset += 2;
-				index = s.indexOf("-->", offset);
-				if (index !== offset) {
-					if (index === -1) {
-						index = end;
-					}
-					text = "";
-					ii = offset;
-					while (ii < index) {
-						text += s.charAt(ii++);
-					}
-					text = text.replace(/\x01/gm, lt);
-					r += lt + "!--" + text + "--" + gt;
-					if (index === end) {
-						break;
-					}
-					offset = index;
-				}
-				offset += 3;
-			} else if (s.substr(offset, 7) === "[CDATA[") {
-				offset += 7;
-				index = s.indexOf("]]>", offset);
-				if (index !== offset) {
-					if (index === -1) {
-						index = end;
-					}
-					text = "";
-					ii = offset;
-					while (ii < index) {
-						text += s.charAt(ii++);
-					}
-					text = text.replace(/\x01/gm,"<");
-					r += lt + "[CDATA[" + text + "]]" + gt;
-					if (index === end) {
-						break;
-					}
-					offset = index;
-				}
-				offset += 3;
-			} else if (s.substr(offset, 7) === "DOCTYPE") {
-				offset += 7;
-				index = s.indexOf(">", offset);
-				while (seps.indexOf(c) !== -1) {
-					c = s.charAt(offset++);
-				}
-				nodename = "";
-				while (seps_dtd.indexOf(c) === -1) {
-					nodename += c;
-					c = s.charAt(offset++);
-				}
-				while (seps.indexOf(c) !== -1) {
-					c = s.charAt(offset++);
-				}
-				dtdtype = "";
-				while (seps_dtd.indexOf(c) === -1) {
-					dtdtype += c;
-					c = s.charAt(offset++);
-				}
-				if (dtdtype === "PUBLIC" || dtdtype === "SYSTEM") {
-					if (dtdtype === "PUBLIC") {
-						while (seps.indexOf(c) !== -1) {
-							c = s.charAt(offset++);
-						}
-						dtdpublicid = "";
-						ii = offset;
-						ll = Math.min(index - 1, s.indexOf(c, offset));
-						while (ii < ll) {
-							dtdpublicid += s.charAt(ii++);
-						}
-						offset += dtdpublicid.length + 1;
-						c = s.charAt(offset++);
-					}
-					while (seps.indexOf(c) !== -1) {
-						c = s.charAt(offset++);
-					}
-					dtdsystemid = "";
-					ii = offset;
-					ll = Math.min(index - 1, s.indexOf(c, offset));
-					while (ii < ll) {
-						dtdsystemid += s.charAt(ii++);
-					}
-					offset += dtdsystemid.length + 1;
-					c = s.charAt(offset++);
-					while (seps.indexOf(c) !== -1) {
-						c = s.charAt(offset++);
-					}
-				} else {
-					dtdpublicid = dtdsystemid = null;
-				}
-				if (c === "[") {
-					index = s.indexOf("]", offset);
-					c = s.charAt(offset++);
-					while (c !== "]" && offset < end) {
-						while (seps.indexOf(c) !== -1) {
-							c = s.charAt(offset++);
-						}
-						if (c === "]") {
-							break;
-						}
-						if (s.substr(offset, 7) === "!ENTITY") {
-							offset += 7;
-							c = s.charAt(offset++);
-							while (seps.indexOf(c) !== -1) {
-								c = s.charAt(offset++);
-							}
-							if (c === "%") {
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							}
-							nodename = "";
-							while (seps_dtd.indexOf(c) === -1) {
-								nodename += c;
-								c = s.charAt(offset++);
-							}
-							while (seps.indexOf(c) !== -1) {
-								c = s.charAt(offset++);
-							}
-							if (s.substr(offset - 1, 6) === "SYSTEM") {
-								offset += 5;
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							} else if (s.substr(offset -1, 6) === "PUBLIC") {
-								offset += 5;
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-								while (seps_dtd.indexOf(c) === -1) {
-									c = s.charAt(offset++);
-								}
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							}
-							entityvalue = "";
-							ii = offset;
-							ll = Math.min(index - 1, s.indexOf(c, offset));
-							while (ii < ll) {
-								entityvalue += s.charAt(ii++);
-							}
-							offset += entityvalue.length + 1;
-							c = s.charAt(offset++);
-						} else if (s.substr(offset, 9) === "!NOTATION") {
-							offset += 9;
-							c = s.charAt(offset++);
-							while (seps.indexOf(c) !== -1) {
-								c = s.charAt(offset++);
-							}
-							nodename = "";
-							while (seps_dtd.indexOf(c) === -1) {
-								nodename += c;
-								c = s.charAt(offset++);
-							}
-							while (seps.indexOf(c) !== -1) {
-								c = s.charAt(offset++);
-							}
-							if (s.substr(offset - 1, 6) === "SYSTEM") {
-								offset += 5;
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							} else if (s.substr(offset -1, 6) === "PUBLIC") {
-								offset += 5;
-								c = s.charAt(offset++);
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-								while (seps_dtd.indexOf(c) === -1) {
-									c = s.charAt(offset++);
-								}
-								while (seps.indexOf(c) !== -1) {
-									c = s.charAt(offset++);
-								}
-							}
-							if (c === '"' || c === "'") {
-								notationvalue = "";
-								ii = offset;
-								ll = Math.min(index - 1, s.indexOf(c, offset));
-								while (ii < ll) {
-									notationvalue += s.charAt(ii++);
-								}
-								offset += notationvalue.length + 1;
-								c = s.charAt(offset++);
-							}
-						}
-						offset = s.indexOf(">", offset - 1) + 1;
-						c = s.charAt(offset++);
-					}
-					index = s.indexOf(">", offset);
-				}
-				if (index !== offset) {
-					if (index === -1) {
-						index = end;
-					}
-					if (index === end) {
-						break;
-					}
-					offset = index;
-				}
-				offset++;
-			}
-		} else if (s.charAt(offset) === "?") {
-			offset++;
-			c = s.charAt(offset++);
-			nodename = "";
-			while (seps_pi.indexOf(c) === -1) {
-				nodename += c;
-				c = s.charAt(offset++);
-			}
-			index = s.indexOf("?>", offset - 1);
-			if (index === -1) {
-				index = end;
-			}
-			if (nodename === "xml") {
-				if (s.charCodeAt(index + 2) === 13) {
-					index++;
-				}
-				if (s.charCodeAt(index + 2) === 10) {
-					index++;
-				}
-			} else if (nodename !== "") {
-				text = "";
-				ii = offset;
-				while (ii < index) {
-					text += s.charAt(ii++);
-				}
-				text = text.replace(/\x01/gm,"<");
-				if (nodename === "xsltforms-options") {
-					roptions += " " + text;
-				} else if (nodename !== "xml-stylesheet") {
-					r += lt + "?" + nodename + " " + (index === offset - 1 ? "" : text) + "?" + gt;
-				}
-			}
-			if (index === end) {
-				break;
-			}
-			offset = index + 2;
-		} else if (s.charAt(offset) === "/") {
-			offset++;
-			c = s.charAt(offset++);
-			nodename = "";
-			while (seps_close.indexOf(c) === -1 && offset <= end) {
-				nodename += c;
-				c = s.charAt(offset++);
-			}
-			n = parents.pop();
-			nsLookupFirstpos = n.nsLookupFirstpos;
-			nsLookupLastpos = n.nsLookupLastpos;
-			if (nodename !== n.nodeName) {
-				return "Malformed XHTML";
-			}
-			if (n.localName === "instance" && n.namespaceURI === xformsuri) {
-				r += "</script>\n";
-				indentlevel--;
-				xmlser = false;
-				lt = "<";
-				gt = ">";
-				amp = "&";
-				nsLookupFirstpos = 0;
-			}
-			if (n.namespaceURI !== xformsuri || n.localName !== "repeat" || parents[parents.length - 1].namespaceURI !== htmluri ||!tableelts.includes(parents[parents.length - 1].localName)) {
-				indentlevel--;
-				r += (okindent ? "  ".repeat(Math.max(indentlevel,0)) : "") + lt + "/" + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName) + gt + "\n";
-				okindent = true;
-				if (xmlser && n.namespaceURI === xsuri && n.localName === "schema") {
-					r += "</script>\n";
-					xmlser = false;
-					lt = "<";
-					gt = ">";
-					amp = "&";
-					nsLookupFirstpos = 0;
-				}
-				if (n.localName === "model" && n.namespaceURI === xformsuri) {
-					rmodel = r;
-					r = rsave;
-				}
-			}
-			offset = s.indexOf(">", offset - 1) + 1;
-			if (offset === 0) {
-				break;
-			}
-		} else {
-			c = s.charAt(offset++);
-			n = {};
-			n.nsLookupFirstpos = nsLookupFirstpos;
-			n.nsLookupLastpos = nsLookupLastpos;
-			n.nodeName = "";
-			while (seps_elt.indexOf(c) === -1 && offset <= end) {
-				n.nodeName += c;
-				c = s.charAt(offset++);
-			}
-			index = s.indexOf(">", offset - 1);
-			if (n.nodeName !== "") {
-				attrs = [];
-				attr = {};
-				while (offset <= end) {
-					while (seps.indexOf(c) !== -1) {
-						c = s.charAt(offset++);
-					}
-					if (c === "/" || c === ">" || offset === end) {
-						break;
-					}
-					attr.nodeName = "";
-					while (seps_attr.indexOf(c) === -1 && offset <= end) {
-						attr.nodeName += c;
-						c = s.charAt(offset++);
-					}
-					while (seps.indexOf(c) !== -1 && offset <= end) {
-						c = s.charAt(offset++);
-					}
-					if (c === "=") {
-						c = s.charAt(offset++);
-						while (seps.indexOf(c) !== -1 && offset <= end) {
-							c = s.charAt(offset++);
-						}
-						attr.nodeValue = "";
-						if (c === "'" || c === "\"") {
-							attr.nodeValueDelim = c;
-							ll = s.indexOf(c, offset);
-							while (offset < ll) {
-								attr.nodeValue += s.charAt(offset++);
-							}
-							offset++;
-							c = s.charAt(offset++);
-						} else {
-							return "Malformed XHTML";
-						}
-					} else {
-						return "Malformed XHTML";
-					}
-					pindex = attr.nodeName.indexOf(":");
-					attr.prefix = pindex !== -1 ? attr.nodeName.substr(0, pindex) : "";
-					attr.localName = pindex !== -1 ? attr.nodeName.substr(pindex + 1) : attr.nodeName;
-					attrs.push(attr);
-					attr = {};
-				}
-				pindex = n.nodeName.indexOf(":");
-				n.prefix = pindex !== -1 ? n.nodeName.substr(0, pindex) : "";
-				n.localName = pindex !== -1 ? n.nodeName.substr(pindex + 1) : n.nodeName;
-				avt = false;
-				var nextFirstpos = nsLookupLastpos + 1;
-				for (var i = 0, l = attrs.length; i < l; i++) {
-					attr = attrs[i];
-					if (attr.nodeName === "xmlns") {
-						namespaces[++nsLookupLastpos] = {prefix: "", namespaceURI: attr.nodeValue, htmlimplicit: false, xmlimplicit: false};
-					} else if (attr.prefix === "xmlns") {
-						namespaces[++nsLookupLastpos] = {prefix: attr.localName, namespaceURI: attr.nodeValue, htmlimplicit: false, xmlimplicit: false};
-					}
-				}
-				nsi = nsLookupLastpos;
-				while (nsi >= 0 && n.prefix !== namespaces[nsi].prefix) {
-					nsi--;
-				}
-				if (nsi < 0) {
-					return "Malformed XHTML";
-				}
-				n.namespaceURI = namespaces[nsi].namespaceURI;
-				if (n.namespaceURI === xformsuri) {
-					xformsinside = true;
-				}
-				if (n.localName === "model" && n.namespaceURI === xformsuri) {
-					rsave = r;
-					r = rmodel;
-				}
-				tablerepeat = n.namespaceURI === xformsuri && n.localName === "repeat" && tableelts.includes(parents[parents.length - 1].localName);
-				if (tablerepeat) {
-					r = r.substr(0, tableeltpos);
-				} else {
-					if (!xmlser && n.namespaceURI === xsuri) {
-						r += "<script type=\"application/xml\">";
-						xmlser = true;
-						lt = "&lt;";
-						gt = "&gt;";
-						amp = "&amp;";
-						nsLookupFirstpos = nextFirstpos;
-					}
-					r += "  ".repeat(Math.max(indentlevel,0)) + lt + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName);
-				}
-				if (!namespaces[nsi][xmlser ? "xmlimplicit" : "htmlimplicit"] && nsi < nsLookupFirstpos) {
-					nsattr = {};
-					if (namespaces[nsi].prefix !== "") {
-						nsattr.localName = namespaces[nsi].prefix;
-						nsattr.prefix = "xmlns";
-						nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
-					} else {
-						nsattr.localName = "xmlns";
-						nsattr.prefix = "";
-						nsattr.nodeName = "xmlns";
-					}
-					nsattr.namespaceURI = xmlnsuri;
-					nsattr.nodeValueDelim = "\"";
-					nsattr.nodeValue = namespaces[nsi].namespaceURI;
-					attrs.push(nsattr);
-				}
-				for (let i = 0, l = attrs.length; i < l; i++) {
-					attr = attrs[i];
-					if (attr.prefix !== "") {
-						nsi = nsLookupLastpos;
-						while (nsi >= 0 && attr.prefix !== namespaces[nsi].prefix) {
-							nsi--;
-						}
-						if (nsi < 0) {
-							return "Malformed XHTML";
-						}
-						attrs[i].namespaceURI = namespaces[nsi].namespaceURI;
-						if (!namespaces[nsi][xmlser ? "xmlimplicit" : "htmlimplicit"] && nsi < nsLookupFirstpos) {
-							nsattr = {};
-							if (namespaces[nsi].prefix !== "") {
-								nsattr.localName = namespaces[nsi].prefix;
-								nsattr.prefix = "xmlns";
-								nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
-							} else {
-								nsattr.localName = "xmlns";
-								nsattr.prefix = "";
-								nsattr.nodeName = "xmlns";
-							}
-							nsattr.namespaceURI = xmlnsuri;
-							nsattr.nodeValueDelim = "\"";
-							nsattr.nodeValue = namespaces[nsi].namespaceURI;
-							attrs.push(nsattr);
-						}
-					}
-				}
-				for (let i = 0, l = attrs.length; i < l; i++) {
-					attr = attrs[i];
-					if (xmlser || attr.localName !== "xmlns") {
-						if (xmlser) {
-							r += " " + (attr.prefix !== "" ? attr.prefix + ":" : "") + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
-						} else if (n.localName === "html" && n.namespaceURI === htmluri && attr.prefix === "xmlns") {
-							r += " xmlns-" + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
-						} else if (attr.namespaceURI === xmlnsuri) {
-							if (xmlnsattrs.includes(attr.localName) && attr.nodeValue === xlinkuri) {
-								r += " xmlns:link=\"" + xlinkuri + "\"";
-							}
-						} else {
-							if (attr.nodeValue.indexOf("{") !== -1) {
-								if (!avt) {
-									r += " xf-avt";
-									avt = true;
-								}
-								r += " xf-template-" + (attr.namespaceURI === eventuri ? "ev-" : n.namespaceURI === xformsuri && attr.localName !== "id" && attr.localName !== "style" && attr.localName !== "class" ? "xf-" + (tablerepeat ? "repeat-" : "") : "") + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
-							} else {
-								r += " " + (attr.namespaceURI === eventuri ? "ev-" : n.namespaceURI === xformsuri && attr.localName !== "id" && attr.localName !== "style" && attr.localName !== "class" ? (tablerepeat ? "data-xf-repeat-" : "xf-") : "") + (n.namespaceURI === xformsuri && attr.localName === "nodeset" ? "ref" : attr.localName) + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
-							}
-						}
-					}
-				}
-				if (s.charAt(offset - 1) !== "/") {
-					if (tableelts.includes(n.localName) && n.namespaceURI === htmluri) {
-						tableeltpos = r.length;
-					}
-					okindent = s.substr(offset).trim().startsWith("<");
-					r += gt + (okindent ? "\n" : "");
-					indentlevel++;
-					if (n.localName === "html" && n.namespaceURI === htmluri) {
-						r += "  ".repeat(Math.max(indentlevel,0)) + "<!--HTML elements generated by XSLTForms 1.6 (655) - Copyright (C) 2021 <agenceXML> - Alain Couthures - http://www.agencexml.com-->\n";
-					} else if (n.localName === "head" && n.namespaceURI === htmluri) {
-						r0 = r + "  ".repeat(Math.max(indentlevel,0)) + "<meta charset=\"UTF-8\">\n" + "  ".repeat(Math.max(indentlevel,0)) + xsltformscssfile + "\n" + "  ".repeat(Math.max(indentlevel,0)) + fleurjsfile + "\n" + "  ".repeat(Math.max(indentlevel,0)) + xsltformsjsfile + "\n";
-						r = "";
-					} else if (n.localName === "body" && n.namespaceURI === htmluri) {
-						if (roptions !== "") {
-							r += "  ".repeat(Math.max(indentlevel,0)) + "<xforms-options" + roptions + "/>";
-						}
-						r += rmodel;
-					} else if (n.localName === "instance" && n.namespaceURI === xformsuri) {
-						var mediatype = "application/xml";
-						for (var i = 0, l = attrs.length; i < l; i++) {
-							attr = attrs[i];
-							if (attr.nodeName === "mediatype") {
-								mediatype = attr.nodeValue;
-								break;
-							}
-						}
-						r += "  ".repeat(Math.max(indentlevel,0)) + lt + "script type=\"" + mediatype + "\"" + gt;
-						xmlser = true;
-						lt = "&lt;";
-						gt = "&gt;";
-						amp = "&amp;";
-						nsLookupFirstpos = nsLookupLastpos + 1;
-					}
-					parents.push(n);
-					for (prefix in newnamespaces) {
-						if (newnamespaces.hasOwnProperty(prefix)) {
-							namespaces[prefix] = newnamespaces[prefix];
-						}
-					}
-				} else if (!xmlser && emptyelts.includes(n.localName)) {
-					r += gt + "\n";
-				} else {
-					if (!xmlser && n.localName === "head" && n.namespaceURI === htmluri) {
-						r0 = r + gt + "\n";
-						indentlevel--;
-						r = "  ".repeat(Math.max(indentlevel,0)) + lt + "/head" + gt;
-					}
-					if (xmlser) {
-						r += "/" + gt + "\n";
-					} else {
-						r += gt + lt + "/" + (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName + gt + "\n";
-					}
-				}
-			}
-			offset = index + 1;
-			if (offset === 0) {
-				break;
-			}
-		}
-	}
-	return "<!DOCTYPE html>\r\n" + Fleur.bin2utf8(r0) + Fleur.bin2utf8(r);
+  var ii, ll, text, index, offset = 0, end = s.length,
+    nodename, attrs, parents = [], c,
+    seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
+    n, newnamespaces = {}, pindex, prefix, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue, uri;
+  var r0 = "", r = "", rmodel = "", rsave = "", roptions = "";
+  var xformsinside = false;
+  var xmlser = false;
+  var lt = "<";
+  var gt = ">";
+  var amp = "&";
+  var xsltformscssfile = "<link type=\"text/css\" href=\"" + csspath + "\" rel=\"stylesheet\">";
+  var fleurjsfile = (fleurpath ? "<script type=\"text/javascript\" src=\"" + fleurpath + "\" data-uri=\"http://www.agencexml.com/fleur\"></script>" : "");
+  var xsltformsjsfile = "<script type=\"text/javascript\" src=\"" + jspath + "\" data-uri=\"http://www.agencexml.com/xsltforms\"></script>";
+  var emptyelts = ["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
+  var tableelts = ["table", "thead", "tbody", "tfoot"];
+  var tableeltpos;
+  var tablerepeat;
+  var xlinkattrs = ["actuate", "arcrole", "href", "role", "show", "title", "type"];
+  var xmlattrs = ["base", "lang", "space"];
+  var xmlnsattrs = ["xlink"];
+  var htmluri = "http://www.w3.org/1999/xhtml";
+  var mathmluri = "http://www.w3.org/1998/Math/MathML";
+  var svguri = "http://www.w3.org/2000/svg";
+  var xlinkuri = "http://www.w3.org/1999/xlink";
+  var xmluri = "http://www.w3.org/XML/1998/namespace";
+  var xmlnsuri = "http://www.w3.org/2000/xmlns/";
+  var xformsuri = "http://www.w3.org/2002/xforms";
+  var eventuri = "http://www.w3.org/2001/xml-events";
+  var xsuri = "http://www.w3.org/2001/XMLSchema";
+  var avt;
+  var nsi;
+  var namespaces = [
+    { prefix: "xml", namespaceURI: xmluri, htmlimplicit: true, xmlimplicit: true },
+    { prefix: "xmlns", namespaceURI: xmlnsuri, htmlimplicit: true, xmlimplicit: true },
+    { prefix: "", namespaceURI: htmluri, htmlimplicit: true, xmlimplicit: false },
+    { prefix: "xlink", namespaceURI: xlinkuri, htmlimplicit: false, xmlimplicit: false }
+  ];
+  var nsLookupFirstpos = 0;
+  var nsLookupLastpos = 3;
+  var attr;
+  var nsattr;
+  let indentlevel = 0;
+  let okindent = true;
+  while (offset !== end) {
+    text = "";
+    c = s.charAt(offset);
+    while (c !== "<" && offset !== end) {
+      if (c === ">") {
+        text += gt;
+      } else if (c === "&") {
+        text += amp;
+      } else if (r !== "" || r0 !== "" || (c !== "\r" && c !== "\n" && c !== "\t" && c !== " ")) {
+        text += c;
+      }
+      c = s.charAt(++offset);
+    }
+    if (text.trim() !== "") {
+      r += text;
+    }
+    if (offset === end) {
+      break;
+    }
+    offset++;
+    if (s.charAt(offset) === "!") {
+      offset++;
+      if (s.substr(offset, 2) === "--") {
+        offset += 2;
+        index = s.indexOf("-->", offset);
+        if (index !== offset) {
+          if (index === -1) {
+            index = end;
+          }
+          text = "";
+          ii = offset;
+          while (ii < index) {
+            text += s.charAt(ii++);
+          }
+          text = text.replace(/\x01/gm, lt);
+          r += lt + "!--" + text + "--" + gt;
+          if (index === end) {
+            break;
+          }
+          offset = index;
+        }
+        offset += 3;
+      } else if (s.substr(offset, 7) === "[CDATA[") {
+        offset += 7;
+        index = s.indexOf("]]>", offset);
+        if (index !== offset) {
+          if (index === -1) {
+            index = end;
+          }
+          text = "";
+          ii = offset;
+          while (ii < index) {
+            text += s.charAt(ii++);
+          }
+          text = text.replace(/\x01/gm,"<");
+          r += lt + "[CDATA[" + text + "]]" + gt;
+          if (index === end) {
+            break;
+          }
+          offset = index;
+        }
+        offset += 3;
+      } else if (s.substr(offset, 7) === "DOCTYPE") {
+        offset += 7;
+        index = s.indexOf(">", offset);
+        while (seps.indexOf(c) !== -1) {
+          c = s.charAt(offset++);
+        }
+        nodename = "";
+        while (seps_dtd.indexOf(c) === -1) {
+          nodename += c;
+          c = s.charAt(offset++);
+        }
+        while (seps.indexOf(c) !== -1) {
+          c = s.charAt(offset++);
+        }
+        dtdtype = "";
+        while (seps_dtd.indexOf(c) === -1) {
+          dtdtype += c;
+          c = s.charAt(offset++);
+        }
+        if (dtdtype === "PUBLIC" || dtdtype === "SYSTEM") {
+          if (dtdtype === "PUBLIC") {
+            while (seps.indexOf(c) !== -1) {
+              c = s.charAt(offset++);
+            }
+            dtdpublicid = "";
+            ii = offset;
+            ll = Math.min(index - 1, s.indexOf(c, offset));
+            while (ii < ll) {
+              dtdpublicid += s.charAt(ii++);
+            }
+            offset += dtdpublicid.length + 1;
+            c = s.charAt(offset++);
+          }
+          while (seps.indexOf(c) !== -1) {
+            c = s.charAt(offset++);
+          }
+          dtdsystemid = "";
+          ii = offset;
+          ll = Math.min(index - 1, s.indexOf(c, offset));
+          while (ii < ll) {
+            dtdsystemid += s.charAt(ii++);
+          }
+          offset += dtdsystemid.length + 1;
+          c = s.charAt(offset++);
+          while (seps.indexOf(c) !== -1) {
+            c = s.charAt(offset++);
+          }
+        } else {
+          dtdpublicid = dtdsystemid = null;
+        }
+        if (c === "[") {
+          index = s.indexOf("]", offset);
+          c = s.charAt(offset++);
+          while (c !== "]" && offset < end) {
+            while (seps.indexOf(c) !== -1) {
+              c = s.charAt(offset++);
+            }
+            if (c === "]") {
+              break;
+            }
+            if (s.substr(offset, 7) === "!ENTITY") {
+              offset += 7;
+              c = s.charAt(offset++);
+              while (seps.indexOf(c) !== -1) {
+                c = s.charAt(offset++);
+              }
+              if (c === "%") {
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              }
+              nodename = "";
+              while (seps_dtd.indexOf(c) === -1) {
+                nodename += c;
+                c = s.charAt(offset++);
+              }
+              while (seps.indexOf(c) !== -1) {
+                c = s.charAt(offset++);
+              }
+              if (s.substr(offset - 1, 6) === "SYSTEM") {
+                offset += 5;
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              } else if (s.substr(offset -1, 6) === "PUBLIC") {
+                offset += 5;
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+                while (seps_dtd.indexOf(c) === -1) {
+                  c = s.charAt(offset++);
+                }
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              }
+              entityvalue = "";
+              ii = offset;
+              ll = Math.min(index - 1, s.indexOf(c, offset));
+              while (ii < ll) {
+                entityvalue += s.charAt(ii++);
+              }
+              offset += entityvalue.length + 1;
+              c = s.charAt(offset++);
+            } else if (s.substr(offset, 9) === "!NOTATION") {
+              offset += 9;
+              c = s.charAt(offset++);
+              while (seps.indexOf(c) !== -1) {
+                c = s.charAt(offset++);
+              }
+              nodename = "";
+              while (seps_dtd.indexOf(c) === -1) {
+                nodename += c;
+                c = s.charAt(offset++);
+              }
+              while (seps.indexOf(c) !== -1) {
+                c = s.charAt(offset++);
+              }
+              if (s.substr(offset - 1, 6) === "SYSTEM") {
+                offset += 5;
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              } else if (s.substr(offset -1, 6) === "PUBLIC") {
+                offset += 5;
+                c = s.charAt(offset++);
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+                while (seps_dtd.indexOf(c) === -1) {
+                  c = s.charAt(offset++);
+                }
+                while (seps.indexOf(c) !== -1) {
+                  c = s.charAt(offset++);
+                }
+              }
+              if (c === '"' || c === "'") {
+                notationvalue = "";
+                ii = offset;
+                ll = Math.min(index - 1, s.indexOf(c, offset));
+                while (ii < ll) {
+                  notationvalue += s.charAt(ii++);
+                }
+                offset += notationvalue.length + 1;
+                c = s.charAt(offset++);
+              }
+            }
+            offset = s.indexOf(">", offset - 1) + 1;
+            c = s.charAt(offset++);
+          }
+          index = s.indexOf(">", offset);
+        }
+        if (index !== offset) {
+          if (index === -1) {
+            index = end;
+          }
+          if (index === end) {
+            break;
+          }
+          offset = index;
+        }
+        offset++;
+      }
+    } else if (s.charAt(offset) === "?") {
+      offset++;
+      c = s.charAt(offset++);
+      nodename = "";
+      while (seps_pi.indexOf(c) === -1) {
+        nodename += c;
+        c = s.charAt(offset++);
+      }
+      index = s.indexOf("?>", offset - 1);
+      if (index === -1) {
+        index = end;
+      }
+      if (nodename === "xml") {
+        if (s.charCodeAt(index + 2) === 13) {
+          index++;
+        }
+        if (s.charCodeAt(index + 2) === 10) {
+          index++;
+        }
+      } else if (nodename !== "") {
+        text = "";
+        ii = offset;
+        while (ii < index) {
+          text += s.charAt(ii++);
+        }
+        text = text.replace(/\x01/gm,"<");
+        if (nodename === "xsltforms-options") {
+          roptions += " " + text;
+        } else if (nodename !== "xml-stylesheet") {
+          r += lt + "?" + nodename + " " + (index === offset - 1 ? "" : text) + "?" + gt;
+        }
+      }
+      if (index === end) {
+        break;
+      }
+      offset = index + 2;
+    } else if (s.charAt(offset) === "/") {
+      offset++;
+      c = s.charAt(offset++);
+      nodename = "";
+      while (seps_close.indexOf(c) === -1 && offset <= end) {
+        nodename += c;
+        c = s.charAt(offset++);
+      }
+      n = parents.pop();
+      nsLookupFirstpos = n.nsLookupFirstpos;
+      nsLookupLastpos = n.nsLookupLastpos;
+      if (nodename !== n.nodeName) {
+        return "Malformed XHTML";
+      }
+      if (n.localName === "instance" && n.namespaceURI === xformsuri) {
+        r += "</script>\n";
+        indentlevel--;
+        xmlser = false;
+        lt = "<";
+        gt = ">";
+        amp = "&";
+        nsLookupFirstpos = 0;
+      }
+      if (n.namespaceURI !== xformsuri || n.localName !== "repeat" || parents[parents.length - 1].namespaceURI !== htmluri ||!tableelts.includes(parents[parents.length - 1].localName)) {
+        indentlevel--;
+        r += (okindent ? "  ".repeat(Math.max(indentlevel,0)) : "") + lt + "/" + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName) + gt + "\n";
+        okindent = true;
+        if (xmlser && n.namespaceURI === xsuri && n.localName === "schema") {
+          r += "</script>\n";
+          xmlser = false;
+          lt = "<";
+          gt = ">";
+          amp = "&";
+          nsLookupFirstpos = 0;
+        }
+        if (n.localName === "model" && n.namespaceURI === xformsuri) {
+          rmodel = r;
+          r = rsave;
+        }
+      }
+      offset = s.indexOf(">", offset - 1) + 1;
+      if (offset === 0) {
+        break;
+      }
+    } else {
+      c = s.charAt(offset++);
+      n = {};
+      n.nsLookupFirstpos = nsLookupFirstpos;
+      n.nsLookupLastpos = nsLookupLastpos;
+      n.nodeName = "";
+      while (seps_elt.indexOf(c) === -1 && offset <= end) {
+        n.nodeName += c;
+        c = s.charAt(offset++);
+      }
+      index = s.indexOf(">", offset - 1);
+      if (n.nodeName !== "") {
+        attrs = [];
+        attr = {};
+        while (offset <= end) {
+          while (seps.indexOf(c) !== -1) {
+            c = s.charAt(offset++);
+          }
+          if (c === "/" || c === ">" || offset === end) {
+            break;
+          }
+          attr.nodeName = "";
+          while (seps_attr.indexOf(c) === -1 && offset <= end) {
+            attr.nodeName += c;
+            c = s.charAt(offset++);
+          }
+          while (seps.indexOf(c) !== -1 && offset <= end) {
+            c = s.charAt(offset++);
+          }
+          if (c === "=") {
+            c = s.charAt(offset++);
+            while (seps.indexOf(c) !== -1 && offset <= end) {
+              c = s.charAt(offset++);
+            }
+            attr.nodeValue = "";
+            if (c === "'" || c === "\"") {
+              attr.nodeValueDelim = c;
+              ll = s.indexOf(c, offset);
+              while (offset < ll) {
+                attr.nodeValue += s.charAt(offset++);
+              }
+              offset++;
+              c = s.charAt(offset++);
+            } else {
+              return "Malformed XHTML";
+            }
+          } else {
+            return "Malformed XHTML";
+          }
+          pindex = attr.nodeName.indexOf(":");
+          attr.prefix = pindex !== -1 ? attr.nodeName.substr(0, pindex) : "";
+          attr.localName = pindex !== -1 ? attr.nodeName.substr(pindex + 1) : attr.nodeName;
+          attrs.push(attr);
+          attr = {};
+        }
+        pindex = n.nodeName.indexOf(":");
+        n.prefix = pindex !== -1 ? n.nodeName.substr(0, pindex) : "";
+        n.localName = pindex !== -1 ? n.nodeName.substr(pindex + 1) : n.nodeName;
+        avt = false;
+        var nextFirstpos = nsLookupLastpos + 1;
+        for (var i = 0, l = attrs.length; i < l; i++) {
+          attr = attrs[i];
+          if (attr.nodeName === "xmlns") {
+            namespaces[++nsLookupLastpos] = {prefix: "", namespaceURI: attr.nodeValue, htmlimplicit: false, xmlimplicit: false};
+          } else if (attr.prefix === "xmlns") {
+            namespaces[++nsLookupLastpos] = {prefix: attr.localName, namespaceURI: attr.nodeValue, htmlimplicit: false, xmlimplicit: false};
+          }
+        }
+        nsi = nsLookupLastpos;
+        while (nsi >= 0 && n.prefix !== namespaces[nsi].prefix) {
+          nsi--;
+        }
+        if (nsi < 0) {
+          return "Malformed XHTML";
+        }
+        n.namespaceURI = namespaces[nsi].namespaceURI;
+        if (n.namespaceURI === xformsuri) {
+          xformsinside = true;
+        }
+        if (n.localName === "model" && n.namespaceURI === xformsuri) {
+          rsave = r;
+          r = rmodel;
+        }
+        tablerepeat = n.namespaceURI === xformsuri && n.localName === "repeat" && tableelts.includes(parents[parents.length - 1].localName);
+        if (tablerepeat) {
+          r = r.substr(0, tableeltpos);
+        } else {
+          if (!xmlser && n.namespaceURI === xsuri) {
+            r += "<script type=\"application/xml\">";
+            xmlser = true;
+            lt = "&lt;";
+            gt = "&gt;";
+            amp = "&amp;";
+            nsLookupFirstpos = nextFirstpos;
+          }
+          r += "  ".repeat(Math.max(indentlevel,0)) + lt + (xmlser ? n.nodeName : (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName);
+        }
+        if (!namespaces[nsi][xmlser ? "xmlimplicit" : "htmlimplicit"] && nsi < nsLookupFirstpos) {
+          nsattr = {};
+          if (namespaces[nsi].prefix !== "") {
+            nsattr.localName = namespaces[nsi].prefix;
+            nsattr.prefix = "xmlns";
+            nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
+          } else {
+            nsattr.localName = "xmlns";
+            nsattr.prefix = "";
+            nsattr.nodeName = "xmlns";
+          }
+          nsattr.namespaceURI = xmlnsuri;
+          nsattr.nodeValueDelim = "\"";
+          nsattr.nodeValue = namespaces[nsi].namespaceURI;
+          attrs.push(nsattr);
+        }
+        for (let i = 0, l = attrs.length; i < l; i++) {
+          attr = attrs[i];
+          if (attr.prefix !== "") {
+            nsi = nsLookupLastpos;
+            while (nsi >= 0 && attr.prefix !== namespaces[nsi].prefix) {
+              nsi--;
+            }
+            if (nsi < 0) {
+              return "Malformed XHTML";
+            }
+            attrs[i].namespaceURI = namespaces[nsi].namespaceURI;
+            if (!namespaces[nsi][xmlser ? "xmlimplicit" : "htmlimplicit"] && nsi < nsLookupFirstpos) {
+              nsattr = {};
+              if (namespaces[nsi].prefix !== "") {
+                nsattr.localName = namespaces[nsi].prefix;
+                nsattr.prefix = "xmlns";
+                nsattr.nodeName = nsattr.prefix + ":" + nsattr.localName;
+              } else {
+                nsattr.localName = "xmlns";
+                nsattr.prefix = "";
+                nsattr.nodeName = "xmlns";
+              }
+              nsattr.namespaceURI = xmlnsuri;
+              nsattr.nodeValueDelim = "\"";
+              nsattr.nodeValue = namespaces[nsi].namespaceURI;
+              attrs.push(nsattr);
+            }
+          }
+        }
+        for (let i = 0, l = attrs.length; i < l; i++) {
+          attr = attrs[i];
+          if (xmlser || attr.localName !== "xmlns") {
+            if (xmlser) {
+              r += " " + (attr.prefix !== "" ? attr.prefix + ":" : "") + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
+            } else if (n.localName === "html" && n.namespaceURI === htmluri && attr.prefix === "xmlns") {
+              r += " xmlns-" + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
+            } else if (attr.namespaceURI === xmlnsuri) {
+              if (xmlnsattrs.includes(attr.localName) && attr.nodeValue === xlinkuri) {
+                r += " xmlns:link=\"" + xlinkuri + "\"";
+              }
+            } else {
+              if (attr.nodeValue.indexOf("{") !== -1) {
+                if (!avt) {
+                  r += " xf-avt";
+                  avt = true;
+                }
+                r += " xf-template-" + (attr.namespaceURI === eventuri ? "ev-" : n.namespaceURI === xformsuri && attr.localName !== "id" && attr.localName !== "style" && attr.localName !== "class" ? "xf-" + (tablerepeat ? "repeat-" : "") : "") + attr.localName + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
+              } else {
+                r += " " + (attr.namespaceURI === eventuri ? "ev-" : n.namespaceURI === xformsuri && attr.localName !== "id" && attr.localName !== "style" && attr.localName !== "class" ? (tablerepeat ? "data-xf-repeat-" : "xf-") : "") + (n.namespaceURI === xformsuri && attr.localName === "nodeset" ? "ref" : attr.localName) + "=" + attr.nodeValueDelim + attr.nodeValue + attr.nodeValueDelim;
+              }
+            }
+          }
+        }
+        if (s.charAt(offset - 1) !== "/") {
+          if (tableelts.includes(n.localName) && n.namespaceURI === htmluri) {
+            tableeltpos = r.length;
+          }
+          okindent = s.substr(offset).trim().startsWith("<");
+          r += gt + (okindent ? "\n" : "");
+          indentlevel++;
+          if (n.localName === "html" && n.namespaceURI === htmluri) {
+            r += "  ".repeat(Math.max(indentlevel,0)) + "<!--HTML elements generated by XSLTForms 1.6 (655) - Copyright (C) 2021 <agenceXML> - Alain Couthures - http://www.agencexml.com-->\n";
+          } else if (n.localName === "head" && n.namespaceURI === htmluri) {
+            r0 = r + "  ".repeat(Math.max(indentlevel,0)) + "<meta charset=\"UTF-8\">\n" + "  ".repeat(Math.max(indentlevel,0)) + xsltformscssfile + "\n" + "  ".repeat(Math.max(indentlevel,0)) + fleurjsfile + "\n" + "  ".repeat(Math.max(indentlevel,0)) + xsltformsjsfile + "\n";
+            r = "";
+          } else if (n.localName === "body" && n.namespaceURI === htmluri) {
+            if (roptions !== "") {
+              r += "  ".repeat(Math.max(indentlevel,0)) + "<xforms-options" + roptions + "/>";
+            }
+            r += rmodel;
+          } else if (n.localName === "instance" && n.namespaceURI === xformsuri) {
+            var mediatype = "application/xml";
+            for (var i = 0, l = attrs.length; i < l; i++) {
+              attr = attrs[i];
+              if (attr.nodeName === "mediatype") {
+                mediatype = attr.nodeValue;
+                break;
+              }
+            }
+            r += "  ".repeat(Math.max(indentlevel,0)) + lt + "script type=\"" + mediatype + "\"" + gt;
+            xmlser = true;
+            lt = "&lt;";
+            gt = "&gt;";
+            amp = "&amp;";
+            nsLookupFirstpos = nsLookupLastpos + 1;
+          }
+          parents.push(n);
+          for (prefix in newnamespaces) {
+            if (newnamespaces.hasOwnProperty(prefix)) {
+              namespaces[prefix] = newnamespaces[prefix];
+            }
+          }
+        } else if (!xmlser && emptyelts.includes(n.localName)) {
+          r += gt + "\n";
+        } else {
+          if (!xmlser && n.localName === "head" && n.namespaceURI === htmluri) {
+            r0 = r + gt + "\n";
+            indentlevel--;
+            r = "  ".repeat(Math.max(indentlevel,0)) + lt + "/head" + gt;
+          }
+          if (xmlser) {
+            r += "/" + gt + "\n";
+          } else {
+            r += gt + lt + "/" + (n.namespaceURI === xformsuri ? "xforms-" : "") + n.localName + gt + "\n";
+          }
+        }
+      }
+      offset = index + 1;
+      if (offset === 0) {
+        break;
+      }
+    }
+  }
+  return "<!DOCTYPE html>\r\n" + Fleur.bin2utf8(r0) + Fleur.bin2utf8(r);
 };
 Fleur.Serializer.prototype.serializeToString = function(node, mediatype, indent) {
-	var media = mediatype.split(";"), config = {}, param, paramreg = /^\s*(\S*)\s*=\s*(\S*)\s*$/, i = 1, l = media.length, handler, mime;
-	while (i < l) {
-		param = paramreg.exec(media[i]);
-		config[param[1]] = param[2];
-		i++;
-	}
-	mime = media[0].replace(/^\s+|\s+$/gm,'');
-	if (mime.endsWith("+xml") && mime !== "application/exml+xml") {
-		mime = "application/xml";
-	}
-	handler = Fleur.Serializer.Handlers[mime];
-	if (!handler) {
-		return "";
-	}
-	return handler(node, indent, config);
+  var media = mediatype.split(";"), config = {}, param, paramreg = /^\s*(\S*)\s*=\s*(\S*)\s*$/, i = 1, l = media.length, handler, mime;
+  while (i < l) {
+    param = paramreg.exec(media[i]);
+    config[param[1]] = param[2];
+    i++;
+  }
+  mime = media[0].replace(/^\s+|\s+$/gm,'');
+  if (mime.endsWith("+xml") && mime !== "application/exml+xml") {
+    mime = "application/xml";
+  }
+  handler = Fleur.Serializer.Handlers[mime];
+  if (!handler) {
+    return "";
+  }
+  return handler(node, indent, config);
 };
 Fleur.Serializer.Handlers = {
-	"application/xml": function(node, indent) {
-		var ser = Fleur.Serializer._serializeXMLToString(node, indent, "");
-		if (indent && ser.charAt(ser.length - 1) === "\n") {
-			ser = ser.substr(0, ser.length - 1);
-		}
-		return ser;
-	},
-	"application/exml+xml": function(node, indent) {
-		var ser = Fleur.Serializer._serializeEXMLToString(node, indent, "");
-		if (indent && ser.charAt(ser.length - 1) === "\n") {
-			ser = ser.substr(0, ser.length - 1);
-		}
-		return ser;
-	},
-	"application/xquery": function(node) {
-		return Fleur.Serializer._serializeNodeToXQuery(node);
-	},
-	"text/csv": function(node, indent, config) {
-		if (node.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			return Fleur.Serializer._serializeMatrixToString(node, config.header === "present", config.separator ? decodeURIComponent(config.separator) : ",");
-		}
-		return Fleur.Serializer._serializeCSVToString(node, config.header === "present", config.key ? parseInt(config.key, 10) : null, config.separator ? decodeURIComponent(config.separator) : ",", 0);
-	},
-	"text/plain": function(node) {
-		return node.textContent;
-	},
-	"application/json": function(node, indent) {
-		var ser = Fleur.Serializer._serializeJSONToString(node, indent, "", false, "");
-		if (indent && ser.charAt(ser.length - 1) === "\n") {
-			ser = ser.substr(0, ser.length - 1);
-		}
-		return ser;
-	},
-	"text/html": function(node, indent) {
-		var ser = Fleur.Serializer._serializeHTMLToString(node, indent, "");
-		if (indent && ser.charAt(ser.length - 1) === "\n") {
-			ser = ser.substr(0, ser.length - 1);
-		}
-		return ser;
-	}
+  "application/xml": function(node, indent) {
+    var ser = Fleur.Serializer._serializeXMLToString(node, indent, "");
+    if (indent && ser.charAt(ser.length - 1) === "\n") {
+      ser = ser.substr(0, ser.length - 1);
+    }
+    return ser;
+  },
+  "application/exml+xml": function(node, indent) {
+    var ser = Fleur.Serializer._serializeEXMLToString(node, indent, "");
+    if (indent && ser.charAt(ser.length - 1) === "\n") {
+      ser = ser.substr(0, ser.length - 1);
+    }
+    return ser;
+  },
+  "application/xquery": function(node) {
+    return Fleur.Serializer._serializeNodeToXQuery(node);
+  },
+  "text/csv": function(node, indent, config) {
+    if (node.nodeType === Fleur.Node.SEQUENCE_NODE) {
+      return Fleur.Serializer._serializeMatrixToString(node, config.header === "present", config.separator ? decodeURIComponent(config.separator) : ",");
+    }
+    return Fleur.Serializer._serializeCSVToString(node, config.header === "present", config.key ? parseInt(config.key, 10) : null, config.separator ? decodeURIComponent(config.separator) : ",", 0);
+  },
+  "text/plain": function(node) {
+    return node.textContent;
+  },
+  "application/json": function(node, indent) {
+    var ser = Fleur.Serializer._serializeJSONToString(node, indent, "", false, "");
+    if (indent && ser.charAt(ser.length - 1) === "\n") {
+      ser = ser.substr(0, ser.length - 1);
+    }
+    return ser;
+  },
+  "text/html": function(node, indent) {
+    var ser = Fleur.Serializer._serializeHTMLToString(node, indent, "");
+    if (indent && ser.charAt(ser.length - 1) === "\n") {
+      ser = ser.substr(0, ser.length - 1);
+    }
+    return ser;
+  }
 };
 Fleur.Serializer.Handlers["text/xml"] = Fleur.Serializer.Handlers["application/xml"];
 Fleur.Serializer.Handlers["application/xquery+xml"] = Fleur.Serializer.Handlers["application/xml"];
@@ -6292,7 +6296,7 @@ Fleur.Transpiler.prototype.funcdef = function(arr) {
 	this.indent = previndent;
 	return (this.indent === "" ? "" : "\n") + this.indent + (this.async ? "async " : "") + this.ctxvarname + " => {" + result;
 };
-Fleur.Context = function(path, rs, nodedeps, xfdeps) {
+Fleur.Context = function(path, rs, nodedeps, xfdeps, position) {
   this.item = null;
   this.path = path;
   this.initialpath = path;
@@ -6313,6 +6317,7 @@ Fleur.Context = function(path, rs, nodedeps, xfdeps) {
     const xfdepset = this.xfdepset;
     this.xfdeps.forEach(xfdep => xfdepset.add(xfdep));
   }
+  this.position = position;
 };
 Fleur.Context.prototype.clone = function(path) {
   const newcontext = new Fleur.Context(path);
@@ -6396,6 +6401,7 @@ Fleur.Context.prototype.typeConstructor = function(schemaType) {
   if (this.item.isEmpty()) {
     return this;
   }
+  this.item = Fleur.Atomize(this.item);
   if (this.item.schemaTypeInfo === Fleur.Type_string || this.item.schemaTypeInfo === Fleur.Type_untypedAtomic) {
     if (!this.item.hasOwnProperty("data")) {
       Fleur.XQueryError_xqt("FORG00001", null, "Wrong argument type for xs:" + schemaType.atomizerName.substr(3, schemaType.atomizerName - 5) + "#1", "", this.item);
@@ -7147,6 +7153,7 @@ Fleur.signatures.fn_concat = {
 };
 Fleur.Context.prototype.fn_concat = function(count) {
   if (this.item.isEmpty()) {
+    this.item = new Fleur.Text();
     this.item.data = "";
     this.item.schemaTypeInfo = Fleur.Type_string;
   }
@@ -7268,17 +7275,17 @@ Fleur.signatures.fn_count_1 = {
   ]
 };
 Fleur.Context.prototype.fn_count_1 = function() {
-	const count = this.item.nodeType === Fleur.Node.SEQUENCE_NODE ? this.item.childNodes.length : 1;
-	this.item = new Fleur.Text();
-	this.item.data = String(count);
-	this.item.schemaTypeInfo = Fleur.Type_integer;
-	return this;
+  const count = this.item.nodeType === Fleur.Node.SEQUENCE_NODE ? this.item.childNodes.length : 1;
+  this.item = new Fleur.Text();
+  this.item.data = String(count);
+  this.item.schemaTypeInfo = Fleur.Type_integer;
+  return this;
 };
 Fleur.XPathFunctions_fn["count#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:count",
-	function(arg) {
-		return arg === Fleur.EmptySequence ? 0 : arg.nodeType === Fleur.Node.SEQUENCE_NODE ? arg.childNodes.length : 1;
-	},
-	null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Type_integer});
+  function(arg) {
+    return arg === Fleur.EmptySequence ? 0 : arg.nodeType === Fleur.Node.SEQUENCE_NODE ? arg.childNodes.length : 1;
+  },
+  null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Type_integer});
 Fleur.XPathFunctions_fn["current#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:current",
 	function(ctx) {
 		return ctx._item || ctx._curr;
@@ -7815,11 +7822,26 @@ Fleur.XPathFunctions_fn["document-uri#1"] = new Fleur.Function("http://www.w3.or
 		return "";
 	},
 	null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Type_anyURI});
+Fleur.signatures.fn_empty_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_boolean},
+  params_type: [
+    {type: Fleur.Node, occurence: "*"}
+  ]
+};
+Fleur.Context.prototype.fn_empty_1 = function() {
+  const isempty = this.item.isEmpty();
+  this.item = new Fleur.Text();
+  this.item.data = String(isempty);
+  this.item.schemaTypeInfo = Fleur.Type_boolean;
+  return this;
+};
 Fleur.XPathFunctions_fn["empty#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:empty",
-	function(arg) {
-		return arg === Fleur.EmptySequence;
-	},
-	null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Type_boolean});
+  function(arg) {
+    return arg === Fleur.EmptySequence;
+  },
+  null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Type_boolean});
 Fleur.XPathFunctions_fn["encode-for-uri#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:encode-for-uri",
 	function(uripart) {
 		return uripart !== null ? encodeURIComponent(uripart).replace(/[!'()*]/g, function(c) {return '%' + c.charCodeAt(0).toString(16).toUpperCase();}) : "";
@@ -9348,6 +9370,54 @@ Fleur.XPathFunctions_fn["normalize-unicode#2"] = new Fleur.Function("http://www.
 		}
 	},
 	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string}], false, false, {type: Fleur.Type_string});
+Fleur.signatures.fn_not_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_boolean},
+  params_type: [
+    Fleur.Node
+  ]
+};
+Fleur.Context.prototype.fn_not_1 = function() {
+	const newitem = new Fleur.Text();
+	newitem.schemaTypeInfo = Fleur.Type_boolean;
+  if (this.item.isEmpty()) {
+    newitem.appendData("true");
+    this.item = newitem;
+    return this;
+  }
+  if (this.item.nodeType === Fleur.Node.SEQUENCE_NODE) {
+    if (this.item.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || this.item.childNodes[0].ownerDocument) {
+      newitem.appendData("false");
+      this.item = newitem;
+      return this;
+    }
+    Fleur.XQueryError_xqt("FORG00006", null, "Wrong argument type for fn:not#1", "", this.item);
+  }
+  if (this.item.nodeType !== Fleur.Node.TEXT_NODE) {
+    newitem.appendData("false");
+    this.item = newitem;
+    return this;
+  }
+  const schematype = this.item.schemaTypeInfo;
+  if (schematype === Fleur.Type_boolean) {
+    newitem.appendData(String(this.item.data !== "true"));
+  } else if (schematype === Fleur.Type_string || schematype === Fleur.Type_untypedAtomic || schematype === Fleur.Type_anyURI) {
+    newitem.appendData(String(!(this.item.hasOwnProperty("data") && this.item.data.length !== 0)));
+  } else if (schematype === Fleur.Type_integer || schematype === Fleur.Type_decimal || schematype === Fleur.Type_float || schematype === Fleur.Type_double) {
+    newitem.appendData(String(!(this.item.data !== "0" && this.item.data !== "0.0" && this.item.data !== "0.0e0" && this.item.data !== "NaN")));
+  } else if (schematype && schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+    newitem.appendData(String(this.item.data !== "true"));
+  } else if (schematype && (schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION) || schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+    newitem.appendData(String(!(this.item.hasOwnProperty("data") && this.item.data.length !== 0)));
+  } else if (schematype && (schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || schematype.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+    newitem.appendData(String(!(this.item.data !== "0" && this.item.data !== "0.0" && this.item.data !== "0.0e0" && this.item.data !== "NaN")));
+  } else {
+    Fleur.XQueryError_xqt("FORG00006", null, "Wrong argument type for fn:not#1", "", this.item);
+  }
+  this.item = newitem;
+  return this;
+};
 Fleur.XPathFunctions_fn["not#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:not",
 	function(arg, ctx) {
 		var e;
@@ -9879,20 +9949,34 @@ Fleur.XPathFunctions_fn["starts-with#3"] = new Fleur.Function("http://www.w3.org
 		return !b ? true : !a ? false : c.startsWith(a, b);
 	},
 	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string}], false, false, {type: Fleur.Type_boolean});
+Fleur.signatures.fn_string_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {type: Fleur.Type_string},
+  params_type: [
+    Fleur.atomicTypes
+  ]
+};
+Fleur.Context.prototype.fn_string_1 = function() {
+  const newitem = new Fleur.Text(this.item.data);
+  newitem.schemaTypeInfo = Fleur.Type_string;
+  this.item = newitem;
+  return this;
+};
 Fleur.XPathFunctions_fn["string#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:string",
-	function(ctx) {
-		return Fleur.XPathFunctions_fn["string#1"].jsfunc(ctx._curr);
-	},
-	null, [], true, false, {type: Fleur.Type_string});
+  function(ctx) {
+    return Fleur.XPathFunctions_fn["string#1"].jsfunc(ctx._curr);
+  },
+  null, [], true, false, {type: Fleur.Type_string});
 Fleur.XPathFunctions_fn["string#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:string",
-	function(arg) {
-		if (arg === Fleur.EmptySequence) {
-			return "";
-		}
-		var a = Fleur.Atomize(arg);
-		return a.data;
-	},
-	null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Type_string});
+  function(arg) {
+    if (arg === Fleur.EmptySequence) {
+      return "";
+    }
+    var a = Fleur.Atomize(arg);
+    return a.data;
+  },
+  null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Type_string});
 Fleur.XPathFunctions_fn["string-join#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:string-join",
 	function(arg1) {
 		return Fleur.XPathFunctions_fn["string-join#2"].jsfunc(arg1, "");
@@ -12217,7 +12301,7 @@ Fleur.Context.prototype.xf_event_1 = function() {
   for (let i = XsltForms_xmlevents.EventContexts.length - 1; i >= 0 ; i--) {
     const evcontext = XsltForms_xmlevents.EventContexts[i];
     if (evcontext[this.item.data]) {
-      this.item = evcontext[this.item.data];
+      this.item.data = evcontext[this.item.data];
       return this;
     }
   }
@@ -12838,7 +12922,7 @@ Fleur.signatures.xs_negativeInteger_1 = {
   ]
 };
 Fleur.Context.prototype.xs_negativeInteger_1 = function() {
-	this.typeConstructor(Fleur.Types["http://www.w3.org/2001/XMLSchema"][""]);
+	this.typeConstructor(Fleur.Type_negativeInteger);
 	return this;
 };
 Fleur.XPathFunctions_xs["negativeInteger#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:negativeInteger",
@@ -15859,109 +15943,114 @@ Fleur.XPathExpression.prototype.evaluate = function(contextNode, env, type, xpre
 	return Fleur.evaluate(this, contextNode, env, type, xpresult);
 };
 Fleur.XPathNSResolver = function(node) {
-	this.pf = [
-		"xml",
-		"xmlns",
-		"xs",
-		"xsi",
-		"xf",
-		" function",
-		"fn",
-		"local",
-		"math",
-		"map",
-		"array",
-		"err",
-		"b",
-		"bin",
-		"file",
-		"http",
-		"request",
-		"prof",
-		"proc",
-		"js",
-		"fleur",
-		"dgram",
-		"base64",
-		"internal",
-		"unit",
-		"ietf",
-		"excel",
-		"zip",
-		"matrix",
-		"xpath",
-		"xquery"
-	];
-	this.uri = [
-		"http://www.w3.org/XML/1998/namespace",
-		"http://www.w3.org/2000/xmlns/",
-		"http://www.w3.org/2001/XMLSchema",
-		"http://www.w3.org/2001/XMLSchema-instance",
-		"http://www.w3.org/2002/xforms",
-		"http://www.w3.org/2005/xpath-functions",
-		"http://www.w3.org/2005/xpath-functions",
-		"http://www.w3.org/2005/xpath",
-		"http://www.w3.org/2005/xpath-functions/math",
-		"http://www.w3.org/2005/xpath-functions/map",
-		"http://www.w3.org/2005/xpath-functions/array",
-		"http://www.w3.org/2005/xqt-errors",
-		"http://xqib.org",
-		"http://expath.org/ns/binary",
-		"http://expath.org/ns/file",
-		"http://expath.org/ns/http-client",
-		"http://exquery.org/ns/request",
-		"http://basex.org/modules/prof",
-		"http://basex.org/modules/proc",
-		"http://www.w3.org/standards/webdesign/script",
-		"http://www.agencexml.com/fleur",
-		"http://www.agencexml.com/fleur/dgram",
-		"http://www.agencexml.com/fleur/base64",
-		"http://www.agencexml.com/fleur/internal",
-		"http://www.agencexml.com/fleur/unit",
-		"https://tools.ietf.org/rfc/index",
-		"http://schemas.openxmlformats.org/spreadsheetml/2006/main",
-		"http://expath.org/ns/zip",
-		"http://www.mathunion.org/matrix",
-		"http://www.w3.org/2005/xpath",
-		"http://www.w3.org/2005/xquery"
-	];
-	this.node = node;
+  this.pf = [
+    "xml",
+    "xmlns",
+    "xs",
+    "xsi",
+    "xf",
+    " function",
+    "fn",
+    "local",
+    "math",
+    "map",
+    "array",
+    "err",
+    "b",
+    "bin",
+    "file",
+    "http",
+    "request",
+    "prof",
+    "proc",
+    "js",
+    "fleur",
+    "dgram",
+    "base64",
+    "internal",
+    "unit",
+    "ietf",
+    "excel",
+    "zip",
+    "matrix",
+    "xpath",
+    "xquery"
+  ];
+  this.uri = [
+    "http://www.w3.org/XML/1998/namespace",
+    "http://www.w3.org/2000/xmlns/",
+    "http://www.w3.org/2001/XMLSchema",
+    "http://www.w3.org/2001/XMLSchema-instance",
+    "http://www.w3.org/2002/xforms",
+    "http://www.w3.org/2005/xpath-functions",
+    "http://www.w3.org/2005/xpath-functions",
+    "http://www.w3.org/2005/xpath",
+    "http://www.w3.org/2005/xpath-functions/math",
+    "http://www.w3.org/2005/xpath-functions/map",
+    "http://www.w3.org/2005/xpath-functions/array",
+    "http://www.w3.org/2005/xqt-errors",
+    "http://xqib.org",
+    "http://expath.org/ns/binary",
+    "http://expath.org/ns/file",
+    "http://expath.org/ns/http-client",
+    "http://exquery.org/ns/request",
+    "http://basex.org/modules/prof",
+    "http://basex.org/modules/proc",
+    "http://www.w3.org/standards/webdesign/script",
+    "http://www.agencexml.com/fleur",
+    "http://www.agencexml.com/fleur/dgram",
+    "http://www.agencexml.com/fleur/base64",
+    "http://www.agencexml.com/fleur/internal",
+    "http://www.agencexml.com/fleur/unit",
+    "https://tools.ietf.org/rfc/index",
+    "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+    "http://expath.org/ns/zip",
+    "http://www.mathunion.org/matrix",
+    "http://www.w3.org/2005/xpath",
+    "http://www.w3.org/2005/xquery"
+  ];
+  this.node = node;
 };
 Fleur.XPathNSResolver.prototype.lookupNamespaceURI = function(prefix) {
-	var uri;
-	var index = this.pf.lastIndexOf(prefix);
-	if (index !== -1) {
-		return this.uri[index];
-	}
-	if (this.node) {
-		uri = this.node.lookupNamespaceURI(prefix);
-		if (uri) {
-			this.pf.push(prefix);
-			this.uri.push(uri);
-			return uri;
-		}
-	}
-	return null;
+  var uri;
+  var index = this.pf.lastIndexOf(prefix);
+  if (index !== -1) {
+    return this.uri[index];
+  }
+  if (this.node) {
+    uri = this.node.lookupNamespaceURI(prefix);
+    if (uri) {
+      this.pf.push(prefix);
+      this.uri.push(uri);
+      return uri;
+    }
+  }
+  return null;
 };
 Fleur.XPathNSResolver.prototype.lookupPrefix = function(namespaceURI) {
-	var pf;
-	var index = this.uri.lastIndexOf(namespaceURI);
-	if (index !== -1) {
-		return this.pf[index];
-	}
-	if (this.node) {
-		pf = this.node.lookupPrefix(namespaceURI);
-		if (pf) {
-			this.pf.push(pf);
-			this.uri.push(namespaceURI);
-			return pf;
-		}
-	}
-	return null;
+  var pf;
+  var index = this.uri.lastIndexOf(namespaceURI);
+  if (index !== -1) {
+    return this.pf[index];
+  }
+  if (this.node) {
+    pf = this.node.lookupPrefix(namespaceURI);
+    if (pf) {
+      this.pf.push(pf);
+      this.uri.push(namespaceURI);
+      return pf;
+    }
+  }
+  return null;
 };
 Fleur.XPathNSResolver.prototype.declareNamespace = function(prefix, uri) {
-	this.pf.push(prefix);
-	this.uri.push(uri);
+  this.pf.push(prefix);
+  this.uri.push(uri);
+};
+Fleur.XPathNSResolver.prototype.removeNamespace = function(prefix) {
+  var index = this.pf.lastIndexOf(prefix);
+  this.pf.splice(index, 1);
+  this.uri.splice(index, 1);
 };
 Fleur.XPathResult = function(doc, expression, contextNode, env, resultType) {
 	this.document = doc;
@@ -16785,165 +16874,165 @@ Fleur.XQueryError_xqt = function(localName, position, description, module, value
 Fleur.XQueryEngine = [];
 Fleur.XQueryParser = function() {};
 Fleur.XQueryParser._precedence = {
-	"/": 0,
-	"//": 0,
-	":": 0,
-	"as": 0,
-	"!": 1,
-	"!!": 1,
-	"~+": 2,
-	"~-": 2,
-	"cast as": 3,
-	"castable as": 4,
-	"treat as": 5,
-	"instance of": 6,
-	"intersect": 7,
-	"except": 7,
-	"|": 8,
-	"union": 8,
-	"div": 9,
-	"mod": 9,
-	"*": 9,
-	"idiv": 9,
-	"+": 10,
-	"-": 10,
-	"to": 11,
-	"||": 12,
-	"eq": 13,
-	"ne": 13,
-	"lt": 13,
-	"le": 13,
-	"gt": 13,
-	"ge": 13,
-	"<": 13,
-	">": 13,
-	"<=": 13,
-	">=": 13,
-	"is": 13,
-	"<<": 13,
-	">>": 13,
-	"=": 13,
-	"!=": 13,
-	"and": 14,
-	"or": 15,
-	"allowing": 16,
-	"at": 17,
-	":=": 18,
-	"in": 18,
-	"after": 19,
-	"before": 19,
-	"into": 19,
-	"with": 19,
-	"value": 19,
-	"node": 20,
-	"nodes": 20,
-	"~~ascending": 28,
-	"~~descending": 28,
-	"empty": 28,
-	"~,": 29,
-	"for": 30,
-	"let": 30,
-	"group by": 30,
-	"order by": 30,
-	"stable order by": 30,
-	"count": 30,
-	"where": 30,
-	"some": 30,
-	"every": 30,
-	"then": 31,
-	"catch": 31,
-	"else": 32,
-	"return": 32,
-	"satisfies": 32,
-	",": 50,
-	";": 51
+  "/": 0,
+  "//": 0,
+  ":": 0,
+  "as": 0,
+  "!": 1,
+  "!!": 1,
+  "~+": 2,
+  "~-": 2,
+  "cast as": 3,
+  "castable as": 4,
+  "treat as": 5,
+  "instance of": 6,
+  "intersect": 7,
+  "except": 7,
+  "|": 8,
+  "union": 8,
+  "div": 9,
+  "mod": 9,
+  "*": 9,
+  "idiv": 9,
+  "+": 10,
+  "-": 10,
+  "to": 11,
+  "||": 12,
+  "eq": 13,
+  "ne": 13,
+  "lt": 13,
+  "le": 13,
+  "gt": 13,
+  "ge": 13,
+  "<": 13,
+  ">": 13,
+  "<=": 13,
+  ">=": 13,
+  "is": 13,
+  "<<": 13,
+  ">>": 13,
+  "=": 13,
+  "!=": 13,
+  "and": 14,
+  "or": 15,
+  "allowing": 16,
+  "at": 17,
+  ":=": 18,
+  "in": 18,
+  "after": 19,
+  "before": 19,
+  "into": 19,
+  "with": 19,
+  "value": 19,
+  "node": 20,
+  "nodes": 20,
+  "~~ascending": 28,
+  "~~descending": 28,
+  "empty": 28,
+  "~,": 29,
+  "for": 30,
+  "let": 30,
+  "group by": 30,
+  "order by": 30,
+  "stable order by": 30,
+  "count": 30,
+  "where": 30,
+  "some": 30,
+  "every": 30,
+  "then": 31,
+  "catch": 31,
+  "else": 32,
+  "return": 32,
+  "satisfies": 32,
+  ",": 50,
+  ";": 51
 };
 Fleur.XQueryParser._rightgrouping1 = Fleur.XQueryParser._precedence.then;
 Fleur.XQueryParser._rightgrouping2 = Fleur.XQueryParser._precedence.return;
 Fleur.XQueryParser._opcodes = {
-	"/": "stepExpr",
-	"|": "unionOp",
-	"union": "unionOp",
-	"div": "divOp",
-	"mod": "modOp",
-	"*": "multiplyOp",
-	"idiv": "idivOp",
-	"+": "addOp",
-	"-": "subtractOp",
-	"to": "toOp",
-	"||": "stringConcatenateOp",
-	"eq": "eqOp",
-	"ne": "neOp",
-	"lt": "ltOp",
-	"le": "leOp",
-	"gt": "gtOp",
-	"ge": "geOp",
-	"<": "lessThanOp",
-	">": "greaterThanOp",
-	"<=": "lessThanOrEqualOp",
-	">=": "greaterThanOrEqualOp",
-	"is": "isOp",
-	"<<": "nodeBeforeOp",
-	">>": "nodeAfterOp",
-	"=": "equalOp",
-	"!=": "notEqualOp",
-	"and": "andOp",
-	"or": "orOp",
-	",": "argExpr"
+  "/": "stepExpr",
+  "|": "unionOp",
+  "union": "unionOp",
+  "div": "divOp",
+  "mod": "modOp",
+  "*": "multiplyOp",
+  "idiv": "idivOp",
+  "+": "addOp",
+  "-": "subtractOp",
+  "to": "toOp",
+  "||": "stringConcatenateOp",
+  "eq": "eqOp",
+  "ne": "neOp",
+  "lt": "ltOp",
+  "le": "leOp",
+  "gt": "gtOp",
+  "ge": "geOp",
+  "<": "lessThanOp",
+  ">": "greaterThanOp",
+  "<=": "lessThanOrEqualOp",
+  ">=": "greaterThanOrEqualOp",
+  "is": "isOp",
+  "<<": "nodeBeforeOp",
+  ">>": "nodeAfterOp",
+  "=": "equalOp",
+  "!=": "notEqualOp",
+  "and": "andOp",
+  "or": "orOp",
+  ",": "argExpr"
 };
 Fleur.XQueryParser._skipComment = function(s, offset) {
-	let i = offset;
-	let c = s.charAt(i);
-	let d = s.charAt(i + 1);
-	const l = s.length;
-	do {
-		if (c === "(" && d === ":") {
-			i = Fleur.XQueryParser._skipComment(s, i + 2);
-		} else if (c === ":" && d === ")") {
-			return i + 1;
-		}
-		c = s.charAt(++i);
-		d = s.charAt(i + 1);
-	} while (i < l);
+  let i = offset;
+  let c = s.charAt(i);
+  let d = s.charAt(i + 1);
+  const l = s.length;
+  do {
+    if (c === "(" && d === ":") {
+      i = Fleur.XQueryParser._skipComment(s, i + 2);
+    } else if (c === ":" && d === ")") {
+      return i + 1;
+    }
+    c = s.charAt(++i);
+    d = s.charAt(i + 1);
+  } while (i < l);
 };
 Fleur.XQueryParser._skipSpaces = function(s, offset) {
-	let i = offset;
-	let c = s.charAt(i);
-	const l = s.length;
-	do {
-		if (c === "(" && s.charAt(i + 1) === ":") {
-			i = Fleur.XQueryParser._skipComment(s, i + 2);
-		} else if (c !== "\n" && c !== "\r" && c !== "\t" && c !== " ") {
-			return i;
-		}
-		c = s.charAt(++i);
-	} while (i < l);
-	return i;
+  let i = offset;
+  let c = s.charAt(i);
+  const l = s.length;
+  do {
+    if (c === "(" && s.charAt(i + 1) === ":") {
+      i = Fleur.XQueryParser._skipComment(s, i + 2);
+    } else if (c !== "\n" && c !== "\r" && c !== "\t" && c !== " ") {
+      return i;
+    }
+    c = s.charAt(++i);
+  } while (i < l);
+  return i;
 };
 Fleur.XQueryParser._getName = function(s) {
-	let i = 0;
-	let o = s.charAt(0);
-	let prev = "";
+  let i = 0;
+  let o = s.charAt(0);
+  let prev = "";
   let hasPrefix = false;
   let hasAxis = false;
-	while (o !== "" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:*{".indexOf(o) !== -1) {
-		if (o === "*") {
+  while (o !== "" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:*{".indexOf(o) !== -1) {
+    if (o === "*") {
       if (prev !== "" && (prev === o || prev !== ":")) {
         break;
       }
-			if (hasPrefix) {
+      if (hasPrefix) {
         i++;
-				break;
-			}
-		}
-		if (o === "{") {
-			if (prev !== "Q") {
-				return s.substr(0, i);
-			}
-			while (o !== "" && o !== "}") {
-				o = s.charAt(++i);
-			}
-		}
+        break;
+      }
+    }
+    if (o === "{") {
+      if (prev !== "Q") {
+        return s.substr(0, i);
+      }
+      while (o !== "" && o !== "}") {
+        o = s.charAt(++i);
+      }
+    }
     if (o === ":") {
       if (s.charAt(i + 1) === ":") {
         if (hasAxis || hasPrefix) {
@@ -16958,44 +17047,44 @@ Fleur.XQueryParser._getName = function(s) {
         hasPrefix = true;
       }
     }
-		prev = o;
-		o = s.charAt(++i);
-	}
-	if (o === "#") {
-		o = s.charAt(++i);
-		while (o !== "" && "0123456789".indexOf(o) !== -1) {
-			o = s.charAt(++i);
-		}
-	}
-	return s.substr(0, i);
+    prev = o;
+    o = s.charAt(++i);
+  }
+  if (o === "#") {
+    o = s.charAt(++i);
+    while (o !== "" && "0123456789".indexOf(o) !== -1) {
+      o = s.charAt(++i);
+    }
+  }
+  return s.substr(0, i);
 };
 Fleur.XQueryParser._getNameStep = function(s, attr, begin) {
-	const n = Fleur.XQueryParser._getName(s);
-	const fctind = n.indexOf("#");
-	if (fctind !== -1) {
-		const pindex = n.indexOf(":");
-		if (pindex === -1) {
-			return [Fleur.XQueryX.namedFunctionRef,[
-				[Fleur.XQueryX.functionName,[n.substr(0, fctind)]],
-				[Fleur.XQueryX.integerConstantExpr,[
-					[Fleur.XQueryX.value,[n.substr(fctind + 1)]]
-				]]
-			], begin, n.length, 0];
-		}
-		return [Fleur.XQueryX.namedFunctionRef,[
+  const n = Fleur.XQueryParser._getName(s);
+  const fctind = n.indexOf("#");
+  if (fctind !== -1) {
+    const pindex = n.indexOf(":");
+    if (pindex === -1) {
+      return [Fleur.XQueryX.namedFunctionRef,[
+        [Fleur.XQueryX.functionName,[n.substr(0, fctind)]],
+        [Fleur.XQueryX.integerConstantExpr,[
+          [Fleur.XQueryX.value,[n.substr(fctind + 1)]]
+        ]]
+      ], begin, n.length, 0];
+    }
+    return [Fleur.XQueryX.namedFunctionRef,[
       [Fleur.XQueryX.functionName,[n.substr(0, fctind).substr(pindex + 1),[Fleur.XQueryX.prefix,[n.substr(0, pindex)]]]],
       [Fleur.XQueryX.integerConstantExpr,[
         [Fleur.XQueryX.value,[n.substr(fctind + 1)]]
       ]]
     ], begin, n.length, 0];
-	}
-	const aind = n.indexOf("::");
-	const axis = aind !== -1 ? n.substr(0, aind) : attr ? "attribute" : "child";
-	const n2 = aind !== -1 ? n.substr(aind + 2) : n;
-	const eq = n2.substr(0, 2) === "Q{";
-	const sind = eq ? n2.indexOf("}") : n2.indexOf(":");
-	const n3 = sind !== -1 ? n2.substr(sind + 1) : n2;
-	const nsp = eq ? n2.substr(2, sind - 2) : sind !== -1 ? n2.substr(0, sind) : "";
+  }
+  const aind = n.indexOf("::");
+  const axis = aind !== -1 ? n.substr(0, aind) : attr ? "attribute" : "child";
+  const n2 = aind !== -1 ? n.substr(aind + 2) : n;
+  const eq = n2.substr(0, 2) === "Q{";
+  const sind = eq ? n2.indexOf("}") : n2.indexOf(":");
+  const n3 = sind !== -1 ? n2.substr(sind + 1) : n2;
+  const nsp = eq ? n2.substr(2, sind - 2) : sind !== -1 ? n2.substr(0, sind) : "";
   let nametest;
   if (n3 === "*" || nsp === "*") {
     nametest = [Fleur.XQueryX.Wildcard, []];
@@ -17017,7 +17106,7 @@ Fleur.XQueryParser._getNameStep = function(s, attr, begin) {
     }
     nametest = [Fleur.XQueryX.nameTest,ntest];
   }
-	return [Fleur.XQueryX.pathExpr,[
+  return [Fleur.XQueryX.pathExpr,[
     [Fleur.XQueryX.stepExpr,[
       [Fleur.XQueryX.xpathAxis,[axis]],
       nametest
@@ -17025,1150 +17114,1154 @@ Fleur.XQueryParser._getNameStep = function(s, attr, begin) {
   ], begin, n.length + attr, 0];
 };
 Fleur.XQueryParser._pathExprFormat = function(prod) {
-	if (prod[0] === Fleur.XQueryX.pathExpr) {
-		return prod[1];
-	}
-	return [[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[prod]]]]];
+  if (prod[0] === Fleur.XQueryX.pathExpr) {
+    return prod[1];
+  }
+  return [[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[prod]]]]];
 };
 Fleur.XQueryParser._calc = function(args, ops, opprec) {
-	const curprec = ops.length !== 0 ? ops[ops.length - 1][0] : 0;
-	if ((ops.length === 0 || curprec > opprec || opprec === 31) || (curprec >= opprec && (curprec === Fleur.XQueryParser._rightgrouping1 || curprec === Fleur.XQueryParser._rightgrouping2))) {
-		return [args, ops];
-	}
-	const op = ops[ops.length - 1][1];
-	ops.pop();
-	const prevop = ops.length !== 0 ? ops[ops.length - 1][1] : "";
-	let arg2 = args[args.length - 1];
-	let arg1;
-	if (op.startsWith("~~")) {
-		arg1 = arg2;
-	} else {
-		args.pop();
-		arg1 = args[args.length - 1];
-	}
-	args.pop();
-	var arg;
-	var occ;
-	switch (op) {
-		case ";":
-				if (arg1[0] === Fleur.XQueryX.sequenceExpr && arg1[1][0] === Fleur.XQueryX.multidimExpr) {
-					arg1[1].push(arg2);
-					arg = arg1;
-				} else {
-					arg = [Fleur.XQueryX.sequenceExpr,[[Fleur.XQueryX.multidimExpr,[arg1, arg2]]]];
-				}
-			break;
-		case ",":
-			if (prevop === "(") {
-				if (arg1[0] === Fleur.XQueryX.arguments) {
-					arg1[1].push(arg2);
-					arg = arg1;
-				} else {
-					arg = [Fleur.XQueryX.arguments,[arg1, arg2]];
-				}
-			} else if (prevop === "q") {
-			} else { // if (ops.startsWith("4.50.,")) {
-				if (arg1[0] === Fleur.XQueryX.mapConstructorEntry) {
-				} else if (arg1[0] === Fleur.XQueryX.sequenceExpr && arg1[1].length !== 0) {
-					arg1[1].push(arg2);
-					arg = arg1;
-				} else {
-					arg = [Fleur.XQueryX.sequenceExpr,[arg1, arg2]];
-				}
-			}
-			break;
-		case "~,":
-			if (arg1[0] === Fleur.XQueryX.letClauseItem || arg1[0] === Fleur.XQueryX.groupBySpec) {
-			} else if (arg1[0] === Fleur.XQueryX.letClause) {
-				if (arg2[0] === Fleur.XQueryX.letClause) {
-					arg1[1].push(arg2[1][0]);
-					arg = arg1;
-				} else {
-					arg1[1].push(arg2);
-					arg = arg1;
-				}
-			} else {
-				if (arg1[0] !== Fleur.XQueryX.orderBySpec) {
-					arg = [Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[arg1]]]];
-				} else {
-					arg = arg1val;
-				}
-				if (arg2[0] !== Fleur.XQueryX.orderBySpec) {
-				} else {
-				}
-			}
-			break;
-		case "//":
-			arg = [Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg1)];
-			arg[1].push([Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['descendant-or-self']],[Fleur.XQueryX.anyKindTest,[]]]]);
-			arg[1].push(Fleur.XQueryParser._pathExprFormat(arg2)[0]);
-			break;
-		case "/":
-			arg = [Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg1)];
-			if (arg2.length !== 0) {
-				arg[1].push(Fleur.XQueryParser._pathExprFormat(arg2)[0]);
-			}
-			break;
-		case "!!":
-			arg = [Fleur.XQueryX.doubleMapExpr,[[Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg1)],[Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg2)]]];
-			break;
-		case "!":
-			arg = [Fleur.XQueryX.simpleMapExpr,[[Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg1)],[Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg2)]]];
-			break;
-		case "|":
-			if (ops.length > 1 && ops[0][1] === "|" && ops[1][1] === "catch") {
-				if (arg1[0] === Fleur.XQueryX.pathExpr) {
-					arg1 = arg1[1][0][1];
-				}
-				if (arg2[0] === Fleur.XQueryX.pathExpr) {
-					arg2 = arg2[1][0][1];
-					arg = [arg1,arg2];
-				} else {
-					arg = [Fleur.XQueryX.catchErrorList,[arg1,arg2]];
-				}
-			} else {
-				arg = [Fleur.XQueryX.unionOp,[[Fleur.XQueryX.firstOperand,[arg1]],[Fleur.XQueryX.secondOperand,[arg2]]]];
-			}
-			break;
-		case ":":
-			arg = [Fleur.XQueryX.mapConstructorEntry,[[Fleur.XQueryX.mapKeyExpr,[arg1]],[Fleur.XQueryX.mapValueExpr,[arg2]]]];
-			break;
-		case "?":
-			break;
-		case "to":
-			arg = [Fleur.XQueryX.rangeSequenceExpr,[[Fleur.XQueryX.startExpr,[arg1]],[Fleur.XQueryX.endExpr,[arg2]]]];
-			break;
-		case "~-":
-			arg = [Fleur.XQueryX.unaryMinusOp,[[Fleur.XQueryX.operand,[arg2]]]];
-			break;
-		case "~+":
-			arg = [Fleur.XQueryX.unaryPlusOp,[[Fleur.XQueryX.operand,[arg2]]]];
-			break;
-		case "allowing":
-			arg = [[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.allowingEmpty,[]]];
-			break;
-		case "at":
-			if (arg[0] === Fleur.XQueryX.typedVariableBinding) {
-				arg = [arg1,[Fleur.XQueryX.positionalVariableBinding,[arg2[1][0][1]]]];
-			} else {
-				arg = [[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.positionalVariableBinding,[arg2[1][0]]]];
-			}
-			break;
-		case "in":
-			if (ops[0] === "q") {
-				arg = [Fleur.XQueryX.quantifiedExprInClause,[[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.sourceExpr,[arg2]]]];
-			} else if (arg1[0] === Fleur.XQueryX.typedVariableBinding) {
-				arg = [Fleur.XQueryX.forClause,[[Fleur.XQueryX.forClauseItem,[arg1val,[Fleur.XQueryX.forExpr,[arg2val]]]]]];
-			} else {
-				arg = [Fleur.XQueryX.forClause,[[Fleur.XQueryX.forClauseItem,[[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.forExpr,[arg2]]]]]];
-			}
-			break;
-		case "as":
-			if (arg2[0] === Fleur.XQueryX.pathExpr &&
-				arg2[1][0][0] === Fleur.XQueryX.stepExpr && arg2[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg2[1][0][1][0][1][0] === "child" &&
-				arg2[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg2[1][0][1][1][1][0] === "last") {
-				arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertInto,[[Fleur.XQueryX.insertAsLast,[]]]];
-			} else if (arg2[0] === Fleur.XQueryX.pathExpr &&
-				arg2[1][0][0] === Fleur.XQueryX.stepExpr && arg2[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg2[1][0][1][0][1][0] === "child" &&
-				arg2[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg2[1][0][1][1][1][0] === "first") {
-				arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertInto,[[Fleur.XQueryX.insertAsFirst,[]]]];
-			} else {
-				arg2 = [Fleur.XQueryX.atomicType,arg2[1][0][1][1][1][0][1]];
-				arg = [Fleur.XQueryX.varName,[arg1[1][0]]],[Fleur.XQueryX.typeDeclaration,[arg2]];
-			}
-			break;
-		case ":=":
-			if ((ops.length > 1 && ops[1][1] === "group by") || (ops.length > 2 && ops[1][1] === "~," && ops[2][1] === "group by")) {
-				if (arg1[0] === Fleur.XQueryX.groupingSpec) {
-					arg1[1].push([Fleur.XQueryX.groupVarInitialize,[[Fleur.XQueryX.varValue,[arg2]]]]);
-					arg = arg1;
-				} else {
-					arg = [Fleur.XQueryX.groupingSpec,[[Fleur.XQueryX.varName,[arg1]],[Fleur.XQueryX.groupVarInitialize,[[Fleur.XQueryX.varValue,[arg2]]]]]];
-				}
-			} else if (arg1[0] === Fleur.XQueryX.varName) {
-				arg = [Fleur.XQueryX.letClause,[[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[arg1]],[Fleur.XQueryX.letExpr,[arg2]]]]]];
-			} else {
-				arg = [Fleur.XQueryX.letClause,[[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.letExpr,[arg2]]]]]];
-			}
-			break;
-		case "return":
-			arg1[1].push([Fleur.XQueryX.returnClause,[arg2]]);
-			arg = arg1;
-			break;
-		case "satisfies":
-			arg1[1].push([Fleur.XQueryX.predicateExpr,[arg2]]);
-			arg = arg1;
-			break;
-		case "cast as":
-		case "cast as?":
-			occ = op.charAt(7);
-			arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
-			arg2 = [Fleur.XQueryX.atomicType,arg2[1][0]];
-			if (occ === "?") {
-				arg2.push([Fleur.XQueryX.optional,[]]);
-			}
-			arg = [Fleur.XQueryX.castExpr,[[Fleur.XQueryX.argExpr,[arg1]],[Fleur.XQueryX.singleType,arg2]]];
-			break;
-		case "castable as":
-		case "castable as?":
-			occ = op.charAt(11);
-			arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
-			arg2 = [Fleur.XQueryX.atomicType,arg2[1][0]];
-			arg2 = [arg2];
-			if (occ === "?") {
-				arg2.push([Fleur.XQueryX.optional,[]]);
-			}
-			arg = [Fleur.XQueryX.castableExpr,[[Fleur.XQueryX.argExpr,[arg1]],[Fleur.XQueryX.singleType,arg2]]];
-			break;
-		case "treat as":
-		case "treat as+":
-		case "treat as?":
-		case "treat as*":
-			occ = op.charAt(8);
-			if (arg2val.indexOf("[Fleur.XQueryX.nameTest,") !== -1) {
-				arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
-				arg2 = [Fleur.XQueryX.atomicType,arg2[1][0]];
-			} else if (arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") !== -1) {
-				arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") + 86);
-				arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
-			} else {
-				arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['attribute']],") + 90);
-				arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
-			}
-			arg2 = [arg2];
-			if (occ !== "") {
-				arg2.push([Fleur.XQueryX.occurrenceIndicator,[occ]]);
-			}
-			arg = [Fleur.XQueryX.treatExpr,[[Fleur.XQueryX.argExpr,[arg]],[Fleur.XQueryX.sequenceType,arg2]]];
-			break;
-		case "instance of":
-		case "instance of+":
-		case "instance of?":
-		case "instance of*":
-			occ = op.charAt(11);
-			if (arg2val.indexOf("[Fleur.XQueryX.nameTest,") !== -1) {
-				arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
-				arg2val3 = "[Fleur.XQueryX.atomicType," + arg2val2.substr(0, arg2val2.length - 4);
-			} else if (arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") !== -1) {
-				arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") + 86);
-				arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
-			} else {
-				arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['attribute']],") + 90);
-				arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
-			}
-			arg2 = [arg2];
-			if (occ !== "") {
-				arg2.push([Fleur.XQueryX.occurrenceIndicator,[occ]]);
-			}
-			arg = [Fleur.XQueryX.instanceOfExpr,[[Fleur.XQueryX.argExpr,[arg1]],[Fleur.XQueryX.sequenceType,arg2]]];
-			break;
-		case "then":
-			if (arg1[0] === Fleur.XQueryX.functionCallExpr && arg1[1][0][0] === Fleur.XQueryX.functionName && arg1[1][0][1][0] === 'if') {
-				arg = [Fleur.XQueryX.ifThenElseExpr,[[Fleur.XQueryX.ifClause,[arg1[1][1][1][0]]],[Fleur.XQueryX.thenClause,[arg2]]]];
-			}
-			opprec = -1;
-			break;
-		case "else":
-			if (arg1[0] === Fleur.XQueryX.ifThenElseExpr) {
-				arg1[0].push([Fleur.XQueryX.elseClause,[arg2]]);
-				arg = arg1;
-			}
-			break;
-		case "catch":
-			if (arg1[0] === Fleur.XQueryX.tryCatchExpr) {
-				arg1[1].push([Fleur.XQueryX.catchClause,[arg2]]);
-				arg = arg1;
-			}
-			break;
-		case "let":
-			arg = [Fleur.XQueryX.flworExpr,[arg1,arg2]];
-			break;
-		case "for":
-			arg = [Fleur.XQueryX.flworExpr,[arg1,arg2]];
-			break;
-		case "group by":
-			arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.groupByClause,[arg2]]]];
-			break;
-		case "order by":
-			if (arg2[0] === Fleur.XQueryX.orderBySpec) {
-				arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.orderByClause,[arg2]]]];
-			} else {
-				arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.orderByClause,[[Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[arg2]]]]]]]];
-			}
-			break;
-		case "~~ascending":
-		case "~~descending":
-			arg = [Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[arg1]],[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.orderingKind,[op.substr(2)]]]]]];
-			break;
-		case "empty":
-			if (arg1[0] === Fleur.XQueryX.orderBySpec) {
-				if (arg1val.endsWith(",[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.orderingKind,['ascending']]]]]]") || arg1val.endsWith(",[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.orderingKind,['descending']]]]]]")) {
-					arg = arg1val.substr(0, arg1val.length - 4) + ",[Fleur.XQueryX.emptyOrderingMode,['empty " + arg2val.substr(112, arg2val.length - 119) + "']]]]]]";
-				} else {
-					arg = arg1val.substr(0, arg1val.length - 2) + ",[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.emptyOrderingMode,['empty " + arg2val.substr(112, arg2val.length - 119) + "']]]]]]";
-				}
-			} else {
-				arg = [Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[arg1]],[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.emptyOrderingMode,["empty " + arg2val.substr(112, arg2val.length - 119)]]]]]];
-			}
-			break;
-		case "where":
-			arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.whereClause,[arg2]]]];
-			break;
-		case "count":
-			arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.countClause,[arg2]]]];
-			break;
-		case "nodes":
-			if (arg1[0] === Fleur.XQueryX.pathExpr &&
-				arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
-				arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "delete") {
-				arg = [Fleur.XQueryX.deleteExpr,[[Fleur.XQueryX.targetExpr,[arg2]]]];
-			} else if (arg1[0] === Fleur.XQueryX.pathExpr &&
-				arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
-				arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "insert") {
-				arg = [Fleur.XQueryX.insertExpr,[arg2]];
-			}
-			break;
-		case "node":
-			if (arg1[0] === Fleur.XQueryX.pathExpr &&
-				arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
-				arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "delete") {
-				arg = [Fleur.XQueryX.deleteExpr,[[Fleur.XQueryX.targetExpr,[arg2]]]];
-			} else if (arg1[0] === Fleur.XQueryX.pathExpr &&
-				arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
-				arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "insert") {
-				arg = [Fleur.XQueryX.insertExpr,[arg2]];
-			} else if (arg1[0] === Fleur.XQueryX.pathExpr &&
-				arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
-				arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "replace") {
-				arg = [Fleur.XQueryX.replaceExpr,[arg2]];
-			} else if (arg1[0] === Fleur.XQueryX.replaceValue && arg1[1].length === 0) {
-				arg = [Fleur.XQueryX.replaceExpr,[[Fleur.XQueryX.replaceValue,[]],arg2]];
-			}
-			break;
-		case "into":
-			if (arg1[0] === Fleur.XQueryX.sourceExprUf) {
-				arg1[1].push([Fleur.XQueryX.targetExpr,[arg2]]);
-				arg = arg1;
-			} else {
-				arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertInto,[]],[Fleur.XQueryX.targetExpr,[arg2]];
-			}
-			break;
-		case "after":
-			arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertAfter,[]],[Fleur.XQueryX.targetExpr,[arg2]];
-			break;
-		case "before":
-			arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertBefore,[]],[Fleur.XQueryX.targetExpr,[arg2]];
-			break;
-		case "value":
-			if (arg1[0] === Fleur.XQueryX.pathExpr &&
-				arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
-				arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "replace" &&
-				arg2[0] === Fleur.XQueryX.pathExpr &&
-				arg2[1][0][0] === Fleur.XQueryX.stepExpr && arg2[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg2[1][0][1][0][1][0] === "child" &&
-				arg2[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg2[1][0][1][1][1][0] === "of") {
-				arg = [Fleur.XQueryX.replaceValue,[]];
-			}
-			break;
-		case "with":
-			arg = [Fleur.XQueryX.targetExpr,[arg1]],[Fleur.XQueryX.replacementExpr,[arg2]];
-			break;
-		default:
-			arg = [Fleur.XQueryX[Fleur.XQueryParser._opcodes[op]],[[Fleur.XQueryX.firstOperand,[arg1]],[Fleur.XQueryX.secondOperand,[arg2]]]];
-	}
-	args.push(arg);
-	return Fleur.XQueryParser._calc(args, ops, opprec);
+  const curprec = ops.length !== 0 ? ops[ops.length - 1][0] : 0;
+  if ((ops.length === 0 || curprec > opprec || opprec === 31) || (curprec >= opprec && (curprec === Fleur.XQueryParser._rightgrouping1 || curprec === Fleur.XQueryParser._rightgrouping2))) {
+    return [args, ops];
+  }
+  const op = ops[ops.length - 1][1];
+  ops.pop();
+  const prevop = ops.length !== 0 ? ops[ops.length - 1][1] : "";
+  let arg2 = args[args.length - 1];
+  let arg1;
+  if (op.startsWith("~~")) {
+    arg1 = arg2;
+  } else {
+    args.pop();
+    arg1 = args[args.length - 1];
+  }
+  args.pop();
+  var arg;
+  var occ;
+  switch (op) {
+    case ";":
+        if (arg1[0] === Fleur.XQueryX.sequenceExpr && arg1[1][0] === Fleur.XQueryX.multidimExpr) {
+          arg1[1].push(arg2);
+          arg = arg1;
+        } else {
+          arg = [Fleur.XQueryX.sequenceExpr,[[Fleur.XQueryX.multidimExpr,[arg1, arg2]]]];
+        }
+      break;
+    case ",":
+      if (prevop === "(") {
+        if (arg1[0] === Fleur.XQueryX.arguments) {
+          arg1[1].push(arg2);
+          arg = arg1;
+        } else {
+          arg = [Fleur.XQueryX.arguments,[arg1, arg2]];
+        }
+      } else if (prevop === "q") {
+      } else { // if (ops.startsWith("4.50.,")) {
+        if (arg1[0] === Fleur.XQueryX.mapConstructorEntry) {
+        } else if (arg1[0] === Fleur.XQueryX.sequenceExpr && arg1[1].length !== 0) {
+          arg1[1].push(arg2);
+          arg = arg1;
+        } else {
+          arg = [Fleur.XQueryX.sequenceExpr,[arg1, arg2]];
+        }
+      }
+      break;
+    case "~,":
+      if (arg1[0] === Fleur.XQueryX.letClauseItem || arg1[0] === Fleur.XQueryX.groupBySpec) {
+      } else if (arg1[0] === Fleur.XQueryX.letClause) {
+        if (arg2[0] === Fleur.XQueryX.letClause) {
+          arg1[1].push(arg2[1][0]);
+          arg = arg1;
+        } else {
+          arg1[1].push(arg2);
+          arg = arg1;
+        }
+      } else {
+        if (arg1[0] !== Fleur.XQueryX.orderBySpec) {
+          arg = [Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[arg1]]]];
+        } else {
+          arg = arg1val;
+        }
+        if (arg2[0] !== Fleur.XQueryX.orderBySpec) {
+        } else {
+        }
+      }
+      break;
+    case "//":
+      arg = [Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg1)];
+      arg[1].push([Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['descendant-or-self']],[Fleur.XQueryX.anyKindTest,[]]]]);
+      arg[1].push(Fleur.XQueryParser._pathExprFormat(arg2)[0]);
+      break;
+    case "/":
+      arg = [Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg1)];
+      if (arg2.length !== 0) {
+        arg[1].push(Fleur.XQueryParser._pathExprFormat(arg2)[0]);
+      }
+      break;
+    case "!!":
+      arg = [Fleur.XQueryX.doubleMapExpr,[[Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg1)],[Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg2)]]];
+      break;
+    case "!":
+      arg = [Fleur.XQueryX.simpleMapExpr,[[Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg1)],[Fleur.XQueryX.pathExpr,Fleur.XQueryParser._pathExprFormat(arg2)]]];
+      break;
+    case "|":
+      if (ops.length > 1 && ops[0][1] === "|" && ops[1][1] === "catch") {
+        if (arg1[0] === Fleur.XQueryX.pathExpr) {
+          arg1 = arg1[1][0][1];
+        }
+        if (arg2[0] === Fleur.XQueryX.pathExpr) {
+          arg2 = arg2[1][0][1];
+          arg = [arg1,arg2];
+        } else {
+          arg = [Fleur.XQueryX.catchErrorList,[arg1,arg2]];
+        }
+      } else {
+        arg = [Fleur.XQueryX.unionOp,[[Fleur.XQueryX.firstOperand,[arg1]],[Fleur.XQueryX.secondOperand,[arg2]]]];
+      }
+      break;
+    case ":":
+      arg = [Fleur.XQueryX.mapConstructorEntry,[[Fleur.XQueryX.mapKeyExpr,[arg1]],[Fleur.XQueryX.mapValueExpr,[arg2]]]];
+      break;
+    case "?":
+      break;
+    case "to":
+      arg = [Fleur.XQueryX.rangeSequenceExpr,[[Fleur.XQueryX.startExpr,[arg1]],[Fleur.XQueryX.endExpr,[arg2]]]];
+      break;
+    case "~-":
+      arg = [Fleur.XQueryX.unaryMinusOp,[[Fleur.XQueryX.operand,[arg2]]]];
+      break;
+    case "~+":
+      arg = [Fleur.XQueryX.unaryPlusOp,[[Fleur.XQueryX.operand,[arg2]]]];
+      break;
+    case "allowing":
+      arg = [[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.allowingEmpty,[]]];
+      break;
+    case "at":
+      if (arg[0] === Fleur.XQueryX.typedVariableBinding) {
+        arg = [arg1,[Fleur.XQueryX.positionalVariableBinding,[arg2[1][0][1]]]];
+      } else {
+        arg = [[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.positionalVariableBinding,[arg2[1][0]]]];
+      }
+      break;
+    case "in":
+      if (ops[0] === "q") {
+        arg = [Fleur.XQueryX.quantifiedExprInClause,[[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.sourceExpr,[arg2]]]];
+      } else if (arg1[0] === Fleur.XQueryX.typedVariableBinding) {
+        arg = [Fleur.XQueryX.forClause,[[Fleur.XQueryX.forClauseItem,[arg1val,[Fleur.XQueryX.forExpr,[arg2val]]]]]];
+      } else {
+        arg = [Fleur.XQueryX.forClause,[[Fleur.XQueryX.forClauseItem,[[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.forExpr,[arg2]]]]]];
+      }
+      break;
+    case "as":
+      if (arg2[0] === Fleur.XQueryX.pathExpr &&
+        arg2[1][0][0] === Fleur.XQueryX.stepExpr && arg2[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg2[1][0][1][0][1][0] === "child" &&
+        arg2[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg2[1][0][1][1][1][0] === "last") {
+        arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertInto,[[Fleur.XQueryX.insertAsLast,[]]]];
+      } else if (arg2[0] === Fleur.XQueryX.pathExpr &&
+        arg2[1][0][0] === Fleur.XQueryX.stepExpr && arg2[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg2[1][0][1][0][1][0] === "child" &&
+        arg2[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg2[1][0][1][1][1][0] === "first") {
+        arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertInto,[[Fleur.XQueryX.insertAsFirst,[]]]];
+      } else {
+        arg2 = [Fleur.XQueryX.atomicType,arg2[1][0][1][1][1][0][1]];
+        arg = [Fleur.XQueryX.varName,[arg1[1][0]]],[Fleur.XQueryX.typeDeclaration,[arg2]];
+      }
+      break;
+    case ":=":
+      if ((ops.length > 1 && ops[1][1] === "group by") || (ops.length > 2 && ops[1][1] === "~," && ops[2][1] === "group by")) {
+        if (arg1[0] === Fleur.XQueryX.groupingSpec) {
+          arg1[1].push([Fleur.XQueryX.groupVarInitialize,[[Fleur.XQueryX.varValue,[arg2]]]]);
+          arg = arg1;
+        } else {
+          arg = [Fleur.XQueryX.groupingSpec,[[Fleur.XQueryX.varName,[arg1]],[Fleur.XQueryX.groupVarInitialize,[[Fleur.XQueryX.varValue,[arg2]]]]]];
+        }
+      } else if (arg1[0] === Fleur.XQueryX.varName) {
+        arg = [Fleur.XQueryX.letClause,[[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[arg1]],[Fleur.XQueryX.letExpr,[arg2]]]]]];
+      } else {
+        arg = [Fleur.XQueryX.letClause,[[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[arg1[1][0]]]]],[Fleur.XQueryX.letExpr,[arg2]]]]]];
+      }
+      break;
+    case "return":
+      arg1[1].push([Fleur.XQueryX.returnClause,[arg2]]);
+      arg = arg1;
+      break;
+    case "satisfies":
+      arg1[1].push([Fleur.XQueryX.predicateExpr,[arg2]]);
+      arg = arg1;
+      break;
+    case "cast as":
+    case "cast as?":
+      occ = op.charAt(7);
+      arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
+      arg2 = [Fleur.XQueryX.atomicType,arg2[1][0]];
+      if (occ === "?") {
+        arg2.push([Fleur.XQueryX.optional,[]]);
+      }
+      arg = [Fleur.XQueryX.castExpr,[[Fleur.XQueryX.argExpr,[arg1]],[Fleur.XQueryX.singleType,arg2]]];
+      break;
+    case "castable as":
+    case "castable as?":
+      occ = op.charAt(11);
+      arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
+      arg2 = [Fleur.XQueryX.atomicType,arg2[1][0]];
+      arg2 = [arg2];
+      if (occ === "?") {
+        arg2.push([Fleur.XQueryX.optional,[]]);
+      }
+      arg = [Fleur.XQueryX.castableExpr,[[Fleur.XQueryX.argExpr,[arg1]],[Fleur.XQueryX.singleType,arg2]]];
+      break;
+    case "treat as":
+    case "treat as+":
+    case "treat as?":
+    case "treat as*":
+      occ = op.charAt(8);
+      if (arg2val.indexOf("[Fleur.XQueryX.nameTest,") !== -1) {
+        arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
+        arg2 = [Fleur.XQueryX.atomicType,arg2[1][0]];
+      } else if (arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") !== -1) {
+        arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") + 86);
+        arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
+      } else {
+        arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['attribute']],") + 90);
+        arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
+      }
+      arg2 = [arg2];
+      if (occ !== "") {
+        arg2.push([Fleur.XQueryX.occurrenceIndicator,[occ]]);
+      }
+      arg = [Fleur.XQueryX.treatExpr,[[Fleur.XQueryX.argExpr,[arg]],[Fleur.XQueryX.sequenceType,arg2]]];
+      break;
+    case "instance of":
+    case "instance of+":
+    case "instance of?":
+    case "instance of*":
+      occ = op.charAt(11);
+      if (arg2val.indexOf("[Fleur.XQueryX.nameTest,") !== -1) {
+        arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
+        arg2val3 = "[Fleur.XQueryX.atomicType," + arg2val2.substr(0, arg2val2.length - 4);
+      } else if (arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") !== -1) {
+        arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") + 86);
+        arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
+      } else {
+        arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['attribute']],") + 90);
+        arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
+      }
+      arg2 = [arg2];
+      if (occ !== "") {
+        arg2.push([Fleur.XQueryX.occurrenceIndicator,[occ]]);
+      }
+      arg = [Fleur.XQueryX.instanceOfExpr,[[Fleur.XQueryX.argExpr,[arg1]],[Fleur.XQueryX.sequenceType,arg2]]];
+      break;
+    case "then":
+      if (arg1[0] === Fleur.XQueryX.functionCallExpr && arg1[1][0][0] === Fleur.XQueryX.functionName && arg1[1][0][1][0] === 'if') {
+        arg = [Fleur.XQueryX.ifThenElseExpr,[[Fleur.XQueryX.ifClause,[arg1[1][1][1][0]]],[Fleur.XQueryX.thenClause,[arg2]]]];
+      }
+      opprec = -1;
+      break;
+    case "else":
+      if (arg1[0] === Fleur.XQueryX.ifThenElseExpr) {
+        arg1[0].push([Fleur.XQueryX.elseClause,[arg2]]);
+        arg = arg1;
+      }
+      break;
+    case "catch":
+      if (arg1[0] === Fleur.XQueryX.tryCatchExpr) {
+        arg1[1].push([Fleur.XQueryX.catchClause,[arg2]]);
+        arg = arg1;
+      }
+      break;
+    case "let":
+      arg = [Fleur.XQueryX.flworExpr,[arg1,arg2]];
+      break;
+    case "for":
+      arg = [Fleur.XQueryX.flworExpr,[arg1,arg2]];
+      break;
+    case "group by":
+      arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.groupByClause,[arg2]]]];
+      break;
+    case "order by":
+      if (arg2[0] === Fleur.XQueryX.orderBySpec) {
+        arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.orderByClause,[arg2]]]];
+      } else {
+        arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.orderByClause,[[Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[arg2]]]]]]]];
+      }
+      break;
+    case "~~ascending":
+    case "~~descending":
+      arg = [Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[arg1]],[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.orderingKind,[op.substr(2)]]]]]];
+      break;
+    case "empty":
+      if (arg1[0] === Fleur.XQueryX.orderBySpec) {
+        if (arg1val.endsWith(",[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.orderingKind,['ascending']]]]]]") || arg1val.endsWith(",[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.orderingKind,['descending']]]]]]")) {
+          arg = arg1val.substr(0, arg1val.length - 4) + ",[Fleur.XQueryX.emptyOrderingMode,['empty " + arg2val.substr(112, arg2val.length - 119) + "']]]]]]";
+        } else {
+          arg = arg1val.substr(0, arg1val.length - 2) + ",[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.emptyOrderingMode,['empty " + arg2val.substr(112, arg2val.length - 119) + "']]]]]]";
+        }
+      } else {
+        arg = [Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[arg1]],[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.emptyOrderingMode,["empty " + arg2val.substr(112, arg2val.length - 119)]]]]]];
+      }
+      break;
+    case "where":
+      arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.whereClause,[arg2]]]];
+      break;
+    case "count":
+      arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.countClause,[arg2]]]];
+      break;
+    case "nodes":
+      if (arg1[0] === Fleur.XQueryX.pathExpr &&
+        arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
+        arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "delete") {
+        arg = [Fleur.XQueryX.deleteExpr,[[Fleur.XQueryX.targetExpr,[arg2]]]];
+      } else if (arg1[0] === Fleur.XQueryX.pathExpr &&
+        arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
+        arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "insert") {
+        arg = [Fleur.XQueryX.insertExpr,[arg2]];
+      }
+      break;
+    case "node":
+      if (arg1[0] === Fleur.XQueryX.pathExpr &&
+        arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
+        arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "delete") {
+        arg = [Fleur.XQueryX.deleteExpr,[[Fleur.XQueryX.targetExpr,[arg2]]]];
+      } else if (arg1[0] === Fleur.XQueryX.pathExpr &&
+        arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
+        arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "insert") {
+        arg = [Fleur.XQueryX.insertExpr,[arg2]];
+      } else if (arg1[0] === Fleur.XQueryX.pathExpr &&
+        arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
+        arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "replace") {
+        arg = [Fleur.XQueryX.replaceExpr,[arg2]];
+      } else if (arg1[0] === Fleur.XQueryX.replaceValue && arg1[1].length === 0) {
+        arg = [Fleur.XQueryX.replaceExpr,[[Fleur.XQueryX.replaceValue,[]],arg2]];
+      }
+      break;
+    case "into":
+      if (arg1[0] === Fleur.XQueryX.sourceExprUf) {
+        arg1[1].push([Fleur.XQueryX.targetExpr,[arg2]]);
+        arg = arg1;
+      } else {
+        arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertInto,[]],[Fleur.XQueryX.targetExpr,[arg2]];
+      }
+      break;
+    case "after":
+      arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertAfter,[]],[Fleur.XQueryX.targetExpr,[arg2]];
+      break;
+    case "before":
+      arg = [Fleur.XQueryX.sourceExprUf,[arg1]],[Fleur.XQueryX.insertBefore,[]],[Fleur.XQueryX.targetExpr,[arg2]];
+      break;
+    case "value":
+      if (arg1[0] === Fleur.XQueryX.pathExpr &&
+        arg1[1][0][0] === Fleur.XQueryX.stepExpr && arg1[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg1[1][0][1][0][1][0] === "child" &&
+        arg1[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg1[1][0][1][1][1][0] === "replace" &&
+        arg2[0] === Fleur.XQueryX.pathExpr &&
+        arg2[1][0][0] === Fleur.XQueryX.stepExpr && arg2[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && arg2[1][0][1][0][1][0] === "child" &&
+        arg2[1][0][1][1][0] === Fleur.XQueryX.nameTest && arg2[1][0][1][1][1][0] === "of") {
+        arg = [Fleur.XQueryX.replaceValue,[]];
+      }
+      break;
+    case "with":
+      arg = [Fleur.XQueryX.targetExpr,[arg1]],[Fleur.XQueryX.replacementExpr,[arg2]];
+      break;
+    default:
+      arg = [Fleur.XQueryX[Fleur.XQueryParser._opcodes[op]],[[Fleur.XQueryX.firstOperand,[arg1]],[Fleur.XQueryX.secondOperand,[arg2]]]];
+  }
+  args.push(arg);
+  return Fleur.XQueryParser._calc(args, ops, opprec);
 };
 Fleur.XQueryParser._testFormat = function(s, namecode) {
-	var arg1, arg2, arg20, arg200;
-	if (s === "") {
-		return "";
-	}
-	if (s.indexOf(",[Fleur.XQueryX.pathExpr,[") !== -1) {
-		arg1 = s.substr(0, s.indexOf(",[Fleur.XQueryX.pathExpr,["));
-		arg20 = s.substr(s.indexOf(",[Fleur.XQueryX.pathExpr,[") + 1);
-		arg200 = arg20.substr(arg20.indexOf("[Fleur.XQueryX.nameTest,['") + 25);
-		arg2 = "," + "[Fleur.XQueryX.typeName,[" + arg200.substr(0, arg200.length - 6) + "]]";
-	} else {
-		arg1 = s;
-		arg2 = "";
-	}
-	var arg120 = arg1.indexOf("[Fleur.XQueryX.nameTest,['") !== -1 ? arg1.substr(arg1.indexOf("[Fleur.XQueryX.nameTest,['") + 25) : "[Fleur.XQueryX.star,[]]";
-	var arg12 = "[" + namecode + ",[" + (arg120 === "[Fleur.XQueryX.star,[]]" ? arg120 : "[Fleur.XQueryX.QName,[" + arg120.substr(0, arg120.length - 6) + "]]") + "]]";
-	return arg12 + arg2;
+  var arg1, arg2, arg20, arg200;
+  if (s === "") {
+    return "";
+  }
+  if (s.indexOf(",[Fleur.XQueryX.pathExpr,[") !== -1) {
+    arg1 = s.substr(0, s.indexOf(",[Fleur.XQueryX.pathExpr,["));
+    arg20 = s.substr(s.indexOf(",[Fleur.XQueryX.pathExpr,[") + 1);
+    arg200 = arg20.substr(arg20.indexOf("[Fleur.XQueryX.nameTest,['") + 25);
+    arg2 = "," + "[Fleur.XQueryX.typeName,[" + arg200.substr(0, arg200.length - 6) + "]]";
+  } else {
+    arg1 = s;
+    arg2 = "";
+  }
+  var arg120 = arg1.indexOf("[Fleur.XQueryX.nameTest,['") !== -1 ? arg1.substr(arg1.indexOf("[Fleur.XQueryX.nameTest,['") + 25) : "[Fleur.XQueryX.star,[]]";
+  var arg12 = "[" + namecode + ",[" + (arg120 === "[Fleur.XQueryX.star,[]]" ? arg120 : "[Fleur.XQueryX.QName,[" + arg120.substr(0, arg120.length - 6) + "]]") + "]]";
+  return arg12 + arg2;
 };
 Fleur.XQueryParser._getNodeConstructor = function(s, begin) {
-	var ii, text, texts, entityname, index, offset = 0, end = s.length, nodename, attrname, attrvalue, attrvalues, attrs, parents = [], locstack = [], currnodename = "", c, c0, c1, c2, braces,
-		seps_pi = " \t\n\r?", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r", rseps = /^\s*$/gm,
-		namespaces = {}, newnamespaces = {}, pindex, prefix, localName, r0 = null, r = null, nextsep = "";
-	while (offset !== end) {
-		text = "";
-		texts = [];
-		c1 = " ";
-		c = s.charAt(offset);
-		braces = 0;
-		while ((c !== "<" || braces !== 0) && offset !== end) {
-			c2 = s.charAt(offset + 1);
-			if (c === "{" && c2 !== c) {
-				if (braces === 0 && text !== "") {
-					if (/\S/.test(text.replace("\\n", "\n").replace("\\r", "\r"))) {
-						texts.push([0, text]);
-					}
-					text = "";
-				}
-				if (braces !== 0) {
-					text += "{";
-				}
-				if (c1 === c) {
-					braces--;
-					if (braces === 0) {
-						text = (texts.length > 0 ? texts.pop()[1] : "") + "{";
-					}
-				} else {
-					braces++;
-				}
-			} else if (c === "}" && c2 !== c) {
-				if (braces === 1 && text !== "") {
-					texts.push([1, text]);
-					text = "";
-				}
-				if (braces !== 1 && braces !== -1) {
-					text += "}";
-				}
-				if (c1 === c) {
-					braces++;
-				} else {
-					braces--;
-				}
-			} else if (c === "&") {
-				c = s.charAt(++offset);
-				entityname = "";
-				while (c !== ";" && offset !== end) {
-					entityname += c;
-					c = s.charAt(++offset);
-				}
-				if (offset === end) {
-					break;
-				}
-				if (entityname.charAt(0) === "#") {
-					text += String.fromCharCode(parseInt(entityname.charAt(1).toLowerCase() === 'x' ? "0" + entityname.substr(1).toLowerCase() : entityname.substr(1), entityname.charAt(1).toLowerCase() === 'x' ? 16 : 10));
-				} else {
-					text += Fleur.encchars[entityname];
-				}
-			} else if (braces === 0 && c === "\n") {
-				text += "\\n";
-			} else if (braces === 0 && c === "\r") {
-				text += "\\r";
-			} else {
-				text += c;
-				if (c2 === c && (c === "{" || c === "}")) {
-					if (braces !== 0) {
-						text += c;
-					}
-					offset++;
-					c = " ";
-				}
-			}
-			c1 = c;
-			c = s.charAt(++offset);
-		}
-		if (/\S/.test(text.replace("\\n", "\n").replace("\\r", "\r")) && texts.length === 0) {
-			locstack[locstack.length - 1].push([Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[text.replace(/'/gm,"\\'")]]]]);
-		} else if (texts.length > 0) {
-			if (/\S/.test(text.replace("\\n", "\n").replace("\\r", "\r"))) {
-				texts.push([0, text]);
-			}
-			texts.forEach(function(t) {
-				if (t[0] === 0) {
-					locstack[locstack.length - 1].push([Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[t[1].replace(/'/gm,"\\'")]]]]);
-				} else {
-					locstack[locstack.length - 1].push(Fleur.XQueryParser._xp2js(t[1], "", "", begin));
-				}
-				nextsep = ",";
-			});
-		}
-		if (offset === end) {
-			break;
-		}
-		offset++;
-		if (s.charAt(offset) === "!") {
-			offset++;
-			if (s.substr(offset, 2) === "--") {
-				offset += 2;
-				index = s.indexOf("-->", offset);
-				if (index !== offset) {
-					if (index === -1) {
-						index = end;
-					}
-					text = "";
-					ii = offset;
-					while (ii < index) {
-						text += s.charAt(ii++);
-					}
-					text = text.replace(/\x01/gm,"<");
-					r0 = [Fleur.XQueryX.computedCommentConstructor,[[Fleur.XQueryX.argExpr,[[Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[text ]]]]]]], begin, offset, 0];
-					if (r === null) {
-						return r0;
-					}
-					locstack[locstack.length - 1].push(r0);
-					if (index === end) {
-						break;
-					}
-					offset = index;
-				}
-				offset += 3;
-			} else if (s.substr(offset, 7) === "[CDATA[") {
-				offset += 7;
-				index = s.indexOf("]]>", offset);
-				if (index !== offset) {
-					if (index === -1) {
-						index = end;
-					}
-					text = "";
-					ii = offset;
-					while (ii < index) {
-						text += s.charAt(ii++);
-					}
-					text = text.replace(/\x01/gm,"<");
-					if (text !== "") {
-						locstack[locstack.length - 1].push([Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[text]]]]);
-					}
-					if (index === end) {
-						break;
-					}
-					offset = index;
-				}
-				offset += 3;
-			}
-		} else if (s.charAt(offset) === "?") {
-			offset++;
-			c = s.charAt(offset++);
-			nodename = "";
-			while (seps_pi.indexOf(c) === -1) {
-				nodename += c;
-				c = s.charAt(offset++);
-			}
-			index = s.indexOf("?>", offset - 1);
-			if (index === -1) {
-				index = end;
-			}
-			if (nodename.toLowerCase() === "xml") {
-				Fleur.XQueryError_xqt("XPST0003", null, "Invalid processing instruction", "", new Fleur.Text("xml"));
-			} else if (nodename !== "") {
-				text = "";
-				ii = offset;
-				while (ii < index) {
-					text += s.charAt(ii++);
-				}
-				text = text.replace(/\x01/gm,"<");
-				r0 = [Fleur.XQueryX.computedPIConstructor,[[Fleur.XQueryX.piTarget,[nodename]],[Fleur.XQueryX.piValueExpr,[[Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[text]]]]]]], begin, index + 2, 0];
-				if (r === null) {
-					return r0;
-				}
-				locstack[locstack.length - 1].push(r0);
-			}
-			if (index === end) {
-				break;
-			}
-			offset = index + 2;
-		} else if (s.charAt(offset) === "/") {
-			offset++;
-			c = s.charAt(offset++);
-			nodename = "";
-			while (seps_close.indexOf(c) === -1 && offset <= end) {
-				nodename += c;
-				c = s.charAt(offset++);
-			}
-			if (nodename === currnodename) {
-				if (parents.length === 1) {
-					return [r[0], r[1], begin, offset, 0];
-				}
-				locstack.pop();
-				currnodename = parents.pop();
-			} else {
-				Fleur.XQueryError_xqt("XPST0003", null, "Unbalanced XML element", "", new Fleur.Text(nodename));
-			}
-			offset = s.indexOf(">", offset - 1) + 1;
-			if (offset === 0) {
-				break;
-			}
-		} else {
-			c = s.charAt(offset++);
-			nodename = "";
-			while (seps_elt.indexOf(c) === -1 && offset <= end) {
-				nodename += c;
-				c = s.charAt(offset++);
-			}
-			index = s.indexOf(">", offset - 1);
-			if (nodename !== "") {
-				newnamespaces = {};
-				for (prefix in namespaces) {
-					if (namespaces.hasOwnProperty(prefix)) {
-						newnamespaces[prefix] = namespaces[prefix];
-					}
-				}
-				attrs = {};
-				while (offset <= end) {
-					while (seps.indexOf(c) !== -1 && offset <= end) {
-						c = s.charAt(offset++);
-					}
-					if (c === "/" || c === ">" || offset === end) {
-						break;
-					}
-					attrname = "";
-					while (seps_attr.indexOf(c) === -1 && offset <= end) {
-						attrname += c;
-						c = s.charAt(offset++);
-					}
-					if (attrname === "") {
-						Fleur.XQueryError_xqt("XPST0003", null, "Invalid character in XML attribut name", "", new Fleur.Text(c));
-					}
-					while (seps.indexOf(c) !== -1 && offset <= end) {
-						c = s.charAt(offset++);
-					}
-					if (c === "=") {
-						c = s.charAt(offset++);
-						while (seps.indexOf(c) !== -1 && offset <= end) {
-							c = s.charAt(offset++);
-						}
-						attrvalue = "";
-						attrvalues = [];
-						if (c === "'" || c === "\"") {
-							c0 = c;
-							c1 = c;
-							c = s.charAt(offset++);
-							c2 = s.charAt(offset);
-							braces = 0;
-							attrvalue = "";
-							ii = offset;
-							while ((c !== c0 || c2 === c0 || braces !== 0) && offset <= end) {
-								if (c === "{") {
-									if (braces === 0 && attrvalue !== "") {
-										attrvalues.push([0, attrvalue]);
-										attrvalue = "";
-									}
-									if (c1 === c) {
-										braces--;
-										if (braces === 0) {
-											attrvalue = (attrvalues.length > 0 ? attrvalues.pop()[1] : "") + "{";
-										}
-									} else {
-										braces++;
-									}
-								} else if (c === "}") {
-									if (braces === 1 && attrvalue !== "") {
-										attrvalues.push([1, attrvalue]);
-										attrvalue = "";
-									}
-									if (c1 === c) {
-										braces++;
-										if (braces === 0) {
-											attrvalue += "}";
-										}
-									} else {
-										braces--;
-									}
-								} else if (c === c2 && c === c0) {
-									attrvalue += c;
-									c1 = c;
-									c = s.charAt(++offset);
-									c2 = s.charAt(++offset);
-									continue;
-								} else {
-									attrvalue += c;
-								}
-								c1 = c;
-								c = c2;
-								c2 = s.charAt(++offset);
-							}
-							if (attrvalue !== "") {
-								attrvalues.push([0, attrvalue]);
-							}
-							c = c2;
-							offset++;
-						} else {
-							while (seps_elt.indexOf(c) === -1 && offset <= end) {
-								attrvalue += c;
-								c = s.charAt(offset++);
-							}
-							attrvalues = [[0, attrvalue]];
-						}
-					} else {
-						attrvalues = [[0, attrname]];
-					}
-					pindex = attrname.indexOf(":");
-					prefix = pindex !== -1 ? attrname.substr(0, pindex) : " ";
-					localName = pindex !== -1 ? attrname.substr(pindex + 1) : attrname;
-					if (!attrs[prefix]) {
-						attrs[prefix] = {};
-					}
-					attrs[prefix][localName] = attrvalues;
-					if (prefix === "xmlns") {
-						newnamespaces[localName] = attrvalues;
-					} else if (prefix === " " && localName === "xmlns") {
-						newnamespaces[" "] = attrvalues;
-					}
-				}
-				pindex = nodename.indexOf(":");
-				if (pindex === -1) {
-					r0 = [Fleur.XQueryX.elementConstructor,[[Fleur.XQueryX.tagName,[nodename]]]];
-				} else {
-					r0 = [Fleur.XQueryX.elementConstructor,[[Fleur.XQueryX.tagName,[nodename.substr(pindex + 1),[Fleur.XQueryX.prefix,[nodename.substr(0, pindex)]]]]]];
-				}
-				if (Object.keys(attrs).length) {
-					const attrprod = [Fleur.XQueryX.attributeList,[]];
-					if (attrs[" "] && attrs[" "].xmlns) {
-						attrprod[1].push([Fleur.XQueryX.namespaceDeclaration,[[Fleur.XQueryX.uri,[(attrs[" "].xmlns.length !== 0 ? attrs[" "].xmlns[0][1] : "")]]]]);
-						delete attrs[" "].xmlns;
-					}
-					for (attrname in attrs.xmlns) {
-						if (attrs.xmlns.hasOwnProperty(attrname)) {
-							attrprod[1].push([Fleur.XQueryX.namespaceDeclaration,[[Fleur.XQueryX.prefixElt,[attrname]],[Fleur.XQueryX.uri,[attrs.xmlns[attrname][0][1]]]]]);
-						}
-					}
-					delete attrs.xmlns;
-					for (prefix in attrs) {
-						if (attrs.hasOwnProperty(prefix)) {
-							for (attrname in attrs[prefix]) {
-								if (attrs[prefix].hasOwnProperty(attrname)) {
-									const aconsprod = [Fleur.XQueryX.attributeConstructor,[[Fleur.XQueryX.attributeName,[attrname]]]];
-									if (prefix !== " ") {
-										aconsprod[1].push([Fleur.XQueryX.prefix,[prefix]]);
-									}
-									if (attrs[prefix][attrname].length === 0) {
-										aconsprod[1].push([Fleur.XQueryX.attributeValue,[]]);
-									} else if (attrs[prefix][attrname].length === 1 && attrs[prefix][attrname][0][0] === 0) {
-										aconsprod[1].push([Fleur.XQueryX.attributeValue,[Fleur.DocumentType.resolveEntities(null, attrs[prefix][attrname][0][1]).replace(/'/gm,"\\'").replace(/\x01/gm,"<")]]);
-									} else {
-										const ave = [Fleur.XQueryX.attributeValueExpr,[]];
-										attrs[prefix][attrname].forEach(function(v) {
-											if (v[0] === 0) {
-												ave[1].push([Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[Fleur.DocumentType.resolveEntities(null, v[1]).replace(/'/gm,"\\'")]]]]);
-											} else {
-												ave[1].push(Fleur.XQueryParser._xp2js(v[1], "", "", begin));
-											}
-										});
-										aconsprod[1].push(ave);
-									}
-									attrprod[1].push(aconsprod);
-								}
-							}
-						}
-					}
-					r0[1].push(attrprod);
-				}
-				if (s.charAt(offset - 1) !== "/") {
-					const newloc = [];
-					r0[1].push([Fleur.XQueryX.elementContent,newloc]);
-					parents.push(currnodename);
-					currnodename = nodename;
-					if (locstack.length !== 0) {
-						locstack[locstack.length -1].push(r0);
-					} else {
-						r = r0;
-					}
-					locstack.push(newloc);
-				} else {
-					if (r === null) {
-						return [r0[0], r0[1], begin, offset + 1, 0];
-					}
-					locstack[locstack.length - 1].push(r0);
-				}
-			} else {
-				Fleur.XQueryError_xqt("XPST0003", null, "Invalid character in XML element name", "", new Fleur.Text(c));
-			}
-			offset = index + 1;
-			if (offset === 0) {
-				break;
-			}
-		}
-	}
+  var ii, text, texts, entityname, index, offset = 0, end = s.length, nodename, attrname, attrvalue, attrvalues, attrs, parents = [], locstack = [], currnodename = "", c, c0, c1, c2, braces,
+    seps_pi = " \t\n\r?", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r", rseps = /^\s*$/gm,
+    namespaces = {}, newnamespaces = {}, pindex, prefix, localName, r0 = null, r = null, nextsep = "";
+  while (offset !== end) {
+    text = "";
+    texts = [];
+    c1 = " ";
+    c = s.charAt(offset);
+    braces = 0;
+    while ((c !== "<" || braces !== 0) && offset !== end) {
+      c2 = s.charAt(offset + 1);
+      if (c === "{" && c2 !== c) {
+        if (braces === 0 && text !== "") {
+          if (/\S/.test(text.replace("\\n", "\n").replace("\\r", "\r"))) {
+            texts.push([0, text]);
+          }
+          text = "";
+        }
+        if (braces !== 0) {
+          text += "{";
+        }
+        if (c1 === c) {
+          braces--;
+          if (braces === 0) {
+            text = (texts.length > 0 ? texts.pop()[1] : "") + "{";
+          }
+        } else {
+          braces++;
+        }
+      } else if (c === "}" && c2 !== c) {
+        if (braces === 1 && text !== "") {
+          texts.push([1, text]);
+          text = "";
+        }
+        if (braces !== 1 && braces !== -1) {
+          text += "}";
+        }
+        if (c1 === c) {
+          braces++;
+        } else {
+          braces--;
+        }
+      } else if (c === "&") {
+        c = s.charAt(++offset);
+        entityname = "";
+        while (c !== ";" && offset !== end) {
+          entityname += c;
+          c = s.charAt(++offset);
+        }
+        if (offset === end) {
+          break;
+        }
+        if (entityname.charAt(0) === "#") {
+          text += String.fromCharCode(parseInt(entityname.charAt(1).toLowerCase() === 'x' ? "0" + entityname.substr(1).toLowerCase() : entityname.substr(1), entityname.charAt(1).toLowerCase() === 'x' ? 16 : 10));
+        } else {
+          text += Fleur.encchars[entityname];
+        }
+      } else if (braces === 0 && c === "\n") {
+        text += "\\n";
+      } else if (braces === 0 && c === "\r") {
+        text += "\\r";
+      } else {
+        text += c;
+        if (c2 === c && (c === "{" || c === "}")) {
+          if (braces !== 0) {
+            text += c;
+          }
+          offset++;
+          c = " ";
+        }
+      }
+      c1 = c;
+      c = s.charAt(++offset);
+    }
+    if (/\S/.test(text.replace("\\n", "\n").replace("\\r", "\r")) && texts.length === 0) {
+      locstack[locstack.length - 1].push([Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[text.replace(/'/gm,"\\'")]]]]);
+    } else if (texts.length > 0) {
+      if (/\S/.test(text.replace("\\n", "\n").replace("\\r", "\r"))) {
+        texts.push([0, text]);
+      }
+      texts.forEach(function(t) {
+        if (t[0] === 0) {
+          locstack[locstack.length - 1].push([Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[t[1].replace(/'/gm,"\\'")]]]]);
+        } else {
+          locstack[locstack.length - 1].push(Fleur.XQueryParser._xp2js(t[1], [], [], begin));
+        }
+        nextsep = ",";
+      });
+    }
+    if (offset === end) {
+      break;
+    }
+    offset++;
+    if (s.charAt(offset) === "!") {
+      offset++;
+      if (s.substr(offset, 2) === "--") {
+        offset += 2;
+        index = s.indexOf("-->", offset);
+        if (index !== offset) {
+          if (index === -1) {
+            index = end;
+          }
+          text = "";
+          ii = offset;
+          while (ii < index) {
+            text += s.charAt(ii++);
+          }
+          text = text.replace(/\x01/gm,"<");
+          r0 = [Fleur.XQueryX.computedCommentConstructor,[[Fleur.XQueryX.argExpr,[[Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[text ]]]]]]], begin, offset, 0];
+          if (r === null) {
+            return r0;
+          }
+          locstack[locstack.length - 1].push(r0);
+          if (index === end) {
+            break;
+          }
+          offset = index;
+        }
+        offset += 3;
+      } else if (s.substr(offset, 7) === "[CDATA[") {
+        offset += 7;
+        index = s.indexOf("]]>", offset);
+        if (index !== offset) {
+          if (index === -1) {
+            index = end;
+          }
+          text = "";
+          ii = offset;
+          while (ii < index) {
+            text += s.charAt(ii++);
+          }
+          text = text.replace(/\x01/gm,"<");
+          if (text !== "") {
+            locstack[locstack.length - 1].push([Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[text]]]]);
+          }
+          if (index === end) {
+            break;
+          }
+          offset = index;
+        }
+        offset += 3;
+      }
+    } else if (s.charAt(offset) === "?") {
+      offset++;
+      c = s.charAt(offset++);
+      nodename = "";
+      while (seps_pi.indexOf(c) === -1) {
+        nodename += c;
+        c = s.charAt(offset++);
+      }
+      index = s.indexOf("?>", offset - 1);
+      if (index === -1) {
+        index = end;
+      }
+      if (nodename.toLowerCase() === "xml") {
+        Fleur.XQueryError_xqt("XPST0003", null, "Invalid processing instruction", "", new Fleur.Text("xml"));
+      } else if (nodename !== "") {
+        text = "";
+        ii = offset;
+        while (ii < index) {
+          text += s.charAt(ii++);
+        }
+        text = text.replace(/\x01/gm,"<");
+        r0 = [Fleur.XQueryX.computedPIConstructor,[[Fleur.XQueryX.piTarget,[nodename]],[Fleur.XQueryX.piValueExpr,[[Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[text]]]]]]], begin, index + 2, 0];
+        if (r === null) {
+          return r0;
+        }
+        locstack[locstack.length - 1].push(r0);
+      }
+      if (index === end) {
+        break;
+      }
+      offset = index + 2;
+    } else if (s.charAt(offset) === "/") {
+      offset++;
+      c = s.charAt(offset++);
+      nodename = "";
+      while (seps_close.indexOf(c) === -1 && offset <= end) {
+        nodename += c;
+        c = s.charAt(offset++);
+      }
+      if (nodename === currnodename) {
+        if (parents.length === 1) {
+          return [r[0], r[1], begin, offset, 0];
+        }
+        locstack.pop();
+        currnodename = parents.pop();
+      } else {
+        Fleur.XQueryError_xqt("XPST0003", null, "Unbalanced XML element", "", new Fleur.Text(nodename));
+      }
+      offset = s.indexOf(">", offset - 1) + 1;
+      if (offset === 0) {
+        break;
+      }
+    } else {
+      c = s.charAt(offset++);
+      nodename = "";
+      while (seps_elt.indexOf(c) === -1 && offset <= end) {
+        nodename += c;
+        c = s.charAt(offset++);
+      }
+      index = s.indexOf(">", offset - 1);
+      if (nodename !== "") {
+        newnamespaces = {};
+        for (prefix in namespaces) {
+          if (namespaces.hasOwnProperty(prefix)) {
+            newnamespaces[prefix] = namespaces[prefix];
+          }
+        }
+        attrs = {};
+        while (offset <= end) {
+          while (seps.indexOf(c) !== -1 && offset <= end) {
+            c = s.charAt(offset++);
+          }
+          if (c === "/" || c === ">" || offset === end) {
+            break;
+          }
+          attrname = "";
+          while (seps_attr.indexOf(c) === -1 && offset <= end) {
+            attrname += c;
+            c = s.charAt(offset++);
+          }
+          if (attrname === "") {
+            Fleur.XQueryError_xqt("XPST0003", null, "Invalid character in XML attribut name", "", new Fleur.Text(c));
+          }
+          while (seps.indexOf(c) !== -1 && offset <= end) {
+            c = s.charAt(offset++);
+          }
+          if (c === "=") {
+            c = s.charAt(offset++);
+            while (seps.indexOf(c) !== -1 && offset <= end) {
+              c = s.charAt(offset++);
+            }
+            attrvalue = "";
+            attrvalues = [];
+            if (c === "'" || c === "\"") {
+              c0 = c;
+              c1 = c;
+              c = s.charAt(offset++);
+              c2 = s.charAt(offset);
+              braces = 0;
+              attrvalue = "";
+              ii = offset;
+              while ((c !== c0 || c2 === c0 || braces !== 0) && offset <= end) {
+                if (c === "{") {
+                  if (braces === 0 && attrvalue !== "") {
+                    attrvalues.push([0, attrvalue]);
+                    attrvalue = "";
+                  }
+                  if (c1 === c) {
+                    braces--;
+                    if (braces === 0) {
+                      attrvalue = (attrvalues.length > 0 ? attrvalues.pop()[1] : "") + "{";
+                    }
+                  } else {
+                    braces++;
+                  }
+                } else if (c === "}") {
+                  if (braces === 1 && attrvalue !== "") {
+                    attrvalues.push([1, attrvalue]);
+                    attrvalue = "";
+                  }
+                  if (c1 === c) {
+                    braces++;
+                    if (braces === 0) {
+                      attrvalue += "}";
+                    }
+                  } else {
+                    braces--;
+                  }
+                } else if (c === c2 && c === c0) {
+                  attrvalue += c;
+                  c1 = c;
+                  c = s.charAt(++offset);
+                  c2 = s.charAt(++offset);
+                  continue;
+                } else {
+                  attrvalue += c;
+                }
+                c1 = c;
+                c = c2;
+                c2 = s.charAt(++offset);
+              }
+              if (attrvalue !== "") {
+                attrvalues.push([0, attrvalue]);
+              }
+              c = c2;
+              offset++;
+            } else {
+              while (seps_elt.indexOf(c) === -1 && offset <= end) {
+                attrvalue += c;
+                c = s.charAt(offset++);
+              }
+              attrvalues = [[0, attrvalue]];
+            }
+          } else {
+            attrvalues = [[0, attrname]];
+          }
+          pindex = attrname.indexOf(":");
+          prefix = pindex !== -1 ? attrname.substr(0, pindex) : " ";
+          localName = pindex !== -1 ? attrname.substr(pindex + 1) : attrname;
+          if (!attrs[prefix]) {
+            attrs[prefix] = {};
+          }
+          attrs[prefix][localName] = attrvalues;
+          if (prefix === "xmlns") {
+            newnamespaces[localName] = attrvalues;
+          } else if (prefix === " " && localName === "xmlns") {
+            newnamespaces[" "] = attrvalues;
+          }
+        }
+        pindex = nodename.indexOf(":");
+        if (pindex === -1) {
+          r0 = [Fleur.XQueryX.elementConstructor,[[Fleur.XQueryX.tagName,[nodename]]]];
+        } else {
+          r0 = [Fleur.XQueryX.elementConstructor,[[Fleur.XQueryX.tagName,[nodename.substr(pindex + 1),[Fleur.XQueryX.prefix,[nodename.substr(0, pindex)]]]]]];
+        }
+        if (Object.keys(attrs).length) {
+          const attrprod = [Fleur.XQueryX.attributeList,[]];
+          if (attrs[" "] && attrs[" "].xmlns) {
+            attrprod[1].push([Fleur.XQueryX.namespaceDeclaration,[[Fleur.XQueryX.uri,[(attrs[" "].xmlns.length !== 0 ? attrs[" "].xmlns[0][1] : "")]]]]);
+            delete attrs[" "].xmlns;
+          }
+          for (attrname in attrs.xmlns) {
+            if (attrs.xmlns.hasOwnProperty(attrname)) {
+              attrprod[1].push([Fleur.XQueryX.namespaceDeclaration,[[Fleur.XQueryX.prefixElt,[attrname]],[Fleur.XQueryX.uri,[attrs.xmlns[attrname][0][1]]]]]);
+            }
+          }
+          delete attrs.xmlns;
+          for (prefix in attrs) {
+            if (attrs.hasOwnProperty(prefix)) {
+              for (attrname in attrs[prefix]) {
+                if (attrs[prefix].hasOwnProperty(attrname)) {
+                  const aconsprod = [Fleur.XQueryX.attributeConstructor,[[Fleur.XQueryX.attributeName,[attrname]]]];
+                  if (prefix !== " ") {
+                    aconsprod[1][0][1].push([Fleur.XQueryX.prefix,[prefix]]);
+                  }
+                  if (attrs[prefix][attrname].length === 0) {
+                    aconsprod[1].push([Fleur.XQueryX.attributeValue,[]]);
+                  } else if (attrs[prefix][attrname].length === 1 && attrs[prefix][attrname][0][0] === 0) {
+                    aconsprod[1].push([Fleur.XQueryX.attributeValue,[Fleur.DocumentType.resolveEntities(null, attrs[prefix][attrname][0][1]).replace(/'/gm,"\\'").replace(/\x01/gm,"<")]]);
+                  } else {
+                    const ave = [Fleur.XQueryX.attributeValueExpr,[]];
+                    attrs[prefix][attrname].forEach(function(v) {
+                      if (v[0] === 0) {
+                        ave[1].push([Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[Fleur.DocumentType.resolveEntities(null, v[1]).replace(/'/gm,"\\'")]]]]);
+                      } else {
+                        ave[1].push(Fleur.XQueryParser._xp2js(v[1], [], [], begin));
+                      }
+                    });
+                    aconsprod[1].push(ave);
+                  }
+                  attrprod[1].push(aconsprod);
+                }
+              }
+            }
+          }
+          r0[1].push(attrprod);
+        }
+        if (s.charAt(offset - 1) !== "/") {
+          const newloc = [];
+          r0[1].push([Fleur.XQueryX.elementContent,newloc]);
+          parents.push(currnodename);
+          currnodename = nodename;
+          if (locstack.length !== 0) {
+            locstack[locstack.length -1].push(r0);
+          } else {
+            r = r0;
+          }
+          locstack.push(newloc);
+        } else {
+          if (r === null) {
+            return [r0[0], r0[1], begin, offset + 1, 0];
+          }
+          locstack[locstack.length - 1].push(r0);
+        }
+      } else {
+        Fleur.XQueryError_xqt("XPST0003", null, "Invalid character in XML element name", "", new Fleur.Text(c));
+      }
+      offset = index + 1;
+      if (offset === 0) {
+        break;
+      }
+    }
+  }
 };
 Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, predstart, predarr, ops) {
-	let t = [];
-	l = l || 0;
-	var p, plen, arg20, arg2;
-	var isret = false;
-	if (c === "?") {
-		var i = Fleur.XQueryParser._skipSpaces(s, 0);
-		var c2 = s.charAt(i);
-		var d = s.substr(i + 1);
-		var r, t1;
-		if (c2 !== "" && "0123456789".indexOf(c2) !== -1) {
-			t1 = Fleur.XQueryParser._getNumber(c2 + d);
-			r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,[t1.replace(/e\+/, "e")]]]]]];
-			plen = t1.length + 1;
-		} else if (c2 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c2) !== -1) {
-			t1 = Fleur.XQueryParser._getName(c2 + d);
-			r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.NCName,[t1]]]];
-			plen = t1.length + 1;
-		} else if (c2 === "*") {
-			r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.star,[]]]];
-			plen = 2;
-		} else if (c2 === "(") {
-			t = Fleur.XQueryParser._xp2js(s.substr(i + 1), [], [999,"("]);
-			plen = s.length - parseInt(t.substr(0, t.indexOf(".")), 10) + 1 + i;
-			r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.expr,[t.substr(t.indexOf(".") + 1)]]]];
-		}
-	} else {
-		var func = [];
-		if (arg[0] === Fleur.XQueryX.pathExpr && arg[1][0][1][1][0] === Fleur.XQueryX.nameTest) {
-			func = arg[1][0][1][1];
-		}
-		if (func.length !== 0 && func[1][0] === "function" && func[1].length === 1) {
-			plen = s.length;
-		} else {
-			t = Fleur.XQueryParser._xp2js(s, [], l === 0 ? [] : [[999, arg[0] === Fleur.XQueryX.quantifiedExpr && arg[1][0][0] === Fleur.XQueryX.quantifier ? "q" : "("]], 0);
-			plen = s.length - t[3] + 1;
-		}
-	}
-	if (t.length === 0) {
-		Fleur.XQueryError_xqt("XPST0003", null, "Unrecognized expression", "", new Fleur.Text(s));
-	} else if (c === "{") {
-		var cargs = t;
-		if (cargs[0] === Fleur.XQueryX.arguments) {
-			cargs[0] = Fleur.XQueryX.sequenceExpr;
-		}
-		if (arg[0] === Fleur.XQueryX.computedEntryConstructor || arg[0] === Fleur.XQueryX.computedElementConstructor || arg[0] === Fleur.XQueryX.computedAttributeConstructor) {
-			arg[1].push([Fleur.XQueryX.valueExpr,[cargs]]);
-			p = arg;
-			p[3] = plen;
-		} else if (arg[0] === Fleur.XQueryX.computedPIConstructor) {
-			arg[1].push([Fleur.XQueryX.piValueExpr,[cargs]]);
-			p = arg;
-			p[3] = plen;
-		} else {
-			var cname = arg[1][0][1][1];
-			if (cname[1].length === 1) {
-				switch (cname[1][0]) {
-					case "document":
-						p = [Fleur.XQueryX.computedDocumentConstructor,[[Fleur.XQueryX.argExpr,[cargs]]], 0, plen, 0];
-						break;
-					case "comment":
-						p = [Fleur.XQueryX.computedCommentConstructor,[[Fleur.XQueryX.argExpr,[cargs]]], 0, plen, 0];
-						break;
-					case "map":
-						var cargs2 = cargs[0] === Fleur.XQueryX.arguments ? cargs[1] : cargs;
-						p = [Fleur.XQueryX.mapConstructor,[cargs2], 0, plen, 0];
-						break;
-					case "array":
-						var cargs3 = cargs[0] === Fleur.XQueryX.arguments ? cargs[1] : cargs;
-						p = [Fleur.XQueryX.arrayConstructor,[cargs3], 0, plen, 0];
-						break;
-					case "entry":
-						p = [Fleur.XQueryX.computedEntryConstructor,[[Fleur.XQueryX.tagNameExpr,[cargs]]], 0, plen, 0];
-						break;
-					case "element":
-						p = [Fleur.XQueryX.computedElementConstructor,[[Fleur.XQueryX.tagNameExpr,[cargs]]], 0, plen, 0];
-						break;
-					case "attribute":
-						p = [Fleur.XQueryX.computedAttributeConstructor,[[Fleur.XQueryX.tagNameExpr,[cargs]]], 0, plen, 0];
-						break;
-					case "processing-instruction":
-						p = [Fleur.XQueryX.computedPIConstructor,[[Fleur.XQueryX.piTargetExpr,[cargs]]], 0, plen, 0];
-						break;
-					case "text":
-						p = [Fleur.XQueryX.computedTextConstructor,[[Fleur.XQueryX.argExpr,[cargs]]], 0, plen, 0];
-						break;
-					case "try":
-						p = [Fleur.XQueryX.tryCatchExpr,[[Fleur.XQueryX.tryClause,[cargs]]], 0, plen, 0];
-						break;
-				}
-			}
-			if (ops.length !== 0 && (ops[0][1] === "catch" || (ops[0][1] === "|" && ops.length > 1 && ops[1][1] === "catch"))) {
-				arg2 = arg[1][0][1];
-				p = [Fleur.XQueryX.catchErrorList,[arg2]],[Fleur.XQueryX.catchExpr,[cargs], 0, plen, 0];
-			}
-		}
-	} else if (c === "(") {
-		if (arg[0] === Fleur.XQueryX.pathExpr && arg[1][0][0] === Fleur.XQueryX.stepExpr && arg[1][0][1][0][0] === Fleur.XQueryX.xpathAxis) {
-			const fname = arg[1][0][1][1];
-			var fargs = t[0] === Fleur.XQueryX.arguments ? t : [Fleur.XQueryX.arguments,t[0] === 0 ? [] : [t]];
-			var parg0, parg;
-			if (fname[1].length === 1) {
-				switch (fname[1][0]) {
-					case "array":
-						arg[1][0][1][1] = [Fleur.XQueryX.arrayTest,[]];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "attribute":
-						parg = Fleur.XQueryParser._testFormat(fargs, Fleur.XQueryX.attributeName);
-						p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['attribute']],[Fleur.XQueryX.attributeTest,parg]]]], 0, plen, 0];
-						break;
-					case "comment":
-						arg[1][0][1][1] = [Fleur.XQueryX.commentTest,[]];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "document-node":
-						if (fargs.length !== 0) {
-							parg = fargs[1][0][1][0][1];
-						} else {
-							parg = [];
-						}
-						arg[1][0][1][1] = [Fleur.XQueryX.documentTest,parg];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "element":
-						parg = Fleur.XQueryParser._testFormat(fargs, Fleur.XQueryX.elementName);
-						arg[1][0][1][1] = [Fleur.XQueryX.elementTest,parg];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "entry":
-						parg = Fleur.XQueryParser._testFormat(fargs, "Fleur.XQueryX.entryName");
-						p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['entry']],[Fleur.XQueryX.entryTest,parg]]]], 0, plen, 0];
-						break;
-					case "function":
-						var j = -1;
-						var xq = s;
-						var pindex, np, nbpar = 0;
-						var fres = [Fleur.XQueryX.paramList,[]];
-						var end = xq.length;
-						do {
-							j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
-							c = xq.charAt(j);
-							if (c !== ")") {
-								if (c !== "$") {
-									Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
-								}
-								j++;
-								c = xq.charAt(j);
-								d = xq.substr(j + 1);
-								if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
-									Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
-								}
-								var pname = Fleur.XQueryParser._getName(c + d);
-								j = Fleur.XQueryParser._skipSpaces(xq, j + pname.length);
-								c = xq.charAt(j);
-								var tdecl = [];
-								if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-									d = xq.substr(j + 1);
-									r = Fleur.XQueryParser._getName(c + d);
-									if (r === "as") {
-										j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-										c = xq.charAt(j);
-										if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-											d = xq.substr(j + 1);
-											var ptype = Fleur.XQueryParser._getName(c + d);
-											pindex = ptype.indexOf(":");
-											np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
-											c = xq.charAt(j + ptype.length);
-											tdecl = [Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[np]]]];
-											if ("?+*".indexOf(c) !== -1) {
-												tdecl[1].push([Fleur.XQueryX.occurrenceIndicator,[c]]);
-												j++;
-											}
-											j = Fleur.XQueryParser._skipSpaces(xq, j + ptype.length);
-											c = xq.charAt(j);
-										}
-									}
-								}
-								fres[1].push([Fleur.XQueryX.param,[[Fleur.XQueryX.varName,[pname]]]]);
-								if (tdecl.length !== 0) {
-									fres[1].push(tdecl);
-								}
-								nbpar++;
-							}
-						} while (c === ",");
-						if (c !== ")") {
-							Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
-						}
-						j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
-						c = xq.charAt(j);
-						if (c === "a") {
-							d = xq.substr(j + 1);
-							r = Fleur.XQueryParser._getName(c + d);
-							if (r === "as") {
-								j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-								c = xq.charAt(j);
-								if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-									d = xq.substr(j + 1);
-									ptype = Fleur.XQueryParser._getName(c + d);
-									pindex = ptype.indexOf(":");
-									np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
-									c = xq.charAt(j + ptype.length);
-									fres += ",[Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[" + np + "]]";
-									if ("?+*".indexOf(c) !== -1) {
-										fres += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
-										j++;
-									}
-									fres += "]]";
-									j = Fleur.XQueryParser._skipSpaces(xq, j + ptype.length);
-									c = xq.charAt(j);
-								}
-							}
-						}
-						if (c === "{") {
-							fres += ",[Fleur.XQueryX.functionBody,[";
-							var braces = 1;
-							var body = "";
-							while ((c !== "}" || braces !== 0) && j !== end) {
-								c = xq.charAt(++j);
-								if (c === "{") {
-									braces++;
-								} else if (c === "}") {
-									braces--;
-								}
-								if (braces !== 0) {
-									body += c;
-								}
-							}
-							if (body !== "") {
-								fres += Fleur.XQueryParser._xp2js(body, "", "");
-							}
-							fres += "]]";
-						} else {
-							Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
-						}
-						plen = j + 2;
-						p = [Fleur.XQueryX.inlineFunctionExpr,[fres], 0, plen, 0];
-						break;
-					case "item":
-						arg[1][0][1][1] = [Fleur.XQueryX.anyItemType,[]];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "map":
-						arg[1][0][1][1] = [Fleur.XQueryX.mapTest,[]];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "namespace-node":
-						arg[1][0][1][1] = [Fleur.XQueryX.namespaceTest,[]];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "node":
-						arg[1][0][1][1] = [Fleur.XQueryX.anyKindTest,[]];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "processing-instruction":
-						arg[1][0][1][1] = [Fleur.XQueryX.piTest,fargs.length !== 0 ? [Fleur.XQueryX.piTarget,fargs[1]] : []];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "schema-attribute":
-						if (fargs.length !== 0) {
-							parg = fargs[1][0][1][0][1];
-						} else {
-							parg = [];
-						}
-						arg[1][0][1][1] = [Fleur.XQueryX.schemaAttributeTest,parg];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "schema-element":
-						if (fargs.length !== 0) {
-							parg = fargs[1][0][1][0][1];
-						} else {
-							parg = [];
-						}
-						arg[1][0][1][1] = [Fleur.XQueryX.schemaElementTest,parg];
-						p = arg;
-						p[3] = plen;
-						break;
-					case "text":
-						arg[1][0][1][1] = [Fleur.XQueryX.textTest,[]];
-						p = arg;
-						p[3] = plen;
-						break;
-				}
-			}
-			if (!p) {
-				fname[0] = Fleur.XQueryX.functionName;
-				p = [Fleur.XQueryX.functionCallExpr,[fname,fargs], 0, plen, 0];
-			}
-		} else if (arg[0] === Fleur.XQueryX.pathExpr && arg[1].length !== 0  && arg[1][0][0] === Fleur.XQueryX.stepExpr && arg[1][0][1].length !== 0 && arg1[1][0][1][0][0] === Fleur.XQueryX.filterExpr) {
-			var arg1, lookup = false;
-			if (arg.indexOf(",[Fleur.XQueryX.predicates,[") !== -1) {
-				arg1 = arg.substr(0, arg.indexOf(",[Fleur.XQueryX.predicates,[")).substr(77);
-				arg20 = arg.substr(arg.indexOf(",[Fleur.XQueryX.predicates,[") + 28);
-				arg2 = arg20.substr(0, arg20.length - 6);
-			} else if (arg.indexOf(",[Fleur.XQueryX.lookup,[") !== -1) {
-				lookup = true;
-				arg1 = arg.substr(0, arg.indexOf(",[Fleur.XQueryX.lookup,[")).substr(77);
-				arg20 = arg.substr(arg.indexOf(",[Fleur.XQueryX.lookup,[") + 24);
-				arg2 = arg20.substr(0, arg20.length - 6);
-			} else {
-				arg1 = arg.substr(0, arg.length - 8).substr(77);
-				arg2 = "";
-			}
-			fargs = t.length !== 0 && t[0] !== Fleur.XQueryX.arguments ? [Fleur.XQueryX.arguments,[t]] : t;
-			arg1 = [arg1];
-			if (arg2.length !== 0) {
-				arg1.push([lookup ? Fleur.XQueryX.lookup: Fleur.XQueryX.predicates,[arg2]]);
-			}
-			if (fargs.length !== 0) {
-				arg1.push(fargs);
-			}
-			p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[arg1]]]]]]]]], 0, plen, 0];
-			p[3] = plen;
-		} else if (arg[0] === Fleur.XQueryX.namedFunctionRef) {
-			p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[arg]]]]]]]]], 0, plen, 0];
-		} else if (arg[0] === Fleur.XQueryX.flworExpr && arg[1].length === 0) {
-			p = [Fleur.XQueryX.flworExpr,t[0] === Fleur.XQueryX.arguments || t[0] === Fleur.XQueryX.flworExpr ? t[1] : [t], 0, plen, 0];
-			isret = true;
-		} else if (arg[0] === Fleur.XQueryX.quantifiedExpr && arg[1][0] && arg[1][0][0] === Fleur.XQueryX.quantifier) {
-			fargs = t[0] === Fleur.XQueryX.arguments ? t[1] : [t];
-			arg[1].push(fargs);
-			p = arg;
-			p[3] = plen;
-			isret = true;
-		} else if (arg.length !== 0 && arg[1] !== 0) {
-			fargs = t[0] === Fleur.XQueryX.arguments ? t[1] : [t];
-			p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[arg]],fargs]]]]]]]];
-		} else {
-			p = t;
-			p[3] = plen;
-		}
-	} else {
-		if (arg[0] !== Fleur.XQueryX.pathExpr) {
-			arg = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[arg]]]]]];
-		}
-		const stepcontent = arg[1][0][1];
-		const laststepcontent = stepcontent[stepcontent.length - 1];
-		if (c === "?") {
-			if (arg.indexOf(",[Fleur.XQueryX.predicates,[") === -1) {
-				p = plen + "." + arg.substr(0, arg.length - 4) + "," + t.substr(t.indexOf(".") + 1) + "]]]]";
-			} else {
-				p = plen + "." + arg.substr(0, predstart) + predarr.reduce(function(s, pr) {return s + ",[Fleur.XQueryX.predicate,[" + pr + "]]";}, "") + "," + t.substr(t.indexOf(".") + 1) + "]]]]";;
-			}
-			allowpredicates = false;
-		} else if (laststepcontent[0] !== Fleur.XQueryX.predicates) {
-			stepcontent.push([allowpredicates ? Fleur.XQueryX.predicates : Fleur.XQueryX.predicate,[t]]);
-			p = arg;
-			p[3] = plen;
-		} else {
-			laststepcontent[1].push(t);
-			p = arg;
-			p[3] = plen;
-		}
-	}
-	if (!isret) {
-		var inext = Fleur.XQueryParser._skipSpaces(s, plen - 1);
-		var cnext = s.charAt(inext);
-		if (cnext === "(" || cnext === "[" || cnext === "{" || cnext === "?") {
-			return Fleur.XQueryParser._getPredParam(cnext, s.substr(inext + 1), l + inext + 1, p, allowpredicates, predstart, predarr, ops);
-		}
-	}
-	p[3] += l;
-	return p;
+  let t = [];
+  l = l || 0;
+  var p, plen, arg20, arg2;
+  var isret = false;
+  if (c === "?") {
+    var i = Fleur.XQueryParser._skipSpaces(s, 0);
+    var c2 = s.charAt(i);
+    var d = s.substr(i + 1);
+    var r, t1;
+    if (c2 !== "" && "0123456789".indexOf(c2) !== -1) {
+      t1 = Fleur.XQueryParser._getNumber(c2 + d);
+      r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,[t1.replace(/e\+/, "e")]]]]]];
+      plen = t1.length + 1;
+    } else if (c2 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c2) !== -1) {
+      t1 = Fleur.XQueryParser._getName(c2 + d);
+      r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.NCName,[t1]]]];
+      plen = t1.length + 1;
+    } else if (c2 === "*") {
+      r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.star,[]]]];
+      plen = 2;
+    } else if (c2 === "(") {
+      t = Fleur.XQueryParser._xp2js(s.substr(i + 1), [], [999,"("]);
+      plen = s.length - parseInt(t.substr(0, t.indexOf(".")), 10) + 1 + i;
+      r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.expr,[t.substr(t.indexOf(".") + 1)]]]];
+    }
+  } else {
+    var func = [];
+    if (arg[0] === Fleur.XQueryX.pathExpr && arg[1][0][1][1][0] === Fleur.XQueryX.nameTest) {
+      func = arg[1][0][1][1];
+    }
+    if (func.length !== 0 && func[1][0] === "function" && func[1].length === 1) {
+      plen = s.length;
+    } else {
+      t = Fleur.XQueryParser._xp2js(s, [], l === 0 ? [] : [[999, arg[0] === Fleur.XQueryX.quantifiedExpr && arg[1][0][0] === Fleur.XQueryX.quantifier ? "q" : "("]], 0);
+      plen = s.length - t[3] + 1;
+    }
+  }
+  if (t.length === 0) {
+    Fleur.XQueryError_xqt("XPST0003", null, "Unrecognized expression", "", new Fleur.Text(s));
+  } else if (c === "{") {
+    var cargs = t;
+    if (cargs[0] === Fleur.XQueryX.arguments) {
+      cargs[0] = Fleur.XQueryX.sequenceExpr;
+    }
+    if (arg[0] === Fleur.XQueryX.computedEntryConstructor || arg[0] === Fleur.XQueryX.computedElementConstructor || arg[0] === Fleur.XQueryX.computedAttributeConstructor) {
+      if (cargs[1] !== 0) {
+        arg[1].push([Fleur.XQueryX.valueExpr,[cargs]]);
+      }
+      p = arg;
+      p[3] = plen;
+    } else if (arg[0] === Fleur.XQueryX.computedPIConstructor) {
+      if (cargs[1] !== 0) {
+        arg[1].push([Fleur.XQueryX.piValueExpr,[cargs]]);
+      }
+      p = arg;
+      p[3] = plen;
+    } else {
+      var cname = arg[1][0][1][1];
+      if (cname[1].length === 1) {
+        switch (cname[1][0]) {
+          case "document":
+            p = [Fleur.XQueryX.computedDocumentConstructor,(cargs[1] !== 0 ? [[Fleur.XQueryX.argExpr,[cargs]]] : []), 0, plen, 0];
+            break;
+          case "comment":
+            p = [Fleur.XQueryX.computedCommentConstructor,(cargs[1] !== 0 ? [[Fleur.XQueryX.argExpr,[cargs]]] : []), 0, plen, 0];
+            break;
+          case "map":
+            var cargs2 = cargs[0] === Fleur.XQueryX.arguments ? cargs[1] : cargs;
+            p = [Fleur.XQueryX.mapConstructor,[cargs2], 0, plen, 0];
+            break;
+          case "array":
+            var cargs3 = cargs[0] === Fleur.XQueryX.arguments ? cargs[1] : cargs;
+            p = [Fleur.XQueryX.arrayConstructor,[cargs3], 0, plen, 0];
+            break;
+          case "entry":
+            p = [Fleur.XQueryX.computedEntryConstructor,[[Fleur.XQueryX.tagNameExpr,[cargs]]], 0, plen, 0];
+            break;
+          case "element":
+            p = [Fleur.XQueryX.computedElementConstructor,[[Fleur.XQueryX.tagNameExpr,[cargs]]], 0, plen, 0];
+            break;
+          case "attribute":
+            p = [Fleur.XQueryX.computedAttributeConstructor,[[Fleur.XQueryX.tagNameExpr,[cargs]]], 0, plen, 0];
+            break;
+          case "processing-instruction":
+            p = [Fleur.XQueryX.computedPIConstructor,[[Fleur.XQueryX.piTargetExpr,[cargs]]], 0, plen, 0];
+            break;
+          case "text":
+            p = [Fleur.XQueryX.computedTextConstructor,(cargs[1] !== 0 ? [[Fleur.XQueryX.argExpr,[cargs]]] : []), 0, plen, 0];
+            break;
+          case "try":
+            p = [Fleur.XQueryX.tryCatchExpr,[[Fleur.XQueryX.tryClause,[cargs]]], 0, plen, 0];
+            break;
+        }
+      }
+      if (ops.length !== 0 && (ops[0][1] === "catch" || (ops[0][1] === "|" && ops.length > 1 && ops[1][1] === "catch"))) {
+        arg2 = arg[1][0][1];
+        p = [Fleur.XQueryX.catchErrorList,[arg2]],[Fleur.XQueryX.catchExpr,[cargs], 0, plen, 0];
+      }
+    }
+  } else if (c === "(") {
+    if (arg[0] === Fleur.XQueryX.pathExpr && arg[1][0][0] === Fleur.XQueryX.stepExpr && arg[1][0][1][0][0] === Fleur.XQueryX.xpathAxis) {
+      const fname = arg[1][0][1][1];
+      var fargs = t[0] === Fleur.XQueryX.arguments ? t : [Fleur.XQueryX.arguments,t[0] === 0 ? [] : [t]];
+      var parg0, parg;
+      if (fname[1].length === 1) {
+        switch (fname[1][0]) {
+          case "array":
+            arg[1][0][1][1] = [Fleur.XQueryX.arrayTest,[]];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "attribute":
+            parg = Fleur.XQueryParser._testFormat(fargs, Fleur.XQueryX.attributeName);
+            p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['attribute']],[Fleur.XQueryX.attributeTest,parg]]]], 0, plen, 0];
+            break;
+          case "comment":
+            arg[1][0][1][1] = [Fleur.XQueryX.commentTest,[]];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "document-node":
+            if (fargs.length !== 0) {
+              parg = fargs[1][0][1][0][1];
+            } else {
+              parg = [];
+            }
+            arg[1][0][1][1] = [Fleur.XQueryX.documentTest,parg];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "element":
+            parg = Fleur.XQueryParser._testFormat(fargs, Fleur.XQueryX.elementName);
+            arg[1][0][1][1] = [Fleur.XQueryX.elementTest,parg];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "entry":
+            parg = Fleur.XQueryParser._testFormat(fargs, "Fleur.XQueryX.entryName");
+            p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['entry']],[Fleur.XQueryX.entryTest,parg]]]], 0, plen, 0];
+            break;
+          case "function":
+            var j = -1;
+            var xq = s;
+            var pindex, np, nbpar = 0;
+            var fres = [Fleur.XQueryX.paramList,[]];
+            var end = xq.length;
+            do {
+              j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
+              c = xq.charAt(j);
+              if (c !== ")") {
+                if (c !== "$") {
+                  Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
+                }
+                j++;
+                c = xq.charAt(j);
+                d = xq.substr(j + 1);
+                if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
+                  Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
+                }
+                var pname = Fleur.XQueryParser._getName(c + d);
+                j = Fleur.XQueryParser._skipSpaces(xq, j + pname.length);
+                c = xq.charAt(j);
+                var tdecl = [];
+                if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                  d = xq.substr(j + 1);
+                  r = Fleur.XQueryParser._getName(c + d);
+                  if (r === "as") {
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                    c = xq.charAt(j);
+                    if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                      d = xq.substr(j + 1);
+                      var ptype = Fleur.XQueryParser._getName(c + d);
+                      pindex = ptype.indexOf(":");
+                      np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
+                      c = xq.charAt(j + ptype.length);
+                      tdecl = [Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[np]]]];
+                      if ("?+*".indexOf(c) !== -1) {
+                        tdecl[1].push([Fleur.XQueryX.occurrenceIndicator,[c]]);
+                        j++;
+                      }
+                      j = Fleur.XQueryParser._skipSpaces(xq, j + ptype.length);
+                      c = xq.charAt(j);
+                    }
+                  }
+                }
+                fres[1].push([Fleur.XQueryX.param,[[Fleur.XQueryX.varName,[pname]]]]);
+                if (tdecl.length !== 0) {
+                  fres[1].push(tdecl);
+                }
+                nbpar++;
+              }
+            } while (c === ",");
+            if (c !== ")") {
+              Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
+            }
+            j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
+            c = xq.charAt(j);
+            if (c === "a") {
+              d = xq.substr(j + 1);
+              r = Fleur.XQueryParser._getName(c + d);
+              if (r === "as") {
+                j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                c = xq.charAt(j);
+                if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                  d = xq.substr(j + 1);
+                  ptype = Fleur.XQueryParser._getName(c + d);
+                  pindex = ptype.indexOf(":");
+                  np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
+                  c = xq.charAt(j + ptype.length);
+                  fres += ",[Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[" + np + "]]";
+                  if ("?+*".indexOf(c) !== -1) {
+                    fres += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
+                    j++;
+                  }
+                  fres += "]]";
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + ptype.length);
+                  c = xq.charAt(j);
+                }
+              }
+            }
+            if (c === "{") {
+              fres += ",[Fleur.XQueryX.functionBody,[";
+              var braces = 1;
+              var body = "";
+              while ((c !== "}" || braces !== 0) && j !== end) {
+                c = xq.charAt(++j);
+                if (c === "{") {
+                  braces++;
+                } else if (c === "}") {
+                  braces--;
+                }
+                if (braces !== 0) {
+                  body += c;
+                }
+              }
+              if (body !== "") {
+                fres += Fleur.XQueryParser._xp2js(body, [], [], 0);
+              }
+              fres += "]]";
+            } else {
+              Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(xq.substr(j)));
+            }
+            plen = j + 2;
+            p = [Fleur.XQueryX.inlineFunctionExpr,[fres], 0, plen, 0];
+            break;
+          case "item":
+            arg[1][0][1][1] = [Fleur.XQueryX.anyItemType,[]];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "map":
+            arg[1][0][1][1] = [Fleur.XQueryX.mapTest,[]];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "namespace-node":
+            arg[1][0][1][1] = [Fleur.XQueryX.namespaceTest,[]];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "node":
+            arg[1][0][1][1] = [Fleur.XQueryX.anyKindTest,[]];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "processing-instruction":
+            arg[1][0][1][1] = [Fleur.XQueryX.piTest,fargs.length !== 0 ? [Fleur.XQueryX.piTarget,fargs[1]] : []];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "schema-attribute":
+            if (fargs.length !== 0) {
+              parg = fargs[1][0][1][0][1];
+            } else {
+              parg = [];
+            }
+            arg[1][0][1][1] = [Fleur.XQueryX.schemaAttributeTest,parg];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "schema-element":
+            if (fargs.length !== 0) {
+              parg = fargs[1][0][1][0][1];
+            } else {
+              parg = [];
+            }
+            arg[1][0][1][1] = [Fleur.XQueryX.schemaElementTest,parg];
+            p = arg;
+            p[3] = plen;
+            break;
+          case "text":
+            arg[1][0][1][1] = [Fleur.XQueryX.textTest,[]];
+            p = arg;
+            p[3] = plen;
+            break;
+        }
+      }
+      if (!p) {
+        fname[0] = Fleur.XQueryX.functionName;
+        p = [Fleur.XQueryX.functionCallExpr,[fname,fargs], 0, plen, 0];
+      }
+    } else if (arg[0] === Fleur.XQueryX.pathExpr && arg[1].length !== 0  && arg[1][0][0] === Fleur.XQueryX.stepExpr && arg[1][0][1].length !== 0 && arg1[1][0][1][0][0] === Fleur.XQueryX.filterExpr) {
+      var arg1, lookup = false;
+      if (arg.indexOf(",[Fleur.XQueryX.predicates,[") !== -1) {
+        arg1 = arg.substr(0, arg.indexOf(",[Fleur.XQueryX.predicates,[")).substr(77);
+        arg20 = arg.substr(arg.indexOf(",[Fleur.XQueryX.predicates,[") + 28);
+        arg2 = arg20.substr(0, arg20.length - 6);
+      } else if (arg.indexOf(",[Fleur.XQueryX.lookup,[") !== -1) {
+        lookup = true;
+        arg1 = arg.substr(0, arg.indexOf(",[Fleur.XQueryX.lookup,[")).substr(77);
+        arg20 = arg.substr(arg.indexOf(",[Fleur.XQueryX.lookup,[") + 24);
+        arg2 = arg20.substr(0, arg20.length - 6);
+      } else {
+        arg1 = arg.substr(0, arg.length - 8).substr(77);
+        arg2 = "";
+      }
+      fargs = t.length !== 0 && t[0] !== Fleur.XQueryX.arguments ? [Fleur.XQueryX.arguments,[t]] : t;
+      arg1 = [arg1];
+      if (arg2.length !== 0) {
+        arg1.push([lookup ? Fleur.XQueryX.lookup: Fleur.XQueryX.predicates,[arg2]]);
+      }
+      if (fargs.length !== 0) {
+        arg1.push(fargs);
+      }
+      p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[arg1]]]]]]]]], 0, plen, 0];
+      p[3] = plen;
+    } else if (arg[0] === Fleur.XQueryX.namedFunctionRef) {
+      p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[arg]]]]]]]]], 0, plen, 0];
+    } else if (arg[0] === Fleur.XQueryX.flworExpr && arg[1].length === 0) {
+      p = [Fleur.XQueryX.flworExpr,t[0] === Fleur.XQueryX.arguments || t[0] === Fleur.XQueryX.flworExpr ? t[1] : [t], 0, plen, 0];
+      isret = true;
+    } else if (arg[0] === Fleur.XQueryX.quantifiedExpr && arg[1][0] && arg[1][0][0] === Fleur.XQueryX.quantifier) {
+      fargs = t[0] === Fleur.XQueryX.arguments ? t[1] : [t];
+      arg[1].push(fargs);
+      p = arg;
+      p[3] = plen;
+      isret = true;
+    } else if (arg.length !== 0 && arg[1] !== 0) {
+      fargs = t[0] === Fleur.XQueryX.arguments ? t[1] : [t];
+      p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[arg]],fargs]]]]]]]];
+    } else {
+      p = t;
+      p[3] = plen;
+    }
+  } else {
+    if (arg[0] !== Fleur.XQueryX.pathExpr) {
+      arg = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[arg]]]]]];
+    }
+    const stepcontent = arg[1][0][1];
+    const laststepcontent = stepcontent[stepcontent.length - 1];
+    if (c === "?") {
+      if (arg.indexOf(",[Fleur.XQueryX.predicates,[") === -1) {
+        p = plen + "." + arg.substr(0, arg.length - 4) + "," + t.substr(t.indexOf(".") + 1) + "]]]]";
+      } else {
+        p = plen + "." + arg.substr(0, predstart) + predarr.reduce(function(s, pr) {return s + ",[Fleur.XQueryX.predicate,[" + pr + "]]";}, "") + "," + t.substr(t.indexOf(".") + 1) + "]]]]";;
+      }
+      allowpredicates = false;
+    } else if (laststepcontent[0] !== Fleur.XQueryX.predicates) {
+      stepcontent.push([allowpredicates ? Fleur.XQueryX.predicates : Fleur.XQueryX.predicate,[t]]);
+      p = arg;
+      p[3] = plen;
+    } else {
+      laststepcontent[1].push(t);
+      p = arg;
+      p[3] = plen;
+    }
+  }
+  if (!isret) {
+    var inext = Fleur.XQueryParser._skipSpaces(s, plen - 1);
+    var cnext = s.charAt(inext);
+    if (cnext === "(" || cnext === "[" || cnext === "{" || cnext === "?") {
+      return Fleur.XQueryParser._getPredParam(cnext, s.substr(inext + 1), l + inext + 1, p, allowpredicates, predstart, predarr, ops);
+    }
+  }
+  p[3] += l;
+  return p;
 };
 Fleur.XQueryParser._getPredParams = function(s, len, arg, ops, begin) {
-	const i = Fleur.XQueryParser._skipSpaces(s, 0);
-	const op = ops.length !== 0 ? ops[ops.length - 1][1] : "";
-	if (s.charAt(i) === "(" || s.charAt(i) === "[" || s.charAt(i) === "{" || (s.charAt(i) === "?" && op !== "instance of" && op !== "cast as" && op !== "castable as")) {
-		return Fleur.XQueryParser._getPredParam(s.charAt(i), s.substr(i + 1), len + i, arg, true, 0, [], ops, begin + 1);
-	}
+  const i = Fleur.XQueryParser._skipSpaces(s, 0);
+  const op = ops.length !== 0 ? ops[ops.length - 1][1] : "";
+  if (s.charAt(i) === "(" || s.charAt(i) === "[" || s.charAt(i) === "{" || (s.charAt(i) === "?" && op !== "instance of" && op !== "cast as" && op !== "castable as")) {
+    return Fleur.XQueryParser._getPredParam(s.charAt(i), s.substr(i + 1), len + i, arg, true, 0, [], ops, begin + 1);
+  }
   arg[2] += i;
-	return arg;
+  return arg;
 };
 Fleur.XQueryParser._getStringLiteral = function(s, nodeCode, begin) {
-	const i = Fleur.XQueryParser._skipSpaces(s, 0);
-	const d = s.substr(i + 1);
+  const i = Fleur.XQueryParser._skipSpaces(s, 0);
+  const d = s.substr(i + 1);
   const delim = s.charAt(i);
   let sep = d.indexOf(delim);
   let t = d.substr(0, d.indexOf(delim));
@@ -18181,889 +18274,893 @@ Fleur.XQueryParser._getStringLiteral = function(s, nodeCode, begin) {
   return [nodeCode, [t2], begin + i, sep + 2, 0];
 };
 Fleur.XQueryParser._getNumber = function(s, r) {
-	r = r || "";
-	if (s === "") {
-		return r;
-	}
-	let c = s.charAt(0);
-	if (c === "E") {
-		c = "e";
-	}
-	if ("0123456789".indexOf(c) !== -1 || ((c === "." || c === "e") && r.indexOf(c) === -1) ||
-		((c === "-" || c === "+") && r.endsWith("e"))) {
-		return Fleur.XQueryParser._getNumber(s.substr(1), r + c);
-	}
-	return r;
+  r = r || "";
+  if (s === "") {
+    return r;
+  }
+  let c = s.charAt(0);
+  if (c === "E") {
+    c = "e";
+  }
+  if ("0123456789".indexOf(c) !== -1 || ((c === "." || c === "e") && r.indexOf(c) === -1) ||
+    ((c === "-" || c === "+") && r.endsWith("e"))) {
+    return Fleur.XQueryParser._getNumber(s.substr(1), r + c);
+  }
+  return r;
 };
 Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
-	const i = Fleur.XQueryParser._skipSpaces(xp, 0);
-	let c = xp.charAt(i);
-	let d = xp.substr(i + 1);
-	let d2;
-	let r;
-	if (c === "." && (d === "" || "0123456789".indexOf(d.charAt(0)) === -1)) {
-		if (d.charAt(0) === ".") {
-			r = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['parent']],[Fleur.XQueryX.anyKindTest,[]]]]], begin + i, 2, 0];
-		} else {
-			r = [Fleur.XQueryX.contextItemExpr,[], begin + i, 1, 0];
-		}
-	} else if (c === ")" || c === "}") {
-		r = [0, 0, begin + i, 0, 0];
-	} else if (c === "/") {
-		var ir = Fleur.XQueryParser._skipSpaces(d, 0);
-		r = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.rootExpr,[]]], begin, d.charAt(0) === "" || "/@*.(_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(d.charAt(ir)) === -1 ? 1 : 0, 0];
-	} else if (c === "@") {
-		r = Fleur.XQueryParser._getNameStep(d, 1, begin + i);
-	} else if (c === "'" || c === '"') {
+  const i = Fleur.XQueryParser._skipSpaces(xp, 0);
+  let c = xp.charAt(i);
+  let d = xp.substr(i + 1);
+  let d2;
+  let r;
+  if (c === "." && (d === "" || "0123456789".indexOf(d.charAt(0)) === -1)) {
+    if (d.charAt(0) === ".") {
+      r = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['parent']],[Fleur.XQueryX.anyKindTest,[]]]]], begin + i, 2, 0];
+    } else {
+      r = [Fleur.XQueryX.contextItemExpr,[], begin + i, 1, 0];
+    }
+  } else if (c === ")" || c === "}") {
+    r = [0, 0, begin + i, 0, 0];
+  } else if (c === "/") {
+    var ir = Fleur.XQueryParser._skipSpaces(d, 0);
+    r = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.rootExpr,[]]], begin, d.charAt(0) === "" || "/@*.(_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(d.charAt(ir)) === -1 ? 1 : 0, 0];
+  } else if (c === "@") {
+    r = Fleur.XQueryParser._getNameStep(d, 1, begin + i);
+  } else if (c === "'" || c === '"') {
     r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.value, begin);
     r = [Fleur.XQueryX.stringConstantExpr,[r], r[2], r[3], r[4]];
-	} else if (c === "(") {
-		var endseq = Fleur.XQueryParser._skipSpaces(d, 0);
-		if (d.charAt(endseq) === ")") {
-			r = [Fleur.XQueryX.sequenceExpr,[], begin + i, 2 + endseq, 0];
-		} else {
-			r = [0, 0, begin + i, 0, 0];
-		}
-	} else if (c === "-" || c === "+") {
-			c = "~" + c;
-			r = [0, 0, begin + i, 0, 0];
-	} else if (c !== "" && ".0123456789".indexOf(c) !== -1) {
-		const t5 = Fleur.XQueryParser._getNumber(c + d);
+  } else if (c === "(") {
+    var endseq = Fleur.XQueryParser._skipSpaces(d, 0);
+    if (d.charAt(endseq) === ")") {
+      r = [Fleur.XQueryX.sequenceExpr,[], begin + i, 2 + endseq, 0];
+    } else {
+      r = [0, 0, begin + i, 0, 0];
+    }
+  } else if (c === "-" || c === "+") {
+      c = "~" + c;
+      r = [0, 0, begin + i, 0, 0];
+  } else if (c !== "" && ".0123456789".indexOf(c) !== -1) {
+    const t5 = Fleur.XQueryParser._getNumber(c + d);
     r = [t5.indexOf("e") !== -1 ? Fleur.XQueryX.doubleConstantExpr : t5.indexOf(".") !== -1 ? Fleur.XQueryX.decimalConstantExpr : Fleur.XQueryX.integerConstantExpr, [[Fleur.XQueryX.value,[t5.replace(/e\+/, "e")]]], begin, t5.length, 0];
-	} else if (c === "$") {
-		const t51 = Fleur.XQueryParser._getName(d);
-		const pt51 = (t51.indexOf(":") === -1 ? ":" : "") + t51;
-		if ((ops.length !== 0 && ops[0][1] === "group by") || (ops.length > 1 && ops[0][1] === "~," && ops[1][1] === "group by")) {
-			r = [Fleur.XQueryX.groupingSpec,[[Fleur.XQueryX.varName,[pt51.substr(pt51.indexOf(":") + 1)]]], begin, t51.length + 1, 0];
-		} else {
-			r = [Fleur.XQueryX.varRef,[[Fleur.XQueryX.name,[pt51.substr(pt51.indexOf(":") + 1)]]], begin, t51.length + 1, 0];
-		}
-		if (pt51.charAt(0) !== ":") {
+  } else if (c === "$") {
+    const t51 = Fleur.XQueryParser._getName(d);
+    const pt51 = (t51.indexOf(":") === -1 ? ":" : "") + t51;
+    if ((ops.length !== 0 && ops[0][1] === "group by") || (ops.length > 1 && ops[0][1] === "~," && ops[1][1] === "group by")) {
+      r = [Fleur.XQueryX.groupingSpec,[[Fleur.XQueryX.varName,[pt51.substr(pt51.indexOf(":") + 1)]]], begin, t51.length + 1, 0];
+    } else {
+      r = [Fleur.XQueryX.varRef,[[Fleur.XQueryX.name,[pt51.substr(pt51.indexOf(":") + 1)]]], begin, t51.length + 1, 0];
+    }
+    if (pt51.charAt(0) !== ":") {
       r[1][0][1].push([Fleur.XQueryX.prefix,[pt51.substr(0, pt51.indexOf(":"))]]);
     }
-	} else if (c === "?") {
-		var c2 = d.charAt(0);
-		d = d.substr(1);
-		var t52;
-		if (c2 !== "" && "0123456789".indexOf(c2) !== -1) {
-			t52 = Fleur.XQueryParser._getNumber(c2 + d);
-			r = [Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,[t52.replace(/e\+/, "e")]]]]], begin, t52.length, 0];
-		} else if (c2 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c2) !== -1) {
-			t52 = Fleur.XQueryParser._getName(c2 + d);
-			r = [Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.NCName,[t52]]], begin, t52.length, 0];
-		} else if (c2 === "*") {
-			r = [Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.star,[]]], begin, 1, 0];
-		} else if (c2 === "(") {
-			t52 = Fleur.XQueryParser._xp2js(d, null, "5.999.(", 2);
-			r = [Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.expr,[t52]]], begin, t52[3], 0];
-		}
-	} else if (c !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*".indexOf(c) !== -1) {
-		var t61 = Fleur.XQueryParser._getName(c+d);
-		if (["element","attribute","entry","processing-instruction"].indexOf(t61) !== -1) {
-			var i61 = Fleur.XQueryParser._skipSpaces(xp, i + t61.length);
-			var c61 = xp.charAt(i61);
-			if (c61 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c61) !== -1) {
-				var d61 = xp.substr(i61 + 1);
-				var t62 = Fleur.XQueryParser._getName(c61 + d61);
-				switch(t61) {
-					case "element":
-						r = [Fleur.XQueryX.computedElementConstructor,[[Fleur.XQueryX.tagName,[t62]]], begin, i61 - i + t62.length, 0];
-						break;
-					case "attribute":
-						r = [Fleur.XQueryX.computedAttributeConstructor,[[Fleur.XQueryX.tagName,[t62]]], begin, i61 - i + t62.length, 0];
-						break;
-					case "processing-instruction":
-						r = [Fleur.XQueryX.computedPIConstructor,[[Fleur.XQueryX.piTarget,[t62]]], begin, i61 - i + t62.length, 0];
-						break;
-					case "entry":
-						r = [Fleur.XQueryX.computedEntryConstructor,[[Fleur.XQueryX.tagName,[t62]]], begin, i61 - i + t62.length, 0];
-				}
-			} else {
-				r = Fleur.XQueryParser._getNameStep(c + d, 0, begin + i);
-			}
-		} else {
-			r = Fleur.XQueryParser._getNameStep(c + d, 0, begin + i);
-		}
-	} else if (c === "<") {
-		r = Fleur.XQueryParser._getNodeConstructor(c + d, begin + i);
-	} else {
-		Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(c + d));
-	}
-	var rlen = r[3];
-	var rval = r;
-	d2 = rlen === 0 ? c + d : d.substr(rlen - 1);
-	r = Fleur.XQueryParser._getPredParams(d2, rlen, rval, ops, begin + i);
-	rlen = r[3];
-	rval = r;
-	args.push(r);
-	var f = rlen === 0 ? c + d : d.substr(rlen - 1);
-	var i4 = Fleur.XQueryParser._skipSpaces(f, 0);
-	var o = f.charAt(i4);
-	var p = f.substr(f.indexOf(o));
-	var op = "null";
-	var op2 = "null";
-	if ((p.substr(0, 9) === "ascending" || p.substr(0, 10) === "descending") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(o === "a" ? 9 : 10)) === -1) {
-		var poststacks = Fleur.XQueryParser._calc(args, ops, Fleur.XQueryParser._precedence["~~" + (o === "a" ? "ascending" : "descending")]);
-		var postargslen = poststacks.substr(0, poststacks.indexOf("."));
-		args2 = poststacks.substr(poststacks.indexOf(".") + 1).substr(0, parseInt(postargslen, 10));
-		var postnextstack = poststacks.substr(postargslen.length + 1 + parseInt(postargslen, 10));
-		var postopslen = postnextstack.substr(0, postnextstack.indexOf("."));
-		ops = (postprec.length + 1 + (o === "a" ? 11 : 12)) + "." + postprec + ".~~" + (o === "a" ? "ascending" : "descending") + postnextstack.substr(postnextstack.indexOf(".") + 1).substr(0, parseInt(postopslen, 10));
-		f = f.substr(i4 + (o === "a" ? 9 : 10));
-		i4 = Fleur.XQueryParser._skipSpaces(f, 0);
-		o = f.charAt(i4);
-		p = f.substr(f.indexOf(o));
-	}
-	if (ops.length !== 0) {
-		if (ops[ops.length - 1][1] === "instance of") {
-			if (o === "+" || o === "?" || o === "*") {
-				ops[ops.length - 1][1] += o;
-				i4 = Fleur.XQueryParser._skipSpaces(f, 1);
-				o = f.charAt(i4);
-				p = f.substr(f.indexOf(o));
-			}
-		} else if (ops[ops.length - 1][1] === "treat as") {
-			if (o === "+" || o === "?" || o === "*") {
-				ops[ops.length - 1][1] += o;
-				i4 = Fleur.XQueryParser._skipSpaces(f, 1);
-				o = f.charAt(i4);
-				p = f.substr(f.indexOf(o));
-			}
-		} else if (ops[ops.length - 1][1] === "cast as") {
-			if (o === "?") {
-				ops[ops.length - 1][1] += o;
-				i4 = Fleur.XQueryParser._skipSpaces(f, 1);
-				o = f.charAt(i4);
-				p = f.substr(f.indexOf(o));
-			}
-		} else if (ops[ops.length - 1][1] === "castable as") {
-			if (o === "?") {
-				ops[ops.length - 1][1] += o;
-				i4 = Fleur.XQueryParser._skipSpaces(f, 1);
-				o = f.charAt(i4);
-				p = f.substr(f.indexOf(o));
-			}
-		}
-	}
-	if (o === "") {
-		Fleur.XQueryParser._calc(args, ops, 9999999, begin + i);
-		return args[0];
-	}
-	if (o === "]" || o === ")" || o === "}" || (p.substr(0, 6) === "return" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(6)) === -1) || (p.substr(0, 9) === "satisfies" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(9)) === -1)) {
-		const stacks2 = Fleur.XQueryParser._calc(args, ops, 998, begin + i);
-		const ret20 = stacks2[0][0];
-		return [ret20[0], ret20[1], begin + i, f.substr(f.indexOf(o) + 1).length - (o === "r" ? 5 : o === "s" ? 8 : 0), 0];
-	}
-	if (o === "$") {
-		if (rval[0] === Fleur.XQueryX.pathExpr && rval[1][0][0] === Fleur.XQueryX.stepExpr && rval[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && rval[1][0][1][0][1][0] === "child" && rval[1][0][1][1][0] === Fleur.XQueryX.nameTest) {
-			switch(rval[1][0][1][1][1][0]) {
-				case "for":
-					rval = [Fleur.XQueryX.flworExpr,[]];
-					op = "for";
-					break;
-				case "let":
-					rval = [Fleur.XQueryX.flworExpr,[]];
-					op = "let";
-					break;
-				case "every":
-					rval = [Fleur.XQueryX.quantifiedExpr,[[Fleur.XQueryX.quantifier,["every"]]]];
-					op = "every";
-					break;
-				case "some":
-					rval = [Fleur.XQueryX.quantifiedExpr,[[Fleur.XQueryX.quantifier,["some"]]]];
-					op = "some";
-					break;
-			}
-		}
-		if (op !== "null") {
-			r = Fleur.XQueryParser._getPredParams("(" + f, rlen, rval);
-			rlen = r[3];
-			rval = r;
-			args[args.length - 1] = r;
-			op = op === "for" || op === "let" ? "return" : "satisfies";
-			f = d.substr(rlen - 2 - op.length);
-			p = f.substr(1);
-		}
-	} else if (p.substr(0, 9) === "intersect" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(9)) === -1) {
-		op = p.substr(0, 9);
-	} else if (p.substr(0, 8) === "allowing" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
-		op = p.substr(0, 8);
-	} else if (p.substr(0, 8) === "instance" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
-		op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 8) + 2);
-		op2 = "instance of";
-	} else if (p.substr(0, 8) === "castable" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
-		op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 8) + 2);
-		op2 = "castable as";
-	} else if ((p.substr(0, 6) === "except" || p.substr(0, 6) === "before") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(6)) === -1) {
-		op = p.substr(0, 6);
-	} else if (p.substr(0, 5) === "treat" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
-		op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 5) + 2);
-		op2 = "treat as";
-	} else if (p.substr(0, 5) === "group" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
-		op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 5) + 2);
-		op2 = "group by";
-	} else if (p.substr(0, 5) === "order" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
-		op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 5) + 2);
-		op2 = "order by";
-	} else if ((p.substr(0, 5) === "union" || p.substr(0, 5) === "every" || p.substr(0, 5) === "nodes" || p.substr(0, 5) === "after" || p.substr(0, 5) === "value" || p.substr(0, 5) === "count" || p.substr(0, 5) === "where" || p.substr(0, 5) === "empty" || p.substr(0, 5) === "catch") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
-		op = p.substr(0, 5);
-	} else if (p.substr(0, 4) === "cast" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(4)) === -1) {
-		op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 4) + 2);
-		op2 = "cast as";
-	} else if ((p.substr(0, 4) === "idiv" || p.substr(0, 4) === "some" || p.substr(0, 4) === "then" || p.substr(0, 4) === "else" || p.substr(0, 4) === "node" || p.substr(0, 4) === "with" || p.substr(0, 4) === "into") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(4)) === -1) {
-		op = p.substr(0, 4);
-	} else if ((p.substr(0, 3) === "div" || p.substr(0, 3) === "and" || p.substr(0, 3) === "mod" || p.substr(0, 3) === "let" || p.substr(0, 3) === "for") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(3)) === -1) {
-		op = p.substr(0, 3);
-	} else if ((p.substr(0, 2) === "or" || p.substr(0, 2) === "eq" || p.substr(0, 2) === "ne" || p.substr(0, 2) === "lt" || p.substr(0, 2) === "le" || p.substr(0, 2) === "gt" || p.substr(0, 2) === "ge" || p.substr(0, 2) === "is" || p.substr(0, 2) === "to" || p.substr(0, 2) === "in" || p.substr(0, 2) === "as" || p.substr(0, 2) === "at" || p.substr(0, 2) === "by") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(2)) === -1) {
-		op = p.substr(0, 2);
-	} else if (p.substr(0, 2) === "!=" || p.substr(0, 2) === "<=" || p.substr(0, 2) === ">=" || p.substr(0, 2) === "<<" || p.substr(0, 2) === ">>" || p.substr(0, 2) === "//" || p.substr(0, 2) === "~+" || p.substr(0, 2) === "~-" || p.substr(0, 2) === ":=" || p.substr(0, 2) === "||" || p.substr(0, 2) === "!!") {
-		op = p.substr(0, 2);
-	} else if ("+-*=|,;<>/!{:".indexOf(o) !== -1) {
-		op = o;
-		if (op === ",") {
-			if (ops.length !== 0 && (ops[ops.length - 1][1] === ":=" || ops[ops.length - 1][1] === "group by" || (ops.length > 1 && ops[ops.length - 1][1] === "~" && ops[ops.length - 2][1] === "group by"))) {
-				op2 = "~,";
-			} else {
-				let opi = ops.length - 1;
-				while (opi >= 0) {
-					if (ops[opi][1] === "order by") {
-						op2 = "~,";
-						break;
-					}
-					if (ops[opi][0] > 30) {
-						break;
-					}
-					opi--;
-				}
-			}
-		}
-	}
-	if (op !== "null") {
-		const opprec = Fleur.XQueryParser._precedence[op2 !== "null" ? op2 : op];
-		var stacks3 = Fleur.XQueryParser._calc(args, ops, opprec);
-		var args3 = stacks3[0];
-		var ops3 = stacks3[1];
-		var xp3 = p.substr(op.length);
-		ops3.push([parseInt(opprec, 10), op2 !== "null" ? op2 : op]);
-		return Fleur.XQueryParser._xp2js(xp3, args3, ops3, begin);
-	}
-	Fleur.XQueryError_xqt("XPST0003", null, "Unknown operator", "", new Fleur.Text(f.trim()));
+  } else if (c === "?") {
+    var c2 = d.charAt(0);
+    d = d.substr(1);
+    var t52;
+    if (c2 !== "" && "0123456789".indexOf(c2) !== -1) {
+      t52 = Fleur.XQueryParser._getNumber(c2 + d);
+      r = [Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,[t52.replace(/e\+/, "e")]]]]], begin, t52.length, 0];
+    } else if (c2 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c2) !== -1) {
+      t52 = Fleur.XQueryParser._getName(c2 + d);
+      r = [Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.NCName,[t52]]], begin, t52.length, 0];
+    } else if (c2 === "*") {
+      r = [Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.star,[]]], begin, 1, 0];
+    } else if (c2 === "(") {
+      t52 = Fleur.XQueryParser._xp2js(d, null, "5.999.(", 2);
+      r = [Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.expr,[t52]]], begin, t52[3], 0];
+    }
+  } else if (c !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*".indexOf(c) !== -1) {
+    var t61 = Fleur.XQueryParser._getName(c+d);
+    if (["element","attribute","entry","processing-instruction"].indexOf(t61) !== -1) {
+      var i61 = Fleur.XQueryParser._skipSpaces(xp, i + t61.length);
+      var c61 = xp.charAt(i61);
+      if (c61 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c61) !== -1) {
+        var d61 = xp.substr(i61 + 1);
+        var t62 = Fleur.XQueryParser._getName(c61 + d61);
+        const eq = t62.substr(0, 2) === "Q{";
+        const sind = eq ? t62.indexOf("}") : t62.indexOf(":");
+        const n3 = sind !== -1 ? t62.substr(sind + 1) : t62;
+        const nsp = eq ? t62.substr(2, sind - 2) : sind !== -1 ? t62.substr(0, sind) : "";
+        switch(t61) {
+          case "element":
+            r = [Fleur.XQueryX.computedElementConstructor,[[Fleur.XQueryX.tagName,(eq || sind !== -1 ? [n3, [eq ? Fleur.XQueryX.URI : Fleur.XQueryX.prefix, [nsp]]] : [t62])]], begin, i61 - i + t62.length, 0];
+            break;
+          case "attribute":
+            r = [Fleur.XQueryX.computedAttributeConstructor,[[Fleur.XQueryX.tagName,(eq || sind !== -1 ? [n3, [eq ? Fleur.XQueryX.URI : Fleur.XQueryX.prefix, [nsp]]] : [t62])]], begin, i61 - i + t62.length, 0];
+            break;
+          case "processing-instruction":
+            r = [Fleur.XQueryX.computedPIConstructor,[[Fleur.XQueryX.piTarget,[t62]]], begin, i61 - i + t62.length, 0];
+            break;
+          case "entry":
+            r = [Fleur.XQueryX.computedEntryConstructor,[[Fleur.XQueryX.tagName,[t62]]], begin, i61 - i + t62.length, 0];
+        }
+      } else {
+        r = Fleur.XQueryParser._getNameStep(c + d, 0, begin + i);
+      }
+    } else {
+      r = Fleur.XQueryParser._getNameStep(c + d, 0, begin + i);
+    }
+  } else if (c === "<") {
+    r = Fleur.XQueryParser._getNodeConstructor(c + d, begin + i);
+  } else {
+    Fleur.XQueryError_xqt("XPST0003", null, "Unexpected char", "", new Fleur.Text(c + d));
+  }
+  var rlen = r[3];
+  var rval = r;
+  d2 = rlen === 0 ? c + d : d.substr(rlen - 1);
+  r = Fleur.XQueryParser._getPredParams(d2, rlen, rval, ops, begin + i);
+  rlen = r[3];
+  rval = r;
+  args.push(r);
+  var f = rlen === 0 ? c + d : d.substr(rlen - 1);
+  var i4 = Fleur.XQueryParser._skipSpaces(f, 0);
+  var o = f.charAt(i4);
+  var p = f.substr(f.indexOf(o));
+  var op = "null";
+  var op2 = "null";
+  if ((p.substr(0, 9) === "ascending" || p.substr(0, 10) === "descending") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(o === "a" ? 9 : 10)) === -1) {
+    var poststacks = Fleur.XQueryParser._calc(args, ops, Fleur.XQueryParser._precedence["~~" + (o === "a" ? "ascending" : "descending")]);
+    var postargslen = poststacks.substr(0, poststacks.indexOf("."));
+    args2 = poststacks.substr(poststacks.indexOf(".") + 1).substr(0, parseInt(postargslen, 10));
+    var postnextstack = poststacks.substr(postargslen.length + 1 + parseInt(postargslen, 10));
+    var postopslen = postnextstack.substr(0, postnextstack.indexOf("."));
+    ops = (postprec.length + 1 + (o === "a" ? 11 : 12)) + "." + postprec + ".~~" + (o === "a" ? "ascending" : "descending") + postnextstack.substr(postnextstack.indexOf(".") + 1).substr(0, parseInt(postopslen, 10));
+    f = f.substr(i4 + (o === "a" ? 9 : 10));
+    i4 = Fleur.XQueryParser._skipSpaces(f, 0);
+    o = f.charAt(i4);
+    p = f.substr(f.indexOf(o));
+  }
+  if (ops.length !== 0) {
+    if (ops[ops.length - 1][1] === "instance of") {
+      if (o === "+" || o === "?" || o === "*") {
+        ops[ops.length - 1][1] += o;
+        i4 = Fleur.XQueryParser._skipSpaces(f, 1);
+        o = f.charAt(i4);
+        p = f.substr(f.indexOf(o));
+      }
+    } else if (ops[ops.length - 1][1] === "treat as") {
+      if (o === "+" || o === "?" || o === "*") {
+        ops[ops.length - 1][1] += o;
+        i4 = Fleur.XQueryParser._skipSpaces(f, 1);
+        o = f.charAt(i4);
+        p = f.substr(f.indexOf(o));
+      }
+    } else if (ops[ops.length - 1][1] === "cast as") {
+      if (o === "?") {
+        ops[ops.length - 1][1] += o;
+        i4 = Fleur.XQueryParser._skipSpaces(f, 1);
+        o = f.charAt(i4);
+        p = f.substr(f.indexOf(o));
+      }
+    } else if (ops[ops.length - 1][1] === "castable as") {
+      if (o === "?") {
+        ops[ops.length - 1][1] += o;
+        i4 = Fleur.XQueryParser._skipSpaces(f, 1);
+        o = f.charAt(i4);
+        p = f.substr(f.indexOf(o));
+      }
+    }
+  }
+  if (o === "") {
+    Fleur.XQueryParser._calc(args, ops, 9999999, begin + i);
+    return args[0];
+  }
+  if (o === "]" || o === ")" || o === "}" || (p.substr(0, 6) === "return" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(6)) === -1) || (p.substr(0, 9) === "satisfies" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(9)) === -1)) {
+    const stacks2 = Fleur.XQueryParser._calc(args, ops, 998, begin + i);
+    const ret20 = stacks2[0][0];
+    return [ret20[0], ret20[1], begin + i, f.substr(f.indexOf(o) + 1).length - (o === "r" ? 5 : o === "s" ? 8 : 0), 0];
+  }
+  if (o === "$") {
+    if (rval[0] === Fleur.XQueryX.pathExpr && rval[1][0][0] === Fleur.XQueryX.stepExpr && rval[1][0][1][0][0] === Fleur.XQueryX.xpathAxis && rval[1][0][1][0][1][0] === "child" && rval[1][0][1][1][0] === Fleur.XQueryX.nameTest) {
+      switch(rval[1][0][1][1][1][0]) {
+        case "for":
+          rval = [Fleur.XQueryX.flworExpr,[]];
+          op = "for";
+          break;
+        case "let":
+          rval = [Fleur.XQueryX.flworExpr,[]];
+          op = "let";
+          break;
+        case "every":
+          rval = [Fleur.XQueryX.quantifiedExpr,[[Fleur.XQueryX.quantifier,["every"]]]];
+          op = "every";
+          break;
+        case "some":
+          rval = [Fleur.XQueryX.quantifiedExpr,[[Fleur.XQueryX.quantifier,["some"]]]];
+          op = "some";
+          break;
+      }
+    }
+    if (op !== "null") {
+      r = Fleur.XQueryParser._getPredParams("(" + f, rlen, rval);
+      rlen = r[3];
+      rval = r;
+      args[args.length - 1] = r;
+      op = op === "for" || op === "let" ? "return" : "satisfies";
+      f = d.substr(rlen - 2 - op.length);
+      p = f.substr(1);
+    }
+  } else if (p.substr(0, 9) === "intersect" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(9)) === -1) {
+    op = p.substr(0, 9);
+  } else if (p.substr(0, 8) === "allowing" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
+    op = p.substr(0, 8);
+  } else if (p.substr(0, 8) === "instance" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
+    op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 8) + 2);
+    op2 = "instance of";
+  } else if (p.substr(0, 8) === "castable" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
+    op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 8) + 2);
+    op2 = "castable as";
+  } else if ((p.substr(0, 6) === "except" || p.substr(0, 6) === "before") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(6)) === -1) {
+    op = p.substr(0, 6);
+  } else if (p.substr(0, 5) === "treat" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
+    op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 5) + 2);
+    op2 = "treat as";
+  } else if (p.substr(0, 5) === "group" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
+    op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 5) + 2);
+    op2 = "group by";
+  } else if (p.substr(0, 5) === "order" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
+    op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 5) + 2);
+    op2 = "order by";
+  } else if ((p.substr(0, 5) === "union" || p.substr(0, 5) === "every" || p.substr(0, 5) === "nodes" || p.substr(0, 5) === "after" || p.substr(0, 5) === "value" || p.substr(0, 5) === "count" || p.substr(0, 5) === "where" || p.substr(0, 5) === "empty" || p.substr(0, 5) === "catch") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
+    op = p.substr(0, 5);
+  } else if (p.substr(0, 4) === "cast" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(4)) === -1) {
+    op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 4) + 2);
+    op2 = "cast as";
+  } else if ((p.substr(0, 4) === "idiv" || p.substr(0, 4) === "some" || p.substr(0, 4) === "then" || p.substr(0, 4) === "else" || p.substr(0, 4) === "node" || p.substr(0, 4) === "with" || p.substr(0, 4) === "into") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(4)) === -1) {
+    op = p.substr(0, 4);
+  } else if ((p.substr(0, 3) === "div" || p.substr(0, 3) === "and" || p.substr(0, 3) === "mod" || p.substr(0, 3) === "let" || p.substr(0, 3) === "for") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(3)) === -1) {
+    op = p.substr(0, 3);
+  } else if ((p.substr(0, 2) === "or" || p.substr(0, 2) === "eq" || p.substr(0, 2) === "ne" || p.substr(0, 2) === "lt" || p.substr(0, 2) === "le" || p.substr(0, 2) === "gt" || p.substr(0, 2) === "ge" || p.substr(0, 2) === "is" || p.substr(0, 2) === "to" || p.substr(0, 2) === "in" || p.substr(0, 2) === "as" || p.substr(0, 2) === "at" || p.substr(0, 2) === "by") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(2)) === -1) {
+    op = p.substr(0, 2);
+  } else if (p.substr(0, 2) === "!=" || p.substr(0, 2) === "<=" || p.substr(0, 2) === ">=" || p.substr(0, 2) === "<<" || p.substr(0, 2) === ">>" || p.substr(0, 2) === "//" || p.substr(0, 2) === "~+" || p.substr(0, 2) === "~-" || p.substr(0, 2) === ":=" || p.substr(0, 2) === "||" || p.substr(0, 2) === "!!") {
+    op = p.substr(0, 2);
+  } else if ("+-*=|,;<>/!{:".indexOf(o) !== -1) {
+    op = o;
+    if (op === ",") {
+      if (ops.length !== 0 && (ops[ops.length - 1][1] === ":=" || ops[ops.length - 1][1] === "group by" || (ops.length > 1 && ops[ops.length - 1][1] === "~" && ops[ops.length - 2][1] === "group by"))) {
+        op2 = "~,";
+      } else {
+        let opi = ops.length - 1;
+        while (opi >= 0) {
+          if (ops[opi][1] === "order by") {
+            op2 = "~,";
+            break;
+          }
+          if (ops[opi][0] > 30) {
+            break;
+          }
+          opi--;
+        }
+      }
+    }
+  }
+  if (op !== "null") {
+    const opprec = Fleur.XQueryParser._precedence[op2 !== "null" ? op2 : op];
+    var stacks3 = Fleur.XQueryParser._calc(args, ops, opprec);
+    var args3 = stacks3[0];
+    var ops3 = stacks3[1];
+    var xp3 = p.substr(op.length);
+    ops3.push([parseInt(opprec, 10), op2 !== "null" ? op2 : op]);
+    return Fleur.XQueryParser._xp2js(xp3, args3, ops3, begin);
+  }
+  Fleur.XQueryError_xqt("XPST0003", null, "Unknown operator", "", new Fleur.Text(f.trim()));
 };
 Fleur.XQueryParser._getVersion = function(xq) {
-	var i = Fleur.XQueryParser._skipSpaces(xq, 0);
-	var c = xq.charAt(i);
-	var d = xq.substr(i + 1);
-	var r = "";
-	var v, e;
-	if (c === "" || "abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
-		return i + ".";
-	}
-	r = Fleur.XQueryParser._getName(c + d);
-	if (r === "xquery") {
-		var j = Fleur.XQueryParser._skipSpaces(xq, i + r.length);
-		c = xq.charAt(j);
-		d = xq.substr(j + 1);
-		if (c === "" || "abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
-			return i + ".";
-		}
-		r = Fleur.XQueryParser._getName(c + d);
-		if (r === "version") {
-			j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-			c = xq.charAt(j);
-			d = xq.substr(j + 1);
-			if (c !== "'" && c !== '"') {
-				return i + ".";
-			}
-			r = Fleur.XQueryParser._getStringLiteral(c + d);
-			var vl = r.substr(0, r.indexOf("."));
-			v = r.substr(vl.length + 1);
-			j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
-			c = xq.charAt(j);
-			if (c === ";") {
-				return (j + 1) + ".[Fleur.XQueryX.versionDecl,[[Fleur.XQueryX.version,[" + v + "]]]],";
-			}
-			d = xq.substr(j + 1);
-			r = Fleur.XQueryParser._getName(c + d);
-		}
-		if (r === "encoding") {
-			j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-			c = xq.charAt(j);
-			d = xq.substr(j + 1);
-			if (c !== "'" && c !== '"') {
-				return i + ".";
-			}
-			r = Fleur.XQueryParser._getStringLiteral(c + d);
-			var el = r.substr(0, r.indexOf("."));
-			e = r.substr(el.length + 1);
-			j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(el, 10));
-			c = xq.charAt(j);
-			if (c === ";") {
-				return (j + 1) + ".[Fleur.XQueryX.versionDecl,[" + (v ? "[Fleur.XQueryX.version,[" + v + "]]," : "") + "[Fleur.XQueryX.encoding,[" + e + "]]]],";
-			}
-		}
-	}
-	return i + ".";
+  var i = Fleur.XQueryParser._skipSpaces(xq, 0);
+  var c = xq.charAt(i);
+  var d = xq.substr(i + 1);
+  var r = "";
+  var v, e;
+  if (c === "" || "abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
+    return i + ".";
+  }
+  r = Fleur.XQueryParser._getName(c + d);
+  if (r === "xquery") {
+    var j = Fleur.XQueryParser._skipSpaces(xq, i + r.length);
+    c = xq.charAt(j);
+    d = xq.substr(j + 1);
+    if (c === "" || "abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
+      return i + ".";
+    }
+    r = Fleur.XQueryParser._getName(c + d);
+    if (r === "version") {
+      j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+      c = xq.charAt(j);
+      d = xq.substr(j + 1);
+      if (c !== "'" && c !== '"') {
+        return i + ".";
+      }
+      r = Fleur.XQueryParser._getStringLiteral(c + d);
+      var vl = r.substr(0, r.indexOf("."));
+      v = r.substr(vl.length + 1);
+      j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+      c = xq.charAt(j);
+      if (c === ";") {
+        return (j + 1) + ".[Fleur.XQueryX.versionDecl,[[Fleur.XQueryX.version,[" + v + "]]]],";
+      }
+      d = xq.substr(j + 1);
+      r = Fleur.XQueryParser._getName(c + d);
+    }
+    if (r === "encoding") {
+      j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+      c = xq.charAt(j);
+      d = xq.substr(j + 1);
+      if (c !== "'" && c !== '"') {
+        return i + ".";
+      }
+      r = Fleur.XQueryParser._getStringLiteral(c + d);
+      var el = r.substr(0, r.indexOf("."));
+      e = r.substr(el.length + 1);
+      j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(el, 10));
+      c = xq.charAt(j);
+      if (c === ";") {
+        return (j + 1) + ".[Fleur.XQueryX.versionDecl,[" + (v ? "[Fleur.XQueryX.version,[" + v + "]]," : "") + "[Fleur.XQueryX.encoding,[" + e + "]]]],";
+      }
+    }
+  }
+  return i + ".";
 };
 Fleur.XQueryParser._getProlog = function(xq, i) {
-	var pindex;
-	i = Fleur.XQueryParser._skipSpaces(xq, i);
-	var c = xq.charAt(i);
-	var d = xq.substr(i + 1);
-	var r = "", prefix, v, vl;
-	var res = i + ".";
-	var end = xq.length;
-	var updatingfunction = false;
-	var j;
-	if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-		r = Fleur.XQueryParser._getName(c + d);
-		switch (r) {
-			case "declare":
-				j = Fleur.XQueryParser._skipSpaces(xq, i + r.length);
-				c = xq.charAt(j);
-				d = xq.substr(j + 1);
-				while (c === "%") {
-					r = Fleur.XQueryParser._getName(d);
-					if (r === "updating") {
-						updatingfunction = true;
-					}
-					j = Fleur.XQueryParser._skipSpaces(xq, j + 1 + r.length);
-					c = xq.charAt(j);
-					d = xq.substr(j + 1);
-				}
-				if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-					r = Fleur.XQueryParser._getName(c + d);
-					switch (r) {
-						case "default":
-							j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								r = Fleur.XQueryParser._getName(c + d);
-								switch (r) {
-									case "element":
-									case "function":
-										var category = r;
-										j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-										c = xq.charAt(j);
-										d = xq.substr(j + 1);
-										if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-											r = Fleur.XQueryParser._getName(c + d);
-											if (r === "namespace") {
-												j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-												c = xq.charAt(j);
-												d = xq.substr(j + 1);
-												if (c === "'" || c === '"') {
-													r = Fleur.XQueryParser._getStringLiteral(c + d);
-													vl = r.substr(0, r.indexOf("."));
-													v = r.substr(vl.length + 1);
-													j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
-													c = xq.charAt(j);
-													if (c === ";") {
-														return (j + 1) + ".[Fleur.XQueryX.defaultNamespaceDecl,[[Fleur.XQueryX.defaultNamespaceCategory,['" + category + "']],[Fleur.XQueryX.uri,[" + v + "]]]],";
-													}
-												}
-											}
-										}
-										break;
-									case "collation":
-										j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-										c = xq.charAt(j);
-										d = xq.substr(j + 1);
-										if (c === "'" || c === '"') {
-											r = Fleur.XQueryParser._getStringLiteral(c + d);
-											vl = r.substr(0, r.indexOf("."));
-											v = r.substr(vl.length + 1);
-											j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
-											c = xq.charAt(j);
-											if (c === ";") {
-												return (j + 1) + ".[Fleur.XQueryX.defaultCollationDecl,[" + v + "]],";
-											}
-										}
-										break;
-									case "order":
-										j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-										c = xq.charAt(j);
-										d = xq.substr(j + 1);
-										if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-											r = Fleur.XQueryParser._getName(c + d);
-											if (r === "empty") {
-												j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-												c = xq.charAt(j);
-												d = xq.substr(j + 1);
-												if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-													r = Fleur.XQueryParser._getName(c + d);
-													if (r === "greatest" || r === "least") {
-														j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-														c = xq.charAt(j);
-														if (c === ";") {
-															return (j + 1) + ".[Fleur.XQueryX.emptyOrderingDecl,['empty " + r + "']],";
-														}
-													}
-												}
-											}
-										}
-										break;
-									case "decimal-format":
-								}
-							}
-							break;
-						case "boundary-space":
-						case "construction":
-							var decl = r === "boundary-space" ? "boundarySpaceDecl" : "constructionDecl";
-							j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								r = Fleur.XQueryParser._getName(c + d);
-								if (r === "strip" || r === "preserve") {
-									j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-									c = xq.charAt(j);
-									if (c === ";") {
-										return (j + 1) + ".[Fleur.XQueryX." + decl + ",['" + r + "']],";
-									}
-								}
-							}
-							break;
-						case "base-uri":
-							j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							if (c === "'" || c === '"') {
-								r = Fleur.XQueryParser._getStringLiteral(c + d);
-								vl = r.substr(0, r.indexOf("."));
-								v = r.substr(vl.length + 1);
-								j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
-								c = xq.charAt(j);
-								if (c === ";") {
-									return (j + 1) + ".[Fleur.XQueryX.baseUriDecl,[" + v + "]],";
-								}
-							}
-							break;
-						case "ordering":
-							j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								r = Fleur.XQueryParser._getName(c + d);
-								if (r === "ordered" || r === "unordered") {
-									j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-									c = xq.charAt(j);
-									if (c === ";") {
-										return (j + 1) + ".[Fleur.XQueryX.orderingModeDecl,['" + r + "']],";
-									}
-								}
-							}
-							break;
-						case "copy-namespaces":
-							j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								r = Fleur.XQueryParser._getName(c + d);
-								if (r === "preserve" || r === "no-preserve") {
-									var preserve = r;
-									j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-									c = xq.charAt(j);
-									if (c === ",") {
-										j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
-										c = xq.charAt(j);
-										d = xq.substr(j + 1);
-										if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-											r = Fleur.XQueryParser._getName(c + d);
-											if (r === "inherit" || r === "no-inherit") {
-												j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-												c = xq.charAt(j);
-												if (c === ";") {
-													return (j + 1) + ".[Fleur.XQueryX.copyNamespacesDecl,[[Fleur.XQueryX.preserveMode,['" + preserve + "']],[Fleur.XQueryX.inheritMode,['" + r + "']]]],";
-												}
-											}
-										}
-									}
-								}
-							}
-							break;
-						case "decimal-format":
-							break;
-						case "namespace":
-							j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								prefix = Fleur.XQueryParser._getName(c + d);
-								j = Fleur.XQueryParser._skipSpaces(xq, j + prefix.length);
-								c = xq.charAt(j);
-								if (c === "=") {
-									j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
-									c = xq.charAt(j);
-									d = xq.substr(j + 1);
-									if (c === "'" || c === '"') {
-										r = Fleur.XQueryParser._getStringLiteral(c + d);
-										vl = r.substr(0, r.indexOf("."));
-										v = r.substr(vl.length + 1);
-										j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
-										c = xq.charAt(j);
-										if (c === ";") {
-											return (j + 1) + ".[Fleur.XQueryX.namespaceDecl,[[Fleur.XQueryX.prefixElt,['" + prefix + "']],[Fleur.XQueryX.uri,[" + v + "]]]],";
-										}
-									}
-								}
-							}
-							break;
-						case "context":
-							break;
-						case "variable":
-							j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-							c = xq.charAt(j);
-							if (c !== "$") {
-								return res;
-							}
-							j++;
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								var vname = Fleur.XQueryParser._getName(c + d);
-								j = Fleur.XQueryParser._skipSpaces(xq, j + vname.length);
-								c = xq.charAt(j);
-								d = xq.substr(j + 1);
-								pindex = vname.indexOf(":");
-								var np = pindex === -1 ? "'" + vname + "'" : "'" + vname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + vname.substr(0, pindex) + "']]";
-								var fres = ".[Fleur.XQueryX.varDecl,[[Fleur.XQueryX.varName,[" + np + "]]";
-								var nbpar = 0;
-								r = Fleur.XQueryParser._getName(c + d);
-								if (r === "external") {
-									j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-									c = xq.charAt(j);
-									fres += ",[Fleur.XQueryX.external,[]]";
-									if (c === ";") {
-										return (j + 1) + fres + "]],";
-									}
-									d = xq.substr(j + 1);
-								}
-								if (c + d.charAt(0) !== ":=") {
-									return res;
-								}
-								fres += ",[Fleur.XQueryX.varValue,[";
-								j = Fleur.XQueryParser._skipSpaces(xq, j + 2);
-								c = xq.charAt(j);
-								var parents = 0;
-								var vvalue = "";
-								var instring = false;
-								var stringstart;
-								while ((c !== ";" || parents !== 0 || instring) && j !== end) {
-									vvalue += c;
-									if (instring) {
-										if (c === stringstart && c !== xq.charAt(j + 1)) {
-											instring = false;
-										}
-									} else {
-										if (c === "'" || c === '"') {
-											instring = true;
-											stringstart = c;
-										} else if (c === "(") {
-											parents++;
-										} else if (c === ")") {
-											parents--;
-										}
-									}
-									c = xq.charAt(++j);
-								}
-								if (vvalue !== "") {
-									fres += Fleur.XQueryParser._xp2js(vvalue, "", "");
-								}
-								fres += "]]]],";
-								if (c === ";") {
-									return (j + 1) + fres;
-								}
-							}
-							break;
-						case "function":
-							j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								var fname = Fleur.XQueryParser._getName(c + d);
-								j = Fleur.XQueryParser._skipSpaces(xq, j + fname.length);
-								c = xq.charAt(j);
-								pindex = fname.indexOf(":");
-								var np = pindex === -1 ? "'" + fname + "'" : "'" + fname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + fname.substr(0, pindex) + "']]";
-								var fres = ".[Fleur.XQueryX.functionDecl,[" + (updatingfunction ? "[Fleur.XQueryX.updatingFunction,['true']]," : "") + "[Fleur.XQueryX.functionName,[" + np + "]],[Fleur.XQueryX.paramList,[";
-								var nbpar = 0;
-								if (c === "(") {
-									do {
-										j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
-										c = xq.charAt(j);
-										if (c !== ")") {
-											if (c !== "$") {
-												return res;
-											}
-											j++;
-											c = xq.charAt(j);
-											d = xq.substr(j + 1);
-											if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
-												return res;
-											}
-											var pname = Fleur.XQueryParser._getName(c + d);
-											j = Fleur.XQueryParser._skipSpaces(xq, j + pname.length);
-											c = xq.charAt(j);
-											var tdecl = "";
-											if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-												d = xq.substr(j + 1);
-												r = Fleur.XQueryParser._getName(c + d);
-												if (r === "as") {
-													j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-													c = xq.charAt(j);
-													if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-														d = xq.substr(j + 1);
-														var ptype = Fleur.XQueryParser._getName(c + d);
-														pindex = ptype.indexOf(":");
-														np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
-														c = xq.charAt(j + ptype.length);
-														tdecl = ",[Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[" + np + "]]";
-														if ("?+*".indexOf(c) !== -1) {
-															tdecl += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
-															j++;
-														}
-														tdecl += "]]";
-														j = Fleur.XQueryParser._skipSpaces(xq, j + ptype.length);
-														c = xq.charAt(j);
-													}
-												}
-											}
-											if (nbpar !== 0) {
-												fres += ",";
-											}
-											fres += "[Fleur.XQueryX.param,[[Fleur.XQueryX.varName,['" + pname + "']]" + tdecl + "]]";
-											nbpar++;
-										}
-									} while (c === ",");
-									if (c !== ")") {
-										return res;
-									}
-									fres += "]]";
-									j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
-									c = xq.charAt(j);
-									if (c === "a") {
-										d = xq.substr(j + 1);
-										r = Fleur.XQueryParser._getName(c + d);
-										if (r === "as") {
-											j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-											c = xq.charAt(j);
-											var ftdecl = "";
-											while ("{?+*".indexOf(c) === -1 && j !== end) {
-												ftdecl += c;
-												c = xq.charAt(++j);
-											}
-											np = Fleur.XQueryParser._xp2js(ftdecl, "", "");
-											if (np === "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],[Fleur.XQueryX.anyItemType,[]]]]]]") {
-												np = "[Fleur.XQueryX.anyItemType,[]]";
-											} else {
-												np = np.substr(np.indexOf("[Fleur.XQueryX.nameTest,") + 24);
-												np = "[Fleur.XQueryX.atomicType," + np.substr(0, np.length - 4);
-											}
-											fres += ",[Fleur.XQueryX.typeDeclaration,[" + np;
-											if ("?+*".indexOf(c) !== -1) {
-												fres += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
-												j++;
-											}
-											fres += "]]";
-											j = Fleur.XQueryParser._skipSpaces(xq, j);
-											c = xq.charAt(j);
-										}
-									}
-									if (c === "{") {
-										fres += ",[Fleur.XQueryX.functionBody,[";
-										var braces = 1;
-										var body = "";
-										while ((c !== "}" || braces !== 0) && j !== end) {
-											c = xq.charAt(++j);
-											if (c === "{") {
-												braces++;
-											} else if (c === "}") {
-												braces--;
-											}
-											if (braces !== 0) {
-												body += c;
-											}
-										}
-										if (body !== "") {
-											fres += Fleur.XQueryParser._xp2js(body, "", "");
-										}
-										fres += "]]]],";
-										j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
-										c = xq.charAt(j);
-										if (c === ";") {
-											return (j + 1) + fres;
-										}
-									} else if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-										d = xq.substr(j + 1);
-										r = Fleur.XQueryParser._getName(c + d);
-										if (r === "external") {
-											j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-											c = xq.charAt(j);
-											fres += ",[Fleur.XQueryX.externalDefinition,[]]]],";
-											if (c === ";") {
-												return (j + 1) + fres;
-											}
-										}
-									}
-								}
-							}
-							break;
-						case "option":
-							j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								var optionname = Fleur.XQueryParser._getName(c + d);
-								j = Fleur.XQueryParser._skipSpaces(xq, j + optionname.length);
-								c = xq.charAt(j);
-								d = xq.substr(j + 1);
-								if (c === "'" || c === '"') {
-									r = Fleur.XQueryParser._getStringLiteral(c + d);
-									vl = r.substr(0, r.indexOf("."));
-									v = r.substr(vl.length + 1);
-									j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
-									c = xq.charAt(j);
-									if (c === ";") {
-										pindex = optionname.indexOf(":");
-										if (pindex === -1) {
-											return (j + 1) + ".[Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,['" + optionname + "']],[Fleur.XQueryX.optionContents,[" + v + "]]]],";
-										}
-										return (j + 1) + ".[Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,['" + optionname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + optionname.substr(0, pindex) + "']]]],[Fleur.XQueryX.optionContents,[" + v + "]]]],";
-									}
-								}
-							}
-					}
-				}
-				break;
-			case "import":
-				j = Fleur.XQueryParser._skipSpaces(xq, i + r.length);
-				c = xq.charAt(j);
-				d = xq.substr(j + 1);
-				if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-					r = Fleur.XQueryParser._getName(c + d);
-					if (r === "javascript") {
-						j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-						c = xq.charAt(j);
-						d = xq.substr(j + 1);
-						if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-							r = Fleur.XQueryParser._getName(c + d);
-							if (r === "at") {
-								j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-								c = xq.charAt(j);
-								d = xq.substr(j + 1);
-								if (c === "'" || c === '"') {
-									r = Fleur.XQueryParser._getStringLiteral(c + d);
-									vl = r.substr(0, r.indexOf("."));
-									v = r.substr(vl.length + 1);
-									j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
-									c = xq.charAt(j);
-									if (c === ";") {
-										return (j + 1) + ".[Fleur.XQueryX.javascriptImport,[[Fleur.XQueryX.targetLocation,[" + v + "]]]],";
-									}
-								}
-							} else {
-								return res;
-							}
-						} else {
-							return res;
-						}
-					} else if (r === "module") {
-						j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-						c = xq.charAt(j);
-						d = xq.substr(j + 1);
-						prefix = null;
-						if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-							r = Fleur.XQueryParser._getName(c + d);
-							if (r === "namespace") {
-								j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-								c = xq.charAt(j);
-								d = xq.substr(j + 1);
-								if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-									prefix = Fleur.XQueryParser._getName(c + d);
-									j = Fleur.XQueryParser._skipSpaces(xq, j + prefix.length);
-									c = xq.charAt(j);
-									if (c === "=") {
-										j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
-										c = xq.charAt(j);
-										d = xq.substr(j + 1);
-									} else {
-										return res;
-									}
-								} else {
-									return res;
-								}
-							} else {
-								return res;
-							}
-						}
-						if (c === "'" || c === '"') {
-							r = Fleur.XQueryParser._getStringLiteral(c + d);
-							vl = r.substr(0, r.indexOf("."));
-							var modname = r.substr(vl.length + 1);
-							j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
-							c = xq.charAt(j);
-							d = xq.substr(j + 1);
-							v = null;
-							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								r = Fleur.XQueryParser._getName(c + d);
-								if (r === "at") {
-									j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
-									c = xq.charAt(j);
-									var locexpr = "";
-									while (c !== ";" && j !== end) {
-										locexpr += c;
-										c = xq.charAt(++j);
-									}
-									if (locexpr !== "") {
-										v = Fleur.XQueryParser._xp2js(locexpr, "", "");
-									}
-								}
-							}
-							if (c === ";") {
-								return (j + 1) + ".[Fleur.XQueryX.moduleImport,[[Fleur.XQueryX.targetNamespace,[" + modname + "]]" + (prefix ? ",[Fleur.XQueryX.namespacePrefix,['" + prefix + "']]" : "") + (v ? ",[Fleur.XQueryX.targetLocationExpr,[" + v + "]]" : "") + "]],";
-							}
-						}
-					}
-				}
-		}
-	}
-	return res;
+  var pindex;
+  i = Fleur.XQueryParser._skipSpaces(xq, i);
+  var c = xq.charAt(i);
+  var d = xq.substr(i + 1);
+  var r = "", prefix, v, vl;
+  var res = i + ".";
+  var end = xq.length;
+  var updatingfunction = false;
+  var j;
+  if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+    r = Fleur.XQueryParser._getName(c + d);
+    switch (r) {
+      case "declare":
+        j = Fleur.XQueryParser._skipSpaces(xq, i + r.length);
+        c = xq.charAt(j);
+        d = xq.substr(j + 1);
+        while (c === "%") {
+          r = Fleur.XQueryParser._getName(d);
+          if (r === "updating") {
+            updatingfunction = true;
+          }
+          j = Fleur.XQueryParser._skipSpaces(xq, j + 1 + r.length);
+          c = xq.charAt(j);
+          d = xq.substr(j + 1);
+        }
+        if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+          r = Fleur.XQueryParser._getName(c + d);
+          switch (r) {
+            case "default":
+              j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                r = Fleur.XQueryParser._getName(c + d);
+                switch (r) {
+                  case "element":
+                  case "function":
+                    var category = r;
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                    c = xq.charAt(j);
+                    d = xq.substr(j + 1);
+                    if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                      r = Fleur.XQueryParser._getName(c + d);
+                      if (r === "namespace") {
+                        j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                        c = xq.charAt(j);
+                        d = xq.substr(j + 1);
+                        if (c === "'" || c === '"') {
+                          r = Fleur.XQueryParser._getStringLiteral(c + d);
+                          vl = r.substr(0, r.indexOf("."));
+                          v = r.substr(vl.length + 1);
+                          j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                          c = xq.charAt(j);
+                          if (c === ";") {
+                            return (j + 1) + ".[Fleur.XQueryX.defaultNamespaceDecl,[[Fleur.XQueryX.defaultNamespaceCategory,['" + category + "']],[Fleur.XQueryX.uri,[" + v + "]]]],";
+                          }
+                        }
+                      }
+                    }
+                    break;
+                  case "collation":
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                    c = xq.charAt(j);
+                    d = xq.substr(j + 1);
+                    if (c === "'" || c === '"') {
+                      r = Fleur.XQueryParser._getStringLiteral(c + d);
+                      vl = r.substr(0, r.indexOf("."));
+                      v = r.substr(vl.length + 1);
+                      j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                      c = xq.charAt(j);
+                      if (c === ";") {
+                        return (j + 1) + ".[Fleur.XQueryX.defaultCollationDecl,[" + v + "]],";
+                      }
+                    }
+                    break;
+                  case "order":
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                    c = xq.charAt(j);
+                    d = xq.substr(j + 1);
+                    if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                      r = Fleur.XQueryParser._getName(c + d);
+                      if (r === "empty") {
+                        j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                        c = xq.charAt(j);
+                        d = xq.substr(j + 1);
+                        if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                          r = Fleur.XQueryParser._getName(c + d);
+                          if (r === "greatest" || r === "least") {
+                            j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                            c = xq.charAt(j);
+                            if (c === ";") {
+                              return (j + 1) + ".[Fleur.XQueryX.emptyOrderingDecl,['empty " + r + "']],";
+                            }
+                          }
+                        }
+                      }
+                    }
+                    break;
+                  case "decimal-format":
+                }
+              }
+              break;
+            case "boundary-space":
+            case "construction":
+              var decl = r === "boundary-space" ? "boundarySpaceDecl" : "constructionDecl";
+              j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                r = Fleur.XQueryParser._getName(c + d);
+                if (r === "strip" || r === "preserve") {
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                  c = xq.charAt(j);
+                  if (c === ";") {
+                    return (j + 1) + ".[Fleur.XQueryX." + decl + ",['" + r + "']],";
+                  }
+                }
+              }
+              break;
+            case "base-uri":
+              j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              if (c === "'" || c === '"') {
+                r = Fleur.XQueryParser._getStringLiteral(c + d);
+                vl = r.substr(0, r.indexOf("."));
+                v = r.substr(vl.length + 1);
+                j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                c = xq.charAt(j);
+                if (c === ";") {
+                  return (j + 1) + ".[Fleur.XQueryX.baseUriDecl,[" + v + "]],";
+                }
+              }
+              break;
+            case "ordering":
+              j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                r = Fleur.XQueryParser._getName(c + d);
+                if (r === "ordered" || r === "unordered") {
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                  c = xq.charAt(j);
+                  if (c === ";") {
+                    return (j + 1) + ".[Fleur.XQueryX.orderingModeDecl,['" + r + "']],";
+                  }
+                }
+              }
+              break;
+            case "copy-namespaces":
+              j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                r = Fleur.XQueryParser._getName(c + d);
+                if (r === "preserve" || r === "no-preserve") {
+                  var preserve = r;
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                  c = xq.charAt(j);
+                  if (c === ",") {
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
+                    c = xq.charAt(j);
+                    d = xq.substr(j + 1);
+                    if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                      r = Fleur.XQueryParser._getName(c + d);
+                      if (r === "inherit" || r === "no-inherit") {
+                        j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                        c = xq.charAt(j);
+                        if (c === ";") {
+                          return (j + 1) + ".[Fleur.XQueryX.copyNamespacesDecl,[[Fleur.XQueryX.preserveMode,['" + preserve + "']],[Fleur.XQueryX.inheritMode,['" + r + "']]]],";
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              break;
+            case "decimal-format":
+              break;
+            case "namespace":
+              j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                prefix = Fleur.XQueryParser._getName(c + d);
+                j = Fleur.XQueryParser._skipSpaces(xq, j + prefix.length);
+                c = xq.charAt(j);
+                if (c === "=") {
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
+                  c = xq.charAt(j);
+                  d = xq.substr(j + 1);
+                  if (c === "'" || c === '"') {
+                    r = Fleur.XQueryParser._getStringLiteral(c + d);
+                    vl = r.substr(0, r.indexOf("."));
+                    v = r.substr(vl.length + 1);
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                    c = xq.charAt(j);
+                    if (c === ";") {
+                      return (j + 1) + ".[Fleur.XQueryX.namespaceDecl,[[Fleur.XQueryX.prefixElt,['" + prefix + "']],[Fleur.XQueryX.uri,[" + v + "]]]],";
+                    }
+                  }
+                }
+              }
+              break;
+            case "context":
+              break;
+            case "variable":
+              j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+              c = xq.charAt(j);
+              if (c !== "$") {
+                return res;
+              }
+              j++;
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                var vname = Fleur.XQueryParser._getName(c + d);
+                j = Fleur.XQueryParser._skipSpaces(xq, j + vname.length);
+                c = xq.charAt(j);
+                d = xq.substr(j + 1);
+                pindex = vname.indexOf(":");
+                var np = pindex === -1 ? "'" + vname + "'" : "'" + vname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + vname.substr(0, pindex) + "']]";
+                var fres = ".[Fleur.XQueryX.varDecl,[[Fleur.XQueryX.varName,[" + np + "]]";
+                var nbpar = 0;
+                r = Fleur.XQueryParser._getName(c + d);
+                if (r === "external") {
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                  c = xq.charAt(j);
+                  fres += ",[Fleur.XQueryX.external,[]]";
+                  if (c === ";") {
+                    return (j + 1) + fres + "]],";
+                  }
+                  d = xq.substr(j + 1);
+                }
+                if (c + d.charAt(0) !== ":=") {
+                  return res;
+                }
+                fres += ",[Fleur.XQueryX.varValue,[";
+                j = Fleur.XQueryParser._skipSpaces(xq, j + 2);
+                c = xq.charAt(j);
+                var parents = 0;
+                var vvalue = "";
+                var instring = false;
+                var stringstart;
+                while ((c !== ";" || parents !== 0 || instring) && j !== end) {
+                  vvalue += c;
+                  if (instring) {
+                    if (c === stringstart && c !== xq.charAt(j + 1)) {
+                      instring = false;
+                    }
+                  } else {
+                    if (c === "'" || c === '"') {
+                      instring = true;
+                      stringstart = c;
+                    } else if (c === "(") {
+                      parents++;
+                    } else if (c === ")") {
+                      parents--;
+                    }
+                  }
+                  c = xq.charAt(++j);
+                }
+                if (vvalue !== "") {
+                  fres += Fleur.XQueryParser._xp2js(vvalue, [], [], 0);
+                }
+                fres += "]]]],";
+                if (c === ";") {
+                  return (j + 1) + fres;
+                }
+              }
+              break;
+            case "function":
+              j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                var fname = Fleur.XQueryParser._getName(c + d);
+                j = Fleur.XQueryParser._skipSpaces(xq, j + fname.length);
+                c = xq.charAt(j);
+                pindex = fname.indexOf(":");
+                var np = pindex === -1 ? "'" + fname + "'" : "'" + fname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + fname.substr(0, pindex) + "']]";
+                var fres = ".[Fleur.XQueryX.functionDecl,[" + (updatingfunction ? "[Fleur.XQueryX.updatingFunction,['true']]," : "") + "[Fleur.XQueryX.functionName,[" + np + "]],[Fleur.XQueryX.paramList,[";
+                var nbpar = 0;
+                if (c === "(") {
+                  do {
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
+                    c = xq.charAt(j);
+                    if (c !== ")") {
+                      if (c !== "$") {
+                        return res;
+                      }
+                      j++;
+                      c = xq.charAt(j);
+                      d = xq.substr(j + 1);
+                      if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
+                        return res;
+                      }
+                      var pname = Fleur.XQueryParser._getName(c + d);
+                      j = Fleur.XQueryParser._skipSpaces(xq, j + pname.length);
+                      c = xq.charAt(j);
+                      var tdecl = "";
+                      if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                        d = xq.substr(j + 1);
+                        r = Fleur.XQueryParser._getName(c + d);
+                        if (r === "as") {
+                          j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                          c = xq.charAt(j);
+                          if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                            d = xq.substr(j + 1);
+                            var ptype = Fleur.XQueryParser._getName(c + d);
+                            pindex = ptype.indexOf(":");
+                            np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
+                            c = xq.charAt(j + ptype.length);
+                            tdecl = ",[Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[" + np + "]]";
+                            if ("?+*".indexOf(c) !== -1) {
+                              tdecl += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
+                              j++;
+                            }
+                            tdecl += "]]";
+                            j = Fleur.XQueryParser._skipSpaces(xq, j + ptype.length);
+                            c = xq.charAt(j);
+                          }
+                        }
+                      }
+                      if (nbpar !== 0) {
+                        fres += ",";
+                      }
+                      fres += "[Fleur.XQueryX.param,[[Fleur.XQueryX.varName,['" + pname + "']]" + tdecl + "]]";
+                      nbpar++;
+                    }
+                  } while (c === ",");
+                  if (c !== ")") {
+                    return res;
+                  }
+                  fres += "]]";
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
+                  c = xq.charAt(j);
+                  if (c === "a") {
+                    d = xq.substr(j + 1);
+                    r = Fleur.XQueryParser._getName(c + d);
+                    if (r === "as") {
+                      j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                      c = xq.charAt(j);
+                      var ftdecl = "";
+                      while ("{?+*".indexOf(c) === -1 && j !== end) {
+                        ftdecl += c;
+                        c = xq.charAt(++j);
+                      }
+                      np = Fleur.XQueryParser._xp2js(ftdecl, [], [], 0);
+                      if (np === "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],[Fleur.XQueryX.anyItemType,[]]]]]]") {
+                        np = "[Fleur.XQueryX.anyItemType,[]]";
+                      } else {
+                        np = np.substr(np.indexOf("[Fleur.XQueryX.nameTest,") + 24);
+                        np = "[Fleur.XQueryX.atomicType," + np.substr(0, np.length - 4);
+                      }
+                      fres += ",[Fleur.XQueryX.typeDeclaration,[" + np;
+                      if ("?+*".indexOf(c) !== -1) {
+                        fres += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
+                        j++;
+                      }
+                      fres += "]]";
+                      j = Fleur.XQueryParser._skipSpaces(xq, j);
+                      c = xq.charAt(j);
+                    }
+                  }
+                  if (c === "{") {
+                    fres += ",[Fleur.XQueryX.functionBody,[";
+                    var braces = 1;
+                    var body = "";
+                    while ((c !== "}" || braces !== 0) && j !== end) {
+                      c = xq.charAt(++j);
+                      if (c === "{") {
+                        braces++;
+                      } else if (c === "}") {
+                        braces--;
+                      }
+                      if (braces !== 0) {
+                        body += c;
+                      }
+                    }
+                    if (body !== "") {
+                      fres += Fleur.XQueryParser._xp2js(body, [], [], 0);
+                    }
+                    fres += "]]]],";
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
+                    c = xq.charAt(j);
+                    if (c === ";") {
+                      return (j + 1) + fres;
+                    }
+                  } else if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                    d = xq.substr(j + 1);
+                    r = Fleur.XQueryParser._getName(c + d);
+                    if (r === "external") {
+                      j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                      c = xq.charAt(j);
+                      fres += ",[Fleur.XQueryX.externalDefinition,[]]]],";
+                      if (c === ";") {
+                        return (j + 1) + fres;
+                      }
+                    }
+                  }
+                }
+              }
+              break;
+            case "option":
+              j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                var optionname = Fleur.XQueryParser._getName(c + d);
+                j = Fleur.XQueryParser._skipSpaces(xq, j + optionname.length);
+                c = xq.charAt(j);
+                d = xq.substr(j + 1);
+                if (c === "'" || c === '"') {
+                  r = Fleur.XQueryParser._getStringLiteral(c + d);
+                  vl = r.substr(0, r.indexOf("."));
+                  v = r.substr(vl.length + 1);
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                  c = xq.charAt(j);
+                  if (c === ";") {
+                    pindex = optionname.indexOf(":");
+                    if (pindex === -1) {
+                      return (j + 1) + ".[Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,['" + optionname + "']],[Fleur.XQueryX.optionContents,[" + v + "]]]],";
+                    }
+                    return (j + 1) + ".[Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,['" + optionname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + optionname.substr(0, pindex) + "']]]],[Fleur.XQueryX.optionContents,[" + v + "]]]],";
+                  }
+                }
+              }
+          }
+        }
+        break;
+      case "import":
+        j = Fleur.XQueryParser._skipSpaces(xq, i + r.length);
+        c = xq.charAt(j);
+        d = xq.substr(j + 1);
+        if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+          r = Fleur.XQueryParser._getName(c + d);
+          if (r === "javascript") {
+            j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+            c = xq.charAt(j);
+            d = xq.substr(j + 1);
+            if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+              r = Fleur.XQueryParser._getName(c + d);
+              if (r === "at") {
+                j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                c = xq.charAt(j);
+                d = xq.substr(j + 1);
+                if (c === "'" || c === '"') {
+                  r = Fleur.XQueryParser._getStringLiteral(c + d);
+                  vl = r.substr(0, r.indexOf("."));
+                  v = r.substr(vl.length + 1);
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                  c = xq.charAt(j);
+                  if (c === ";") {
+                    return (j + 1) + ".[Fleur.XQueryX.javascriptImport,[[Fleur.XQueryX.targetLocation,[" + v + "]]]],";
+                  }
+                }
+              } else {
+                return res;
+              }
+            } else {
+              return res;
+            }
+          } else if (r === "module") {
+            j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+            c = xq.charAt(j);
+            d = xq.substr(j + 1);
+            prefix = null;
+            if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+              r = Fleur.XQueryParser._getName(c + d);
+              if (r === "namespace") {
+                j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                c = xq.charAt(j);
+                d = xq.substr(j + 1);
+                if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                  prefix = Fleur.XQueryParser._getName(c + d);
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + prefix.length);
+                  c = xq.charAt(j);
+                  if (c === "=") {
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
+                    c = xq.charAt(j);
+                    d = xq.substr(j + 1);
+                  } else {
+                    return res;
+                  }
+                } else {
+                  return res;
+                }
+              } else {
+                return res;
+              }
+            }
+            if (c === "'" || c === '"') {
+              r = Fleur.XQueryParser._getStringLiteral(c + d);
+              vl = r.substr(0, r.indexOf("."));
+              var modname = r.substr(vl.length + 1);
+              j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+              c = xq.charAt(j);
+              d = xq.substr(j + 1);
+              v = null;
+              if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+                r = Fleur.XQueryParser._getName(c + d);
+                if (r === "at") {
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
+                  c = xq.charAt(j);
+                  var locexpr = "";
+                  while (c !== ";" && j !== end) {
+                    locexpr += c;
+                    c = xq.charAt(++j);
+                  }
+                  if (locexpr !== "") {
+                    v = Fleur.XQueryParser._xp2js(locexpr, [], [], 0);
+                  }
+                }
+              }
+              if (c === ";") {
+                return (j + 1) + ".[Fleur.XQueryX.moduleImport,[[Fleur.XQueryX.targetNamespace,[" + modname + "]]" + (prefix ? ",[Fleur.XQueryX.namespacePrefix,['" + prefix + "']]" : "") + (v ? ",[Fleur.XQueryX.targetLocationExpr,[" + v + "]]" : "") + "]],";
+              }
+            }
+          }
+        }
+    }
+  }
+  return res;
 };
 Fleur.XQueryParser._xq2js = function(xq) {
-	var v = Fleur.XQueryParser._getVersion(xq);
-	var vl = v.substr(0, v.indexOf("."));
-	var prolog = "", p, pc, pl = parseInt(vl, 10);
-	do {
-		p = Fleur.XQueryParser._getProlog(xq, pl);
-		pl = parseInt(p.substr(0, p.indexOf(".")), 10);
-		pc = p.substr(p.indexOf(".") + 1);
-		prolog += pc;
-	} while (pc !== "");
-	return "[Fleur.XQueryX.module,[" + v.substr(v.indexOf(".") + 1) + "[Fleur.XQueryX.mainModule,[" + (prolog === "" ? "" : "[Fleur.XQueryX.prolog,[" + prolog.substr(0, prolog.length - 1) + "]],") + "[Fleur.XQueryX.queryBody,[" + Fleur.XQueryParser._xp2js(xq.substr(pl), "", "") + ']]]],[Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]],[Fleur.XQueryX.xqxuf,["http://www.w3.org/2007/xquery-update-10"]],[Fleur.XQueryX.schemaLocation,["http://www.w3.org/2007/xquery-update-10 http://www.w3.org/2007/xquery-update-10/xquery-update-10-xqueryx.xsd http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"]],[Fleur.XQueryX.xsi,["http://www.w3.org/2001/XMLSchema-instance"]]]]';
+  var v = Fleur.XQueryParser._getVersion(xq);
+  var vl = v.substr(0, v.indexOf("."));
+  var prolog = "", p, pc, pl = parseInt(vl, 10);
+  do {
+    p = Fleur.XQueryParser._getProlog(xq, pl);
+    pl = parseInt(p.substr(0, p.indexOf(".")), 10);
+    pc = p.substr(p.indexOf(".") + 1);
+    prolog += pc;
+  } while (pc !== "");
+  return "[Fleur.XQueryX.module,[" + v.substr(v.indexOf(".") + 1) + "[Fleur.XQueryX.mainModule,[" + (prolog === "" ? "" : "[Fleur.XQueryX.prolog,[" + prolog.substr(0, prolog.length - 1) + "]],") + "[Fleur.XQueryX.queryBody,[" + Fleur.XQueryParser._xp2js(xq.substr(pl), [], [], 0) + ']]]],[Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]],[Fleur.XQueryX.xqxuf,["http://www.w3.org/2007/xquery-update-10"]],[Fleur.XQueryX.schemaLocation,["http://www.w3.org/2007/xquery-update-10 http://www.w3.org/2007/xquery-update-10/xquery-update-10-xqueryx.xsd http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"]],[Fleur.XQueryX.xsi,["http://www.w3.org/2001/XMLSchema-instance"]]]]';
 };
 Fleur.Transpiler.prototype.xqx_anyKindTest = function() {
-	return this.inst("xqx_anyKindTest()");
+  return this.inst("xqx_anyKindTest()");
 };
 Fleur.Context.nodeTest_ = [];
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_ANCESTOR] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
+  let newitem = new Fleur.Sequence();
   if (item.ownerElement) {
     item = item.ownerElement;
     if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
       newitem.appendChild(item);
     }
   }
-	while (item.parentNode) {
-		item = item.parentNode;
+  while (item.parentNode) {
+    item = item.parentNode;
     if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
       newitem.appendChild(item);
     }
-	}
-	return newitem.singleton();
+  }
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_ANCESTOR_OR_SELF] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
+  let newitem = new Fleur.Sequence();
   if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
     newitem.appendChild(item);
   }
@@ -19079,75 +19176,75 @@ Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_ANCESTOR_OR_SELF] = (item, nodeT
       newitem.appendChild(item);
     }
   }
-	return newitem.singleton();
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_ATTRIBUTE] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
-	if (item.attributes) {
-		item.attributes.forEach(
-			it => {
+  let newitem = new Fleur.Sequence();
+  if (item.attributes) {
+    item.attributes.forEach(
+      it => {
         if ((namespaceURI === null || it.namespaceURI === namespaceURI) && (!localName || it.localName === localName)) {
           newitem.appendChild(it);
         }
       }
-		);
-	}
-	return newitem.singleton();
+    );
+  }
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_CHILD] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
-	if (item.childNodes) {
-		item.childNodes.forEach(
-			it => {
+  let newitem = new Fleur.Sequence();
+  if (item.childNodes) {
+    item.childNodes.forEach(
+      it => {
         if ((!nodeType || it.nodeType === nodeType) && (namespaceURI === null || it.namespaceURI === namespaceURI) && (!localName || it.localName === localName)) {
           newitem.appendChild(it);
         }
       }
-		);
-	}
-	return newitem.singleton();
+    );
+  }
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_DESCENDANT] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
+  let newitem = new Fleur.Sequence();
   if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
     newitem.appendDescendants(item);
   }
-	return newitem.singleton();
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_DESCENDANT_OR_SELF] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
+  let newitem = new Fleur.Sequence();
   if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
     newitem.appendChild(item);
-  	newitem.appendDescendants(item);
+    newitem.appendDescendants(item);
   }
-	return newitem.singleton();
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_FOLLOWING] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
+  let newitem = new Fleur.Sequence();
   if (item.ownerElement) {
     item = item.ownerElement;
   }
-	while (item.parentNode) {
-		while (item.nextSibling) {
-			item = item.nextSibling;
+  while (item.parentNode) {
+    while (item.nextSibling) {
+      item = item.nextSibling;
       if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
         newitem.appendChild(item);
-  			newitem.appendDescendants(item);
+        newitem.appendDescendants(item);
       }
-		}
-		item = item.parentNode;
-	}
-	return newitem.singleton();
+    }
+    item = item.parentNode;
+  }
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_FOLLOWING_SIBLING] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
-	while (item.nextSibling) {
-		item = item.nextSibling;
+  let newitem = new Fleur.Sequence();
+  while (item.nextSibling) {
+    item = item.nextSibling;
     if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
-  		newitem.appendChild(item);
+      newitem.appendChild(item);
     }
-	}
-	return newitem.singleton();
+  }
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_PARENT] = (item, nodeType, namespaceURI, localName) => {
   if (item.parentNode && (!nodeType || item.parentNode.nodeType === nodeType) && (namespaceURI === null || item.parentNode.namespaceURI === namespaceURI) && (!localName || item.parentNode.localName === localName)) {
@@ -19159,31 +19256,31 @@ Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_PARENT] = (item, nodeType, names
   return new Fleur.Sequence();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_PRECEDING] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
+  let newitem = new Fleur.Sequence();
   if (item.ownerElement) {
     item = item.ownerElement;
   }
-	while (item.parentNode) {
-		while (item.previousSibling) {
-			item = item.previousSibling;
+  while (item.parentNode) {
+    while (item.previousSibling) {
+      item = item.previousSibling;
       if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
         newitem.appendDescendantsRev(item);
-  			newitem.appendChild(item);
+        newitem.appendChild(item);
       }
-		}
-		item = item.parentNode;
-	}
-	return newitem.singleton();
+    }
+    item = item.parentNode;
+  }
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_PRECEDING_SIBLING] = (item, nodeType, namespaceURI, localName) => {
-	let newitem = new Fleur.Sequence();
-	while (item.previousSibling) {
-		item = item.previousSibling;
+  let newitem = new Fleur.Sequence();
+  while (item.previousSibling) {
+    item = item.previousSibling;
     if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
-  		newitem.appendChild(item);
+      newitem.appendChild(item);
     }
-	}
-	return newitem.singleton();
+  }
+  return newitem.singleton();
 };
 Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_SELF] = (item, nodeType, namespaceURI, localName) => {
   if ((!nodeType || item.nodeType === nodeType) && (namespaceURI === null || item.namespaceURI === namespaceURI) && (!localName || item.localName === localName)) {
@@ -19192,886 +19289,1095 @@ Fleur.Context.nodeTest_[Fleur.Context.XPATHAXIS_SELF] = (item, nodeType, namespa
   return new Fleur.Sequence();
 };
 Fleur.Context.prototype.nodeTest = function(nodeType, namespaceURI, localName) {
-	if (this.item.isSingle()) {
-		this.item = Fleur.Context.nodeTest_[this.xpathAxis](this.item, nodeType, namespaceURI, localName);
-		return this;
-	}
-	const seq = new Fleur.Sequence();
-	seq.internals = new Set();
-	const l = this.item.childNodes.length;
-	const children = this.item.childNodes;
-	for (let i = 0; i < l; i++) {
-		const item = Fleur.Context.nodeTest_[this.xpathAxis](children[i], nodeType, namespaceURI, localName);
-		seq.merge(item);
-	}
-	this.item = seq.singleton();
+  if (this.item.isSingle()) {
+    this.item = Fleur.Context.nodeTest_[this.xpathAxis](this.item, nodeType, namespaceURI, localName);
+    return this;
+  }
+  const seq = new Fleur.Sequence();
+  seq.internals = new Set();
+  const l = this.item.childNodes.length;
+  const children = this.item.childNodes;
+  for (let i = 0; i < l; i++) {
+    const item = Fleur.Context.nodeTest_[this.xpathAxis](children[i], nodeType, namespaceURI, localName);
+    seq.merge(item);
+  }
+  this.item = seq.singleton();
 };
 Fleur.Context.prototype.xqx_anyKindTest = function() {
-	return this.nodeTest(null, null, null);
+  return this.nodeTest(null, null, null);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.anyKindTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr);});
 };
 Fleur.Transpiler.prototype.xqx_arrayTest = function() {
-	return this.inst("xqx_arrayTest()");
+  return this.inst("xqx_arrayTest()");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.arrayTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ARRAY_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ARRAY_NODE ? Fleur.EmptySequence : ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.arrayConstructor] = function(ctx, children, callback) {
-	var arr = new Fleur.Array();
-	var i = 0;
-	var cb = function(n) {
-		if (n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		if (n !== Fleur.EmptySequence) {
-			arr.appendChild(n);
-		}
-		i++;
-		if (i === children.length) {
-			Fleur.callback(function() {callback(arr);});
-			return;
-		}
-		Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb);
-	};
-	if (children.length !== 0) {
-		Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
-	} else {
-		Fleur.callback(function() {callback(arr);});
-	}
+  var arr = new Fleur.Array();
+  var i = 0;
+  var cb = function(n) {
+    if (n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    if (n !== Fleur.EmptySequence) {
+      arr.appendChild(n);
+    }
+    i++;
+    if (i === children.length) {
+      Fleur.callback(function() {callback(arr);});
+      return;
+    }
+    Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb);
+  };
+  if (children.length !== 0) {
+    Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+  } else {
+    Fleur.callback(function() {callback(arr);});
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.atomicType] = function(ctx, children, callback) {
-	if (!ctx._curr.schemaTypeInfo) {
-		Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		return;
-	}
-	var localname = children[0];
-	var prefix = children[1][1][0];
-	var namespace = ctx.env.nsresolver.lookupNamespaceURI(prefix);
-	if ((localname === ctx._curr.schemaTypeInfo.typeName && namespace === ctx._curr.schemaTypeInfo.typeNamespace) ||
-		ctx._curr.schemaTypeInfo.isDerivedFrom(namespace, localname, Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-		Fleur.callback(function() {callback(ctx._curr);});
-		return;
-	}
-	Fleur.callback(function() {callback(Fleur.EmptySequence);});
+  if (!ctx._curr.schemaTypeInfo) {
+    Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    return;
+  }
+  var localname = children[0];
+  var prefix = children[1][1][0];
+  var namespace = ctx.env.nsresolver.lookupNamespaceURI(prefix);
+  if ((localname === ctx._curr.schemaTypeInfo.typeName && namespace === ctx._curr.schemaTypeInfo.typeNamespace) ||
+    ctx._curr.schemaTypeInfo.isDerivedFrom(namespace, localname, Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+    Fleur.callback(function() {callback(ctx._curr);});
+    return;
+  }
+  Fleur.callback(function() {callback(Fleur.EmptySequence);});
+};
+Fleur.Transpiler.prototype.xqx_attributeConstructor = function(children) {
+  let r = "";
+  const prefix = children[0][1].length === 2 ? children[0][1][1][1][0] : "";
+  let value;
+  if (children[1][0] === Fleur.XQueryX.attributeValue) {
+    value = children[1][1][0];
+  } else {
+    r = this.gen(children[1][1][0], Fleur.atomicTypes);
+  }
+  return r + this.inst("xqx_attributeConstructor" + (value ? "_value" : "") + "('" +  prefix + "', '" + children[0][1][0] + "'" + (value ? ", '" + value + "'" : "") + ")");
+};
+Fleur.Context.prototype.xqx_attributeConstructor = function(prefix, localName) {
+  const attr = new Fleur.Attr();
+  attr.nodeName = prefix === "" ? localName : prefix + ":" + localName;
+  attr.localName = localName;
+  attr.prefix = prefix === "" ? null : prefix;
+  attr.namespaceURI = this.rs.nsresolver.lookupNamespaceURI(prefix);
+  this.item.schemaType = Fleur.Type_untypedAtomic;
+  attr.appendChild(this.item);
+  this.item = attr;
+  return this;
+};
+Fleur.Context.prototype.xqx_attributeConstructor_value = function(prefix, localName, value) {
+  const attr = new Fleur.Attr();
+  attr.nodeName = prefix === "" ? localName : prefix + ":" + localName;
+  attr.localName = localName;
+  attr.prefix = prefix === "" ? null : prefix;
+  attr.namespaceURI = this.rs.nsresolver.lookupNamespaceURI(prefix);
+  const attrvalue = new Fleur.Text(value);
+  attrvalue.schemaType = Fleur.Type_untypedAtomic;
+  attr.appendChild(attrvalue);
+  this.itemstack.push(this.item);
+  this.item = attr;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.attributeConstructor] = function(ctx, children, callback, elt) {
-	var attr = new Fleur.Attr();
-	var t;
-	attr.nodeName = children[0][1][0];
-	attr.localName = children[0][1][0];
-	if (children[0][1].length === 2) {
-		attr.prefix = children[0][1][1][1][0];
-	} else {
-		attr.prefix = null;
-	}
-	attr.namespaceURI = elt.lookupNamespaceURI(attr.prefix);
-	if (children[1][0] === Fleur.XQueryX.attributeValue) {
-		if (children[1][1].length !== 0) {
-			t = new Fleur.Text();
-			t.data = children[1][1][0];
-			attr.appendChild(t);
-		}
-		Fleur.callback(function() {callback(attr);});
-	} else {
-		t = new Fleur.Text();
-		t.data = "";
-		attr.appendChild(t);
-		Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
-			Fleur.callback(function() {callback(n);});
-		}, attr);
-	}
+  var attr = new Fleur.Attr();
+  var t;
+  attr.nodeName = children[0][1][0];
+  attr.localName = children[0][1][0];
+  if (children[0][1].length === 2) {
+    attr.prefix = children[0][1][1][1][0];
+  } else {
+    attr.prefix = null;
+  }
+  attr.namespaceURI = elt.lookupNamespaceURI(attr.prefix);
+  if (children[1][0] === Fleur.XQueryX.attributeValue) {
+    if (children[1][1].length !== 0) {
+      t = new Fleur.Text();
+      t.data = children[1][1][0];
+      attr.appendChild(t);
+    }
+    Fleur.callback(function() {callback(attr);});
+  } else {
+    t = new Fleur.Text();
+    t.data = "";
+    attr.appendChild(t);
+    Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
+      Fleur.callback(function() {callback(n);});
+    }, attr);
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.attributeList] = function(ctx, children, callback, elt) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(elt);});
-		} else if (n.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-			elt.setAttributeNode(n);
-			if (children.length > 1) {
-				Fleur.XQueryEngine[Fleur.XQueryX.attributeList](ctx, children.slice(1), function(n) {
-					Fleur.callback(function() {callback(n);});
-				}, elt);
-			} else {
-				Fleur.callback(function() {callback(elt);});
-			}
-		} else {
-			Fleur.callback(function() {callback(n);});
-		}
-	}, elt);
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    if (n === Fleur.EmptySequence) {
+      Fleur.callback(function() {callback(elt);});
+    } else if (n.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+      elt.setAttributeNode(n);
+      if (children.length > 1) {
+        Fleur.XQueryEngine[Fleur.XQueryX.attributeList](ctx, children.slice(1), function(n) {
+          Fleur.callback(function() {callback(n);});
+        }, elt);
+      } else {
+        Fleur.callback(function() {callback(elt);});
+      }
+    } else {
+      Fleur.callback(function() {callback(n);});
+    }
+  }, elt);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.attributeTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE || ctx._curr.nodeName === "xmlns" || ctx._curr.prefix === "xmlns" ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE || ctx._curr.nodeName === "xmlns" || ctx._curr.prefix === "xmlns" ? Fleur.EmptySequence : ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.attributeValueExpr] = function(ctx, children, callback, attr) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var a = Fleur.Atomize(n);
-		if (a !== Fleur.EmptySequence && a.nodeType !== Fleur.Node.TEXT_NODE) {
-			Fleur.callback(function() {callback(a);});
-		} else {
-			if (a !== Fleur.EmptySequence) {
-				attr.firstChild.data += a.data;
-			}
-			if (children.length > 1) {
-				Fleur.XQueryEngine[Fleur.XQueryX.attributeValueExpr](ctx, children.slice(1), function(n) {
-					Fleur.callback(function() {callback(n);});
-				}, attr);
-			} else {
-				Fleur.callback(function() {callback(attr);});
-			}
-		}
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    var a = Fleur.Atomize(n);
+    if (a !== Fleur.EmptySequence && a.nodeType !== Fleur.Node.TEXT_NODE) {
+      Fleur.callback(function() {callback(a);});
+    } else {
+      if (a !== Fleur.EmptySequence) {
+        attr.firstChild.data += a.data;
+      }
+      if (children.length > 1) {
+        Fleur.XQueryEngine[Fleur.XQueryX.attributeValueExpr](ctx, children.slice(1), function(n) {
+          Fleur.callback(function() {callback(n);});
+        }, attr);
+      } else {
+        Fleur.callback(function() {callback(attr);});
+      }
+    }
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.castExpr] = function(ctx, children, callback) {
-	var typename = children[1][1][0][1][0];
-	var typeprefix = children[1][1][0][1][1][1][0];
-	var typeuri = ctx.env.nsresolver.lookupNamespaceURI(typeprefix);
-	var optional = children[1][1].length === 2;
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var err = Fleur.error(ctx, "FORG0001");
-		var a;
-		if (n === Fleur.EmptySequence) {
-			if (optional) {
-				a = new Fleur.Text();
-				a.data = "true";
-				a.schemaTypeInfo = Fleur.Type_boolean;
-			} else {
-				a = err;
-			}
-		} else if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			a = err;
-		} else {
-			a = Fleur.Atomize(n);
-			try {
-				a.data = Fleur.Types[typeuri][typename].canonicalize(a.data);
-				a.schemaTypeInfo = Fleur.Types[typeuri][typename];
-			} catch(e) {
-				a = err;
-			}
-		}
-		Fleur.callback(function() {callback(a);});
-	});
+  var typename = children[1][1][0][1][0];
+  var typeprefix = children[1][1][0][1][1][1][0];
+  var typeuri = ctx.env.nsresolver.lookupNamespaceURI(typeprefix);
+  var optional = children[1][1].length === 2;
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var err = Fleur.error(ctx, "FORG0001");
+    var a;
+    if (n === Fleur.EmptySequence) {
+      if (optional) {
+        a = new Fleur.Text();
+        a.data = "true";
+        a.schemaTypeInfo = Fleur.Type_boolean;
+      } else {
+        a = err;
+      }
+    } else if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+      a = err;
+    } else {
+      a = Fleur.Atomize(n);
+      try {
+        a.data = Fleur.Types[typeuri][typename].canonicalize(a.data);
+        a.schemaTypeInfo = Fleur.Types[typeuri][typename];
+      } catch(e) {
+        a = err;
+      }
+    }
+    Fleur.callback(function() {callback(a);});
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.castableExpr] = function(ctx, children, callback) {
-	var typename = children[1][1][0][1][0];
-	var typeprefix = children[1][1][0][1][1][1][0];
-	var typeuri = ctx.env.nsresolver.lookupNamespaceURI(typeprefix);
-	var optional = children[1][1].length === 2;
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var a;
-		if (n === Fleur.EmptySequence) {
-			a = new Fleur.Text();
-			a.data = String(optional);
-		} else if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			a = new Fleur.Text();
-			a.data = "false";
-		} else {
-			a = Fleur.Atomize(n);
-			try {
-				Fleur.Types[typeuri][typename].canonicalize(a.data);
-				a.data = "true";
-			} catch(e) {
-				a.data = "false";
-			}
-		}
-		a.schemaTypeInfo = Fleur.Type_boolean;
-		Fleur.callback(function() {callback(a);});
-	});
+  var typename = children[1][1][0][1][0];
+  var typeprefix = children[1][1][0][1][1][1][0];
+  var typeuri = ctx.env.nsresolver.lookupNamespaceURI(typeprefix);
+  var optional = children[1][1].length === 2;
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var a;
+    if (n === Fleur.EmptySequence) {
+      a = new Fleur.Text();
+      a.data = String(optional);
+    } else if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+      a = new Fleur.Text();
+      a.data = "false";
+    } else {
+      a = Fleur.Atomize(n);
+      try {
+        Fleur.Types[typeuri][typename].canonicalize(a.data);
+        a.data = "true";
+      } catch(e) {
+        a.data = "false";
+      }
+    }
+    a.schemaTypeInfo = Fleur.Type_boolean;
+    Fleur.callback(function() {callback(a);});
+  });
 };
 Fleur.Transpiler.prototype.xqx_commentTest = function() {
-	return this.inst("xqx_commentTest()");
+  return this.inst("xqx_commentTest()");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.commentTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.COMMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.COMMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
+};
+Fleur.Transpiler.prototype.xqx_computedAttributeConstructor = function(children) {
+  let r = "";
+  const prefix = children[0][1].length === 2 && children[0][1][1][0] === Fleur.XQueryX.prefix ? children[0][1][1][1][0] : "";
+  const URI = children[0][1].length === 2 && children[0][1][1][0] === Fleur.XQueryX.URI ? children[0][1][1][1][0] : null;
+  let tagName;
+  if (children[0][0] === Fleur.XQueryX.tagName) {
+    tagName = children[0][1][0];
+  } else {
+    r = this.gen(children[0][1][0], Fleur.atomicTypes);
+  }
+  r += this.gen(children[1][1][0], Fleur.atomicTypes);
+  return r + this.inst("xqx_computedAttributeConstructor" + (tagName ? (URI ? "_URI" : "") + "('" + (URI ? URI : prefix) + "', '" + tagName + "')" : "_expr()"));
+};
+Fleur.Context.prototype.xqx_computedAttributeConstructor = function(prefix, localName) {
+  const attr = new Fleur.Attr();
+  attr.nodeName = prefix === "" ? localName : prefix + ":" + localName;
+  attr.localName = localName;
+  attr.prefix = prefix === "" ? null : prefix;
+  attr.namespaceURI = this.rs.nsresolver.lookupNamespaceURI(prefix);
+  this.item.schemaType = Fleur.Type_untypedAtomic;
+  attr.appendChild(this.item);
+  this.item = attr;
+  return this;
+};
+Fleur.Context.prototype.xqx_computedAttributeConstructor_expr = function() {
+  const arg2 = this.item;
+  const arg1 = this.itemstack.pop();
+  const attr = new Fleur.Attr();
+  const prefix = arg1.data.includes(":") ? arg1.data.split(":")[0] : "";
+  attr.nodeName = arg1.data;
+  attr.localName = prefix === "" ? arg1.data : arg1.data.split(":")[1];
+  attr.prefix = prefix === "" ? null : prefix;
+  attr.namespaceURI = this.rs.nsresolver.lookupNamespaceURI(prefix);
+  arg2.schemaType = Fleur.Type_untypedAtomic;
+  attr.appendChild(arg2);
+  this.item = attr;
+  return this;
+};
+Fleur.Context.prototype.xqx_computedAttributeConstructor_URI = function(URI, localName) {
+  const attr = new Fleur.Attr();
+  attr.nodeName = localName;
+  attr.localName = localName;
+  attr.prefix = null;
+  attr.namespaceURI = URI;
+  this.item.schemaType = Fleur.Type_untypedAtomic;
+  attr.appendChild(this.item);
+  this.item = attr;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.computedAttributeConstructor] = function(ctx, children, callback) {
-	var attr = new Fleur.Attr();
-	if (children[0][0] === Fleur.XQueryX.tagName) {
-		attr.name = children[0][1][0];
-		attr.namespaceURI = null;
-		attr.nodeName = children[0][1][0];
-		attr.localName = children[0][1][0];
-		if (children[1][1].length === 0) {
-			Fleur.callback(function() {callback(attr);});
-			return;
-		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			attr.appendChild(n);
-			Fleur.callback(function() {callback(attr);});
-		});
-	} else {
-		Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-			var a = Fleur.Atomize(n);
-			if (a.nodeType !== Fleur.Node.TEXT_NODE) {
-				Fleur.callback(function() {callback(a);});
-			} else {
-				attr.name = a.data;
-				attr.nodeName = a.data;
-				attr.namespaceURI = null;
-				attr.localName = a.data;
-				if (children[1][1].length === 0) {
-					Fleur.callback(function() {callback(attr);});
-					return;
-				}
-				Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-					attr.appendChild(n);
-					Fleur.callback(function() {callback(attr);});
-				});
-			}
-		});
-	}
+  var attr = new Fleur.Attr();
+  if (children[0][0] === Fleur.XQueryX.tagName) {
+    attr.name = children[0][1][0];
+    attr.namespaceURI = null;
+    attr.nodeName = children[0][1][0];
+    attr.localName = children[0][1][0];
+    if (children[1][1].length === 0) {
+      Fleur.callback(function() {callback(attr);});
+      return;
+    }
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      attr.appendChild(n);
+      Fleur.callback(function() {callback(attr);});
+    });
+  } else {
+    Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+      var a = Fleur.Atomize(n);
+      if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+        Fleur.callback(function() {callback(a);});
+      } else {
+        attr.name = a.data;
+        attr.nodeName = a.data;
+        attr.namespaceURI = null;
+        attr.localName = a.data;
+        if (children[1][1].length === 0) {
+          Fleur.callback(function() {callback(attr);});
+          return;
+        }
+        Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+          attr.appendChild(n);
+          Fleur.callback(function() {callback(attr);});
+        });
+      }
+    });
+  }
+};
+Fleur.Transpiler.prototype.xqx_computedCommentConstructor = function(children) {
+  return (children.length === 1 ? this.gen(children[0][1][0], Fleur.atomicTypes) : this.inst("emptySequence()")) + this.inst("xqx_computedCommentConstructor()");
+};
+Fleur.Context.prototype.xqx_computedCommentConstructor = function() {
+  const cmt = new Fleur.Comment();
+  cmt.data = this.item.data || "";
+  this.item = cmt;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.computedCommentConstructor] = function(ctx, children, callback) {
-	var cmt = new Fleur.Comment();
-	cmt.data = "";
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		cmt.data = n.data;
-		Fleur.callback(function() {callback(cmt);});
-	});
+  var cmt = new Fleur.Comment();
+  cmt.data = "";
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    cmt.data = n.data;
+    Fleur.callback(function() {callback(cmt);});
+  });
+};
+Fleur.Transpiler.prototype.xqx_computedDocumentConstructor = function(children) {
+  return (children.length === 1 ? this.gen(children[0][1][0]) : this.inst("emptySequence()")) + this.inst("xqx_computedDocumentConstructor()");
+};
+Fleur.Context.prototype.xqx_computedDocumentConstructor = function() {
+  const doc = new Fleur.Document();
+  doc.appendContent(this.item, "");
+  this.item = doc;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.computedDocumentConstructor] = function(ctx, children, callback) {
-	var doc = new Fleur.Document();
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			n.childNodes.forEach(function(c) {
-				doc.appendChild(c);
-			});
-		} else {
-			doc.appendChild(n);
-		}
-		Fleur.callback(function() {callback(doc);});
-	});
+  var doc = new Fleur.Document();
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+      n.childNodes.forEach(function(c) {
+        doc.appendChild(c);
+      });
+    } else {
+      doc.appendChild(n);
+    }
+    Fleur.callback(function() {callback(doc);});
+  });
+};
+Fleur.Transpiler.prototype.xqx_computedElementConstructor = function(children) {
+  let r = "";
+  const prefix = children[0][1].length === 2 && children[0][1][1][0] === Fleur.XQueryX.prefix ? children[0][1][1][1][0] : "";
+  const URI = children[0][1].length === 2 && children[0][1][1][0] === Fleur.XQueryX.URI ? children[0][1][1][1][0] : null;
+  let tagName;
+  if (children[0][0] === Fleur.XQueryX.tagName) {
+    tagName = children[0][1][0];
+  } else {
+    r = this.gen(children[0][1][0], Fleur.atomicTypes);
+  }
+  r += children.length === 2 ? this.gen(children[1][1][0]) : this.inst("emptySequence()");
+  return r + this.inst("xqx_computedElementConstructor" + (tagName ? (URI ? "_URI" : "") + "('" + (URI ? URI : prefix) + "', '" + tagName + "')" : "_expr()"));
+};
+Fleur.Context.prototype.xqx_computedElementConstructor = function(prefix, localName) {
+  const elt = new Fleur.Element();
+  elt.nodeName = prefix === "" ? localName : prefix + ":" + localName;
+  elt.localName = localName;
+  elt.prefix = prefix === "" ? null : prefix;
+  elt.namespaceURI = this.rs.nsresolver.lookupNamespaceURI(prefix);
+  elt.appendContent(this.item, "");
+  this.item = elt;
+  return this;
+};
+Fleur.Context.prototype.xqx_computedElementConstructor_expr = function() {
+  const arg2 = this.item;
+  const arg1 = this.itemstack.pop();
+  const elt = new Fleur.Element();
+  const prefix = arg1.data.includes(":") ? arg1.data.split(":")[0] : "";
+  elt.nodeName = arg1.data;
+  elt.localName = prefix === "" ? arg1.data : arg1.data.split(":")[1];
+  elt.prefix = prefix === "" ? null : prefix;
+  elt.namespaceURI = this.rs.nsresolver.lookupNamespaceURI(prefix);
+  elt.appendContent(arg2, "");
+  this.item = elt;
+  return this;
+};
+Fleur.Context.prototype.xqx_computedElementConstructor_URI = function(URI, localName) {
+  const elt = new Fleur.Element();
+  elt.nodeName = localName;
+  elt.localName = localName;
+  elt.prefix = null;
+  elt.namespaceURI = URI;
+  elt.appendContent(this.item, "");
+  this.item = elt;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.computedElementConstructor] = function(ctx, children, callback) {
-	var elt = new Fleur.Element();
-	if (children[0][0] === Fleur.XQueryX.tagName) {
-		elt.name = children[0][1][0];
-		elt.namespaceURI = null;
-		elt.nodeName = children[0][1][0];
-		if (children[1][1].length !== 0) {
-			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-				elt.appendChild(n);
-				Fleur.callback(function() {callback(elt);});
-			});
-		} else {
-			Fleur.callback(function() {callback(elt);});
-		}	
-	} else {
-		Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-			var a = Fleur.Atomize(n);
-			if (a.nodeType !== Fleur.Node.TEXT_NODE) {
-				Fleur.callback(function() {callback(a);});
-			} else {
-				if (a.schemaTypeInfo === Fleur.Type_QName) {
-					elt.nodeName = a.nodeName;
-					elt.namespaceURI = a.namespaceURI;
-					elt.localName = a.localName;
-				} else {
-					elt.nodeName = a.data;
-					elt.namespaceURI = null;
-					elt.localName = a.data;
-				}
-				if (children[1][1].length !== 0) {
-					Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-						elt.appendChild(n);
-						Fleur.callback(function() {callback(elt);});
-					});
-				} else {
-					Fleur.callback(function() {callback(elt);});
-				}	
-			}
-		});
-	}
+  var elt = new Fleur.Element();
+  if (children[0][0] === Fleur.XQueryX.tagName) {
+    elt.name = children[0][1][0];
+    elt.namespaceURI = null;
+    elt.nodeName = children[0][1][0];
+    if (children[1][1].length !== 0) {
+      Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+        elt.appendChild(n);
+        Fleur.callback(function() {callback(elt);});
+      });
+    } else {
+      Fleur.callback(function() {callback(elt);});
+    }  
+  } else {
+    Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+      var a = Fleur.Atomize(n);
+      if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+        Fleur.callback(function() {callback(a);});
+      } else {
+        if (a.schemaTypeInfo === Fleur.Type_QName) {
+          elt.nodeName = a.nodeName;
+          elt.namespaceURI = a.namespaceURI;
+          elt.localName = a.localName;
+        } else {
+          elt.nodeName = a.data;
+          elt.namespaceURI = null;
+          elt.localName = a.data;
+        }
+        if (children[1][1].length !== 0) {
+          Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+            elt.appendChild(n);
+            Fleur.callback(function() {callback(elt);});
+          });
+        } else {
+          Fleur.callback(function() {callback(elt);});
+        }  
+      }
+    });
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.computedEntryConstructor] = function(ctx, children, callback) {
-	var entry = new Fleur.Entry();
-	if (children[0][0] === Fleur.XQueryX.tagName) {
-		entry.name = children[0][1][0];
-		entry.namespaceURI = null;
-		entry.nodeName = children[0][1][0];
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			entry.appendChild(n);
-			Fleur.callback(function() {callback(entry);});
-		});
-	} else {
-		Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-			var a = Fleur.Atomize(n);
-			if (a.nodeType !== Fleur.Node.TEXT_NODE) {
-				Fleur.callback(function() {callback(a);});
-			} else {
-				entry.nodeName = a.data;
-				entry.namespaceURI = null;
-				entry.localName = a.data;
-				Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-					entry.appendChild(n.copyNode());
-					Fleur.callback(function() {callback(entry);});
-				});
-			}
-		});
-	}
+  var entry = new Fleur.Entry();
+  if (children[0][0] === Fleur.XQueryX.tagName) {
+    entry.name = children[0][1][0];
+    entry.namespaceURI = null;
+    entry.nodeName = children[0][1][0];
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      entry.appendChild(n);
+      Fleur.callback(function() {callback(entry);});
+    });
+  } else {
+    Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+      var a = Fleur.Atomize(n);
+      if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+        Fleur.callback(function() {callback(a);});
+      } else {
+        entry.nodeName = a.data;
+        entry.namespaceURI = null;
+        entry.localName = a.data;
+        Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+          entry.appendChild(n.copyNode());
+          Fleur.callback(function() {callback(entry);});
+        });
+      }
+    });
+  }
+};
+Fleur.Transpiler.prototype.xqx_computedPIConstructor = function(children) {
+  return (children.length === 2 ? this.gen(children[1][1][0], Fleur.atomicTypes) : this.inst("emptySequence()")) + this.inst("xqx_computedPIConstructor('" + children[0][1][0] + "')");
+};
+Fleur.Context.prototype.xqx_computedPIConstructor = function(name) {
+  const prins = new Fleur.ProcessingInstruction();
+  prins.nodeName = name;
+  prins.data = this.item.data;
+  this.item = prins;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.computedPIConstructor] = function(ctx, children, callback) {
-	var aval, prins = new Fleur.ProcessingInstruction();
-	if (children[0][0] === Fleur.XQueryX.piTarget) {
-		prins.nodeName = children[0][1][0];
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			aval = Fleur.Atomize(n);
-			if (aval.nodeType !== Fleur.Node.TEXT_NODE) {
-				Fleur.callback(function() {callback(aval);});
-			} else {
-				prins.data = aval.data;
-				Fleur.callback(function() {callback(prins);});
-			}
-		});
-	} else {
-		Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-			var aname = Fleur.Atomize(n);
-			if (aname.nodeType !== Fleur.Node.TEXT_NODE) {
-				Fleur.callback(function() {callback(aname);});
-			} else {
-				prins.nodeName = aname.data;
-				Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-					aval = Fleur.Atomize(n);
-					if (aval.nodeType !== Fleur.Node.TEXT_NODE) {
-						Fleur.callback(function() {callback(aval);});
-					} else {
-						prins.data = aval.data;
-						Fleur.callback(function() {callback(prins);});
-					}
-				});
-			}
-		});
-	}
+  var aval, prins = new Fleur.ProcessingInstruction();
+  if (children[0][0] === Fleur.XQueryX.piTarget) {
+    prins.nodeName = children[0][1][0];
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      aval = Fleur.Atomize(n);
+      if (aval.nodeType !== Fleur.Node.TEXT_NODE) {
+        Fleur.callback(function() {callback(aval);});
+      } else {
+        prins.data = aval.data;
+        Fleur.callback(function() {callback(prins);});
+      }
+    });
+  } else {
+    Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+      var aname = Fleur.Atomize(n);
+      if (aname.nodeType !== Fleur.Node.TEXT_NODE) {
+        Fleur.callback(function() {callback(aname);});
+      } else {
+        prins.nodeName = aname.data;
+        Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+          aval = Fleur.Atomize(n);
+          if (aval.nodeType !== Fleur.Node.TEXT_NODE) {
+            Fleur.callback(function() {callback(aval);});
+          } else {
+            prins.data = aval.data;
+            Fleur.callback(function() {callback(prins);});
+          }
+        });
+      }
+    });
+  }
+};
+Fleur.Transpiler.prototype.xqx_computedTextConstructor = function(children) {
+  return (children.length === 1 ? this.gen(children[0][1][0], Fleur.atomicTypes) : this.inst("emptySequence()")) + this.inst("xqx_computedTextConstructor()");
+};
+Fleur.Context.prototype.xqx_computedTextConstructor = function() {
+  const txt = new Fleur.Text(this.item.data);
+  this.item = txt;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.computedTextConstructor] = function(ctx, children, callback) {
-	var txt = new Fleur.Text();
-	txt.data = "";
-	txt.schemaTypeInfo = Fleur.Type_string;
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var a = Fleur.Atomize(n);
-		if (a === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(a);});
-			return;
-		}
-		txt.data = a.data;
-		txt.schemaTypeInfo = n.schemaTypeInfo;
-		Fleur.callback(function() {callback(txt);});
-	});
+  var txt = new Fleur.Text();
+  txt.data = "";
+  txt.schemaTypeInfo = Fleur.Type_string;
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var a = Fleur.Atomize(n);
+    if (a === Fleur.EmptySequence) {
+      Fleur.callback(function() {callback(a);});
+      return;
+    }
+    txt.data = a.data;
+    txt.schemaTypeInfo = n.schemaTypeInfo;
+    Fleur.callback(function() {callback(txt);});
+  });
 };
 Fleur.Transpiler.prototype.xqx_contextItemExpr = function(children, atomicType) {
-	return this.inst("xqx_contextItemExpr()", false, atomicType);
+  return this.inst("xqx_contextItemExpr()", false, atomicType);
 };
 Fleur.Context.prototype.xqx_contextItemExpr = function() {
-	this.itemstack.push(this.item);
-	this.item = this.path;
-	return this;
+  this.itemstack.push(this.item);
+  this.item = this.path;
+  return this;
 }
 Fleur.XQueryEngine[Fleur.XQueryX.contextItemExpr] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.countClause] = function(ctx, children, callback, resarr) {
-	var countname = children[0][1][0][1][0];
-	resarr.forEach(function addcount(vmgr, i) {
-		var countvalue = new Fleur.Text();
-		countvalue.data = String(i + 1);
-		countvalue.schemaTypeInfo = Fleur.Type_integer;
-		vmgr.set(ctx, "", countname, countvalue);
-	});
-	Fleur.callback(function() {callback(Fleur.EmptySequence);});
+  var countname = children[0][1][0][1][0];
+  resarr.forEach(function addcount(vmgr, i) {
+    var countvalue = new Fleur.Text();
+    countvalue.data = String(i + 1);
+    countvalue.schemaTypeInfo = Fleur.Type_integer;
+    vmgr.set(ctx, "", countname, countvalue);
+  });
+  Fleur.callback(function() {callback(Fleur.EmptySequence);});
 };
 Fleur.Transpiler.prototype.xqx_decimalConstantExpr = function(children) {
-	return this.inst("xqx_decimalConstantExpr('" + children[0][1][0] + "')");
+  return this.inst("xqx_decimalConstantExpr('" + children[0][1][0] + "')");
 };
 Fleur.Context.prototype.xqx_decimalConstantExpr = function(arg) {
   this.itemstack.push(this.item);
   const item = new Fleur.Text();
   item.appendData(Fleur.Type_decimal.canonicalize(arg));
-	item.schemaTypeInfo = Fleur.Type_decimal;
+  item.schemaTypeInfo = Fleur.Type_decimal;
   this.item = item;
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.decimalConstantExpr] = function(ctx, children, callback) {
-	var a = new Fleur.Text();
-	a.appendData(Fleur.Type_decimal.canonicalize(children[0][1][0]));
-	a.schemaTypeInfo = Fleur.Type_decimal;
-	Fleur.callback(function() {callback(a);});
+  var a = new Fleur.Text();
+  a.appendData(Fleur.Type_decimal.canonicalize(children[0][1][0]));
+  a.schemaTypeInfo = Fleur.Type_decimal;
+  Fleur.callback(function() {callback(a);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.defaultNamespaceCategory] = function(ctx, children) {
 };
 Fleur.XQueryEngine[Fleur.XQueryX.defaultNamespaceDecl] = function(ctx, children, callback) {
-	ctx.env.nsresolver.declareNamespace(" " + children[0][1][0], children[1][1][0]);
-	Fleur.callback(function() {callback();});
+  ctx.env.nsresolver.declareNamespace(" " + children[0][1][0], children[1][1][0]);
+  Fleur.callback(function() {callback();});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.deleteExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var i, l;
-		if (n !== Fleur.EmptySequence) {
-			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				for (i = 0, l = n.childNodes.length; i < l; i++) {
-					if (n.childNodes[i].parentElement) {
-						if (n.childNodes[i].nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-							n.childNodes[i].parentElement.removeAttributeNode(n.childNodes[i]);
-						} else {
-							n.childNodes[i].parentElement.removeChild(n.childNodes[i]);
-						}
-					}
-				}
-			} else if (n.parentElement) {
-				if (n.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-					n.parentElement.removeAttributeNode(n);
-				} else {
-					n.parentElement.removeChild(n);
-				}
-			}
-		}
-		Fleur.callback(function() {callback(Fleur.EmptySequence);});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var i, l;
+    if (n !== Fleur.EmptySequence) {
+      if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        for (i = 0, l = n.childNodes.length; i < l; i++) {
+          if (n.childNodes[i].parentElement) {
+            if (n.childNodes[i].nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+              n.childNodes[i].parentElement.removeAttributeNode(n.childNodes[i]);
+            } else {
+              n.childNodes[i].parentElement.removeChild(n.childNodes[i]);
+            }
+          }
+        }
+      } else if (n.parentElement) {
+        if (n.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+          n.parentElement.removeAttributeNode(n);
+        } else {
+          n.parentElement.removeChild(n);
+        }
+      }
+    }
+    Fleur.callback(function() {callback(Fleur.EmptySequence);});
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.documentTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.DOCUMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.DOCUMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
 };
 Fleur.Transpiler.prototype.xqx_doubleConstantExpr = function(children) {
-	return this.inst("xqx_doubleConstantExpr('" + children[0][1][0] + "')");
+  return this.inst("xqx_doubleConstantExpr('" + children[0][1][0] + "')");
 };
 Fleur.Context.prototype.xqx_doubleConstantExpr = function(arg) {
   this.itemstack.push(this.item);
   const item = new Fleur.Text();
   item.appendData(Fleur.Type_double.canonicalize(arg));
-	item.schemaTypeInfo = Fleur.Type_double;
+  item.schemaTypeInfo = Fleur.Type_double;
   this.item = item;
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.doubleConstantExpr] = function(ctx, children, callback) {
-	var a = new Fleur.Text();
-	a.appendData(Fleur.Type_double.canonicalize(children[0][1][0]));
-	a.schemaTypeInfo = Fleur.Type_double;
-	Fleur.callback(function() {callback(a);});
+  var a = new Fleur.Text();
+  a.appendData(Fleur.Type_double.canonicalize(children[0][1][0]));
+  a.schemaTypeInfo = Fleur.Type_double;
+  Fleur.callback(function() {callback(a);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.doubleMapExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var seq, md, subcurr, next, last, pos = 1, result = Fleur.EmptySequence;
-		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		if (n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-			next = new Fleur.Sequence();
-			for (var i = 0, l = n.childNodes.length; i < l; i++) {
-				next.appendChild(n.childNodes[i]);
-			}
-			next.rowlabels = n.rowlabels;
-			next.collabels = n.collabels;
-			last = next.childNodes.length;
-			subcurr = next.childNodes.shift();
-			seq = new Fleur.Sequence();
-			seq.childNodes = subcurr.childNodes;
-			subcurr = seq;
-			subcurr.collabels = next.collabels;
-			if (next.childNodes.length === 0) {
-				next = Fleur.EmptySequence;
-			}
-		} else {
-			subcurr = n;
-			next = Fleur.EmptySequence;
-			last = 1;
-		}
-		var cb = function(n) {
-			if (n !== Fleur.EmptySequence) {
-				if (result === Fleur.EmptySequence) {
-					result = n;
-				} else {
-					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						seq = new Fleur.Sequence();
-						md = new Fleur.Multidim();
-						seq.appendChild(md);
-						md.appendChild(result);
-						result = seq;
-					} else if (result.childNodes[0].nodeType !== Fleur.Node.MULTIDIM_NODE) {
-						seq = new Fleur.Sequence();
-						md = new Fleur.Multidim();
-						seq.appendChild(md);
-						result.childNodes.forEach(function(node) {
-							md.appendChild(node);
-						});
-						result = seq;
-					}
-					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE || n.childNodes[0].nodeType !== Fleur.Node.MULTIDIM_NODE) {
-						md = new Fleur.Multidim();
-						result.appendChild(md);
-						if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-							md.appendChild(n);
-						} else {
-							n.childNodes.forEach(function(node) {
-								md.appendChild(node);
-							});
-						}
-					} else {
-						n.childNodes.forEach(function(node) {
-							result.appendChild(node);
-						});
-					}
-				}
-			}
-			if (next === Fleur.EmptySequence) {
-				Fleur.callback(function() {callback(result, Fleur.XQueryX.doubleMapExpr);});
-				return;
-			}
-			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				subcurr = next.childNodes.shift();
-				if (subcurr.nodeType === Fleur.Node.MULTIDIM_NODE) {
-					seq = new Fleur.Sequence();
-					seq.childNodes = subcurr.childNodes;
-					subcurr = seq;
-					subcurr.collabels = next.collabels;
-					if (next.childNodes.length === 0) {
-						next = Fleur.EmptySequence;
-					}
-				} else {
-					subcurr.collabels = next.collabels;
-					if (next.childNodes.length === 1) {
-						next = next.childNodes[0];
-					}
-				}
-			} else {
-				subcurr = next;
-				next = Fleur.EmptySequence;
-			}
-			pos++;
-			Fleur.XQueryEngine[children[1][0]]({
-				_curr: subcurr,
-				_next: next,
-				_last: last,
-				_pos: pos,
-				env: ctx.env
-			}, children[1][1], cb);
-		};
-		Fleur.XQueryEngine[children[1][0]]({
-			_curr: subcurr,
-			_next: next,
-			_last: last,
-			_pos: pos,
-			env: ctx.env
-		}, children[1][1], cb);
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    var seq, md, subcurr, next, last, pos = 1, result = Fleur.EmptySequence;
+    if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    if (n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+      next = new Fleur.Sequence();
+      for (var i = 0, l = n.childNodes.length; i < l; i++) {
+        next.appendChild(n.childNodes[i]);
+      }
+      next.rowlabels = n.rowlabels;
+      next.collabels = n.collabels;
+      last = next.childNodes.length;
+      subcurr = next.childNodes.shift();
+      seq = new Fleur.Sequence();
+      seq.childNodes = subcurr.childNodes;
+      subcurr = seq;
+      subcurr.collabels = next.collabels;
+      if (next.childNodes.length === 0) {
+        next = Fleur.EmptySequence;
+      }
+    } else {
+      subcurr = n;
+      next = Fleur.EmptySequence;
+      last = 1;
+    }
+    var cb = function(n) {
+      if (n !== Fleur.EmptySequence) {
+        if (result === Fleur.EmptySequence) {
+          result = n;
+        } else {
+          if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            seq = new Fleur.Sequence();
+            md = new Fleur.Multidim();
+            seq.appendChild(md);
+            md.appendChild(result);
+            result = seq;
+          } else if (result.childNodes[0].nodeType !== Fleur.Node.MULTIDIM_NODE) {
+            seq = new Fleur.Sequence();
+            md = new Fleur.Multidim();
+            seq.appendChild(md);
+            result.childNodes.forEach(function(node) {
+              md.appendChild(node);
+            });
+            result = seq;
+          }
+          if (n.nodeType !== Fleur.Node.SEQUENCE_NODE || n.childNodes[0].nodeType !== Fleur.Node.MULTIDIM_NODE) {
+            md = new Fleur.Multidim();
+            result.appendChild(md);
+            if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+              md.appendChild(n);
+            } else {
+              n.childNodes.forEach(function(node) {
+                md.appendChild(node);
+              });
+            }
+          } else {
+            n.childNodes.forEach(function(node) {
+              result.appendChild(node);
+            });
+          }
+        }
+      }
+      if (next === Fleur.EmptySequence) {
+        Fleur.callback(function() {callback(result, Fleur.XQueryX.doubleMapExpr);});
+        return;
+      }
+      if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        subcurr = next.childNodes.shift();
+        if (subcurr.nodeType === Fleur.Node.MULTIDIM_NODE) {
+          seq = new Fleur.Sequence();
+          seq.childNodes = subcurr.childNodes;
+          subcurr = seq;
+          subcurr.collabels = next.collabels;
+          if (next.childNodes.length === 0) {
+            next = Fleur.EmptySequence;
+          }
+        } else {
+          subcurr.collabels = next.collabels;
+          if (next.childNodes.length === 1) {
+            next = next.childNodes[0];
+          }
+        }
+      } else {
+        subcurr = next;
+        next = Fleur.EmptySequence;
+      }
+      pos++;
+      Fleur.XQueryEngine[children[1][0]]({
+        _curr: subcurr,
+        _next: next,
+        _last: last,
+        _pos: pos,
+        env: ctx.env
+      }, children[1][1], cb);
+    };
+    Fleur.XQueryEngine[children[1][0]]({
+      _curr: subcurr,
+      _next: next,
+      _last: last,
+      _pos: pos,
+      env: ctx.env
+    }, children[1][1], cb);
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.dynamicFunctionInvocationExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		if (n && n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		if (n && n.nodeType === Fleur.Node.ENTRY_NODE) {
-			n = n.firstChild;
-		}
-		var args = children[children.length - 1][0] === Fleur.XQueryX.arguments ? children[children.length - 1][1] : [];
-		var preds = [];
-		children.forEach(function(child) {
-			if (child[0] === Fleur.XQueryX.predicates) {
-				child[1].forEach(function(subchild) {preds.push(subchild);});
-			} else if (child[0] === Fleur.XQueryX.predicate) {
-				preds.push(child[1][0]);
-			} else if (child[0] === Fleur.XQueryX.lookup) {
-				preds.push(child);
-			}
-		});
-		if (preds.length === 0) {
-			if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
-				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-				return;
-			}
-			Fleur.functionCall(ctx, children, n, args, callback);
-		} else {
-			var next;
-			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				next = new Fleur.Sequence();
-				next.childNodes = new Fleur.NodeList();
-				n.childNodes.forEach(function(node) {
-					next.appendChild(node);
-				});
-			} else {
-				next = n;
-			}
-			Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
-				_next: next,
-				_item: ctx._item,
-				env: ctx.env
-			}, preds, function(n) {
-				if (n && n.nodeType === Fleur.Node.ENTRY_NODE) {
-					n = n.firstChild;
-				}
-				if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
-					Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-					return;
-				}
-				Fleur.functionCall(ctx, children, n, args, callback);
-			});
-		}
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    if (n && n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    if (n && n.nodeType === Fleur.Node.ENTRY_NODE) {
+      n = n.firstChild;
+    }
+    var args = children[children.length - 1][0] === Fleur.XQueryX.arguments ? children[children.length - 1][1] : [];
+    var preds = [];
+    children.forEach(function(child) {
+      if (child[0] === Fleur.XQueryX.predicates) {
+        child[1].forEach(function(subchild) {preds.push(subchild);});
+      } else if (child[0] === Fleur.XQueryX.predicate) {
+        preds.push(child[1][0]);
+      } else if (child[0] === Fleur.XQueryX.lookup) {
+        preds.push(child);
+      }
+    });
+    if (preds.length === 0) {
+      if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
+        Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+        return;
+      }
+      Fleur.functionCall(ctx, children, n, args, callback);
+    } else {
+      var next;
+      if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        next = new Fleur.Sequence();
+        next.childNodes = new Fleur.NodeList();
+        n.childNodes.forEach(function(node) {
+          next.appendChild(node);
+        });
+      } else {
+        next = n;
+      }
+      Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
+        _next: next,
+        _item: ctx._item,
+        env: ctx.env
+      }, preds, function(n) {
+        if (n && n.nodeType === Fleur.Node.ENTRY_NODE) {
+          n = n.firstChild;
+        }
+        if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
+          Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+          return;
+        }
+        Fleur.functionCall(ctx, children, n, args, callback);
+      });
+    }
+  });
+};
+Fleur.Transpiler.prototype.xqx_elementConstructor = function(children) {
+  let r = "";
+  const prefix = children[0][1].length === 2 ? children[0][1][1][1][0] : "";
+  let l = 0;
+  if (children.length > 1) {
+    const transp = this;
+    r = children[1][1].reduce((inst, child) => inst + transp.gen(child), "");
+    l += children[1][1].length;
+    if (children.length === 3) {
+      r += children[2][1].reduce((inst, child) => inst + transp.gen(child), "");
+      l += children[2][1].length;
+    }
+  }
+  r += this.inst("xqx_elementConstructor('" + prefix + "', '" +  children[0][1][0] + "', " + String(l) + ")");
+  if (children.length > 1) {
+    const transp = this;
+    r += children[1][1].reduce((inst, child) => inst + (child[0] === Fleur.XQueryX.namespaceDeclaration ? transp.inst("xqx_namespaceRemoval('" + (child[1].length === 2 ? child[1][0][1][0] : "") + "')") : ""), "");
+  }
+  return r;
+};
+Fleur.Context.prototype.xqx_elementConstructor = function(prefix, localName, count) {
+  const elt = new Fleur.Element();
+  elt.internal_id = String(Fleur.Document_index++);
+  elt.internal_id = String.fromCharCode(64 + elt.internal_id.length) + elt.internal_id;
+  elt.nodeName = prefix === "" ? localName : prefix + ":" + localName;
+  elt.localName = localName;
+  elt.prefix = prefix === "" ? null : prefix;
+  elt.namespaceURI = this.rs.nsresolver.lookupNamespaceURI(prefix);
+  const args = count !== 0 ? [this.item] : (this.itemstack.push(this.item), []);
+  for (let i = 1; i < count; i++) {
+    args.push(this.itemstack.pop());
+  }
+  args.reverse();
+  args.forEach(arg => {
+    if (arg.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+      elt.setAttributeNode(arg);
+    } else {
+      elt.appendChild(arg);
+    }
+  });
+  this.item = elt;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.elementConstructor] = function(ctx, children, callback) {
-	var elt = new Fleur.Element();
-	elt.internal_id = String(Fleur.Document_index++);
-	elt.internal_id = String.fromCharCode(64 + elt.internal_id.length) + elt.internal_id;
-	elt.nodeName = children[0][1][0];
-	elt.namespaceURI = null;
-	elt.localName = children[0][1][0];
-	if (children[0][1].length === 2) {
-		elt.prefix = children[0][1][1][1][0];
-	} else {
-		elt.prefix = null;
-	}
-	elt.childNodes = new Fleur.NodeList();
-	elt.children = new Fleur.NodeList();
-	elt.textContent = "";
-	if (children.length > 1) {
-		Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
-			elt.namespaceURI = elt.lookupNamespaceURI(elt.prefix) || ctx.env.nsresolver.lookupNamespaceURI(elt.prefix);
-			if (children.length > 2) {
-				var nsr = ctx.env.nsresolver;
-				ctx.env.nsresolver = new Fleur.XPathNSResolver(elt);
-				Fleur.XQueryEngine[children[2][0]](ctx, children[2][1], function(n) {
-					ctx.env.nsresolver = nsr;
-					Fleur.callback(function() {callback(n);});
-				}, elt);
-			} else {
-				Fleur.callback(function() {callback(n);});
-			}
-		}, elt);
-	} else {
-		elt.namespaceURI = ctx.env.nsresolver.lookupNamespaceURI(elt.prefix);
-		Fleur.callback(function() {callback(elt);});
-	}
+  var elt = new Fleur.Element();
+  elt.internal_id = String(Fleur.Document_index++);
+  elt.internal_id = String.fromCharCode(64 + elt.internal_id.length) + elt.internal_id;
+  elt.nodeName = children[0][1][0];
+  elt.namespaceURI = null;
+  elt.localName = children[0][1][0];
+  if (children[0][1].length === 2) {
+    elt.prefix = children[0][1][1][1][0];
+  } else {
+    elt.prefix = null;
+  }
+  elt.childNodes = new Fleur.NodeList();
+  elt.children = new Fleur.NodeList();
+  elt.textContent = "";
+  if (children.length > 1) {
+    Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
+      elt.namespaceURI = elt.lookupNamespaceURI(elt.prefix) || ctx.env.nsresolver.lookupNamespaceURI(elt.prefix);
+      if (children.length > 2) {
+        var nsr = ctx.env.nsresolver;
+        ctx.env.nsresolver = new Fleur.XPathNSResolver(elt);
+        Fleur.XQueryEngine[children[2][0]](ctx, children[2][1], function(n) {
+          ctx.env.nsresolver = nsr;
+          Fleur.callback(function() {callback(n);});
+        }, elt);
+      } else {
+        Fleur.callback(function() {callback(n);});
+      }
+    }, elt);
+  } else {
+    elt.namespaceURI = ctx.env.nsresolver.lookupNamespaceURI(elt.prefix);
+    Fleur.callback(function() {callback(elt);});
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.elementContent] = function(ctx, children, callback, elt) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-		} else {
-			if (!n.namespaceURI) {
-				n.namespaceURI = ctx.env.nsresolver.lookupNamespaceURI(n.prefix);
-			}
-			elt.appendContent(n, "");
-			if (children.length > 1) {
-				Fleur.XQueryEngine[Fleur.XQueryX.elementContent](ctx, children.slice(1), function(n) {
-					Fleur.callback(function() {callback(n);});
-				}, elt);
-			} else {
-				Fleur.callback(function() {callback(elt);});
-			}
-		}
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    if (n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+    } else {
+      if (!n.namespaceURI) {
+        n.namespaceURI = ctx.env.nsresolver.lookupNamespaceURI(n.prefix);
+      }
+      elt.appendContent(n, "");
+      if (children.length > 1) {
+        Fleur.XQueryEngine[Fleur.XQueryX.elementContent](ctx, children.slice(1), function(n) {
+          Fleur.callback(function() {callback(n);});
+        }, elt);
+      } else {
+        Fleur.callback(function() {callback(elt);});
+      }
+    }
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.elementTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ELEMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ELEMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.encoding] = function(ctx, children) {
 };
 Fleur.Transpiler.prototype.xqx_entryTest = function() {
-	return this.inst("xqx_entryTest()");
+  return this.inst("xqx_entryTest()");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.entryTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ENTRY_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ENTRY_NODE ? Fleur.EmptySequence : ctx._curr);});
 };
 Fleur.Transpiler.prototype.xqx_filterExpr = function(children) {
-	const previndent = this.indent;
-	this.indent += this.step;
-	const prevasync = this.async;
-	this.async = false;
-	let result = this.funcdef(children[0]);
-	this.indent = previndent;
-	result = "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_filterExpr" + (this.async ? "_async" : "") + "(" + result;
-	this.async = this.async || prevasync;
-	return result + "\n" + this.indent + ");";
+  const previndent = this.indent;
+  this.indent += this.step;
+  const prevasync = this.async;
+  this.async = false;
+  let result = this.funcdef(children[0]);
+  this.indent = previndent;
+  result = "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_filterExpr" + (this.async ? "_async" : "") + "(" + result;
+  this.async = this.async || prevasync;
+  return result + "\n" + this.indent + ");";
 };
 Fleur.Context.prototype.xqx_filterExpr = function(f) {
-	if (!this.item || this.item.isSingle()) {
-		const ctx = this.clone(this.initialpath);
-		ctx.position = 1;
-		ctx.item = this.item;
-		ctx.path = this.item;
-		ctx.last = 1;
-		f(ctx);
-		this.item = ctx.item;
-		return this;
-	}
-	const seq = new Fleur.Sequence();
-	const l = this.item.childNodes.length;
-	const children = this.item.childNodes;
-	for (let i = 0; i < l; i++) {
-		const ctx = this.clone(this.initialpath);
-		ctx.position = i + 1;
-		ctx.item = children[i];
-		ctx.path = children[i];
-		ctx.last = l;
-		f(ctx);
-		seq.appendChild(ctx.item);
-	}
-	this.item = seq.singleton();
-	return this;
+  if (!this.item || this.item.isSingle()) {
+    const ctx = this.clone(this.initialpath);
+    ctx.position = 1;
+    ctx.item = this.item;
+    ctx.path = this.item;
+    ctx.last = 1;
+    f(ctx);
+    this.item = ctx.item;
+    return this;
+  }
+  const seq = new Fleur.Sequence();
+  const l = this.item.childNodes.length;
+  const children = this.item.childNodes;
+  for (let i = 0; i < l; i++) {
+    const ctx = this.clone(this.initialpath);
+    ctx.position = i + 1;
+    ctx.item = children[i];
+    ctx.path = children[i];
+    ctx.last = l;
+    f(ctx);
+    seq.appendChild(ctx.item);
+  }
+  this.item = seq.singleton();
+  return this;
 };
 Fleur.Context.prototype.xqx_filterExpr_async = async function(f) {
-	if (!this.item || this.item.isSingle()) {
-		const ctx = this.clone(this.initialpath);
-		ctx.position = 1;
-		ctx.item = this.item;
-		ctx.path = this.item;
-		ctx.last = 1;
-		await f(ctx);
-		this.item = ctx.item;
-		return this;
-	}
-	const seq = new Fleur.Sequence();
-	const l = this.item.childNodes.length;
-	const children = this.item.childNodes;
-	for (let i = 0; i < l; i++) {
-		const ctx = this.clone(this.initialpath);
-		ctx.position = i + 1;
-		ctx.item = children[i];
-		ctx.path = children[i];
-		ctx.last = l;
-		await f(ctx);
-		seq.appendChild(ctx.item);
-	}
-	this.item = seq.singleton();
-	return this;
+  if (!this.item || this.item.isSingle()) {
+    const ctx = this.clone(this.initialpath);
+    ctx.position = 1;
+    ctx.item = this.item;
+    ctx.path = this.item;
+    ctx.last = 1;
+    await f(ctx);
+    this.item = ctx.item;
+    return this;
+  }
+  const seq = new Fleur.Sequence();
+  const l = this.item.childNodes.length;
+  const children = this.item.childNodes;
+  for (let i = 0; i < l; i++) {
+    const ctx = this.clone(this.initialpath);
+    ctx.position = i + 1;
+    ctx.item = children[i];
+    ctx.path = children[i];
+    ctx.last = l;
+    await f(ctx);
+    seq.appendChild(ctx.item);
+  }
+  this.item = seq.singleton();
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.filterExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		Fleur.callback(function() {callback(n);});
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    Fleur.callback(function() {callback(n);});
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.flworExpr] = function(ctx, children, callback) {
-	var i = 0;
-	var prevvarres;
-	var resarr;
-	var cb = function(n, empty) {
-		if (empty || n.schemaTypeInfo === Fleur.Type_error) {
-			ctx.env.varresolver = prevvarres;
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		i++;
-		if (i === children.length) {
-			ctx.env.varresolver = prevvarres;
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb, resarr);
-	};
-	prevvarres = ctx.env.varresolver;
-	resarr = [new Fleur.varMgr([], prevvarres)];
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb, resarr);
+  var i = 0;
+  var prevvarres;
+  var resarr;
+  var cb = function(n, empty) {
+    if (empty || n.schemaTypeInfo === Fleur.Type_error) {
+      ctx.env.varresolver = prevvarres;
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    i++;
+    if (i === children.length) {
+      ctx.env.varresolver = prevvarres;
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb, resarr);
+  };
+  prevvarres = ctx.env.varresolver;
+  resarr = [new Fleur.varMgr([], prevvarres)];
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb, resarr);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.forClause] = function(ctx, children, callback, resarr) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n, empty) {
-		if (empty) {
-			Fleur.callback(function() {callback(n, empty);});
-			return;
-		}
-		if (n && n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		} 
-		if (children.length <= 1) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		} 
-		Fleur.XQueryEngine[Fleur.XQueryX.forClause](ctx, children.slice(1), callback, resarr);
-	}, resarr);
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n, empty) {
+    if (empty) {
+      Fleur.callback(function() {callback(n, empty);});
+      return;
+    }
+    if (n && n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    } 
+    if (children.length <= 1) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    } 
+    Fleur.XQueryEngine[Fleur.XQueryX.forClause](ctx, children.slice(1), callback, resarr);
+  }, resarr);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callback, resarr) {
-	var i = 0;
-	var varname = children[0][1][0][1][0];
-	var allowingEmpty = children[1][0] === Fleur.XQueryX.allowingEmpty ? 1 : 0;
-	var positionalVariableBinding = children[1 + allowingEmpty][0] === Fleur.XQueryX.positionalVariableBinding ? 1 : 0;
-	var pvarname = positionalVariableBinding !== 0 ? children[1 + allowingEmpty][1][0] : "";
-	ctx.env.varresolver = resarr[0];
-	var cb = function(n) {
-		var posvalue;
-		if (n === Fleur.EmptySequence) {
-			if (allowingEmpty) {
-				resarr[i].set(ctx, "", varname, n);
-				if (positionalVariableBinding !== 0) {
-					posvalue = new Fleur.Text();
-					posvalue.data = "0";
-					posvalue.schemaTypeInfo = Fleur.Type_integer;
-					resarr[i].set(ctx, "", pvarname, posvalue);
-				}
-				i++;
-			} else {
-				resarr.splice(i, 1);
-				if (resarr.length === 0) {
-					Fleur.callback(function() {callback(Fleur.EmptySequence, true);});
-					return;
-				}
-			}
-		} else if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-			resarr[i].set(ctx, "", varname, n);
-			if (positionalVariableBinding !== 0) {
-				posvalue = new Fleur.Text();
-				posvalue.data = "1";
-				posvalue.schemaTypeInfo = Fleur.Type_integer;
-				resarr[i].set(ctx, "", pvarname, posvalue);
-			}
-			i++;
-		} else {
-			n.childNodes.forEach(function(e, ie) {
-				if (ie === 0) {
-					resarr[i].set(ctx, "", varname, e);
-					if (positionalVariableBinding !== 0) {
-						posvalue = new Fleur.Text();
-						posvalue.data = "1";
-						posvalue.schemaTypeInfo = Fleur.Type_integer;
-						resarr[i].set(ctx, "", pvarname, posvalue);
-					}
-				} else {
-					var newres = resarr[i].clone();
-					newres.set(ctx, "", varname, e);
-					if (positionalVariableBinding !== 0) {
-						posvalue = new Fleur.Text();
-						posvalue.data = String(ie + 1);
-						posvalue.schemaTypeInfo = Fleur.Type_integer;
-						newres.set(ctx, "", pvarname, posvalue);
-					}
-					resarr.splice(i + ie, 0, newres);
-				}
-			});
-			i += n.childNodes.length;
-		}
-		if (i !== resarr.length) {
-			ctx.env.varresolver = resarr[i];
-			Fleur.XQueryEngine[children[1 + allowingEmpty + positionalVariableBinding][1][0][0]](ctx, children[1 + allowingEmpty + positionalVariableBinding][1][0][1], cb);
-		} else {
-			Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		}
-	};
-	Fleur.XQueryEngine[children[1 + allowingEmpty + positionalVariableBinding][1][0][0]](ctx, children[1 + allowingEmpty + positionalVariableBinding][1][0][1], cb);
+  var i = 0;
+  var varname = children[0][1][0][1][0];
+  var allowingEmpty = children[1][0] === Fleur.XQueryX.allowingEmpty ? 1 : 0;
+  var positionalVariableBinding = children[1 + allowingEmpty][0] === Fleur.XQueryX.positionalVariableBinding ? 1 : 0;
+  var pvarname = positionalVariableBinding !== 0 ? children[1 + allowingEmpty][1][0] : "";
+  ctx.env.varresolver = resarr[0];
+  var cb = function(n) {
+    var posvalue;
+    if (n === Fleur.EmptySequence) {
+      if (allowingEmpty) {
+        resarr[i].set(ctx, "", varname, n);
+        if (positionalVariableBinding !== 0) {
+          posvalue = new Fleur.Text();
+          posvalue.data = "0";
+          posvalue.schemaTypeInfo = Fleur.Type_integer;
+          resarr[i].set(ctx, "", pvarname, posvalue);
+        }
+        i++;
+      } else {
+        resarr.splice(i, 1);
+        if (resarr.length === 0) {
+          Fleur.callback(function() {callback(Fleur.EmptySequence, true);});
+          return;
+        }
+      }
+    } else if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+      resarr[i].set(ctx, "", varname, n);
+      if (positionalVariableBinding !== 0) {
+        posvalue = new Fleur.Text();
+        posvalue.data = "1";
+        posvalue.schemaTypeInfo = Fleur.Type_integer;
+        resarr[i].set(ctx, "", pvarname, posvalue);
+      }
+      i++;
+    } else {
+      n.childNodes.forEach(function(e, ie) {
+        if (ie === 0) {
+          resarr[i].set(ctx, "", varname, e);
+          if (positionalVariableBinding !== 0) {
+            posvalue = new Fleur.Text();
+            posvalue.data = "1";
+            posvalue.schemaTypeInfo = Fleur.Type_integer;
+            resarr[i].set(ctx, "", pvarname, posvalue);
+          }
+        } else {
+          var newres = resarr[i].clone();
+          newres.set(ctx, "", varname, e);
+          if (positionalVariableBinding !== 0) {
+            posvalue = new Fleur.Text();
+            posvalue.data = String(ie + 1);
+            posvalue.schemaTypeInfo = Fleur.Type_integer;
+            newres.set(ctx, "", pvarname, posvalue);
+          }
+          resarr.splice(i + ie, 0, newres);
+        }
+      });
+      i += n.childNodes.length;
+    }
+    if (i !== resarr.length) {
+      ctx.env.varresolver = resarr[i];
+      Fleur.XQueryEngine[children[1 + allowingEmpty + positionalVariableBinding][1][0][0]](ctx, children[1 + allowingEmpty + positionalVariableBinding][1][0][1], cb);
+    } else {
+      Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    }
+  };
+  Fleur.XQueryEngine[children[1 + allowingEmpty + positionalVariableBinding][1][0][0]](ctx, children[1 + allowingEmpty + positionalVariableBinding][1][0][1], cb);
 };
 Fleur.XQueryEngine.updating = false;
 Fleur.XQueryEngine.updateQueue = [];
 Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, atomicType) {
-	var pf2 = "fn";
-	var args = children[1][1];
-	if (children[0][1][1] && children[0][1][1][0] === Fleur.XQueryX.prefix) {
-		var pf = children[0][1][1][1][0];
-		if (pf === "xf" || pf === "xform" || pf === "xforms") {
-			pf2 = "xf";
-		} else if (pf === "math") {
-			pf2 = "math";
-		} else {
-			pf2 = pf;
-		}
-	} else if (" boolean-from-string is-card-number count-non-empty index power random if choose property digest hmac local-date local-dateTime now days-from-date days-to-date seconds-from-dateTime seconds-to-dateTime adjust-dateTime-to-timezone seconds months instance instance-ids current context event nodeindex is-valid serialize transform js-eval ".indexOf(" " + children[0][1][0] + " ") !== -1) {
-		pf2 = "xf";
-	}
-	const shortname = children[0][1][0].replace(/-/g, "$_");
+  var pf2 = "fn";
+  var args = children[1][1];
+  if (children[0][1][1] && children[0][1][1][0] === Fleur.XQueryX.prefix) {
+    var pf = children[0][1][1][1][0];
+    if (pf === "xf" || pf === "xform" || pf === "xforms") {
+      pf2 = "xf";
+    } else if (pf === "math") {
+      pf2 = "math";
+    } else {
+      pf2 = pf;
+    }
+  } else if (" boolean-from-string is-card-number count-non-empty index power random if choose property digest hmac local-date local-dateTime now days-from-date days-to-date seconds-from-dateTime seconds-to-dateTime adjust-dateTime-to-timezone seconds months instance instance-ids current context event nodeindex is-valid serialize transform js-eval ".indexOf(" " + children[0][1][0] + " ") !== -1) {
+    pf2 = "xf";
+  }
+  const shortname = children[0][1][0].replace(/-/g, "$_");
   let fname = pf2 + "_" + shortname;
-	if (fname !== "fn_concat") {
-		fname += "_" + String(args.length);
-	}
-	const libfunc = Fleur.signatures[fname];
+  if (fname !== "fn_concat") {
+    fname += "_" + String(args.length);
+  }
+  const libfunc = Fleur.signatures[fname];
   const fasync = libfunc ? libfunc.is_async : false;
   if (!this.async) {
     this.async = fasync;
@@ -20081,490 +20387,490 @@ Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, atomicType)
   for (let i = 0, l = args.length; i < l; i++) {
     params += this.gen(args[i], libfunc && fname !== "fn_concat" ? paramstype[i].type : Fleur.Type_string);
   }
-	if (!libfunc && typeof window[shortname] !== "function") {
-		Fleur.XQueryError_xqt("XPST0017", null, "Unknown Javascript function", "", new Fleur.Text(shortname));
-	}
+  if (!libfunc && typeof window[shortname] !== "function") {
+    Fleur.XQueryError_xqt("XPST0017", null, "Unknown Javascript function", "", new Fleur.Text(shortname));
+  }
   return params + this.inst((libfunc ? fname : "xqx_functionCallExpr") + (fasync ? "_async" : "") + "(" + (libfunc ? "" : shortname + ", ") + (fname === "fn_concat" || !libfunc ? String(args.length) : "") + ")", fasync, libfunc && (atomicType !== Fleur.atomicTypes && atomicType !== libfunc.return_type.type || atomicType === Fleur.atomicTypes && libfunc.return_type.type === Fleur.Node) ? atomicType : null);
 };
 Fleur.Context.prototype.xqx_functionCallExpr = function(shortname, arglen) {
-	const args = [];
-	if (arglen === 0) {
-		this.itemstack.push(this.item);
-		this.item = new Fleur.Text();
+  const args = [];
+  if (arglen === 0) {
+    this.itemstack.push(this.item);
+    this.item = new Fleur.Text();
     this.item.schemaTypeInfo = Fleur.Type_string;
-	} else {
-		for (let i = 1; i < arglen; i++) {
-			args[arglen - i - 1] = this.itemstack.pop().data;
-		}
-		args[arglen - 1] = this.item.data;
-	}
+  } else {
+    for (let i = 1; i < arglen; i++) {
+      args[arglen - i - 1] = this.itemstack.pop().data;
+    }
+    args[arglen - 1] = this.item.data;
+  }
   this.item.data = String(shortname.apply(null, args));
   return this;
 };
 Fleur.functionCall = function(ctx, children, xf, args, callback) {
-	var mainUpdater = false;
-	if (xf.updating && !ctx.updater) {
-		if (Fleur.XQueryEngine.updating) {
-			Fleur.XQueryEngine.updateQueue.push(function() {
-				Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr](ctx, children, callback);
-			});
-			return;
-		}
-		Fleur.XQueryEngine.updating = true;
-		mainUpdater = true;
-		ctx.updater = true;
-	}
-	if (xf.jsfunc || xf.xqxfunc) {
-		var argscalc = function(xqxargs, effargs, f) {
-			if (xqxargs.length === 0) {
-				f(effargs);
-			} else {
-				var xqxarg = xqxargs.shift();
-				Fleur.XQueryEngine[xqxarg[0]](ctx, xqxarg[1], function(n) {
-					if (n.schemaTypeInfo === Fleur.Type_error) {
-						if (mainUpdater) {
-							Fleur.XQueryEngine.updating = false;
-							ctx.updater = false;
-							if (Fleur.XQueryEngine.updateQueue.length !== 0) {
-								setImmediate(Fleur.XQueryEngine.updateQueue.pop());
-							}
-						}
-						Fleur.callback(function() {callback(n);});
-						return;
-					}
-					if ((xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Node) || (n && n.nodeType === Fleur.Node.SEQUENCE_NODE)) {
-						effargs.push(n);
-					} else if (xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Type_handler) {
-						effargs.push(n.data);
-					} else {
-						var a = Fleur.Atomize(n);
-						effargs.push(a);
-					}
-					argscalc(xqxargs, effargs, f);
-				});
-			}
-		};
-		argscalc(args.slice(), [], function(effargs) {
-			var a = new Fleur.Text();
-			a.schemaTypeInfo = xf.restype && xf.restype.type !== Fleur.numericTypes ? xf.restype.type : null;
-			a.data = "";
-			if (xf.jsfunc) {
-				var jsargs = [];
-				try {
-					effargs.forEach(function(effarg, iarg) {
-						var op;
-						var carg = xf.argtypes ? xf.argtypes[iarg] : null;
-						if (carg.type === Fleur.Node) {
-							jsargs.push(effarg);
-						} else {
-							effarg = Fleur.Atomize(effarg, true);
-							if (effarg === Fleur.EmptySequence) {
-								if (carg && (!carg.occurence || (carg.occurence !== "?" && carg.occurence !== "*"))) {
-									a.nodeType = Fleur.Node.TEXT_NODE;
-									a.schemaTypeInfo = Fleur.Type_error;
-									a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-									throw new Error("error");
-								}
-								jsargs.push(null);
-							} else if (effarg.nodeType === Fleur.Node.SEQUENCE_NODE) {
-								if (carg && (!carg.occurence || carg.occurence === "?")) {
-									a.nodeType = Fleur.Node.TEXT_NODE;
-									a.schemaTypeInfo = Fleur.Type_error;
-									a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-									throw new Error("error");
-								}
-								var subarr = [];
-								for (var iseq = 0, lseq = effarg.childNodes.length; iseq < lseq; iseq++) {
-									var effchild = effarg.childNodes[iseq];
-									if ((!carg && Fleur.numericTypes.indexOf(effchild.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1))) {
-										op = Fleur.toJSNumber(effchild);
-										if (op[0] < 0) {
-											a = effchild;
-											throw new Error("error");
-										}
-										subarr.push(op[1]);
-									} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_string) || (carg && carg.type === Fleur.Type_string)) {
-										op = Fleur.toJSString(effchild);
-										if (op[0] < 0) {
-											a = effchild;
-											throw new Error("error");
-										}
-										subarr.push(op[1]);
-									} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
-										op = Fleur.toJSBoolean(effchild);
-										if (op[0] < 0) {
-											a = effchild;
-											throw new Error("error");
-										}
-										subarr.push(op[1]);
-									} else if (carg.type === Fleur.Type_dateTime) {
-									} else {
-										subarr.push(effchild);
-									}
-									if (carg && carg.adaptative) {
-										var precision = undefined;
-										if (effchild.schemaTypeInfo === Fleur.Type_integer) {
-											precision = 0;
-										} else if (effchild.schemaTypeInfo === Fleur.Type_decimal) {
-											precision = effchild.data.indexOf(".") !== -1 ? effchild.data.length - effchild.data.indexOf(".") - 1 : 0;
-										}
-										subarr.push([subarr.pop(), effchild.schemaTypeInfo, precision]);
-									}
-								}
-								jsargs.push(subarr);
-							} else if ((!carg && Fleur.numericTypes.indexOf(effarg.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1 || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
-								op = Fleur.toJSNumber(effarg);
-								if (op[0] < 0) {
-									a = effarg;
-									throw new Error("error");
-								}
-								jsargs.push(op[1]);
-							} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_string) || (carg && (carg.type === Fleur.Type_string || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
-								op = Fleur.toJSString(effarg);
-								if (op[0] < 0) {
-									a = effarg;
-									throw new Error("error");
-								}
-								jsargs.push(op[1]);
-							} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
-								op = Fleur.toJSBoolean(effarg);
-								if (op[0] < 0) {
-									a = effarg;
-									throw new Error("error");
-								}
-								jsargs.push(op[1]);
-							} else if ((!carg && [Fleur.Type_dateTime, Fleur.Type_date, Fleur.Type_time].indexOf(effarg.schemaTypeInfo) !== -1) || [Fleur.Type_dateTime, Fleur.Type_date, Fleur.Type_time].indexOf(carg.type) !== -1) {
-								op = Fleur.toJSDate(effarg);
-								if (op[0] < 0) {
-									a = effarg;
-									throw new Error("error");
-								}
-								jsargs.push(op[1]);
-							} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_dayTimeDuration) || (carg && carg.type === Fleur.Type_dayTimeDuration)) {
-								jsargs.push(Fleur.toJSONDayTimeDuration(effarg.data));
-							} else {
-								jsargs.push(effarg);
-							}
-						}
-						if (carg && carg.adaptative && effarg.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-							jsargs.push([jsargs.pop(), effarg.schemaTypeInfo]);
-						}
-					});
-				} catch (e) {
-					Fleur.callback(function() {callback(a);});
-					return;
-				}
-				if (xf.needctx) {
-					jsargs.push(ctx);
-				}
-				var convback = function(vret) {
-					if (mainUpdater) {
-						Fleur.XQueryEngine.updating = false;
-						ctx.updater = false;
-						if (Fleur.XQueryEngine.updateQueue.length !== 0) {
-							setImmediate(Fleur.XQueryEngine.updateQueue.pop());
-						}
-					}
-					var convret = function(v) {
-						var t = null;
-						if (v instanceof Array) {
-							t = v[1];
-							v = v[0];
-						}
-						if (v === undefined || v === null) {
-							a = Fleur.EmptySequence;
-							return;
-						}
-						if (v === Number.POSITIVE_INFINITY) {
-							a.data = "INF";
-							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = t || Fleur.Type_double;
-							}
-						} else if (v === Number.NEGATIVE_INFINITY) {
-							a.data = "-INF";
-							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = t || Fleur.Type_double;
-							}
-						} else if (typeof v === "number" || typeof v === "bigint" || typeof v === "boolean") {
-							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = t || (typeof v === "boolean" ? Fleur.Type_boolean : Fleur.Type_double);
-							}
-							a.data = a.schemaTypeInfo.canonicalize(String(v));
-						} else if (typeof v === "string") {
-							a.data = v;
-							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = t || Fleur.Type_string;
-							}
-						} else if (typeof v.getMonth === "function") {
-							var o = vret.getTimezoneOffset();
-							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = t || Fleur.Type_datetime;
-							}
-							if (a.schemaTypeInfo === Fleur.Type_date) {
-								a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
-							} else if (a.schemaTypeInfo === Fleur.Type_time) {
-								a.data = ("0" + v.getHours()).slice(-2) + ":" + ("0" + v.getMinutes()).slice(-2) + ":" + ("0" + v.getSeconds()).slice(-2) + "." + ("00" + v.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
-							} else {
-								a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + "T" + ("0" + v.getHours()).slice(-2) + ":" + ("0" + v.getMinutes()).slice(-2) + ":" + ("0" + v.getSeconds()).slice(-2) + "." + ("00" + v.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
-							}
-						} else if (v instanceof Error) {
-							a = Fleur.error(ctx, v.name, v.message);
-						} else if (v instanceof Fleur.Node || (Fleur.inBrowser && v instanceof Node)) {
-							a = v;
-						} else {
-							a.data = v;
-							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = t || Fleur.Type_handler;
-							}
-						}
-					};
-					if (vret instanceof Array && !xf.restype.adaptative) {
-						var seq = new Fleur.Sequence();
-						vret.forEach(function(v) {
-							a = new Fleur.Text();
-							a.schemaTypeInfo = xf.restype ? xf.restype.type : null;
-							a.data = "";
-							convret(v);
-							seq.appendChild(a);
-						});
-						Fleur.callback(function() {callback(seq);});
-					} else if (typeof vret === 'object' && vret && !(vret instanceof Array || vret instanceof Fleur.Node || (Fleur.inBrowser && vret instanceof Node) || vret instanceof Error || typeof vret.getMonth === "function")) {
-						var map = new Fleur.Map();
-						var e;
-						for (var p in vret) {
-							if (vret.hasOwnProperty(p)) {
-								e = new Fleur.Entry();
-								e.nodeName = p;
-								e.namespaceURI = null;
-								e.localName = p;
-								a = new Fleur.Text();
-								a.schemaTypeInfo = null;
-								a.data = "";
-								convret(vret[p]);
-								e.appendChild(a);
-								map.setEntryNode(e);
-							}
-						}
-						Fleur.callback(function() {callback(map);});
-					} else {
-						convret(vret);
-						Fleur.callback(function() {callback(a);});
-					}
-				};
-				if (xf.needcallback) {
-					jsargs.push(convback);
-					xf.jsfunc.apply(null, jsargs);
-					return;
-				}
-				convback(xf.jsfunc.apply(null, jsargs));
-			} else {
-				var currvarres = ctx.env.varresolver;
-				ctx.env.varresolver = new Fleur.varMgr([], ctx.env.globalvarresolver);
-				effargs.forEach(function(effarg, iarg) {
-					ctx.env.varresolver.set(ctx, "", xf.argtypes[iarg].name, effarg);
-				});
-				Fleur.XQueryEngine[xf.xqxfunc[0]](ctx, xf.xqxfunc[1], function(n) {
-					if (mainUpdater) {
-						Fleur.XQueryEngine.updating = false;
-						ctx.updater = false;
-						if (Fleur.XQueryEngine.updateQueue.length !== 0) {
-							setImmediate(Fleur.XQueryEngine.updateQueue.pop());
-						}
-					}
-					ctx.env.varresolver = currvarres;
-					Fleur.callback(function() {callback(n);});
-				});
-			}
-		});
-	} else {
-		xf(ctx, args, function(n) {
-			if (mainUpdater) {
-				Fleur.XQueryEngine.updating = false;
-				ctx.updater = false;
-				if (Fleur.XQueryEngine.updateQueue.length !== 0) {
-					setImmediate(Fleur.XQueryEngine.updateQueue.pop());
-				}
-			}
-			Fleur.callback(function() {callback(n);});
-		});
-	}
+  var mainUpdater = false;
+  if (xf.updating && !ctx.updater) {
+    if (Fleur.XQueryEngine.updating) {
+      Fleur.XQueryEngine.updateQueue.push(function() {
+        Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr](ctx, children, callback);
+      });
+      return;
+    }
+    Fleur.XQueryEngine.updating = true;
+    mainUpdater = true;
+    ctx.updater = true;
+  }
+  if (xf.jsfunc || xf.xqxfunc) {
+    var argscalc = function(xqxargs, effargs, f) {
+      if (xqxargs.length === 0) {
+        f(effargs);
+      } else {
+        var xqxarg = xqxargs.shift();
+        Fleur.XQueryEngine[xqxarg[0]](ctx, xqxarg[1], function(n) {
+          if (n.schemaTypeInfo === Fleur.Type_error) {
+            if (mainUpdater) {
+              Fleur.XQueryEngine.updating = false;
+              ctx.updater = false;
+              if (Fleur.XQueryEngine.updateQueue.length !== 0) {
+                setImmediate(Fleur.XQueryEngine.updateQueue.pop());
+              }
+            }
+            Fleur.callback(function() {callback(n);});
+            return;
+          }
+          if ((xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Node) || (n && n.nodeType === Fleur.Node.SEQUENCE_NODE)) {
+            effargs.push(n);
+          } else if (xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Type_handler) {
+            effargs.push(n.data);
+          } else {
+            var a = Fleur.Atomize(n);
+            effargs.push(a);
+          }
+          argscalc(xqxargs, effargs, f);
+        });
+      }
+    };
+    argscalc(args.slice(), [], function(effargs) {
+      var a = new Fleur.Text();
+      a.schemaTypeInfo = xf.restype && xf.restype.type !== Fleur.numericTypes ? xf.restype.type : null;
+      a.data = "";
+      if (xf.jsfunc) {
+        var jsargs = [];
+        try {
+          effargs.forEach(function(effarg, iarg) {
+            var op;
+            var carg = xf.argtypes ? xf.argtypes[iarg] : null;
+            if (carg.type === Fleur.Node) {
+              jsargs.push(effarg);
+            } else {
+              effarg = Fleur.Atomize(effarg, true);
+              if (effarg === Fleur.EmptySequence) {
+                if (carg && (!carg.occurence || (carg.occurence !== "?" && carg.occurence !== "*"))) {
+                  a.nodeType = Fleur.Node.TEXT_NODE;
+                  a.schemaTypeInfo = Fleur.Type_error;
+                  a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+                  throw new Error("error");
+                }
+                jsargs.push(null);
+              } else if (effarg.nodeType === Fleur.Node.SEQUENCE_NODE) {
+                if (carg && (!carg.occurence || carg.occurence === "?")) {
+                  a.nodeType = Fleur.Node.TEXT_NODE;
+                  a.schemaTypeInfo = Fleur.Type_error;
+                  a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+                  throw new Error("error");
+                }
+                var subarr = [];
+                for (var iseq = 0, lseq = effarg.childNodes.length; iseq < lseq; iseq++) {
+                  var effchild = effarg.childNodes[iseq];
+                  if ((!carg && Fleur.numericTypes.indexOf(effchild.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1))) {
+                    op = Fleur.toJSNumber(effchild);
+                    if (op[0] < 0) {
+                      a = effchild;
+                      throw new Error("error");
+                    }
+                    subarr.push(op[1]);
+                  } else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_string) || (carg && carg.type === Fleur.Type_string)) {
+                    op = Fleur.toJSString(effchild);
+                    if (op[0] < 0) {
+                      a = effchild;
+                      throw new Error("error");
+                    }
+                    subarr.push(op[1]);
+                  } else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
+                    op = Fleur.toJSBoolean(effchild);
+                    if (op[0] < 0) {
+                      a = effchild;
+                      throw new Error("error");
+                    }
+                    subarr.push(op[1]);
+                  } else if (carg.type === Fleur.Type_dateTime) {
+                  } else {
+                    subarr.push(effchild);
+                  }
+                  if (carg && carg.adaptative) {
+                    var precision = undefined;
+                    if (effchild.schemaTypeInfo === Fleur.Type_integer) {
+                      precision = 0;
+                    } else if (effchild.schemaTypeInfo === Fleur.Type_decimal) {
+                      precision = effchild.data.indexOf(".") !== -1 ? effchild.data.length - effchild.data.indexOf(".") - 1 : 0;
+                    }
+                    subarr.push([subarr.pop(), effchild.schemaTypeInfo, precision]);
+                  }
+                }
+                jsargs.push(subarr);
+              } else if ((!carg && Fleur.numericTypes.indexOf(effarg.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1 || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
+                op = Fleur.toJSNumber(effarg);
+                if (op[0] < 0) {
+                  a = effarg;
+                  throw new Error("error");
+                }
+                jsargs.push(op[1]);
+              } else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_string) || (carg && (carg.type === Fleur.Type_string || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
+                op = Fleur.toJSString(effarg);
+                if (op[0] < 0) {
+                  a = effarg;
+                  throw new Error("error");
+                }
+                jsargs.push(op[1]);
+              } else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
+                op = Fleur.toJSBoolean(effarg);
+                if (op[0] < 0) {
+                  a = effarg;
+                  throw new Error("error");
+                }
+                jsargs.push(op[1]);
+              } else if ((!carg && [Fleur.Type_dateTime, Fleur.Type_date, Fleur.Type_time].indexOf(effarg.schemaTypeInfo) !== -1) || [Fleur.Type_dateTime, Fleur.Type_date, Fleur.Type_time].indexOf(carg.type) !== -1) {
+                op = Fleur.toJSDate(effarg);
+                if (op[0] < 0) {
+                  a = effarg;
+                  throw new Error("error");
+                }
+                jsargs.push(op[1]);
+              } else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_dayTimeDuration) || (carg && carg.type === Fleur.Type_dayTimeDuration)) {
+                jsargs.push(Fleur.toJSONDayTimeDuration(effarg.data));
+              } else {
+                jsargs.push(effarg);
+              }
+            }
+            if (carg && carg.adaptative && effarg.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+              jsargs.push([jsargs.pop(), effarg.schemaTypeInfo]);
+            }
+          });
+        } catch (e) {
+          Fleur.callback(function() {callback(a);});
+          return;
+        }
+        if (xf.needctx) {
+          jsargs.push(ctx);
+        }
+        var convback = function(vret) {
+          if (mainUpdater) {
+            Fleur.XQueryEngine.updating = false;
+            ctx.updater = false;
+            if (Fleur.XQueryEngine.updateQueue.length !== 0) {
+              setImmediate(Fleur.XQueryEngine.updateQueue.pop());
+            }
+          }
+          var convret = function(v) {
+            var t = null;
+            if (v instanceof Array) {
+              t = v[1];
+              v = v[0];
+            }
+            if (v === undefined || v === null) {
+              a = Fleur.EmptySequence;
+              return;
+            }
+            if (v === Number.POSITIVE_INFINITY) {
+              a.data = "INF";
+              if (!a.schemaTypeInfo) {
+                a.schemaTypeInfo = t || Fleur.Type_double;
+              }
+            } else if (v === Number.NEGATIVE_INFINITY) {
+              a.data = "-INF";
+              if (!a.schemaTypeInfo) {
+                a.schemaTypeInfo = t || Fleur.Type_double;
+              }
+            } else if (typeof v === "number" || typeof v === "bigint" || typeof v === "boolean") {
+              if (!a.schemaTypeInfo) {
+                a.schemaTypeInfo = t || (typeof v === "boolean" ? Fleur.Type_boolean : Fleur.Type_double);
+              }
+              a.data = a.schemaTypeInfo.canonicalize(String(v));
+            } else if (typeof v === "string") {
+              a.data = v;
+              if (!a.schemaTypeInfo) {
+                a.schemaTypeInfo = t || Fleur.Type_string;
+              }
+            } else if (typeof v.getMonth === "function") {
+              var o = vret.getTimezoneOffset();
+              if (!a.schemaTypeInfo) {
+                a.schemaTypeInfo = t || Fleur.Type_datetime;
+              }
+              if (a.schemaTypeInfo === Fleur.Type_date) {
+                a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
+              } else if (a.schemaTypeInfo === Fleur.Type_time) {
+                a.data = ("0" + v.getHours()).slice(-2) + ":" + ("0" + v.getMinutes()).slice(-2) + ":" + ("0" + v.getSeconds()).slice(-2) + "." + ("00" + v.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
+              } else {
+                a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + "T" + ("0" + v.getHours()).slice(-2) + ":" + ("0" + v.getMinutes()).slice(-2) + ":" + ("0" + v.getSeconds()).slice(-2) + "." + ("00" + v.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
+              }
+            } else if (v instanceof Error) {
+              a = Fleur.error(ctx, v.name, v.message);
+            } else if (v instanceof Fleur.Node || (Fleur.inBrowser && v instanceof Node)) {
+              a = v;
+            } else {
+              a.data = v;
+              if (!a.schemaTypeInfo) {
+                a.schemaTypeInfo = t || Fleur.Type_handler;
+              }
+            }
+          };
+          if (vret instanceof Array && !xf.restype.adaptative) {
+            var seq = new Fleur.Sequence();
+            vret.forEach(function(v) {
+              a = new Fleur.Text();
+              a.schemaTypeInfo = xf.restype ? xf.restype.type : null;
+              a.data = "";
+              convret(v);
+              seq.appendChild(a);
+            });
+            Fleur.callback(function() {callback(seq);});
+          } else if (typeof vret === 'object' && vret && !(vret instanceof Array || vret instanceof Fleur.Node || (Fleur.inBrowser && vret instanceof Node) || vret instanceof Error || typeof vret.getMonth === "function")) {
+            var map = new Fleur.Map();
+            var e;
+            for (var p in vret) {
+              if (vret.hasOwnProperty(p)) {
+                e = new Fleur.Entry();
+                e.nodeName = p;
+                e.namespaceURI = null;
+                e.localName = p;
+                a = new Fleur.Text();
+                a.schemaTypeInfo = null;
+                a.data = "";
+                convret(vret[p]);
+                e.appendChild(a);
+                map.setEntryNode(e);
+              }
+            }
+            Fleur.callback(function() {callback(map);});
+          } else {
+            convret(vret);
+            Fleur.callback(function() {callback(a);});
+          }
+        };
+        if (xf.needcallback) {
+          jsargs.push(convback);
+          xf.jsfunc.apply(null, jsargs);
+          return;
+        }
+        convback(xf.jsfunc.apply(null, jsargs));
+      } else {
+        var currvarres = ctx.env.varresolver;
+        ctx.env.varresolver = new Fleur.varMgr([], ctx.env.globalvarresolver);
+        effargs.forEach(function(effarg, iarg) {
+          ctx.env.varresolver.set(ctx, "", xf.argtypes[iarg].name, effarg);
+        });
+        Fleur.XQueryEngine[xf.xqxfunc[0]](ctx, xf.xqxfunc[1], function(n) {
+          if (mainUpdater) {
+            Fleur.XQueryEngine.updating = false;
+            ctx.updater = false;
+            if (Fleur.XQueryEngine.updateQueue.length !== 0) {
+              setImmediate(Fleur.XQueryEngine.updateQueue.pop());
+            }
+          }
+          ctx.env.varresolver = currvarres;
+          Fleur.callback(function() {callback(n);});
+        });
+      }
+    });
+  } else {
+    xf(ctx, args, function(n) {
+      if (mainUpdater) {
+        Fleur.XQueryEngine.updating = false;
+        ctx.updater = false;
+        if (Fleur.XQueryEngine.updateQueue.length !== 0) {
+          setImmediate(Fleur.XQueryEngine.updateQueue.pop());
+        }
+      }
+      Fleur.callback(function() {callback(n);});
+    });
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, callback) {
-	var fname = children[0][1][0];
-	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
-	var args = children[1][1];
-	if (children[0][1][1]) {
-		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
-			uri = children[0][1][1][1][0];
-		} else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.env.nsresolver) {
-			uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
-		}
-	}
-	var xf;
-	if (uri === "http://www.w3.org/standards/webdesign/script") {
-		xf = (Fleur.XPathFunctions[uri] && Fleur.XPathFunctions[uri][fname + "#" + args.length]) ? Fleur.XPathFunctions[uri][fname + "#" + args.length] : {};
-		xf.jsfunc = eval(fname);
-	} else {
-		xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
-	}
-	if (!uri || !xf) {
-		if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && args.length > 1 && !Fleur.XPathFunctions[uri][fname + "#" + args.length]) {
-			var cparam = [];
-			for (var i = 0, l = args.length; i < l; i++) {
-				cparam[i] = {type: Fleur.Node};
-			}
-			xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
-		} else {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "The expanded QName and number of arguments in a static function call do not match the name and arity of a function signature in the static context for Q{" + uri + "}" + fname + "#" + args.length));});
-			return;
-		}
-	}
-	Fleur.functionCall(ctx, children, xf, args, callback);
+  var fname = children[0][1][0];
+  var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
+  var args = children[1][1];
+  if (children[0][1][1]) {
+    if (children[0][1][1][0] === Fleur.XQueryX.URI) {
+      uri = children[0][1][1][1][0];
+    } else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.env.nsresolver) {
+      uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
+    }
+  }
+  var xf;
+  if (uri === "http://www.w3.org/standards/webdesign/script") {
+    xf = (Fleur.XPathFunctions[uri] && Fleur.XPathFunctions[uri][fname + "#" + args.length]) ? Fleur.XPathFunctions[uri][fname + "#" + args.length] : {};
+    xf.jsfunc = eval(fname);
+  } else {
+    xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
+  }
+  if (!uri || !xf) {
+    if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && args.length > 1 && !Fleur.XPathFunctions[uri][fname + "#" + args.length]) {
+      var cparam = [];
+      for (var i = 0, l = args.length; i < l; i++) {
+        cparam[i] = {type: Fleur.Node};
+      }
+      xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
+    } else {
+      Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "The expanded QName and number of arguments in a static function call do not match the name and arity of a function signature in the static context for Q{" + uri + "}" + fname + "#" + args.length));});
+      return;
+    }
+  }
+  Fleur.functionCall(ctx, children, xf, args, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.functionDecl] = function(ctx, children, callback) {
-	var updating = children[0][0] === Fleur.XQueryX.updatingFunction;
-	var init = updating ? 1 : 0;
-	var fname = children[init][1][0];
-	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
-	var prefix = null;
-	if (children[init][1][1]) {
-		if (children[init][1][1][0] === Fleur.XQueryX.URI) {
-			uri = children[init][1][1][1][0];
-		} else if (children[init][1][1][0] === Fleur.XQueryX.prefix) {
-			prefix = children[init][1][1][1][0];
-			uri = ctx.env.nsresolver.lookupNamespaceURI(prefix);
-		}
-	}
-	var args = children[init + 1][1].map(function(arg) {
-		var o = {name: arg[1][0][1][0]};
-		if (arg[1].length === 1) {
-			o.type = Fleur.Node;
-			o.occurence = "*";
-		} else {
-			var tprefix = null, turi;
-			var atype = arg[1][1][1][0][1];
-			var tname = atype[0];
-			if (atype[1]) {
-				if (atype[1][0] === Fleur.XQueryX.URI) {
-					turi = atype[1][1][0];
-				} else if (atype[1][0] === Fleur.XQueryX.prefix) {
-					tprefix = atype[1][1][0];
-					turi = ctx.env.nsresolver.lookupNamespaceURI(tprefix);
-				}
-			}
-			o.type = Fleur.Types[turi][tname];
-			if (arg[1][1][1].length === 2) {
-				o.occurence = arg[1][1][1][1][1][0];
-			}
-		}
-		return o;
-	});
-	var fbody, fret;
-	if (children[init + 2][0] === Fleur.XQueryX.typeDeclaration) {
-		fret = children[init + 2][1][0];
-		fbody = children[init + 3][0] === Fleur.XQueryX.functionBody ? children[init + 3][1][0] : null;
-	} else {
-		fret = {type: Fleur.Node, occurence: "*"};
-		fbody = children[init + 2][0] === Fleur.XQueryX.functionBody ? children[init + 2][1][0] : null;
-	}
-	if (!Fleur.XPathFunctions[uri]) {
-		Fleur.XPathFunctions[uri] = {};
-	}
-	Fleur.XPathFunctions[uri][fname + "#" + String(args.length)] = new Fleur.Function(uri, prefix ? prefix + ":" + fname : fname, null, fbody, args, false, false, fret, updating);
-	Fleur.callback(function() {callback();});
+  var updating = children[0][0] === Fleur.XQueryX.updatingFunction;
+  var init = updating ? 1 : 0;
+  var fname = children[init][1][0];
+  var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
+  var prefix = null;
+  if (children[init][1][1]) {
+    if (children[init][1][1][0] === Fleur.XQueryX.URI) {
+      uri = children[init][1][1][1][0];
+    } else if (children[init][1][1][0] === Fleur.XQueryX.prefix) {
+      prefix = children[init][1][1][1][0];
+      uri = ctx.env.nsresolver.lookupNamespaceURI(prefix);
+    }
+  }
+  var args = children[init + 1][1].map(function(arg) {
+    var o = {name: arg[1][0][1][0]};
+    if (arg[1].length === 1) {
+      o.type = Fleur.Node;
+      o.occurence = "*";
+    } else {
+      var tprefix = null, turi;
+      var atype = arg[1][1][1][0][1];
+      var tname = atype[0];
+      if (atype[1]) {
+        if (atype[1][0] === Fleur.XQueryX.URI) {
+          turi = atype[1][1][0];
+        } else if (atype[1][0] === Fleur.XQueryX.prefix) {
+          tprefix = atype[1][1][0];
+          turi = ctx.env.nsresolver.lookupNamespaceURI(tprefix);
+        }
+      }
+      o.type = Fleur.Types[turi][tname];
+      if (arg[1][1][1].length === 2) {
+        o.occurence = arg[1][1][1][1][1][0];
+      }
+    }
+    return o;
+  });
+  var fbody, fret;
+  if (children[init + 2][0] === Fleur.XQueryX.typeDeclaration) {
+    fret = children[init + 2][1][0];
+    fbody = children[init + 3][0] === Fleur.XQueryX.functionBody ? children[init + 3][1][0] : null;
+  } else {
+    fret = {type: Fleur.Node, occurence: "*"};
+    fbody = children[init + 2][0] === Fleur.XQueryX.functionBody ? children[init + 2][1][0] : null;
+  }
+  if (!Fleur.XPathFunctions[uri]) {
+    Fleur.XPathFunctions[uri] = {};
+  }
+  Fleur.XPathFunctions[uri][fname + "#" + String(args.length)] = new Fleur.Function(uri, prefix ? prefix + ":" + fname : fname, null, fbody, args, false, false, fret, updating);
+  Fleur.callback(function() {callback();});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.groupByClause] = function(ctx, children, callback, resarr, groupkeynames) {
-	groupkeynames = groupkeynames || [];
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n && n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		} 
-		if (children.length <= 1) {
-			var aggregnames = [];
-			resarr[0].vars.forEach(function(v) {if (groupkeynames.indexOf(v.vname) === -1) aggregnames.push(v.vname);});
-			var kgroups = [];
-			var ogroups = resarr.reduce(function(o, vmgr) {
-				var okey = groupkeynames.reduce(function(k, gkname) {
-					var v = vmgr.get(ctx, "", gkname);
-					var jsv = Fleur.toJSValue(v, v.schemaTypeInfo !== Fleur.Type_untypedAtomic, true, true, true);
-					if (jsv[0] < 3) {
-						jsv[0] = 3;
-					}
-					if (jsv[0] === 6 || jsv[0] === 7) {
-						jsv[0] = 8;
-					}
-					jsv[1] = String(jsv[1]);
-					return k + String(jsv[0]) + "." + String(jsv[1].length) + "." + jsv[1] + "|";
-				}, "");
-				if (o[okey]) {
-					aggregnames.forEach(function(aname) {
-						var avalue = vmgr.get(ctx, "", aname);
-						if (avalue !== Fleur.EmptySequence) {
-							var ovalue = o[okey].get(ctx, "", aname);
-							if (ovalue === Fleur.EmptySequence) {
-								o[okey].set(ctx, "", aname, avalue);
-							} else {
-								if (ovalue.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-									var seq = new Fleur.Sequence();
-									seq.appendChild(ovalue);
-									ovalue = seq;
-								}
-								if (avalue.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-									ovalue.appendChild(avalue);
-								} else {
-									avalue.childNodes.forEach(function(av) {
-										ovalue.appendChild(av);
-									});
-								}
-								o[okey].set(ctx, "", aname, ovalue);
-							}
-						}
-					});
-				} else {
-					kgroups.push(okey);
-					o[okey] = vmgr;
-				}
-				return o;
-			}, {});
-			kgroups.forEach(function(k, i) {
-				resarr[i] = ogroups[k];
-			});
-			resarr.splice(kgroups.length);
-			Fleur.callback(function() {callback(n);});
-			return;
-		} 
-		Fleur.XQueryEngine[Fleur.XQueryX.groupByClause](ctx, children.slice(1), callback, resarr, groupkeynames);
-	}, resarr, groupkeynames);
+  groupkeynames = groupkeynames || [];
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    if (n && n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    } 
+    if (children.length <= 1) {
+      var aggregnames = [];
+      resarr[0].vars.forEach(function(v) {if (groupkeynames.indexOf(v.vname) === -1) aggregnames.push(v.vname);});
+      var kgroups = [];
+      var ogroups = resarr.reduce(function(o, vmgr) {
+        var okey = groupkeynames.reduce(function(k, gkname) {
+          var v = vmgr.get(ctx, "", gkname);
+          var jsv = Fleur.toJSValue(v, v.schemaTypeInfo !== Fleur.Type_untypedAtomic, true, true, true);
+          if (jsv[0] < 3) {
+            jsv[0] = 3;
+          }
+          if (jsv[0] === 6 || jsv[0] === 7) {
+            jsv[0] = 8;
+          }
+          jsv[1] = String(jsv[1]);
+          return k + String(jsv[0]) + "." + String(jsv[1].length) + "." + jsv[1] + "|";
+        }, "");
+        if (o[okey]) {
+          aggregnames.forEach(function(aname) {
+            var avalue = vmgr.get(ctx, "", aname);
+            if (avalue !== Fleur.EmptySequence) {
+              var ovalue = o[okey].get(ctx, "", aname);
+              if (ovalue === Fleur.EmptySequence) {
+                o[okey].set(ctx, "", aname, avalue);
+              } else {
+                if (ovalue.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+                  var seq = new Fleur.Sequence();
+                  seq.appendChild(ovalue);
+                  ovalue = seq;
+                }
+                if (avalue.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+                  ovalue.appendChild(avalue);
+                } else {
+                  avalue.childNodes.forEach(function(av) {
+                    ovalue.appendChild(av);
+                  });
+                }
+                o[okey].set(ctx, "", aname, ovalue);
+              }
+            }
+          });
+        } else {
+          kgroups.push(okey);
+          o[okey] = vmgr;
+        }
+        return o;
+      }, {});
+      kgroups.forEach(function(k, i) {
+        resarr[i] = ogroups[k];
+      });
+      resarr.splice(kgroups.length);
+      Fleur.callback(function() {callback(n);});
+      return;
+    } 
+    Fleur.XQueryEngine[Fleur.XQueryX.groupByClause](ctx, children.slice(1), callback, resarr, groupkeynames);
+  }, resarr, groupkeynames);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.groupingSpec] = function(ctx, children, callback, resarr, groupkeynames) {
-	var varname = children[0][1][0];
-	groupkeynames.push(varname);
-	var i = 0;
-	var cb = function(n) {
-		if (n.nodeType === Fleur.Node.SEQUENCE_NODE && n !== Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-		}
-		var a = Fleur.Atomize(n);
-		resarr[i].set(ctx, "", varname, a);
-		i++;
-		if (i !== resarr.length) {
-			if (children.length === 1) {
-				cb(resarr[i].get(ctx, "", varname));	
-			} else {
-				ctx.env.varresolver = resarr[i];
-				Fleur.XQueryEngine[children[1][1][0][1][0][0]](ctx, children[1][1][0][1][0][1], cb);
-			}
-		} else {
-			Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		}
-	};
-	if (children.length === 1) {
-				cb(resarr[i].get(ctx, "", varname));	
-	} else {
-		ctx.env.varresolver = resarr[0];
-		Fleur.XQueryEngine[children[1][1][0][1][0][0]](ctx, children[1][1][0][1][0][1], cb);
-	}
+  var varname = children[0][1][0];
+  groupkeynames.push(varname);
+  var i = 0;
+  var cb = function(n) {
+    if (n.nodeType === Fleur.Node.SEQUENCE_NODE && n !== Fleur.EmptySequence) {
+      Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+    }
+    var a = Fleur.Atomize(n);
+    resarr[i].set(ctx, "", varname, a);
+    i++;
+    if (i !== resarr.length) {
+      if (children.length === 1) {
+        cb(resarr[i].get(ctx, "", varname));  
+      } else {
+        ctx.env.varresolver = resarr[i];
+        Fleur.XQueryEngine[children[1][1][0][1][0][0]](ctx, children[1][1][0][1][0][1], cb);
+      }
+    } else {
+      Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    }
+  };
+  if (children.length === 1) {
+        cb(resarr[i].get(ctx, "", varname));  
+  } else {
+    ctx.env.varresolver = resarr[0];
+    Fleur.XQueryEngine[children[1][1][0][1][0][0]](ctx, children[1][1][0][1][0][1], cb);
+  }
 };
 Fleur.Transpiler.prototype.xqx_ifThenElseExpr = function(children) {
   let result = this.gen(children[0][1][0], Fleur.atomicTypes) + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().isTrue()) {";
@@ -20572,206 +20878,206 @@ Fleur.Transpiler.prototype.xqx_ifThenElseExpr = function(children) {
   this.indent += this.step;
   result += this.gen(children[1][1][0]);
   this.indent = previndent;
-	result += "\n" + previndent + "} else {";
+  result += "\n" + previndent + "} else {";
   this.indent += this.step;
   result += this.gen(children[2][1][0]);
   this.indent = previndent;
   return result + "\n" + previndent + "}";
 };
 Fleur.XQueryEngine[Fleur.XQueryX.ifThenElseExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var boolean;
-		if (n === Fleur.EmptySequence) {
-			boolean = false;
-		} else if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			if (n.childNodes.length === 0) {
-				boolean = false;
-			} else if (n.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || n.childNodes[0].ownerDocument) {
-				boolean = true;
-			} else {
-				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
-				return;
-			}
-		} else if (n.nodeType !== Fleur.Node.TEXT_NODE) {
-			boolean = true;
-		} else if (n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		} else if (n.schemaTypeInfo === Fleur.Type_boolean) {
-			boolean = n.data === "true";
-		} else if (n.schemaTypeInfo === Fleur.Type_string || n.schemaTypeInfo === Fleur.Type_untypedAtomic || n.schemaTypeInfo === Fleur.Type_anyURI) {
-			boolean = !(!n.data || n.data.length === 0);
-		} else if (n.schemaTypeInfo === Fleur.Type_integer || n.schemaTypeInfo === Fleur.Type_decimal || n.schemaTypeInfo === Fleur.Type_float || n.schemaTypeInfo === Fleur.Type_double) {
-			boolean = !(n.data === "0" || n.data === "0.0" || n.data === "0.0e0" || n.data === "NaN");
-		} else if (n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			boolean = n.data === "true";
-		} else if (n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			boolean = !(!n.data || n.data.length === 0);
-		} else if (n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			boolean = !(n.data === "0" || n.data === "0.0" || n.data === "0.0e0" || n.data === "NaN");
-		} else {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
-			return;
-		}
-		var cb = function(n) {
-			callback(n);
-		};
-		if (boolean) {
-			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
-		} else {
-			Fleur.XQueryEngine[children[2][1][0][0]](ctx, children[2][1][0][1], cb);
-		}
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var boolean;
+    if (n === Fleur.EmptySequence) {
+      boolean = false;
+    } else if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+      if (n.childNodes.length === 0) {
+        boolean = false;
+      } else if (n.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || n.childNodes[0].ownerDocument) {
+        boolean = true;
+      } else {
+        Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
+        return;
+      }
+    } else if (n.nodeType !== Fleur.Node.TEXT_NODE) {
+      boolean = true;
+    } else if (n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    } else if (n.schemaTypeInfo === Fleur.Type_boolean) {
+      boolean = n.data === "true";
+    } else if (n.schemaTypeInfo === Fleur.Type_string || n.schemaTypeInfo === Fleur.Type_untypedAtomic || n.schemaTypeInfo === Fleur.Type_anyURI) {
+      boolean = !(!n.data || n.data.length === 0);
+    } else if (n.schemaTypeInfo === Fleur.Type_integer || n.schemaTypeInfo === Fleur.Type_decimal || n.schemaTypeInfo === Fleur.Type_float || n.schemaTypeInfo === Fleur.Type_double) {
+      boolean = !(n.data === "0" || n.data === "0.0" || n.data === "0.0e0" || n.data === "NaN");
+    } else if (n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      boolean = n.data === "true";
+    } else if (n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      boolean = !(!n.data || n.data.length === 0);
+    } else if (n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      boolean = !(n.data === "0" || n.data === "0.0" || n.data === "0.0e0" || n.data === "NaN");
+    } else {
+      Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
+      return;
+    }
+    var cb = function(n) {
+      callback(n);
+    };
+    if (boolean) {
+      Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
+    } else {
+      Fleur.XQueryEngine[children[2][1][0][0]](ctx, children[2][1][0][1], cb);
+    }
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.inlineFunctionExpr] = function(ctx, children, callback) {
-	var updating = children[0][0] === Fleur.XQueryX.updatingFunction;
-	var init = updating ? 1 : 0;
-	var args = children[init][1].map(function(arg) {
-		var o = {name: arg[1][0][1][0]};
-		if (arg[1].length === 1) {
-			o.type = Fleur.Node;
-			o.occurence = "*";
-		} else {
-			var tprefix = null, turi;
-			var atype = arg[1][1][1][0][1];
-			var tname = atype[0];
-			if (atype[1]) {
-				if (atype[1][0] === Fleur.XQueryX.URI) {
-					turi = atype[1][1][0];
-				} else if (atype[1][0] === Fleur.XQueryX.prefix) {
-					tprefix = atype[1][1][0];
-					turi = ctx.env.nsresolver.lookupNamespaceURI(tprefix);
-				}
-			}
-			o.type = Fleur.Types[turi][tname];
-			if (arg[1][1][1].length === 2) {
-				o.occurence = arg[1][1][1][1][1][0];
-			}
-		}
-		return o;
-	});
-	var fbody, fret;
-	if (children[init + 1][0] === Fleur.XQueryX.typeDeclaration) {
-		fret = children[init + 1][1][0];
-		fbody = children[init + 2][0] === Fleur.XQueryX.functionBody ? children[init + 2][1][0] : null;
-	} else {
-		fret = {type: Fleur.Node, occurence: "*"};
-		fbody = children[init + 1][0] === Fleur.XQueryX.functionBody ? children[init + 1][1][0] : null;
-	}
-	var f = new Fleur.Function(null, null, null, fbody, args, false, false, fret, updating);
-	f.closurevarresolver = ctx.env.varresolver;
-	Fleur.callback(function() {callback(f);});
+  var updating = children[0][0] === Fleur.XQueryX.updatingFunction;
+  var init = updating ? 1 : 0;
+  var args = children[init][1].map(function(arg) {
+    var o = {name: arg[1][0][1][0]};
+    if (arg[1].length === 1) {
+      o.type = Fleur.Node;
+      o.occurence = "*";
+    } else {
+      var tprefix = null, turi;
+      var atype = arg[1][1][1][0][1];
+      var tname = atype[0];
+      if (atype[1]) {
+        if (atype[1][0] === Fleur.XQueryX.URI) {
+          turi = atype[1][1][0];
+        } else if (atype[1][0] === Fleur.XQueryX.prefix) {
+          tprefix = atype[1][1][0];
+          turi = ctx.env.nsresolver.lookupNamespaceURI(tprefix);
+        }
+      }
+      o.type = Fleur.Types[turi][tname];
+      if (arg[1][1][1].length === 2) {
+        o.occurence = arg[1][1][1][1][1][0];
+      }
+    }
+    return o;
+  });
+  var fbody, fret;
+  if (children[init + 1][0] === Fleur.XQueryX.typeDeclaration) {
+    fret = children[init + 1][1][0];
+    fbody = children[init + 2][0] === Fleur.XQueryX.functionBody ? children[init + 2][1][0] : null;
+  } else {
+    fret = {type: Fleur.Node, occurence: "*"};
+    fbody = children[init + 1][0] === Fleur.XQueryX.functionBody ? children[init + 1][1][0] : null;
+  }
+  var f = new Fleur.Function(null, null, null, fbody, args, false, false, fret, updating);
+  f.closurevarresolver = ctx.env.varresolver;
+  Fleur.callback(function() {callback(f);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.insertExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(source) {
-		if (source !== Fleur.EmptySequence) {
-			Fleur.XQueryEngine[children[2][1][0][0]](ctx, children[2][1][0][1], function(target) {
-				var targetChoice = children[1][0];
-				var intoPos = null;
-				if (targetChoice === Fleur.XQueryX.insertInto) {
-					if (children[1][1].length !== 0) {
-						intoPos = children[1][1][0][0];
-					}
-				}
-				if (source.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-					var tnode;
-					if (target instanceof Fleur.Node) {
-						tnode = target.ownerDocument ? target.ownerDocument.importNode(source, true) : source;
-					} else {
-						tnode = Fleur.Document.docImportNode(target.ownerDocument, source, true);
-					}
-					switch (target.nodeType) {
-						case Fleur.Node.ELEMENT_NODE:
-							switch (targetChoice) {
-								case Fleur.XQueryX.insertInto:
-									if (source.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-										target.setAttributeNode(source);
-									} else {
-										if (intoPos === Fleur.XQueryX.insertAsFirst) {
-											target.insertBefore(tnode, target.firstChild);
-										} else {
-											target.appendChild(tnode);
-										}
-									}
-									break;
-								case Fleur.XQueryX.insertBefore:
-									target.parentNode.insertBefore(tnode, target);
-									break;
-								case Fleur.XQueryX.insertAfter:
-									if (target.nextSibling) {
-										target.parentNode.insertBefore(tnode, target.nextSibling);
-									} else {
-										target.parentNode.appendChild(tnode);
-									}
-									break;
-							}
-							break;
-						case Fleur.Node.MAP_NODE:
-							target.setEntryNode(tnode.copyNode());
-							break;
-					}
-				}
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-			});
-			return;
-		}
-		Fleur.callback(function() {callback(Fleur.EmptySequence);});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(source) {
+    if (source !== Fleur.EmptySequence) {
+      Fleur.XQueryEngine[children[2][1][0][0]](ctx, children[2][1][0][1], function(target) {
+        var targetChoice = children[1][0];
+        var intoPos = null;
+        if (targetChoice === Fleur.XQueryX.insertInto) {
+          if (children[1][1].length !== 0) {
+            intoPos = children[1][1][0][0];
+          }
+        }
+        if (source.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+          var tnode;
+          if (target instanceof Fleur.Node) {
+            tnode = target.ownerDocument ? target.ownerDocument.importNode(source, true) : source;
+          } else {
+            tnode = Fleur.Document.docImportNode(target.ownerDocument, source, true);
+          }
+          switch (target.nodeType) {
+            case Fleur.Node.ELEMENT_NODE:
+              switch (targetChoice) {
+                case Fleur.XQueryX.insertInto:
+                  if (source.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+                    target.setAttributeNode(source);
+                  } else {
+                    if (intoPos === Fleur.XQueryX.insertAsFirst) {
+                      target.insertBefore(tnode, target.firstChild);
+                    } else {
+                      target.appendChild(tnode);
+                    }
+                  }
+                  break;
+                case Fleur.XQueryX.insertBefore:
+                  target.parentNode.insertBefore(tnode, target);
+                  break;
+                case Fleur.XQueryX.insertAfter:
+                  if (target.nextSibling) {
+                    target.parentNode.insertBefore(tnode, target.nextSibling);
+                  } else {
+                    target.parentNode.appendChild(tnode);
+                  }
+                  break;
+              }
+              break;
+            case Fleur.Node.MAP_NODE:
+              target.setEntryNode(tnode.copyNode());
+              break;
+          }
+        }
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+      });
+      return;
+    }
+    Fleur.callback(function() {callback(Fleur.EmptySequence);});
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var seqtype = children[1][1];
-		var occurrence = "1";
-		var a = new Fleur.Text();
-		a.data = "false";
-		a.schemaTypeInfo = Fleur.Type_boolean;
-		if (seqtype.length === 2) {
-			occurrence = seqtype[1][1][0];
-		}
-		if (n !== Fleur.EmptySequence) {
-			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				if (occurrence === "1" || occurrence === "?") {
-					a.data = "false";
-					Fleur.callback(function() {callback(a);});
-				} else {
-					var i = 0;
-					var l = n.childNodes.length;
-					var cb = function(n2) {
-						if (n2 === Fleur.EmptySequence) {
-							a.data = "false";
-							Fleur.callback(function() {callback(a);});
-							return;
-						}
-						i++;
-						if (i === l) {
-							a.data = "true";
-							Fleur.callback(function() {callback(a);});
-							return;
-						}
-						Fleur.XQueryEngine[seqtype[0][0]]({
-							_curr: n.childNodes[i],
-							env: ctx.env
-						}, seqtype[0][1], cb);
-					};
-					Fleur.XQueryEngine[seqtype[0][0]]({
-						_curr: n.childNodes[i],
-						env: ctx.env
-					}, seqtype[0][1], cb);
-				}
-			} else {
-				Fleur.XQueryEngine[seqtype[0][0]]({
-					_curr: n,
-					env: ctx.env
-				}, seqtype[0][1], function(n) {
-					a.data = String(n !== Fleur.EmptySequence);
-					Fleur.callback(function() {callback(a);});
-				});
-			}
-		} else {
-			a.data = String(occurrence !== "1" && occurrence !== "+");
-			Fleur.callback(function() {callback(a);});
-		}
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var seqtype = children[1][1];
+    var occurrence = "1";
+    var a = new Fleur.Text();
+    a.data = "false";
+    a.schemaTypeInfo = Fleur.Type_boolean;
+    if (seqtype.length === 2) {
+      occurrence = seqtype[1][1][0];
+    }
+    if (n !== Fleur.EmptySequence) {
+      if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        if (occurrence === "1" || occurrence === "?") {
+          a.data = "false";
+          Fleur.callback(function() {callback(a);});
+        } else {
+          var i = 0;
+          var l = n.childNodes.length;
+          var cb = function(n2) {
+            if (n2 === Fleur.EmptySequence) {
+              a.data = "false";
+              Fleur.callback(function() {callback(a);});
+              return;
+            }
+            i++;
+            if (i === l) {
+              a.data = "true";
+              Fleur.callback(function() {callback(a);});
+              return;
+            }
+            Fleur.XQueryEngine[seqtype[0][0]]({
+              _curr: n.childNodes[i],
+              env: ctx.env
+            }, seqtype[0][1], cb);
+          };
+          Fleur.XQueryEngine[seqtype[0][0]]({
+            _curr: n.childNodes[i],
+            env: ctx.env
+          }, seqtype[0][1], cb);
+        }
+      } else {
+        Fleur.XQueryEngine[seqtype[0][0]]({
+          _curr: n,
+          env: ctx.env
+        }, seqtype[0][1], function(n) {
+          a.data = String(n !== Fleur.EmptySequence);
+          Fleur.callback(function() {callback(a);});
+        });
+      }
+    } else {
+      a.data = String(occurrence !== "1" && occurrence !== "+");
+      Fleur.callback(function() {callback(a);});
+    }
+  });
 };
 Fleur.Transpiler.prototype.xqx_integerConstantExpr = function(children, atomicType) {
   return this.inst("xqx_integerConstantExpr('" + children[0][1][0] + "')", false, atomicType !== Fleur.Type_integer && atomicType !== Fleur.atomicTypes ? atomicType : null);
@@ -20785,412 +21091,432 @@ Fleur.Context.prototype.xqx_integerConstantExpr = function(arg) {
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.integerConstantExpr] = function(ctx, children, callback) {
-	var a = new Fleur.Text();
-	a.appendData(Fleur.Type_integer.canonicalize(children[0][1][0]));
-	a.schemaTypeInfo = Fleur.Type_integer;
-	Fleur.callback(function() {callback(a);});
+  var a = new Fleur.Text();
+  a.appendData(Fleur.Type_integer.canonicalize(children[0][1][0]));
+  a.schemaTypeInfo = Fleur.Type_integer;
+  Fleur.callback(function() {callback(a);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.javascriptImport] = function(ctx, children, callback) {
-	var at = children[0][1][0];
-	var httpget = at.startsWith("http://") || Fleur.inBrowser;
-	var fileread = at.startsWith("file://") || !httpget;
-	if (httpget) {
-		if (at.startsWith("http://")) {
-			at = at.substr(7);
-		}
-		var getp = new Promise(function(resolve, reject) {
-			var req = new XMLHttpRequest();
-			req.open('GET', at, true);
-			req.onload = function() {
-				if (req.status === 200) {
-					resolve(req.responseText);
-				} else {
-					reject(Fleur.error(ctx, "FODC0002"));
-		      	}
-			};
-			req.send(null);
-		});
-		getp.then(
-			function(s) {
-				Fleur.callback(function() {callback();});
-			},
-			function(a) {
-				Fleur.callback(function() {callback();});
-			}
-		);
-	} else if (fileread) {
-		if (at.startsWith("file://")) {
-			at = at.substr(7);
-		}
-		if (!at.startsWith(global.path.sep)) {
-			at = global.path.join(Fleur.baseDir, at);
-		}
-		global.fs.readFile(at, 'binary', function(err, file){
-			if (err) {
-				process.stdout.write(err);
-				Fleur.callback(function() {callback();});
-			} else {
-				(0, eval)(file);
-				Fleur.callback(function() {callback();});
-			}
-		});
-	}
+  var at = children[0][1][0];
+  var httpget = at.startsWith("http://") || Fleur.inBrowser;
+  var fileread = at.startsWith("file://") || !httpget;
+  if (httpget) {
+    if (at.startsWith("http://")) {
+      at = at.substr(7);
+    }
+    var getp = new Promise(function(resolve, reject) {
+      var req = new XMLHttpRequest();
+      req.open('GET', at, true);
+      req.onload = function() {
+        if (req.status === 200) {
+          resolve(req.responseText);
+        } else {
+          reject(Fleur.error(ctx, "FODC0002"));
+            }
+      };
+      req.send(null);
+    });
+    getp.then(
+      function(s) {
+        Fleur.callback(function() {callback();});
+      },
+      function(a) {
+        Fleur.callback(function() {callback();});
+      }
+    );
+  } else if (fileread) {
+    if (at.startsWith("file://")) {
+      at = at.substr(7);
+    }
+    if (!at.startsWith(global.path.sep)) {
+      at = global.path.join(Fleur.baseDir, at);
+    }
+    global.fs.readFile(at, 'binary', function(err, file){
+      if (err) {
+        process.stdout.write(err);
+        Fleur.callback(function() {callback();});
+      } else {
+        (0, eval)(file);
+        Fleur.callback(function() {callback();});
+      }
+    });
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.letClause] = function(ctx, children, callback, resarr) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n && n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		} 
-		if (children.length <= 1) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		} 
-		Fleur.XQueryEngine[Fleur.XQueryX.letClause](ctx, children.slice(1), callback, resarr);
-	}, resarr);
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    if (n && n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    } 
+    if (children.length <= 1) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    } 
+    Fleur.XQueryEngine[Fleur.XQueryX.letClause](ctx, children.slice(1), callback, resarr);
+  }, resarr);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.letClauseItem] = function(ctx, children, callback, resarr) {
-	var i = 0;
-	var varname = children[0][1][0][1][0];
-	ctx.env.varresolver = resarr[0];
-	var cb = function(n) {
-		resarr[i].set(ctx, "", varname, n);
-		i++;
-		if (i !== resarr.length) {
-			ctx.env.varresolver = resarr[i];
-			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
-		} else {
-			Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		}
-	};
-	Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
+  var i = 0;
+  var varname = children[0][1][0][1][0];
+  ctx.env.varresolver = resarr[0];
+  var cb = function(n) {
+    resarr[i].set(ctx, "", varname, n);
+    i++;
+    if (i !== resarr.length) {
+      ctx.env.varresolver = resarr[i];
+      Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
+    } else {
+      Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    }
+  };
+  Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
 };
 Fleur.XQueryEngine.lookups = function(ctx, children, callback, functionid) {
-	var ncname, ilabel, seq;
-	if (ctx._label) {
-		if (children[0][0] === Fleur.XQueryX.NCName) {
-			ncname = children[0][1][0];
-			if (ncname !== ctx._label) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
-			} else {
-				ctx._curr.collabels = null;
-				Fleur.callback(function() {callback(ctx._curr, functionid);});
-			}
-		} else {
-			Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-				var a = Fleur.Atomize(n);
-				if (a.nodeType !== Fleur.Node.TEXT_NODE) {
-					Fleur.callback(function() {callback(a, functionid);});
-				} else {
-					if (a.data !== ctx._label) {
-						Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
-					} else {
-						ctx._curr.collabels = null;
-						Fleur.callback(function() {callback(ctx._curr, functionid);});
-					}
-				}
-			});
-		}
-		return;
-	} else if (ctx._curr.collabels) {
-		if (children[0][0] === Fleur.XQueryX.NCName) {
-			ncname = children[0][1][0];
-			ilabel = ctx._curr.collabels.indexOf(ncname);
-			if (ilabel === -1) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
-			} else if (ctx._curr.childNodes[ilabel]) {
-				if (ctx._curr.childNodes[ilabel].nodeType === Fleur.Node.MULTIDIM_NODE) {
-					seq = new Fleur.Sequence();
-					seq.appendChild(ctx._curr.childNodes[ilabel]);
-					Fleur.callback(function() {callback(seq, functionid);});
-				} else {
-					Fleur.callback(function() {callback(ctx._curr.childNodes[ilabel], functionid);});
-				}
-			} else {
-				Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
-			}
-		} else {
-			Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-				var a = Fleur.Atomize(n);
-				if (a.nodeType !== Fleur.Node.TEXT_NODE) {
-					Fleur.callback(function() {callback(a, functionid);});
-				} else {
-					ilabel = ctx._curr.collabels.indexOf(a.data);
-					Fleur.callback(function() {callback(ilabel === -1 || !ctx._curr.childNodes[ilabel] ? Fleur.EmptySequence : ctx._curr.childNodes[ilabel], functionid);});
-				}
-			});
-		}
-		return;
-	}
-	var parents = [];
-	if (ctx._curr.nodeType === Fleur.Node.MAP_NODE || ctx._curr.nodeType === Fleur.Node.ARRAY_NODE) {
-		parents.push(ctx._curr);
-	} else if (ctx._curr.childNodes) {
-		parents = ctx._curr.childNodes.filter(function(c) { return c.nodeType === Fleur.Node.MAP_NODE || c.nodeType === Fleur.Node.ARRAY_NODE;});	
-	}
-	if (parents.length === 0) {
-		Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
-		return;
-	}
-	seq = new Fleur.Sequence();
-	seq.childNodes = new Fleur.NodeList();
-	if (children[0][0] === Fleur.XQueryX.NCName) {
-		ncname = children[0][1][0];
-		parents.forEach(function(p) {
-			var e;
-			if (p.nodeType === Fleur.Node.MAP_NODE) {
-				e = p.getEntryNode(ncname);
-				if (e) {
-					seq.appendChild(e);
-				}
-			}
-		});
-		if (seq.childNodes.length === 0) {
-			seq = Fleur.EmptySequence;
-		} else if (seq.childNodes.length === 1) {
-			seq = seq.childNodes[0];
-		}
-		Fleur.callback(function() {callback(seq, functionid);});
-	} else if (children[0][0] === Fleur.XQueryX.integerConstantExpr) {
-		var idx = parseInt(children[0][1][0][1][0], 10) - 1;
-		parents.forEach(function(p) {
-			var e;
-			if (p.nodeType === Fleur.Node.ARRAY_NODE) {
-				e = p.childNodes[idx];
-				if (e) {
-					seq.appendChild(e);
-				}
-			}
-		});
-		if (seq.childNodes.length === 0) {
-			seq = Fleur.EmptySequence;
-		} else if (seq.childNodes.length === 1) {
-			seq = seq.childNodes[0];
-		}
-		Fleur.callback(function() {callback(seq, functionid);});
-	} else if (children[0][0] === Fleur.XQueryX.star) {
-		parents.forEach(function(p) {
-			if (p.nodeType === Fleur.Node.MAP_NODE) {
-				p.entries.forEach(function(e) {
-					seq.appendChild(e);
-				});
-			} else {
-				p.childNodes.forEach(function(e) {
-					seq.appendChild(e);
-				});
-			}
-		});
-		if (seq.childNodes.length === 0) {
-			seq = Fleur.EmptySequence;
-		} else if (seq.childNodes.length === 1) {
-			seq = seq.childNodes[0];
-		}
-		Fleur.callback(function() {callback(seq, functionid);});
-	} else {
-		Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-			var a = Fleur.Atomize(n);
-			if (a.nodeType !== Fleur.Node.TEXT_NODE) {
-				Fleur.callback(function() {callback(a);});
-			} else {
-				parents.forEach(function(p) {
-					var e; 
-					if (p.nodeType === Fleur.Node.MAP_NODE) {
-						e = p.getEntryNode(a.data);
-					} else {
-						e = p.childNodes[parseInt(a.data, 10) - 1];
-					}
-					if (e) {
-						seq.appendChild(e);
-					}
-				});
-				if (seq.childNodes.length === 0) {
-					seq = Fleur.EmptySequence;
-				} else if (seq.childNodes.length === 1) {
-					seq = seq.childNodes[0];
-				}
-				Fleur.callback(function() {callback(seq, functionid);});
-			}
-		});
-	}
+  var ncname, ilabel, seq;
+  if (ctx._label) {
+    if (children[0][0] === Fleur.XQueryX.NCName) {
+      ncname = children[0][1][0];
+      if (ncname !== ctx._label) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
+      } else {
+        ctx._curr.collabels = null;
+        Fleur.callback(function() {callback(ctx._curr, functionid);});
+      }
+    } else {
+      Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+        var a = Fleur.Atomize(n);
+        if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+          Fleur.callback(function() {callback(a, functionid);});
+        } else {
+          if (a.data !== ctx._label) {
+            Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
+          } else {
+            ctx._curr.collabels = null;
+            Fleur.callback(function() {callback(ctx._curr, functionid);});
+          }
+        }
+      });
+    }
+    return;
+  } else if (ctx._curr.collabels) {
+    if (children[0][0] === Fleur.XQueryX.NCName) {
+      ncname = children[0][1][0];
+      ilabel = ctx._curr.collabels.indexOf(ncname);
+      if (ilabel === -1) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
+      } else if (ctx._curr.childNodes[ilabel]) {
+        if (ctx._curr.childNodes[ilabel].nodeType === Fleur.Node.MULTIDIM_NODE) {
+          seq = new Fleur.Sequence();
+          seq.appendChild(ctx._curr.childNodes[ilabel]);
+          Fleur.callback(function() {callback(seq, functionid);});
+        } else {
+          Fleur.callback(function() {callback(ctx._curr.childNodes[ilabel], functionid);});
+        }
+      } else {
+        Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
+      }
+    } else {
+      Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+        var a = Fleur.Atomize(n);
+        if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+          Fleur.callback(function() {callback(a, functionid);});
+        } else {
+          ilabel = ctx._curr.collabels.indexOf(a.data);
+          Fleur.callback(function() {callback(ilabel === -1 || !ctx._curr.childNodes[ilabel] ? Fleur.EmptySequence : ctx._curr.childNodes[ilabel], functionid);});
+        }
+      });
+    }
+    return;
+  }
+  var parents = [];
+  if (ctx._curr.nodeType === Fleur.Node.MAP_NODE || ctx._curr.nodeType === Fleur.Node.ARRAY_NODE) {
+    parents.push(ctx._curr);
+  } else if (ctx._curr.childNodes) {
+    parents = ctx._curr.childNodes.filter(function(c) { return c.nodeType === Fleur.Node.MAP_NODE || c.nodeType === Fleur.Node.ARRAY_NODE;});  
+  }
+  if (parents.length === 0) {
+    Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
+    return;
+  }
+  seq = new Fleur.Sequence();
+  seq.childNodes = new Fleur.NodeList();
+  if (children[0][0] === Fleur.XQueryX.NCName) {
+    ncname = children[0][1][0];
+    parents.forEach(function(p) {
+      var e;
+      if (p.nodeType === Fleur.Node.MAP_NODE) {
+        e = p.getEntryNode(ncname);
+        if (e) {
+          seq.appendChild(e);
+        }
+      }
+    });
+    if (seq.childNodes.length === 0) {
+      seq = Fleur.EmptySequence;
+    } else if (seq.childNodes.length === 1) {
+      seq = seq.childNodes[0];
+    }
+    Fleur.callback(function() {callback(seq, functionid);});
+  } else if (children[0][0] === Fleur.XQueryX.integerConstantExpr) {
+    var idx = parseInt(children[0][1][0][1][0], 10) - 1;
+    parents.forEach(function(p) {
+      var e;
+      if (p.nodeType === Fleur.Node.ARRAY_NODE) {
+        e = p.childNodes[idx];
+        if (e) {
+          seq.appendChild(e);
+        }
+      }
+    });
+    if (seq.childNodes.length === 0) {
+      seq = Fleur.EmptySequence;
+    } else if (seq.childNodes.length === 1) {
+      seq = seq.childNodes[0];
+    }
+    Fleur.callback(function() {callback(seq, functionid);});
+  } else if (children[0][0] === Fleur.XQueryX.star) {
+    parents.forEach(function(p) {
+      if (p.nodeType === Fleur.Node.MAP_NODE) {
+        p.entries.forEach(function(e) {
+          seq.appendChild(e);
+        });
+      } else {
+        p.childNodes.forEach(function(e) {
+          seq.appendChild(e);
+        });
+      }
+    });
+    if (seq.childNodes.length === 0) {
+      seq = Fleur.EmptySequence;
+    } else if (seq.childNodes.length === 1) {
+      seq = seq.childNodes[0];
+    }
+    Fleur.callback(function() {callback(seq, functionid);});
+  } else {
+    Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+      var a = Fleur.Atomize(n);
+      if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+        Fleur.callback(function() {callback(a);});
+      } else {
+        parents.forEach(function(p) {
+          var e; 
+          if (p.nodeType === Fleur.Node.MAP_NODE) {
+            e = p.getEntryNode(a.data);
+          } else {
+            e = p.childNodes[parseInt(a.data, 10) - 1];
+          }
+          if (e) {
+            seq.appendChild(e);
+          }
+        });
+        if (seq.childNodes.length === 0) {
+          seq = Fleur.EmptySequence;
+        } else if (seq.childNodes.length === 1) {
+          seq = seq.childNodes[0];
+        }
+        Fleur.callback(function() {callback(seq, functionid);});
+      }
+    });
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
-	Fleur.XQueryEngine.lookups(ctx, children, callback, Fleur.XQueryX.lookup);
+  Fleur.XQueryEngine.lookups(ctx, children, callback, Fleur.XQueryX.lookup);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.mainModule] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (children.length > 1) {
-			Fleur.XQueryEngine[Fleur.XQueryX.mainModule](ctx, children.slice(1), callback);
-		} else {
-			Fleur.callback(function() {callback(n);});
-		}
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    if (children.length > 1) {
+      Fleur.XQueryEngine[Fleur.XQueryX.mainModule](ctx, children.slice(1), callback);
+    } else {
+      Fleur.callback(function() {callback(n);});
+    }
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.mapConstructor] = function(ctx, children, callback) {
-	var map = new Fleur.Map();
-	var i = 0;
-	var cb = function(n) {
-		if (n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		if (n !== Fleur.EmptySequence) {
-			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				n.childNodes.forEach(function(e) {
-					map.setEntryNode(e);
-				});
-			} else {
-				map.setEntryNode(n);
-			}
-		}
-		i++;
-		if (i === children.length) {
-			Fleur.callback(function() {callback(map);});
-			return;
-		}
-		Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb);
-	};
-	if (children.length !== 0) {
-		Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
-	} else {
-		Fleur.callback(function() {callback(map);});
-	}
+  var map = new Fleur.Map();
+  var i = 0;
+  var cb = function(n) {
+    if (n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    if (n !== Fleur.EmptySequence) {
+      if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        n.childNodes.forEach(function(e) {
+          map.setEntryNode(e);
+        });
+      } else {
+        map.setEntryNode(n);
+      }
+    }
+    i++;
+    if (i === children.length) {
+      Fleur.callback(function() {callback(map);});
+      return;
+    }
+    Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb);
+  };
+  if (children.length !== 0) {
+    Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+  } else {
+    Fleur.callback(function() {callback(map);});
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.mapConstructorEntry] = function(ctx, children, callback) {
-	var entry = new Fleur.Entry();
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var a = Fleur.Atomize(n);
-		if (a.nodeType !== Fleur.Node.TEXT_NODE) {
-			Fleur.callback(function() {callback(a);});
-		} else {
-			entry.nodeName = a.data;
-			entry.namespaceURI = null;
-			entry.localName = a.data;
-			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-				if (n === Fleur.EmptySequence) {
-					Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				} else {
-					if (n.nodeType === Fleur.Node.ENTRY_NODE) {
-						n = n.cloneNode(true).childNodes[0];
-					}
-					entry.appendChild(n);
-					Fleur.callback(function() {callback(entry);});
-				}
-			});
-		}
-	});
+  var entry = new Fleur.Entry();
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var a = Fleur.Atomize(n);
+    if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+      Fleur.callback(function() {callback(a);});
+    } else {
+      entry.nodeName = a.data;
+      entry.namespaceURI = null;
+      entry.localName = a.data;
+      Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+        if (n === Fleur.EmptySequence) {
+          Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        } else {
+          if (n.nodeType === Fleur.Node.ENTRY_NODE) {
+            n = n.cloneNode(true).childNodes[0];
+          }
+          entry.appendChild(n);
+          Fleur.callback(function() {callback(entry);});
+        }
+      });
+    }
+  });
 };
 Fleur.Transpiler.prototype.xqx_mapTest = function() {
-	return this.inst("xqx_mapTest()");
+  return this.inst("xqx_mapTest()");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.mapTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.MAP_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.MAP_NODE ? Fleur.EmptySequence : ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.module] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		ctx._result = n;
-		if (children.length > 1) {
-			Fleur.XQueryEngine[Fleur.XQueryX.module](ctx, children.slice(1), callback);
-		} else {
-			Fleur.callback(function() {callback(n);});
-		}
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    ctx._result = n;
+    if (children.length > 1) {
+      Fleur.XQueryEngine[Fleur.XQueryX.module](ctx, children.slice(1), callback);
+    } else {
+      Fleur.callback(function() {callback(n);});
+    }
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.moduleImport] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		ctx._result = n;
-		if (children.length > 1) {
-			Fleur.XQueryEngine[Fleur.XQueryX.moduleImport](ctx, children.slice(1), callback);
-		} else {
-			Fleur.callback(function() {callback(n);});
-		}
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    ctx._result = n;
+    if (children.length > 1) {
+      Fleur.XQueryEngine[Fleur.XQueryX.moduleImport](ctx, children.slice(1), callback);
+    } else {
+      Fleur.callback(function() {callback(n);});
+    }
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.multidimExpr] = function(ctx, children, callback) {
-	var seq = new Fleur.Sequence();
-	var i = 0;
-	var cb = function(n) {
-		if (n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		if (n !== Fleur.EmptySequence) {
-			var md = new Fleur.Multidim();
-			if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-				md.appendChild(n);
-			} else {
-				n.childNodes.forEach(function(n2) {
-					md.appendChild(n2);
-				});
-			}
-			seq.appendChild(md);
-		}
-		i++;
-		if (i === children.length) {
-			Fleur.callback(function() {callback(seq);});
-			return;
-		}
-		Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb);
-	};
-	if (children.length !== 0) {
-		Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
-	} else {
-		Fleur.callback(function() {callback(seq);});
-	}
+  var seq = new Fleur.Sequence();
+  var i = 0;
+  var cb = function(n) {
+    if (n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    if (n !== Fleur.EmptySequence) {
+      var md = new Fleur.Multidim();
+      if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+        md.appendChild(n);
+      } else {
+        n.childNodes.forEach(function(n2) {
+          md.appendChild(n2);
+        });
+      }
+      seq.appendChild(md);
+    }
+    i++;
+    if (i === children.length) {
+      Fleur.callback(function() {callback(seq);});
+      return;
+    }
+    Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb);
+  };
+  if (children.length !== 0) {
+    Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+  } else {
+    Fleur.callback(function() {callback(seq);});
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.namedFunctionRef] = function(ctx, children, callback) {
-	var fname = children[0][1][0];
-	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
-	var nbargs = parseInt(children[1][1][0][1][0], 10);
-	var a = new Fleur.Text();
-	a.schemaTypeInfo = Fleur.Type_error;
-	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0017");
-	if (children[0][1][1]) {
-		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
-			uri = children[0][1][1][1][0];
-		} else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.env.nsresolver) {
-			uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
-		}
-	}
-	if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && nbargs > 1 && !Fleur.XPathFunctions[uri][fname + "#" + nbargs]) {
-		var cparam = [];
-		for (var i = 0; i < nbargs; i++) {
-			cparam[i] = {type: Fleur.Node};
-		}
-		Fleur.XPathFunctions[uri][fname + "#" + nbargs] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
-	}
-	Fleur.callback(function() {callback(Fleur.XPathFunctions[uri] ? Fleur.XPathFunctions[uri][fname + "#" + nbargs].cloneNode() || a : a);});
+  var fname = children[0][1][0];
+  var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
+  var nbargs = parseInt(children[1][1][0][1][0], 10);
+  var a = new Fleur.Text();
+  a.schemaTypeInfo = Fleur.Type_error;
+  a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0017");
+  if (children[0][1][1]) {
+    if (children[0][1][1][0] === Fleur.XQueryX.URI) {
+      uri = children[0][1][1][1][0];
+    } else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.env.nsresolver) {
+      uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
+    }
+  }
+  if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && nbargs > 1 && !Fleur.XPathFunctions[uri][fname + "#" + nbargs]) {
+    var cparam = [];
+    for (var i = 0; i < nbargs; i++) {
+      cparam[i] = {type: Fleur.Node};
+    }
+    Fleur.XPathFunctions[uri][fname + "#" + nbargs] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
+  }
+  Fleur.callback(function() {callback(Fleur.XPathFunctions[uri] ? Fleur.XPathFunctions[uri][fname + "#" + nbargs].cloneNode() || a : a);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.namespaceDecl] = function(ctx, children, callback) {
-	ctx.env.nsresolver.declareNamespace(children[0][1][0], children[1][1][0]);
-	Fleur.callback(function() {callback();});
+  ctx.env.nsresolver.declareNamespace(children[0][1][0], children[1][1][0]);
+  Fleur.callback(function() {callback();});
+};
+Fleur.Transpiler.prototype.xqx_namespaceDeclaration = function(children) {
+  return this.inst("xqx_namespaceDeclaration('" + (children.length === 1 ? "', '" + children[0][1][0] : children[0][1][0] + "', '" + children[1][1][0]) + "')");
+};
+Fleur.Context.prototype.xqx_namespaceDeclaration = function(prefix, uri) {
+  const attr = new Fleur.Attr();
+  attr.nodeName = prefix === "" ? "xmlns" : "xmlns" + ":" + prefix;
+  attr.localName = prefix === "" ? "xmlns" : prefix;
+  attr.namespaceURI = "http://www.w3.org/2000/xmlns/";
+  const attrvalue = new Fleur.Text(uri);
+  attrvalue.schemaType = Fleur.Type_untypedAtomic;
+  attr.appendChild(attrvalue);
+  this.itemstack.push(this.item);
+  this.item = attr;
+  this.rs.nsresolver.declareNamespace(prefix, uri);
+  return this;
+};
+Fleur.Context.prototype.xqx_namespaceRemoval = function(prefix) {
+  this.rs.nsresolver.removeNamespace(prefix);
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.namespaceDeclaration] = function(ctx, children, callback) {
-	var attr = new Fleur.Attr();
-	var t;
-	if (children[0][0] === Fleur.XQueryX.prefixElt) {
-		attr.localName = children[0][1][0];
-		attr.nodeName = "xmlns:" + attr.localName;
-		attr.namespaceURI = "http://www.w3.org/2000/xmlns/";
-		attr.prefix = "xmlns";
-		t = new Fleur.Text();
-		t.data = children[1][1][0];
-		attr.appendChild(t);
-	} else {
-		attr.localName = "xmlns";
-		attr.nodeName = "xmlns";
-		attr.namespaceURI = "http://www.w3.org/XML/1998/namespace";
-		if (children[0][1].length !== 0) {
-			t = new Fleur.Text();
-			t.data = children[0][1][0];
-			attr.appendChild(t);
-		}
-	}
-	Fleur.callback(function() {callback(attr);});
+  var attr = new Fleur.Attr();
+  var t;
+  if (children[0][0] === Fleur.XQueryX.prefixElt) {
+    attr.localName = children[0][1][0];
+    attr.nodeName = "xmlns:" + attr.localName;
+    attr.namespaceURI = "http://www.w3.org/2000/xmlns/";
+    attr.prefix = "xmlns";
+    t = new Fleur.Text();
+    t.data = children[1][1][0];
+    attr.appendChild(t);
+  } else {
+    attr.localName = "xmlns";
+    attr.nodeName = "xmlns";
+    attr.namespaceURI = "http://www.w3.org/XML/1998/namespace";
+    if (children[0][1].length !== 0) {
+      t = new Fleur.Text();
+      t.data = children[0][1][0];
+      attr.appendChild(t);
+    }
+  }
+  Fleur.callback(function() {callback(attr);});
 };
 Fleur.Transpiler.prototype.xqx_nameTest = function(children) {
-	const param = children.length !== 1 ? "\"" + children[1][1][0] + "\", " : "";
-	const ns = children.length !== 1 ? children[1][0] === Fleur.XQueryX.prefix ? "_prefix" : "_namespaceURI" : "";
-	return this.inst("xqx_nameTest" + ns + "(" + param + "\"" + children[0] + "\")");
+  const param = children.length !== 1 ? "\"" + children[1][1][0] + "\", " : "";
+  const ns = children.length !== 1 ? children[1][0] === Fleur.XQueryX.prefix ? "_prefix" : "_namespaceURI" : "";
+  return this.inst("xqx_nameTest" + ns + "(" + param + "\"" + children[0] + "\")");
 };
 Fleur.Context.prototype.xqx_nameTest = function(localName) {
   const namespaceURI = this.rs.nsresolver.lookupNamespaceURI("");
@@ -21204,716 +21530,721 @@ Fleur.Context.prototype.xqx_nameTest_prefix = function(prefix, localName) {
   return this.nodeTest(this.xpathAxis === Fleur.Context.XPATHAXIS_ATTRIBUTE ? Fleur.Node.ATTRIBUTE_NODE : Fleur.Node.ELEMENT_NODE, namespaceURI, localName);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.nameTest] = function(ctx, children, callback) {
-	if (ctx._curr.localName !== children[0]) {
-		Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		return;
-	}
-	var nsURI;
-	if (children.length === 1) {
-		nsURI = ctx.env.nsresolver.lookupNamespaceURI("") || "";
-	} else if (children[1][0] === Fleur.XQueryX.prefix) {
-		nsURI = ctx.env.nsresolver.lookupNamespaceURI(children[1][1][0]) || "";
-	} else {
-		nsURI = children[1][1][0];
-	}
-	var currURI = ctx._curr.namespaceURI || "";
-	if (currURI !==  nsURI && currURI !== "http://www.w3.org/1999/xhtml") {
-		Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		return;
-	}
-	Fleur.callback(function() {callback(ctx._curr);});
+  if (ctx._curr.localName !== children[0]) {
+    Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    return;
+  }
+  var nsURI;
+  if (children.length === 1) {
+    nsURI = ctx.env.nsresolver.lookupNamespaceURI("") || "";
+  } else if (children[1][0] === Fleur.XQueryX.prefix) {
+    nsURI = ctx.env.nsresolver.lookupNamespaceURI(children[1][1][0]) || "";
+  } else {
+    nsURI = children[1][1][0];
+  }
+  var currURI = ctx._curr.namespaceURI || "";
+  if (currURI !==  nsURI && currURI !== "http://www.w3.org/1999/xhtml") {
+    Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    return;
+  }
+  Fleur.callback(function() {callback(ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.optionDecl] = function(ctx, children, callback) {
-	if (!ctx.env.options) {
-		ctx.env.options = {};
-	}
-	var uri = children[0][1].length > 1 ? ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]) : "http://www.w3.org/2012/xquery";
-	if (!ctx.env.options[uri]) {
-		ctx.env.options[uri] = {};
-	}
-	ctx.env.options[uri][children[0][1][0]] = children[1][1][0];
-	Fleur.callback(function() {callback();});
+  if (!ctx.env.options) {
+    ctx.env.options = {};
+  }
+  var uri = children[0][1].length > 1 ? ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]) : "http://www.w3.org/2012/xquery";
+  if (!ctx.env.options[uri]) {
+    ctx.env.options[uri] = {};
+  }
+  ctx.env.options[uri][children[0][1][0]] = children[1][1][0];
+  Fleur.callback(function() {callback();});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.orderByClause] = function(ctx, children, callback, resarr, orderkeys, orderkinds) {
-	orderkeys = orderkeys || [];
-	orderkeys.push([]);
-	orderkinds = orderkinds || [];
-	if (children[0][1].length === 2 && children[0][1][1][1][0][1][0] === "descending") {
-		orderkinds.push(-1);
-	} else {
-		orderkinds.push(1);
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n && n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		} 
-		if (children.length <= 1) {
-			var kvs = [];
-			orderkeys.forEach(function(ks, ki) {
-				ks.forEach(function(k, kj) {
-					kvs[kj] = kvs[kj] || [];
-					kvs[kj][ki] = k;
-				});
-			}, []);
-			resarr.forEach(function(vmgr, i) {
-				resarr[i] = {
-					kvs: kvs[i],
-					resarr: resarr[i]
-				};
-			});
-			resarr.sort(function(a, b) {
-				for (var i = 0, l = a.kvs.length; i < l; i++) {
-					if (Fleur.ltOp(a.kvs[i], b.kvs[i])) {
-						return -orderkinds[i];
-					}
-					if (Fleur.gtOp(a.kvs[i], b.kvs[i])) {
-						return orderkinds[i];
-					}
-				}
-				return 0;
-			});
-			resarr.forEach(function(o, i) {
-				resarr[i] = o.resarr;
-			});
-			Fleur.callback(function() {callback(n);});
-			return;
-		} 
-		Fleur.XQueryEngine[Fleur.XQueryX.orderByClause](ctx, children.slice(1), callback, resarr, orderkeys);
-	}, resarr, orderkeys[orderkeys.length - 1]);
+  orderkeys = orderkeys || [];
+  orderkeys.push([]);
+  orderkinds = orderkinds || [];
+  if (children[0][1].length === 2 && children[0][1][1][1][0][1][0] === "descending") {
+    orderkinds.push(-1);
+  } else {
+    orderkinds.push(1);
+  }
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    if (n && n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    } 
+    if (children.length <= 1) {
+      var kvs = [];
+      orderkeys.forEach(function(ks, ki) {
+        ks.forEach(function(k, kj) {
+          kvs[kj] = kvs[kj] || [];
+          kvs[kj][ki] = k;
+        });
+      }, []);
+      resarr.forEach(function(vmgr, i) {
+        resarr[i] = {
+          kvs: kvs[i],
+          resarr: resarr[i]
+        };
+      });
+      resarr.sort(function(a, b) {
+        for (var i = 0, l = a.kvs.length; i < l; i++) {
+          if (Fleur.ltOp(a.kvs[i], b.kvs[i])) {
+            return -orderkinds[i];
+          }
+          if (Fleur.gtOp(a.kvs[i], b.kvs[i])) {
+            return orderkinds[i];
+          }
+        }
+        return 0;
+      });
+      resarr.forEach(function(o, i) {
+        resarr[i] = o.resarr;
+      });
+      Fleur.callback(function() {callback(n);});
+      return;
+    } 
+    Fleur.XQueryEngine[Fleur.XQueryX.orderByClause](ctx, children.slice(1), callback, resarr, orderkeys);
+  }, resarr, orderkeys[orderkeys.length - 1]);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.orderBySpec] = function(ctx, children, callback, resarr, orderkeyvalues) {
-	var i = 0;
-	ctx.env.varresolver = resarr[0];
-	var cb = function(n) {
-		var a = Fleur.Atomize(n, true);
-		var jsv = Fleur.toJSValue(a, true, true, true, true);
-		orderkeyvalues.push(jsv);
-		i++;
-		if (i !== resarr.length) {
-			ctx.env.varresolver = resarr[i];
-			Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], cb);
-		} else {
-			Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		}
-	};
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], cb);
+  var i = 0;
+  ctx.env.varresolver = resarr[0];
+  var cb = function(n) {
+    var a = Fleur.Atomize(n, true);
+    var jsv = Fleur.toJSValue(a, true, true, true, true);
+    orderkeyvalues.push(jsv);
+    i++;
+    if (i !== resarr.length) {
+      ctx.env.varresolver = resarr[i];
+      Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], cb);
+    } else {
+      Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    }
+  };
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], cb);
 };
 Fleur.Transpiler.prototype.xqx_pathExpr = function(children, atomicType) {
-	let result = this.inst("xqx_pathExpr()");
-	const children2 = [];
-	for (let i = 0, l = children.length; i < l; i++) {
-		children2.push(children[i]);
-		const arr = children[i][1];
-		for (let j = 0, l2 = arr.length; j < l2; j++) {
-			if (arr[j][0] === Fleur.XQueryX.predicates) {
-				for (let k = 0, l3 = arr[j][1].length; k < l3; k++) {
-					children2.push(arr[j][1][k]);
-				}
-			}
-		}
-	}
-	const previndent = this.indent;
-	for (let i = 0, l = children2.length; i < l; i++) {
-		if (i !== 0) {
-			result += "\n" + this.indent + "if (" + this.ctxvarname + ".item.isNotEmpty()) {";
-			this.indent += this.step;
-		}
-		if (children2[i][0] === Fleur.XQueryX.stepExpr || children2[i][0] === Fleur.XQueryX.rootExpr) {
-			result += this.gen(children2[i]);
-		} else {
-			const predindent = this.indent;
-			this.indent += this.step;
-			const prevasync = this.async;
-			this.async = false;
-			let pred = this.funcdef(children2[i]);
-			this.indent = predindent;
-			result += "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_predicateExpr(" + pred;
-			this.async = this.async || prevasync;
-			result += "\n" + this.indent + ");";
-		}
-	}
-	this.indent = previndent;
-	let closes = "";
-	for (let i = 0, l = children2.length; i < l; i++) {
-		if (i !== 0) {
-			closes = "\n" + this.indent + "}" + closes;
-			this.indent += this.step;
-		}
-	}
-	this.indent = previndent;
-	return result + closes + this.inst("restoreContext()", false, atomicType);
+  let result = this.inst("xqx_pathExpr()");
+  const children2 = [];
+  for (let i = 0, l = children.length; i < l; i++) {
+    children2.push(children[i]);
+    const arr = children[i][1];
+    for (let j = 0, l2 = arr.length; j < l2; j++) {
+      if (arr[j][0] === Fleur.XQueryX.predicates) {
+        for (let k = 0, l3 = arr[j][1].length; k < l3; k++) {
+          children2.push(arr[j][1][k]);
+        }
+      }
+    }
+  }
+  const previndent = this.indent;
+  for (let i = 0, l = children2.length; i < l; i++) {
+    if (i !== 0) {
+      result += "\n" + this.indent + "if (" + this.ctxvarname + ".item.isNotEmpty()) {";
+      this.indent += this.step;
+    }
+    if (children2[i][0] === Fleur.XQueryX.stepExpr || children2[i][0] === Fleur.XQueryX.rootExpr) {
+      result += this.gen(children2[i]);
+    } else {
+      const predindent = this.indent;
+      this.indent += this.step;
+      const prevasync = this.async;
+      this.async = false;
+      let pred = this.funcdef(children2[i]);
+      this.indent = predindent;
+      result += "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_predicateExpr(" + pred;
+      this.async = this.async || prevasync;
+      result += "\n" + this.indent + ");";
+    }
+  }
+  this.indent = previndent;
+  let closes = "";
+  for (let i = 0, l = children2.length; i < l; i++) {
+    if (i !== 0) {
+      closes = "\n" + this.indent + "}" + closes;
+      this.indent += this.step;
+    }
+  }
+  this.indent = previndent;
+  return result + closes + this.inst("restoreContext()", false, atomicType);
 };
 Fleur.Context.prototype.xqx_pathExpr = function() {
-	this.itemstack.push(this.item);
-	this.pathstack.push(this.path);
-	this.item = this.path;
-	const m = (this.item.nodeType === Fleur.Node.DOCUMENT_NODE ? this.item : this.item.ownerDocument).getUserData("model");
-	if (m) {
-		this.addxfdep(document.getElementById(m).xfElement);
-	}
-	return this;
+  this.itemstack.push(this.item);
+  this.pathstack.push(this.path);
+  this.item = this.path;
+  if (this.item) {
+    const doc = this.item.nodeType === Fleur.Node.DOCUMENT_NODE ? this.item : this.item.ownerDocument;
+    if (doc) {
+      const m = doc.getUserData("model");
+      if (m) {
+        this.addxfdep(document.getElementById(m).xfElement);
+      }
+    }  
+  }
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
-	var next;
-	var result = Fleur.EmptySequence;
-	var tests = [];
-	var preds = [];
-	children[0][1].forEach(function(child) {
-		if (child[0] === Fleur.XQueryX.predicates) {
-			child[1].forEach(function(subchild) {preds.push(subchild);});
-		} else if (child[0] === Fleur.XQueryX.predicate) {
-			preds.push(child[1][0]);
-		} else if (child[0] === Fleur.XQueryX.lookup) {
-			preds.push(child);
-		} else {
-			tests.push(child);
-		}
-	});
-	var cb = function(n, eob) {
-		if (eob === Fleur.XQueryX.pathExpr) {
-			if (n !== Fleur.EmptySequence) {
-				if (result === Fleur.EmptySequence || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
-					result = n;
-				} else {
-					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						var seq = new Fleur.Sequence();
-						seq.childNodes = new Fleur.NodeList();
-						seq.children = new Fleur.NodeList();
-						seq.textContent = "";
-						seq.appendChild(result);
-						result = seq;
-					}
-					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						result.appendChild(n);
-					} else {
-						n.childNodes.forEach(function(node) {
-							result.appendChild(node);
-						});
-					}
-				}
-			}
-			n = next;
-		}
-		if (n === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(result, Fleur.XQueryX.pathExpr);});
-			return;
-		}
-		var cb2 = function(n) {
-			if (children.length === 1 || n === Fleur.EmptySequence) {
-				Fleur.callback(function() {callback(n, Fleur.XQueryX.pathExpr);});
-				return;
-			}
-			var subcurr;
-			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				subcurr = n.childNodes[0];
-				if (n.childNodes.length === 2) {
-					n = n.childNodes[1];
-				} else {
-					var seq2 = new Fleur.Sequence();
-					seq2.childNodes = new Fleur.NodeList();
-					seq2.children = new Fleur.NodeList();
-					seq2.textContent = "";
-					n.childNodes.forEach(function(n2) {
-						seq2.appendChild(n2);
-					});
-					seq2.childNodes.shift();
-					n = seq2;
-				}
-			} else {
-				subcurr = n;
-				n = Fleur.EmptySequence;
-			}
-			next = n;
-			Fleur.XQueryEngine[Fleur.XQueryX.pathExpr]({
-				_curr: subcurr,
-				_item: ctx._item,
-				env: ctx.env
-			}, children.slice(1), cb);
-		};
-		if (preds.length !== 0) {
-			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				next = new Fleur.Sequence();
-				next.childNodes = new Fleur.NodeList();
-				n.childNodes.forEach(function(node) {
-					next.appendChild(node);
-				});
-				next.collabels = n.collabels;
-			} else {
-				next = n;
-			}
-			Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
-				_next: next,
-				_item: ctx._item,
-				env: ctx.env
-			}, preds, function(n) {
-				Fleur.callback(function() {preds = []; cb2(n);});
-			});
-			return;
-		}
-		cb2(n);
-	};
-	Fleur.XQueryEngine[children[0][0]](ctx, tests, cb);
+  var next;
+  var result = Fleur.EmptySequence;
+  var tests = [];
+  var preds = [];
+  children[0][1].forEach(function(child) {
+    if (child[0] === Fleur.XQueryX.predicates) {
+      child[1].forEach(function(subchild) {preds.push(subchild);});
+    } else if (child[0] === Fleur.XQueryX.predicate) {
+      preds.push(child[1][0]);
+    } else if (child[0] === Fleur.XQueryX.lookup) {
+      preds.push(child);
+    } else {
+      tests.push(child);
+    }
+  });
+  var cb = function(n, eob) {
+    if (eob === Fleur.XQueryX.pathExpr) {
+      if (n !== Fleur.EmptySequence) {
+        if (result === Fleur.EmptySequence || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
+          result = n;
+        } else {
+          if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            var seq = new Fleur.Sequence();
+            seq.childNodes = new Fleur.NodeList();
+            seq.children = new Fleur.NodeList();
+            seq.textContent = "";
+            seq.appendChild(result);
+            result = seq;
+          }
+          if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            result.appendChild(n);
+          } else {
+            n.childNodes.forEach(function(node) {
+              result.appendChild(node);
+            });
+          }
+        }
+      }
+      n = next;
+    }
+    if (n === Fleur.EmptySequence) {
+      Fleur.callback(function() {callback(result, Fleur.XQueryX.pathExpr);});
+      return;
+    }
+    var cb2 = function(n) {
+      if (children.length === 1 || n === Fleur.EmptySequence) {
+        Fleur.callback(function() {callback(n, Fleur.XQueryX.pathExpr);});
+        return;
+      }
+      var subcurr;
+      if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        subcurr = n.childNodes[0];
+        if (n.childNodes.length === 2) {
+          n = n.childNodes[1];
+        } else {
+          var seq2 = new Fleur.Sequence();
+          seq2.childNodes = new Fleur.NodeList();
+          seq2.children = new Fleur.NodeList();
+          seq2.textContent = "";
+          n.childNodes.forEach(function(n2) {
+            seq2.appendChild(n2);
+          });
+          seq2.childNodes.shift();
+          n = seq2;
+        }
+      } else {
+        subcurr = n;
+        n = Fleur.EmptySequence;
+      }
+      next = n;
+      Fleur.XQueryEngine[Fleur.XQueryX.pathExpr]({
+        _curr: subcurr,
+        _item: ctx._item,
+        env: ctx.env
+      }, children.slice(1), cb);
+    };
+    if (preds.length !== 0) {
+      if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        next = new Fleur.Sequence();
+        next.childNodes = new Fleur.NodeList();
+        n.childNodes.forEach(function(node) {
+          next.appendChild(node);
+        });
+        next.collabels = n.collabels;
+      } else {
+        next = n;
+      }
+      Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
+        _next: next,
+        _item: ctx._item,
+        env: ctx.env
+      }, preds, function(n) {
+        Fleur.callback(function() {preds = []; cb2(n);});
+      });
+      return;
+    }
+    cb2(n);
+  };
+  Fleur.XQueryEngine[children[0][0]](ctx, tests, cb);
 };
 Fleur.Transpiler.prototype.xqx_piTest = function() {
-	return this.inst("xqx_piTest()");
+  return this.inst("xqx_piTest()");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.piTest] = function(ctx, children, callback) {
-	if (ctx._curr.nodeType !== Fleur.Node.PROCESSING_INSTRUCTION_NODE || (children.length === 1 && ctx._curr.target !== children[0][1][0])) {
-		Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		return;
-	}
-	Fleur.callback(function() {callback(ctx._curr);});
+  if (ctx._curr.nodeType !== Fleur.Node.PROCESSING_INSTRUCTION_NODE || (children.length === 1 && ctx._curr.target !== children[0][1][0])) {
+    Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    return;
+  }
+  Fleur.callback(function() {callback(ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.predicate] = function(ctx, children, callback) {
-	var next = ctx._next;
-	var last;
-	var pos = 1;
-	var result = Fleur.EmptySequence;
-	var subcurr;
-	if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		last = next.childNodes.length;
-		subcurr = next.childNodes.shift();
-		if (next.childNodes.length === 1) {
-			next = next.childNodes[0];
-		}
-	} else {
-		subcurr = next;
-		next = Fleur.EmptySequence;
-		last = 1;
-	}
-	var cb = function(n, eob) {
-		if (eob === Fleur.XQueryX.predicate) {
-			Fleur.callback(function() {callback(n, Fleur.XQueryX.predicate);});
-			return;
-		}
-		if ((n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes.length !== 0) ||
-			(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_boolean && n.data !== "false") ||
-			(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_integer && parseInt(n.data, 10) === pos) ||
-			(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_string && n.data !== "") ||
-			(n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.TEXT_NODE)) {
-			if (result === Fleur.EmptySequence) {
-				result = subcurr;
-			} else {
-				if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-					var seq = new Fleur.Sequence();
-					seq.childNodes = new Fleur.NodeList();
-					seq.children = new Fleur.NodeList();
-					seq.textContent = "";
-					seq.appendChild(result);
-					result = seq;
-				}
-				result.appendChild(subcurr);
-			}
-		}
-		if (next === Fleur.EmptySequence) {
-			if (children.length === 1 || result === Fleur.EmptySequence) {
-				Fleur.callback(function() {callback(result, Fleur.XQueryX.predicate);});
-				return;
-			}
-			children.shift();
-			next = result;
-			result = Fleur.EmptySequence;
-			pos = 1;
-			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				last = next.childNodes.length;
-				subcurr = next.childNodes.shift();
-				if (next.childNodes.length === 1) {
-					next = next.childNodes[0];
-				}
-			} else {
-				subcurr = next;
-				next = Fleur.EmptySequence;
-				last = 1;
-			}
-			Fleur.XQueryEngine[children[0][0]]({
-						_curr: subcurr,
-						_next: next,
-						_last: last,
-						_pos: pos,
-						env: ctx.env
-					}, children[0][1], cb);
-			return;
-		}
-		if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			subcurr = next.childNodes.shift();
-			if (next.childNodes.length === 1) {
-				next = next.childNodes[0];
-			}
-		} else {
-			subcurr = next;
-			next = Fleur.EmptySequence;
-		}
-		pos++;
-		Fleur.XQueryEngine[children[0][0]]({
-					_curr: subcurr,
-					_next: next,
-					_last: last,
-					_pos: pos,
-					env: ctx.env
-				}, children[0][1], cb);
-	};
-	Fleur.XQueryEngine[children[0][0]]({
-				_curr: subcurr,
-				_next: next,
-				_last: last,
-				_pos: pos,
-				env: ctx.env
-			}, children[0][1], cb);
+  var next = ctx._next;
+  var last;
+  var pos = 1;
+  var result = Fleur.EmptySequence;
+  var subcurr;
+  if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+    last = next.childNodes.length;
+    subcurr = next.childNodes.shift();
+    if (next.childNodes.length === 1) {
+      next = next.childNodes[0];
+    }
+  } else {
+    subcurr = next;
+    next = Fleur.EmptySequence;
+    last = 1;
+  }
+  var cb = function(n, eob) {
+    if (eob === Fleur.XQueryX.predicate) {
+      Fleur.callback(function() {callback(n, Fleur.XQueryX.predicate);});
+      return;
+    }
+    if ((n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes.length !== 0) ||
+      (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_boolean && n.data !== "false") ||
+      (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_integer && parseInt(n.data, 10) === pos) ||
+      (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_string && n.data !== "") ||
+      (n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.TEXT_NODE)) {
+      if (result === Fleur.EmptySequence) {
+        result = subcurr;
+      } else {
+        if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+          var seq = new Fleur.Sequence();
+          seq.childNodes = new Fleur.NodeList();
+          seq.children = new Fleur.NodeList();
+          seq.textContent = "";
+          seq.appendChild(result);
+          result = seq;
+        }
+        result.appendChild(subcurr);
+      }
+    }
+    if (next === Fleur.EmptySequence) {
+      if (children.length === 1 || result === Fleur.EmptySequence) {
+        Fleur.callback(function() {callback(result, Fleur.XQueryX.predicate);});
+        return;
+      }
+      children.shift();
+      next = result;
+      result = Fleur.EmptySequence;
+      pos = 1;
+      if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        last = next.childNodes.length;
+        subcurr = next.childNodes.shift();
+        if (next.childNodes.length === 1) {
+          next = next.childNodes[0];
+        }
+      } else {
+        subcurr = next;
+        next = Fleur.EmptySequence;
+        last = 1;
+      }
+      Fleur.XQueryEngine[children[0][0]]({
+            _curr: subcurr,
+            _next: next,
+            _last: last,
+            _pos: pos,
+            env: ctx.env
+          }, children[0][1], cb);
+      return;
+    }
+    if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+      subcurr = next.childNodes.shift();
+      if (next.childNodes.length === 1) {
+        next = next.childNodes[0];
+      }
+    } else {
+      subcurr = next;
+      next = Fleur.EmptySequence;
+    }
+    pos++;
+    Fleur.XQueryEngine[children[0][0]]({
+          _curr: subcurr,
+          _next: next,
+          _last: last,
+          _pos: pos,
+          env: ctx.env
+        }, children[0][1], cb);
+  };
+  Fleur.XQueryEngine[children[0][0]]({
+        _curr: subcurr,
+        _next: next,
+        _last: last,
+        _pos: pos,
+        env: ctx.env
+      }, children[0][1], cb);
 };
 Fleur.Context.xqx_predicateExpr_ = function(ctx, pos, last, item, f) {
-	ctx.position = pos;
-	ctx.item = item;
-	ctx.path = item;
-	ctx.last = last;
-	f(ctx);
-	if (ctx.item.hasNumericType()) {
-		if (Number(ctx.item.data) === pos) {
-			return item;
-		}
-		return new Fleur.Sequence();
-	}
-	if (ctx.fn_boolean_1().item.data === "true") {
-		return item;
-	}
-	return new Fleur.Sequence();
+  ctx.position = pos;
+  ctx.item = item;
+  ctx.path = item;
+  ctx.last = last;
+  f(ctx);
+  if (ctx.item.hasNumericType()) {
+    if (Number(ctx.item.data) === pos) {
+      return item;
+    }
+    return new Fleur.Sequence();
+  }
+  if (ctx.fn_boolean_1().item.data === "true") {
+    return item;
+  }
+  return new Fleur.Sequence();
 };
 Fleur.Context.prototype.xqx_predicateExpr = function(f) {
-	if (this.item.isSingle()) {
-		const newcontext = this.clone(this.initialpath);
-		this.item = Fleur.Context.xqx_predicateExpr_(newcontext, 1, 1, this.item, f);
-		return this;
-	}
-	const seq = new Fleur.Sequence();
-	const l = this.item.childNodes.length;
-	const children = this.item.childNodes;
-	for (let i = 0; i < l; i++) {
-		const newcontext = this.clone(this.initialpath);
-		const item = Fleur.Context.xqx_predicateExpr_(newcontext, i + 1, l, children[i], f);
-		seq.appendChild(item);
-	}
-	this.item = seq.singleton();
-	return this;
+  if (this.item.isSingle()) {
+    const newcontext = this.clone(this.initialpath);
+    this.item = Fleur.Context.xqx_predicateExpr_(newcontext, 1, 1, this.item, f);
+    return this;
+  }
+  const seq = new Fleur.Sequence();
+  const l = this.item.childNodes.length;
+  const children = this.item.childNodes;
+  for (let i = 0; i < l; i++) {
+    const newcontext = this.clone(this.initialpath);
+    const item = Fleur.Context.xqx_predicateExpr_(newcontext, i + 1, l, children[i], f);
+    seq.appendChild(item);
+  }
+  this.item = seq.singleton();
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.predicateExpr] = function(ctx, children, callback, resarr, checkvalue) {
-	var i = 0;
-	var result = new Fleur.Text();
-	result.schemaTypeInfo = Fleur.Type_boolean;
-	ctx.env.varresolver = resarr[0];
-	var cb = function(n) {
-		var currvalue = Fleur.XPathFunctions_fn["boolean#1"].jsfunc(n);
-		if (currvalue instanceof Error) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, currvalue.name, currvalue.message));});
-			return;
-		}		
-		if (currvalue === checkvalue) {
-			result.data = String(checkvalue);
-			Fleur.callback(function() {callback(result);});
-			return;
-		}		
-		i++;
-		if (i !== resarr.length) {
-			ctx.env.varresolver = resarr[i];
-			Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
-		} else {
-			result.data = String(!checkvalue);
-			Fleur.callback(function() {callback(result);});
-		}
-	};
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+  var i = 0;
+  var result = new Fleur.Text();
+  result.schemaTypeInfo = Fleur.Type_boolean;
+  ctx.env.varresolver = resarr[0];
+  var cb = function(n) {
+    var currvalue = Fleur.XPathFunctions_fn["boolean#1"].jsfunc(n);
+    if (currvalue instanceof Error) {
+      Fleur.callback(function() {callback(Fleur.error(ctx, currvalue.name, currvalue.message));});
+      return;
+    }    
+    if (currvalue === checkvalue) {
+      result.data = String(checkvalue);
+      Fleur.callback(function() {callback(result);});
+      return;
+    }    
+    i++;
+    if (i !== resarr.length) {
+      ctx.env.varresolver = resarr[i];
+      Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+    } else {
+      result.data = String(!checkvalue);
+      Fleur.callback(function() {callback(result);});
+    }
+  };
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback) {
-	var next = ctx._next;
-	var last;
-	var pos = 1;
-	var i, l, label;
-	var result = Fleur.EmptySequence;
-	var subcurr;
-	if (next.collabels) {
-		label = next.collabels[0];
-	}
-	if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		var seq = new Fleur.Sequence();
-		next.childNodes.forEach(function(child) {
-			if (child.nodeType === Fleur.Node.MULTIDIM_NODE) {
-				var md = new Fleur.Multidim();
-				child.childNodes.forEach(function(subchild) {md.appendChild(subchild);});
-				seq.appendChild(md);
-			} else {
-				seq.appendChild(child);
-			}
-		});
-		seq.collabels = next.collabels;
-		next = seq;
-		if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-			last = next.childNodes[0].childNodes.length;
-			if (last !== 1) {
-				subcurr = new Fleur.Sequence();
-				for (i = 0, l = next.childNodes.length; i < l; i++) {
-					var subitem = next.childNodes[i].childNodes.shift();
-					var multi = new Fleur.Multidim();
-					multi.appendChild(subitem);
-					subcurr.appendChild(multi);
-				}
-				subcurr.rowlabels = next.rowlabels;
-			} else {
-				subcurr = next;
-				next = Fleur.EmptySequence;
-			}
-		} else {
-			last = next.childNodes.length;
-			subcurr = next.childNodes.shift();
-			if (next.childNodes.length === 1) {
-				if (label) {
-					next.childNodes[0].collabels = next.collabels;
-				}
-				next = next.childNodes[0];
-			}
-		}
-	} else {
-		subcurr = next;
-		next = Fleur.EmptySequence;
-		last = 1;
-	}
-	var cb = function(n, eob) {
-		if (eob === Fleur.XQueryX.predicates) {
-			Fleur.callback(function() {callback(n, Fleur.XQueryX.predicates);});
-			return;
-		}
-		if (eob === Fleur.XQueryX.lookup) {
-			if (n !== Fleur.EmptySequence) {
-				if (result === Fleur.EmptySequence) {
-					result = n;
-				} else {
-					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						var seq = new Fleur.Sequence();
-						seq.childNodes = new Fleur.NodeList();
-						seq.children = new Fleur.NodeList();
-						seq.textContent = "";
-						seq.appendChild(result);
-						result = seq;
-					}
-					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						result.appendChild(n);
-					} else {
-						n.childNodes.forEach(function(n2) {
-							result.appendChild(n2);
-						});
-					}
-				}
-			}
-		} else {
-			if ((n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes.length !== 0) ||
-				(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_boolean && n.data !== "false") ||
-				(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_integer && parseInt(n.data, 10) === pos) ||
-				(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_string && n.data !== "") ||
-				(n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.TEXT_NODE)) {
-				if (result === Fleur.EmptySequence) {
-					result = subcurr;
-				} else {
-					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						var seq = new Fleur.Sequence();
-						seq.childNodes = new Fleur.NodeList();
-						seq.children = new Fleur.NodeList();
-						seq.textContent = "";
-						seq.appendChild(result);
-						result = seq;
-					}
-					result.appendChild(subcurr);
-				}
-			}
-		}
-		if (next === Fleur.EmptySequence) {
-			if (children.length === 1 || result === Fleur.EmptySequence) {
-				Fleur.callback(function() {callback(result, Fleur.XQueryX.predicates);});
-				return;
-			}
-			children.shift();
-			next = result;
-			result = Fleur.EmptySequence;
-			pos = 1;
-			if (next.collabels) {
-				label = next.collabels[0];
-			}
-			if (next !== Fleur.EmptySequence && next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-					if (next.childNodes[0].childNodes.length !== 1) {
-						subcurr = new Fleur.Sequence();
-						for (i = 0, l = next.childNodes.length; i < l; i++) {
-							var subitem = next.childNodes[i].childNodes.shift();
-							var multi = new Fleur.Multidim();
-							multi.appendChild(subitem);
-							subcurr.appendChild(multi);
-						}
-						subcurr.rowlabels = next.rowlabels;
-					} else {
-						subcurr = next;
-						next = Fleur.EmptySequence;
-					}
-				} else {
-					last = next.childNodes.length;
-					subcurr = next.childNodes.shift();
-					if (next.childNodes.length === 1) {
-						if (label) {
-							next.childNodes[0].collabels = next.collabels;
-						}
-						next = next.childNodes[0];
-					}
-				}
-			} else {
-				subcurr = next;
-				next = Fleur.EmptySequence;
-				last = 1;
-			}
-			Fleur.XQueryEngine[children[0][0]]({
-						_curr: subcurr,
-						_next: next,
-						_last: last,
-						_pos: pos,
-						_label: label,
-						env: ctx.env
-					}, children[0][1], cb);
-			return;
-		}
-		if (next.collabels) {
-			label = next.collabels[pos];
-		}
-		if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-				last = next.childNodes[0].childNodes.length;
-				if (last !== 1) {
-					subcurr = new Fleur.Sequence();
-					for (i = 0, l = next.childNodes.length; i < l; i++) {
-						var subitem = next.childNodes[i].childNodes.shift();
-						var multi = new Fleur.Multidim();
-						multi.appendChild(subitem);
-						subcurr.appendChild(multi);
-					}
-					subcurr.rowlabels = next.rowlabels;
-				} else {
-					subcurr = next;
-					next = Fleur.EmptySequence;
-				}
-			} else {
-				subcurr = next.childNodes.shift();
-				if (next.childNodes.length === 1) {
-					if (label) {
-						next.childNodes[0].collabels = next.collabels;
-					}
-					next = next.childNodes[0];
-				}
-			}
-		} else {
-			subcurr = next;
-			next = Fleur.EmptySequence;
-		}
-		pos++;
-		Fleur.XQueryEngine[children[0][0]]({
-					_curr: subcurr,
-					_item: ctx._item,
-					_next: next,
-					_last: last,
-					_pos: pos,
-					_label: label,
-					env: ctx.env
-				}, children[0][1], cb);
-	};
-	Fleur.XQueryEngine[children[0][0]]({
-				_curr: subcurr,
-				_item: ctx._item,
-				_next: next,
-				_last: last,
-				_pos: pos,
-				_label: label,
-				env: ctx.env
-			}, children[0][1], cb);
+  var next = ctx._next;
+  var last;
+  var pos = 1;
+  var i, l, label;
+  var result = Fleur.EmptySequence;
+  var subcurr;
+  if (next.collabels) {
+    label = next.collabels[0];
+  }
+  if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+    var seq = new Fleur.Sequence();
+    next.childNodes.forEach(function(child) {
+      if (child.nodeType === Fleur.Node.MULTIDIM_NODE) {
+        var md = new Fleur.Multidim();
+        child.childNodes.forEach(function(subchild) {md.appendChild(subchild);});
+        seq.appendChild(md);
+      } else {
+        seq.appendChild(child);
+      }
+    });
+    seq.collabels = next.collabels;
+    next = seq;
+    if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+      last = next.childNodes[0].childNodes.length;
+      if (last !== 1) {
+        subcurr = new Fleur.Sequence();
+        for (i = 0, l = next.childNodes.length; i < l; i++) {
+          var subitem = next.childNodes[i].childNodes.shift();
+          var multi = new Fleur.Multidim();
+          multi.appendChild(subitem);
+          subcurr.appendChild(multi);
+        }
+        subcurr.rowlabels = next.rowlabels;
+      } else {
+        subcurr = next;
+        next = Fleur.EmptySequence;
+      }
+    } else {
+      last = next.childNodes.length;
+      subcurr = next.childNodes.shift();
+      if (next.childNodes.length === 1) {
+        if (label) {
+          next.childNodes[0].collabels = next.collabels;
+        }
+        next = next.childNodes[0];
+      }
+    }
+  } else {
+    subcurr = next;
+    next = Fleur.EmptySequence;
+    last = 1;
+  }
+  var cb = function(n, eob) {
+    if (eob === Fleur.XQueryX.predicates) {
+      Fleur.callback(function() {callback(n, Fleur.XQueryX.predicates);});
+      return;
+    }
+    if (eob === Fleur.XQueryX.lookup) {
+      if (n !== Fleur.EmptySequence) {
+        if (result === Fleur.EmptySequence) {
+          result = n;
+        } else {
+          if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            var seq = new Fleur.Sequence();
+            seq.childNodes = new Fleur.NodeList();
+            seq.children = new Fleur.NodeList();
+            seq.textContent = "";
+            seq.appendChild(result);
+            result = seq;
+          }
+          if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            result.appendChild(n);
+          } else {
+            n.childNodes.forEach(function(n2) {
+              result.appendChild(n2);
+            });
+          }
+        }
+      }
+    } else {
+      if ((n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes.length !== 0) ||
+        (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_boolean && n.data !== "false") ||
+        (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_integer && parseInt(n.data, 10) === pos) ||
+        (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_string && n.data !== "") ||
+        (n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.TEXT_NODE)) {
+        if (result === Fleur.EmptySequence) {
+          result = subcurr;
+        } else {
+          if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            var seq = new Fleur.Sequence();
+            seq.childNodes = new Fleur.NodeList();
+            seq.children = new Fleur.NodeList();
+            seq.textContent = "";
+            seq.appendChild(result);
+            result = seq;
+          }
+          result.appendChild(subcurr);
+        }
+      }
+    }
+    if (next === Fleur.EmptySequence) {
+      if (children.length === 1 || result === Fleur.EmptySequence) {
+        Fleur.callback(function() {callback(result, Fleur.XQueryX.predicates);});
+        return;
+      }
+      children.shift();
+      next = result;
+      result = Fleur.EmptySequence;
+      pos = 1;
+      if (next.collabels) {
+        label = next.collabels[0];
+      }
+      if (next !== Fleur.EmptySequence && next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+          if (next.childNodes[0].childNodes.length !== 1) {
+            subcurr = new Fleur.Sequence();
+            for (i = 0, l = next.childNodes.length; i < l; i++) {
+              var subitem = next.childNodes[i].childNodes.shift();
+              var multi = new Fleur.Multidim();
+              multi.appendChild(subitem);
+              subcurr.appendChild(multi);
+            }
+            subcurr.rowlabels = next.rowlabels;
+          } else {
+            subcurr = next;
+            next = Fleur.EmptySequence;
+          }
+        } else {
+          last = next.childNodes.length;
+          subcurr = next.childNodes.shift();
+          if (next.childNodes.length === 1) {
+            if (label) {
+              next.childNodes[0].collabels = next.collabels;
+            }
+            next = next.childNodes[0];
+          }
+        }
+      } else {
+        subcurr = next;
+        next = Fleur.EmptySequence;
+        last = 1;
+      }
+      Fleur.XQueryEngine[children[0][0]]({
+            _curr: subcurr,
+            _next: next,
+            _last: last,
+            _pos: pos,
+            _label: label,
+            env: ctx.env
+          }, children[0][1], cb);
+      return;
+    }
+    if (next.collabels) {
+      label = next.collabels[pos];
+    }
+    if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+      if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+        last = next.childNodes[0].childNodes.length;
+        if (last !== 1) {
+          subcurr = new Fleur.Sequence();
+          for (i = 0, l = next.childNodes.length; i < l; i++) {
+            var subitem = next.childNodes[i].childNodes.shift();
+            var multi = new Fleur.Multidim();
+            multi.appendChild(subitem);
+            subcurr.appendChild(multi);
+          }
+          subcurr.rowlabels = next.rowlabels;
+        } else {
+          subcurr = next;
+          next = Fleur.EmptySequence;
+        }
+      } else {
+        subcurr = next.childNodes.shift();
+        if (next.childNodes.length === 1) {
+          if (label) {
+            next.childNodes[0].collabels = next.collabels;
+          }
+          next = next.childNodes[0];
+        }
+      }
+    } else {
+      subcurr = next;
+      next = Fleur.EmptySequence;
+    }
+    pos++;
+    Fleur.XQueryEngine[children[0][0]]({
+          _curr: subcurr,
+          _item: ctx._item,
+          _next: next,
+          _last: last,
+          _pos: pos,
+          _label: label,
+          env: ctx.env
+        }, children[0][1], cb);
+  };
+  Fleur.XQueryEngine[children[0][0]]({
+        _curr: subcurr,
+        _item: ctx._item,
+        _next: next,
+        _last: last,
+        _pos: pos,
+        _label: label,
+        env: ctx.env
+      }, children[0][1], cb);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.prolog] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (children.length > 1) {
-			Fleur.XQueryEngine[Fleur.XQueryX.prolog](ctx, children.slice(1), callback);
-		} else {
-			ctx.env.varresolver.globals = ctx.env.varresolver.length;
-			Fleur.callback(function() {callback(n);});
-		}
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    if (children.length > 1) {
+      Fleur.XQueryEngine[Fleur.XQueryX.prolog](ctx, children.slice(1), callback);
+    } else {
+      ctx.env.varresolver.globals = ctx.env.varresolver.length;
+      Fleur.callback(function() {callback(n);});
+    }
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.quantifiedExpr] = function(ctx, children, callback) {
-	var i = 1;
-	var prevvarres;
-	var resarr;
-	var checkvalue = children[0][1][0] === "some";
-	var cb = function(n, empty) {
-		if (n.schemaTypeInfo === Fleur.Type_error) {
-			ctx.env.varresolver = prevvarres;
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		if (empty) {
-			var result = new Fleur.Text();
-			result.schemaTypeInfo = Fleur.Type_boolean;
-			result.data = String(!checkvalue);
-			Fleur.callback(function() {callback(result);});
-			return;
-		}
-		i++;
-		if (i === children.length) {
-			ctx.env.varresolver = prevvarres;
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb, resarr, checkvalue);
-	};
-	prevvarres = ctx.env.varresolver;
-	resarr = [new Fleur.varMgr([], prevvarres)];
-	Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], cb, resarr);
+  var i = 1;
+  var prevvarres;
+  var resarr;
+  var checkvalue = children[0][1][0] === "some";
+  var cb = function(n, empty) {
+    if (n.schemaTypeInfo === Fleur.Type_error) {
+      ctx.env.varresolver = prevvarres;
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    if (empty) {
+      var result = new Fleur.Text();
+      result.schemaTypeInfo = Fleur.Type_boolean;
+      result.data = String(!checkvalue);
+      Fleur.callback(function() {callback(result);});
+      return;
+    }
+    i++;
+    if (i === children.length) {
+      ctx.env.varresolver = prevvarres;
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb, resarr, checkvalue);
+  };
+  prevvarres = ctx.env.varresolver;
+  resarr = [new Fleur.varMgr([], prevvarres)];
+  Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], cb, resarr);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.quantifiedExprInClause] = function(ctx, children, callback, resarr) {
-	var i = 0;
-	var varname = children[0][1][0][1][0];
-	ctx.env.varresolver = resarr[0];
-	var cb = function(n) {
-		if (n === Fleur.EmptySequence) {
-			resarr.splice(i, 1);
-			if (resarr.length === 0) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence, true);});
-				return;
-			}
-		} else if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-			resarr[i].set(ctx, "", varname, n);
-			i++;
-		} else {
-			n.childNodes.forEach(function(e, ie) {
-				if (ie === 0) {
-					resarr[i].set(ctx, "", varname, e);
-				} else {
-					var newres = resarr[i].clone();
-					newres.set(ctx, "", varname, e);
-					resarr.splice(i + ie, 0, newres);
-				}
-			});
-			i += n.childNodes.length;
-		}
-		if (i !== resarr.length) {
-			ctx.env.varresolver = resarr[i];
-			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
-		} else {
-			Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		}
-	};
-	Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
+  var i = 0;
+  var varname = children[0][1][0][1][0];
+  ctx.env.varresolver = resarr[0];
+  var cb = function(n) {
+    if (n === Fleur.EmptySequence) {
+      resarr.splice(i, 1);
+      if (resarr.length === 0) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence, true);});
+        return;
+      }
+    } else if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+      resarr[i].set(ctx, "", varname, n);
+      i++;
+    } else {
+      n.childNodes.forEach(function(e, ie) {
+        if (ie === 0) {
+          resarr[i].set(ctx, "", varname, e);
+        } else {
+          var newres = resarr[i].clone();
+          newres.set(ctx, "", varname, e);
+          resarr.splice(i + ie, 0, newres);
+        }
+      });
+      i += n.childNodes.length;
+    }
+    if (i !== resarr.length) {
+      ctx.env.varresolver = resarr[i];
+      Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
+    } else {
+      Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    }
+  };
+  Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.queryBody] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (children.length > 1) {
-			Fleur.XQueryEngine[Fleur.XQueryX.queryBody](ctx, children.slice(1), callback);
-		} else {
-			Fleur.callback(function() {callback(n);});
-		}
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    if (children.length > 1) {
+      Fleur.XQueryEngine[Fleur.XQueryX.queryBody](ctx, children.slice(1), callback);
+    } else {
+      Fleur.callback(function() {callback(n);});
+    }
+  });
 };
 Fleur.Transpiler.prototype.xqx_rangeSequenceExpr = function(children) {
-	return this.gen(children[0][1][0], Fleur.Type_integer) + this.gen(children[1][1][0], Fleur.Type_integer) + this.inst("xqx_rangeSequenceExpr()");
+  return this.gen(children[0][1][0], Fleur.Type_integer) + this.gen(children[1][1][0], Fleur.Type_integer) + this.inst("xqx_rangeSequenceExpr()");
 };
 Fleur.Context.prototype.xqx_rangeSequenceExpr = function() {
   const arg1 = this.itemstack.pop();
@@ -21934,190 +22265,190 @@ Fleur.Context.prototype.xqx_rangeSequenceExpr = function() {
   if (op2[0] < 0) {
     return this;
   }
-	if (op1[1] !== op2[1]) {
-		this.item = new Fleur.Sequence();
-		while (op1[1] <= op2[1]) {
-			const i = new Fleur.Text();
-			i.schemaTypeInfo = Fleur.Type_integer;
-			i.data = String(op1[1]);
-			this.item.appendChild(i);
-			op1[1]++;
-		}
+  if (op1[1] !== op2[1]) {
+    this.item = new Fleur.Sequence();
+    while (op1[1] <= op2[1]) {
+      const i = new Fleur.Text();
+      i.schemaTypeInfo = Fleur.Type_integer;
+      i.data = String(op1[1]);
+      this.item.appendChild(i);
+      op1[1]++;
+    }
 }
-	return this;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		if (a1 === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		op1 = Fleur.toJSNumber(a1);
-		if (op1[0] !== 0 && (a1.schemaTypeInfo !== Fleur.Type_untypedAtomic || Math.floor(op1[1]) !== op1[1])) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-			return;
-		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var op2;
-			var a2 = Fleur.Atomize(n);
-			if (a2 === Fleur.EmptySequence) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			op2 = Fleur.toJSNumber(a2);
-			if (op2[0] !== 0 && (a2.schemaTypeInfo !== Fleur.Type_untypedAtomic || Math.floor(op2[1]) !== op2[1])) {
-				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-				return;
-			}
-			if (op1[1] > op2[1]) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			if (op1[1] === op2[1]) {
-				a2.schemaTypeInfo = Fleur.Type_integer;
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			var result = new Fleur.Sequence();
-			result.nodeType = Fleur.Node.SEQUENCE_NODE;
-			while (op1[1] <= op2[1]) {
-				var i = new Fleur.Text();
-				i.schemaTypeInfo = Fleur.Type_integer;
-				i.data = String(op1[1]);
-				result.appendChild(i);
-				op1[1]++;
-			}
-			Fleur.callback(function() {callback(result);});
-		});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op1;
+    var a1 = Fleur.Atomize(n);
+    if (a1 === Fleur.EmptySequence) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    op1 = Fleur.toJSNumber(a1);
+    if (op1[0] !== 0 && (a1.schemaTypeInfo !== Fleur.Type_untypedAtomic || Math.floor(op1[1]) !== op1[1])) {
+      Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+      return;
+    }
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      var op2;
+      var a2 = Fleur.Atomize(n);
+      if (a2 === Fleur.EmptySequence) {
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      op2 = Fleur.toJSNumber(a2);
+      if (op2[0] !== 0 && (a2.schemaTypeInfo !== Fleur.Type_untypedAtomic || Math.floor(op2[1]) !== op2[1])) {
+        Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+        return;
+      }
+      if (op1[1] > op2[1]) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      if (op1[1] === op2[1]) {
+        a2.schemaTypeInfo = Fleur.Type_integer;
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      var result = new Fleur.Sequence();
+      result.nodeType = Fleur.Node.SEQUENCE_NODE;
+      while (op1[1] <= op2[1]) {
+        var i = new Fleur.Text();
+        i.schemaTypeInfo = Fleur.Type_integer;
+        i.data = String(op1[1]);
+        result.appendChild(i);
+        op1[1]++;
+      }
+      Fleur.callback(function() {callback(result);});
+    });
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.replaceExpr] = function(ctx, children, callback) {
-	var replaceValue = children[0][0] === Fleur.XQueryX.replaceValue ? 1 : 0;
-	Fleur.XQueryEngine[children[replaceValue][1][0][0]](ctx, children[replaceValue][1][0][1], function(target) {
-		if (target !== Fleur.EmptySequence) {
-			Fleur.XQueryEngine[children[replaceValue + 1][1][0][0]](ctx, children[replaceValue + 1][1][0][1], function(replacement) {
-				if (replaceValue === 1) {
-					var a = Fleur.Atomize(replacement);
-					target.textContent = a.data;
-					target.firstChild.schemaTypeInfo = a.schemaTypeInfo;
-				} else if (replacement === Fleur.EmptySequence) {
-					if (target.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-						target.ownerElement.removeAttributeNode(target);
-					} else if (target.nodeType === Fleur.Node.ENTRY_NODE) {
-						target.ownerMap.removeEntryNode(target);
-					} else {
-						target.parentElement.removeChild(target);
-					}
-				} else {
-					var parelt = target.nodeType === Fleur.Node.ATTRIBUTE_NODE ? target.ownerElement : target.nodeType === Fleur.Node.ENTRY_NODE ? target.ownerMap : target.nodeType === Fleur.Node.MAP_NODE ? target.parentNode : target.parentElement || target.parentNode;
-					var n2;
-					if (target.ownerDocument) {
-						if (target instanceof Fleur.Node) {
-							n2 = target.ownerDocument.importNode(replacement.nodeType === Fleur.Node.SEQUENCE_NODE ? replacement.firstChild : replacement, true);
-						} else {
-							n2 = Fleur.Document.docImportNode(target.ownerDocument, replacement.nodeType === Fleur.Node.SEQUENCE_NODE ? replacement.firstChild : replacement, true);
-						}
-					} else {
-						n2 = replacement;
-					}
-					if (target.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-						parelt.removeAttributeNode(target);
-						parelt.setAttributeNode(n2);
-					} else if (target.nodeType === Fleur.Node.ENTRY_NODE) {
-						parelt.removeEntryNode(target);
-						parelt.setEntryNode(n2);
-					} else {
-						parelt.replaceChild(n2, target);
-					}
-					if (replacement.nodeType === Fleur.Node.SEQUENCE_NODE) {
-						var n3;
-						for (var i = 1, l = replacement.childNodes.length; i < l; i++) {
-							if (parelt instanceof Fleur.Node) {
-								n3 = parelt.ownerDocument.importNode(replacement.childNodes[i], true);
-							} else {
-								n3 = Fleur.Document.docImportNode(parelt.ownerDocument, replacement.childNodes[i], true);
-							}
-							if (n3.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-								parelt.setAttributeNode(n3);
-							} else if (n3.nodeType === Fleur.Node.ENTRY_NODE) {
-								parelt.setEntryNode(n3);
-							} else {
-								parelt.insertBefore(n3, n2.followingSibling);
-							}
-						}
-					}
-				}
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-			});
-			return;
-		}
-		Fleur.callback(function() {callback(Fleur.EmptySequence);});
-	});
+  var replaceValue = children[0][0] === Fleur.XQueryX.replaceValue ? 1 : 0;
+  Fleur.XQueryEngine[children[replaceValue][1][0][0]](ctx, children[replaceValue][1][0][1], function(target) {
+    if (target !== Fleur.EmptySequence) {
+      Fleur.XQueryEngine[children[replaceValue + 1][1][0][0]](ctx, children[replaceValue + 1][1][0][1], function(replacement) {
+        if (replaceValue === 1) {
+          var a = Fleur.Atomize(replacement);
+          target.textContent = a.data;
+          target.firstChild.schemaTypeInfo = a.schemaTypeInfo;
+        } else if (replacement === Fleur.EmptySequence) {
+          if (target.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+            target.ownerElement.removeAttributeNode(target);
+          } else if (target.nodeType === Fleur.Node.ENTRY_NODE) {
+            target.ownerMap.removeEntryNode(target);
+          } else {
+            target.parentElement.removeChild(target);
+          }
+        } else {
+          var parelt = target.nodeType === Fleur.Node.ATTRIBUTE_NODE ? target.ownerElement : target.nodeType === Fleur.Node.ENTRY_NODE ? target.ownerMap : target.nodeType === Fleur.Node.MAP_NODE ? target.parentNode : target.parentElement || target.parentNode;
+          var n2;
+          if (target.ownerDocument) {
+            if (target instanceof Fleur.Node) {
+              n2 = target.ownerDocument.importNode(replacement.nodeType === Fleur.Node.SEQUENCE_NODE ? replacement.firstChild : replacement, true);
+            } else {
+              n2 = Fleur.Document.docImportNode(target.ownerDocument, replacement.nodeType === Fleur.Node.SEQUENCE_NODE ? replacement.firstChild : replacement, true);
+            }
+          } else {
+            n2 = replacement;
+          }
+          if (target.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+            parelt.removeAttributeNode(target);
+            parelt.setAttributeNode(n2);
+          } else if (target.nodeType === Fleur.Node.ENTRY_NODE) {
+            parelt.removeEntryNode(target);
+            parelt.setEntryNode(n2);
+          } else {
+            parelt.replaceChild(n2, target);
+          }
+          if (replacement.nodeType === Fleur.Node.SEQUENCE_NODE) {
+            var n3;
+            for (var i = 1, l = replacement.childNodes.length; i < l; i++) {
+              if (parelt instanceof Fleur.Node) {
+                n3 = parelt.ownerDocument.importNode(replacement.childNodes[i], true);
+              } else {
+                n3 = Fleur.Document.docImportNode(parelt.ownerDocument, replacement.childNodes[i], true);
+              }
+              if (n3.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+                parelt.setAttributeNode(n3);
+              } else if (n3.nodeType === Fleur.Node.ENTRY_NODE) {
+                parelt.setEntryNode(n3);
+              } else {
+                parelt.insertBefore(n3, n2.followingSibling);
+              }
+            }
+          }
+        }
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+      });
+      return;
+    }
+    Fleur.callback(function() {callback(Fleur.EmptySequence);});
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.returnClause] = function(ctx, children, callback, resarr) {
-	var i = 0;
-	var result = Fleur.EmptySequence;
-	ctx.env.varresolver = resarr[0];
-	var cb = function(n) {
-		var seq;
-		if (n !== Fleur.EmptySequence) {
-			if ((result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) || (n.schemaTypeInfo && n.schemaTypeInfo === Fleur.Type_error)) {
-				result = n;
-			} else {
-				if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-					seq = new Fleur.Sequence();
-					seq.childNodes = new Fleur.NodeList();
-					seq.children = new Fleur.NodeList();
-					seq.textContent = "";
-					if (result !== Fleur.EmptySequence) {
-						seq.appendChild(result);
-					}
-					result = seq;
-				}
-				if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-					result.appendChild(n);
-				} else if (n.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-					n.childNodes.forEach(function(n2, index) {
-						if (!result.childNodes[index]) {
-							result.appendChild(new Fleur.Multidim());
-						}
-						n2.childNodes.forEach(function(node) {
-							result.childNodes[index].appendChild(node);
-						});
-					});
-				} else {
-					n.childNodes.forEach(function(node) {
-						result.appendChild(node);
-					});
-				}
-				result.rowlabels = n.rowlabels;
-				result.collabels = n.collabels;
-			}
-		}
-		i++;
-		if (i !== resarr.length) {
-			ctx.env.varresolver = resarr[i];
-			Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
-		} else {
-			Fleur.callback(function() {callback(result);});
-		}
-	};
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+  var i = 0;
+  var result = Fleur.EmptySequence;
+  ctx.env.varresolver = resarr[0];
+  var cb = function(n) {
+    var seq;
+    if (n !== Fleur.EmptySequence) {
+      if ((result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) || (n.schemaTypeInfo && n.schemaTypeInfo === Fleur.Type_error)) {
+        result = n;
+      } else {
+        if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+          seq = new Fleur.Sequence();
+          seq.childNodes = new Fleur.NodeList();
+          seq.children = new Fleur.NodeList();
+          seq.textContent = "";
+          if (result !== Fleur.EmptySequence) {
+            seq.appendChild(result);
+          }
+          result = seq;
+        }
+        if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+          result.appendChild(n);
+        } else if (n.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+          n.childNodes.forEach(function(n2, index) {
+            if (!result.childNodes[index]) {
+              result.appendChild(new Fleur.Multidim());
+            }
+            n2.childNodes.forEach(function(node) {
+              result.childNodes[index].appendChild(node);
+            });
+          });
+        } else {
+          n.childNodes.forEach(function(node) {
+            result.appendChild(node);
+          });
+        }
+        result.rowlabels = n.rowlabels;
+        result.collabels = n.collabels;
+      }
+    }
+    i++;
+    if (i !== resarr.length) {
+      ctx.env.varresolver = resarr[i];
+      Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+    } else {
+      Fleur.callback(function() {callback(result);});
+    }
+  };
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
 };
 Fleur.Transpiler.prototype.xqx_rootExpr = function() {
-	return this.inst("xqx_rootExpr()");
+  return this.inst("xqx_rootExpr()");
 };
 Fleur.Context.prototype.xqx_rootExpr = function() {
-	this.item = this.path.ownerDocument || this.path;
-	return this;
+  this.item = this.path.ownerDocument || this.path;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.rootExpr] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.ownerDocument || ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.ownerDocument || ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.schemaLocation] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._result);});
+  Fleur.callback(function() {callback(ctx._result);});
 };
 Fleur.Transpiler.prototype.xqx_sequenceExpr = function(children) {
   let items = "";
@@ -22127,293 +22458,356 @@ Fleur.Transpiler.prototype.xqx_sequenceExpr = function(children) {
   return items + this.inst("xqx_sequenceExpr(" + String(children.length) + ")");
 };
 Fleur.Context.prototype.xqx_sequenceExpr = function(itemlen) {
-	const items = [];
-	if (itemlen === 0) {
-		this.itemstack.push(this.item);
-		this.item = new Fleur.Sequence();
-	} else {
-		for (let i = 1; i < itemlen; i++) {
-			items[itemlen - i - 1] = this.itemstack.pop();
-		}
-		items[itemlen - 1] = this.item;
-	}
+  const items = [];
+  if (itemlen === 0) {
+    this.itemstack.push(this.item);
+    this.item = new Fleur.Sequence();
+  } else {
+    for (let i = 1; i < itemlen; i++) {
+      items[itemlen - i - 1] = this.itemstack.pop();
+    }
+    items[itemlen - 1] = this.item;
+  }
   this.item = new Fleur.Sequence();
-	items.forEach(item => this.item.appendChild(item));
+  items.forEach(item => this.item.appendChild(item));
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callback, depth) {
-	if (!depth) {
-		depth = 0;
-	}
-	if (children.length === 0) {
-		Fleur.callback(function() {callback(Fleur.EmptySequence, depth);});
-		return;
-	}
-	var i, l;
-	var result = Fleur.EmptySequence;
-	var cb = function(n, eob) {
-		var seq;
-		if (eob === depth) {
-			if ((result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
-				result = n;
-			} else if (n !== Fleur.EmptySequence && (result.nodeType !== Fleur.Node.TEXT_NODE || result.schemaTypeInfo !== Fleur.Type_error)) {
-				if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-					seq = new Fleur.Sequence();
-					seq.childNodes = new Fleur.NodeList();
-					seq.children = new Fleur.NodeList();
-					seq.textContent = "";
-					if (result !== Fleur.EmptySequence) {
-						seq.appendChild(result);
-					}
-					result = seq;
-				}
-				if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-					result.appendChild(n);
-				} else if (result.childNodes.length !== 0 && result.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-					for (i = 0, l = result.childNodes.length; i < l; i++) {
-						n.childNodes[i].childNodes.forEach(function(child) {result.childNodes[i].appendChild(child);});
-					}
-				} else {
-					n.childNodes.forEach(function(child) {result.appendChild(child);});
-				}
-			}
-			Fleur.callback(function() {callback(result, depth);});
-			return;
-		}
-		if (children.length === 1) {
-			Fleur.callback(function() {callback(n, depth);});
-			return;
-		}
-		if ((result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
-			result = n;
-		} else if (n !== Fleur.EmptySequence && (result.nodeType !== Fleur.Node.TEXT_NODE || result.schemaTypeInfo !== Fleur.Type_error)) {
-			if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-				seq = new Fleur.Sequence();
-				seq.childNodes = new Fleur.NodeList();
-				seq.children = new Fleur.NodeList();
-				seq.textContent = "";
-				if (result !== Fleur.EmptySequence) {
-					seq.appendChild(result);
-				}
-				result = seq;
-			}
-			if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-				result.appendChild(n);
-			} else if (result.childNodes.length !== 0 && result.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-				for (i = 0, l = result.childNodes.length; i < l; i++) {
-					n.childNodes[i].childNodes.forEach(function(child) {result.childNodes[i].appendChild(child);});
-				}
-			} else {
-				n.childNodes.forEach(function(child) {result.appendChild(child);});
-			}
-		}
-		Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr](ctx, children.slice(1), cb, depth);
-	};
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb, children[0][0] === Fleur.XQueryX.sequenceExpr ? depth + 1 : depth);
+  if (!depth) {
+    depth = 0;
+  }
+  if (children.length === 0) {
+    Fleur.callback(function() {callback(Fleur.EmptySequence, depth);});
+    return;
+  }
+  var i, l;
+  var result = Fleur.EmptySequence;
+  var cb = function(n, eob) {
+    var seq;
+    if (eob === depth) {
+      if ((result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
+        result = n;
+      } else if (n !== Fleur.EmptySequence && (result.nodeType !== Fleur.Node.TEXT_NODE || result.schemaTypeInfo !== Fleur.Type_error)) {
+        if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+          seq = new Fleur.Sequence();
+          seq.childNodes = new Fleur.NodeList();
+          seq.children = new Fleur.NodeList();
+          seq.textContent = "";
+          if (result !== Fleur.EmptySequence) {
+            seq.appendChild(result);
+          }
+          result = seq;
+        }
+        if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+          result.appendChild(n);
+        } else if (result.childNodes.length !== 0 && result.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+          for (i = 0, l = result.childNodes.length; i < l; i++) {
+            n.childNodes[i].childNodes.forEach(function(child) {result.childNodes[i].appendChild(child);});
+          }
+        } else {
+          n.childNodes.forEach(function(child) {result.appendChild(child);});
+        }
+      }
+      Fleur.callback(function() {callback(result, depth);});
+      return;
+    }
+    if (children.length === 1) {
+      Fleur.callback(function() {callback(n, depth);});
+      return;
+    }
+    if ((result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
+      result = n;
+    } else if (n !== Fleur.EmptySequence && (result.nodeType !== Fleur.Node.TEXT_NODE || result.schemaTypeInfo !== Fleur.Type_error)) {
+      if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+        seq = new Fleur.Sequence();
+        seq.childNodes = new Fleur.NodeList();
+        seq.children = new Fleur.NodeList();
+        seq.textContent = "";
+        if (result !== Fleur.EmptySequence) {
+          seq.appendChild(result);
+        }
+        result = seq;
+      }
+      if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+        result.appendChild(n);
+      } else if (result.childNodes.length !== 0 && result.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+        for (i = 0, l = result.childNodes.length; i < l; i++) {
+          n.childNodes[i].childNodes.forEach(function(child) {result.childNodes[i].appendChild(child);});
+        }
+      } else {
+        n.childNodes.forEach(function(child) {result.appendChild(child);});
+      }
+    }
+    Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr](ctx, children.slice(1), cb, depth);
+  };
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb, children[0][0] === Fleur.XQueryX.sequenceExpr ? depth + 1 : depth);
+};
+Fleur.Transpiler.prototype.xqx_simpleMapExpr = function(children) {
+  const previndent = this.indent;
+  this.indent += this.step;
+  const prevasync = this.async;
+  this.async = false;
+  let result = this.funcdef(children[1][1].length === 1 && children[1][1][0][1][0][0] === Fleur.XQueryX.filterExpr ? children[1][1][0][1][0][1][0] : children[1]);
+  this.indent = previndent;
+  result = "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_simpleMapExpr" + (this.async ? "_async" : "") + "(" + result;
+  this.async = this.async || prevasync;
+  return this.gen(children[0][1].length === 1 && children[0][1][0][1][0][0] === Fleur.XQueryX.filterExpr ? children[0][1][0][1][0][1][0] : children[0]) + result + "\n" + this.indent + ");";
+};
+Fleur.Context.prototype.xqx_simpleMapExpr = function(f) {
+  if (!this.item || this.item.isSingle()) {
+    const ctx = this.clone(this.initialpath);
+    ctx.position = 1;
+    ctx.item = this.item;
+    ctx.path = this.item;
+    ctx.last = 1;
+    f(ctx);
+    this.item = ctx.item;
+    return this;
+  }
+  const seq = new Fleur.Sequence();
+  const l = this.item.childNodes.length;
+  const children = this.item.childNodes;
+  for (let i = 0; i < l; i++) {
+    const ctx = this.clone(this.initialpath);
+    ctx.position = i + 1;
+    ctx.item = children[i];
+    ctx.path = children[i];
+    ctx.last = l;
+    f(ctx);
+    seq.appendChild(ctx.item);
+  }
+  this.item = seq.singleton();
+  return this;
+};
+Fleur.Context.prototype.xqx_simpleMapExpr_async = async function(f) {
+  if (!this.item || this.item.isSingle()) {
+    const ctx = this.clone(this.initialpath);
+    ctx.position = 1;
+    ctx.item = this.item;
+    ctx.path = this.item;
+    ctx.last = 1;
+    await f(ctx);
+    this.item = ctx.item;
+    return this;
+  }
+  const seq = new Fleur.Sequence();
+  const l = this.item.childNodes.length;
+  const children = this.item.childNodes;
+  for (let i = 0; i < l; i++) {
+    const ctx = this.clone(this.initialpath);
+    ctx.position = i + 1;
+    ctx.item = children[i];
+    ctx.path = children[i];
+    ctx.last = l;
+    await f(ctx);
+    seq.appendChild(ctx.item);
+  }
+  this.item = seq.singleton();
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var subcurr, next, last, pos = 1, result = Fleur.EmptySequence;
-		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		next = n;
-		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			next = new Fleur.Sequence();
-			next.childNodes = new Fleur.NodeList();
-			for (var i = 0, l = n.childNodes.length; i < l; i++) {
-				next.appendChild(n.childNodes[i]);
-			}
-			next.rowlabels = n.rowlabels;
-			next.collabels = n.collabels;
-			if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-				last = next.childNodes[0].childNodes.length;
-				if (last !== 1) {
-					subcurr = new Fleur.Sequence();
-					for (i = 0, l = next.childNodes.length; i < l; i++) {
-						var subitem = next.childNodes[i].childNodes.shift();
-						var multi = new Fleur.Multidim();
-						multi.appendChild(subitem);
-						subcurr.appendChild(multi);
-					}
-					subcurr.rowlabels = next.rowlabels;
-				} else {
-					subcurr = next;
-					next = Fleur.EmptySequence;
-				}
-			} else {
-				last = next.childNodes.length;
-				subcurr = next.childNodes.shift();
-				if (next.childNodes.length === 1) {
-					next = next.childNodes[0];
-				}
-				subcurr.rowlabels = next.rowlabels;
-			}
-		} else {
-			subcurr = next;
-			next = Fleur.EmptySequence;
-			last = 1;
-		}
-		var cb = function(n) {
-			if (n !== Fleur.EmptySequence) {
-				if (result === Fleur.EmptySequence) {
-					result = n;
-				} else {
-					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						var seq = new Fleur.Sequence();
-						seq.childNodes = new Fleur.NodeList();
-						seq.children = new Fleur.NodeList();
-						seq.textContent = "";
-						seq.appendChild(result);
-						result = seq;
-					}
-					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						result.appendChild(n);
-					} else {
-						n.childNodes.forEach(function(node) {
-							result.appendChild(node);
-						});
-					}
-				}
-			}
-			if (next === Fleur.EmptySequence) {
-				Fleur.callback(function() {callback(result, Fleur.XQueryX.simpleMapExpr);});
-				return;
-			}
-			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
-					if (next.childNodes[0].childNodes.length !== 1) {
-						subcurr = new Fleur.Sequence();
-						for (i = 0, l = next.childNodes.length; i < l; i++) {
-							var subitem = next.childNodes[i].childNodes.shift();
-							var multi = new Fleur.Multidim();
-							multi.appendChild(subitem);
-							subcurr.appendChild(multi);
-						}
-						subcurr.rowlabels = next.rowlabels;
-					} else {
-						subcurr = next;
-						next = Fleur.EmptySequence;
-					}
-				} else {
-					subcurr = next.childNodes.shift();
-					if (next.childNodes.length === 1) {
-						next = next.childNodes[0];
-					}
-					subcurr.rowlabels = next.rowlabels;
-				}
-			} else {
-				subcurr = next;
-				next = Fleur.EmptySequence;
-			}
-			pos++;
-			Fleur.XQueryEngine[children[1][0]]({
-				_curr: subcurr,
-				_item: subcurr,
-				_next: next,
-				_last: last,
-				_pos: pos,
-				env: ctx.env
-			}, children[1][1], cb);
-		};
-		Fleur.XQueryEngine[children[1][0]]({
-			_curr: subcurr,
-			_item: subcurr,
-			_next: next,
-			_last: last,
-			_pos: pos,
-			env: ctx.env
-		}, children[1][1], cb);
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    var subcurr, next, last, pos = 1, result = Fleur.EmptySequence;
+    if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    next = n;
+    if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+      next = new Fleur.Sequence();
+      next.childNodes = new Fleur.NodeList();
+      for (var i = 0, l = n.childNodes.length; i < l; i++) {
+        next.appendChild(n.childNodes[i]);
+      }
+      next.rowlabels = n.rowlabels;
+      next.collabels = n.collabels;
+      if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+        last = next.childNodes[0].childNodes.length;
+        if (last !== 1) {
+          subcurr = new Fleur.Sequence();
+          for (i = 0, l = next.childNodes.length; i < l; i++) {
+            var subitem = next.childNodes[i].childNodes.shift();
+            var multi = new Fleur.Multidim();
+            multi.appendChild(subitem);
+            subcurr.appendChild(multi);
+          }
+          subcurr.rowlabels = next.rowlabels;
+        } else {
+          subcurr = next;
+          next = Fleur.EmptySequence;
+        }
+      } else {
+        last = next.childNodes.length;
+        subcurr = next.childNodes.shift();
+        if (next.childNodes.length === 1) {
+          next = next.childNodes[0];
+        }
+        subcurr.rowlabels = next.rowlabels;
+      }
+    } else {
+      subcurr = next;
+      next = Fleur.EmptySequence;
+      last = 1;
+    }
+    var cb = function(n) {
+      if (n !== Fleur.EmptySequence) {
+        if (result === Fleur.EmptySequence) {
+          result = n;
+        } else {
+          if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            var seq = new Fleur.Sequence();
+            seq.childNodes = new Fleur.NodeList();
+            seq.children = new Fleur.NodeList();
+            seq.textContent = "";
+            seq.appendChild(result);
+            result = seq;
+          }
+          if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            result.appendChild(n);
+          } else {
+            n.childNodes.forEach(function(node) {
+              result.appendChild(node);
+            });
+          }
+        }
+      }
+      if (next === Fleur.EmptySequence) {
+        Fleur.callback(function() {callback(result, Fleur.XQueryX.simpleMapExpr);});
+        return;
+      }
+      if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+          if (next.childNodes[0].childNodes.length !== 1) {
+            subcurr = new Fleur.Sequence();
+            for (i = 0, l = next.childNodes.length; i < l; i++) {
+              var subitem = next.childNodes[i].childNodes.shift();
+              var multi = new Fleur.Multidim();
+              multi.appendChild(subitem);
+              subcurr.appendChild(multi);
+            }
+            subcurr.rowlabels = next.rowlabels;
+          } else {
+            subcurr = next;
+            next = Fleur.EmptySequence;
+          }
+        } else {
+          subcurr = next.childNodes.shift();
+          if (next.childNodes.length === 1) {
+            next = next.childNodes[0];
+          }
+          subcurr.rowlabels = next.rowlabels;
+        }
+      } else {
+        subcurr = next;
+        next = Fleur.EmptySequence;
+      }
+      pos++;
+      Fleur.XQueryEngine[children[1][0]]({
+        _curr: subcurr,
+        _item: subcurr,
+        _next: next,
+        _last: last,
+        _pos: pos,
+        env: ctx.env
+      }, children[1][1], cb);
+    };
+    Fleur.XQueryEngine[children[1][0]]({
+      _curr: subcurr,
+      _item: subcurr,
+      _next: next,
+      _last: last,
+      _pos: pos,
+      env: ctx.env
+    }, children[1][1], cb);
+  });
 };
 Fleur.Transpiler.prototype.xqx_stepExpr = function(children) {
-	let result = "";
-	for (let i = 0, l = children.length; i < l; i++) {
-		if (children[i][0] !== Fleur.XQueryX.predicates) {
-			result += this.gen(children[i]);
-		}
-	}
-	return result;
+  let result = "";
+  for (let i = 0, l = children.length; i < l; i++) {
+    if (children[i][0] !== Fleur.XQueryX.predicates) {
+      result += this.gen(children[i]);
+    }
+  }
+  return result;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
-	var next;
-	var result = Fleur.EmptySequence;
-	var cb = function(n, eob) {
-		var subcurr;
-		if (eob === Fleur.XQueryX.stepExpr) {
-			if (n !== Fleur.EmptySequence) {
-				if (result === Fleur.EmptySequence || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
-					result = n;
-				} else {
-					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						var seq = new Fleur.Sequence();
-						seq.childNodes = new Fleur.NodeList();
-						seq.children = new Fleur.NodeList();
-						seq.textContent = "";
-						seq.appendChild(result);
-						result = seq;
-					}
-					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						result.appendChild(n);
-					} else {
-						n.childNodes.forEach(function(node) {
-							result.appendChild(node);
-						});
-					}
-				}
-			}
-			n = next;
-		}
-		if (n === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(result, Fleur.XQueryX.stepExpr);});
-			return;
-		}
-		if (children.length === 1) {
-			Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
-			return;
-		}
-		if (children.length > 1 && (children[1][0] === Fleur.XQueryX.predicates || children[1][0] === Fleur.XQueryX.predicate || children[1][0] === Fleur.XQueryX.lookup)) {
-			Fleur.callback(function() {next = Fleur.EmptySequence; cb(n, Fleur.XQueryX.stepExpr);});
-			return;
-		}
-		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			subcurr = n.childNodes.shift();
-			if (n.childNodes.length === 1) {
-				n = n.childNodes[0];
-			}
-		} else {
-			subcurr = n;
-			n = Fleur.EmptySequence;
-		}
-		next = n;
-		Fleur.XQueryEngine[Fleur.XQueryX.stepExpr]({
-				_curr: subcurr,
-				_item: ctx._item,
-				env: ctx.env
-			}, children.slice(1), cb);
-	};
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+  var next;
+  var result = Fleur.EmptySequence;
+  var cb = function(n, eob) {
+    var subcurr;
+    if (eob === Fleur.XQueryX.stepExpr) {
+      if (n !== Fleur.EmptySequence) {
+        if (result === Fleur.EmptySequence || (n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_error)) {
+          result = n;
+        } else {
+          if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            var seq = new Fleur.Sequence();
+            seq.childNodes = new Fleur.NodeList();
+            seq.children = new Fleur.NodeList();
+            seq.textContent = "";
+            seq.appendChild(result);
+            result = seq;
+          }
+          if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+            result.appendChild(n);
+          } else {
+            n.childNodes.forEach(function(node) {
+              result.appendChild(node);
+            });
+          }
+        }
+      }
+      n = next;
+    }
+    if (n === Fleur.EmptySequence) {
+      Fleur.callback(function() {callback(result, Fleur.XQueryX.stepExpr);});
+      return;
+    }
+    if (children.length === 1) {
+      Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
+      return;
+    }
+    if (children.length > 1 && (children[1][0] === Fleur.XQueryX.predicates || children[1][0] === Fleur.XQueryX.predicate || children[1][0] === Fleur.XQueryX.lookup)) {
+      Fleur.callback(function() {next = Fleur.EmptySequence; cb(n, Fleur.XQueryX.stepExpr);});
+      return;
+    }
+    if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+      subcurr = n.childNodes.shift();
+      if (n.childNodes.length === 1) {
+        n = n.childNodes[0];
+      }
+    } else {
+      subcurr = n;
+      n = Fleur.EmptySequence;
+    }
+    next = n;
+    Fleur.XQueryEngine[Fleur.XQueryX.stepExpr]({
+        _curr: subcurr,
+        _item: ctx._item,
+        env: ctx.env
+      }, children.slice(1), cb);
+  };
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
 };
 Fleur.Transpiler.prototype.xqx_stringConstantExpr = function(children) {
-	return this.inst("xqx_stringConstantExpr('" + (children[0][1][0] || "").replace(/\'/g, "\\'") + "')");
+  return this.inst("xqx_stringConstantExpr('" + (children[0][1][0] || "").replace(/\'/g, "\\'") + "')");
 };
 Fleur.Context.prototype.xqx_stringConstantExpr = function(arg) {
   this.itemstack.push(this.item);
-	const item = new Fleur.Text();
-	item.appendData(arg || "");
-	item.schemaTypeInfo = Fleur.Type_string;
+  const item = new Fleur.Text();
+  item.appendData(arg || "");
+  item.schemaTypeInfo = Fleur.Type_string;
   this.item = item;
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.stringConstantExpr] = function(ctx, children, callback) {
-	var n = new Fleur.Text();
-	n.appendData(children[0][1][0] || "");
-	n.schemaTypeInfo = Fleur.Type_string;
-	Fleur.callback(function() {callback(n);});
+  var n = new Fleur.Text();
+  n.appendData(children[0][1][0] || "");
+  n.schemaTypeInfo = Fleur.Type_string;
+  Fleur.callback(function() {callback(n);});
 };
 Fleur.Transpiler.prototype.xqx_textTest = function() {
-	return this.inst("xqx_textTest()");
+  return this.inst("xqx_textTest()");
 };
 Fleur.Context.prototype.xqx_textTest = function() {
   let item = new Fleur.Sequence();
@@ -22431,164 +22825,164 @@ Fleur.Context.prototype.xqx_textTest = function() {
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.textTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.TEXT_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.TEXT_NODE ? Fleur.EmptySequence : ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.treatExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var seqtype = children[1][1];
-		var occurrence = "1";
-		var e = Fleur.error(ctx, "XPDY0050");
-		if (seqtype.length === 2) {
-			occurrence = seqtype[1][1][0];
-		}
-		if (n !== Fleur.EmptySequence) {
-			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				if (occurrence === "1" || occurrence === "?") {
-					Fleur.callback(function() {callback(e);});
-				} else {
-					var i = 0;
-					var l = n.childNodes.length;
-					var cb = function(n2) {
-						if (n2 === Fleur.EmptySequence) {
-							Fleur.callback(function() {callback(e);});
-							return;
-						}
-						i++;
-						if (i === l) {
-							Fleur.callback(function() {callback(n);});
-							return;
-						}
-						Fleur.XQueryEngine[seqtype[0][0]]({
-							_curr: n.childNodes[i],
-							env: ctx.env
-						}, seqtype[0][1], cb);
-					};
-					Fleur.XQueryEngine[seqtype[0][0]]({
-						_curr: n.childNodes[i],
-						env: ctx.env
-					}, seqtype[0][1], cb);
-				}
-			} else {
-				Fleur.XQueryEngine[seqtype[0][0]]({
-					_curr: n,
-					env: ctx.env
-				}, seqtype[0][1], function(n2) {
-					Fleur.callback(function() {callback(n2 !== Fleur.EmptySequence ? n : e);});
-				});
-			}
-		} else if (occurrence === "1" || occurrence === "+") {
-			Fleur.callback(function() {callback(e);});
-		}
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var seqtype = children[1][1];
+    var occurrence = "1";
+    var e = Fleur.error(ctx, "XPDY0050");
+    if (seqtype.length === 2) {
+      occurrence = seqtype[1][1][0];
+    }
+    if (n !== Fleur.EmptySequence) {
+      if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+        if (occurrence === "1" || occurrence === "?") {
+          Fleur.callback(function() {callback(e);});
+        } else {
+          var i = 0;
+          var l = n.childNodes.length;
+          var cb = function(n2) {
+            if (n2 === Fleur.EmptySequence) {
+              Fleur.callback(function() {callback(e);});
+              return;
+            }
+            i++;
+            if (i === l) {
+              Fleur.callback(function() {callback(n);});
+              return;
+            }
+            Fleur.XQueryEngine[seqtype[0][0]]({
+              _curr: n.childNodes[i],
+              env: ctx.env
+            }, seqtype[0][1], cb);
+          };
+          Fleur.XQueryEngine[seqtype[0][0]]({
+            _curr: n.childNodes[i],
+            env: ctx.env
+          }, seqtype[0][1], cb);
+        }
+      } else {
+        Fleur.XQueryEngine[seqtype[0][0]]({
+          _curr: n,
+          env: ctx.env
+        }, seqtype[0][1], function(n2) {
+          Fleur.callback(function() {callback(n2 !== Fleur.EmptySequence ? n : e);});
+        });
+      }
+    } else if (occurrence === "1" || occurrence === "+") {
+      Fleur.callback(function() {callback(e);});
+    }
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.tryCatchExpr] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		if (n && n.schemaTypeInfo === Fleur.Type_error) {
-			for (var i = 1, l = children.length; i < l ; i++) {
-				for (var j = 0, l2 = children[i][1][0][1].length; j < l2 ; j++) {
-					var ctest = children[i][1][0][1][j];
-					var cok = false;
-					if (ctest[0] === Fleur.XQueryX.Wildcard) {
-						cok = true;
-						if (ctest[1][0]) {
-							if (ctest[1][0][0] === Fleur.XQueryX.star && ctest[1][1][0] === Fleur.XQueryX.NCName) {
-								cok = n.localName === ctest[1][1][1][0];
-							}
-						}
-					} else {
-						cok = ctest[1][0] === n.localName;
-						var nsURI;
-						if (ctest[1][1].length === 1) {
-							nsURI = "";
-						} else {
-							nsURI = ctest[1][1][1][0];
-						}
-						var currURI = n.namespaceURI || null;
-						var lookupURI = ctx.env.nsresolver.lookupNamespaceURI(nsURI) || null;
-						if (currURI !==  lookupURI && currURI !== "http://www.w3.org/1999/xhtml") {
-							cok = false;
-						}
-					}
-					if (cok) {
-						var errcode = new Fleur.Text();
-						errcode.data = n.localName;
-						errcode.schemaTypeInfo = Fleur.Type_string;
-						ctx.env.varresolver.set(ctx, "http://www.w3.org/2005/xqt-errors", "code", errcode);
-						var errdescription = new Fleur.Text();
-						errdescription.data = n.data;
-						errdescription.schemaTypeInfo = Fleur.Type_string;
-						ctx.env.varresolver.set(ctx, "http://www.w3.org/2005/xqt-errors", "description", errdescription);
-						Fleur.XQueryEngine[children[i][1][1][1][0][0]](ctx, children[i][1][1][1][0][1], function(n) {
-							Fleur.callback(function() {callback(n);});
-						});
-						return;
-					}
-				}
-			}
-			Fleur.callback(function() {callback(n);});
-			return;
-		} 
-		Fleur.callback(function() {callback(n);});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    if (n && n.schemaTypeInfo === Fleur.Type_error) {
+      for (var i = 1, l = children.length; i < l ; i++) {
+        for (var j = 0, l2 = children[i][1][0][1].length; j < l2 ; j++) {
+          var ctest = children[i][1][0][1][j];
+          var cok = false;
+          if (ctest[0] === Fleur.XQueryX.Wildcard) {
+            cok = true;
+            if (ctest[1][0]) {
+              if (ctest[1][0][0] === Fleur.XQueryX.star && ctest[1][1][0] === Fleur.XQueryX.NCName) {
+                cok = n.localName === ctest[1][1][1][0];
+              }
+            }
+          } else {
+            cok = ctest[1][0] === n.localName;
+            var nsURI;
+            if (ctest[1][1].length === 1) {
+              nsURI = "";
+            } else {
+              nsURI = ctest[1][1][1][0];
+            }
+            var currURI = n.namespaceURI || null;
+            var lookupURI = ctx.env.nsresolver.lookupNamespaceURI(nsURI) || null;
+            if (currURI !==  lookupURI && currURI !== "http://www.w3.org/1999/xhtml") {
+              cok = false;
+            }
+          }
+          if (cok) {
+            var errcode = new Fleur.Text();
+            errcode.data = n.localName;
+            errcode.schemaTypeInfo = Fleur.Type_string;
+            ctx.env.varresolver.set(ctx, "http://www.w3.org/2005/xqt-errors", "code", errcode);
+            var errdescription = new Fleur.Text();
+            errdescription.data = n.data;
+            errdescription.schemaTypeInfo = Fleur.Type_string;
+            ctx.env.varresolver.set(ctx, "http://www.w3.org/2005/xqt-errors", "description", errdescription);
+            Fleur.XQueryEngine[children[i][1][1][1][0][0]](ctx, children[i][1][1][1][0][1], function(n) {
+              Fleur.callback(function() {callback(n);});
+            });
+            return;
+          }
+        }
+      }
+      Fleur.callback(function() {callback(n);});
+      return;
+    } 
+    Fleur.callback(function() {callback(n);});
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.unaryLookup] = function(ctx, children, callback) {
-	Fleur.XQueryEngine.lookups(ctx, children, callback, Fleur.XQueryX.unaryLookup);
+  Fleur.XQueryEngine.lookups(ctx, children, callback, Fleur.XQueryX.unaryLookup);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.uri] = function(ctx, children) {
 };
 Fleur.XQueryEngine[Fleur.XQueryX.varDecl] = function(ctx, children, callback) {
-	var vname = children[0][1][0];
-	var uri = "";
-	var prefix = null;
-	if (children[0][1][1]) {
-		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
-			uri = children[0][1][1][1][0];
-		} else if (children[0][1][1][0] === Fleur.XQueryX.prefix) {
-			prefix = children[0][1][1][1][0];
-			uri = ctx.env.nsresolver.lookupNamespaceURI(prefix);
-		}
-	}
-	if (children[1][0] === Fleur.XQueryX.external) {
-		if (ctx.env.args && ctx.env.args[vname]) {
-			var n = new Fleur.Text();
-			n.data = ctx.env.args[vname];
-			n.schemaTypeInfo = Fleur.Type_untypedAtomic;
-			ctx.env.globalvarresolver.set(ctx, uri, vname, n);
-			Fleur.callback(function() {callback();});
-		} else if (children.length === 3) {
-			Fleur.XQueryEngine[children[2][1][0][0]](ctx, children[2][1][0][1], function(n) {
-				ctx.env.globalvarresolver.set(ctx, uri, vname, n);
-				Fleur.callback(function() {callback();});
-			});
-		} else {
-			callback(Fleur.error(ctx, "XPDY0002"));
-		}
-	} else {
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			ctx.env.globalvarresolver.set(ctx, uri, vname, n);
-			Fleur.callback(function() {callback();});
-		});
-	}
+  var vname = children[0][1][0];
+  var uri = "";
+  var prefix = null;
+  if (children[0][1][1]) {
+    if (children[0][1][1][0] === Fleur.XQueryX.URI) {
+      uri = children[0][1][1][1][0];
+    } else if (children[0][1][1][0] === Fleur.XQueryX.prefix) {
+      prefix = children[0][1][1][1][0];
+      uri = ctx.env.nsresolver.lookupNamespaceURI(prefix);
+    }
+  }
+  if (children[1][0] === Fleur.XQueryX.external) {
+    if (ctx.env.args && ctx.env.args[vname]) {
+      var n = new Fleur.Text();
+      n.data = ctx.env.args[vname];
+      n.schemaTypeInfo = Fleur.Type_untypedAtomic;
+      ctx.env.globalvarresolver.set(ctx, uri, vname, n);
+      Fleur.callback(function() {callback();});
+    } else if (children.length === 3) {
+      Fleur.XQueryEngine[children[2][1][0][0]](ctx, children[2][1][0][1], function(n) {
+        ctx.env.globalvarresolver.set(ctx, uri, vname, n);
+        Fleur.callback(function() {callback();});
+      });
+    } else {
+      callback(Fleur.error(ctx, "XPDY0002"));
+    }
+  } else {
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      ctx.env.globalvarresolver.set(ctx, uri, vname, n);
+      Fleur.callback(function() {callback();});
+    });
+  }
 };
 Fleur.Transpiler.prototype.xqx_varRef = function(children) {
-	var nsURI;
-	if (children[0][1].length === 1) {
-		nsURI = "";
-	} else {
-		nsURI = children[0][1][1][1][0] + ":";
-	}
-	return this.inst("xqx_varRef('" + children[0][1][0] + "')");
+  var nsURI;
+  if (children[0][1].length === 1) {
+    nsURI = "";
+  } else {
+    nsURI = children[0][1][1][1][0] + ":";
+  }
+  return this.inst("xqx_varRef('" + children[0][1][0] + "')");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.varRef] = function(ctx, children, callback) {
-	var nsURI;
-	if (children[0][1].length === 1) {
-		nsURI = "";
-	} else {
-		nsURI = children[0][1][1][1][0];
-	}
-	var lookupURI = nsURI === "" ? "" : ctx.env.nsresolver.lookupNamespaceURI(nsURI) || "";
-	var n = ctx.env.varresolver.get(ctx, lookupURI, children[0][1][0]);
-	Fleur.callback(function() {callback(n);});
+  var nsURI;
+  if (children[0][1].length === 1) {
+    nsURI = "";
+  } else {
+    nsURI = children[0][1][1][1][0];
+  }
+  var lookupURI = nsURI === "" ? "" : ctx.env.nsresolver.lookupNamespaceURI(nsURI) || "";
+  var n = ctx.env.varresolver.get(ctx, lookupURI, children[0][1][0]);
+  Fleur.callback(function() {callback(n);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.version] = function(ctx, children) {
 };
@@ -22602,7 +22996,7 @@ Fleur.Transpiler.prototype.xqx_Wildcard = function(children) {
     }
     return this.inst("xqx_Wildcard_namespaceURI(\"" + children[0][1][0] + "\")");
   }
-	return this.inst("xqx_Wildcard()");
+  return this.inst("xqx_Wildcard()");
 };
 Fleur.Context.prototype.xqx_Wildcard = function() {
   return this.nodeTest(this.xpathAxis === Fleur.Context.XPATHAXIS_ATTRIBUTE ? Fleur.Node.ATTRIBUTE_NODE : Fleur.Node.ELEMENT_NODE, null, null);
@@ -22618,309 +23012,309 @@ Fleur.Context.prototype.xqx_Wildcard_prefix = function(prefix) {
   return this.nodeTest(this.xpathAxis === Fleur.Context.XPATHAXIS_ATTRIBUTE ? Fleur.Node.ATTRIBUTE_NODE : Fleur.Node.ELEMENT_NODE, namespaceURI, null);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.Wildcard] = function(ctx, children, callback) {
-	if (children[0]) {
-		if (children[0][0] === Fleur.XQueryX.star && children[1][0] === Fleur.XQueryX.NCName) {
-			if (ctx._curr.localName !== children[1][1][0]) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-		}
-	}
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ELEMENT_NODE && ctx._curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE && ctx._curr.nodeType !== Fleur.Node.ENTRY_NODE ? Fleur.EmptySequence : ctx._curr);});
+  if (children[0]) {
+    if (children[0][0] === Fleur.XQueryX.star && children[1][0] === Fleur.XQueryX.NCName) {
+      if (ctx._curr.localName !== children[1][1][0]) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+    }
+  }
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ELEMENT_NODE && ctx._curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE && ctx._curr.nodeType !== Fleur.Node.ENTRY_NODE ? Fleur.EmptySequence : ctx._curr);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.whereClause] = function(ctx, children, callback, resarr) {
-	var i = 0;
-	ctx.env.varresolver = resarr[0];
-	var cb = function(n) {
-		if (Fleur.XPathFunctions_fn["boolean#1"].jsfunc(n)) {
-			i++;
-		} else {
-			resarr.splice(i, 1);
-		}
-		if (i !== resarr.length) {
-			ctx.env.varresolver = resarr[i];
-			Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
-		} else {
-			Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		}
-	};
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+  var i = 0;
+  ctx.env.varresolver = resarr[0];
+  var cb = function(n) {
+    if (Fleur.XPathFunctions_fn["boolean#1"].jsfunc(n)) {
+      i++;
+    } else {
+      resarr.splice(i, 1);
+    }
+    if (i !== resarr.length) {
+      ctx.env.varresolver = resarr[i];
+      Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+    } else {
+      Fleur.callback(function() {callback(Fleur.EmptySequence);});
+    }
+  };
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
 };
 Fleur.Transpiler.prototype.xqx_xpathAxis = function(children) {
-	return this.inst("xqx_xpathAxis_" + children[0].replace(/-/g, "$_") + "()");
+  return this.inst("xqx_xpathAxis_" + children[0].replace(/-/g, "$_") + "()");
 };
 Fleur.Context.prototype.xqx_xpathAxis_ancestor = function() {
   this.xpathAxis = Fleur.Context.XPATHAXIS_ANCESTOR;
   return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_ancestor$_or$_self = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_ANCESTOR_OR_SELF;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_ANCESTOR_OR_SELF;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_attribute = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_ATTRIBUTE;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_ATTRIBUTE;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_child = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_CHILD;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_CHILD;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_descendant = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_DESCENDANT;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_DESCENDANT;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_descendant$_or$_self = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_DESCENDANT_OR_SELF;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_DESCENDANT_OR_SELF;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_following = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_FOLLOWING;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_FOLLOWING;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_following$_sibling = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_FOLLOWING_SIBLING;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_FOLLOWING_SIBLING;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_namespace = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_NAMESPACE;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_NAMESPACE;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_parent = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_PARENT;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_PARENT;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_preceding = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_PRECEDING;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_PRECEDING;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_preceding$_sibling = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_PRECEDING_SIBLING;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_PRECEDING_SIBLING;
+  return this;
 };
 Fleur.Context.prototype.xqx_xpathAxis_self = function() {
-	this.xpathAxis = Fleur.Context.XPATHAXIS_SELF;
-	return this;
+  this.xpathAxis = Fleur.Context.XPATHAXIS_SELF;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) {
-	var seq, n, i, l;
-	var curr = ctx._curr;
-	switch(children[0]) {
-		case "ancestor-or-self":
-			if (!curr.parentNode && !curr.ownerElement) {
-				Fleur.callback(function() {callback(curr);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			seq.appendChild(curr);
-			n = curr.parentNode || curr.ownerElement;
-			seq.appendChild(n);
-			n = n.parentNode;
-			while (n) {
-				seq.appendChild(n);
-				n = n.parentNode;
-			}
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "ancestor":
-			if (!curr.parentNode && !curr.ownerElement) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			n = curr.parentNode || curr.ownerElement;
-			if (!n.parentNode) {
-				Fleur.callback(function() {callback(n);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			seq.appendChild(n);
-			n = n.parentNode;
-			while (n) {
-				seq.appendChild(n);
-				n = n.parentNode;
-			}
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "attribute":
-			if (!curr.attributes || curr.attributes.length === 0) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			if (curr.attributes.length === 1 && curr.attributes[0].nodeName !== "xmlns" && curr.attributes[0].prefix !== "xmlns") {
-				Fleur.callback(function() {callback(curr.attributes[0]);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			if (curr.attributes.forEach) {
-				curr.attributes.forEach(function(a) {
-					if (a.nodeName !== "xmlns" && a.prefix !== "xmlns") {
-						seq.appendChild(a);
-					}
-				});
-			} else {
-				for (i = 0, l = curr.attributes.length; i < l; i++) {
-					if (curr.attributes[i].nodeName !== "xmlns" && curr.attributes[i].prefix !== "xmlns") {
-						seq.appendChild(curr.attributes[i]);
-					}
-				}
-			}
-			if (seq.childNodes.length === 0) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-			} else {
-				if (seq.childNodes.length === 1) {
-					seq = seq.childNodes[0];
-				}
-				Fleur.callback(function() {callback(seq);});
-			}
-			return;
-		case "entry":
-			if (!curr.entries || curr.entries.length === 0) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			if (curr.entries.length === 1) {
-				Fleur.callback(function() {callback(curr.entries[0]);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			curr.entries.forEach(function(a) {seq.appendChild(a);});
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "child":
-			if (!curr.childNodes || curr.childNodes.length === 0) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			if (curr.childNodes.length === 1) {
-				Fleur.callback(function() {callback(curr.childNodes[0]);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			if (curr.childNodes.forEach) {
-				curr.childNodes.forEach(function(a) {seq.appendChild(a);});
-			} else {
-				for (i = 0, l = curr.childNodes.length; i < l; i++) {
-					seq.appendChild(curr.childNodes[i]);
-				}
-			}
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "descendant":
-			if (!curr.childNodes || curr.childNodes.length === 0) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			if (curr.childNodes.length === 1 && curr.childNodes[0].childNodes.length === 0) {
-				Fleur.callback(function() {callback(curr.childNodes[0]);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			seq.appendDescendants(curr);
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "descendant-or-self":
-			if (!curr.childNodes || curr.childNodes.length === 0) {
-				Fleur.callback(function() {callback(curr);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			seq.appendChild(curr);
-			seq.appendDescendants(curr);
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "following":
-			if (!curr.nextSibling) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			n = curr.nextSibling;
-			if (!n.nextSibling) {
-				Fleur.callback(function() {callback(n);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			seq.appendChild(n);
-			n = n.nextSibling;
-			while (n) {
-				seq.appendChild(n);
-				seq.appendDescendants(n);
-				n = n.nextSibling;
-			}
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "following-sibling":
-			if (!curr.nextSibling) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			n = curr.nextSibling;
-			if (!n.nextSibling) {
-				Fleur.callback(function() {callback(n);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			seq.appendChild(n);
-			n = n.nextSibling;
-			while (n) {
-				seq.appendChild(n);
-				n = n.nextSibling;
-			}
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "parent":
-			Fleur.callback(function() {callback(curr.parentNode || curr.ownerElement || Fleur.EmptySequence);});
-			return;
-		case "preceding":
-			if (!curr.previousSibling) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			n = curr.previousSibling;
-			if (!n.previousSibling) {
-				Fleur.callback(function() {callback(n);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			seq.appendChild(n);
-			n = n.previousSibling;
-			while (n) {
-				seq.appendDescendantsRev(n);
-				seq.appendChild(n);
-				n = n.previousSibling;
-			}
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "preceding-sibling":
-			if (!curr.previousSibling) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence);});
-				return;
-			}
-			n = curr.previousSibling;
-			if (!n.previousSibling) {
-				Fleur.callback(function() {callback(n);});
-				return;
-			}
-			seq = new Fleur.Sequence();
-			seq.appendChild(n);
-			n = n.previousSibling;
-			while (n) {
-				seq.appendChild(n);
-				n = n.previousSibling;
-			}
-			Fleur.callback(function() {callback(seq);});
-			return;
-		case "self":
-			Fleur.callback(function() {callback(curr);});
-			return;
-	}
+  var seq, n, i, l;
+  var curr = ctx._curr;
+  switch(children[0]) {
+    case "ancestor-or-self":
+      if (!curr.parentNode && !curr.ownerElement) {
+        Fleur.callback(function() {callback(curr);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      seq.appendChild(curr);
+      n = curr.parentNode || curr.ownerElement;
+      seq.appendChild(n);
+      n = n.parentNode;
+      while (n) {
+        seq.appendChild(n);
+        n = n.parentNode;
+      }
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "ancestor":
+      if (!curr.parentNode && !curr.ownerElement) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      n = curr.parentNode || curr.ownerElement;
+      if (!n.parentNode) {
+        Fleur.callback(function() {callback(n);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      seq.appendChild(n);
+      n = n.parentNode;
+      while (n) {
+        seq.appendChild(n);
+        n = n.parentNode;
+      }
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "attribute":
+      if (!curr.attributes || curr.attributes.length === 0) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      if (curr.attributes.length === 1 && curr.attributes[0].nodeName !== "xmlns" && curr.attributes[0].prefix !== "xmlns") {
+        Fleur.callback(function() {callback(curr.attributes[0]);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      if (curr.attributes.forEach) {
+        curr.attributes.forEach(function(a) {
+          if (a.nodeName !== "xmlns" && a.prefix !== "xmlns") {
+            seq.appendChild(a);
+          }
+        });
+      } else {
+        for (i = 0, l = curr.attributes.length; i < l; i++) {
+          if (curr.attributes[i].nodeName !== "xmlns" && curr.attributes[i].prefix !== "xmlns") {
+            seq.appendChild(curr.attributes[i]);
+          }
+        }
+      }
+      if (seq.childNodes.length === 0) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+      } else {
+        if (seq.childNodes.length === 1) {
+          seq = seq.childNodes[0];
+        }
+        Fleur.callback(function() {callback(seq);});
+      }
+      return;
+    case "entry":
+      if (!curr.entries || curr.entries.length === 0) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      if (curr.entries.length === 1) {
+        Fleur.callback(function() {callback(curr.entries[0]);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      curr.entries.forEach(function(a) {seq.appendChild(a);});
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "child":
+      if (!curr.childNodes || curr.childNodes.length === 0) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      if (curr.childNodes.length === 1) {
+        Fleur.callback(function() {callback(curr.childNodes[0]);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      if (curr.childNodes.forEach) {
+        curr.childNodes.forEach(function(a) {seq.appendChild(a);});
+      } else {
+        for (i = 0, l = curr.childNodes.length; i < l; i++) {
+          seq.appendChild(curr.childNodes[i]);
+        }
+      }
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "descendant":
+      if (!curr.childNodes || curr.childNodes.length === 0) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      if (curr.childNodes.length === 1 && curr.childNodes[0].childNodes.length === 0) {
+        Fleur.callback(function() {callback(curr.childNodes[0]);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      seq.appendDescendants(curr);
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "descendant-or-self":
+      if (!curr.childNodes || curr.childNodes.length === 0) {
+        Fleur.callback(function() {callback(curr);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      seq.appendChild(curr);
+      seq.appendDescendants(curr);
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "following":
+      if (!curr.nextSibling) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      n = curr.nextSibling;
+      if (!n.nextSibling) {
+        Fleur.callback(function() {callback(n);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      seq.appendChild(n);
+      n = n.nextSibling;
+      while (n) {
+        seq.appendChild(n);
+        seq.appendDescendants(n);
+        n = n.nextSibling;
+      }
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "following-sibling":
+      if (!curr.nextSibling) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      n = curr.nextSibling;
+      if (!n.nextSibling) {
+        Fleur.callback(function() {callback(n);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      seq.appendChild(n);
+      n = n.nextSibling;
+      while (n) {
+        seq.appendChild(n);
+        n = n.nextSibling;
+      }
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "parent":
+      Fleur.callback(function() {callback(curr.parentNode || curr.ownerElement || Fleur.EmptySequence);});
+      return;
+    case "preceding":
+      if (!curr.previousSibling) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      n = curr.previousSibling;
+      if (!n.previousSibling) {
+        Fleur.callback(function() {callback(n);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      seq.appendChild(n);
+      n = n.previousSibling;
+      while (n) {
+        seq.appendDescendantsRev(n);
+        seq.appendChild(n);
+        n = n.previousSibling;
+      }
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "preceding-sibling":
+      if (!curr.previousSibling) {
+        Fleur.callback(function() {callback(Fleur.EmptySequence);});
+        return;
+      }
+      n = curr.previousSibling;
+      if (!n.previousSibling) {
+        Fleur.callback(function() {callback(n);});
+        return;
+      }
+      seq = new Fleur.Sequence();
+      seq.appendChild(n);
+      n = n.previousSibling;
+      while (n) {
+        seq.appendChild(n);
+        n = n.previousSibling;
+      }
+      Fleur.callback(function() {callback(seq);});
+      return;
+    case "self":
+      Fleur.callback(function() {callback(curr);});
+      return;
+  }
 };
 Fleur.XQueryEngine[Fleur.XQueryX.xqx] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._result);});
+  Fleur.callback(function() {callback(ctx._result);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.xqxuf] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._result);});
+  Fleur.callback(function() {callback(ctx._result);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.xsi] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._result);});
+  Fleur.callback(function() {callback(ctx._result);});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.NCName] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.QName] = function(ctx, children) {};
@@ -23051,20 +23445,20 @@ Fleur.XQueryEngine[Fleur.XQueryX.onlyEnd] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.prefix] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX["private"]] = function(ctx, children) {};
 Fleur.addOpTypes = [
-	[		 0,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 1,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 2,		 2,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 3,		 3,		 3,		 3,		-1,		-1,		-1,		-1,		-1,		-1, 	-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 6],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 7,		 7],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 8],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 7,		-1,		 9,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 7,		 8,		-1,		10]
+  [     0,     1,     2,     3,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     1,     1,     2,     3,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     2,     2,     2,     3,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+   [     3,     3,     3,     3,    -1,    -1,    -1,    -1,    -1,    -1,   -1],
+   [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+   [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,     6,     6],
+ [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,     7,     7],
+   [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,     8],
+ [    -1,    -1,    -1,    -1,    -1,    -1,     6,     7,    -1,     9,    -1],
+[    -1,    -1,    -1,    -1,    -1,    -1,     6,     7,     8,    -1,    10]
 ];
 Fleur.Transpiler.prototype.xqx_addOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_addOp()");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_addOp()");
 };
 Fleur.Context.prototype.xqx_addOp = function() {
   const arg1 = this.itemstack.pop();
@@ -23176,135 +23570,135 @@ Fleur.Context.prototype.xqx_addOp = function() {
     }
     this.item.schemaTypeInfo = Fleur.JSTypes[restype];
   } else {
-    this.item = Fleur.error(this.ctx, arg1.nodeType === Fleur.Node.ELEMENT_NODE || arg2.nodeType === Fleur.Node.ELEMENT_NODE ? "FORG0001" : "XPTY0004");
+    Fleur.XQueryError_xqt(arg1.nodeType === Fleur.Node.ELEMENT_NODE || arg2.nodeType === Fleur.Node.ELEMENT_NODE ? "FORG0001" : "XPTY0004");
   }
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n1) {
-		var op1, d;
-		var a1 = Fleur.Atomize(n1, true);
-		if (a1 === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n2) {
-			var op2;
-			var restype, res, resvalue;
-			var prevm;
-			var a2 = Fleur.Atomize(n2, true);
-			if (a2 === Fleur.EmptySequence) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			op1 = Fleur.toJSValue(a1, true, true, false, true, false, true);
-			if (op1[0] < 0) {
-				Fleur.callback(function() {callback(a1);});
-				return;
-			}
-			op2 = Fleur.toJSValue(a2, true, true, false, true, false, true);
-			if (op2[0] < 0) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			restype = Fleur.addOpTypes[op1[0]][op2[0]];
-			if (restype !== -1) {
-				if (op1[0] < 4 && op2[0] < 4) {
-					var val = typeof op1[1] === typeof op2[1] ? op1[1] + op2[1] : Number(op1[1]) + Number(op2[1]);
-					if (restype > 1) {
-						a1.data = Fleur.Type_double.canonicalize(String(val));
-					} else {
-						var precision1 = a1.data.indexOf(".") !== -1 ? a1.data.length - a1.data.indexOf(".") - 1 : 0;
-						var precision2 = a2.data.indexOf(".") !== -1 ? a2.data.length - a2.data.indexOf(".") - 1 : 0;
-						a1.data = Fleur.NumberToDecimalString(val, Math.max(precision1, precision2));
-					}
-				} else if (op1[0] === 4 && op2[0] === 4) {
-					a1.data = op1[1] + op2[1];
-				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 8) {
-					d = op1[1].d;
-					if (op2[0] === 9) {
-						prevm = d.getMonth();
-						if (op2[1].year !== 0) {
-							d.setFullYear(d.getFullYear() + op2[1].sign * op2[1].year);
-						}
-						if (op2[1].month !== 0) {
-							d.setMonth(d.getMonth() + op2[1].sign * op2[1].month);
-						}
-						if (d.getMonth() !== prevm + (op2[1].month !== 0 ? op2[1].sign * op2[1].month : 0)) {
-							d.setDate(0);
-						}
-					} else {
-						if (op2[1].day !== 0) {
-							d.setDate(d.getDate() + op2[1].sign * op2[1].day);
-						}
-						if (op2[1].hour !== 0) {
-							d.setHours(d.getHours() + op2[1].sign * op2[1].hour);
-						}
-						if (op2[1].minute !== 0) {
-							d.setMinutes(d.getMinutes() + op2[1].sign * op2[1].minute);
-						}
-						if (op2[1].second !== 0) {
-							d.setSeconds(d.getSeconds() + op2[1].sign * op2[1].second);
-						}
-					}
-					a1.data = restype === 6 ? Fleur.dateToDate({d: d, tz: op1[1].tz}) : restype === 7 ? Fleur.dateToDateTime({d: d, tz: op1[1].tz}) : Fleur.dateToTime({d: d, tz: op1[1].tz});
-				} else if (op2[0] > 5 && op2[0] < 9 && op1[0] > 8) {
-					d = op2[1].d;
-					if (op1[0] === 9) {
-						prevm = d.getMonth();
-						if (op1[1].year !== 0) {
-							d.setFullYear(d.getFullYear() + op1[1].sign * op1[1].year);
-						}
-						if (op1[1].month !== 0) {
-							d.setMonth(d.getMonth() + op1[1].sign * op1[1].month);
-						}
-						if (d.getMonth() !== prevm + (op1[1].month !== 0 ? op1[1].sign * op1[1].month : 0)) {
-							d.setDate(0);
-						}
-					} else {
-						if (op1[1].day !== 0) {
-							d.setDate(d.getDate() + op1[1].sign * op1[1].day);
-						}
-						if (op1[1].hour !== 0) {
-							d.setHours(d.getHours() + op1[1].sign * op1[1].hour);
-						}
-						if (op1[1].minute !== 0) {
-							d.setMinutes(d.getMinutes() + op1[1].sign * op1[1].minute);
-						}
-						if (op1[1].second !== 0) {
-							d.setSeconds(d.getSeconds() + op1[1].sign * op1[1].second);
-						}
-					}
-					a1.data = restype === 6 ? Fleur.dateToDate({d: d, tz: op2[1].tz}) : restype === 7 ? Fleur.dateToDateTime({d: d, tz: op2[1].tz}) : Fleur.dateToTime({d: d, tz: op2[1].tz});
-				} else if (op1[0] === 9 && op2[0] === 9) {
-					resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) + op2[1].sign * (op2[1].year * 12 + op2[1].month);
-					res = {
-						sign: resvalue < 0 ? -1 : 1,
-						year: Math.floor(Math.abs(resvalue) / 12),
-						month: Math.abs(resvalue) % 12};
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
-				} else if (op1[0] === 10 && op2[0] === 10) {
-					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) + op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-					res = {sign: resvalue < 0 ? -1 : 1};
-					resvalue = Math.abs(resvalue);
-					res.day = Math.floor(resvalue / 86400);
-					resvalue = resvalue % 86400;
-					res.hour = Math.floor(resvalue / 3600);
-					resvalue = resvalue % 3600;
-					res.minute = Math.floor(resvalue / 60);
-					res.second = resvalue % 60;
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
-				}
-				a1.schemaTypeInfo = Fleur.JSTypes[restype];
-			} else {
-				var casterr = n1.nodeType === Fleur.Node.ELEMENT_NODE || n2.nodeType === Fleur.Node.ELEMENT_NODE;
-				a1 = new Fleur.Text();
-				a1.schemaTypeInfo = Fleur.Type_error;
-				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", casterr ? "err:FORG0001" : "err:XPTY0004");
-			}
-			Fleur.callback(function() {callback(a1);});
-		});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n1) {
+    var op1, d;
+    var a1 = Fleur.Atomize(n1, true);
+    if (a1 === Fleur.EmptySequence) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n2) {
+      var op2;
+      var restype, res, resvalue;
+      var prevm;
+      var a2 = Fleur.Atomize(n2, true);
+      if (a2 === Fleur.EmptySequence) {
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      op1 = Fleur.toJSValue(a1, true, true, false, true, false, true);
+      if (op1[0] < 0) {
+        Fleur.callback(function() {callback(a1);});
+        return;
+      }
+      op2 = Fleur.toJSValue(a2, true, true, false, true, false, true);
+      if (op2[0] < 0) {
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      restype = Fleur.addOpTypes[op1[0]][op2[0]];
+      if (restype !== -1) {
+        if (op1[0] < 4 && op2[0] < 4) {
+          var val = typeof op1[1] === typeof op2[1] ? op1[1] + op2[1] : Number(op1[1]) + Number(op2[1]);
+          if (restype > 1) {
+            a1.data = Fleur.Type_double.canonicalize(String(val));
+          } else {
+            var precision1 = a1.data.indexOf(".") !== -1 ? a1.data.length - a1.data.indexOf(".") - 1 : 0;
+            var precision2 = a2.data.indexOf(".") !== -1 ? a2.data.length - a2.data.indexOf(".") - 1 : 0;
+            a1.data = Fleur.NumberToDecimalString(val, Math.max(precision1, precision2));
+          }
+        } else if (op1[0] === 4 && op2[0] === 4) {
+          a1.data = op1[1] + op2[1];
+        } else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 8) {
+          d = op1[1].d;
+          if (op2[0] === 9) {
+            prevm = d.getMonth();
+            if (op2[1].year !== 0) {
+              d.setFullYear(d.getFullYear() + op2[1].sign * op2[1].year);
+            }
+            if (op2[1].month !== 0) {
+              d.setMonth(d.getMonth() + op2[1].sign * op2[1].month);
+            }
+            if (d.getMonth() !== prevm + (op2[1].month !== 0 ? op2[1].sign * op2[1].month : 0)) {
+              d.setDate(0);
+            }
+          } else {
+            if (op2[1].day !== 0) {
+              d.setDate(d.getDate() + op2[1].sign * op2[1].day);
+            }
+            if (op2[1].hour !== 0) {
+              d.setHours(d.getHours() + op2[1].sign * op2[1].hour);
+            }
+            if (op2[1].minute !== 0) {
+              d.setMinutes(d.getMinutes() + op2[1].sign * op2[1].minute);
+            }
+            if (op2[1].second !== 0) {
+              d.setSeconds(d.getSeconds() + op2[1].sign * op2[1].second);
+            }
+          }
+          a1.data = restype === 6 ? Fleur.dateToDate({d: d, tz: op1[1].tz}) : restype === 7 ? Fleur.dateToDateTime({d: d, tz: op1[1].tz}) : Fleur.dateToTime({d: d, tz: op1[1].tz});
+        } else if (op2[0] > 5 && op2[0] < 9 && op1[0] > 8) {
+          d = op2[1].d;
+          if (op1[0] === 9) {
+            prevm = d.getMonth();
+            if (op1[1].year !== 0) {
+              d.setFullYear(d.getFullYear() + op1[1].sign * op1[1].year);
+            }
+            if (op1[1].month !== 0) {
+              d.setMonth(d.getMonth() + op1[1].sign * op1[1].month);
+            }
+            if (d.getMonth() !== prevm + (op1[1].month !== 0 ? op1[1].sign * op1[1].month : 0)) {
+              d.setDate(0);
+            }
+          } else {
+            if (op1[1].day !== 0) {
+              d.setDate(d.getDate() + op1[1].sign * op1[1].day);
+            }
+            if (op1[1].hour !== 0) {
+              d.setHours(d.getHours() + op1[1].sign * op1[1].hour);
+            }
+            if (op1[1].minute !== 0) {
+              d.setMinutes(d.getMinutes() + op1[1].sign * op1[1].minute);
+            }
+            if (op1[1].second !== 0) {
+              d.setSeconds(d.getSeconds() + op1[1].sign * op1[1].second);
+            }
+          }
+          a1.data = restype === 6 ? Fleur.dateToDate({d: d, tz: op2[1].tz}) : restype === 7 ? Fleur.dateToDateTime({d: d, tz: op2[1].tz}) : Fleur.dateToTime({d: d, tz: op2[1].tz});
+        } else if (op1[0] === 9 && op2[0] === 9) {
+          resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) + op2[1].sign * (op2[1].year * 12 + op2[1].month);
+          res = {
+            sign: resvalue < 0 ? -1 : 1,
+            year: Math.floor(Math.abs(resvalue) / 12),
+            month: Math.abs(resvalue) % 12};
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+        } else if (op1[0] === 10 && op2[0] === 10) {
+          resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) + op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+          res = {sign: resvalue < 0 ? -1 : 1};
+          resvalue = Math.abs(resvalue);
+          res.day = Math.floor(resvalue / 86400);
+          resvalue = resvalue % 86400;
+          res.hour = Math.floor(resvalue / 3600);
+          resvalue = resvalue % 3600;
+          res.minute = Math.floor(resvalue / 60);
+          res.second = resvalue % 60;
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+        }
+        a1.schemaTypeInfo = Fleur.JSTypes[restype];
+      } else {
+        var casterr = n1.nodeType === Fleur.Node.ELEMENT_NODE || n2.nodeType === Fleur.Node.ELEMENT_NODE;
+        a1 = new Fleur.Text();
+        a1.schemaTypeInfo = Fleur.Type_error;
+        a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", casterr ? "err:FORG0001" : "err:XPTY0004");
+      }
+      Fleur.callback(function() {callback(a1);});
+    });
+  });
 };
 Fleur.Transpiler.prototype.xqx_andOp = function(children) {
   let result = this.gen(children[0][1][0], Fleur.atomicTypes) + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().dropTrue()) {";
@@ -23316,49 +23710,49 @@ Fleur.Transpiler.prototype.xqx_andOp = function(children) {
   return result + "\n" + previndent + "}";
 };
 Fleur.XQueryEngine[Fleur.XQueryX.andOp] = function(ctx, children, callback) {
-	var op1;
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSBoolean(a1);
-		if (op1[0] < 0) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		if (!op1[1]) {
-			a1.data = "false";
-			a1.schemaTypeInfo = Fleur.Type_boolean;
-			Fleur.callback(function() {callback(a1);});
-		} else {
-			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-				var op2;
-				var a2 = Fleur.Atomize(n);
-				op2 = Fleur.toJSBoolean(a2);
-				if (op2[0] < 0) {
-					Fleur.callback(function() {callback(n);});
-					return;
-				}
-				a2.data = String(op2[1]);
-				a2.schemaTypeInfo = Fleur.Type_boolean;
-				Fleur.callback(function() {callback(a2);});
-			});
-		}
-	});
+  var op1;
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var a1 = Fleur.Atomize(n);
+    op1 = Fleur.toJSBoolean(a1);
+    if (op1[0] < 0) {
+      Fleur.callback(function() {callback(n);});
+      return;
+    }
+    if (!op1[1]) {
+      a1.data = "false";
+      a1.schemaTypeInfo = Fleur.Type_boolean;
+      Fleur.callback(function() {callback(a1);});
+    } else {
+      Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+        var op2;
+        var a2 = Fleur.Atomize(n);
+        op2 = Fleur.toJSBoolean(a2);
+        if (op2[0] < 0) {
+          Fleur.callback(function() {callback(n);});
+          return;
+        }
+        a2.data = String(op2[1]);
+        a2.schemaTypeInfo = Fleur.Type_boolean;
+        Fleur.callback(function() {callback(a2);});
+      });
+    }
+  });
 };
 Fleur.divOpTypes = [
-	[		 0,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 1,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 2,		 2,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 3,		 3,		 3,		 3,		-1,		-1,		-1,		-1,		-1,		-1, 	-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 9,		 9,		 9,		 9,		-1,		-1,		-1,		-1,		-1,		 3,		-1],
-	[		10,		10,		10,		10,		-1,		-1,		-1,		-1,		-1,		-1,		 3]
+  [     0,     1,     2,     3,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     1,     1,     2,     3,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     2,     2,     2,     3,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     3,     3,     3,     3,    -1,    -1,    -1,    -1,    -1,    -1,   -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     9,     9,     9,     9,    -1,    -1,    -1,    -1,    -1,     3,    -1],
+  [    10,    10,    10,    10,    -1,    -1,    -1,    -1,    -1,    -1,     3]
 ];
 Fleur.Transpiler.prototype.xqx_divOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_divOp()");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_divOp()");
 };
 Fleur.Context.prototype.xqx_divOp = function() {
   const arg1 = this.itemstack.pop();
@@ -23429,119 +23823,119 @@ Fleur.Context.prototype.xqx_divOp = function() {
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.divOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSValue(a1, true, false, false, false, false, true);
-		if (op1[0] < 0) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var op2;
-			var restype, res, resvalue;
-			var a2 = Fleur.Atomize(n);
-			op2 = Fleur.toJSValue(a2, true, false, false, true, false, true);
-			if (op2[0] < 0) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			restype = Fleur.divOpTypes[op1[0]][op2[0]];
-			if (restype !== -1) {
-				if (op1[0] < 4 && op2[0] < 4) {
-					if (isNaN(Number(op1[1]) / Number(op2[1]))) {
-						a1.data = "NaN";
-					} else if (Number(op1[1]) / Number(op2[1]) === -Infinity) {
-						a1.data = "-INF";
-					} else if (Number(op1[1]) / Number(op2[1]) === Infinity) {
-						a1.data = "INF";
-					} else if (Number(op2[1]) / Number(op1[1]) === -Infinity) {
-						a1.data = "-0";
-					} else if (Number(op2[1]) / Number(op1[1]) === Infinity) {
-						a1.data = "0";
-					} else {
-						a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(Number(op1[1]) / Number(op2[1]))) : Fleur.NumberToDecimalString(Number(op1[1]) / Number(op2[1]));
-						if (restype === 0) {
-							var newv = parseFloat(a1.data);
-							if (newv !== Math.floor(newv)) {
-								restype = 1;
-							}
-						}
-					}
-				} else if (op1[0] === 9 && op2[0] < 4) {
-					resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) / op2[1]);
-					res = {
-						sign: resvalue < 0 ? -1 : 1,
-						year: Math.floor(Math.abs(resvalue) / 12),
-						month: Math.abs(resvalue) % 12};
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
-				} else if (op1[0] === 10 && op2[0] < 4) {
-					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / op2[1];
-					res = {sign: resvalue < 0 ? -1 : 1};
-					resvalue = Math.abs(resvalue);
-					res.day = Math.floor(resvalue / 86400);
-					resvalue = resvalue % 86400;
-					res.hour = Math.floor(resvalue / 3600);
-					resvalue = resvalue % 3600;
-					res.minute = Math.floor(resvalue / 60);
-					res.second = resvalue % 60;
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
-				} else if (op1[0] === 9 && op2[0] === 9) {
-					resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) / (op2[1].sign * (op2[1].year * 12 + op2[1].month));
-					a1.data = Fleur.Type_double.canonicalize(String(resvalue));
-				} else if (op1[0] === 10 && op2[0] === 10) {
-					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / (op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second));
-					a1.data = Fleur.Type_double.canonicalize(String(resvalue));
-				}
-				a1.schemaTypeInfo = Fleur.JSTypes[restype];
-			} else {
-				a1 = new Fleur.Text();
-				a1.schemaTypeInfo = Fleur.Type_error;
-				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-			}
-			Fleur.callback(function() {callback(a1);});
-		});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op1;
+    var a1 = Fleur.Atomize(n);
+    op1 = Fleur.toJSValue(a1, true, false, false, false, false, true);
+    if (op1[0] < 0) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      var op2;
+      var restype, res, resvalue;
+      var a2 = Fleur.Atomize(n);
+      op2 = Fleur.toJSValue(a2, true, false, false, true, false, true);
+      if (op2[0] < 0) {
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      restype = Fleur.divOpTypes[op1[0]][op2[0]];
+      if (restype !== -1) {
+        if (op1[0] < 4 && op2[0] < 4) {
+          if (isNaN(Number(op1[1]) / Number(op2[1]))) {
+            a1.data = "NaN";
+          } else if (Number(op1[1]) / Number(op2[1]) === -Infinity) {
+            a1.data = "-INF";
+          } else if (Number(op1[1]) / Number(op2[1]) === Infinity) {
+            a1.data = "INF";
+          } else if (Number(op2[1]) / Number(op1[1]) === -Infinity) {
+            a1.data = "-0";
+          } else if (Number(op2[1]) / Number(op1[1]) === Infinity) {
+            a1.data = "0";
+          } else {
+            a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(Number(op1[1]) / Number(op2[1]))) : Fleur.NumberToDecimalString(Number(op1[1]) / Number(op2[1]));
+            if (restype === 0) {
+              var newv = parseFloat(a1.data);
+              if (newv !== Math.floor(newv)) {
+                restype = 1;
+              }
+            }
+          }
+        } else if (op1[0] === 9 && op2[0] < 4) {
+          resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) / op2[1]);
+          res = {
+            sign: resvalue < 0 ? -1 : 1,
+            year: Math.floor(Math.abs(resvalue) / 12),
+            month: Math.abs(resvalue) % 12};
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+        } else if (op1[0] === 10 && op2[0] < 4) {
+          resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / op2[1];
+          res = {sign: resvalue < 0 ? -1 : 1};
+          resvalue = Math.abs(resvalue);
+          res.day = Math.floor(resvalue / 86400);
+          resvalue = resvalue % 86400;
+          res.hour = Math.floor(resvalue / 3600);
+          resvalue = resvalue % 3600;
+          res.minute = Math.floor(resvalue / 60);
+          res.second = resvalue % 60;
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+        } else if (op1[0] === 9 && op2[0] === 9) {
+          resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) / (op2[1].sign * (op2[1].year * 12 + op2[1].month));
+          a1.data = Fleur.Type_double.canonicalize(String(resvalue));
+        } else if (op1[0] === 10 && op2[0] === 10) {
+          resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / (op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second));
+          a1.data = Fleur.Type_double.canonicalize(String(resvalue));
+        }
+        a1.schemaTypeInfo = Fleur.JSTypes[restype];
+      } else {
+        a1 = new Fleur.Text();
+        a1.schemaTypeInfo = Fleur.Type_error;
+        a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+      }
+      Fleur.callback(function() {callback(a1);});
+    });
+  });
 };
 Fleur.Transpiler.prototype.xqx_eqOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.eqOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.eqOp)");
 };
 Fleur.eqOp = function(op1, op2, c) {
-	if (op1[0] < 4 && op2[0] < 4) {
-		return isNaN(Number(op1[1])) && isNaN(Number(op2[1])) || Number(op1[1]) === Number(op2[1]);
-	}
-	if (op1[0] === 4 && op2[0] === 4) {
-		return c.equals(op1[1], op2[1]);
-	}
-	if (op1[0] === 5 && op2[0] === 5) {
-		return op1[1] === op2[1];
-	}
-	if (op1[0] > 5 && op1[0] < 9 && op2[0] > 5 && op2[0] < 9) {
-		var d1 = new Date(op1[1].d.getTime());
-		d1.setMinutes(d1.getMinutes() - op1[1].tz);
-		var d2 = new Date(op2[1].d.getTime());
-		d2.setMinutes(d2.getMinutes() - op2[1].tz);
-		return d1.getTime() === d2.getTime();
-	}
-	if (op1[0] === 9 && op2[0] === 9) {
-		return op1[1].sign * (op1[1].year * 12 + op1[1].month) === op2[1].sign * (op2[1].year * 12 + op2[1].month);
-	}
-	if (op1[0] === 10 && op2[0] === 10) {
-		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) === op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-	}
-	if (op1[0] === 99 && op2[0] === 99) {
-		return c.equals(op1[1], op2[1]);
-	}
-	return false;
+  if (op1[0] < 4 && op2[0] < 4) {
+    return isNaN(Number(op1[1])) && isNaN(Number(op2[1])) || Number(op1[1]) === Number(op2[1]);
+  }
+  if (op1[0] === 4 && op2[0] === 4) {
+    return c.equals(op1[1], op2[1]);
+  }
+  if (op1[0] === 5 && op2[0] === 5) {
+    return op1[1] === op2[1];
+  }
+  if (op1[0] > 5 && op1[0] < 9 && op2[0] > 5 && op2[0] < 9) {
+    var d1 = new Date(op1[1].d.getTime());
+    d1.setMinutes(d1.getMinutes() - op1[1].tz);
+    var d2 = new Date(op2[1].d.getTime());
+    d2.setMinutes(d2.getMinutes() - op2[1].tz);
+    return d1.getTime() === d2.getTime();
+  }
+  if (op1[0] === 9 && op2[0] === 9) {
+    return op1[1].sign * (op1[1].year * 12 + op1[1].month) === op2[1].sign * (op2[1].year * 12 + op2[1].month);
+  }
+  if (op1[0] === 10 && op2[0] === 10) {
+    return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) === op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+  }
+  if (op1[0] === 99 && op2[0] === 99) {
+    return c.equals(op1[1], op2[1]);
+  }
+  return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.eqOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, Fleur.eqOp, callback);
+  Fleur.XPathTestOpFunction(ctx, children, Fleur.eqOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_equalOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.eqOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.eqOp)");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.equalOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.eqOp, callback);
+  Fleur.XPathGenTestOpFunction(ctx, children, Fleur.eqOp, callback);
 };
 Fleur.Context.prototype.xqx_generalComp = function(f) {
   let arg1 = this.itemstack.pop();
@@ -23627,81 +24021,81 @@ Fleur.Context.prototype.xqx_generalComp = function(f) {
   return this;
 };
 Fleur.Transpiler.prototype.xqx_geOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.geOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.geOp)");
 };
 Fleur.geOp = function(op1, op2) {
-	if (op1[0] < 4) {
-		return op1[1] >= op2[1];
-	}
-	if (op1[0] === 4) {
-		return op1[1] >= op2[1]
-	}
-	if (op1[0] === 5) {
-		return (op1[1] === "true") >= (op2[1] === "true");
-	}
-	if (op1[0] > 5 && op1[0] < 9) {
-		var d1 = op1[1].d;
-		d1.setMinutes(d1.getMinutes() - op1[1].tz);
-		var d2 = op2[1].d;
-		d2.setMinutes(d2.getMinutes() - op2[1].tz);
-		return d1 >= d2;
-	}
-	if (op1[0] === 9) {
-		return op1[1].sign * (op1[1].year * 12 + op1[1].month) >= op2[1].sign * (op2[1].year * 12 + op2[1].month);
-	}
-	if (op1[0] === 10) {
-		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) >= op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-	}
-	return false;
+  if (op1[0] < 4) {
+    return op1[1] >= op2[1];
+  }
+  if (op1[0] === 4) {
+    return op1[1] >= op2[1]
+  }
+  if (op1[0] === 5) {
+    return (op1[1] === "true") >= (op2[1] === "true");
+  }
+  if (op1[0] > 5 && op1[0] < 9) {
+    var d1 = op1[1].d;
+    d1.setMinutes(d1.getMinutes() - op1[1].tz);
+    var d2 = op2[1].d;
+    d2.setMinutes(d2.getMinutes() - op2[1].tz);
+    return d1 >= d2;
+  }
+  if (op1[0] === 9) {
+    return op1[1].sign * (op1[1].year * 12 + op1[1].month) >= op2[1].sign * (op2[1].year * 12 + op2[1].month);
+  }
+  if (op1[0] === 10) {
+    return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) >= op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+  }
+  return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.geOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, Fleur.geOp, callback);
+  Fleur.XPathTestOpFunction(ctx, children, Fleur.geOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_greaterThanOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.gtOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.gtOp)");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.greaterThanOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.gtOp, callback);
+  Fleur.XPathGenTestOpFunction(ctx, children, Fleur.gtOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_greaterThanOrEqualOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.geOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.geOp)");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.greaterThanOrEqualOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.geOp, callback);
+  Fleur.XPathGenTestOpFunction(ctx, children, Fleur.geOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_gtOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.gtOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.gtOp)");
 };
 Fleur.gtOp = function(op1, op2) {
-	if (op1[0] < 4) {
-		return op1[1] > op2[1];
-	}
-	if (op1[0] === 4) {
-		return op1[1] > op2[1];
-	}
-	if (op1[0] === 5) {
-		return (op1[1] === "true") > (op2[1] === "true");
-	}
-	if (op1[0] > 5 && op1[0] < 9) {
-		var d1 = op1[1].d;
-		d1.setMinutes(d1.getMinutes() - op1[1].tz);
-		var d2 = op2[1].d;
-		d2.setMinutes(d2.getMinutes() - op2[1].tz);
-		return d1 > d2;
-	}
-	if (op1[0] === 9) {
-		return op1[1].sign * (op1[1].year * 12 + op1[1].month) > op2[1].sign * (op2[1].year * 12 + op2[1].month);
-	}
-	if (op1[0] === 10) {
-		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) > op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-	}
-	return false;
+  if (op1[0] < 4) {
+    return op1[1] > op2[1];
+  }
+  if (op1[0] === 4) {
+    return op1[1] > op2[1];
+  }
+  if (op1[0] === 5) {
+    return (op1[1] === "true") > (op2[1] === "true");
+  }
+  if (op1[0] > 5 && op1[0] < 9) {
+    var d1 = op1[1].d;
+    d1.setMinutes(d1.getMinutes() - op1[1].tz);
+    var d2 = op2[1].d;
+    d2.setMinutes(d2.getMinutes() - op2[1].tz);
+    return d1 > d2;
+  }
+  if (op1[0] === 9) {
+    return op1[1].sign * (op1[1].year * 12 + op1[1].month) > op2[1].sign * (op2[1].year * 12 + op2[1].month);
+  }
+  if (op1[0] === 10) {
+    return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) > op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+  }
+  return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.gtOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, Fleur.gtOp, callback);
+  Fleur.XPathTestOpFunction(ctx, children, Fleur.gtOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_idivOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_idivOp()");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_idivOp()");
 };
 Fleur.Context.prototype.xqx_idivOp = function() {
   const arg1 = this.itemstack.pop();
@@ -23715,111 +24109,111 @@ Fleur.Context.prototype.xqx_idivOp = function() {
   if (op2[0] < 0) {
     return this;
   }
-	const divres = typeof op1[1] === typeof op2[1] ? op1[1] / op2[1] : Number(op2[1]) / Number(op1[1]);
-	this.item.data = String(typeof divres === "number" ? Math.floor(divres) + (divres >= 0 ? 0 : 1) : divres + Fleur.BigInt(divres >= 0 ? 0 : 1));
-	this.item.schemaTypeInfo = Fleur.Type_integer;
-	return this;
+  const divres = typeof op1[1] === typeof op2[1] ? op1[1] / op2[1] : Number(op2[1]) / Number(op1[1]);
+  this.item.data = String(typeof divres === "number" ? Math.floor(divres) + (divres >= 0 ? 0 : 1) : divres + Fleur.BigInt(divres >= 0 ? 0 : 1));
+  this.item.schemaTypeInfo = Fleur.Type_integer;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.idivOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSNumber(a1);
-		if (op1[0] < 0) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var op2, divres;
-			var a2 = Fleur.Atomize(n);
-			op2 = Fleur.toJSNumber(a2);
-			if (op2[0] < 0) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			divres = typeof op1[1] === typeof op2[1] ? op1[1] / op2[1] : Number(op2[1]) / Number(op1[1]);
-			a1.data = String(typeof divres === "number" ? Math.floor(divres) + (divres >= 0 ? 0 : 1) : divres + Fleur.BigInt(divres >= 0 ? 0 : 1));
-			a1.schemaTypeInfo = Fleur.Type_integer;
-			Fleur.callback(function() {callback(a1);});
-		});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op1;
+    var a1 = Fleur.Atomize(n);
+    op1 = Fleur.toJSNumber(a1);
+    if (op1[0] < 0) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      var op2, divres;
+      var a2 = Fleur.Atomize(n);
+      op2 = Fleur.toJSNumber(a2);
+      if (op2[0] < 0) {
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      divres = typeof op1[1] === typeof op2[1] ? op1[1] / op2[1] : Number(op2[1]) / Number(op1[1]);
+      a1.data = String(typeof divres === "number" ? Math.floor(divres) + (divres >= 0 ? 0 : 1) : divres + Fleur.BigInt(divres >= 0 ? 0 : 1));
+      a1.schemaTypeInfo = Fleur.Type_integer;
+      Fleur.callback(function() {callback(a1);});
+    });
+  });
 };
 Fleur.Transpiler.prototype.xqx_leOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.leOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.leOp)");
 };
 Fleur.leOp = function(op1, op2) {
-	if (op1[0] < 4) {
-		return op1[1] <= op2[1];
-	}
-	if (op1[0] === 4) {
-		return op1[1] <= op2[1];
-	}
-	if (op1[0] === 5) {
-		return (op1[1] === "true") <= (op2[1] === "true");
-	}
-	if (op1[0] > 5 && op1[0] < 9) {
-		var d1 = op1[1].d;
-		d1.setMinutes(d1.getMinutes() - op1[1].tz);
-		var d2 = op2[1].d;
-		d2.setMinutes(d2.getMinutes() - op2[1].tz);
-		return d1 <= d2;
-	}
-	if (op1[0] === 9) {
-		return op1[1].sign * (op1[1].year * 12 + op1[1].month) <= op2[1].sign * (op2[1].year * 12 + op2[1].month);
-	}
-	if (op1[0] === 10) {
-		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) <= op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-	}
-	return false;
+  if (op1[0] < 4) {
+    return op1[1] <= op2[1];
+  }
+  if (op1[0] === 4) {
+    return op1[1] <= op2[1];
+  }
+  if (op1[0] === 5) {
+    return (op1[1] === "true") <= (op2[1] === "true");
+  }
+  if (op1[0] > 5 && op1[0] < 9) {
+    var d1 = op1[1].d;
+    d1.setMinutes(d1.getMinutes() - op1[1].tz);
+    var d2 = op2[1].d;
+    d2.setMinutes(d2.getMinutes() - op2[1].tz);
+    return d1 <= d2;
+  }
+  if (op1[0] === 9) {
+    return op1[1].sign * (op1[1].year * 12 + op1[1].month) <= op2[1].sign * (op2[1].year * 12 + op2[1].month);
+  }
+  if (op1[0] === 10) {
+    return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) <= op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+  }
+  return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.leOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, Fleur.leOp, callback);
+  Fleur.XPathTestOpFunction(ctx, children, Fleur.leOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_lessThanOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.ltOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.ltOp)");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.lessThanOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.ltOp, callback);
+  Fleur.XPathGenTestOpFunction(ctx, children, Fleur.ltOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_lessThanOrEqualOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.leOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.leOp)");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.lessThanOrEqualOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.leOp, callback);
+  Fleur.XPathGenTestOpFunction(ctx, children, Fleur.leOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_ltOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.ltOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.ltOp)");
 };
 Fleur.ltOp = function(op1, op2) {
-	if (op1[0] < 4) {
-		return op1[1] < op2[1];
-	}
-	if (op1[0] === 4) {
-		return op1[1] < op2[1];
-	}
-	if (op1[0] === 5) {
-		return (op1[1] === "true") < (op2[1] === "true");
-	}
-	if (op1[0] > 5 && op1[0] < 9) {
-		var d1 = op1[1].d;
-		d1.setMinutes(d1.getMinutes() - op1[1].tz);
-		var d2 = op2[1].d;
-		d2.setMinutes(d2.getMinutes() - op2[1].tz);
-		return d1 < d2;
-	}
-	if (op1[0] === 9) {
-		return op1[1].sign * (op1[1].year * 12 + op1[1].month) < op2[1].sign * (op2[1].year * 12 + op2[1].month);
-	}
-	if (op1[0] === 10) {
-		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) < op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-	}
-	return false;
+  if (op1[0] < 4) {
+    return op1[1] < op2[1];
+  }
+  if (op1[0] === 4) {
+    return op1[1] < op2[1];
+  }
+  if (op1[0] === 5) {
+    return (op1[1] === "true") < (op2[1] === "true");
+  }
+  if (op1[0] > 5 && op1[0] < 9) {
+    var d1 = op1[1].d;
+    d1.setMinutes(d1.getMinutes() - op1[1].tz);
+    var d2 = op2[1].d;
+    d2.setMinutes(d2.getMinutes() - op2[1].tz);
+    return d1 < d2;
+  }
+  if (op1[0] === 9) {
+    return op1[1].sign * (op1[1].year * 12 + op1[1].month) < op2[1].sign * (op2[1].year * 12 + op2[1].month);
+  }
+  if (op1[0] === 10) {
+    return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) < op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+  }
+  return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.ltOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, Fleur.ltOp, callback);
+  Fleur.XPathTestOpFunction(ctx, children, Fleur.ltOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_modOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_modOp()");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_modOp()");
 };
 Fleur.Context.prototype.xqx_modOp = function() {
   const arg1 = this.itemstack.pop();
@@ -23842,49 +24236,49 @@ Fleur.Context.prototype.xqx_modOp = function() {
   this.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
   return this;
 };
- Fleur.XQueryEngine[Fleur.XQueryX.modOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSNumber(a1);
-		if (op1[0] < 0) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var op2, divres;
-			var a2 = Fleur.Atomize(n);
-			op2 = Fleur.toJSNumber(a2);
-			if (op2[0] < 0) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			if (typeof op1[1] !== typeof op2[1]) {
-				op1[1] = Number(op1[1]);
-				op2[1] = Number(op2[1]);
-			}
-			divres = op1[1] / op2[1];
-			a1.data = String(op1[1] - ((typeof divres === "number" ? Math.floor(divres) : divres) + Fleur.BigInt(divres >= 0 ? 0 : 1)) * op2[1]);
-			a1.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
-			Fleur.callback(function() {callback(a1);});
-		});
-	});
+Fleur.XQueryEngine[Fleur.XQueryX.modOp] = function(ctx, children, callback) {
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op1;
+    var a1 = Fleur.Atomize(n);
+    op1 = Fleur.toJSNumber(a1);
+    if (op1[0] < 0) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      var op2, divres;
+      var a2 = Fleur.Atomize(n);
+      op2 = Fleur.toJSNumber(a2);
+      if (op2[0] < 0) {
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      if (typeof op1[1] !== typeof op2[1]) {
+        op1[1] = Number(op1[1]);
+        op2[1] = Number(op2[1]);
+      }
+      divres = op1[1] / op2[1];
+      a1.data = String(op1[1] - ((typeof divres === "number" ? Math.floor(divres) : divres) + Fleur.BigInt(divres >= 0 ? 0 : 1)) * op2[1]);
+      a1.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
+      Fleur.callback(function() {callback(a1);});
+    });
+  });
 };
 Fleur.multiplyOpTypes = [
-	[		 0,		 1,		 2,		 3,		 4,		-1,		-1,		-1,		-1,		 9,		10],
-	[		 1,		 1,		 2,		 3,		 4,		-1,		-1,		-1,		-1,		 9,		10],
-	[		 2,		 2,		 2,		 3,		 4,		-1,		-1,		-1,		-1,		 9,		10],
-	[		 3,		 3,		 3,		 3,		 4,		-1,		-1,		-1,		-1,		 9, 	10],
-	[		 4,		 4,		 4,		 4,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 9,		 9,		 9,		 9,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		10,		10,		10,		10,		-1,		-1,		-1,		-1,		-1,		-1,		-1]
+  [     0,     1,     2,     3,     4,    -1,    -1,    -1,    -1,     9,    10],
+  [     1,     1,     2,     3,     4,    -1,    -1,    -1,    -1,     9,    10],
+  [     2,     2,     2,     3,     4,    -1,    -1,    -1,    -1,     9,    10],
+  [     3,     3,     3,     3,     4,    -1,    -1,    -1,    -1,     9,   10],
+  [     4,     4,     4,     4,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     9,     9,     9,     9,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    10,    10,    10,    10,    -1,    -1,    -1,    -1,    -1,    -1,    -1]
 ];
 Fleur.Transpiler.prototype.xqx_multiplyOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_multiplyOp()");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_multiplyOp()");
 };
 Fleur.Context.prototype.xqx_multiplyOp = function() {
   const arg1 = this.itemstack.pop();
@@ -23970,133 +24364,133 @@ Fleur.Context.prototype.xqx_multiplyOp = function() {
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.multiplyOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSValue(a1, true, true, false, false, false, true);
-		if (op1[0] < 0) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var op2;
-			var restype, res, resvalue;
-			var a2 = Fleur.Atomize(n);
-			op2 = Fleur.toJSValue(a2, true, true, false, true, false, true);
-			if (op2[0] < 0) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			restype = Fleur.multiplyOpTypes[op1[0]][op2[0]];
-			if (restype !== -1) {
-				if (op1[0] < 4 && op2[0] < 4) {
-					if (isNaN(Number(op1[1]) * Number(op2[1]))) {
-						a1.data = "NaN";
-					} else if (Number(op1[1]) * Number(op2[1]) === -Infinity) {
-						a1.data = "-INF";
-					} else if (Number(op1[1]) * Number(op2[1]) === Infinity) {
-						a1.data = "INF";
-					} else if (1 / (Number(op2[1]) * Number(op1[1])) === -Infinity) {
-						a1.data = "-0";
-					} else if (1 / (Number(op2[1]) * Number(op1[1])) === Infinity) {
-						a1.data = "0";
-					} else {
-						var val = typeof op1[1] === typeof op2[1] ? op1[1] * op2[1] : Number(op1[1]) * Number(op2[1]);
-						if (restype > 1) {
-							a1.data = Fleur.Type_double.canonicalize(String(val));
-						} else {
-							var precision1 = a1.data.indexOf(".") !== -1 ? a1.data.length - a1.data.indexOf(".") - 1 : 0;
-							var precision2 = a2.data.indexOf(".") !== -1 ? a2.data.length - a2.data.indexOf(".") - 1 : 0;
-							a1.data = Fleur.NumberToDecimalString(val, precision1 + precision2);
-						}
-					}
-				} else if (op1[0] < 4 && op2[0] === 4) {
-					a1.data = op2[1].repeat(op1[1]);
-				} else if (op1[0] === 4 && op2[0] < 4) {
-					a1.data = op1[1].repeat(op2[1]);
-				} else if (op1[0] < 4 && op2[0] === 9) {
-					resvalue = op2[1].sign * Math.round((op2[1].year * 12 + op2[1].month) * Number(op1[1]));
-					res = {
-						sign: resvalue < 0 ? -1 : 1,
-						year: Math.floor(Math.abs(resvalue) / 12),
-						month: Math.abs(resvalue) % 12};
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
-				} else if (op1[0] === 9 && op2[0] < 4) {
-					resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) * Number(op2[1]));
-					res = {
-						sign: resvalue < 0 ? -1 : 1,
-						year: Math.floor(Math.abs(resvalue) / 12),
-						month: Math.abs(resvalue) % 12};
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
-				} else if (op1[0] < 4 && op2[0] === 10) {
-					resvalue = Number(op1[1]) * op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-					res = {sign: resvalue < 0 ? -1 : 1};
-					resvalue = Math.abs(resvalue);
-					res.day = Math.floor(resvalue / 86400);
-					resvalue = resvalue % 86400;
-					res.hour = Math.floor(resvalue / 3600);
-					resvalue = resvalue % 3600;
-					res.minute = Math.floor(resvalue / 60);
-					res.second = resvalue % 60;
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
-				} else if (op1[0] === 10 && op2[0] < 4) {
-					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) * Number(op2[1]);
-					res = {sign: resvalue < 0 ? -1 : 1};
-					resvalue = Math.abs(resvalue);
-					res.day = Math.floor(resvalue / 86400);
-					resvalue = resvalue % 86400;
-					res.hour = Math.floor(resvalue / 3600);
-					resvalue = resvalue % 3600;
-					res.minute = Math.floor(resvalue / 60);
-					res.second = resvalue % 60;
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
-				}
-				a1.schemaTypeInfo = Fleur.JSTypes[restype];
-			} else {
-				a1 = new Fleur.Text();
-				a1.schemaTypeInfo = Fleur.Type_error;
-				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-			}
-			Fleur.callback(function() {callback(a1);});
-		});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op1;
+    var a1 = Fleur.Atomize(n);
+    op1 = Fleur.toJSValue(a1, true, true, false, false, false, true);
+    if (op1[0] < 0) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      var op2;
+      var restype, res, resvalue;
+      var a2 = Fleur.Atomize(n);
+      op2 = Fleur.toJSValue(a2, true, true, false, true, false, true);
+      if (op2[0] < 0) {
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      restype = Fleur.multiplyOpTypes[op1[0]][op2[0]];
+      if (restype !== -1) {
+        if (op1[0] < 4 && op2[0] < 4) {
+          if (isNaN(Number(op1[1]) * Number(op2[1]))) {
+            a1.data = "NaN";
+          } else if (Number(op1[1]) * Number(op2[1]) === -Infinity) {
+            a1.data = "-INF";
+          } else if (Number(op1[1]) * Number(op2[1]) === Infinity) {
+            a1.data = "INF";
+          } else if (1 / (Number(op2[1]) * Number(op1[1])) === -Infinity) {
+            a1.data = "-0";
+          } else if (1 / (Number(op2[1]) * Number(op1[1])) === Infinity) {
+            a1.data = "0";
+          } else {
+            var val = typeof op1[1] === typeof op2[1] ? op1[1] * op2[1] : Number(op1[1]) * Number(op2[1]);
+            if (restype > 1) {
+              a1.data = Fleur.Type_double.canonicalize(String(val));
+            } else {
+              var precision1 = a1.data.indexOf(".") !== -1 ? a1.data.length - a1.data.indexOf(".") - 1 : 0;
+              var precision2 = a2.data.indexOf(".") !== -1 ? a2.data.length - a2.data.indexOf(".") - 1 : 0;
+              a1.data = Fleur.NumberToDecimalString(val, precision1 + precision2);
+            }
+          }
+        } else if (op1[0] < 4 && op2[0] === 4) {
+          a1.data = op2[1].repeat(op1[1]);
+        } else if (op1[0] === 4 && op2[0] < 4) {
+          a1.data = op1[1].repeat(op2[1]);
+        } else if (op1[0] < 4 && op2[0] === 9) {
+          resvalue = op2[1].sign * Math.round((op2[1].year * 12 + op2[1].month) * Number(op1[1]));
+          res = {
+            sign: resvalue < 0 ? -1 : 1,
+            year: Math.floor(Math.abs(resvalue) / 12),
+            month: Math.abs(resvalue) % 12};
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+        } else if (op1[0] === 9 && op2[0] < 4) {
+          resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) * Number(op2[1]));
+          res = {
+            sign: resvalue < 0 ? -1 : 1,
+            year: Math.floor(Math.abs(resvalue) / 12),
+            month: Math.abs(resvalue) % 12};
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+        } else if (op1[0] < 4 && op2[0] === 10) {
+          resvalue = Number(op1[1]) * op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+          res = {sign: resvalue < 0 ? -1 : 1};
+          resvalue = Math.abs(resvalue);
+          res.day = Math.floor(resvalue / 86400);
+          resvalue = resvalue % 86400;
+          res.hour = Math.floor(resvalue / 3600);
+          resvalue = resvalue % 3600;
+          res.minute = Math.floor(resvalue / 60);
+          res.second = resvalue % 60;
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+        } else if (op1[0] === 10 && op2[0] < 4) {
+          resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) * Number(op2[1]);
+          res = {sign: resvalue < 0 ? -1 : 1};
+          resvalue = Math.abs(resvalue);
+          res.day = Math.floor(resvalue / 86400);
+          resvalue = resvalue % 86400;
+          res.hour = Math.floor(resvalue / 3600);
+          resvalue = resvalue % 3600;
+          res.minute = Math.floor(resvalue / 60);
+          res.second = resvalue % 60;
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+        }
+        a1.schemaTypeInfo = Fleur.JSTypes[restype];
+      } else {
+        a1 = new Fleur.Text();
+        a1.schemaTypeInfo = Fleur.Type_error;
+        a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+      }
+      Fleur.callback(function() {callback(a1);});
+    });
+  });
 };
 Fleur.Transpiler.prototype.xqx_neOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.neOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_valueComp(Fleur.neOp)");
 };
 Fleur.neOp = function(op1, op2, c) {
-	if (op1[0] < 4) {
-		return op1[1] !== op2[1];
-	}
-	if (op1[0] === 4) {
-		return !c.equals(op1[1], op2[1]);
-	}
-	if (op1[0] === 5 && op2[0] === 5) {
-		return op1[1] !== op2[1];
-	}
-	if (op1[0] > 5 && op1[0] < 9) {
-		var d1 = op1[1].d;
-		d1.setMinutes(d1.getMinutes() - op1[1].tz);
-		var d2 = op2[1].d;
-		d2.setMinutes(d2.getMinutes() - op2[1].tz);
-		return d1.getTime() !== d2.getTime();
-	}
-	if (op1[0] === 9) {
-		return op1[1].sign * (op1[1].year * 12 + op1[1].month) !== op2[1].sign * (op2[1].year * 12 + op2[1].month);
-	}
-	if (op1[0] === 10) {
-		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) !== op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-	}
-	return false;
+  if (op1[0] < 4) {
+    return op1[1] !== op2[1];
+  }
+  if (op1[0] === 4) {
+    return !c.equals(op1[1], op2[1]);
+  }
+  if (op1[0] === 5 && op2[0] === 5) {
+    return op1[1] !== op2[1];
+  }
+  if (op1[0] > 5 && op1[0] < 9) {
+    var d1 = op1[1].d;
+    d1.setMinutes(d1.getMinutes() - op1[1].tz);
+    var d2 = op2[1].d;
+    d2.setMinutes(d2.getMinutes() - op2[1].tz);
+    return d1.getTime() !== d2.getTime();
+  }
+  if (op1[0] === 9) {
+    return op1[1].sign * (op1[1].year * 12 + op1[1].month) !== op2[1].sign * (op2[1].year * 12 + op2[1].month);
+  }
+  if (op1[0] === 10) {
+    return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) !== op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+  }
+  return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.neOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, Fleur.neOp, callback);
+  Fleur.XPathTestOpFunction(ctx, children, Fleur.neOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_notEqualOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.neOp)");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_generalComp(Fleur.neOp)");
 };
 Fleur.XQueryEngine[Fleur.XQueryX.notEqualOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.neOp, callback);
+  Fleur.XPathGenTestOpFunction(ctx, children, Fleur.neOp, callback);
 };
 Fleur.Transpiler.prototype.xqx_orOp = function(children) {
   let result = this.gen(children[0][1][0], Fleur.atomicTypes) + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().dropFalse()) {";
@@ -24108,91 +24502,91 @@ Fleur.Transpiler.prototype.xqx_orOp = function(children) {
   return result + "\n" + previndent + "}";
 };
 Fleur.XQueryEngine[Fleur.XQueryX.orOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSBoolean(a1);
-		if (op1[0] < 0) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		if (op1[1]) {
-			a1.data = "true";
-			a1.schemaTypeInfo = Fleur.Type_boolean;
-			Fleur.callback(function() {callback(a1);});
-		} else {
-			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-				var op2;
-				var a2 = Fleur.Atomize(n);
-				op2 = Fleur.toJSBoolean(a2);
-				if (op2[0] < 0) {
-					Fleur.callback(function() {callback(a2);});
-					return;
-				}
-				a2.data = "" + op2[1];
-				a2.schemaTypeInfo = Fleur.Type_boolean;
-				Fleur.callback(function() {callback(a2);});
-			});
-		}
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op1;
+    var a1 = Fleur.Atomize(n);
+    op1 = Fleur.toJSBoolean(a1);
+    if (op1[0] < 0) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    if (op1[1]) {
+      a1.data = "true";
+      a1.schemaTypeInfo = Fleur.Type_boolean;
+      Fleur.callback(function() {callback(a1);});
+    } else {
+      Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+        var op2;
+        var a2 = Fleur.Atomize(n);
+        op2 = Fleur.toJSBoolean(a2);
+        if (op2[0] < 0) {
+          Fleur.callback(function() {callback(a2);});
+          return;
+        }
+        a2.data = "" + op2[1];
+        a2.schemaTypeInfo = Fleur.Type_boolean;
+        Fleur.callback(function() {callback(a2);});
+      });
+    }
+  });
 };
 Fleur.Transpiler.prototype.xqx_stringConcatenateOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.Type_string) + this.gen(children[1][1][0], Fleur.Type_string) + this.inst("xqx_stringConcatenateOp()");
+  return this.gen(children[0][1][0], Fleur.Type_string) + this.gen(children[1][1][0], Fleur.Type_string) + this.inst("xqx_stringConcatenateOp()");
 };
 Fleur.Context.prototype.xqx_stringConcatenateOp = function() {
   let arg1 = this.itemstack.pop();
   const arg2 = this.item;
   if (arg1.isEmpty()) {
-		arg1 = new Fleur.Text();
-		arg1.data = "";
-		arg1.schemaTypeInfo = Fleur.Type_string;
-	}
-	if (arg2.isNotEmpty()) {
-		arg1.data += arg2.data;
-	}
-	this.item = arg1;
-	return this;
+    arg1 = new Fleur.Text();
+    arg1.data = "";
+    arg1.schemaTypeInfo = Fleur.Type_string;
+  }
+  if (arg2.isNotEmpty()) {
+    arg1.data += arg2.data;
+  }
+  this.item = arg1;
+  return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.stringConcatenateOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var a1 = Fleur.Atomize(n, true);
-		if (a1.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		if (a1 === Fleur.EmptySequence) {
-			a1 = new Fleur.Text();
-			a1.data = "";
-		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var a2 = Fleur.Atomize(n, true);
-			if (a2.schemaTypeInfo === Fleur.Type_error) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			if (a2.data) {
-				a1.data += a2.data;
-			}
-			a1.schemaTypeInfo = Fleur.Type_string;
-			Fleur.callback(function() {callback(a1);});
-		});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var a1 = Fleur.Atomize(n, true);
+    if (a1.schemaTypeInfo === Fleur.Type_error) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    if (a1 === Fleur.EmptySequence) {
+      a1 = new Fleur.Text();
+      a1.data = "";
+    }
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      var a2 = Fleur.Atomize(n, true);
+      if (a2.schemaTypeInfo === Fleur.Type_error) {
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      if (a2.data) {
+        a1.data += a2.data;
+      }
+      a1.schemaTypeInfo = Fleur.Type_string;
+      Fleur.callback(function() {callback(a1);});
+    });
+  });
 };
 Fleur.subtractOpTypes = [
-	[		 0,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 1,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 2,		 2,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		 3,		 3,		 3,		 3,		-1,		-1,		-1,		-1,		-1,		-1, 	-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		10,		10,		10,		 6,		 6],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		10,		10,		10,		 7,		 7],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		10,		10,		10,		-1,		 8],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 9,		-1],
-	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		10]
+  [     0,     1,     2,     3,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     1,     1,     2,     3,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     2,     2,     2,     3,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [     3,     3,     3,     3,    -1,    -1,    -1,    -1,    -1,    -1,   -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    10,    10,    10,     6,     6],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    10,    10,    10,     7,     7],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    10,    10,    10,    -1,     8],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,     9,    -1],
+  [    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    10]
 ];
 Fleur.Transpiler.prototype.xqx_subtractOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_substractOp()");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_substractOp()");
 };
 Fleur.Context.prototype.xqx_substractOp = function() {
   const arg1 = this.itemstack.pop();
@@ -24276,94 +24670,94 @@ Fleur.Context.prototype.xqx_substractOp = function() {
   return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.subtractOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSValue(a1, true, false, false, true, false, true);
-		if (op1[0] < 0) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var op2;
-			var restype, res, resvalue;
-			var a2 = Fleur.Atomize(n);
-			var prevm;
-			op2 = Fleur.toJSValue(a2, true, false, false, true, false, true);
-			if (op2[0] < 0) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			restype = Fleur.subtractOpTypes[op1[0]][op2[0]];
-			if (restype !== -1) {
-				if (op1[0] < 4 && op2[0] < 4) {
-					var val = typeof op1[1] === typeof op2[1] ? op1[1] - op2[1] : Number(op1[1]) - Number(op2[1]);
-					if (restype > 1) {
-						a1.data = Fleur.Type_double.canonicalize(String(val));
-					} else {
-						var precision1 = a1.data.indexOf(".") !== -1 ? a1.data.length - a1.data.indexOf(".") - 1 : 0;
-						var precision2 = a2.data.indexOf(".") !== -1 ? a2.data.length - a2.data.indexOf(".") - 1 : 0;
-						a1.data = Fleur.NumberToDecimalString(val, Math.max(precision1, precision2));
-					}
-				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 5 && op2[0] < 9) {
-					a1.data = Fleur.msToDayTimeDuration(op1[1].d - op1[1].tz * 60 * 1000 - op2[1].d + op2[1].tz * 60 * 1000);
-				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 8) {
-					var d = op1[1].d;
-					if (op2[0] === 9) {
-						prevm = d.getMonth();
-						if (op2[1].year !== 0) {
-							d.setFullYear(d.getFullYear() - op2[1].sign * op2[1].year);
-						}
-						if (op2[1].month !== 0) {
-							d.setMonth(d.getMonth() - op2[1].sign * op2[1].month);
-						}
-						if (d.getMonth() !== prevm - (op2[1].month !== 0 ? op2[1].sign * op2[1].month : 0)) {
-							d.setDate(0);
-						}
-					} else {
-						if (op2[1].day !== 0) {
-							d.setDate(d.getDate() - op2[1].sign * op2[1].day);
-						}
-						if (op2[1].hour !== 0) {
-							d.setHours(d.getHours() - op2[1].sign * op2[1].hour);
-						}
-						if (op2[1].minute !== 0) {
-							d.setMinutes(d.getMinutes() - op2[1].sign * op2[1].minute);
-						}
-						if (op2[1].second !== 0) {
-							d.setSeconds(d.getSeconds() - op2[1].sign * op2[1].second);
-						}
-					}
-					op1[1].d = d;
-					a1.data = restype === 6 ? Fleur.dateToDate(op1[1]) : restype === 7 ? Fleur.dateToDateTime(op1[1]) : Fleur.dateToTime(op1[1]);
-				} else if (op1[0] === 9 && op2[0] === 9) {
-					resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) - op2[1].sign * (op2[1].year * 12 + op2[1].month);
-					res = {
-						sign: resvalue < 0 ? -1 : 1,
-						year: Math.floor(Math.abs(resvalue) / 12),
-						month: Math.abs(resvalue) % 12};
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0  || res.year === 0? String(res.month) + "M" : "");
-				} else if (op1[0] === 10 && op2[0] === 10) {
-					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) - op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
-					res = {sign: resvalue < 0 ? -1 : 1};
-					resvalue = Math.abs(resvalue);
-					res.day = Math.floor(resvalue / 86400);
-					resvalue = resvalue % 86400;
-					res.hour = Math.floor(resvalue / 3600);
-					resvalue = resvalue % 3600;
-					res.minute = Math.floor(resvalue / 60);
-					res.second = resvalue % 60;
-					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
-				}
-				a1.schemaTypeInfo = Fleur.JSTypes[restype];
-			} else {
-				a1 = new Fleur.Text();
-				a1.schemaTypeInfo = Fleur.Type_error;
-				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-			}
-			Fleur.callback(function() {callback(a1);});
-		});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op1;
+    var a1 = Fleur.Atomize(n);
+    op1 = Fleur.toJSValue(a1, true, false, false, true, false, true);
+    if (op1[0] < 0) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+      var op2;
+      var restype, res, resvalue;
+      var a2 = Fleur.Atomize(n);
+      var prevm;
+      op2 = Fleur.toJSValue(a2, true, false, false, true, false, true);
+      if (op2[0] < 0) {
+        Fleur.callback(function() {callback(a2);});
+        return;
+      }
+      restype = Fleur.subtractOpTypes[op1[0]][op2[0]];
+      if (restype !== -1) {
+        if (op1[0] < 4 && op2[0] < 4) {
+          var val = typeof op1[1] === typeof op2[1] ? op1[1] - op2[1] : Number(op1[1]) - Number(op2[1]);
+          if (restype > 1) {
+            a1.data = Fleur.Type_double.canonicalize(String(val));
+          } else {
+            var precision1 = a1.data.indexOf(".") !== -1 ? a1.data.length - a1.data.indexOf(".") - 1 : 0;
+            var precision2 = a2.data.indexOf(".") !== -1 ? a2.data.length - a2.data.indexOf(".") - 1 : 0;
+            a1.data = Fleur.NumberToDecimalString(val, Math.max(precision1, precision2));
+          }
+        } else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 5 && op2[0] < 9) {
+          a1.data = Fleur.msToDayTimeDuration(op1[1].d - op1[1].tz * 60 * 1000 - op2[1].d + op2[1].tz * 60 * 1000);
+        } else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 8) {
+          var d = op1[1].d;
+          if (op2[0] === 9) {
+            prevm = d.getMonth();
+            if (op2[1].year !== 0) {
+              d.setFullYear(d.getFullYear() - op2[1].sign * op2[1].year);
+            }
+            if (op2[1].month !== 0) {
+              d.setMonth(d.getMonth() - op2[1].sign * op2[1].month);
+            }
+            if (d.getMonth() !== prevm - (op2[1].month !== 0 ? op2[1].sign * op2[1].month : 0)) {
+              d.setDate(0);
+            }
+          } else {
+            if (op2[1].day !== 0) {
+              d.setDate(d.getDate() - op2[1].sign * op2[1].day);
+            }
+            if (op2[1].hour !== 0) {
+              d.setHours(d.getHours() - op2[1].sign * op2[1].hour);
+            }
+            if (op2[1].minute !== 0) {
+              d.setMinutes(d.getMinutes() - op2[1].sign * op2[1].minute);
+            }
+            if (op2[1].second !== 0) {
+              d.setSeconds(d.getSeconds() - op2[1].sign * op2[1].second);
+            }
+          }
+          op1[1].d = d;
+          a1.data = restype === 6 ? Fleur.dateToDate(op1[1]) : restype === 7 ? Fleur.dateToDateTime(op1[1]) : Fleur.dateToTime(op1[1]);
+        } else if (op1[0] === 9 && op2[0] === 9) {
+          resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) - op2[1].sign * (op2[1].year * 12 + op2[1].month);
+          res = {
+            sign: resvalue < 0 ? -1 : 1,
+            year: Math.floor(Math.abs(resvalue) / 12),
+            month: Math.abs(resvalue) % 12};
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0  || res.year === 0? String(res.month) + "M" : "");
+        } else if (op1[0] === 10 && op2[0] === 10) {
+          resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) - op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+          res = {sign: resvalue < 0 ? -1 : 1};
+          resvalue = Math.abs(resvalue);
+          res.day = Math.floor(resvalue / 86400);
+          resvalue = resvalue % 86400;
+          res.hour = Math.floor(resvalue / 3600);
+          resvalue = resvalue % 3600;
+          res.minute = Math.floor(resvalue / 60);
+          res.second = resvalue % 60;
+          a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+        }
+        a1.schemaTypeInfo = Fleur.JSTypes[restype];
+      } else {
+        a1 = new Fleur.Text();
+        a1.schemaTypeInfo = Fleur.Type_error;
+        a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+      }
+      Fleur.callback(function() {callback(a1);});
+    });
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.arithmeticOp] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.comparisonOp] = function(ctx, children) {};
@@ -24381,7 +24775,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.stringOp] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.unionOp] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.valueComparisonOp] = function(ctx, children) {};
 Fleur.Transpiler.prototype.xqx_unaryMinusOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.inst("xqx_unaryMinusOp()");
+  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.inst("xqx_unaryMinusOp()");
 };
 Fleur.Context.prototype.xqx_unaryMinusOp = function() {
   const op = Fleur.toJSNumber(this.item);
@@ -24403,36 +24797,36 @@ Fleur.Context.prototype.xqx_unaryMinusOp = function() {
 return this;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.unaryMinusOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op;
-		var a = Fleur.Atomize(n);
-		op = Fleur.toJSNumber(a);
-		if (op[0] < 0) {
-			Fleur.callback(function() {callback(a);});
-			return;
-		}
-		if (a.schemaTypeInfo !== Fleur.Type_integer && a.schemaTypeInfo !== Fleur.Type_decimal && a.schemaTypeInfo !== Fleur.Type_float && a.schemaTypeInfo !== Fleur.Type_double) {
-			if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				a.schemaTypeInfo = Fleur.Type_integer;
-			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				a.schemaTypeInfo = Fleur.Type_decimal;
-			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				a.schemaTypeInfo = Fleur.Type_float;
-			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				a.schemaTypeInfo = Fleur.Type_double;
-			}
-		}
-		a.data = a.schemaTypeInfo.canonicalize(String(-op[1]));
-		Fleur.callback(function() {callback(a);});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op;
+    var a = Fleur.Atomize(n);
+    op = Fleur.toJSNumber(a);
+    if (op[0] < 0) {
+      Fleur.callback(function() {callback(a);});
+      return;
+    }
+    if (a.schemaTypeInfo !== Fleur.Type_integer && a.schemaTypeInfo !== Fleur.Type_decimal && a.schemaTypeInfo !== Fleur.Type_float && a.schemaTypeInfo !== Fleur.Type_double) {
+      if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        a.schemaTypeInfo = Fleur.Type_integer;
+      } else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        a.schemaTypeInfo = Fleur.Type_decimal;
+      } else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        a.schemaTypeInfo = Fleur.Type_float;
+      } else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        a.schemaTypeInfo = Fleur.Type_double;
+      }
+    }
+    a.data = a.schemaTypeInfo.canonicalize(String(-op[1]));
+    Fleur.callback(function() {callback(a);});
+  });
 };
 Fleur.XQueryEngine[Fleur.XQueryX.unaryPlusOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op;
-		var a = Fleur.Atomize(n);
-		op = Fleur.toJSNumber(a);
-		Fleur.callback(function() {callback(a);});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op;
+    var a = Fleur.Atomize(n);
+    op = Fleur.toJSNumber(a);
+    Fleur.callback(function() {callback(a);});
+  });
 };
 Fleur.Transpiler.prototype.xqx_unionOp = function(children) {
 	return this.gen(children[0][1][0]) + this.gen(children[1][1][0]) + this.inst("xqx_unionOp()");
@@ -24634,414 +25028,414 @@ Fleur.locale["zh-TW"] = {
 	weekdays:["\u661F\u671F\u65E5","\u661F\u671F\u4E00","\u661F\u671F\u4E8C","\u661F\u671F\u4E09","\u661F\u671F\u56DB","\u661F\u671F\u4E94","\u661F\u671F\u516D"],
 	months: ["1\u6708","2\u6708","3\u6708","4\u6708","5\u6708","6\u6708","7\u6708","8\u6708","9\u6708","10\u6708","11\u6708","12\u6708"]};
 Fleur.pad = function(number) {
-	if (number < 10) {
-		return '0' + String(number);
-	}
- 	return String(number);
+  if (number < 10) {
+    return '0' + String(number);
+  }
+   return String(number);
 };
 Fleur.dateToDate = function(dtz) {
-	return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
+  return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
 };
 Fleur.dateToDateTime = function(dtz) {
-	return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + 'T' + Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
+  return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + 'T' + Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
 };
 Fleur.dateToTime = function(dtz) {
-	return Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
+  return Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
 };
 Fleur.toDate = function(s) {
-	return {
-		d: new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10)),
-		tz: s.endsWith("Z") ? 0 :
-			s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
-			s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
-			null
-	};
+  return {
+    d: new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10)),
+    tz: s.endsWith("Z") ? 0 :
+      s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
+      s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
+      null
+  };
 };
 Fleur.toDateTime = function(s) {
-	return {
-		d: new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10), parseInt(s.substr(11, 2), 10), parseInt(s.substr(14, 2), 10), parseInt(s.substr(17, 2), 10), s.charAt(19) === "." ? parseFloat("0." + s.substr(20).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0),
-		tz: s.endsWith("Z") ? 0 :
-			s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
-			s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
-			null
-	};
+  return {
+    d: new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10), parseInt(s.substr(11, 2), 10), parseInt(s.substr(14, 2), 10), parseInt(s.substr(17, 2), 10), s.charAt(19) === "." ? parseFloat("0." + s.substr(20).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0),
+    tz: s.endsWith("Z") ? 0 :
+      s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
+      s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
+      null
+  };
 };
 Fleur.toTime = function(s) {
-	var d = new Date();
-	var tpos = s.indexOf("T") + 1;
-	d.setHours(parseInt(s.substr(tpos, 2), 10));
-	d.setMinutes(parseInt(s.substr(tpos + 3, 2), 10));
-	d.setSeconds(parseInt(s.substr(tpos + 6, 2), 10));
-	d.setMilliseconds(s.charAt(tpos + 8) === "." ? parseFloat("0." + s.substr(tpos + 9).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0);
-	return {
-		d: d,
-		tz: s.endsWith("Z") ? 0 :
-			s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
-			s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
-			null
-	};
+  var d = new Date();
+  var tpos = s.indexOf("T") + 1;
+  d.setHours(parseInt(s.substr(tpos, 2), 10));
+  d.setMinutes(parseInt(s.substr(tpos + 3, 2), 10));
+  d.setSeconds(parseInt(s.substr(tpos + 6, 2), 10));
+  d.setMilliseconds(s.charAt(tpos + 8) === "." ? parseFloat("0." + s.substr(tpos + 9).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0);
+  return {
+    d: d,
+    tz: s.endsWith("Z") ? 0 :
+      s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
+      s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
+      null
+  };
 };
 Fleur.toJSONDate = function(s) {
-	return {
-		year: parseInt(s.substr(0, 4), 10),
-		month: parseInt(s.substr(5, 2), 10),
-		day: parseInt(s.substr(8, 2), 10)
-	};
+  return {
+    year: parseInt(s.substr(0, 4), 10),
+    month: parseInt(s.substr(5, 2), 10),
+    day: parseInt(s.substr(8, 2), 10)
+  };
 };
 Fleur.toJSONDateTime = function(s) {
-	return {
-		year: parseInt(s.substr(0, 4), 10),
-		month: parseInt(s.substr(5, 2), 10),
-		day: parseInt(s.substr(8, 2), 10),
-		hour: parseInt(s.substr(11, 2), 10),
-		minute: parseInt(s.substr(14, 2), 10),
-		second: parseFloat(s.substr(17).replace(/\+\-Z/, "Z").split("Z")[0])
-	};	
+  return {
+    year: parseInt(s.substr(0, 4), 10),
+    month: parseInt(s.substr(5, 2), 10),
+    day: parseInt(s.substr(8, 2), 10),
+    hour: parseInt(s.substr(11, 2), 10),
+    minute: parseInt(s.substr(14, 2), 10),
+    second: parseFloat(s.substr(17).replace(/\+\-Z/, "Z").split("Z")[0])
+  };  
 };
 Fleur.toJSONTime = function(s) {
-	return {
-		hour: parseInt(s.substr(0, 2), 10),
-		minute: parseInt(s.substr(3, 2), 10),
-		second: parseFloat(s.substr(5).replace(/\+\-Z/, "Z").split("Z")[0])
-	};	
+  return {
+    hour: parseInt(s.substr(0, 2), 10),
+    minute: parseInt(s.substr(3, 2), 10),
+    second: parseFloat(s.substr(5).replace(/\+\-Z/, "Z").split("Z")[0])
+  };  
 };
 Fleur.toJSONYearMonthDuration = function(s) {
-	var m = s.match(/^-?P(?!$)(([0-9]+)Y)?(([0-9]+)M)?$/);
-	var retvalue = (m[2] ? parseInt(m[2], 10) : 0) * 12 +(m[4] ? parseInt(m[4], 10) : 0);
-	return {
-		sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1,
-		year: Math.floor(retvalue / 12),
-		month: retvalue % 12
-	};
+  var m = s.match(/^-?P(?!$)(([0-9]+)Y)?(([0-9]+)M)?$/);
+  var retvalue = (m[2] ? parseInt(m[2], 10) : 0) * 12 +(m[4] ? parseInt(m[4], 10) : 0);
+  return {
+    sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1,
+    year: Math.floor(retvalue / 12),
+    month: retvalue % 12
+  };
 };
 Fleur.toJSONDayTimeDuration = function(s) {
-	var m = s.match(/^-?P(?!$)(([0-9]+)D)?(T(?!$)(([0-9]+)H)?(([0-9]+)M)?(([0-9]+(\.[0-9]+)?)S)?)?$/);
-	var retvalue = (((m[2] ? parseInt(m[2], 10) : 0) * 24 + (m[5] ? parseInt(m[5], 10) : 0)) * 60 + (m[7] ? parseInt(m[7], 10) : 0)) * 60 + (m[9] ? parseFloat(m[9]) : 0);
-	var ret = {sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1};
-	ret.day = Math.floor(retvalue / 86400);
-	retvalue = retvalue % 86400;
-	ret.hour = Math.floor(retvalue / 3600);
-	retvalue = retvalue % 3600;
-	ret.minute = Math.floor(retvalue / 60);
-	ret.second = retvalue % 60;
-	return ret;
+  var m = s.match(/^-?P(?!$)(([0-9]+)D)?(T(?!$)(([0-9]+)H)?(([0-9]+)M)?(([0-9]+(\.[0-9]+)?)S)?)?$/);
+  var retvalue = (((m[2] ? parseInt(m[2], 10) : 0) * 24 + (m[5] ? parseInt(m[5], 10) : 0)) * 60 + (m[7] ? parseInt(m[7], 10) : 0)) * 60 + (m[9] ? parseFloat(m[9]) : 0);
+  var ret = {sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1};
+  ret.day = Math.floor(retvalue / 86400);
+  retvalue = retvalue % 86400;
+  ret.hour = Math.floor(retvalue / 3600);
+  retvalue = retvalue % 3600;
+  ret.minute = Math.floor(retvalue / 60);
+  ret.second = retvalue % 60;
+  return ret;
 };
 Fleur.toJSONDuration= function(s) {
-	var m = s.match(/^-?P(?!$)(([0-9]+)Y)?(([0-9]+)M)?(([0-9]+)D)?(T(?!$)(([0-9]+)H)?(([0-9]+)M)?(([0-9]+(\.[0-9]+)?)S)?)?$/);
-	var retvalue = (m[2] ? parseInt(m[2], 10) : 0) * 12 +(m[4] ? parseInt(m[4], 10) : 0);
-	var ret = {
-		sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1,
-		year: Math.floor(retvalue / 12),
-		month: retvalue % 12
-	};
-	retvalue = (((m[6] ? parseInt(m[6], 10) : 0) * 24 + (m[9] ? parseInt(m[9], 10) : 0)) * 60 + (m[11] ? parseInt(m[11], 10) : 0)) * 60 + (m[13] ? parseFloat(m[13]) : 0);
-	ret.day = Math.floor(retvalue / 86400);
-	retvalue = retvalue % 86400;
-	ret.hour = Math.floor(retvalue / 3600);
-	retvalue = retvalue % 3600;
-	ret.minute = Math.floor(retvalue / 60);
-	ret.second = retvalue % 60;
-	return ret;
+  var m = s.match(/^-?P(?!$)(([0-9]+)Y)?(([0-9]+)M)?(([0-9]+)D)?(T(?!$)(([0-9]+)H)?(([0-9]+)M)?(([0-9]+(\.[0-9]+)?)S)?)?$/);
+  var retvalue = (m[2] ? parseInt(m[2], 10) : 0) * 12 +(m[4] ? parseInt(m[4], 10) : 0);
+  var ret = {
+    sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1,
+    year: Math.floor(retvalue / 12),
+    month: retvalue % 12
+  };
+  retvalue = (((m[6] ? parseInt(m[6], 10) : 0) * 24 + (m[9] ? parseInt(m[9], 10) : 0)) * 60 + (m[11] ? parseInt(m[11], 10) : 0)) * 60 + (m[13] ? parseFloat(m[13]) : 0);
+  ret.day = Math.floor(retvalue / 86400);
+  retvalue = retvalue % 86400;
+  ret.hour = Math.floor(retvalue / 3600);
+  retvalue = retvalue % 3600;
+  ret.minute = Math.floor(retvalue / 60);
+  ret.second = retvalue % 60;
+  return ret;
 };
 Fleur.NumberToDecimalString = function(n, precision) {
-	var s = String(n);
-	if (s.indexOf("e") !== -1) {
-		s = s.split("e");
-		var exp = parseInt(s[1], 10);
-		s = s[0].split(".");
-		s[1] = s[1] || "";
-		if (exp >= 0) {
-			if (exp < s[1].length) {
-				return s[0] + s[1].substr(0, s[1].length - exp) + "." + s[1].substr(s[1].length - exp);
-			}
-			return s[0] + s[1] + "0".repeat(exp - s[1].length);
-		}
-		return "0." + "0".repeat(-1 - exp) + s[0] + s[1];
-	}
-	if (typeof n !== "number") {
-		return s;
-	}
-	if (precision) {
-		return String(Math.round(n * Math.pow(10, precision)) / Math.pow(10, precision));
-	}
-	return s;
+  var s = String(n);
+  if (s.indexOf("e") !== -1) {
+    s = s.split("e");
+    var exp = parseInt(s[1], 10);
+    s = s[0].split(".");
+    s[1] = s[1] || "";
+    if (exp >= 0) {
+      if (exp < s[1].length) {
+        return s[0] + s[1].substr(0, s[1].length - exp) + "." + s[1].substr(s[1].length - exp);
+      }
+      return s[0] + s[1] + "0".repeat(exp - s[1].length);
+    }
+    return "0." + "0".repeat(-1 - exp) + s[0] + s[1];
+  }
+  if (typeof n !== "number") {
+    return s;
+  }
+  if (precision) {
+    return String(Math.round(n * Math.pow(10, precision)) / Math.pow(10, precision));
+  }
+  return s;
 };
 Fleur.JSTypes = [Fleur.Type_integer, Fleur.Type_decimal, Fleur.Type_float, Fleur.Type_double, Fleur.Type_string, Fleur.Type_boolean, Fleur.Type_date, Fleur.Type_dateTime, Fleur.Type_time, Fleur.Type_yearMonthDuration, Fleur.Type_dayTimeDuration];
 Fleur.toJSValue = function(a, asNumber, asString, asBoolean, asDate, asJSONDate, asJSONDuration, asOthers) {
-	var value;
-	if (a.nodeType === Fleur.Node.TEXT_NODE) {
-		if (a.schemaTypeInfo === Fleur.Type_error) {
-			return [-1];
-		}
-		if (asNumber && /^\s*(([\-+]?([0-9]+(\.[0-9]*)?)|[\-+]?(\.[0-9]+))([eE][\-+]?[0-9]+)?|[\-+]?INF|NaN)\s*$/.test(a.data)) {
-			if (a.schemaTypeInfo === Fleur.Type_integer) {
-				return [0, Fleur.BigInt(a.data)];
-			} else if (a.schemaTypeInfo === Fleur.Type_decimal) {
-				return [1, a.data.indexOf(".") === -1 ? Fleur.BigInt(a.data) : parseFloat(a.data)];
-			} else if (a.schemaTypeInfo === Fleur.Type_float) {
-				return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-			} else if (a.schemaTypeInfo === Fleur.Type_double || (a.schemaTypeInfo === Fleur.Type_untypedAtomic && (a.data === "INF" || a.data === "-INF" || !isNaN(parseFloat(a.data))))) {
-				return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [0, Fleur.BigInt(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [1, parseFloat(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-			}
-		}
-		if (asString) {
-			if (a === Fleur.EmptySequence) {
-				return [4];
-			}
-			if (!a.schemaTypeInfo || a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-				return [4, a.data];
-			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [4, a.data];
-			}
-		}
-		if (asBoolean) {
-			if (a.schemaTypeInfo === Fleur.Type_boolean) {
-				return [5, a.data === "true"];
-			} else if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-				return [5, a.data.length !== 0];
-			} else if (a.schemaTypeInfo === Fleur.Type_integer) {
-				value = parseInt(a.data, 10);
-				return [5, !isNaN(value) && value !== 0];
-			} else if (a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
-				value = parseFloat(a.data);
-				return [5, !isNaN(value) && value !== 0];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [5, a.data === "true"];
-			} else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
-				return [5, a.data.length !== 0];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				value = parseInt(a.data, 10);
-				return [5, !isNaN(value) && value !== 0];
-			} else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
-				value = parseFloat(a.data);
-				return [5, !isNaN(value) && value !== 0];
-			}
-		}
-		if (asDate || asJSONDate) {
-			if (a.schemaTypeInfo === Fleur.Type_date) {
-				return [6, asDate ? Fleur.toDate(a.data) : Fleur.toJSONDate(a.data)];
-			} else if (a.schemaTypeInfo === Fleur.Type_dateTime) {
-				return [7, asDate ? Fleur.toDateTime(a.data) : Fleur.toJSONDateTime(a.data)];
-			} else if (a.schemaTypeInfo === Fleur.Type_time) {
-				return [8, asDate ? Fleur.toTime(a.data) : Fleur.toJSONTime(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "date", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [6, asDate ? Fleur.toDate(a.data) : Fleur.toJSONDate(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dateTime", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [7, asDate ? Fleur.toDateTime(a.data) : Fleur.toJSONDateTime(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "time", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [8, asDate ? Fleur.toTime(a.data) : Fleur.toJSONTime(a.data)];
-			}
-		}
-		if (asJSONDuration) {
-			if (a.schemaTypeInfo === Fleur.Type_yearMonthDuration) {
-				return [9, Fleur.toJSONYearMonthDuration(a.data)];
-			} else if (a.schemaTypeInfo === Fleur.Type_dayTimeDuration) {
-				return [10, Fleur.toJSONDayTimeDuration(a.data)];
-			} else if (a.schemaTypeInfo === Fleur.Type_duration) {
-				return [11, Fleur.toJSONDuration(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "yearMonthDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [9, Fleur.toJSONYearMonthDuration(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dayTimeDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [10, Fleur.toJSONDayTimeDuration(a.data)];
-			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "duration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				return [11, Fleur.toJSONDuration(a.data)];
-			}
-		}
-		if (asOthers) {
-			return [99, a.data];
-		}
-		a.schemaTypeInfo = Fleur.Type_error;
-		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-		return [-1];
-	} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		if (asBoolean) {
-			return [0, a.childNodes.length !== 0];
-		}
-		a.nodeType = Fleur.Node.TEXT_NODE;
-		a.schemaTypeInfo = Fleur.Type_error;
-		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-		return [-1];
-	}
-	a = new Fleur.Text();
-	a.schemaTypeInfo = Fleur.Type_error;
-	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-	return [-1];
+  var value;
+  if (a.nodeType === Fleur.Node.TEXT_NODE) {
+    if (a.schemaTypeInfo === Fleur.Type_error) {
+      return [-1];
+    }
+    if (asNumber && /^\s*(([\-+]?([0-9]+(\.[0-9]*)?)|[\-+]?(\.[0-9]+))([eE][\-+]?[0-9]+)?|[\-+]?INF|NaN)\s*$/.test(a.data)) {
+      if (a.schemaTypeInfo === Fleur.Type_integer) {
+        return [0, Fleur.BigInt(a.data)];
+      } else if (a.schemaTypeInfo === Fleur.Type_decimal) {
+        return [1, a.data.indexOf(".") === -1 ? Fleur.BigInt(a.data) : parseFloat(a.data)];
+      } else if (a.schemaTypeInfo === Fleur.Type_float) {
+        return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+      } else if (a.schemaTypeInfo === Fleur.Type_double || (a.schemaTypeInfo === Fleur.Type_untypedAtomic && (a.data === "INF" || a.data === "-INF" || !isNaN(parseFloat(a.data))))) {
+        return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [0, Fleur.BigInt(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [1, parseFloat(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+      }
+    }
+    if (asString) {
+      if (a === Fleur.EmptySequence) {
+        return [4];
+      }
+      if (!a.schemaTypeInfo || a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+        return [4, a.data];
+      } else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [4, a.data];
+      }
+    }
+    if (asBoolean) {
+      if (a.schemaTypeInfo === Fleur.Type_boolean) {
+        return [5, a.data === "true"];
+      } else if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+        return [5, a.data.length !== 0];
+      } else if (a.schemaTypeInfo === Fleur.Type_integer) {
+        value = parseInt(a.data, 10);
+        return [5, !isNaN(value) && value !== 0];
+      } else if (a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
+        value = parseFloat(a.data);
+        return [5, !isNaN(value) && value !== 0];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [5, a.data === "true"];
+      } else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+        return [5, a.data.length !== 0];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        value = parseInt(a.data, 10);
+        return [5, !isNaN(value) && value !== 0];
+      } else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+        value = parseFloat(a.data);
+        return [5, !isNaN(value) && value !== 0];
+      }
+    }
+    if (asDate || asJSONDate) {
+      if (a.schemaTypeInfo === Fleur.Type_date) {
+        return [6, asDate ? Fleur.toDate(a.data) : Fleur.toJSONDate(a.data)];
+      } else if (a.schemaTypeInfo === Fleur.Type_dateTime) {
+        return [7, asDate ? Fleur.toDateTime(a.data) : Fleur.toJSONDateTime(a.data)];
+      } else if (a.schemaTypeInfo === Fleur.Type_time) {
+        return [8, asDate ? Fleur.toTime(a.data) : Fleur.toJSONTime(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "date", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [6, asDate ? Fleur.toDate(a.data) : Fleur.toJSONDate(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dateTime", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [7, asDate ? Fleur.toDateTime(a.data) : Fleur.toJSONDateTime(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "time", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [8, asDate ? Fleur.toTime(a.data) : Fleur.toJSONTime(a.data)];
+      }
+    }
+    if (asJSONDuration) {
+      if (a.schemaTypeInfo === Fleur.Type_yearMonthDuration) {
+        return [9, Fleur.toJSONYearMonthDuration(a.data)];
+      } else if (a.schemaTypeInfo === Fleur.Type_dayTimeDuration) {
+        return [10, Fleur.toJSONDayTimeDuration(a.data)];
+      } else if (a.schemaTypeInfo === Fleur.Type_duration) {
+        return [11, Fleur.toJSONDuration(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "yearMonthDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [9, Fleur.toJSONYearMonthDuration(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dayTimeDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [10, Fleur.toJSONDayTimeDuration(a.data)];
+      } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "duration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        return [11, Fleur.toJSONDuration(a.data)];
+      }
+    }
+    if (asOthers) {
+      return [99, a.data];
+    }
+    a.schemaTypeInfo = Fleur.Type_error;
+    a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+    return [-1];
+  } else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+    if (asBoolean) {
+      return [0, a.childNodes.length !== 0];
+    }
+    a.nodeType = Fleur.Node.TEXT_NODE;
+    a.schemaTypeInfo = Fleur.Type_error;
+    a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+    return [-1];
+  }
+  a = new Fleur.Text();
+  a.schemaTypeInfo = Fleur.Type_error;
+  a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+  return [-1];
 };
 Fleur.toJSNumber = function(a, ignore) {
-	if (a.nodeType === Fleur.Node.TEXT_NODE) {
-		if (a.schemaTypeInfo === Fleur.Type_integer) {
-			return [0, Fleur.BigInt(a.data)];
-		} else if (a.schemaTypeInfo === Fleur.Type_decimal) {
-			return [1, a.data.indexOf(".") === -1 ? Fleur.BigInt(a.data) : parseFloat(a.data)];
-		} else if (a.schemaTypeInfo === Fleur.Type_float) {
-			return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-		} else if (a.schemaTypeInfo === Fleur.Type_double || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-			return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [0, Fleur.BigInt(a.data)];
-		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [1, parseFloat(a.data)];
-		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-		} else if (a.schemaTypeInfo === Fleur.Type_error) {
-			return [-1];
-		}
-		if (!ignore) {
-			a.schemaTypeInfo = Fleur.Type_error;
-			a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-		}
-		return [-1];
-	} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		a.nodeType = Fleur.Node.TEXT_NODE;
-		a.schemaTypeInfo = Fleur.Type_error;
-		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0005");
-		return [-1];
-	}
-	a = new Fleur.Text();
-	a.schemaTypeInfo = Fleur.Type_error;
-	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-	return [-1];
+  if (a.nodeType === Fleur.Node.TEXT_NODE) {
+    if (a.schemaTypeInfo === Fleur.Type_integer) {
+      return [0, Fleur.BigInt(a.data)];
+    } else if (a.schemaTypeInfo === Fleur.Type_decimal) {
+      return [1, a.data.indexOf(".") === -1 ? Fleur.BigInt(a.data) : parseFloat(a.data)];
+    } else if (a.schemaTypeInfo === Fleur.Type_float) {
+      return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+    } else if (a.schemaTypeInfo === Fleur.Type_double || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+      return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+    } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      return [0, Fleur.BigInt(a.data)];
+    } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      return [1, parseFloat(a.data)];
+    } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+    } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+    } else if (a.schemaTypeInfo === Fleur.Type_error) {
+      return [-1];
+    }
+    if (!ignore) {
+      a.schemaTypeInfo = Fleur.Type_error;
+      a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+    }
+    return [-1];
+  } else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+    a.nodeType = Fleur.Node.TEXT_NODE;
+    a.schemaTypeInfo = Fleur.Type_error;
+    a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0005");
+    return [-1];
+  }
+  a = new Fleur.Text();
+  a.schemaTypeInfo = Fleur.Type_error;
+  a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+  return [-1];
 };
 Fleur.toJSDate = function(a, convert) {
-	if (a.nodeType === Fleur.Node.TEXT_NODE) {
-		var v;
-		if (convert) {
-			v = new Date(parseInt(a.data.substr(0, 4), 10), parseInt(a.data.substr(5, 2), 10) - 1, parseInt(a.data.substr(8, 2), 10));
-		} else {
-			v = a.data;
-		}
-		if (a.schemaTypeInfo === Fleur.Type_date) {
-			return [0, v];
-		} else if (a.schemaTypeInfo === Fleur.Type_dateTime) {
-			return [1, v];
-		} else if (a.schemaTypeInfo === Fleur.Type_time) {
-			return [2, v];
-		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "date", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [0, v];
-		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dateTime", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [1, v];
-		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "time", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [2, v];
-		} else if (a.schemaTypeInfo === Fleur.Type_error) {
-			return [-1];
-		}
-		a.schemaTypeInfo = Fleur.Type_error;
-		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-		return [-1];
-	} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		a.nodeType = Fleur.Node.TEXT_NODE;
-		a.schemaTypeInfo = Fleur.Type_error;
-		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0005");
-		return [-1];
-	}
-	a = new Fleur.Text();
-	a.schemaTypeInfo = Fleur.Type_error;
-	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-	return [-1];
+  if (a.nodeType === Fleur.Node.TEXT_NODE) {
+    var v;
+    if (convert) {
+      v = new Date(parseInt(a.data.substr(0, 4), 10), parseInt(a.data.substr(5, 2), 10) - 1, parseInt(a.data.substr(8, 2), 10));
+    } else {
+      v = a.data;
+    }
+    if (a.schemaTypeInfo === Fleur.Type_date) {
+      return [0, v];
+    } else if (a.schemaTypeInfo === Fleur.Type_dateTime) {
+      return [1, v];
+    } else if (a.schemaTypeInfo === Fleur.Type_time) {
+      return [2, v];
+    } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "date", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      return [0, v];
+    } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dateTime", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      return [1, v];
+    } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "time", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+      return [2, v];
+    } else if (a.schemaTypeInfo === Fleur.Type_error) {
+      return [-1];
+    }
+    a.schemaTypeInfo = Fleur.Type_error;
+    a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+    return [-1];
+  } else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+    a.nodeType = Fleur.Node.TEXT_NODE;
+    a.schemaTypeInfo = Fleur.Type_error;
+    a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0005");
+    return [-1];
+  }
+  a = new Fleur.Text();
+  a.schemaTypeInfo = Fleur.Type_error;
+  a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+  return [-1];
 };
 Fleur.toJSString = function(a) {
-	if (a === Fleur.EmptySequence) {
-		return [0];
-	}
-	if (!a.schemaTypeInfo || a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-		return [0, a.data];
-	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-		return [0, a.data];
-	}
-	a.nodeType = Fleur.Node.TEXT_NODE;
-	a.schemaTypeInfo = Fleur.Type_error;
-	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-	return [-1];
+  if (a === Fleur.EmptySequence) {
+    return [0];
+  }
+  if (!a.schemaTypeInfo || a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+    return [0, a.data];
+  } else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+    return [0, a.data];
+  }
+  a.nodeType = Fleur.Node.TEXT_NODE;
+  a.schemaTypeInfo = Fleur.Type_error;
+  a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+  return [-1];
 };
 Fleur.toJSBoolean = function(a) {
-	var value;
-	if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		return [0, a.childNodes.length !== 0];
-	} else if (a.schemaTypeInfo === Fleur.Type_boolean) {
-		return [0, a.data === "true"];
-	} else if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-		return [0, a.data.length !== 0];
-	} else if (a.schemaTypeInfo === Fleur.Type_integer) {
-		value = Fleur.BigInt(a.data);
-		return [0, !isNaN(value) && value !== Fleur.BigInt(0)];
-	} else if (a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
-		value = parseFloat(a.data);
-		return [0, !isNaN(value) && value !== 0];
-	} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-		return [0, a.data === "true"];
-	} else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
-		return [0, a.data.length !== 0];
-	} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-		value = Fleur.BigInt(a.data);
-		return [0, !isNaN(value) && Fleur.BigInt(0)];
-	} else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
-		value = parseFloat(a.data);
-		return [0, !isNaN(value) && value !== 0];
-	}
-	a.nodeType = Fleur.Node.TEXT_NODE;
-	a.schemaTypeInfo = Fleur.Type_error;
-	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-	return [-1];
+  var value;
+  if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+    return [0, a.childNodes.length !== 0];
+  } else if (a.schemaTypeInfo === Fleur.Type_boolean) {
+    return [0, a.data === "true"];
+  } else if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+    return [0, a.data.length !== 0];
+  } else if (a.schemaTypeInfo === Fleur.Type_integer) {
+    value = Fleur.BigInt(a.data);
+    return [0, !isNaN(value) && value !== Fleur.BigInt(0)];
+  } else if (a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
+    value = parseFloat(a.data);
+    return [0, !isNaN(value) && value !== 0];
+  } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+    return [0, a.data === "true"];
+  } else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+    return [0, a.data.length !== 0];
+  } else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+    value = Fleur.BigInt(a.data);
+    return [0, !isNaN(value) && Fleur.BigInt(0)];
+  } else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+    value = parseFloat(a.data);
+    return [0, !isNaN(value) && value !== 0];
+  }
+  a.nodeType = Fleur.Node.TEXT_NODE;
+  a.schemaTypeInfo = Fleur.Type_error;
+  a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+  return [-1];
 };
 Fleur.toJSObject = function(a) {
-	if (a.nodeType === Fleur.Node.MAP_NODE) {
-		var o = {};
-		var i = 0;
-		var l = a.entries.length;
-		while (i < l) {
-			o[a.entries[i].nodeName] = a.entries[i].textContent;
-			i++;
-		}
-		return [0, o];
-	}
-	a.nodeType = Fleur.Node.TEXT_NODE;
-	a.schemaTypeInfo = Fleur.Type_error;
-	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-	return [-1];
+  if (a.nodeType === Fleur.Node.MAP_NODE) {
+    var o = {};
+    var i = 0;
+    var l = a.entries.length;
+    while (i < l) {
+      o[a.entries[i].nodeName] = a.entries[i].textContent;
+      i++;
+    }
+    return [0, o];
+  }
+  a.nodeType = Fleur.Node.TEXT_NODE;
+  a.schemaTypeInfo = Fleur.Type_error;
+  a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+  return [-1];
 };
 Fleur.toContentType = function(o, def) {
-	var s;
-	if (o["media-type"]) {
-		s = o["media-type"];
-	} else {
-		switch (o.method) {
-			case "html":
-				s = "text/html";
-				break;
-			case "xml":
-				s = "application/xml";
-				break;
-			case "json":
-				s = "application/json";
-				break;
-			default:
-				s = def;
-		}
-	}
-	if (s) {
-		if (o.encoding) {
-			s += "; charset=\"" + o.encoding + "\"";
-		}
-		for (var p in o) {
-			if (o.hasOwnProperty(p) && p !== "media-type" && p !== "encoding") {
-				s += "; " + p + "=" + encodeURIComponent(o[p]);
-			}
-		}
-	}
-	return s;
+  var s;
+  if (o["media-type"]) {
+    s = o["media-type"];
+  } else {
+    switch (o.method) {
+      case "html":
+        s = "text/html";
+        break;
+      case "xml":
+        s = "application/xml";
+        break;
+      case "json":
+        s = "application/json";
+        break;
+      default:
+        s = def;
+    }
+  }
+  if (s) {
+    if (o.encoding) {
+      s += "; charset=\"" + o.encoding + "\"";
+    }
+    for (var p in o) {
+      if (o.hasOwnProperty(p) && p !== "media-type" && p !== "encoding") {
+        s += "; " + p + "=" + encodeURIComponent(o[p]);
+      }
+    }
+  }
+  return s;
 };
 Fleur.msToDayTimeDuration = function(ms) {
-	var s = ms < 0 ? "-P" : "P";
+  var s = ms < 0 ? "-P" : "P";
     ms = ms / 1000;
     ms = Math.abs(Math.floor(ms));
     var days = Math.floor(ms / (24 * 60 * 60));
@@ -25051,50 +25445,50 @@ Fleur.msToDayTimeDuration = function(ms) {
     var min = Math.floor(sec / 60);
     sec = sec - min * 60;
     if (sec === 0 && min === 0 && hours === 0 && days === 0) {
-    	return "PT0S";
+      return "PT0S";
     }
     if (days !== 0) {
-    	s += String(days) + "D";
+      s += String(days) + "D";
     }
     if (hours !== 0 || min !== 0 || sec !== 0) {
-    	s += "T";
+      s += "T";
     }
     if (hours !== 0) {
-    	s += String(hours) + "H";
+      s += String(hours) + "H";
     }
     if (min !== 0) {
-    	s += String(min) + "M";
+      s += String(min) + "M";
     }
     if (sec !== 0) {
-    	s += String(sec) + "S";
+      s += String(sec) + "S";
     }
     return s;
 };
 Fleur.getMonthName = function(language, d) {
-	if (Fleur.inBrowser) {
-		return d.toLocaleString(language, {month: "long"});
-	}
-	var month = d.getMonth();
-	if (!Fleur.locale[language]) {
-		language = language.split("-")[0];
-		if (!Fleur.locale[language]) {
-			language = 'en';
-		}
-	}
-	return Fleur.locale[language].months[month];
+  if (Fleur.inBrowser) {
+    return d.toLocaleString(language, {month: "long"});
+  }
+  var month = d.getMonth();
+  if (!Fleur.locale[language]) {
+    language = language.split("-")[0];
+    if (!Fleur.locale[language]) {
+      language = 'en';
+    }
+  }
+  return Fleur.locale[language].months[month];
 };
 Fleur.getDayName = function(language, d) {
-	if (Fleur.inBrowser) {
-		return d.toLocaleString(language, {weekday: "long"});
-	}
-	var day = d.getDay();
-	if (!Fleur.locale[language]) {
-		language = language.split("-")[0];
-		if (!Fleur.locale[language]) {
-			language = 'en';
-		}
-	}
-	return Fleur.locale[language].weekdays[day];
+  if (Fleur.inBrowser) {
+    return d.toLocaleString(language, {weekday: "long"});
+  }
+  var day = d.getDay();
+  if (!Fleur.locale[language]) {
+    language = language.split("-")[0];
+    if (!Fleur.locale[language]) {
+      language = 'en';
+    }
+  }
+  return Fleur.locale[language].weekdays[day];
 };
 Fleur.XsltEngine = Fleur.XQueryEngine.slice(0);
 Fleur.XsltX = {};
@@ -25733,508 +26127,508 @@ Fleur.XsltEngine[Fleur.XsltXattr["xpath evaluate"]] = function(ctx, children) {}
 Fleur.XsltEngine[Fleur.XsltXattr["xpath-default-namespace *"]] = function(ctx, children) {};
 Fleur.XsltEngine[Fleur.XsltXattr["zero-digit decimal-format"]] = function(ctx, children) {};
 Fleur.bin2utf8 = function(s) {
-	var r = "";
-	for (var i = 0, l = s.length; i < l;) {
-		var c = s.charCodeAt(i);
-		if (c < 128) {
-			r += String.fromCharCode(c);
-			i++;
-		} else {
-			if ((c > 191) && (c < 224)) {
-				r += String.fromCharCode(((c & 31) << 6) | (s.charCodeAt(i + 1) & 63));
-				i += 2;
-			} else if ((c > 223) && (c < 240)) {
-				r += String.fromCharCode(((c & 15) << 12) | ((s.charCodeAt(i + 1) & 63) << 6) | (s.charCodeAt(i + 2) & 63));
-				i += 3;
-			} else {
-				r += String.fromCodePoint(((c & 7) << 18) | ((s.charCodeAt(i + 1) & 63) << 12) | ((s.charCodeAt(i + 2) & 63) << 6) | (s.charCodeAt(i + 3) & 63));
-				i += 4;
-			}
-		}
-	}
-	return r;
+  var r = "";
+  for (var i = 0, l = s.length; i < l;) {
+    var c = s.charCodeAt(i);
+    if (c < 128) {
+      r += String.fromCharCode(c);
+      i++;
+    } else {
+      if ((c > 191) && (c < 224)) {
+        r += String.fromCharCode(((c & 31) << 6) | (s.charCodeAt(i + 1) & 63));
+        i += 2;
+      } else if ((c > 223) && (c < 240)) {
+        r += String.fromCharCode(((c & 15) << 12) | ((s.charCodeAt(i + 1) & 63) << 6) | (s.charCodeAt(i + 2) & 63));
+        i += 3;
+      } else {
+        r += String.fromCodePoint(((c & 7) << 18) | ((s.charCodeAt(i + 1) & 63) << 12) | ((s.charCodeAt(i + 2) & 63) << 6) | (s.charCodeAt(i + 3) & 63));
+        i += 4;
+      }
+    }
+  }
+  return r;
 };
 Fleur.deflate = function(str, level) {
-	return str;
+  return str;
 };
 Fleur.inflate = function(s) {
-	var lbits = 9;
-	var dbits = 6;
-	var fixed_bl, fixed_tl = null, fixed_bd, fixed_td;
-	var mask_bits = [0x0000, 0x0001, 0x0003, 0x0007, 0x000f, 0x001f, 0x003f, 0x007f, 0x00ff, 0x01ff, 0x03ff, 0x07ff, 0x0fff, 0x1fff, 0x3fff, 0x7fff, 0xffff];
-	var cplens = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0];
-	var cplext = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, 99, 99];
-	var cpdist = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577];
-	var cpdext = [0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13];
-	var border = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
-	var arr = [], bin;
-	var slide = new Array(0x10000);
-	var wp = 0;
-	var bit_buf = 0;
-	var bit_len = 0;
-	var method = -1;
-	var eof = false;
-	var copy_leng = 0;
-	var copy_dist = 0;
-	var td, tl = null;
-	var data = s;
-	var pos = 0;
-	var bd, bl;
-	var HuftBuild = function(b, n, s, d, e, mm) {
-	    var hroot = null, tail = null;
-		var a, el, f, g, h, i, j, k;
-		var p, pidx, q, r = {e: 0, b: 0, n: 0, t: null};
-		var w;
-		var xp, y, z, o;
-		var c = Array(17).fill(0);
-		var lx = Array(17).fill(0);
-		var u = Array(16).fill(null);
-		var v = Array(288).fill(0);
-		var x = Array(17).fill(0);
-		el = n > 256 ? b[256] : 16;
-		p = b;
-		pidx = 0;
-		i = n;
-		do {
-		    c[p[pidx]]++;
-		    pidx++;
-		} while (--i > 0);
-		if (c[0] === n) {
-		    return {status: 0, root: null, m: 0};
-		}
-		for (j = 1; j <= 16; j++) {
-		    if (c[j] !== 0) {
-				break;
-			}
-		}
-		k = j;
-		if (mm < j) {
-		    mm = j;
-		}
-		for (i = 16; i !== 0; i--) {
-		    if (c[i] !== 0) {
-				break;
-			}
-		}
-		g = i;
-		if (mm > i) {
-		    mm = i;
-		}
-		for (y = 1 << j; j < i; j++, y <<= 1) {
-		    if ((y -= c[j]) < 0) {
-				return {status: 2, root: null, m: mm};
-		    }
-		}
-		if ((y -= c[i]) < 0) {
-		    return {status: 2, root: null, m: mm};
-		}
-		c[i] += y;
-		x[1] = j = 0;
-		p = c;
-		pidx = 1;
-		xp = 2;
-		while (--i > 0) {
-		    x[xp++] = (j += p[pidx++]);
-		}
-		p = b;
-		pidx = 0;
-		i = 0;
-		do {
-		    if ((j = p[pidx++]) !== 0) {
-				v[x[j]++] = i;
-			}
-		} while (++i < n);
-		n = x[g];
-		x[0] = i = 0;
-		p = v;
-		pidx = 0;
-		h = -1;
-		w = lx[0] = 0;
-		q = null;
-		z = 0;
-		for (; k <= g; k++) {
-		    a = c[k];
-		    while (a-- > 0) {
-				while (k > w + lx[1 + h]) {
-				    w += lx[1 + h];
-				    h++;
-				    z = (z = g - w) > mm ? mm : z;
-				    if ((f = 1 << (j = k - w)) > a + 1) {
-						f -= a + 1;
-						xp = k;
-						while (++j < z) {
-						    if ((f <<= 1) <= c[++xp]) {
-								break;
-							}
-						    f -= c[xp];
-						}
-				    }
-				    if (w + j > el && w < el) {
-						j = el - w;
-					}
-				    z = 1 << j;
-				    lx[1 + h] = j;
-				    q = [];
-				    for (o = 0; o < z; o++) {
-						q.push({e: 0, b: 0, n: 0, t: null});
-				    }
-				    if (tail === null) {
-						tail = hroot = {next: null, list: null};
-				    } else {
-						tail = tail.next = {next: null, list: null};
-					}
-				    tail.next = null;
-				    tail.list = q;
-				    u[h] = q;
-				    if (h > 0) {
-						x[h] = i;
-						r.b = lx[h];
-						r.e = 16 + j;
-						r.t = q;
-						j = (i & ((1 << w) - 1)) >> (w - lx[h]);
-						u[h - 1][j].e = r.e;
-						u[h - 1][j].b = r.b;
-						u[h - 1][j].n = r.n;
-						u[h - 1][j].t = r.t;
-				    }
-				}
-				r.b = k - w;
-				if (pidx >= n) {
-				    r.e = 99;
-				} else if (p[pidx] < s) {
-				    r.e = p[pidx] < 256 ? 16 : 15;
-				    r.n = p[pidx++];
-				} else {
-				    r.e = e[p[pidx] - s];
-				    r.n = d[p[pidx++] - s];
-				}
-				f = 1 << (k - w);
-				for (j = i >> w; j < z; j += f) {
-				    q[j].e = r.e;
-				    q[j].b = r.b;
-				    q[j].n = r.n;
-				    q[j].t = r.t;
-				}
-				for (j = 1 << (k - 1); (i & j) !== 0; j >>= 1) {
-				    i ^= j;
-				}
-				i ^= j;
-				while ((i & ((1 << w) - 1)) !== x[h]) {
-				    w -= lx[h];
-				    h--;
-				}
-		    }
-		}
-		return {status: y !== 0 && g !== 1 ? 1 : 0, root: hroot, m: lx[1]};
-	};
-	var needbits = function(n) {
-		while (bit_len < n) {
-			bit_buf |= (data.length === pos ? -1 : data.charCodeAt(pos++) & 0xff) << bit_len;
-			bit_len += 8;
-		}
-	};
-	var getbits = function(n) {
-		while (bit_len < n) {
-			bit_buf |= (data.length === pos ? -1 : data.charCodeAt(pos++) & 0xff) << bit_len;
-			bit_len += 8;
-		}
-	    return bit_buf & mask_bits[n];
-	};
-	var dumpbits = function(n) {
-	    bit_buf >>= n;
-	    bit_len -= n;
-	};
-	var codes = function(buff, off, size) {
-	    var e, t, n;
-		if (size === 0) {
-			return 0;
-		}
-	    n = 0;
-	    for(;;) {
-			t = tl.list[getbits(bl)];
-			e = t.e;
-			while (e > 16) {
-				if (e === 99) {
-					return -1;
-				}
-				dumpbits(t.b);
-				e -= 16;
-				t = t.t[getbits(e)];
-				e = t.e;
-			}
-			dumpbits(t.b);
-			if (e === 16) {
-			    wp &= 0x7fff;
-			    buff[off + n++] = slide[wp++] = t.n;
-			    if (n === size) {
-					return size;
-				}
-			    continue;
-			}
-			if (e === 15) {
-			    break;
-			}
-			copy_leng = t.n + getbits(e);
-			dumpbits(e);
-			t = td.list[getbits(bd)];
-			e = t.e;
-			while (e > 16) {
-			    if (e === 99) {
-					return -1;
-				}
-			    dumpbits(t.b);
-			    e -= 16;
-			    t = t.t[getbits(e)];
-			    e = t.e;
-			}
-			dumpbits(t.b);
-			copy_dist = wp - t.n - getbits(e);
-			dumpbits(e);
-			while (copy_leng > 0 && n < size) {
-			    copy_leng--;
-			    copy_dist &= 0x7fff;
-			    wp &= 0x7fff;
-			    buff[off + n++] = slide[wp++] = slide[copy_dist++];
-			}
-			if (n === size) {
-				return size;
-			}
-	    }
-	    method = -1;
-	    return n;
-	};
-	var stored = function(buff, off, size) {
-	    var n;
-	    n = bit_len & 7;
-	    dumpbits(n);
-	    n = getbits(16);
-	    dumpbits(16);
-	    needbits(16);
-		if (n !== ((~bit_buf) & 0xffff)) {
-			return -1;
-		}
-	    dumpbits(16);
-	    copy_leng = n;
-	    n = 0;
-	    while (copy_leng > 0 && n < size) {
-			copy_leng--;
-			wp &= 0x7fff;
-			buff[off + n++] = slide[wp++] = getbits(8);
-			dumpbits(8);
-	    }
-	    if (copy_leng === 0) {
-			method = -1;
-		}
-		return n;
-	};
-	var fixed = function(buff, off, size) {
-		if (fixed_tl === null) {
-			var l = Array(288).fill(8, 0, 144).fill(9, 144, 256).fill(7, 256, 280).fill(8, 280, 288);
-			var h;
-			fixed_bl = 7;
-			h = HuftBuild(l, 288, 257, cplens, cplext, fixed_bl);
-			if (h.status !== 0) {
-			    return -1;
-			}
-			fixed_tl = h.root;
-			fixed_bl = h.m;
-			l.fill(5, 0, 30);
-			fixed_bd = 5;
-			h = HuftBuild(l, 30, 0, cpdist, cpdext, fixed_bd);
-			if (h.status > 1) {
-			    fixed_tl = null;
-			    return -1;
-			}
-			fixed_td = h.root;
-			fixed_bd = h.m;
-	    }
-	    tl = fixed_tl;
-	    td = fixed_td;
-	    bl = fixed_bl;
-	    bd = fixed_bd;
-	    return codes(buff, off, size);
-	};
-	var dynamic = function(buff, off, size) {
-	    var i, j, h, l, n, t, nb, nl, nd, ll = Array(316).fill(0);
-	    nl = 257 + getbits(5);
-	    dumpbits(5);
-	    nd = 1 + getbits(5);
-	    dumpbits(5);
-	    nb = 4 + getbits(4);
-	    dumpbits(4);
-	    if (nl > 286 || nd > 30) {
-	    	return -1;
-	    }
-	    for (j = 0; j < nb; j++) {
-			ll[border[j]] = getbits(3);
-			dumpbits(3);
-	    }
-	    for (; j < 19; j++) {
-			ll[border[j]] = 0;
-		}
-	    bl = 7;
-	    h = HuftBuild(ll, 19, 19, null, null, bl);
-	    if (h.status !== 0) {
-			return -1;
-		}
-	    tl = h.root;
-	    bl = h.m;
-	    n = nl + nd;
-	    i = l = 0;
-	    while (i < n) {
-			t = tl.list[getbits(bl)];
-			j = t.b;
-			dumpbits(j);
-			j = t.n;
-			if (j < 16) {
-			    ll[i++] = l = j;
-			} else if (j ===  16) {
-			    j = 3 + getbits(2);
-			    dumpbits(2);
-			    if (i + j > n) {
-					return -1;
-				}
-			    while (j-- > 0) {
-					ll[i++] = l;
-				}
-			} else if (j === 17) {
-			    j = 3 + getbits(3);
-			    dumpbits(3);
-			    if (i + j > n) {
-					return -1;
-				}
-			    while (j-- > 0) {
-					ll[i++] = 0;
-				}
-			    l = 0;
-			} else {
-			    j = 11 + getbits(7);
-			    dumpbits(7);
-			    if (i + j > n) {
-					return -1;
-				}
-			    while (j-- > 0) {
-					ll[i++] = 0;
-				}
-			    l = 0;
-			}
-	    }
-	    bl = lbits;
-	    h = HuftBuild(ll, nl, 257, cplens, cplext, bl);
-	    if (bl === 0) {
-			h.status = 1;
-		}
-	    if (h.status !== 0) {
-			return -1;
-	    }
-	    tl = h.root;
-	    bl = h.m;
-	    for (i = 0; i < nd; i++) {
-			ll[i] = ll[i + nl];
-		}
-	    bd = dbits;
-	    h = HuftBuild(ll, nd, 0, cpdist, cpdext, bd);
-	    td = h.root;
-	    bd = h.m;
-	    if (bd === 0 && nl > 257) {
-			return -1;
-	    }
-	    if (h.status !== 0) {
-			return -1;
-		}
-	    return codes(buff, off, size);
-	};
-	var internal = function(buff) {
-	    var n, i, size = 1024;
-	    n = 0;
-	    while (n < size) {
-			if (eof && method === -1) {
-				return n;
-			}
-			if (copy_leng > 0) {
-				if (method !== 0) {
-					while (copy_leng > 0 && n < size) {
-					    copy_leng--;
-					    copy_dist &= 0x7fff;
-					    wp &= 0x7fff;
-					    buff[n++] = slide[wp++] = slide[copy_dist++];
-					}
-			    } else {
-					while (copy_leng > 0 && n < size) {
-					    copy_leng--;
-					    wp &= 0x7fff;
-					    buff[n++] = slide[wp++] = getbits(8);
-					    dumpbits(8);
-					}
-					if (copy_leng === 0) {
-					    method = -1;
-					}
-			    }
-			    if (n === size) {
-					return n;
-				}
-			}
-			if (method === -1) {
-			    if (eof) {
-					break;
-				}
-			    if (getbits(1) !== 0) {
-					eof = true;
-				}
-			    dumpbits(1);
-			    method = getbits(2);
-			    dumpbits(2);
-			    tl = null;
-			    copy_leng = 0;
-			}
-			switch (method) {
-			  case 0:
-			    i = stored(buff, n, size - n);
-			    break;
-			  case 1:
-			    if (tl !== null) {
-					i = codes(buff, n, size - n);
-			    } else {
-					i = fixed(buff, n, size - n);
-				}
-			    break;
-			  case 2:
-			    if (tl !== null) {
-					i = codes(buff, n, size - n);
-			    } else {
-					i = dynamic(buff, n, size - n);
-				}
-			    break;
-			  default:
-			    i = -1;
-			    break;
-			}
-			if (i === -1) {
-			    if (eof) {
-					return 0;
-				}
-			    return -1;
-			}
-			n += i;
-	    }
-	    return n;
-	};
-	do {
-		bin = [];
-		internal(bin);
-		arr.push(bin.reduce(function(s, c) {return s + String.fromCharCode(c);}, ""));
-	} while (bin.length > 0);
-	return arr.join("");
+  var lbits = 9;
+  var dbits = 6;
+  var fixed_bl, fixed_tl = null, fixed_bd, fixed_td;
+  var mask_bits = [0x0000, 0x0001, 0x0003, 0x0007, 0x000f, 0x001f, 0x003f, 0x007f, 0x00ff, 0x01ff, 0x03ff, 0x07ff, 0x0fff, 0x1fff, 0x3fff, 0x7fff, 0xffff];
+  var cplens = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0];
+  var cplext = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, 99, 99];
+  var cpdist = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577];
+  var cpdext = [0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13];
+  var border = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
+  var arr = [], bin;
+  var slide = new Array(0x10000);
+  var wp = 0;
+  var bit_buf = 0;
+  var bit_len = 0;
+  var method = -1;
+  var eof = false;
+  var copy_leng = 0;
+  var copy_dist = 0;
+  var td, tl = null;
+  var data = s;
+  var pos = 0;
+  var bd, bl;
+  var HuftBuild = function(b, n, s, d, e, mm) {
+      var hroot = null, tail = null;
+    var a, el, f, g, h, i, j, k;
+    var p, pidx, q, r = {e: 0, b: 0, n: 0, t: null};
+    var w;
+    var xp, y, z, o;
+    var c = Array(17).fill(0);
+    var lx = Array(17).fill(0);
+    var u = Array(16).fill(null);
+    var v = Array(288).fill(0);
+    var x = Array(17).fill(0);
+    el = n > 256 ? b[256] : 16;
+    p = b;
+    pidx = 0;
+    i = n;
+    do {
+        c[p[pidx]]++;
+        pidx++;
+    } while (--i > 0);
+    if (c[0] === n) {
+        return {status: 0, root: null, m: 0};
+    }
+    for (j = 1; j <= 16; j++) {
+        if (c[j] !== 0) {
+        break;
+      }
+    }
+    k = j;
+    if (mm < j) {
+        mm = j;
+    }
+    for (i = 16; i !== 0; i--) {
+        if (c[i] !== 0) {
+        break;
+      }
+    }
+    g = i;
+    if (mm > i) {
+        mm = i;
+    }
+    for (y = 1 << j; j < i; j++, y <<= 1) {
+        if ((y -= c[j]) < 0) {
+        return {status: 2, root: null, m: mm};
+        }
+    }
+    if ((y -= c[i]) < 0) {
+        return {status: 2, root: null, m: mm};
+    }
+    c[i] += y;
+    x[1] = j = 0;
+    p = c;
+    pidx = 1;
+    xp = 2;
+    while (--i > 0) {
+        x[xp++] = (j += p[pidx++]);
+    }
+    p = b;
+    pidx = 0;
+    i = 0;
+    do {
+        if ((j = p[pidx++]) !== 0) {
+        v[x[j]++] = i;
+      }
+    } while (++i < n);
+    n = x[g];
+    x[0] = i = 0;
+    p = v;
+    pidx = 0;
+    h = -1;
+    w = lx[0] = 0;
+    q = null;
+    z = 0;
+    for (; k <= g; k++) {
+        a = c[k];
+        while (a-- > 0) {
+        while (k > w + lx[1 + h]) {
+            w += lx[1 + h];
+            h++;
+            z = (z = g - w) > mm ? mm : z;
+            if ((f = 1 << (j = k - w)) > a + 1) {
+            f -= a + 1;
+            xp = k;
+            while (++j < z) {
+                if ((f <<= 1) <= c[++xp]) {
+                break;
+              }
+                f -= c[xp];
+            }
+            }
+            if (w + j > el && w < el) {
+            j = el - w;
+          }
+            z = 1 << j;
+            lx[1 + h] = j;
+            q = [];
+            for (o = 0; o < z; o++) {
+            q.push({e: 0, b: 0, n: 0, t: null});
+            }
+            if (tail === null) {
+            tail = hroot = {next: null, list: null};
+            } else {
+            tail = tail.next = {next: null, list: null};
+          }
+            tail.next = null;
+            tail.list = q;
+            u[h] = q;
+            if (h > 0) {
+            x[h] = i;
+            r.b = lx[h];
+            r.e = 16 + j;
+            r.t = q;
+            j = (i & ((1 << w) - 1)) >> (w - lx[h]);
+            u[h - 1][j].e = r.e;
+            u[h - 1][j].b = r.b;
+            u[h - 1][j].n = r.n;
+            u[h - 1][j].t = r.t;
+            }
+        }
+        r.b = k - w;
+        if (pidx >= n) {
+            r.e = 99;
+        } else if (p[pidx] < s) {
+            r.e = p[pidx] < 256 ? 16 : 15;
+            r.n = p[pidx++];
+        } else {
+            r.e = e[p[pidx] - s];
+            r.n = d[p[pidx++] - s];
+        }
+        f = 1 << (k - w);
+        for (j = i >> w; j < z; j += f) {
+            q[j].e = r.e;
+            q[j].b = r.b;
+            q[j].n = r.n;
+            q[j].t = r.t;
+        }
+        for (j = 1 << (k - 1); (i & j) !== 0; j >>= 1) {
+            i ^= j;
+        }
+        i ^= j;
+        while ((i & ((1 << w) - 1)) !== x[h]) {
+            w -= lx[h];
+            h--;
+        }
+        }
+    }
+    return {status: y !== 0 && g !== 1 ? 1 : 0, root: hroot, m: lx[1]};
+  };
+  var needbits = function(n) {
+    while (bit_len < n) {
+      bit_buf |= (data.length === pos ? -1 : data.charCodeAt(pos++) & 0xff) << bit_len;
+      bit_len += 8;
+    }
+  };
+  var getbits = function(n) {
+    while (bit_len < n) {
+      bit_buf |= (data.length === pos ? -1 : data.charCodeAt(pos++) & 0xff) << bit_len;
+      bit_len += 8;
+    }
+      return bit_buf & mask_bits[n];
+  };
+  var dumpbits = function(n) {
+      bit_buf >>= n;
+      bit_len -= n;
+  };
+  var codes = function(buff, off, size) {
+      var e, t, n;
+    if (size === 0) {
+      return 0;
+    }
+      n = 0;
+      for(;;) {
+      t = tl.list[getbits(bl)];
+      e = t.e;
+      while (e > 16) {
+        if (e === 99) {
+          return -1;
+        }
+        dumpbits(t.b);
+        e -= 16;
+        t = t.t[getbits(e)];
+        e = t.e;
+      }
+      dumpbits(t.b);
+      if (e === 16) {
+          wp &= 0x7fff;
+          buff[off + n++] = slide[wp++] = t.n;
+          if (n === size) {
+          return size;
+        }
+          continue;
+      }
+      if (e === 15) {
+          break;
+      }
+      copy_leng = t.n + getbits(e);
+      dumpbits(e);
+      t = td.list[getbits(bd)];
+      e = t.e;
+      while (e > 16) {
+          if (e === 99) {
+          return -1;
+        }
+          dumpbits(t.b);
+          e -= 16;
+          t = t.t[getbits(e)];
+          e = t.e;
+      }
+      dumpbits(t.b);
+      copy_dist = wp - t.n - getbits(e);
+      dumpbits(e);
+      while (copy_leng > 0 && n < size) {
+          copy_leng--;
+          copy_dist &= 0x7fff;
+          wp &= 0x7fff;
+          buff[off + n++] = slide[wp++] = slide[copy_dist++];
+      }
+      if (n === size) {
+        return size;
+      }
+      }
+      method = -1;
+      return n;
+  };
+  var stored = function(buff, off, size) {
+      var n;
+      n = bit_len & 7;
+      dumpbits(n);
+      n = getbits(16);
+      dumpbits(16);
+      needbits(16);
+    if (n !== ((~bit_buf) & 0xffff)) {
+      return -1;
+    }
+      dumpbits(16);
+      copy_leng = n;
+      n = 0;
+      while (copy_leng > 0 && n < size) {
+      copy_leng--;
+      wp &= 0x7fff;
+      buff[off + n++] = slide[wp++] = getbits(8);
+      dumpbits(8);
+      }
+      if (copy_leng === 0) {
+      method = -1;
+    }
+    return n;
+  };
+  var fixed = function(buff, off, size) {
+    if (fixed_tl === null) {
+      var l = Array(288).fill(8, 0, 144).fill(9, 144, 256).fill(7, 256, 280).fill(8, 280, 288);
+      var h;
+      fixed_bl = 7;
+      h = HuftBuild(l, 288, 257, cplens, cplext, fixed_bl);
+      if (h.status !== 0) {
+          return -1;
+      }
+      fixed_tl = h.root;
+      fixed_bl = h.m;
+      l.fill(5, 0, 30);
+      fixed_bd = 5;
+      h = HuftBuild(l, 30, 0, cpdist, cpdext, fixed_bd);
+      if (h.status > 1) {
+          fixed_tl = null;
+          return -1;
+      }
+      fixed_td = h.root;
+      fixed_bd = h.m;
+      }
+      tl = fixed_tl;
+      td = fixed_td;
+      bl = fixed_bl;
+      bd = fixed_bd;
+      return codes(buff, off, size);
+  };
+  var dynamic = function(buff, off, size) {
+      var i, j, h, l, n, t, nb, nl, nd, ll = Array(316).fill(0);
+      nl = 257 + getbits(5);
+      dumpbits(5);
+      nd = 1 + getbits(5);
+      dumpbits(5);
+      nb = 4 + getbits(4);
+      dumpbits(4);
+      if (nl > 286 || nd > 30) {
+        return -1;
+      }
+      for (j = 0; j < nb; j++) {
+      ll[border[j]] = getbits(3);
+      dumpbits(3);
+      }
+      for (; j < 19; j++) {
+      ll[border[j]] = 0;
+    }
+      bl = 7;
+      h = HuftBuild(ll, 19, 19, null, null, bl);
+      if (h.status !== 0) {
+      return -1;
+    }
+      tl = h.root;
+      bl = h.m;
+      n = nl + nd;
+      i = l = 0;
+      while (i < n) {
+      t = tl.list[getbits(bl)];
+      j = t.b;
+      dumpbits(j);
+      j = t.n;
+      if (j < 16) {
+          ll[i++] = l = j;
+      } else if (j ===  16) {
+          j = 3 + getbits(2);
+          dumpbits(2);
+          if (i + j > n) {
+          return -1;
+        }
+          while (j-- > 0) {
+          ll[i++] = l;
+        }
+      } else if (j === 17) {
+          j = 3 + getbits(3);
+          dumpbits(3);
+          if (i + j > n) {
+          return -1;
+        }
+          while (j-- > 0) {
+          ll[i++] = 0;
+        }
+          l = 0;
+      } else {
+          j = 11 + getbits(7);
+          dumpbits(7);
+          if (i + j > n) {
+          return -1;
+        }
+          while (j-- > 0) {
+          ll[i++] = 0;
+        }
+          l = 0;
+      }
+      }
+      bl = lbits;
+      h = HuftBuild(ll, nl, 257, cplens, cplext, bl);
+      if (bl === 0) {
+      h.status = 1;
+    }
+      if (h.status !== 0) {
+      return -1;
+      }
+      tl = h.root;
+      bl = h.m;
+      for (i = 0; i < nd; i++) {
+      ll[i] = ll[i + nl];
+    }
+      bd = dbits;
+      h = HuftBuild(ll, nd, 0, cpdist, cpdext, bd);
+      td = h.root;
+      bd = h.m;
+      if (bd === 0 && nl > 257) {
+      return -1;
+      }
+      if (h.status !== 0) {
+      return -1;
+    }
+      return codes(buff, off, size);
+  };
+  var internal = function(buff) {
+      var n, i, size = 1024;
+      n = 0;
+      while (n < size) {
+      if (eof && method === -1) {
+        return n;
+      }
+      if (copy_leng > 0) {
+        if (method !== 0) {
+          while (copy_leng > 0 && n < size) {
+              copy_leng--;
+              copy_dist &= 0x7fff;
+              wp &= 0x7fff;
+              buff[n++] = slide[wp++] = slide[copy_dist++];
+          }
+          } else {
+          while (copy_leng > 0 && n < size) {
+              copy_leng--;
+              wp &= 0x7fff;
+              buff[n++] = slide[wp++] = getbits(8);
+              dumpbits(8);
+          }
+          if (copy_leng === 0) {
+              method = -1;
+          }
+          }
+          if (n === size) {
+          return n;
+        }
+      }
+      if (method === -1) {
+          if (eof) {
+          break;
+        }
+          if (getbits(1) !== 0) {
+          eof = true;
+        }
+          dumpbits(1);
+          method = getbits(2);
+          dumpbits(2);
+          tl = null;
+          copy_leng = 0;
+      }
+      switch (method) {
+        case 0:
+          i = stored(buff, n, size - n);
+          break;
+        case 1:
+          if (tl !== null) {
+          i = codes(buff, n, size - n);
+          } else {
+          i = fixed(buff, n, size - n);
+        }
+          break;
+        case 2:
+          if (tl !== null) {
+          i = codes(buff, n, size - n);
+          } else {
+          i = dynamic(buff, n, size - n);
+        }
+          break;
+        default:
+          i = -1;
+          break;
+      }
+      if (i === -1) {
+          if (eof) {
+          return 0;
+        }
+          return -1;
+      }
+      n += i;
+      }
+      return n;
+  };
+  do {
+    bin = [];
+    internal(bin);
+    arr.push(bin.reduce(function(s, c) {return s + String.fromCharCode(c);}, ""));
+  } while (bin.length > 0);
+  return arr.join("");
 };
 Fleur.inBrowser = (new Function("try {return this === window;}catch(e){ return false;}"))();
 Fleur.inNode = (new Function("try {return this === global;}catch(e){return false;}"))();
 Fleur.defaultLanguage = typeof navigator !== "undefined" ? (navigator.languages && navigator.languages.length) ? navigator.languages[0] : navigator.userLanguage || navigator.language || navigator.browserLanguage || 'en' : 'en';
 if (typeof BigInt === "undefined") {
-	Fleur.BigInt = function(arg) {
-		return parseInt(arg, 10);
-	};
+  Fleur.BigInt = function(arg) {
+    return parseInt(arg, 10);
+  };
 } else {
-	Fleur.BigInt = BigInt;
+  Fleur.BigInt = BigInt;
 }
 
 })(typeof exports === 'undefined'? this.Fleur = {} : require.main === module ? global.Fleur = {} : exports);
@@ -26342,68 +26736,68 @@ if (!String.fromCodePoint) {
   }());
 }
 if (!String.prototype.codePointAt) {
-	(function() {
-		'use strict';
-		var codePointAt = function(position) {
-			if (this == null) {
-				throw TypeError();
-			}
-			var string = String(this);
-			var size = string.length;
-			var index = position ? Number(position) : 0;
-			if (index != index) {
-				index = 0;
-			}
-			if (index < 0 || index >= size) {
-				return undefined;
-			}
-			var first = string.charCodeAt(index);
-			var second;
-			if (
-				first >= 0xD800 && first <= 0xDBFF &&
-				size > index + 1
-			) {
-				second = string.charCodeAt(index + 1);
-				if (second >= 0xDC00 && second <= 0xDFFF) {
-					return (first - 0xD800) * 0x400 + second - 0xDC00 + 0x10000;
-				}
-			}
-			return first;
-		};
-		if (Object.defineProperty) {
-			Object.defineProperty(String.prototype, 'codePointAt', {
-				'value': codePointAt,
-				'configurable': true,
-				'writable': true
-			});
-		} else {
-			String.prototype.codePointAt = codePointAt;
-		}
-	}());
+  (function() {
+    'use strict';
+    var codePointAt = function(position) {
+      if (this == null) {
+        throw TypeError();
+      }
+      var string = String(this);
+      var size = string.length;
+      var index = position ? Number(position) : 0;
+      if (index != index) {
+        index = 0;
+      }
+      if (index < 0 || index >= size) {
+        return undefined;
+      }
+      var first = string.charCodeAt(index);
+      var second;
+      if (
+        first >= 0xD800 && first <= 0xDBFF &&
+        size > index + 1
+      ) {
+        second = string.charCodeAt(index + 1);
+        if (second >= 0xDC00 && second <= 0xDFFF) {
+          return (first - 0xD800) * 0x400 + second - 0xDC00 + 0x10000;
+        }
+      }
+      return first;
+    };
+    if (Object.defineProperty) {
+      Object.defineProperty(String.prototype, 'codePointAt', {
+        'value': codePointAt,
+        'configurable': true,
+        'writable': true
+      });
+    } else {
+      String.prototype.codePointAt = codePointAt;
+    }
+  }());
 }
 if (!Array.prototype.head) {
-	Object.defineProperty(Array.prototype, 'head', {
-		value() {
-			return this.find(Boolean);
-		}
-	});
+  Object.defineProperty(Array.prototype, 'head', {
+    value() {
+      return this.find(Boolean);
+    }
+  });
 }
 if (!Array.prototype.isSingle) {
-	Object.defineProperty(Array.prototype, 'isSingle', {
-		value() {
-			return false;
-		}
-	});
+  Object.defineProperty(Array.prototype, 'isSingle', {
+    value() {
+      return false;
+    }
+  });
 }
 if (!Array.prototype.childNodes) {
-	Object.defineProperty(Array.prototype, 'childNodes', {
-		get: function() { return this;}
-	});
+  Object.defineProperty(Array.prototype, 'childNodes', {
+    get: function() { return this;}
+  });
 }
 if (!Array.prototype.toArray) {
-	Object.defineProperty(Array.prototype, 'toArray', {
-		value() { return this;}
-	});
+  Object.defineProperty(Array.prototype, 'toArray', {
+    value() { return this;}
+  });
 }
 (function (global, undefined) {
     if (global.setImmediate) {
@@ -26538,259 +26932,259 @@ if (!Array.prototype.toArray) {
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self)
 );
 if ((new Function("try {return this === window;} catch(e) {return false;}"))()) {
-	document.addEventListener('DOMContentLoaded', function() {
-		var scripts = Array.prototype.slice.call(document.getElementsByTagName("script"), 0).filter(function(sc) {
-			return sc.getAttribute("type") === "application/xquery";
-		});
-		var parser = new Fleur.DOMParser();
-		var xmldoc;
-		var xqeval = function(xexpr) {
-			try {
-				xmldoc.evaluate(xexpr).then(
-					function(res) {},
-					function(err) {
-						alert(err.toXQuery());
-					}
-				);
-			} catch(e) {
-				alert("Exception!\n" + e.stack);
-			}
-		};
-		xmldoc = parser.parseFromString("<dummy/>", "application/xml");
-		scripts.forEach(function(sc) {
-			xqeval(sc.textContent);
-		});
-	}, false);
+  document.addEventListener('DOMContentLoaded', function() {
+    var scripts = Array.prototype.slice.call(document.getElementsByTagName("script"), 0).filter(function(sc) {
+      return sc.getAttribute("type") === "application/xquery";
+    });
+    var parser = new Fleur.DOMParser();
+    var xmldoc;
+    var xqeval = function(xexpr) {
+      try {
+        xmldoc.evaluate(xexpr).then(
+          function(res) {},
+          function(err) {
+            alert(err.toXQuery());
+          }
+        );
+      } catch(e) {
+        alert("Exception!\n" + e.stack);
+      }
+    };
+    xmldoc = parser.parseFromString("<dummy/>", "application/xml");
+    scripts.forEach(function(sc) {
+      xqeval(sc.textContent);
+    });
+  }, false);
 } else if (global) {
-	global.fs = require('fs');
-	global.http = require('http');
-	global.path = require('path');
-	global.url = require('url');
-	global.os = require('os');
-	global.dgram = require('dgram');
-	global.child_process = require('child_process');
-	var startparams = process.argv[1].endsWith('fleur.js') || process.argv[1].endsWith('fleur') ? 2 : 3;
-	var params = {argv: []};
-	process.argv.forEach(function(val, i) {
-		if (i >= startparams) {
-			if (!params.q && !params.qs) {
-				if (val.startsWith("-q:") && val.length > 3) {
-					params.q = val.substr(3);
-				} else if (val.startsWith("-qs:") && val.length > 4) {
-					params.qs = val.substr(4);
-				} else if (val.startsWith("-s:") && !params.s && val.length > 3) {
-					params.s = val.substr(3);
-				} else if (val.startsWith("-o:") && !params.o && val.length > 3) {
-					params.o = val.substr(3);
-				} else if (val.startsWith("-p:") && !params.p && val.length > 3) {
-					params.p = parseInt(val.substr(3), 10);
-				} else if (val.startsWith("-f:") && !params.f && val.length > 3) {
-					params.f = val.substr(3);
-				} else {
-					params.usage = true;
-				}
-			} else if (params.q || params.qs) {
-				params.argv.push(val);
-			} else {
-				params.usage = true;
-			}
-		}
-	});
-	if (params.usage || (!params.qs && !params.q && (params.s || params.o))) {
-		process.stdout.write("Usage: node fleur ([-s:xmlfile] [-o:outfile] (-q:queryfile|-qs:querystring) [params]|[-p:port] [-f:folder])\n");
-		process.stdout.write(" -s:     XML input file (optional)\n");
-		process.stdout.write(" -o:     output file (optional)\n");
-		process.stdout.write(" -q:     query file\n");
-		process.stdout.write(" -qs:    query string\n");
-		process.stdout.write(" -p:     http server port\n");
-		process.stdout.write(" -f:     http server folder\n");
-		process.stdout.write(" params  name=value as externals");
-	} else if (params.qs || params.q) {
-		var parseval = function(xml, xexpr, out) {
-			var parser = new global.Fleur.DOMParser();
-			var xmldoc = parser.parseFromString(xml, "application/xml");
-			var env;
-			if (params.argv.length > 0) {
-				var args = {};
-				params.argv.forEach(function(p) {
-					var pp = p.split("=");
-					args[pp[0]] = pp[1];
-				});
-				env = {
-					args: args
-				};
-			}
-			try {
-       			var d1 = new Date();
-				xmldoc.evaluate(xexpr, null, env).then(
-					function(res) {
-						if (out) {
-	        				global.fs.writeFile(out, res.toXQuery(), function(err) {if (err) process.stdout.write(err);});
-						} else {
-							process.stdout.write(res.toXQuery());
-							var d2 = new Date();
-							console.log("\nExecution Time: " + ((d2 - d1) / 1000) + "s");
-						}
-					},
-					function(err) {
-						if (out) {
-	        				global.fs.writeFile(out, err.toXQuery(), function(err) {if (err) process.stdout.write(err);});
-						} else {
-							process.stdout.write(err.toXQuery());
-						}
-					}
-				);
-			} catch(e) {
-				process.stdout.write("Exception!\n" + e.stack);
-			}
-		};
-		Fleur.baseDir = params.q ? global.path.dirname(params.q) : process.cwd();
-		var sourceval = function(xml) {
-			if (params.qs) {
-				parseval(xml, params.qs, params.o);
-			} else {
-				global.fs.readFile(params.q, 'binary', function(err, file){
-					if (err) {
-						process.stdout.write(err);
-					} else {
-						parseval(xml, file, params.o);
-					}
-				});
-			}
-		};
-		if (params.s) {
-			global.fs.readFile(params.s, 'binary', function(err, file){
-				if (err) {
-					process.stdout.write(err);
-				} else {
-					sourceval(file);
-				}
-			});
-		} else {
-			sourceval("<dummy/>");
-		}
-	} else if (process.argv[1].endsWith('fleur.js') || process.argv[1].endsWith('fleur')) {
-		Fleur.baseDir = global.path.resolve(params.f || process.cwd(), "public");
-		var port = params.p;
-		port = isNaN(port) || port > 65535 || port === 0 ? 80 : port;
-		console.log("Fleur Web Server");
-		console.log("Listening to port " + port);
-		process.chdir(Fleur.baseDir);
-		global.http.createServer(function(request, response) {
-			var body, uri, method, newuri, headers, filename, filestats, contentType, ifmodifiedsince, lastmodified;
-			body = "";
-			var sendfile = function(err, file) {
-				if (err) {        
-					response.writeHead(err.errno === 34 ? 404 : 500, {"Content-Type": "text/plain"});
-					response.end(err.errno === 34 ? "404 Not Found" : "500 Internal server error - " + err);
-					return;
-				}
-				headers = {};
-				contentType = Fleur.extension2contentType[global.path.extname(filename)];
-				if (contentType) {
-					headers["Content-Type"] = contentType;
-				}
-				if (lastmodified) {
-					headers['Expires'] = lastmodified;
-					headers["Last-Modified"] = lastmodified;
-				}
-				response.writeHead(200, headers);
-				response.end(file, "binary");
-			};
-			var execfile = function(err, file) {
-				if (err) {        
-					response.writeHead(err.errno === 34 ? 404 : 500, {"Content-Type": "text/plain"});
-					response.end(err.errno === 34 ? "404 Not Found" : "500 Internal server error - " + err);
-					return;
-				}
-				headers = {};
-				lastmodified = (new Date()).toUTCString();
-				headers["Last-Modified"] = lastmodified;
-    			var doc = new Fleur.Document();
-				var reqeval = {request: {headers: request.headers, query: global.url.parse(request.url).query}};
-    			if (body !== "") {
-    				reqeval.request.body = body;
-    			}
-				doc.evaluate(file, null, reqeval).then(
-					function(res) {
-						headers["Content-Type"] = res.mediatype;
-						response.writeHead(200, headers);
-						response.end(res.serialize(), 'binary');
-					},
-					function(err) {
-						contentType = Fleur.extension2contentType[".txt"];
-						if (contentType) {
-							headers["Content-Type"] = contentType;
-						}
-						response.writeHead(200, headers);
-						response.end(err.toXQuery(), "binary");
-					}
-				);
-			};
-			request.on("data", function (chunk) {
-				body += chunk;
-			});
-			request.on("end", function () {
-				uri = global.url.parse(request.url).pathname;
-				method = request.method;
-				lastmodified = null;
-				while (uri.endsWith("/")) {
-					uri = uri.substr(0, uri.length - 1);
-				}
-				newuri = uri;
-				while (newuri.startsWith("/")) {
-					newuri = newuri.substr(1);
-				}
-				filename = global.path.resolve(process.cwd(), newuri);
-				if (!filename.startsWith(process.cwd())) {
-					response.writeHead(403, {'Content-Type': 'text/plain'});
-					response.end('403 Forbidden');
-					return;
-				}
-				if (global.fs.existsSync(filename)) {
-					filestats = global.fs.statSync(filename);
-					if (filestats.isDirectory()) {
-						if (method === 'GET') {
-							response.writeHead(301, {'Location': uri + '/index.' + (global.fs.existsSync(filename + global.path.sep + 'index.html') ? 'html' : global.fs.existsSync(filename + global.path.sep + '/index.htm') ? 'htm' : global.fs.existsSync(filename + global.path.sep + '/index.xqy') ? 'xqy' : 'xml')});
-							response.end();
-						} else {
-							response.writeHead(403, {'Content-Type': 'text/plain'});
-							response.end('403 Forbidden' + ' method:' + method);
-						}
-						return;
-					}
-					switch(method) {
-						case 'GET':
-							if (filename.endsWith('.xqy')) {
-								global.fs.readFile(filename, 'binary', execfile);
-							} else {
-								ifmodifiedsince = request.headers['if-modified-since'];
-								if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= (new Date(filestats.mtime.toUTCString())).getTime()) {
-									response.writeHead(304, {'Content-Type': 'text/plain'});
-									response.end('304 Not Modified');
-									return;
-								}
-								lastmodified = filestats.mtime.toUTCString();
-								global.fs.readFile(filename, 'binary', sendfile);
-							}
-							break;
-						case 'POST':
-							if (filename.endsWith('.xqy')) {
-								global.fs.readFile(filename, 'binary', execfile);
-							} else {
-								response.writeHead(405, {'Content-Type': 'text/plain'});
-								response.end('405 Method Not Allowed');
-							}
-							break;
-						default:
-							response.writeHead(405, {'Content-Type': 'text/plain'});
-							response.end('405 Method Not Allowed');
-					}
-					return;
-				}
-				response.writeHead(404, {'Content-Type': 'text/plain'});
-				response.end('404 Not Found');
-			});
-		}).listen(port);
-	}
+  global.fs = require('fs');
+  global.http = require('http');
+  global.path = require('path');
+  global.url = require('url');
+  global.os = require('os');
+  global.dgram = require('dgram');
+  global.child_process = require('child_process');
+  var startparams = process.argv[1].endsWith('fleur.js') || process.argv[1].endsWith('fleur') ? 2 : 3;
+  var params = {argv: []};
+  process.argv.forEach(function(val, i) {
+    if (i >= startparams) {
+      if (!params.q && !params.qs) {
+        if (val.startsWith("-q:") && val.length > 3) {
+          params.q = val.substr(3);
+        } else if (val.startsWith("-qs:") && val.length > 4) {
+          params.qs = val.substr(4);
+        } else if (val.startsWith("-s:") && !params.s && val.length > 3) {
+          params.s = val.substr(3);
+        } else if (val.startsWith("-o:") && !params.o && val.length > 3) {
+          params.o = val.substr(3);
+        } else if (val.startsWith("-p:") && !params.p && val.length > 3) {
+          params.p = parseInt(val.substr(3), 10);
+        } else if (val.startsWith("-f:") && !params.f && val.length > 3) {
+          params.f = val.substr(3);
+        } else {
+          params.usage = true;
+        }
+      } else if (params.q || params.qs) {
+        params.argv.push(val);
+      } else {
+        params.usage = true;
+      }
+    }
+  });
+  if (params.usage || (!params.qs && !params.q && (params.s || params.o))) {
+    process.stdout.write("Usage: node fleur ([-s:xmlfile] [-o:outfile] (-q:queryfile|-qs:querystring) [params]|[-p:port] [-f:folder])\n");
+    process.stdout.write(" -s:     XML input file (optional)\n");
+    process.stdout.write(" -o:     output file (optional)\n");
+    process.stdout.write(" -q:     query file\n");
+    process.stdout.write(" -qs:    query string\n");
+    process.stdout.write(" -p:     http server port\n");
+    process.stdout.write(" -f:     http server folder\n");
+    process.stdout.write(" params  name=value as externals");
+  } else if (params.qs || params.q) {
+    var parseval = function(xml, xexpr, out) {
+      var parser = new global.Fleur.DOMParser();
+      var xmldoc = parser.parseFromString(xml, "application/xml");
+      var env;
+      if (params.argv.length > 0) {
+        var args = {};
+        params.argv.forEach(function(p) {
+          var pp = p.split("=");
+          args[pp[0]] = pp[1];
+        });
+        env = {
+          args: args
+        };
+      }
+      try {
+             var d1 = new Date();
+        xmldoc.evaluate(xexpr, null, env).then(
+          function(res) {
+            if (out) {
+                  global.fs.writeFile(out, res.toXQuery(), function(err) {if (err) process.stdout.write(err);});
+            } else {
+              process.stdout.write(res.toXQuery());
+              var d2 = new Date();
+              console.log("\nExecution Time: " + ((d2 - d1) / 1000) + "s");
+            }
+          },
+          function(err) {
+            if (out) {
+                  global.fs.writeFile(out, err.toXQuery(), function(err) {if (err) process.stdout.write(err);});
+            } else {
+              process.stdout.write(err.toXQuery());
+            }
+          }
+        );
+      } catch(e) {
+        process.stdout.write("Exception!\n" + e.stack);
+      }
+    };
+    Fleur.baseDir = params.q ? global.path.dirname(params.q) : process.cwd();
+    var sourceval = function(xml) {
+      if (params.qs) {
+        parseval(xml, params.qs, params.o);
+      } else {
+        global.fs.readFile(params.q, 'binary', function(err, file){
+          if (err) {
+            process.stdout.write(err);
+          } else {
+            parseval(xml, file, params.o);
+          }
+        });
+      }
+    };
+    if (params.s) {
+      global.fs.readFile(params.s, 'binary', function(err, file){
+        if (err) {
+          process.stdout.write(err);
+        } else {
+          sourceval(file);
+        }
+      });
+    } else {
+      sourceval("<dummy/>");
+    }
+  } else if (process.argv[1].endsWith('fleur.js') || process.argv[1].endsWith('fleur')) {
+    Fleur.baseDir = global.path.resolve(params.f || process.cwd(), "public");
+    var port = params.p;
+    port = isNaN(port) || port > 65535 || port === 0 ? 80 : port;
+    console.log("Fleur Web Server");
+    console.log("Listening to port " + port);
+    process.chdir(Fleur.baseDir);
+    global.http.createServer(function(request, response) {
+      var body, uri, method, newuri, headers, filename, filestats, contentType, ifmodifiedsince, lastmodified;
+      body = "";
+      var sendfile = function(err, file) {
+        if (err) {        
+          response.writeHead(err.errno === 34 ? 404 : 500, {"Content-Type": "text/plain"});
+          response.end(err.errno === 34 ? "404 Not Found" : "500 Internal server error - " + err);
+          return;
+        }
+        headers = {};
+        contentType = Fleur.extension2contentType[global.path.extname(filename)];
+        if (contentType) {
+          headers["Content-Type"] = contentType;
+        }
+        if (lastmodified) {
+          headers['Expires'] = lastmodified;
+          headers["Last-Modified"] = lastmodified;
+        }
+        response.writeHead(200, headers);
+        response.end(file, "binary");
+      };
+      var execfile = function(err, file) {
+        if (err) {        
+          response.writeHead(err.errno === 34 ? 404 : 500, {"Content-Type": "text/plain"});
+          response.end(err.errno === 34 ? "404 Not Found" : "500 Internal server error - " + err);
+          return;
+        }
+        headers = {};
+        lastmodified = (new Date()).toUTCString();
+        headers["Last-Modified"] = lastmodified;
+          var doc = new Fleur.Document();
+        var reqeval = {request: {headers: request.headers, query: global.url.parse(request.url).query}};
+          if (body !== "") {
+            reqeval.request.body = body;
+          }
+        doc.evaluate(file, null, reqeval).then(
+          function(res) {
+            headers["Content-Type"] = res.mediatype;
+            response.writeHead(200, headers);
+            response.end(res.serialize(), 'binary');
+          },
+          function(err) {
+            contentType = Fleur.extension2contentType[".txt"];
+            if (contentType) {
+              headers["Content-Type"] = contentType;
+            }
+            response.writeHead(200, headers);
+            response.end(err.toXQuery(), "binary");
+          }
+        );
+      };
+      request.on("data", function (chunk) {
+        body += chunk;
+      });
+      request.on("end", function () {
+        uri = global.url.parse(request.url).pathname;
+        method = request.method;
+        lastmodified = null;
+        while (uri.endsWith("/")) {
+          uri = uri.substr(0, uri.length - 1);
+        }
+        newuri = uri;
+        while (newuri.startsWith("/")) {
+          newuri = newuri.substr(1);
+        }
+        filename = global.path.resolve(process.cwd(), newuri);
+        if (!filename.startsWith(process.cwd())) {
+          response.writeHead(403, {'Content-Type': 'text/plain'});
+          response.end('403 Forbidden');
+          return;
+        }
+        if (global.fs.existsSync(filename)) {
+          filestats = global.fs.statSync(filename);
+          if (filestats.isDirectory()) {
+            if (method === 'GET') {
+              response.writeHead(301, {'Location': uri + '/index.' + (global.fs.existsSync(filename + global.path.sep + 'index.html') ? 'html' : global.fs.existsSync(filename + global.path.sep + '/index.htm') ? 'htm' : global.fs.existsSync(filename + global.path.sep + '/index.xqy') ? 'xqy' : 'xml')});
+              response.end();
+            } else {
+              response.writeHead(403, {'Content-Type': 'text/plain'});
+              response.end('403 Forbidden' + ' method:' + method);
+            }
+            return;
+          }
+          switch(method) {
+            case 'GET':
+              if (filename.endsWith('.xqy')) {
+                global.fs.readFile(filename, 'binary', execfile);
+              } else {
+                ifmodifiedsince = request.headers['if-modified-since'];
+                if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= (new Date(filestats.mtime.toUTCString())).getTime()) {
+                  response.writeHead(304, {'Content-Type': 'text/plain'});
+                  response.end('304 Not Modified');
+                  return;
+                }
+                lastmodified = filestats.mtime.toUTCString();
+                global.fs.readFile(filename, 'binary', sendfile);
+              }
+              break;
+            case 'POST':
+              if (filename.endsWith('.xqy')) {
+                global.fs.readFile(filename, 'binary', execfile);
+              } else {
+                response.writeHead(405, {'Content-Type': 'text/plain'});
+                response.end('405 Method Not Allowed');
+              }
+              break;
+            default:
+              response.writeHead(405, {'Content-Type': 'text/plain'});
+              response.end('405 Method Not Allowed');
+          }
+          return;
+        }
+        response.writeHead(404, {'Content-Type': 'text/plain'});
+        response.end('404 Not Found');
+      });
+    }).listen(port);
+  }
 }

@@ -8,11 +8,15 @@
 Fleur.signatures.xf_choose_3 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Node},
+  return_type: null,
   params_type: [
-    {type: Fleur.Type_boolean},
-    {type: Fleur.Node},
-    {type: Fleur.Node}
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_boolean,
+      occurrence: "1"
+    },
+    null,
+    null
   ]
 };
 Fleur.Context.prototype.xf_choose_3 = function() {

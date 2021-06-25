@@ -6,8 +6,15 @@
  * @module 
  * @description 
  */
-Fleur.Transpiler.prototype.xqx_unaryMinusOp = function(children) {
-	return this.gen(children[0][1][0], Fleur.atomicTypes) + this.inst("xqx_unaryMinusOp()");
+Fleur.Transpiler.prototype.xqx_unaryMinusOp = function(children, expectedType) {
+  if (expectedType && Fleur.numericTypes.indexOf(expectedType.schemaTypeInfo) === -1) {
+    Fleur.XQueryError_xqt("FORG00001", null, "Wrong argument type");
+  }
+  return this.inst("xqx_unaryMinusOp()", false, expectedType, this.gen(children[0][1][0], {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_numeric,
+    occurrence: 1
+  }));
 };
 
 Fleur.Context.prototype.xqx_unaryMinusOp = function() {
@@ -31,26 +38,26 @@ return this;
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.unaryMinusOp] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op;
-		var a = Fleur.Atomize(n);
-		op = Fleur.toJSNumber(a);
-		if (op[0] < 0) {
-			Fleur.callback(function() {callback(a);});
-			return;
-		}
-		if (a.schemaTypeInfo !== Fleur.Type_integer && a.schemaTypeInfo !== Fleur.Type_decimal && a.schemaTypeInfo !== Fleur.Type_float && a.schemaTypeInfo !== Fleur.Type_double) {
-			if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				a.schemaTypeInfo = Fleur.Type_integer;
-			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				a.schemaTypeInfo = Fleur.Type_decimal;
-			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				a.schemaTypeInfo = Fleur.Type_float;
-			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				a.schemaTypeInfo = Fleur.Type_double;
-			}
-		}
-		a.data = a.schemaTypeInfo.canonicalize(String(-op[1]));
-		Fleur.callback(function() {callback(a);});
-	});
+  Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+    var op;
+    var a = Fleur.Atomize(n);
+    op = Fleur.toJSNumber(a);
+    if (op[0] < 0) {
+      Fleur.callback(function() {callback(a);});
+      return;
+    }
+    if (a.schemaTypeInfo !== Fleur.Type_integer && a.schemaTypeInfo !== Fleur.Type_decimal && a.schemaTypeInfo !== Fleur.Type_float && a.schemaTypeInfo !== Fleur.Type_double) {
+      if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        a.schemaTypeInfo = Fleur.Type_integer;
+      } else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        a.schemaTypeInfo = Fleur.Type_decimal;
+      } else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        a.schemaTypeInfo = Fleur.Type_float;
+      } else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+        a.schemaTypeInfo = Fleur.Type_double;
+      }
+    }
+    a.data = a.schemaTypeInfo.canonicalize(String(-op[1]));
+    Fleur.callback(function() {callback(a);});
+  });
 };

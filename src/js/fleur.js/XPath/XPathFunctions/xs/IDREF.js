@@ -8,18 +8,26 @@
 Fleur.signatures.xs_IDREF_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: Fleur.Type_IDREF,
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_IDREF,
+    occurrence: "?"
+  },
   params_type: [
-    Fleur.atomicTypes
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_anySimpleType,
+      occurrence: "?"
+    }
   ]
 };
 Fleur.Context.prototype.xs_IDREF_1 = function() {
-	this.typeConstructor(Fleur.Type_IDREF);
-	return this;
+  this.typeConstructor(Fleur.Type_IDREF);
+  return this;
 };
 
 Fleur.XPathFunctions_xs["IDREF#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:IDREF",
-	function(arg) {
-		return Fleur.XPathConstructor(arg, Fleur.Type_IDREF, function() {});
-	},
-	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
+  function(arg) {
+    return Fleur.XPathConstructor(arg, Fleur.Type_IDREF, function() {});
+  },
+  null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

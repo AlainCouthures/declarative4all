@@ -137,55 +137,55 @@ if (!String.fromCodePoint) {
 
 /*! http://mths.be/codepointat v0.1.0 by @mathias */
 if (!String.prototype.codePointAt) {
-	(function() {
-		'use strict';
-		var codePointAt = function(position) {
-			if (this == null) {
-				throw TypeError();
-			}
-			var string = String(this);
-			var size = string.length;
-			var index = position ? Number(position) : 0;
-			if (index != index) {
-				index = 0;
-			}
-			if (index < 0 || index >= size) {
-				return undefined;
-			}
-			var first = string.charCodeAt(index);
-			var second;
-			if (
-				first >= 0xD800 && first <= 0xDBFF &&
-				size > index + 1
-			) {
-				second = string.charCodeAt(index + 1);
-				if (second >= 0xDC00 && second <= 0xDFFF) {
-					return (first - 0xD800) * 0x400 + second - 0xDC00 + 0x10000;
-				}
-			}
-			return first;
-		};
-		if (Object.defineProperty) {
-			Object.defineProperty(String.prototype, 'codePointAt', {
-				'value': codePointAt,
-				'configurable': true,
-				'writable': true
-			});
-		} else {
-			String.prototype.codePointAt = codePointAt;
-		}
-	}());
+  (function() {
+    'use strict';
+    var codePointAt = function(position) {
+      if (this == null) {
+        throw TypeError();
+      }
+      var string = String(this);
+      var size = string.length;
+      var index = position ? Number(position) : 0;
+      if (index != index) {
+        index = 0;
+      }
+      if (index < 0 || index >= size) {
+        return undefined;
+      }
+      var first = string.charCodeAt(index);
+      var second;
+      if (
+        first >= 0xD800 && first <= 0xDBFF &&
+        size > index + 1
+      ) {
+        second = string.charCodeAt(index + 1);
+        if (second >= 0xDC00 && second <= 0xDFFF) {
+          return (first - 0xD800) * 0x400 + second - 0xDC00 + 0x10000;
+        }
+      }
+      return first;
+    };
+    if (Object.defineProperty) {
+      Object.defineProperty(String.prototype, 'codePointAt', {
+        'value': codePointAt,
+        'configurable': true,
+        'writable': true
+      });
+    } else {
+      String.prototype.codePointAt = codePointAt;
+    }
+  }());
 }
 /**
  * Array.prototype.head
  */
 
 if (!Array.prototype.head) {
-	Object.defineProperty(Array.prototype, 'head', {
-		value() {
-			return this.find(Boolean);
-		}
-	});
+  Object.defineProperty(Array.prototype, 'head', {
+    value() {
+      return this.find(Boolean);
+    }
+  });
 }
 
 /**
@@ -193,11 +193,11 @@ if (!Array.prototype.head) {
  */
 
 if (!Array.prototype.isSingle) {
-	Object.defineProperty(Array.prototype, 'isSingle', {
-		value() {
-			return false;
-		}
-	});
+  Object.defineProperty(Array.prototype, 'isSingle', {
+    value() {
+      return false;
+    }
+  });
 }
 
 /**
@@ -205,9 +205,9 @@ if (!Array.prototype.isSingle) {
  */
 
 if (!Array.prototype.childNodes) {
-	Object.defineProperty(Array.prototype, 'childNodes', {
-		get: function() { return this;}
-	});
+  Object.defineProperty(Array.prototype, 'childNodes', {
+    get: function() { return this;}
+  });
 }
 
 /**
@@ -215,9 +215,9 @@ if (!Array.prototype.childNodes) {
  */
 
 if (!Array.prototype.toArray) {
-	Object.defineProperty(Array.prototype, 'toArray', {
-		value() { return this;}
-	});
+  Object.defineProperty(Array.prototype, 'toArray', {
+    value() { return this;}
+  });
 }
 
 (function (global, undefined) {

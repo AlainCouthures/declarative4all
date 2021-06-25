@@ -1,14 +1,14 @@
 {
-	"Components":[
-		"XQueryXNames.js",
-		"XQueryError.js",
-		"XQueryEngine.js",
-		"XQueryParser.js",
-		"Instructions/project.json",
-		"Operators/project.json",
-		"callback.js",
-		"error.js",
-		"locale.js",
-		"toJS.js"
-	]
+  "Components":[
+    "XQueryXNames.js",
+    "XQueryError.js",
+    "XQueryEngine.js",
+    "XQueryParser.js",
+    "Instructions/project.json",
+    "Operators/project.json",
+    "callback.js",
+    "error.js",
+    "locale.js",
+    "toJS.js"
+  ]
 }

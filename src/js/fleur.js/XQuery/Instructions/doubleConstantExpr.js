@@ -7,21 +7,28 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_doubleConstantExpr = function(children) {
-	return this.inst("xqx_doubleConstantExpr('" + children[0][1][0] + "')");
+  return {
+    inst: this.inst("xqx_doubleConstantExpr('" + children[0][1][0] + "')", false).inst,
+    sequenceType: {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_double,
+      occurrence: 1
+    }
+  };
 };
 
 Fleur.Context.prototype.xqx_doubleConstantExpr = function(arg) {
   this.itemstack.push(this.item);
   const item = new Fleur.Text();
   item.appendData(Fleur.Type_double.canonicalize(arg));
-	item.schemaTypeInfo = Fleur.Type_double;
+  item.schemaTypeInfo = Fleur.Type_double;
   this.item = item;
   return this;
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.doubleConstantExpr] = function(ctx, children, callback) {
-	var a = new Fleur.Text();
-	a.appendData(Fleur.Type_double.canonicalize(children[0][1][0]));
-	a.schemaTypeInfo = Fleur.Type_double;
-	Fleur.callback(function() {callback(a);});
+  var a = new Fleur.Text();
+  a.appendData(Fleur.Type_double.canonicalize(children[0][1][0]));
+  a.schemaTypeInfo = Fleur.Type_double;
+  Fleur.callback(function() {callback(a);});
 };

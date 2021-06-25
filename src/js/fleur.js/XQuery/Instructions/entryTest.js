@@ -7,9 +7,9 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_entryTest = function() {
-	return this.inst("xqx_entryTest()");
+  return this.inst("xqx_entryTest()");
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.entryTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ENTRY_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ENTRY_NODE ? Fleur.EmptySequence : ctx._curr);});
 };

@@ -8,18 +8,26 @@
 Fleur.signatures.xs_Name_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: Fleur.Type_Name,
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_Name,
+    occurrence: "?"
+  },
   params_type: [
-    Fleur.atomicTypes
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_anySimpleType,
+      occurrence: "?"
+    }
   ]
 };
 Fleur.Context.prototype.xs_Name_1 = function() {
-	this.typeConstructor(Fleur.Type_Name);
-	return this;
+  this.typeConstructor(Fleur.Type_Name);
+  return this;
 };
 
 Fleur.XPathFunctions_xs["Name#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:Name",
-	function(arg) {
-		return Fleur.XPathConstructor(arg, Fleur.Type_Name, function() {});
-	},
-	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
+  function(arg) {
+    return Fleur.XPathConstructor(arg, Fleur.Type_Name, function() {});
+  },
+  null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

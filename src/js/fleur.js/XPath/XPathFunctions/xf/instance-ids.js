@@ -8,7 +8,11 @@
 Fleur.signatures.xf_instance$_ids_0 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Type_string},
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_string,
+    occurrence: "*"
+  },
   params_type: []
 };
 Fleur.Context.prototype.xf_instance$_ids_0 = function() {

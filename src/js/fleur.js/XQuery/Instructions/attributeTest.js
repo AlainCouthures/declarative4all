@@ -8,6 +8,6 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.attributeTest] = function(ctx, children, callback) {
-	//console.log("attributeTest - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE || ctx._curr.nodeName === "xmlns" || ctx._curr.prefix === "xmlns" ? Fleur.EmptySequence : ctx._curr);});
+  //console.log("attributeTest - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE || ctx._curr.nodeName === "xmlns" || ctx._curr.prefix === "xmlns" ? Fleur.EmptySequence : ctx._curr);});
 };

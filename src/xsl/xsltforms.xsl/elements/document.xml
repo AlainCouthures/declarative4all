@@ -13,43 +13,45 @@
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltformspivalue" select="translate(normalize-space(/processing-instruction('xsltforms-options')[1]), ' ', '')"/>
 <!--
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="lang">
-	<xsl:choose>
-		<xsl:when test="$xsltforms_lang != ''"><xsl:value-of select="$xsltforms_lang"/></xsl:when>
-		<xsl:when test="substring(substring-after($xsltformspivalue, 'lang='), 1, 1) != ''">
-			<xsl:variable name="langquote" select="substring(substring-after($xsltformspivalue, 'lang='), 1, 1)"/>
-			<xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('lang=', $langquote)), $langquote)"/>
-		</xsl:when>
-	</xsl:choose>
+  <xsl:choose>
+    <xsl:when test="$xsltforms_lang != ''"><xsl:value-of select="$xsltforms_lang"/></xsl:when>
+    <xsl:when test="substring(substring-after($xsltformspivalue, 'lang='), 1, 1) != ''">
+      <xsl:variable name="langquote" select="substring(substring-after($xsltformspivalue, 'lang='), 1, 1)"/>
+      <xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('lang=', $langquote)), $langquote)"/>
+    </xsl:when>
+  </xsl:choose>
 </xsl:variable>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="langextension">
-	<xsl:choose>
-		<xsl:when test="$lang != '' and $lang != 'navigator'">_<xsl:value-of select="$lang"/></xsl:when>
-	</xsl:choose>
+  <xsl:choose>
+    <xsl:when test="$lang != '' and $lang != 'navigator'">_<xsl:value-of select="$lang"/></xsl:when>
+  </xsl:choose>
 </xsl:variable>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="configdoc" select="document(concat($xsltforms_home,'config',$langextension,'.xsl'))/xsl:stylesheet/xsl:template[@name='config']"/>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="configlang">navigator</xsl:variable>
-	<xsl:choose>
-		<xsl:when test="$xsltforms_lang != ''"><xsl:value-of select="$xsltforms_lang"/></xsl:when>
-		<xsl:otherwise><xsl:value-of select="$configdoc/properties/language"/></xsl:otherwise>
-	</xsl:choose>
+  <xsl:choose>
+    <xsl:when test="$xsltforms_lang != ''"><xsl:value-of select="$xsltforms_lang"/></xsl:when>
+    <xsl:otherwise><xsl:value-of select="$configdoc/properties/language"/></xsl:otherwise>
+  </xsl:choose>
 </xsl:variable>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="domengine">
-	<xsl:choose>
-		<xsl:when test="$xsltforms_domengine != ''"><xsl:value-of select="$xsltforms_domengine"/></xsl:when>
-		<xsl:when test="substring(substring-after($xsltformspivalue, 'domengine='), 1, 1) != ''">
-			<xsl:variable name="paramquote" select="substring(substring-after($xsltformspivalue, 'domengine='), 1, 1)"/>
-			<xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('domengine=', $paramquote)), $paramquote)"/>
-		</xsl:when>
-		<xsl:when test="$configdoc/properties/domengine"><xsl:value-of select="concat('name=',$configdoc/properties/domengine/@name,';url=',$configdoc/properties/domengine/@url,';uri=',$configdoc/properties/domengine/@uri,';version=',$configdoc/properties/domengine/@version)"/></xsl:when>
-	</xsl:choose>
+  <xsl:choose>
+    <xsl:when test="$xsltforms_domengine != ''"><xsl:value-of select="$xsltforms_domengine"/></xsl:when>
+    <xsl:when test="substring(substring-after($xsltformspivalue, 'domengine='), 1, 1) != ''">
+      <xsl:variable name="paramquote" select="substring(substring-after($xsltformspivalue, 'domengine='), 1, 1)"/>
+      <xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('domengine=', $paramquote)), $paramquote)"/>
+    </xsl:when>
+    <xsl:when test="$configdoc/properties/domengine"><xsl:value-of select="concat('name=',$configdoc/properties/domengine/@name,';url=',$configdoc/properties/domengine/@url,';uri=',$configdoc/properties/domengine/@uri,';version=',$configdoc/properties/domengine/@version)"/></xsl:when>
+  </xsl:choose>
 </xsl:variable>
 -->
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xslvendor" select="system-property('xsl:vendor')"/>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="custom_elements">
-	<xsl:choose>
-		<xsl:when test="system-property('xsl:vendor') = 'Transformiix'">true</xsl:when>
-		<xsl:otherwise>true</xsl:otherwise>
-	</xsl:choose>
+  <xsl:choose>
+    <xsl:when test="$xslvendor = 'Transformiix'">true</xsl:when>
+    <xsl:otherwise>true</xsl:otherwise>
+  </xsl:choose>
 </xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="noselfclosingissue" select="$xslvendor != 'Apache Software Foundation'"/>
 <!--
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="doc_id" select="'xsltforms-mainform'"/>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="id_pf" select="'xsltforms-mainform-'"/>
@@ -59,9 +61,9 @@
 -->
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="piform" select="processing-instruction('xml-form')"/>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="piforminstanceid">
-	<xsl:if test="contains($piform, ' instance=&quot;')">
-		<xsl:value-of select="substring-before(substring-after($piform, ' instance=&quot;'), '&quot;')"/>
-	</xsl:if>
+  <xsl:if test="contains($piform, ' instance=&quot;')">
+    <xsl:value-of select="substring-before(substring-after($piform, ' instance=&quot;'), '&quot;')"/>
+  </xsl:if>
 </xsl:variable>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="piforminstance" select="/"/>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="piformhref"><xsl:if test="contains($piform, ' href=&quot;')"><xsl:value-of select="substring-before(substring-after($piform, ' href=&quot;'), '&quot;')"/></xsl:if></xsl:variable>
@@ -69,18 +71,18 @@
 <xsl:variable name="jsrevision"/>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="required-position">
 <!--
-	<xsl:choose>
-		<xsl:when test="$configdoc/properties/required-position">
-			<xsl:value-of select="$configdoc/config/properties/required-position"/>
-		</xsl:when>
-		<xsl:otherwise>
-		-->
-			<xsl:variable name="requiredquote" select="substring(substring-after($xsltformspivalue, 'required-position='), 1, 1)"/>
-			<xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('required-position=', $requiredquote)), $requiredquote)"/>
-			<!--
-		</xsl:otherwise>
-	</xsl:choose>
-	-->
+  <xsl:choose>
+    <xsl:when test="$configdoc/properties/required-position">
+      <xsl:value-of select="$configdoc/config/properties/required-position"/>
+    </xsl:when>
+    <xsl:otherwise>
+    -->
+      <xsl:variable name="requiredquote" select="substring(substring-after($xsltformspivalue, 'required-position='), 1, 1)"/>
+      <xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('required-position=', $requiredquote)), $requiredquote)"/>
+      <!--
+    </xsl:otherwise>
+  </xsl:choose>
+  -->
 </xsl:variable>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="main" select="/"/>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="amp"><xsl:text>&amp;</xsl:text></xsl:variable>
@@ -97,119 +99,119 @@
 <!--
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="profiler">
 <html xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xsltforms="http://www.agencexml.com/xsltforms">
-	<head>
+  <head>
 <title>XSLTForms Profiler</title>
 <xf:model>
-	<xf:instance id="profile" src="opener://xsltforms-profiler"/>
+  <xf:instance id="profile" src="opener://xsltforms-profiler"/>
 </xf:model>
-	</head>
-	<body>
+  </head>
+  <body>
 <xf:group ref=".[not(*)]">
-	<p>This profiler is accessible when pressing F1 key then activating the corresponding trigger.</p>
+  <p>This profiler is accessible when pressing F1 key then activating the corresponding trigger.</p>
 </xf:group>
 <xf:group ref=".[*]">
-	<h2>XSLTForms Profiler</h2>
-	<p>
-		<xf:output value="xsltforms:date">
-			<xf:label>TimeStamp: </xf:label>
-		</xf:output>
-	</p>
-	<h3><xf:output value="xsltforms:location"/></h3>
-	<p>Environment:
-		<ul>
-			<li>Browser: <xf:output value="xsltforms:appname"/>&#160;<xf:output value="xsltforms:appcodename"/>&#160;<xf:output value="xsltforms:appversion"/></li>
-			<li>User-Agent: <xf:output value="xsltforms:useragent"/></li>
-			<li>Initial XSLT Engine: <xf:output value="xsltforms:xsltengine"/></li>
-			<li>Current XSLT Engine: <xf:output value="xsltforms:xsltengine2"/></li>
-			<li>XSLTForms Version: <xf:output value="xsltforms:version"/></li>
-		</ul>
-	</p>
-	<table>
-		<tr>
-			<td>Instances:</td>
-			<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-			<td>Controls:</td>
-		</tr>
-		<tr valign="top">
-			<td>
-				<ul>
-					<xf:repeat nodeset="xsltforms:instances/xsltforms:instance">
-						<li>"<xf:output value="@id"/>": <xf:output value="concat(., ' node', choose(. &gt; 1,'s',''))"/></li>
-					</xf:repeat>
-				</ul>
-			</td>
-			<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-			<td>
-				<ul>
-					<xf:repeat nodeset="xsltforms:controls/xsltforms:control">
-						<li>xforms:<xf:output value="@type"/>: <xf:output value="concat(., ' item', choose(. &gt; 1,'s',''))"/></li>
-					</xf:repeat>
-				</ul>
-			</td>
-		</tr>
-	</table>
-	<table>
-		<tr>
-			<td>HTML Elements Count: <xf:output value="xsltforms:htmlelements"/><br/>
-				HTML Parsing Time: <xf:output value="xsltforms:htmltime"/>ms<br/>
-				HTML Creation Time: <xf:output value="xsltforms:creatingtime"/>ms
-			</td>
-			<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-			<td>XForms Init Time: <xf:output value="xsltforms:inittime"/>ms<br/>
-				XForms Refresh Count: <xf:output value="xsltforms:refreshcount"/><br/>
-				XForms Cumulative Refresh Time: <xf:output value="xsltforms:refreshtime"/>ms
-			</td>
-		</tr>
-	</table>
-	<xf:group ref=".[xsltforms:xpaths/xsltforms:xpath]">
-		<p>XPath Expressions Cumulative Evaluation Time:
-			<ul>
-				<xf:repeat nodeset="xsltforms:xpaths/xsltforms:xpath | xsltforms:xpaths/xsltforms:others">
-					<li><xf:output value="choose(local-name()='others', 'Others', concat('&quot;',@expr,'&quot;'))"/>: <xf:output value="."/>ms</li>
-				</xf:repeat>
-				<li>Total: <xf:output value="xsltforms:xpaths/xsltforms:total"/>ms</li>
-			</ul>
-		</p>
-	</xf:group>
+  <h2>XSLTForms Profiler</h2>
+  <p>
+    <xf:output value="xsltforms:date">
+      <xf:label>TimeStamp: </xf:label>
+    </xf:output>
+  </p>
+  <h3><xf:output value="xsltforms:location"/></h3>
+  <p>Environment:
+    <ul>
+      <li>Browser: <xf:output value="xsltforms:appname"/>&#160;<xf:output value="xsltforms:appcodename"/>&#160;<xf:output value="xsltforms:appversion"/></li>
+      <li>User-Agent: <xf:output value="xsltforms:useragent"/></li>
+      <li>Initial XSLT Engine: <xf:output value="xsltforms:xsltengine"/></li>
+      <li>Current XSLT Engine: <xf:output value="xsltforms:xsltengine2"/></li>
+      <li>XSLTForms Version: <xf:output value="xsltforms:version"/></li>
+    </ul>
+  </p>
+  <table>
+    <tr>
+      <td>Instances:</td>
+      <td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+      <td>Controls:</td>
+    </tr>
+    <tr valign="top">
+      <td>
+        <ul>
+          <xf:repeat nodeset="xsltforms:instances/xsltforms:instance">
+            <li>"<xf:output value="@id"/>": <xf:output value="concat(., ' node', choose(. &gt; 1,'s',''))"/></li>
+          </xf:repeat>
+        </ul>
+      </td>
+      <td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+      <td>
+        <ul>
+          <xf:repeat nodeset="xsltforms:controls/xsltforms:control">
+            <li>xforms:<xf:output value="@type"/>: <xf:output value="concat(., ' item', choose(. &gt; 1,'s',''))"/></li>
+          </xf:repeat>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>HTML Elements Count: <xf:output value="xsltforms:htmlelements"/><br/>
+        HTML Parsing Time: <xf:output value="xsltforms:htmltime"/>ms<br/>
+        HTML Creation Time: <xf:output value="xsltforms:creatingtime"/>ms
+      </td>
+      <td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+      <td>XForms Init Time: <xf:output value="xsltforms:inittime"/>ms<br/>
+        XForms Refresh Count: <xf:output value="xsltforms:refreshcount"/><br/>
+        XForms Cumulative Refresh Time: <xf:output value="xsltforms:refreshtime"/>ms
+      </td>
+    </tr>
+  </table>
+  <xf:group ref=".[xsltforms:xpaths/xsltforms:xpath]">
+    <p>XPath Expressions Cumulative Evaluation Time:
+      <ul>
+        <xf:repeat nodeset="xsltforms:xpaths/xsltforms:xpath | xsltforms:xpaths/xsltforms:others">
+          <li><xf:output value="choose(local-name()='others', 'Others', concat('&quot;',@expr,'&quot;'))"/>: <xf:output value="."/>ms</li>
+        </xf:repeat>
+        <li>Total: <xf:output value="xsltforms:xpaths/xsltforms:total"/>ms</li>
+      </ul>
+    </p>
+  </xf:group>
 </xf:group>
-	</body>
+  </body>
 </html>
 </xsl:variable>
 -->
 <xsl:template match="/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:exslt="http://exslt.org/common" xmlns:xalan="http://xml.apache.org/xalan">
-	<xsl:if test="system-property('xsl:vendor') = 'libxslt'">
-		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
-	</xsl:if>
-	<xsl:choose>
-		<xsl:when test="$piform != ''">
-			<xsl:apply-templates select="$piformdoc/*"/>
-			<!--
-			<xsl:choose>
-				<xsl:when test="count($piformdoc/*) != 0">
-					<xsl:apply-templates select="$piformdoc/*"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:choose>
-						<xsl:when test="function-available('xalan:nodeset')">
-							<xsl:apply-templates select="xalan:nodeset($profiler)/*"/>
-						</xsl:when>
-						<xsl:when test="function-available('exslt:node-set')">
-							<xsl:apply-templates select="exslt:node-set($profiler)/*"/>
-						</xsl:when>
-						<xsl:when test="function-available('msxsl:node-set')">
-							<xsl:apply-templates select="msxsl:node-set($profiler)/*"/>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:variable name="profiler0" select="$profiler"/>
-							<xsl:apply-templates select="$profiler0/*"/>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:otherwise>
-			</xsl:choose>
-			-->
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:apply-templates/>
-		</xsl:otherwise>
-	</xsl:choose>
+  <xsl:if test="system-property('xsl:vendor') = 'libxslt'">
+    <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="$piform != ''">
+      <xsl:apply-templates select="$piformdoc/*"/>
+      <!--
+      <xsl:choose>
+        <xsl:when test="count($piformdoc/*) != 0">
+          <xsl:apply-templates select="$piformdoc/*"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:choose>
+            <xsl:when test="function-available('xalan:nodeset')">
+              <xsl:apply-templates select="xalan:nodeset($profiler)/*"/>
+            </xsl:when>
+            <xsl:when test="function-available('exslt:node-set')">
+              <xsl:apply-templates select="exslt:node-set($profiler)/*"/>
+            </xsl:when>
+            <xsl:when test="function-available('msxsl:node-set')">
+              <xsl:apply-templates select="msxsl:node-set($profiler)/*"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:variable name="profiler0" select="$profiler"/>
+              <xsl:apply-templates select="$profiler0/*"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:otherwise>
+      </xsl:choose>
+      -->
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>

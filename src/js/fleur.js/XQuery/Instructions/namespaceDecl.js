@@ -8,6 +8,6 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.namespaceDecl] = function(ctx, children, callback) {
-	ctx.env.nsresolver.declareNamespace(children[0][1][0], children[1][1][0]);
-	Fleur.callback(function() {callback();});
+  ctx.env.nsresolver.declareNamespace(children[0][1][0], children[1][1][0]);
+  Fleur.callback(function() {callback();});
 };

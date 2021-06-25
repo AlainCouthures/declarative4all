@@ -8,7 +8,11 @@
 Fleur.signatures.math_pi_0 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Type_double},
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_numeric,
+    occurrence: "?"
+  },
   params_type: []
 };
 Fleur.Context.prototype.math_pi_0 = function() {

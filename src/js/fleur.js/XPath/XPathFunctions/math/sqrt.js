@@ -8,9 +8,17 @@
 Fleur.signatures.math_sqrt_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Type_double, occurence: "?"},
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_numeric,
+    occurence: "?"
+  },
   params_type: [
-    {type: Fleur.Type_double, occurence: "?"}
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_numeric,
+      occurence: "?"
+    }
   ]
 };
 Fleur.Context.prototype.math_sqrt_1 = function() {

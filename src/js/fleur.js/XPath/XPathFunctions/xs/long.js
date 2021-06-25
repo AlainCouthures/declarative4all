@@ -8,18 +8,26 @@
 Fleur.signatures.xs_long_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: Fleur.Type_long,
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_long,
+    occurrence: "?"
+  },
   params_type: [
-    Fleur.atomicTypes
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_anySimpleType,
+      occurrence: "?"
+    }
   ]
 };
 Fleur.Context.prototype.xs_long_1 = function() {
-	this.typeConstructor(Fleur.Type_long);
-	return this;
+  this.typeConstructor(Fleur.Type_long);
+  return this;
 };
 
 Fleur.XPathFunctions_xs["long#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:long",
-	function(arg) {
-		return Fleur.XPathConstructor(arg, Fleur.Type_long, function() {});
-	},
-	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
+  function(arg) {
+    return Fleur.XPathConstructor(arg, Fleur.Type_long, function() {});
+  },
+  null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

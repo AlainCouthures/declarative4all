@@ -7,21 +7,28 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_decimalConstantExpr = function(children) {
-	return this.inst("xqx_decimalConstantExpr('" + children[0][1][0] + "')");
+  return {
+    inst: this.inst("xqx_decimalConstantExpr('" + children[0][1][0] + "')", false).inst,
+    sequenceType: {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_decimal,
+      occurrence: 1
+    }
+  };
 };
 
 Fleur.Context.prototype.xqx_decimalConstantExpr = function(arg) {
   this.itemstack.push(this.item);
   const item = new Fleur.Text();
   item.appendData(Fleur.Type_decimal.canonicalize(arg));
-	item.schemaTypeInfo = Fleur.Type_decimal;
+  item.schemaTypeInfo = Fleur.Type_decimal;
   this.item = item;
   return this;
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.decimalConstantExpr] = function(ctx, children, callback) {
-	var a = new Fleur.Text();
-	a.appendData(Fleur.Type_decimal.canonicalize(children[0][1][0]));
-	a.schemaTypeInfo = Fleur.Type_decimal;
-	Fleur.callback(function() {callback(a);});
+  var a = new Fleur.Text();
+  a.appendData(Fleur.Type_decimal.canonicalize(children[0][1][0]));
+  a.schemaTypeInfo = Fleur.Type_decimal;
+  Fleur.callback(function() {callback(a);});
 };

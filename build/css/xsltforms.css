@@ -1,5 +1,5 @@
 /*
-XSLTForms 1.5.5 (661)
+XSLTForms 1.5.6 (662)
 XForms 1.1+ Engine
 
 Copyright (C) 2021 agenceXML - Alain Couthures
@@ -327,6 +327,8 @@ xforms-group[xf-ref]:not([xf-bound]),
 xforms-group[xf-bind]:not([xf-bound]),
 *[xf-repeat-ref]:not([xf-bound]),
 *[xf-repeat-bind]:not([xf-bound]) ,
+*[data-xf-repeat-ref]:not([xf-bound]),
+*[data-xf-repeat-bind]:not([xf-bound]) ,
 xforms-case:not([xf-selected = "true"]),
 xforms-trigger[xf-ref]:not([xf-bound]),
 xforms-trigger[xf-bind]:not([xf-bound]),

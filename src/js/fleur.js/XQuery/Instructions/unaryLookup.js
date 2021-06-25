@@ -8,5 +8,5 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.unaryLookup] = function(ctx, children, callback) {
-	Fleur.XQueryEngine.lookups(ctx, children, callback, Fleur.XQueryX.unaryLookup);
+  Fleur.XQueryEngine.lookups(ctx, children, callback, Fleur.XQueryX.unaryLookup);
 };

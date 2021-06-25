@@ -98,10 +98,10 @@ xforms-input[xf-bound]:not([xf-notrelevant]), xforms-textarea[xf-bound]:not([xf-
 	display: inline;
 }
 
-*[xf-repeat-ref]:not([xf-bound]) {
+*[xf-repeat-ref]:not([xf-bound]), *[data-xf-repeat-ref]:not([xf-bound]) {
 	display: none;
 }
 
-*[xf-repeat-bind]:not([xf-bound]) {
+*[xf-repeat-bind]:not([xf-bound]), *[data-xf-repeat-bind]:not([xf-bound]) {
 	display: none;
 }

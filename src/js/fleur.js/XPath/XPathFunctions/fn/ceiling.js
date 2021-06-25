@@ -8,9 +8,17 @@
 Fleur.signatures.fn_ceiling_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Type_double, occurence: "?"},
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_numeric,
+    occurrence: "?"
+  },
   params_type: [
-    {type: Fleur.Type_double, occurence: "?"}
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_numeric,
+      occurrence: "?"
+    }
   ]
 };
 Fleur.Context.prototype.fn_ceiling_1 = function() {
@@ -25,7 +33,7 @@ Fleur.Context.prototype.fn_ceiling_1 = function() {
 };
 
 Fleur.XPathFunctions_fn["ceiling#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:ceiling",
-	function(a) {
-		return a ? [typeof a[0] === "bigint" ? a[0] : Math.ceil(a[0]), a[1]] : null;
-	},
-	null, [{type: Fleur.numericTypes, adaptative: true, occurence: "?"}], false, false, {type: Fleur.numericTypes, adaptative: true, occurence: "?"});
+  function(a) {
+    return a ? [typeof a[0] === "bigint" ? a[0] : Math.ceil(a[0]), a[1]] : null;
+  },
+  null, [{type: Fleur.numericTypes, adaptative: true, occurence: "?"}], false, false, {type: Fleur.numericTypes, adaptative: true, occurence: "?"});

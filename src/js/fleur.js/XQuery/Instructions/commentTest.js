@@ -7,9 +7,9 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_commentTest = function() {
-	return this.inst("xqx_commentTest()");
+  return this.inst("xqx_commentTest()");
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.commentTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.COMMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.COMMENT_NODE ? Fleur.EmptySequence : ctx._curr);});
 };

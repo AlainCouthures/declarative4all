@@ -8,7 +8,7 @@
 Fleur.signatures.xf_context_0 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Node},
+  return_type: null,
   params_type: []
 };
 Fleur.Context.prototype.xf_context_0 = function() {

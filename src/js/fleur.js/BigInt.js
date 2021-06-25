@@ -8,9 +8,9 @@
  * @description 
  */
 if (typeof BigInt === "undefined") {
-	Fleur.BigInt = function(arg) {
-		return parseInt(arg, 10);
-	};
+  Fleur.BigInt = function(arg) {
+    return parseInt(arg, 10);
+  };
 } else {
-	Fleur.BigInt = BigInt;
+  Fleur.BigInt = BigInt;
 }

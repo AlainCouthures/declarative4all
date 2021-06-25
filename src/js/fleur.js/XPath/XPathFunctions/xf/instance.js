@@ -8,15 +8,19 @@
 Fleur.signatures.xf_instance_0 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Node},
+  return_type: null,
   params_type: []
 };
 Fleur.signatures.xf_instance_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Node},
+  return_type: null,
   params_type: [
-    {type: Fleur.Type_string}
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_string,
+      occurrence: "1"
+    }
   ]
 };
 Fleur.Context.prototype.xf_instance_0 = function() {

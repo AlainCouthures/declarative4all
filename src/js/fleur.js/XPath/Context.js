@@ -7,7 +7,7 @@
  * @description 
  */
 
-Fleur.Context = function(path, rs, nodedeps, xfdeps) {
+Fleur.Context = function(path, rs, nodedeps, xfdeps, position) {
   this.item = null;
   this.path = path;
   this.initialpath = path;
@@ -28,6 +28,7 @@ Fleur.Context = function(path, rs, nodedeps, xfdeps) {
     const xfdepset = this.xfdepset;
     this.xfdeps.forEach(xfdep => xfdepset.add(xfdep));
   }
+  this.position = position;
 };
 
 Fleur.Context.prototype.clone = function(path) {
@@ -121,6 +122,7 @@ Fleur.Context.prototype.typeConstructor = function(schemaType) {
   if (this.item.isEmpty()) {
     return this;
   }
+  this.item = Fleur.Atomize(this.item);
   if (this.item.schemaTypeInfo === Fleur.Type_string || this.item.schemaTypeInfo === Fleur.Type_untypedAtomic) {
     if (!this.item.hasOwnProperty("data")) {
       Fleur.XQueryError_xqt("FORG00001", null, "Wrong argument type for xs:" + schemaType.atomizerName.substr(3, schemaType.atomizerName - 5) + "#1", "", this.item);

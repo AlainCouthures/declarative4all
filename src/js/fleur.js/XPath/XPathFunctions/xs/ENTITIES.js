@@ -8,18 +8,26 @@
 Fleur.signatures.xs_ENTITIES_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: Fleur.Type_ENTITIES,
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_ENTITIES,
+    occurrence: "?"
+  },
   params_type: [
-    Fleur.atomicTypes
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_anySimpleType,
+      occurrence: "?"
+    }
   ]
 };
 Fleur.Context.prototype.xs_ENTITIES_1 = function() {
-	this.typeConstructor(Fleur.Type_ENTITIES);
-	return this;
+  this.typeConstructor(Fleur.Type_ENTITIES);
+  return this;
 };
 
 Fleur.XPathFunctions_xs["ENTITIES#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:ENTITIES",
-	function(arg) {
-		return Fleur.XPathConstructor(arg, Fleur.Type_ENTITIES, function() {});
-	},
-	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
+  function(arg) {
+    return Fleur.XPathConstructor(arg, Fleur.Type_ENTITIES, function() {});
+  },
+  null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

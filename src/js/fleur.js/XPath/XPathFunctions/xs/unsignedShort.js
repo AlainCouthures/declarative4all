@@ -8,18 +8,26 @@
 Fleur.signatures.xs_unsignedShort_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: Fleur.Type_unsignedShort,
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_unsignedShort,
+    occurrence: "?"
+  },
   params_type: [
-    Fleur.atomicTypes
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_anySimpleType,
+      occurrence: "?"
+    }
   ]
 };
 Fleur.Context.prototype.xs_unsignedShort_1 = function() {
-	this.typeConstructor(Fleur.Type_unsignedShort);
-	return this;
+  this.typeConstructor(Fleur.Type_unsignedShort);
+  return this;
 };
 
 Fleur.XPathFunctions_xs["unsignedShort#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:unsignedShort",
-	function(arg) {
-		return Fleur.XPathConstructor(arg, Fleur.Type_unsignedShort, function() {});
-	},
-	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
+  function(arg) {
+    return Fleur.XPathConstructor(arg, Fleur.Type_unsignedShort, function() {});
+  },
+  null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});

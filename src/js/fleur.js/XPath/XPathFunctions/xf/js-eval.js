@@ -8,9 +8,17 @@
 Fleur.signatures.xf_js$_eval_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Type_string},
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_string,
+    occurrence: "1"
+  },
   params_type: [
-    {type: Fleur.Type_string}
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_string,
+      occurrence: "1"
+    }
   ]
 };
 Fleur.Context.prototype.xf_js$_eval_1 = function() {

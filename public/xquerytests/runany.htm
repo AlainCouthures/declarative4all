@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Run Any XQuery Test</title>
-		<style type="text/css">
-			@media screen and (prefers-color-scheme: dark) {
-				body, textarea {
-				background-color: black;
-				color: lightgrey;
-				}
-			}
-			@media screen and (prefers-color-scheme: light) {
-			  body, textarea {
-				background-color: white;
-				color: black;
-			  }
-			}
-		</style>
-		<script type="text/javascript" src="js/fleur.js"></script>
-	</head>
-	<body>
-		<button id="run" onclick="run()">Run</button>
-		<br>
-		<textarea id="test" style="height: 150px; width: 1300px" oninput="fclear()"></textarea>
-		<hr>
-		<pre id="effectiveresult"></pre>
-		<hr>
-		<textarea id="doc" style="height: 150px; width: 1300px" oninput="fclear()"></textarea>
-		<hr>
-		<pre id="xqueryx"></pre>
-		<hr>
-		<pre id="xqueryarr"></pre>
-		<script type="text/javascript">
-			/*globals Fleur */
-			var xmldoc;
-			var parser = new Fleur.DOMParser();
-			function fclear() {
-				document.getElementById("effectiveresult").innerHTML = "";
-				//alert("clear");
-			}
-			var xqeval = async function(xexpr) {
-				try {
-					var res = await xmldoc.evaluate(xexpr);
-					var now = new Date();
-					var snow = ((now.getHours() < 10)?"0":"") + now.getHours() +":"+ ((now.getMinutes() < 10)?"0":"") + now.getMinutes() +":"+ ((now.getSeconds() < 10)?"0":"") + now.getSeconds();
-					document.getElementById("effectiveresult").innerHTML = snow + " - " + res.toXQuery(false).replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
-				} catch(e) {
-					document.getElementById("effectiveresult").innerHTML = "Exception!\n" + e.stack;
-				}
-			};
-			function run() {
-				try {
-					xmldoc = parser.parseFromString(document.getElementById("doc").value, "application/xml");
-					var jsret = Fleur.XPathEvaluator._xq2js(document.getElementById("test").value);
-					var arr;
-					eval("arr = " + jsret + ";");
-					var doc = parser.parseFromArray([Fleur.XQueryXNames, [arr]]);
-					var ser = new Fleur.XMLSerializer();
-					document.getElementById("xqueryx").innerHTML = ser.serializeToString(doc, true).replace(/</mg, "&lt;");
-					document.getElementById("xqueryarr").innerHTML = jsret.replace(/</mg, "&lt;");
-				} catch(e) {
-					document.getElementById("xqueryx").innerHTML = "Exception!\n" + e.message + (jsret ? "\n\n" + jsret : "");
-				}
-				xqeval(document.getElementById("test").value);
-			}
-		</script>
-	</body>
+  <head>
+    <title>Run Any XQuery Test</title>
+    <style type="text/css">
+      @media screen and (prefers-color-scheme: dark) {
+        body, textarea {
+        background-color: black;
+        color: lightgrey;
+        }
+      }
+      @media screen and (prefers-color-scheme: light) {
+        body, textarea {
+        background-color: white;
+        color: black;
+        }
+      }
+    </style>
+    <script type="text/javascript" src="js/fleur.js"></script>
+  </head>
+  <body>
+    <button id="run" onclick="run()">Run</button>
+    <br>
+    <textarea id="test" style="height: 150px; width: 1300px" oninput="fclear()"></textarea>
+    <hr>
+    <pre id="effectiveresult"></pre>
+    <hr>
+    <textarea id="doc" style="height: 150px; width: 1300px" oninput="fclear()"></textarea>
+    <hr>
+    <pre id="xqueryx"></pre>
+    <hr>
+    <pre id="xqueryarr"></pre>
+    <script type="text/javascript">
+      /*globals Fleur */
+      var xmldoc;
+      var parser = new Fleur.DOMParser();
+      function fclear() {
+        document.getElementById("effectiveresult").innerHTML = "";
+        //alert("clear");
+      }
+      var xqeval = async function(xexpr) {
+        try {
+          var res = await xmldoc.evaluate(xexpr);
+          var now = new Date();
+          var snow = ((now.getHours() < 10)?"0":"") + now.getHours() +":"+ ((now.getMinutes() < 10)?"0":"") + now.getMinutes() +":"+ ((now.getSeconds() < 10)?"0":"") + now.getSeconds();
+          document.getElementById("effectiveresult").innerHTML = snow + " - " + res.toXQuery(false).replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
+        } catch(e) {
+          document.getElementById("effectiveresult").innerHTML = "Exception!\n" + e.stack;
+        }
+      };
+      function run() {
+        try {
+          xmldoc = parser.parseFromString(document.getElementById("doc").value, "application/xml");
+          var jsret = Fleur.XPathEvaluator._xq2js(document.getElementById("test").value);
+          var arr;
+          eval("arr = " + jsret + ";");
+          var doc = parser.parseFromArray([Fleur.XQueryXNames, [arr]]);
+          var ser = new Fleur.XMLSerializer();
+          document.getElementById("xqueryx").innerHTML = ser.serializeToString(doc, true).replace(/</mg, "&lt;");
+          document.getElementById("xqueryarr").innerHTML = jsret.replace(/</mg, "&lt;");
+        } catch(e) {
+          document.getElementById("xqueryx").innerHTML = "Exception!\n" + e.message + (jsret ? "\n\n" + jsret : "");
+        }
+        xqeval(document.getElementById("test").value);
+      }
+    </script>
+  </body>
 </html>

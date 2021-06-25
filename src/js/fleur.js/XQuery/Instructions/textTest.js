@@ -7,7 +7,7 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_textTest = function() {
-	return this.inst("xqx_textTest()");
+  return this.inst("xqx_textTest()");
 };
 
 Fleur.Context.prototype.xqx_textTest = function() {
@@ -27,5 +27,5 @@ Fleur.Context.prototype.xqx_textTest = function() {
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.textTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.TEXT_NODE ? Fleur.EmptySequence : ctx._curr);});
+  Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.TEXT_NODE ? Fleur.EmptySequence : ctx._curr);});
 };

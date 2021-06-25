@@ -8,12 +8,12 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.prolog] = function(ctx, children, callback) {
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (children.length > 1) {
-			Fleur.XQueryEngine[Fleur.XQueryX.prolog](ctx, children.slice(1), callback);
-		} else {
-			ctx.env.varresolver.globals = ctx.env.varresolver.length;
-			Fleur.callback(function() {callback(n);});
-		}
-	});
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+    if (children.length > 1) {
+      Fleur.XQueryEngine[Fleur.XQueryX.prolog](ctx, children.slice(1), callback);
+    } else {
+      ctx.env.varresolver.globals = ctx.env.varresolver.length;
+      Fleur.callback(function() {callback(n);});
+    }
+  });
 };

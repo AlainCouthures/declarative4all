@@ -8,7 +8,11 @@
 Fleur.signatures.fn_true_0 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Type_boolean},
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_boolean,
+    occurrence: "1"
+  },
   params_type: []
 };
 Fleur.Context.prototype.fn_true_0 = function() {

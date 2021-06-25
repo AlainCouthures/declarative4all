@@ -8,7 +8,11 @@
 Fleur.signatures.xf_now_0 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Type_dateTime},
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_dateTime,
+    occurrence: "1"
+  },
   params_type: []
 };
 Fleur.Context.prototype.xf_now_0 = function() {

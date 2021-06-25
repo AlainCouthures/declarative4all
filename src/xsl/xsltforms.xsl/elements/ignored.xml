@@ -14,276 +14,357 @@
 <xsl:template match="xforms:resource|xforms:header|xforms:mediatype" priority="2" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms"/>
 -->
 <xsl:template match="xsd:*" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<xsl:element name="{$xsltforms_replacement_for}script">
-	  <xsl:attribute name="type">application/xml</xsl:attribute>
-		<xsl:apply-templates select="." mode="xml2string"/>
-	</xsl:element>
+  <xsl:element name="{$xsltforms_replacement_for}script">
+    <xsl:attribute name="type">application/xml</xsl:attribute>
+    <xsl:apply-templates select="." mode="xml2string"/>
+  </xsl:element>
 <!--
-	<xsl:variable name="custom_name" select="concat('xs-', local-name())"/>
-	<xsl:variable name="elt_name">
-		<xsl:choose>
-			<xsl:when test="$custom_elements = 'true'">
-				<xsl:value-of select="$custom_name"/>
-			</xsl:when>
-			<xsl:otherwise>span</xsl:otherwise>
-		</xsl:choose>
-	</xsl:variable>
-	<xsl:element name="{$elt_name}">
-		<xsl:if test="$custom_name != $elt_name">
-			<xsl:attribute name="xs-name"><xsl:value-of select="$custom_name"/></xsl:attribute>
-		</xsl:if>
-		<xsl:for-each select="@*">
-			<xsl:choose>
-				<xsl:when test="local-name() = 'id'">
-					<xsl:attribute name="{local-name()}">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:attribute name="xs-{local-name()}">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:for-each>
-		<xsl:apply-templates select="node()"/>
-	</xsl:element>
+  <xsl:variable name="custom_name" select="concat('xs-', local-name())"/>
+  <xsl:variable name="elt_name">
+    <xsl:choose>
+      <xsl:when test="$custom_elements = 'true'">
+        <xsl:value-of select="$custom_name"/>
+      </xsl:when>
+      <xsl:otherwise>span</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:element name="{$elt_name}">
+    <xsl:if test="$custom_name != $elt_name">
+      <xsl:attribute name="xs-name"><xsl:value-of select="$custom_name"/></xsl:attribute>
+    </xsl:if>
+    <xsl:for-each select="@*">
+      <xsl:choose>
+        <xsl:when test="local-name() = 'id'">
+          <xsl:attribute name="{local-name()}">
+            <xsl:value-of select="."/>
+          </xsl:attribute>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:attribute name="xs-{local-name()}">
+            <xsl:value-of select="."/>
+          </xsl:attribute>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:for-each>
+    <xsl:apply-templates select="node()"/>
+  </xsl:element>
 -->
 </xsl:template>
 <xsl:template match="xforms:*" priority="100" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
-	<xsl:variable name="custom_name" select="concat('xforms-', local-name())"/>
-	<xsl:variable name="svgparent" select="boolean(ancestor::*[namespace-uri() != 'http://www.w3.org/2002/xforms'][1][namespace-uri() = 'http://www.w3.org/2000/svg' and local-name() != 'foreignObject'])"/>
-	<xsl:variable name="elt_name">
-		<xsl:choose>
-			<xsl:when test="$svgparent">
-				<xsl:choose>
-					<xsl:when xmlns:svg="http://www.w3.org/2000/svg" test="parent::svg:text | parent::svg:tspan | parent::svg:textPath">tspan</xsl:when>
-					<xsl:otherwise>g</xsl:otherwise>
-				</xsl:choose>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:value-of select="$custom_name"/>
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:variable>
-	<xsl:variable name="elt_nsuri">
-		<xsl:choose>
-			<xsl:when test="$svgparent">http://www.w3.org/2000/svg</xsl:when>
-			<xsl:otherwise>http://www.w3.org/1999/xhtml</xsl:otherwise>
-		</xsl:choose>
-	</xsl:variable>
-	<xsl:choose>
-		<xsl:when test="self::xforms:model">
-			<xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">
-				<xsl:if test="$custom_name != $elt_name">
-					<xsl:attribute name="xforms-name"><xsl:value-of select="local-name()"/></xsl:attribute>
-				</xsl:if>
-				<xsl:for-each select="@*">
-					<xsl:choose>
-						<xsl:when test="namespace-uri() = ''">
-							<xsl:choose>
-								<xsl:when test="contains(., '{')">
-									<xsl:attribute name="xf-template-{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
-									<xsl:attribute name="{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:attribute name="xf-{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:otherwise>
-							</xsl:choose>
-						</xsl:when>
-						<xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
-							<xsl:attribute name="ev-{local-name()}">
-								<xsl:value-of select="."/>
-							</xsl:attribute>
-						</xsl:when>
-					</xsl:choose>
-				</xsl:for-each>
-				<xsl:apply-templates select="node()"/>
-			</xsl:element>
-		</xsl:when>
-		<xsl:when test="self::xforms:instance">
-			<xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">
-				<xsl:if test="$custom_name != $elt_name">
-					<xsl:attribute name="xforms-name"><xsl:value-of select="local-name()"/></xsl:attribute>
-				</xsl:if>
-				<xsl:for-each select="@*">
-					<xsl:choose>
-						<xsl:when test="namespace-uri() = ''">
-							<xsl:choose>
-								<xsl:when test="contains(., '{')">
-									<xsl:attribute name="xf-template-{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
-									<xsl:attribute name="{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:attribute name="xf-{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:otherwise>
-							</xsl:choose>
-						</xsl:when>
-						<xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
-							<xsl:attribute name="ev-{local-name()}">
-								<xsl:value-of select="."/>
-							</xsl:attribute>
-						</xsl:when>
-					</xsl:choose>
-				</xsl:for-each>
-				<xsl:choose>
-					<xsl:when test="node()">
-						<xsl:element name="{$xsltforms_replacement_for}script">
-							<xsl:attribute name="type">
-								<xsl:choose>
-									<xsl:when test="@mediatype">
-										<xsl:value-of select="@mediatype"/>
-									</xsl:when>
-									<xsl:otherwise>application/xml</xsl:otherwise>
-								</xsl:choose>
-							</xsl:attribute>
-							<!--
-							<xsl:choose>
-								<xsl:when test="system-property('xsl:vendor') = 'Transformiix'">
-							-->
-									<xsl:apply-templates select="node()" mode="xml2string"/>
-							<!--
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:copy-of select="node()"/>
-								</xsl:otherwise>
-							</xsl:choose>
-							-->
-						</xsl:element>
-					</xsl:when>
-					<xsl:otherwise>&#160;</xsl:otherwise>
-				</xsl:choose>
-			</xsl:element>
-		</xsl:when>
-		<xsl:when test="self::xforms:repeat and parent::*[local-name() = 'table' or local-name() = 'thead' or local-name() = 'tbody' or local-name() = 'tfoot']">
-			<xsl:apply-templates select="node()"/>
-		</xsl:when>
+  <xsl:variable name="custom_name" select="concat('xforms-', local-name())"/>
+  <xsl:variable name="svgparent" select="boolean(ancestor::*[namespace-uri() != 'http://www.w3.org/2002/xforms'][1][namespace-uri() = 'http://www.w3.org/2000/svg' and local-name() != 'foreignObject'])"/>
+  <xsl:variable name="elt_name">
+    <xsl:choose>
+      <xsl:when test="$svgparent">
+        <xsl:choose>
+          <xsl:when xmlns:svg="http://www.w3.org/2000/svg" test="parent::svg:text | parent::svg:tspan | parent::svg:textPath">tspan</xsl:when>
+          <xsl:otherwise>g</xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$custom_name"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="elt_nsuri"><xsl:if test="$svgparent">http://www.w3.org/2000/svg</xsl:if></xsl:variable>
+  <xsl:choose>
+    <xsl:when test="self::xforms:model">
+      <xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">
+        <xsl:if test="$custom_name != $elt_name">
+          <xsl:attribute name="xforms-name"><xsl:value-of select="local-name()"/></xsl:attribute>
+        </xsl:if>
+        <xsl:for-each select="@*">
+          <xsl:choose>
+            <xsl:when test="namespace-uri() = ''">
+              <xsl:choose>
+                <xsl:when test="contains(., '{')">
+                  <xsl:attribute name="xf-template-{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
+                  <xsl:attribute name="{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:attribute name="xf-{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:when>
+            <xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
+              <xsl:attribute name="ev-{local-name()}">
+                <xsl:value-of select="."/>
+              </xsl:attribute>
+            </xsl:when>
+          </xsl:choose>
+        </xsl:for-each>
+        <xsl:apply-templates select="node()"/>
+      </xsl:element>
+    </xsl:when>
+    <xsl:when test="self::xforms:instance">
+      <xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">
+        <xsl:if test="$custom_name != $elt_name">
+          <xsl:attribute name="xforms-name"><xsl:value-of select="local-name()"/></xsl:attribute>
+        </xsl:if>
+        <xsl:for-each select="@*">
+          <xsl:choose>
+            <xsl:when test="namespace-uri() = ''">
+              <xsl:choose>
+                <xsl:when test="contains(., '{')">
+                  <xsl:attribute name="xf-template-{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
+                  <xsl:attribute name="{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:attribute name="xf-{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:when>
+            <xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
+              <xsl:attribute name="ev-{local-name()}">
+                <xsl:value-of select="."/>
+              </xsl:attribute>
+            </xsl:when>
+          </xsl:choose>
+        </xsl:for-each>
+        <xsl:choose>
+          <xsl:when test="node()">
+            <xsl:element name="{$xsltforms_replacement_for}script">
+              <xsl:attribute name="type">
+                <xsl:choose>
+                  <xsl:when test="@mediatype">
+                    <xsl:value-of select="@mediatype"/>
+                  </xsl:when>
+                  <xsl:otherwise>application/xml</xsl:otherwise>
+                </xsl:choose>
+              </xsl:attribute>
+              <!--
+              <xsl:choose>
+                <xsl:when test="system-property('xsl:vendor') = 'Transformiix'">
+              -->
+                  <xsl:apply-templates select="node()" mode="xml2string"/>
+              <!--
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:copy-of select="node()"/>
+                </xsl:otherwise>
+              </xsl:choose>
+              -->
+            </xsl:element>
+          </xsl:when>
+          <xsl:otherwise>&#160;</xsl:otherwise>
+        </xsl:choose>
+      </xsl:element>
+    </xsl:when>
+    <xsl:when test="self::xforms:repeat and parent::*[local-name() = 'table' or local-name() = 'thead' or local-name() = 'tbody' or local-name() = 'tfoot']">
+      <xsl:apply-templates select="node()"/>
+    </xsl:when>
 		<xsl:when test="contains('.bind.submission.itext.translation.text.group.repeat.input.output.textarea.secret.label.alert.hint.help.item.value.itemset.trigger.submit.range.upload.switch.case.select.select1.dialog.function.body.param.include.var.extension.', concat('.', local-name(), '.'))">
-			<xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">
-				<xsl:if test="$custom_name != $elt_name">
-					<xsl:attribute name="xforms-name"><xsl:value-of select="local-name()"/></xsl:attribute>
-				</xsl:if>
-				<xsl:if test="@*[contains(., '{')]">
-					<xsl:attribute name="xf-avt"/>
-				</xsl:if>
-				<xsl:for-each select="@*">
-					<xsl:choose>
-						<xsl:when test="namespace-uri() = ''">
-							<xsl:choose>
-								<xsl:when test="(local-name() = 'id' or local-name() = 'style' or local-name() = 'class') and contains(., '{')">
-									<xsl:attribute name="xf-template-{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
-									<xsl:attribute name="{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:when test="local-name() = 'nodeset'">
-									<xsl:attribute name="xf-ref">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:attribute name="xf-{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:otherwise>
-							</xsl:choose>
-						</xsl:when>
-						<xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
-							<xsl:attribute name="ev-{local-name()}">
-								<xsl:value-of select="."/>
-							</xsl:attribute>
-						</xsl:when>
-						<xsl:when test="namespace-uri() = 'http://www.agencexml.com/meta'">
-							<xsl:attribute name="meta-{local-name()}">
-								<xsl:value-of select="."/>
-							</xsl:attribute>
-						</xsl:when>
-					</xsl:choose>
-				</xsl:for-each>
-				<xsl:apply-templates select="node()"/>
-			</xsl:element>
+      <xsl:choose>
+        <xsl:when test="node() or $custom_name != $elt_name or $noselfclosingissue">
+          <xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">
+            <xsl:if test="$custom_name != $elt_name">
+              <xsl:attribute name="xforms-name"><xsl:value-of select="local-name()"/></xsl:attribute>
+            </xsl:if>
+            <xsl:if test="@*[contains(., '{')]">
+              <xsl:attribute name="xf-avt"/>
+            </xsl:if>
+            <xsl:for-each select="@*">
+              <xsl:choose>
+                <xsl:when test="namespace-uri() = ''">
+                  <xsl:choose>
+                    <xsl:when test="(local-name() = 'id' or local-name() = 'style' or local-name() = 'class') and contains(., '{')">
+                      <xsl:attribute name="xf-template-{local-name()}">
+                        <xsl:value-of select="."/>
+                      </xsl:attribute>
+                    </xsl:when>
+                    <xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
+                      <xsl:attribute name="{local-name()}">
+                        <xsl:value-of select="."/>
+                      </xsl:attribute>
+                    </xsl:when>
+                    <xsl:when test="local-name() = 'nodeset'">
+                      <xsl:attribute name="xf-ref">
+                        <xsl:value-of select="."/>
+                      </xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:attribute name="xf-{local-name()}">
+                        <xsl:value-of select="."/>
+                      </xsl:attribute>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </xsl:when>
+                <xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
+                  <xsl:attribute name="ev-{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="namespace-uri() = 'http://www.agencexml.com/meta'">
+                  <xsl:attribute name="meta-{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:when>
+              </xsl:choose>
+            </xsl:for-each>
+            <xsl:apply-templates select="node()"/>
+          </xsl:element>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of disable-output-escaping="yes" select="concat('&lt;', $elt_name)"/>
+          <xsl:if test="@*[contains(., '{')]">
+            <xsl:text> xf-avt</xsl:text>>
+          </xsl:if>
+          <xsl:for-each select="@*">
+            <xsl:variable name="escapedvalue"><xsl:call-template name="escapeEntities">
+              <xsl:with-param name="text" select="."/>
+              <xsl:with-param name="trtext" select="translate(., $quot, $tab)"/>
+            </xsl:call-template></xsl:variable>
+            <xsl:choose>
+              <xsl:when test="namespace-uri() = ''">
+                <xsl:choose>
+                  <xsl:when test="(local-name() = 'id' or local-name() = 'style' or local-name() = 'class') and contains(., '{')">
+                    <xsl:value-of select="concat(' xf-template-', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+                  </xsl:when>
+                  <xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
+                    <xsl:value-of select="concat(' ', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+                  </xsl:when>
+                  <xsl:when test="local-name() = 'nodeset'">
+                    <xsl:value-of select="concat(' xf-ref=&quot;', $escapedvalue , '&quot;')"/>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:value-of select="concat(' xf-', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:when>
+              <xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
+                <xsl:value-of select="concat(' ev-', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+              </xsl:when>
+              <xsl:when test="namespace-uri() = 'http://www.agencexml.com/meta'">
+                <xsl:value-of select="concat(' meta-', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+              </xsl:when>
+            </xsl:choose>
+          </xsl:for-each>
+          <xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+          <xsl:apply-templates select="node()"/>
+          <xsl:value-of disable-output-escaping="yes" select="concat('&lt;/', $elt_name, '&gt;')"/>
+        </xsl:otherwise>
+      </xsl:choose>
 		</xsl:when>
-		<xsl:when test="contains('.setvalue.insert.delete.update.dispatch.property.targetid.name.action.load.toggle.send.setfocus.wrap.setselection.setindex.setnode.reset.retain.return.renew.refresh.rebuild.recalculate.revalidate.unload.hint.alert.help.value.item.itemset.copy.choices.filename.show.hide.method.resource.header.mediatype.message.control.', concat('.', local-name(), '.'))">
-			<xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">
-				<xsl:if test="$custom_name != $elt_name">
-					<xsl:attribute name="xforms-name"><xsl:value-of select="local-name()"/></xsl:attribute>
-				</xsl:if>
-				<xsl:for-each select="@*">
-					<xsl:choose>
-						<xsl:when test="namespace-uri() = ''">
-							<xsl:choose>
-								<xsl:when test="contains(., '{')">
-									<xsl:attribute name="xf-template-{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
-									<xsl:attribute name="{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:when test="local-name() = 'nodeset'">
-									<xsl:attribute name="xf-ref">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:attribute name="xf-{local-name()}">
-										<xsl:value-of select="."/>
-									</xsl:attribute>
-								</xsl:otherwise>
-							</xsl:choose>
-						</xsl:when>
-						<xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
-							<xsl:attribute name="ev-{local-name()}">
-								<xsl:value-of select="."/>
-							</xsl:attribute>
-						</xsl:when>
-					</xsl:choose>
-				</xsl:for-each>
-				<xsl:apply-templates select="node()"/>
-			</xsl:element>
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:element name="{$xsltforms_replacement_for}script">
-				<xsl:attribute name="type">text/javascript</xsl:attribute>
-				<xsl:text>XsltForms_browser.dialog.hide('statusPanel');
+		<xsl:when test="contains('.setvalue.insert.delete.update.dispatch.delay.property.targetid.name.action.load.toggle.send.setfocus.wrap.setselection.setindex.setnode.reset.retain.return.renew.refresh.rebuild.recalculate.revalidate.unload.hint.alert.help.value.item.itemset.copy.choices.filename.show.hide.method.resource.header.mediatype.message.control.', concat('.', local-name(), '.'))">
+      <xsl:choose>
+        <xsl:when test="node() or $custom_name != $elt_name or $noselfclosingissue">
+          <xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">
+            <xsl:if test="$custom_name != $elt_name">
+              <xsl:attribute name="xforms-name"><xsl:value-of select="local-name()"/></xsl:attribute>
+            </xsl:if>
+            <xsl:for-each select="@*">
+              <xsl:choose>
+                <xsl:when test="namespace-uri() = ''">
+                  <xsl:choose>
+                    <xsl:when test="contains(., '{')">
+                      <xsl:attribute name="xf-template-{local-name()}">
+                        <xsl:value-of select="."/>
+                      </xsl:attribute>
+                    </xsl:when>
+                    <xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
+                      <xsl:attribute name="{local-name()}">
+                        <xsl:value-of select="."/>
+                      </xsl:attribute>
+                    </xsl:when>
+                    <xsl:when test="local-name() = 'nodeset'">
+                      <xsl:attribute name="xf-ref">
+                        <xsl:value-of select="."/>
+                      </xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:attribute name="xf-{local-name()}">
+                        <xsl:value-of select="."/>
+                      </xsl:attribute>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </xsl:when>
+                <xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
+                  <xsl:attribute name="ev-{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:when>
+              </xsl:choose>
+            </xsl:for-each>
+            <xsl:apply-templates select="node()"/>
+          </xsl:element>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of disable-output-escaping="yes" select="concat('&lt;', $elt_name)"/>
+          <xsl:if test="@*[contains(., '{')]">
+            <xsl:text> xf-avt</xsl:text>>
+          </xsl:if>
+          <xsl:for-each select="@*">
+            <xsl:variable name="escapedvalue"><xsl:call-template name="escapeEntities">
+              <xsl:with-param name="text" select="."/>
+              <xsl:with-param name="trtext" select="translate(., $quot, $tab)"/>
+            </xsl:call-template></xsl:variable>
+            <xsl:choose>
+              <xsl:when test="namespace-uri() = ''">
+                <xsl:choose>
+                  <xsl:when test="(local-name() = 'id' or local-name() = 'style' or local-name() = 'class') and contains(., '{')">
+                    <xsl:value-of select="concat(' xf-template-', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+                  </xsl:when>
+                  <xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
+                    <xsl:value-of select="concat(' ', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+                  </xsl:when>
+                  <xsl:when test="local-name() = 'nodeset'">
+                    <xsl:value-of select="concat(' xf-ref=&quot;', $escapedvalue , '&quot;')"/>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:value-of select="concat(' xf-', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:when>
+              <xsl:when test="namespace-uri() = 'http://www.w3.org/2001/xml-events'">
+                <xsl:value-of select="concat(' ev-', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+              </xsl:when>
+              <xsl:when test="namespace-uri() = 'http://www.agencexml.com/meta'">
+                <xsl:value-of select="concat(' meta-', local-name(), '=&quot;', $escapedvalue , '&quot;')"/>
+              </xsl:when>
+            </xsl:choose>
+          </xsl:for-each>
+          <xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+          <xsl:apply-templates select="node()"/>
+          <xsl:value-of disable-output-escaping="yes" select="concat('&lt;/', $elt_name, '&gt;')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:element name="{$xsltforms_replacement_for}script">
+        <xsl:attribute name="type">text/javascript</xsl:attribute>
+        <xsl:text>XsltForms_browser.dialog.hide('statusPanel');
 </xsl:text>
-				<xsl:text>if (!XsltForms_globals.debugMode) {
+        <xsl:text>if (!XsltForms_globals.debugMode) {
 </xsl:text>
-				<xsl:text>XsltForms_globals.debugMode = true;
+        <xsl:text>XsltForms_globals.debugMode = true;
 </xsl:text>
-				<xsl:text>XsltForms_globals.debugging();
+        <xsl:text>XsltForms_globals.debugging();
 </xsl:text>
-				<xsl:text>}
+        <xsl:text>}
 </xsl:text>
-				<xsl:text>alert("XSLTForms Exception\n--------------------------\n\nError initializing :\n\nxforms:</xsl:text>
-				<xsl:value-of select="local-name()"/>
-				<xsl:text> is not supported");
+        <xsl:text>alert("XSLTForms Exception\n--------------------------\n\nError initializing :\n\nxforms:</xsl:text>
+        <xsl:value-of select="local-name()"/>
+        <xsl:text> is not supported");
 </xsl:text>
-			</xsl:element>
-		</xsl:otherwise>
-	</xsl:choose>
+      </xsl:element>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 <xsl:template match="ajx:start|ajx:stop" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ajx="http://www.ajaxforms.net/2006/ajx"/>
 <xsl:template match="xhtml:br | br" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml"><br xmlns=""/></xsl:template>
