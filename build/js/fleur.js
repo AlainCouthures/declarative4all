@@ -14578,7 +14578,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.attributeConstructor] = function(ctx, children,
 	} else {
 		attr.prefix = null;
 	}
-	attr.namespaceURI = elt.lookupNamespaceURI(attr.prefix);
+	attr.namespaceURI = elt.lookupNamespaceURI(attr.prefix) || ctx.env.nsresolver.lookupNamespaceURI(attr.prefix);
 	if (children[1][0] === Fleur.XQueryX.attributeValue) {
 		if (children[1][1].length !== 0) {
 			t = new Fleur.Text();
