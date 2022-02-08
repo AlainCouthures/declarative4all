@@ -63,7 +63,9 @@ Fleur.XQueryParser._precedence = {
   "~~descending": 28,
   "empty": 28,
   "~,": 29,
+  "~~for": 30,
   "for": 30,
+  "~~let": 30,
   "let": 30,
   "group by": 30,
   "order by": 30,
@@ -74,14 +76,12 @@ Fleur.XQueryParser._precedence = {
   "every": 30,
   "then": 31,
   "catch": 31,
-  "else": 32,
   "return": 32,
+  "else": 32,
   "satisfies": 32,
   ",": 50,
   ";": 51
 };
-Fleur.XQueryParser._rightgrouping1 = Fleur.XQueryParser._precedence.then;
-Fleur.XQueryParser._rightgrouping2 = Fleur.XQueryParser._precedence.return;
 Fleur.XQueryParser._opcodes = {
   "/": "stepExpr",
   "|": "unionOp",
@@ -252,13 +252,15 @@ Fleur.XQueryParser._pathExprFormat = function(prod) {
   }
   return [[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[prod]]]]];
 };
-Fleur.XQueryParser._calc = function(args, ops, opprec) {
-  //console.log("_calc: ops = " + ops + " opprec = " + opprec) ;
+Fleur.XQueryParser._calc = function(args, ops, newopprec, newop) {
+  //console.log("_calc: ops = " + ops + " newopprec = " + newopprec) ;
+  const op = ops.length !== 0 ? ops[ops.length - 1][1] : "";
   const curprec = ops.length !== 0 ? ops[ops.length - 1][0] : 0;
-  if ((ops.length === 0 || curprec > opprec || opprec === 31) || (curprec >= opprec && (curprec === Fleur.XQueryParser._rightgrouping1 || curprec === Fleur.XQueryParser._rightgrouping2))) {
+  const prectest = ops.length === 0 || curprec > newopprec || ((newop === op || op === "then") && newop === "return") || newop === "then";
+  console.log("XQuery - Consider \"" + newop + "\"[" + newopprec + "] vs. \"" + op + "\"[" + curprec + "] => " + (prectest ? "Do nothing" : "Evaluate \"" + op + "\""));
+  if (prectest) {
     return [args, ops];
   }
-  const op = ops[ops.length - 1][1];
   ops.pop();
   const prevop = ops.length !== 0 ? ops[ops.length - 1][1] : "";
   let arg2 = args[args.length - 1];
@@ -287,6 +289,8 @@ Fleur.XQueryParser._calc = function(args, ops, opprec) {
         if (arg1[0] === Fleur.XQueryX.arguments) {
           arg1[1].push(arg2);
           arg = arg1;
+        } else if (arg1[0] === Fleur.XQueryX.forClause || arg1[0] === Fleur.XQueryX.letClause) {
+          arg = [arg1[0], [arg1[1][0], arg2[1][0]]];
         } else {
           arg = [Fleur.XQueryX.arguments,[arg1, arg2]];
         }
@@ -496,14 +500,18 @@ Fleur.XQueryParser._calc = function(args, ops, opprec) {
       break;
     case "then":
       if (arg1[0] === Fleur.XQueryX.functionCallExpr && arg1[1][0][0] === Fleur.XQueryX.functionName && arg1[1][0][1][0] === 'if') {
-        arg = [Fleur.XQueryX.ifThenElseExpr,[[Fleur.XQueryX.ifClause,[arg1[1][1][1][0]]],[Fleur.XQueryX.thenClause,[arg2]]]];
+        arg = [Fleur.XQueryX.ifClause,[arg1[1][1][1][0]]];
+        args.push(arg);
+        args.push(arg2);
+        newopprec = -1;
+        return Fleur.XQueryParser._calc(args, ops, newopprec, newop);
       }
-      opprec = -1;
       break;
     case "else":
-      if (arg1[0] === Fleur.XQueryX.ifThenElseExpr) {
-        arg1[0].push([Fleur.XQueryX.elseClause,[arg2]]);
-        arg = arg1;
+      const arg0 = args[args.length - 1];
+      args.pop();
+      if (arg0[0] === Fleur.XQueryX.ifClause) {
+        arg = [Fleur.XQueryX.ifThenElseExpr, [arg0, [Fleur.XQueryX.thenClause, [arg1]], [Fleur.XQueryX.elseClause, [arg2]]]];
       }
       break;
     case "catch":
@@ -512,11 +520,17 @@ Fleur.XQueryParser._calc = function(args, ops, opprec) {
         arg = arg1;
       }
       break;
-    case "let":
-      arg = [Fleur.XQueryX.flworExpr,[arg1,arg2]];
+    case "~~let":
+    case "~~for":
+      arg = [Fleur.XQueryX.flworExpr,[arg2]];
+      newopprec = -1;
       break;
+    case "let":
     case "for":
-      arg = [Fleur.XQueryX.flworExpr,[arg1,arg2]];
+      if (arg1[0] === Fleur.XQueryX.flworExpr) {
+        arg1[1].push(arg2);
+        arg = arg1;
+      }
       break;
     case "group by":
       arg = [Fleur.XQueryX.flworExpr,[arg1,[Fleur.XQueryX.groupByClause,[arg2]]]];
@@ -608,7 +622,7 @@ Fleur.XQueryParser._calc = function(args, ops, opprec) {
       arg = [Fleur.XQueryX[Fleur.XQueryParser._opcodes[op]],[[Fleur.XQueryX.firstOperand,[arg1]],[Fleur.XQueryX.secondOperand,[arg2]]]];
   }
   args.push(arg);
-  return Fleur.XQueryParser._calc(args, ops, opprec);
+  return Fleur.XQueryParser._calc(args, ops, newopprec, newop);
 };
 Fleur.XQueryParser._testFormat = function(s, namecode) {
   var arg1, arg2, arg20, arg200;
@@ -1565,7 +1579,7 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
   var op = "null";
   var op2 = "null";
   if ((p.substr(0, 9) === "ascending" || p.substr(0, 10) === "descending") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(o === "a" ? 9 : 10)) === -1) {
-    var poststacks = Fleur.XQueryParser._calc(args, ops, Fleur.XQueryParser._precedence["~~" + (o === "a" ? "ascending" : "descending")]);
+    var poststacks = Fleur.XQueryParser._calc(args, ops, Fleur.XQueryParser._precedence["~~" + (o === "a" ? "ascending" : "descending")], o === "a" ? "ascending" : "descending");
     var postargslen = poststacks.substr(0, poststacks.indexOf("."));
     args2 = poststacks.substr(poststacks.indexOf(".") + 1).substr(0, parseInt(postargslen, 10));
     var postnextstack = poststacks.substr(postargslen.length + 1 + parseInt(postargslen, 10));
@@ -1608,11 +1622,11 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
     }
   }
   if (o === "") {
-    Fleur.XQueryParser._calc(args, ops, 9999999, begin + i);
+    Fleur.XQueryParser._calc(args, ops, 9999999, "");
     return args[0];
   }
-  if (o === "]" || o === ")" || o === "}" || (p.substr(0, 6) === "return" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(6)) === -1) || (p.substr(0, 9) === "satisfies" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(9)) === -1)) {
-    const stacks2 = Fleur.XQueryParser._calc(args, ops, 998, begin + i);
+  if (o === "]" || o === ")" || o === "}") { // || (p.substr(0, 6) === "return" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(6)) === -1) || (p.substr(0, 9) === "satisfies" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(9)) === -1)) {
+    const stacks2 = Fleur.XQueryParser._calc(args, ops, 998, o);
     //var reslen20 = stacks2.substr(stacks2.indexOf(".") + 1);
     //var reslen2 = reslen20.substr(0, reslen20.indexOf("."));
     //var ret20 = stacks2.substr(stacks2.indexOf(".") + 1);
@@ -1625,11 +1639,13 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
       switch(rval[1][0][1][1][1][0]) {
         case "for":
           rval = [Fleur.XQueryX.flworExpr,[]];
-          op = "for";
+          op = "~~for";
+          args.pop();
           break;
         case "let":
           rval = [Fleur.XQueryX.flworExpr,[]];
-          op = "let";
+          op = "~~let";
+          args.pop();
           break;
         case "every":
           rval = [Fleur.XQueryX.quantifiedExpr,[[Fleur.XQueryX.quantifier,["every"]]]];
@@ -1641,8 +1657,9 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
           break;
       }
     }
+    /*
     if (op !== "null") {
-      r = Fleur.XQueryParser._getPredParams("(" + f, rlen, rval);
+      r = Fleur.XQueryParser._getPredParams("(" + f, rlen, rval, ops, begin + i);
       rlen = r[3];
       rval = r;
       args[args.length - 1] = r;
@@ -1650,6 +1667,14 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
       f = d.substr(rlen - 2 - op.length);
       p = f.substr(1);
     }
+    */
+    const opprec = Fleur.XQueryParser._precedence[op2 !== "null" ? op2 : op];
+    const stacks3 = Fleur.XQueryParser._calc(args, ops, opprec, op2 !== "null" ? op2 : op);
+    const args3 = stacks3[0];
+    const ops3 = stacks3[1];
+    const xp3 = p;
+    ops3.push([parseInt(opprec, 10), op2 !== "null" ? op2 : op]);
+    return Fleur.XQueryParser._xp2js(xp3, args3, ops3, begin);
   } else if (p.substr(0, 9) === "intersect" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(9)) === -1) {
     op = p.substr(0, 9);
   } else if (p.substr(0, 8) === "allowing" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
@@ -1660,7 +1685,7 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
   } else if (p.substr(0, 8) === "castable" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
     op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 8) + 2);
     op2 = "castable as";
-  } else if ((p.substr(0, 6) === "except" || p.substr(0, 6) === "before") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(6)) === -1) {
+  } else if ((p.substr(0, 6) === "except" || p.substr(0, 6) === "before" || p.substr(0, 6) === "return") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(6)) === -1) {
     op = p.substr(0, 6);
   } else if (p.substr(0, 5) === "treat" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
     op = p.substr(0, Fleur.XQueryParser._skipSpaces(p, 5) + 2);
@@ -1706,10 +1731,10 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
   }
   if (op !== "null") {
     const opprec = Fleur.XQueryParser._precedence[op2 !== "null" ? op2 : op];
-    var stacks3 = Fleur.XQueryParser._calc(args, ops, opprec);
-    var args3 = stacks3[0];
-    var ops3 = stacks3[1];
-    var xp3 = p.substr(op.length);
+    const stacks3 = Fleur.XQueryParser._calc(args, ops, opprec, op2 !== "null" ? op2 : op);
+    const args3 = stacks3[0];
+    const ops3 = stacks3[1];
+    const xp3 = p.substr(op.length);
     ops3.push([parseInt(opprec, 10), op2 !== "null" ? op2 : op]);
     return Fleur.XQueryParser._xp2js(xp3, args3, ops3, begin);
   }
@@ -2314,9 +2339,9 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
 Fleur.XQueryParser._xq2js = function(xq) {
   //console.log("_xq2js: " + xq);
   //xq = xq.replace(/^\s+|\s+$/gm, " ");
-  var v = Fleur.XQueryParser._getVersion(xq);
-  var vl = v.substr(0, v.indexOf("."));
-  var prolog = "", p, pc, pl = parseInt(vl, 10);
+  const v = Fleur.XQueryParser._getVersion(xq);
+  const vl = v.substr(0, v.indexOf("."));
+  let prolog = "", p, pc, pl = parseInt(vl, 10);
   do {
     p = Fleur.XQueryParser._getProlog(xq, pl);
     pl = parseInt(p.substr(0, p.indexOf(".")), 10);

@@ -1,4 +1,3 @@
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -6,8 +5,8 @@
  * @module 
  * @description 
  */
-Fleur.Transpiler.prototype.xqx_pathExpr = function(children, atomicType) {
-  let result = this.inst("xqx_pathExpr()");
+Fleur.Transpiler.prototype.xqx_pathExpr = function(children, expectedType) {
+  let result = this.inst("xqx_pathExpr()").inst;
   const children2 = [];
   for (let i = 0, l = children.length; i < l; i++) {
     children2.push(children[i]);
@@ -27,15 +26,15 @@ Fleur.Transpiler.prototype.xqx_pathExpr = function(children, atomicType) {
       this.indent += this.step;
     }
     if (children2[i][0] === Fleur.XQueryX.stepExpr || children2[i][0] === Fleur.XQueryX.rootExpr) {
-      result += this.gen(children2[i]);
+      result += this.gen(children2[i]).inst;
     } else {
       const predindent = this.indent;
       this.indent += this.step;
       const prevasync = this.async;
       this.async = false;
-      let pred = this.funcdef(children2[i]);
+      let pred = this.funcdef(children2[i]).inst;
       this.indent = predindent;
-      result += "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_predicateExpr(" + pred;
+      result += "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_predicateExpr" + (this.async ? "_async " : "") + "(" + pred;
       this.async = this.async || prevasync;
       result += "\n" + this.indent + ");";
     }
@@ -49,7 +48,15 @@ Fleur.Transpiler.prototype.xqx_pathExpr = function(children, atomicType) {
     }
   }
   this.indent = previndent;
-  return result + closes + this.inst("restoreContext()", false, atomicType);
+  result += closes + this.inst("restoreContext()").inst;
+  if (expectedType && expectedType.schemaTypeInfo) {
+    result += this.inst("atomize()").inst;
+    result += this.inst(expectedType.schemaTypeInfo.constructorName + "()").inst;
+  }
+  return {
+    inst: result,
+    sequenceType: expectedType
+  };
 };
 
 Fleur.Context.prototype.xqx_pathExpr = function() {

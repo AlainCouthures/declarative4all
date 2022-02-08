@@ -3,7 +3,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module in_script
  * @description /**'''XSLTForms Javascript for insertion in script elements'''
  */
@@ -130,32 +130,56 @@ if (!Object.entries) {
 
 if (typeof xsltforms_d0 === "undefined") {
   (function () {
-    var link = Array.prototype.slice.call(document.querySelectorAll("link[href][type = 'text/css'][rel = 'stylesheet']")).reduce(function(v, l) { return v | l.getAttribute("href").endsWith("xsltforms.css"); }, false);
-    if (!link) {
-      var initelts = document.getElementsByTagName("script");
-      var elts = [];
-      var i, l;
-      for (i = 0, l = initelts.length; i < l; i++) {
-        elts[i] = initelts[i];
+    var initelts = document.getElementsByTagName("script");
+    var elts = [];
+    var i, l;
+    for (i = 0, l = initelts.length; i < l; i++) {
+      elts[i] = initelts[i];
+    }
+    initelts = null;
+    var root = null;
+    for (i = 0, l = elts.length; i < l; i++) {
+      if (elts[i].src.indexOf("xsltforms.js") !== -1) {
+        root = elts[i].src.replace("xsltforms.js", "");
       }
-      initelts = null;
-      var root;
-      for (i = 0, l = elts.length; i < l; i++) {
-        if (elts[i].src.indexOf("xsltforms.js") !== -1) {
-          root = elts[i].src.replace("xsltforms.js", "");
-        }
+    }
+    XsltForms_globals.standalone = root === null;
+    if (!XsltForms_globals.standalone) {
+      if (root.substring(root.length - 4) === "/js/") {
+        root = root.substring(0, root.length - 4) + "/css/";
       }
-      if (root.substr(root.length - 4) === "/js/") {
-        root = root.substr(0, root.length - 4) + "/css/";
+      var link = Array.prototype.slice.call(document.querySelectorAll("link[href][type = 'text/css'][rel = 'stylesheet']")).reduce(function(v, l) { return v || l.getAttribute("href").endsWith("xsltforms.css"); }, false);
+      if (!link) {
+        var newelt;
+        newelt = document.createElement("link");
+        newelt.setAttribute("rel", "stylesheet");
+        newelt.setAttribute("type", "text/css");
+        newelt.setAttribute("href", root + "xsltforms.css");
+        document.getElementsByTagName("head")[0].appendChild(newelt);
       }
-      var newelt;
-      newelt = document.createElement("link");
-      newelt.setAttribute("rel", "stylesheet");
-      newelt.setAttribute("type", "text/css");
-      newelt.setAttribute("href", root + "xsltforms.css");
-      document.getElementsByTagName("head")[0].appendChild(newelt);
     }
     var xftrans = function () {
+      if (XsltForms_globals.standalone) {
+        let formSource = "";
+        for (let i = 0, l = document.childNodes.length; i < l ; i++) {
+          const node = document.childNodes[i];
+          switch (node.nodeType) {
+            case Fleur.Node.ELEMENT_NODE:
+              formSource += node.outerHTML;
+              break;
+            case Fleur.Node.DOCUMENT_TYPE_NODE:
+              formSource += "<!DOCTYPE " + node.name + ">\n";
+              break;
+            case Fleur.Node.TEXT_NODE:
+              formSource += node.textContent;
+              break;
+            case Fleur.Node.COMMENT_NODE:
+              formSource += "<!--" + node.data + "-->";
+              break;
+          }
+        }
+        XsltForms_globals.formSource = formSource;
+      }
       var conselt = document.createElement("div");
       conselt.setAttribute("id", "xsltforms-console");
       document.getElementsByTagName("body")[0].appendChild(conselt);

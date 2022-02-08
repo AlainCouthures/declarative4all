@@ -5,12 +5,28 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_string_0 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_string,
+    occurrence: "1"
+  },
+  params_type: []
+};
 Fleur.signatures.fn_string_1 = {
   need_ctx: false,
   is_async: false,
-  return_type: {type: Fleur.Type_string},
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_string,
+    occurrence: "1"
+  },
   params_type: [
-    Fleur.atomicTypes
+    {
+      occurrence: "?"
+    }
   ]
 };
 Fleur.Context.prototype.fn_string_1 = function() {

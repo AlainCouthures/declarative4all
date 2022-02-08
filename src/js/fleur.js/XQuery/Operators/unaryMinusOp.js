@@ -1,4 +1,3 @@
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,9 +6,6 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_unaryMinusOp = function(children, expectedType) {
-  if (expectedType && Fleur.numericTypes.indexOf(expectedType.schemaTypeInfo) === -1) {
-    Fleur.XQueryError_xqt("FORG00001", null, "Wrong argument type");
-  }
   return this.inst("xqx_unaryMinusOp()", false, expectedType, this.gen(children[0][1][0], {
     nodeType: Fleur.Node.TEXT_NODE,
     schemaTypeInfo: Fleur.Type_numeric,

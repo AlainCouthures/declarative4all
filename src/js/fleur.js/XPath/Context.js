@@ -13,6 +13,8 @@ Fleur.Context = function(path, rs, nodedeps, xfdeps, position) {
   this.initialpath = path;
   this.itemstack = [];
   this.pathstack = [];
+  this.tuplestack = [];
+  this.tuple = null;
   if (rs) {
     this.rs = rs;
   }
@@ -125,7 +127,7 @@ Fleur.Context.prototype.typeConstructor = function(schemaType) {
   this.item = Fleur.Atomize(this.item);
   if (this.item.schemaTypeInfo === Fleur.Type_string || this.item.schemaTypeInfo === Fleur.Type_untypedAtomic) {
     if (!this.item.hasOwnProperty("data")) {
-      Fleur.XQueryError_xqt("FORG00001", null, "Wrong argument type for xs:" + schemaType.atomizerName.substr(3, schemaType.atomizerName - 5) + "#1", "", this.item);
+      Fleur.XQueryError_xqt("FORG00001", null, "Wrong argument type for xs:" + schemaType.constructorName.substr(3, schemaType.constructorName - 5) + "#1", "", this.item);
     }
   }
   try {
@@ -133,6 +135,6 @@ Fleur.Context.prototype.typeConstructor = function(schemaType) {
     this.item.schemaTypeInfo = schemaType;
     return this;
   } catch (e) {
-    Fleur.XQueryError_xqt(e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001", null, "Wrong argument type for xs:" + schemaType.atomizerName.substr(3, schemaType.atomizerName - 5) + "#1", "", this.item);
+    Fleur.XQueryError_xqt(e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001", null, "Wrong argument type for xs:" + schemaType.constructorName.substr(3, schemaType.constructorName - 5) + "#1", "", this.item);
   }
 };

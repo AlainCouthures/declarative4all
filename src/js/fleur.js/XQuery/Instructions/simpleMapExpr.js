@@ -14,7 +14,10 @@ Fleur.Transpiler.prototype.xqx_simpleMapExpr = function(children) {
   this.indent = previndent;
   result = "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_simpleMapExpr" + (this.async ? "_async" : "") + "(" + result;
   this.async = this.async || prevasync;
-  return this.gen(children[0][1].length === 1 && children[0][1][0][1][0][0] === Fleur.XQueryX.filterExpr ? children[0][1][0][1][0][1][0] : children[0]) + result + "\n" + this.indent + ");";
+  let r = this.gen(children[0][1].length === 1 && children[0][1][0][1][0][0] === Fleur.XQueryX.filterExpr ? children[0][1][0][1][0][1][0] : children[0]).inst + result + "\n" + this.indent + ");";
+  return {
+    inst: r
+  };
 };
 
 Fleur.Context.prototype.xqx_simpleMapExpr = function(f) {

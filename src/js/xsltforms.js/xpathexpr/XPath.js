@@ -2,7 +2,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module XPath
  * @description  === XsltForms_xpath Class ===
  * XPath Class
@@ -15,17 +15,23 @@ function XsltForms_xpath(subform, expression) {
   this.expression = expression;
   var compiled;
   try {
-    compiled = Fleur.XPathEvaluator._xp2js(expression, "", "");
-    var arr;
-    eval("arr = " + compiled + ";");
-    compiled = Fleur.minimal ? XsltForms_FleurConv[arr[0]](arr[1]) : (new Fleur.Transpiler("ctx", "  ")).funcdef(arr);
-    compiled = eval(compiled);
+    if (Fleur.minimal) {
+      compiled = Fleur.XPathEvaluator._xp2js(expression, "", "");
+      var arr;
+      eval("arr = " + compiled + ";");
+      compiled = Fleur.minimal ? XsltForms_FleurConv[arr[0]](arr[1]) : (new Fleur.Transpiler("ctx", "  ")).funcdef(arr);
+      compiled = eval(compiled);
+    } else {
+      compiled = Fleur.XQueryParser._xp2js(expression, [], []);
+      compiled = (new Fleur.Transpiler("ctx", "  ")).funcdef(compiled);
+      compiled = eval(compiled.inst);
+    }
   } catch (e) {
     alert("XSLTForms Exception\n--------------------------\n\nError parsing the following XPath expression :\n\n"+expression+"\n\n" + e.message);
     return;
   }
   this.compiled = compiled;
-  this.compiled.isRoot = true;
+  //this.compiled.isRoot = true;
   this.nsresolver = new Fleur.XPathNSResolver(); //XsltForms_nsResolver();
   subform.expressions[expression] = this;
   this.evaltime = 0;

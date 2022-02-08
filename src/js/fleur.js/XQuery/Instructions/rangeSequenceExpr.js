@@ -6,7 +6,10 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_rangeSequenceExpr = function(children) {
-  return this.gen(children[0][1][0], Fleur.Type_integer) + this.gen(children[1][1][0], Fleur.Type_integer) + this.inst("xqx_rangeSequenceExpr()");
+  let r = this.gen(children[0][1][0], Fleur.Type_integer).inst + this.gen(children[1][1][0], Fleur.Type_integer).inst + this.inst("xqx_rangeSequenceExpr()").inst;
+  return {
+    inst: r
+  };
 };
 
 Fleur.Context.prototype.xqx_rangeSequenceExpr = function() {

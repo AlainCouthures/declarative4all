@@ -5,6 +5,7 @@ xforms-component,
 xforms-delete,
 xforms-dialog,
 xforms-dispatch,
+xforms-filename,
 xforms-group,
 xforms-hide,
 xforms-input,
@@ -12,6 +13,7 @@ xforms-insert,
 xforms-instance,
 xforms-itext,
 xforms-load,
+xforms-mediatype,
 xforms-message,
 xforms-model,
 xforms-options,
@@ -47,23 +49,23 @@ xforms-upload,
 xforms-value,
 xforms-var,
 xforms-wrap {
-	display: none
+  display: none
 }
 
 xforms-item[xf-appearance="full"] {
-	display: block !important;
+  display: block !important;
 }
 
 xforms-input[xf-numeric] {
-	text-align: right;
+  text-align: right;
 }
 
 xforms-label {
-	font-weight: bold;
-	display: block;
-	margin: 0;
+  font-weight: bold;
+  display: block;
+  margin: 0;
 }
 
 select {
-	font-size: 100%;
+  font-size: 100%;
 }

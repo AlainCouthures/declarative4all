@@ -801,13 +801,13 @@ Fleur.Node.prototype._setNodeNameLocalNamePrefix = function(namespaceURI, qualif
   this.localName = qualifiedName.substr(pos + 1);
   this.prefix = pos > 0 ? qualifiedName.substr(0, pos) : null;
 };
-Fleur.Node.prototype.then = function(resolve, reject) {
-  if (this.schemaTypeInfo === Fleur.Type_error) {
-    reject(this);
-  } else {
-    resolve(this);
-  }
-};
+//Fleur.Node.prototype.then = function(resolve, reject) {
+//  if (this.schemaTypeInfo === Fleur.Type_error) {
+//    reject(this);
+//  } else {
+//    resolve(this);
+//  }
+//};
 Fleur.Node.prototype.singleton = function() {
   if (this.nodeType === Fleur.Node.SEQUENCE_NODE && this.childNodes.length === 1) {
     return this.childNodes[0];

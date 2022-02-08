@@ -3,7 +3,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module instance
  * @description  === "XFInstance" class ===
  * Instance Class
@@ -13,12 +13,21 @@
 new XsltForms_class("XsltForms_instance", "HTMLElement", "xforms-instance");
 
 function XsltForms_instance(subform, elt) {
+	if (XsltForms_globals.formSource) {
+		this.instanceSource = elt.outerHTML;
+		if (subform.instances.length === 0) {
+			this.sourceStart = XsltForms_globals.formSource.indexOf(this.instanceSource);
+		} else {
+			this.sourceStart = XsltForms_globals.formSource.indexOf(this.instanceSource, subform.instances[subform.instances.length - 1].sourceStart + subform.instances[subform.instances.length - 1].instanceSource.length);
+		}
+		this.dataSource = elt.children[0] ? elt.children[0].textContent : "";
+	}
 	if (!elt.id && !document.getElementById(subform.id + "-instance-default")) {
 		elt.id = subform.id + "-instance-default";
 	}
 	var model = elt.parentNode.xfElement;
 	var srcDoc = elt.children[0] ? elt.children[0].textContent : "";
-	srcDoc = srcDoc.replace(/(<|&lt;)\\\/script(>|&gt;)/g, "</script>");
+	srcDoc = srcDoc.replace(/(<|&lt;)\\\/script(>|&gt;)/g, "<\/script>");
 	if (srcDoc === "") {
 		elt.innerHTML = "";
 	}

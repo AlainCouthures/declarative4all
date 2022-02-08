@@ -169,7 +169,7 @@
     <xsl:when test="self::xforms:repeat and parent::*[local-name() = 'table' or local-name() = 'thead' or local-name() = 'tbody' or local-name() = 'tfoot']">
       <xsl:apply-templates select="node()"/>
     </xsl:when>
-		<xsl:when test="contains('.bind.submission.itext.translation.text.group.repeat.input.output.textarea.secret.label.alert.hint.help.item.value.itemset.trigger.submit.range.upload.switch.case.select.select1.dialog.function.body.param.include.var.extension.', concat('.', local-name(), '.'))">
+    <xsl:when test="contains('.bind.submission.itext.translation.text.group.repeat.input.output.textarea.secret.label.alert.hint.help.item.value.itemset.trigger.submit.range.upload.switch.case.select.select1.dialog.function.body.param.include.var.extension.', concat('.', local-name(), '.'))">
       <xsl:choose>
         <xsl:when test="node() or $custom_name != $elt_name or $noselfclosingissue">
           <xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">
@@ -260,8 +260,8 @@
           <xsl:value-of disable-output-escaping="yes" select="concat('&lt;/', $elt_name, '&gt;')"/>
         </xsl:otherwise>
       </xsl:choose>
-		</xsl:when>
-		<xsl:when test="contains('.setvalue.insert.delete.update.dispatch.delay.property.targetid.name.action.load.toggle.send.setfocus.wrap.setselection.setindex.setnode.reset.retain.return.renew.refresh.rebuild.recalculate.revalidate.unload.hint.alert.help.value.item.itemset.copy.choices.filename.show.hide.method.resource.header.mediatype.message.control.', concat('.', local-name(), '.'))">
+    </xsl:when>
+    <xsl:when test="contains('.setvalue.insert.delete.update.dispatch.delay.property.targetid.name.action.load.toggle.send.setfocus.wrap.setselection.setindex.setnode.reset.retain.return.renew.refresh.rebuild.recalculate.revalidate.unload.hint.alert.help.value.item.itemset.copy.choices.filename.show.hide.method.resource.header.mediatype.message.control.', concat('.', local-name(), '.'))">
       <xsl:choose>
         <xsl:when test="node() or $custom_name != $elt_name or $noselfclosingissue">
           <xsl:element name="{$elt_name}" namespace="{$elt_nsuri}">

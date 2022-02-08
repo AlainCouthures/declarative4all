@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -15,6 +13,12 @@ Fleur.Transpiler.prototype.xqx_varRef = function(children) {
     nsURI = children[0][1][1][1][0] + ":";
   }
   return this.inst("xqx_varRef('" + children[0][1][0] + "')");
+};
+
+Fleur.Context.prototype.xqx_varRef = function(vname) {
+  this.itemstack.push(this.item);
+  this.item = this.rs.varresolver.get(null, "", vname);
+  return this;
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.varRef] = function(ctx, children, callback) {

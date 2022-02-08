@@ -22,7 +22,27 @@ Fleur.subtractOpTypes = [
 ];
 
 Fleur.Transpiler.prototype.xqx_subtractOp = function(children) {
-  return this.gen(children[0][1][0], Fleur.atomicTypes) + this.gen(children[1][1][0], Fleur.atomicTypes) + this.inst("xqx_substractOp()");
+  const arg1 = this.gen(children[0][1][0], {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_numeric,
+    occurrence: "?"
+  });
+  if (!arg1.sequenceType.schemaTypeInfo.as(Fleur.Type_numeric)) {
+    Fleur.XQueryError_xqt("XPST0017", null, "Not a number");
+  }
+  const arg2 = this.gen(children[1][1][0], {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_numeric,
+    occurrence: "?"
+  });
+  if (!arg2.sequenceType.schemaTypeInfo.as(Fleur.Type_numeric)) {
+    Fleur.XQueryError_xqt("XPST0017", null, "Not a number");
+  }
+  return this.inst("xqx_substractOp()", false, {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_numeric,
+    occurrence: "?"
+  }, arg1.inst + arg2.inst);
 };
 
 Fleur.Context.prototype.xqx_substractOp = function() {

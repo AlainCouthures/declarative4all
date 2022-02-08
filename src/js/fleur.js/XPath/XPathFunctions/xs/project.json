@@ -35,6 +35,7 @@
 		"nonNegativeInteger.js",
 		"nonPositiveInteger.js",
 		"normalizedString.js",
+    "numeric.js",
 		"positiveInteger.js",
 		"QName.js",
 		"short.js",

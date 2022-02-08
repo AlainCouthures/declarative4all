@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,17 @@
  * @module 
  * @description 
  */
+Fleur.Context.prototype.xqx_returnClause = function(fn) {
+  let seq = new Fleur.Sequence();
+  this.tuple.forEach(vr => {
+    this.rs.varresolver = vr;
+    fn(this);
+    seq.appendChild(this.item);
+  });
+  this.item = seq.singleton();
+  return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.returnClause] = function(ctx, children, callback, resarr) {
   //console.log("returnClause");
   var i = 0;

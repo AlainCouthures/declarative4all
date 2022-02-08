@@ -11,11 +11,14 @@ Fleur.Transpiler.prototype.xqx_filterExpr = function(children) {
   this.indent += this.step;
   const prevasync = this.async;
   this.async = false;
-  let result = this.funcdef(children[0]);
+  let result = this.funcdef(children[0]).inst;
   this.indent = previndent;
   result = "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_filterExpr" + (this.async ? "_async" : "") + "(" + result;
   this.async = this.async || prevasync;
-  return result + "\n" + this.indent + ");";
+  return {
+    inst: result + "\n" + this.indent + ");",
+    sequenceType: null
+  };
 };
 
 Fleur.Context.prototype.xqx_filterExpr = function(f) {

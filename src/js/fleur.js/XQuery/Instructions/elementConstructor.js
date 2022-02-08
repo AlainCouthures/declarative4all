@@ -11,19 +11,21 @@ Fleur.Transpiler.prototype.xqx_elementConstructor = function(children) {
   let l = 0;
   if (children.length > 1) {
     const transp = this;
-    r = children[1][1].reduce((inst, child) => inst + transp.gen(child), "");
+    r = children[1][1].reduce((inst, child) => inst + transp.gen(child).inst, "");
     l += children[1][1].length;
     if (children.length === 3) {
-      r += children[2][1].reduce((inst, child) => inst + transp.gen(child), "");
+      r += children[2][1].reduce((inst, child) => inst + transp.gen(child).inst, "");
       l += children[2][1].length;
     }
   }
-  r += this.inst("xqx_elementConstructor('" + prefix + "', '" +  children[0][1][0] + "', " + String(l) + ")");
+  r += this.inst("xqx_elementConstructor('" + prefix + "', '" +  children[0][1][0] + "', " + String(l) + ")").inst;
   if (children.length > 1) {
     const transp = this;
-    r += children[1][1].reduce((inst, child) => inst + (child[0] === Fleur.XQueryX.namespaceDeclaration ? transp.inst("xqx_namespaceRemoval('" + (child[1].length === 2 ? child[1][0][1][0] : "") + "')") : ""), "");
+    r += children[1][1].reduce((inst, child) => inst + (child[0] === Fleur.XQueryX.namespaceDeclaration ? transp.inst("xqx_namespaceRemoval('" + (child[1].length === 2 ? child[1][0][1][0] : "") + "')").inst : ""), "");
   }
-  return r;
+  return {
+    inst: r
+  };
 };
 
 Fleur.Context.prototype.xqx_elementConstructor = function(prefix, localName, count) {

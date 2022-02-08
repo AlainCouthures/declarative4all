@@ -41,7 +41,7 @@ function XsltForms_model(subform, elt) {
 	}
 	if (i === l) {
 		var definst = document.createElement("xforms-instance");
-		definst.innerHTML = '<script type="application/xml">&lt;data xmlns=""/&gt;</script>';
+		definst.innerHTML = '<script type="application/xml">&lt;data xmlns=""/&gt;<\/script>';
 		elt.appendChild(definst);
 	}
 	var schemas = elt.getAttribute("xf-schema");

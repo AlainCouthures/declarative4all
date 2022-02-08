@@ -3,7 +3,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module FunctionCallExpr
  * @description  === XsltForms_functionCallExpr Class ===
  * XPath Expression Class for core function calling
@@ -22,7 +22,7 @@ function XsltForms_functionCallExpr(fname) {
 		 alert(e);
 		}
 	}
-	if (!this.func) {
+	if (!this.func && !XsltForms_debugger.active) {
 		XsltForms_globals.error(this, "xforms-compute-exception", "Function " + this.name + "() not found");
 	}
 	for (var i = 1, len = arguments.length; i < len; i++) {

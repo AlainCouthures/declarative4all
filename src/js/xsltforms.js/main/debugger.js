@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -60,7 +60,9 @@ function fleur(expression) {
 }
 
 const XsltForms_debugger = {
+  active: false,
   open: function() {
+    XsltForms_debugger.active = true;
     XsltForms_debugger.xfdebugger = document.createElement("xforms-debugger");
     XsltForms_debugger.xfbody = document.createElement("xforms-body");
     XsltForms_debugger.xfgutter = document.createElement("xforms-gutter");
@@ -95,12 +97,18 @@ const XsltForms_debugger = {
     XsltForms_debugger.textarea = document.getElementById("xforms-debugger-textarea");
     XsltForms_debugger.textarea.addEventListener("keypress", evt => {
       if (evt.keyCode === 13 && !evt.altKey && !evt.ctrlKey && !evt.shiftKey) {
-        const expr = document.createElement("xforms-expression");
-        expr.textContent = "-> " + evt.target.value;
-        XsltForms_debugger.xfhistory.appendChild(expr);
-        const value = document.createElement("xforms-result");
-        value.textContent = "<- " + fleur(evt.target.value);
-        XsltForms_debugger.xfhistory.appendChild(value);
+        if (evt.target.value.trim() === "") {
+          const expr = document.createElement("xforms-expression");
+          expr.textContent = ">";
+          XsltForms_debugger.xfhistory.appendChild(expr);
+        } else {
+          const expr = document.createElement("xforms-expression");
+          expr.textContent = "-> " + evt.target.value;
+          XsltForms_debugger.xfhistory.appendChild(expr);
+          const value = document.createElement("xforms-result");
+          value.textContent = "<- " + fleur(evt.target.value);
+          XsltForms_debugger.xfhistory.appendChild(value);
+        }
         XsltForms_debugger.textarea.value = "";
         evt.target.style.height = evt.target.scrollHeight + "px";
         evt.stopPropagation();
@@ -116,5 +124,6 @@ const XsltForms_debugger = {
       document.body.appendChild(XsltForms_debugger.xfbody.firstChild);
     }
     document.body.removeChild(XsltForms_debugger.xfdebugger);
+    XsltForms_debugger.active = false;
   }
 };

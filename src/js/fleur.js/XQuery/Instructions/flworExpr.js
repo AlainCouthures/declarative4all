@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,75 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_flworExpr = function(children, expectedType) {
+  const previndent = this.indent;
+  let result = this.inst("xqx_flworExpr()").inst;
+  const ctx = this;
+  let returnSequenceType;
+  let isasync = ctx.async;
+  children.forEach((clause, i, arr) => {
+    ctx.async = false;
+    if (i === arr.length - 1) {
+      ctx.indent += ctx.step;
+      const returnFuncDef = ctx.funcdef(clause[1][0], expectedType);
+      ctx.indent = previndent;
+      result += "\n" + previndent + (ctx.async ? "await " : "") + this.ctxvarname + ".xqx_returnClause" + (ctx.async ? "_async" : "") + "(";
+      result += returnFuncDef.inst;
+      result += "\n" + previndent + ");";
+      returnSequenceType = returnFuncDef.sequenceType;
+    } else {
+      result += ctx.gen(clause).inst;
+    }
+    if (!isasync) {
+      isasync = ctx.async;
+    }
+  });
+  ctx.async = isasync;
+  return {
+    inst: result,
+    sequenceType: returnSequenceType
+  };
+};
+
+/*
+Fleur.Transpiler.prototype.xqx_flworExpr_old = function(children, expectedType) {
+  const previndent = this.indent;
+  this.indent += this.step;
+  const ctx = this;
+  let returnSequenceType;
+  const gens = [];
+  children.forEach((clause, i, arr) => {
+    ctx.async = false;
+    if (i === arr.length - 1) {
+      const returnFuncDef = ctx.funcdef(clause[1][0], expectedType);
+      gens.push(returnFuncDef);
+      returnSequenceType = returnFuncDef.sequenceType;
+    } else if (clause[0] === Fleur.XQueryX.forClause || clause[0] === Fleur.XQueryX.letClause) {
+      clause[1].forEach(clauseItem => {
+        ctx.async = false;
+        gens.push(ctx.funcdef(clauseItem));
+      });
+    } else {
+      gens.push(ctx.funcdef(clause));
+    }
+  });
+  const asyncacc = gens.reduce((acc, gen) => acc || gen.async, false);
+  let result = "\n" + previndent + this.ctxvarname + ".xqx_flworExpr" + (asyncacc ? "_async" : "") + "([";
+  result = gens.reduce((r, gen, i, arr) => r + (asyncacc ? "\n" + ctx.indent + "[" + String(Boolean(gen.async)) + ", " + gen.inst.trimStart() + "]" : gen.inst) + (i === arr.length - 1 ? "" : ","), result);
+  this.indent = previndent;
+  return {
+    inst: result + "\n" + previndent + "]);",
+    sequenceType: returnSequenceType
+  };
+};
+*/
+
+Fleur.Context.prototype.xqx_flworExpr = function() {
+  this.tuplestack.push(this.tuple);
+  this.tuple = [new Fleur.varMgr([], this.rs.varresolver)];
+  return this;
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.flworExpr] = function(ctx, children, callback) {
   //console.log("flworExpr");
   var i = 0;

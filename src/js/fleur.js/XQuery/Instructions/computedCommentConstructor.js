@@ -6,7 +6,10 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_computedCommentConstructor = function(children) {
-  return (children.length === 1 ? this.gen(children[0][1][0], Fleur.atomicTypes) : this.inst("emptySequence()")) + this.inst("xqx_computedCommentConstructor()");
+  let r = (children.length === 1 ? this.gen(children[0][1][0], Fleur.atomicTypes).inst : this.inst("emptySequence()").inst) + this.inst("xqx_computedCommentConstructor()").inst;
+  return {
+    inst: r
+  };
 };
 
 Fleur.Context.prototype.xqx_computedCommentConstructor = function() {

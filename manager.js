@@ -150,6 +150,7 @@ if (process.argv.length > 2) {
 		".png":   "image/png",
 		".svg":   "image/svg+xml",
 		".txt":   "text/plain",
+		".wasm":  "application/wasm",
 		".xhtml": "application/xhtml+xml",
 		".xlsx":  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 		".xml":   "application/xml;charset=utf-8",

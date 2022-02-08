@@ -10,10 +10,13 @@ Fleur.Transpiler.prototype.xqx_stepExpr = function(children) {
   let result = "";
   for (let i = 0, l = children.length; i < l; i++) {
     if (children[i][0] !== Fleur.XQueryX.predicates) {
-      result += this.gen(children[i]);
+      result += this.gen(children[i]).inst;
     }
   }
-  return result;
+  return {
+    inst: result,
+    sequenceType: null
+  };
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {

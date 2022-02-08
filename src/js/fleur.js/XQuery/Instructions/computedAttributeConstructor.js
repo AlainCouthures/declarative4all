@@ -13,10 +13,13 @@ Fleur.Transpiler.prototype.xqx_computedAttributeConstructor = function(children)
   if (children[0][0] === Fleur.XQueryX.tagName) {
     tagName = children[0][1][0];
   } else {
-    r = this.gen(children[0][1][0], Fleur.atomicTypes);
+    r = this.gen(children[0][1][0], Fleur.atomicTypes).inst;
   }
-  r += this.gen(children[1][1][0], Fleur.atomicTypes);
-  return r + this.inst("xqx_computedAttributeConstructor" + (tagName ? (URI ? "_URI" : "") + "('" + (URI ? URI : prefix) + "', '" + tagName + "')" : "_expr()"));
+  r += this.gen(children[1][1][0], Fleur.atomicTypes).inst;
+  r += this.inst("xqx_computedAttributeConstructor" + (tagName ? (URI ? "_URI" : "") + "('" + (URI ? URI : prefix) + "', '" + tagName + "')" : "_expr()")).inst;
+  return {
+    inst: r
+  };
 };
 
 Fleur.Context.prototype.xqx_computedAttributeConstructor = function(prefix, localName) {

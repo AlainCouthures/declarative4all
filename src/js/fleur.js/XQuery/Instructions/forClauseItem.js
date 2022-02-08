@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,6 +5,19 @@
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_forClauseItem = function(children) {
+  const previndent = this.indent;
+  this.indent += this.step;
+  const gen = this.funcdef(children[1][1][0]);
+  this.indent = previndent;
+  let result = "\n" + previndent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_forClauseItem" + (this.async ? "_async" : "") + "('" + (children[0][1][0][1][0][1].length === 2 ? children[0][1][0][1][0][1][1][1][0] : "") + "', '" + children[0][1][0][1][0][1][0] + "',";
+  result += gen.inst;
+  result += "\n" + previndent + ");";
+  return {
+    inst: result
+  };
+};
+
 Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callback, resarr) {
   //console.log("forClauseItem");
   var i = 0;

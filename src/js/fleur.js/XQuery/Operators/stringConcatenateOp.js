@@ -7,7 +7,27 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_stringConcatenateOp = function(children) {
-  return this.gen(children[0][1][0], Fleur.Type_string) + this.gen(children[1][1][0], Fleur.Type_string) + this.inst("xqx_stringConcatenateOp()");
+  const arg1 = this.gen(children[0][1][0], {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_string,
+    occurrence: "?"
+  });
+  if (!arg1.sequenceType.schemaTypeInfo.as(Fleur.Type_string)) {
+    Fleur.XQueryError_xqt("XPST0017", null, "Not a string");
+  }
+  const arg2 = this.gen(children[1][1][0], {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_string,
+    occurrence: "?"
+  });
+  if (!arg2.sequenceType.schemaTypeInfo.as(Fleur.Type_string)) {
+    Fleur.XQueryError_xqt("XPST0017", null, "Not a string");
+  }
+  return this.inst("xqx_stringConcatenateOp()", false, {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_string,
+    occurrence: "?"
+  }, arg1.inst + arg2.inst);
 };
 
 Fleur.Context.prototype.xqx_stringConcatenateOp = function() {

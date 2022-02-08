@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -14,9 +12,12 @@ Fleur.Transpiler.prototype.xqx_attributeConstructor = function(children) {
   if (children[1][0] === Fleur.XQueryX.attributeValue) {
     value = children[1][1][0];
   } else {
-    r = this.gen(children[1][1][0], Fleur.atomicTypes);
+    r = this.gen(children[1][1][0], Fleur.atomicTypes).inst;
   }
-  return r + this.inst("xqx_attributeConstructor" + (value ? "_value" : "") + "('" +  prefix + "', '" + children[0][1][0] + "'" + (value ? ", '" + value + "'" : "") + ")");
+  r += this.inst("xqx_attributeConstructor" + (value ? "_value" : "") + "('" +  prefix + "', '" + children[0][1][0] + "'" + (value ? ", '" + value + "'" : "") + ")").inst;
+  return {
+    inst : r
+  };
 };
 
 Fleur.Context.prototype.xqx_attributeConstructor = function(prefix, localName) {
@@ -55,7 +56,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.attributeConstructor] = function(ctx, children,
   } else {
     attr.prefix = null;
   }
-  attr.namespaceURI = elt.lookupNamespaceURI(attr.prefix);
+  attr.namespaceURI = elt.lookupNamespaceURI(attr.prefix) || ctx.env.nsresolver.lookupNamespaceURI(attr.prefix);
   if (children[1][0] === Fleur.XQueryX.attributeValue) {
     if (children[1][1].length !== 0) {
       t = new Fleur.Text();

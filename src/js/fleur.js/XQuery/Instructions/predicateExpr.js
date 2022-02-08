@@ -39,6 +39,40 @@ Fleur.Context.prototype.xqx_predicateExpr = function(f) {
   this.item = seq.singleton();
   return this;
 };
+Fleur.Context.xqx_predicateExpr_async_ = async function(ctx, pos, last, item, f) {
+  ctx.position = pos;
+  ctx.item = item;
+  ctx.path = item;
+  ctx.last = last;
+  await f(ctx);
+  if (ctx.item.hasNumericType()) {
+    if (Number(ctx.item.data) === pos) {
+      return item;
+    }
+    return new Fleur.Sequence();
+  }
+  if (ctx.fn_boolean_1().item.data === "true") {
+    return item;
+  }
+  return new Fleur.Sequence();
+};
+Fleur.Context.prototype.xqx_predicateExpr_async = async function(f) {
+  if (this.item.isSingle()) {
+    const newcontext = this.clone(this.initialpath);
+    this.item = await Fleur.Context.xqx_predicateExpr_async_(newcontext, 1, 1, this.item, f);
+    return this;
+  }
+  const seq = new Fleur.Sequence();
+  const l = this.item.childNodes.length;
+  const children = this.item.childNodes;
+  for (let i = 0; i < l; i++) {
+    const newcontext = this.clone(this.initialpath);
+    const item = await Fleur.Context.xqx_predicateExpr_async_(newcontext, i + 1, l, children[i], f);
+    seq.appendChild(item);
+  }
+  this.item = seq.singleton();
+  return this;
+};
 
 Fleur.XQueryEngine[Fleur.XQueryX.predicateExpr] = function(ctx, children, callback, resarr, checkvalue) {
   var i = 0;

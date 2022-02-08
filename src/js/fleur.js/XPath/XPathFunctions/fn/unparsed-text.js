@@ -1,5 +1,3 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,67 +5,105 @@
  * @module 
  * @description 
  */
+Fleur.signatures.fn_unparsed$_text_1 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_string,
+    occurrence: "?"
+  },
+  params_type: [
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_string,
+      occurrence: "?"
+    }
+  ]
+};
+Fleur.signatures.fn_unparsed$_text_2 = {
+  need_ctx: false,
+  is_async: false,
+  return_type: {
+    nodeType: Fleur.Node.TEXT_NODE,
+    schemaTypeInfo: Fleur.Type_string,
+    occurrence: "?"
+  },
+  params_type: [
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_string,
+      occurrence: "?"
+    },
+    {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_string,
+      occurrence: "1"
+    }
+  ]
+};
+
 Fleur.XPathFunctions_fn["unparsed-text"] = function(ctx, children, callback) {
-	var mediatype = "text/plain";
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	var cb = function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSString(a1);
-		if (op1[0] < 0) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		var docname = op1[1];
-		var httpget = docname.startsWith("http://") || Fleur.inBrowser;
-		var fileread = docname.startsWith("file://") || !httpget;
-		if (httpget) {
-			if (docname.startsWith("http://")) {
-				docname = docname.substr(7);
-			}
-			var getp = new Promise(function(resolve, reject) {
-				var req = new XMLHttpRequest();
-				req.open('GET', docname, true);
-				req.onload = function() {
-					if (req.status === 200) {
-						resolve(req.responseText);
-					} else {
-						reject(Fleur.error(ctx, "FODC0002"));
-			      	}
-				};
-				req.send(null);
-			});
-			getp.then(
-				function(s) {
-					var parser = new Fleur.DOMParser();
-					callback(parser.parseFromString(s, mediatype));
-				},
-				function(a) {
-					callback(a);
-				}
-			);
-		} else if (fileread) {
-			if (docname.startsWith("file://")) {
-				docname = docname.substr(7);
-			}
-			if (!docname.startsWith(global.path.sep)) {
-				docname = global.path.join(Fleur.baseDir, docname);
-			}
-			global.fs.readFile(docname, 'binary', function(err, file){
-				if (err) {
-					process.stdout.write(err);
-					Fleur.callback(function() {callback();});
-				} else {
-					var a = new Fleur.Text();
-					a.schemaTypeInfo = Fleur.Type_string;
-					a.data = file;
-					Fleur.callback(function() {callback(a);});
-				}
-			});
-		}
-	};
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+  var mediatype = "text/plain";
+  if (children.length !== 1) {
+    Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
+    return;
+  }
+  var cb = function(n) {
+    var op1;
+    var a1 = Fleur.Atomize(n);
+    op1 = Fleur.toJSString(a1);
+    if (op1[0] < 0) {
+      Fleur.callback(function() {callback(a1);});
+      return;
+    }
+    var docname = op1[1];
+    var httpget = docname.startsWith("http://") || Fleur.inBrowser;
+    var fileread = docname.startsWith("file://") || !httpget;
+    if (httpget) {
+      if (docname.startsWith("http://")) {
+        docname = docname.substr(7);
+      }
+      var getp = new Promise(function(resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open('GET', docname, true);
+        req.onload = function() {
+          if (req.status === 200) {
+            resolve(req.responseText);
+          } else {
+            reject(Fleur.error(ctx, "FODC0002"));
+              }
+        };
+        req.send(null);
+      });
+      getp.then(
+        function(s) {
+          var parser = new Fleur.DOMParser();
+          callback(parser.parseFromString(s, mediatype));
+        },
+        function(a) {
+          callback(a);
+        }
+      );
+    } else if (fileread) {
+      if (docname.startsWith("file://")) {
+        docname = docname.substr(7);
+      }
+      if (!docname.startsWith(global.path.sep)) {
+        docname = global.path.join(Fleur.baseDir, docname);
+      }
+      global.fs.readFile(docname, 'binary', function(err, file){
+        if (err) {
+          process.stdout.write(err);
+          Fleur.callback(function() {callback();});
+        } else {
+          var a = new Fleur.Text();
+          a.schemaTypeInfo = Fleur.Type_string;
+          a.data = file;
+          Fleur.callback(function() {callback(a);});
+        }
+      });
+    }
+  };
+  Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
 };

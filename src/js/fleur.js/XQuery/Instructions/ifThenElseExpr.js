@@ -5,17 +5,28 @@
  * @module 
  * @description 
  */
-Fleur.Transpiler.prototype.xqx_ifThenElseExpr = function(children) {
-  let result = this.gen(children[0][1][0], Fleur.atomicTypes) + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().isTrue()) {";
+Fleur.Transpiler.prototype.xqx_ifThenElseExpr = function(children, expectedType) {
+  let result = this.gen(children[0][1][0]).inst + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().isTrue()) {";
   const previndent = this.indent;
   this.indent += this.step;
-  result += this.gen(children[1][1][0]);
+  const thenexpr = this.gen(children[1][1][0], expectedType);
+  if ((thenexpr.sequenceType.occurrence === "0" && (expectedType.occurrence === "1" || expectedType.occurrence === "+")) || (thenexpr.sequenceType.schemaTypeInfo && expectedType.schemaTypeInfo && !thenexpr.sequenceType.schemaTypeInfo.as(expectedType.schemaTypeInfo))) {
+    Fleur.XQueryError_xqt("XPST0017", null, "Invalid type");
+  }
+  result += thenexpr.inst;
   this.indent = previndent;
   result += "\n" + previndent + "} else {";
   this.indent += this.step;
-  result += this.gen(children[2][1][0]);
+  const elseexpr = this.gen(children[2][1][0], expectedType);
+  if ((elseexpr.sequenceType.occurrence === "0" && (expectedType.occurrence === "1" || expectedType.occurrence === "+")) || (elseexpr.sequenceType.schemaTypeInfo && expectedType.schemaTypeInfo && !elseexpr.sequenceType.schemaTypeInfo.as(expectedType.schemaTypeInfo))) {
+    Fleur.XQueryError_xqt("XPST0017", null, "Invalid type");
+  }
+  result += elseexpr.inst;
   this.indent = previndent;
-  return result + "\n" + previndent + "}";
+  return {
+    inst: result + "\n" + previndent + "}",
+    sequenceType: thenexpr.sequenceType
+  };
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.ifThenElseExpr] = function(ctx, children, callback) {

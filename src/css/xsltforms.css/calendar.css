@@ -31,7 +31,7 @@
 	color: #000;
 	text-align: center;
 	background-color: #f8f8f8;
-	background-image: url(../img/titleBackground.png);
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA/tpB3AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1gUBDAgfNCTDHgAAAFlJREFUeNpVjskRgDAMA5WVof+6oAbaMMcnPCAJ/OTZlcZa1q1yHJfI3MWep8i83lSrhD0JWwIQtgWfs4iIeIFdGoiWoHxl22IOtalHpss/MHUwumMvIp5fbsP7FTL17XHsAAAAAElFTkSuQmCC');
 }
 .xsltforms-calendar .xsltforms-calendar-title input {
 	width: 3em;
@@ -52,7 +52,7 @@
 	background: #f0f0f0;
 }
 .xsltforms-calendar .xsltforms-calendar-names {
-	background-image: url(../img/thBackground.png);
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAIAAADDbMD2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1gUBDAcldbAGYwAAAENJREFUeNoFwQESgCAIAEE6C2ym//+0SRClXcnchCfuwfBF+GLEZoxgzuR7hczkYGPWsH5idmG9oao894GqyoySqvoBAwEj81+5NlEAAAAASUVORK5CYII=');
 }
 .xsltforms-calendar .xsltforms-calendar-name {
 	border-bottom: 1px solid #000;

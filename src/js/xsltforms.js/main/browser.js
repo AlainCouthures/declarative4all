@@ -3,7 +3,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module browser
  * @description  === "browser" class ===
  * XsltForms_browser class for browsers compatibility
@@ -291,7 +291,7 @@ if (XsltForms_browser.isIE || XsltForms_browser.isIE11) {
   } catch(e) {
     XsltForms_browser.MSXMLver = "3.0";
   }
-    document.write("<script type='text/vbscript'>Function XsltForms_browser_BinaryToArray_ByteStr(Binary)\r\nXsltForms_browser_BinaryToArray_ByteStr = CStr(Binary)\r\nEnd Function\r\nFunction XsltForms_browser_BinaryToArray_ByteStr_Last(Binary)\r\nDim lastIndex\r\nlastIndex = LenB(Binary)\r\nif lastIndex mod 2 Then\r\nXsltForms_browser_BinaryToArray_ByteStr_Last = Chr(AscB(MidB(Binary,lastIndex,1)))\r\nElse\r\nXsltForms_browser_BinaryToArray_ByteStr_Last = "+'""'+"\r\nEnd If\r\nEnd Function\r\n</script>\r\n");
+    document.write("<script type='text/vbscript'>Function XsltForms_browser_BinaryToArray_ByteStr(Binary)\r\nXsltForms_browser_BinaryToArray_ByteStr = CStr(Binary)\r\nEnd Function\r\nFunction XsltForms_browser_BinaryToArray_ByteStr_Last(Binary)\r\nDim lastIndex\r\nlastIndex = LenB(Binary)\r\nif lastIndex mod 2 Then\r\nXsltForms_browser_BinaryToArray_ByteStr_Last = Chr(AscB(MidB(Binary,lastIndex,1)))\r\nElse\r\nXsltForms_browser_BinaryToArray_ByteStr_Last = "+'""'+"\r\nEnd If\r\nEnd Function\r\n<\/script>\r\n");
 }
 if (!XsltForms_browser.isIE) {
   XsltForms_browser.openRequest = function(method, uri, async) {
@@ -463,98 +463,25 @@ for (var __i = 0, __len = XsltForms_browser.scripts.length; __i < __len; __i++) 
     break;
   }
 }
-XsltForms_browser.loadapplet = function() {
-  var appelt = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "applet") : document.createElement("applet");
-  appelt.setAttribute("style", "position:absolute;left:-1px");
-  appelt.setAttribute("name", "xsltforms");
-  appelt.setAttribute("id", "xsltforms_applet");
-  appelt.setAttribute("code", "xsltforms.class");
-  appelt.setAttribute("archive", XsltForms_browser.ROOT + "xsltforms.jar");
-  appelt.setAttribute("width", "1");
-  appelt.setAttribute("height", "1");
-  var body = XsltForms_browser.isXhtml ? document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "body")[0] : document.getElementsByTagName("body")[0];
-  body.insertBefore(appelt, body.firstChild);
+
+XsltForms_browser.MIME2extensions = {
+  "application/javascript": [".js", ".mjs"],
+  "application/xhtml+xml": [".xhtml", ".xht", ".xhtm"],
+  "application/xml": [".xml"],
+  "text/css": [".css"],
+  "text/html": [".html", ".htm", ".shtml", ".shtm"],
+  "text/plain": [".txt", ".text"]
 };
-
-    
-/**
- * * '''IEReadFile''' method : reads a local file using native IE features
- */
-
-XsltForms_browser.IEReadFile = function(fname, encoding, xsdtype, title) {
-  if (document.applets.xsltforms) {
-    return document.applets.xsltforms.readFile(fname, encoding, xsdtype, title) || "";
-  }
-  XsltForms_browser.loadapplet();
-  if (document.applets.xsltforms) {
-    return document.applets.xsltforms.readFile(fname, encoding, xsdtype, title) || "";
-  }
-  return "";
-};
-
-    
-/**
- * * '''javaReadFile''' method : reads a local file using a Java applet
- */
-
-XsltForms_browser.javaReadFile = function(fname, encoding, xsdtype, title) {
-  if (document.applets.xsltforms) {
-    return document.applets.xsltforms.readFile(fname, encoding, xsdtype, title) || "";
-  }
-  if( document.getElementById("xsltforms_applet") ) {
-    return document.getElementById("xsltforms_applet").readFile(fname, encoding, xsdtype, title) || "";
-  }
-  XsltForms_browser.loadapplet();
-  if (document.applets.xsltforms) {
-    return document.applets.xsltforms.readFile(fname, encoding, xsdtype, title) || "";
-  }
-  if( document.getElementById("xsltforms_applet") ) {
-    return document.getElementById("xsltforms_applet").readFile(fname, encoding, xsdtype, title) || "";
-  }
-  return "";
-};
-
-    
-/**
- * * '''javaWriteFile''' method : writes a local file using a Java applet
- */
-
-XsltForms_browser.javaWriteFile = function(fname, encoding, xsdtype, title, content) {
-  if (document.applets.xsltforms) {
-    if (fname === "") {
-      fname = document.applets.xsltforms.lastChosenFileName;
-    }
-    return document.applets.xsltforms.writeFile(fname, encoding, xsdtype, title, content) === 1;
-  }
-  if( document.getElementById("xsltforms_applet") ) {
-    if (fname === "") {
-      fname = document.getElementById("xsltforms_applet").xsltforms.lastChosenFileName;
-    }
-    return document.getElementById("xsltforms_applet").writeFile(fname, encoding, xsdtype, title, content) === 1;
-  }
-  XsltForms_browser.loadapplet();
-  if (document.applets.xsltforms) {
-    if (fname === "") {
-      fname = document.applets.xsltforms.lastChosenFileName;
-    }
-    return document.applets.xsltforms.writeFile(fname, encoding, xsdtype, title, content) === 1;
-  }
-  if( document.getElementById("xsltforms_applet") ) {
-    if (fname === "") {
-      fname = document.getElementById("xsltforms_applet").xsltforms.lastChosenFileName;
-    }
-    return document.getElementById("xsltforms_applet").writeFile(fname, encoding, xsdtype, title, content) === 1;
-  }
-  return false;
-};
-
     
 /**
  * * '''readFile''' method : reads a local file
  */
 
-XsltForms_browser.readFile = function(fname, encoding, xsdtype, title) {
-  return XsltForms_browser.javaReadFile(fname, encoding, xsdtype, title);
+XsltForms_browser.readFile = function(fname, encoding, mediatype) {
+  var dummyelt = document.createElement("input");
+  dummyelt.type = "file";
+  dummyelt.click();
+  return true;
 };
 
     
@@ -562,8 +489,30 @@ XsltForms_browser.readFile = function(fname, encoding, xsdtype, title) {
  * * '''writeFile''' method : writes a local file
  */
 
-XsltForms_browser.writeFile = function(fname, encoding, xsdtype, title, content) {
-  return XsltForms_browser.javaWriteFile(fname, encoding, xsdtype, title, content);
+XsltForms_browser.writeFile = async function(fname, encoding, mediatype, content) {
+  const blob = new Blob([content], {
+    type: mediatype + ";charset=" + encoding
+  });
+  if (window.showSaveFilePicker) {
+    const opts = {
+      types: [{
+        accept: {},
+      }],
+    };
+    opts.types[0].accept[mediatype] = XsltForms_browser.MIME2extensions[mediatype];
+    try {
+      const handle = await window.showSaveFilePicker(opts);
+      const writable = await handle.createWritable();
+      await writable.write(blob);
+      await writable.close();
+    } catch(e) {}
+  } else {
+    const dummyelt = document.createElement("a");
+    dummyelt.download = fname;
+    dummyelt.href = URL.createObjectURL(blob);
+    dummyelt.click();
+  }
+  return true;
 };
 
 XsltForms_browser.xsltsrc = '<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">';
@@ -767,9 +716,6 @@ if (!Fleur.DOMParser && (XsltForms_browser.isIE || XsltForms_browser.isIE11)) {
   XsltForms_browser.loadDoc = function(dest, xml) {
     XsltForms_browser.loadNode(dest.documentElement, xml);
   };
-  /**
-   * @callback
-   */
   XsltForms_browser.saveNode = function(node, mediatype, relevant, indent, related, cdataSectionElements) {
     if (node.nodeType === Fleur.Node.ATTRIBUTE_NODE) { 
       return node.nodeValue;
@@ -1003,9 +949,6 @@ if (!Fleur.DOMParser && (XsltForms_browser.isIE || XsltForms_browser.isIE11)) {
     XsltForms_browser.loadDoc = function(dest, srcDoc) {
       XsltForms_browser.loadNode(dest.documentElement, srcDoc);
     };
-    /**
-     * @callback
-     */
     XsltForms_browser.saveNode = function(node, mediatype, relevant, indent, related, cdataSectionElements) {
       if (node.nodeType === Fleur.Node.ATTRIBUTE_NODE) { 
         return node.nodeValue;
@@ -1205,16 +1148,10 @@ if (!Fleur.DOMParser && (XsltForms_browser.isIE || XsltForms_browser.isIE11)) {
       }
     };
     XsltForms_browser.loadDoc = XsltForms_browser.loadNode;
-    /**
-     * @callback
-     */
     XsltForms_browser.saveNode = function(node, mediatype, relevant, indent, related, cdataSectionElements) {
       return XsltForms_browser.serializer.serializeToString(node, mediatype, indent === "yes");
     };
     XsltForms_browser.saveDoc = XsltForms_browser.saveNode;
-    /**
-     * @callback
-     */
     XsltForms_browser.selectMeta = function(node, selection) {
       return selection;
     };
@@ -2175,9 +2112,6 @@ XsltForms_browser.dialog = {
 XsltForms_browser.events = {};
 
 if (XsltForms_browser.isIE && !XsltForms_browser.isIE9) {
-  /**
-   * @callback
-   */
   XsltForms_browser.events.attach = function(target, evtname, handler, phase) {
     var func = function(evt) { 
       handler.call(window.event.srcElement, evt);
@@ -2185,9 +2119,6 @@ if (XsltForms_browser.isIE && !XsltForms_browser.isIE9) {
     target.attachEvent("on" + evtname, func);
   };
 
-  /**
-   * @callback
-   */
   XsltForms_browser.events.detach = function(target, evtname, handler, phase) {
     target.detachEvent("on" + evtname, handler);
   };
@@ -2243,25 +2174,721 @@ XsltForms_browser.i18n = {
  */
 
   asyncinit : function(callback) {
-    if (XsltForms_globals.language === "navigator" || !XsltForms_browser.config || XsltForms_globals.language !== XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config)) {
-      var lan = XsltForms_globals.language === "navigator" ? (navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage || "undefined")) : XsltForms_globals.language;
-      lan = lan.replace("-", "_").toLowerCase();
-      var found = XsltForms_browser.inArray(lan, XsltForms_browser.i18n.langs);
-      if (!found) {
-        var ind = lan.indexOf("_");
-        if (ind !== -1) {
-          lan = lan.substring(0, ind);
+    if (document.documentElement.lang) {
+      XsltForms_globals.language = document.documentElement.lang.replace("-", "_").toLowerCase();
+    }
+    if (!XsltForms_globals.standalone) {
+      if (XsltForms_globals.language === "navigator" || !XsltForms_browser.config || XsltForms_globals.language !== XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config)) {
+        var lan = XsltForms_globals.language === "navigator" ? (navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage || "undefined")) : XsltForms_globals.language;
+        lan = lan.replace("-", "_").toLowerCase();
+        var found = XsltForms_browser.inArray(lan, XsltForms_browser.i18n.langs);
+        if (!found) {
+          var ind = lan.indexOf("_");
+          if (ind !== -1) {
+            lan = lan.substring(0, ind);
+          }
+          found = XsltForms_browser.inArray(lan, XsltForms_browser.i18n.langs);
         }
-        found = XsltForms_browser.inArray(lan, XsltForms_browser.i18n.langs);
-      }
-      XsltForms_globals.language = "default";
-      if (found) {
-        XsltForms_browser.loadProperties("config_" + lan + ".xsl", callback);
-        return;
+        XsltForms_globals.language = "default";
+        if (found) {
+          XsltForms_browser.loadProperties("config_" + lan + ".xsl", callback);
+          return;
+        }
       }
     }
     callback();
     },
+
+  config_data: {
+    "default": {
+      "calendar.label": "...",
+      "calendar.day0": "Mon",
+      "calendar.day1": "Tue",
+      "calendar.day2": "Wed",
+      "calendar.day3": "Thu",
+      "calendar.day4": "Fri",
+      "calendar.day5": "Sat",
+      "calendar.day6": "Sun",
+      "calendar.initDay": "6",
+      "calendar.month0": "January",
+      "calendar.month1": "February",
+      "calendar.month2": "March",
+      "calendar.month3": "April",
+      "calendar.month4": "May",
+      "calendar.month5": "June",
+      "calendar.month6": "July",
+      "calendar.month7": "August",
+      "calendar.month8": "September",
+      "calendar.month9": "October",
+      "calendar.month10": "November",
+      "calendar.month11": "December",
+      "calendar.close": "Close",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ".",
+      "status": "... Loading ..."
+    },
+    "cz": {
+      "calendar.label": "...",
+      "calendar.day0": "Po",
+      "calendar.day1": "\u00dat",
+      "calendar.day2": "St",
+      "calendar.day3": "\u010ct",
+      "calendar.day4": "P\u00e1",
+      "calendar.day5": "So",
+      "calendar.day6": "Ne",
+      "calendar.initDay": "0",
+      "calendar.month0": "leden",
+      "calendar.month1": "\u00fanor",
+      "calendar.month2": "b\u0159ezen",
+      "calendar.month3": "duben",
+      "calendar.month4": "kv\u011bten",
+      "calendar.month5": "\u010derven",
+      "calendar.month6": "\u010dervenec",
+      "calendar.month7": "srpen",
+      "calendar.month8": "z\u00e1\u0159\u00ed",
+      "calendar.month9": "\u0159\u00edjen",
+      "calendar.month10": "listopad",
+      "calendar.month11": "prosinec",
+      "calendar.close": "zav\u0159\u00edt",
+      "format.date": "dd.MM. yyyy",
+      "format.datetime": "dd.MM. yyyy, hh.mm:ss",
+      "format.decimal": ",",
+      "status": "... Nahr\u00e1v\u00e1m ..."
+    },
+    "de": {
+      "calendar.label": "...",
+      "calendar.day0": "Mo",
+      "calendar.day1": "Di",
+      "calendar.day2": "Mi",
+      "calendar.day3": "Do",
+      "calendar.day4": "Fr",
+      "calendar.day5": "Sa",
+      "calendar.day6": "So",
+      "calendar.initDay": "0",
+      "calendar.month0": "Januar",
+      "calendar.month1": "Februar",
+      "calendar.month2": "M\u00e4rz",
+      "calendar.month3": "April",
+      "calendar.month4": "Mai",
+      "calendar.month5": "Juni",
+      "calendar.month6": "Juli",
+      "calendar.month7": "August",
+      "calendar.month8": "September",
+      "calendar.month9": "Oktober",
+      "calendar.month10": "November",
+      "calendar.month11": "Dezember",
+      "calendar.close": "Schlie\u00dfen",
+      "format.date": "dd.MM.yyyy",
+      "format.datetime": "dd.MM.yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "... Lade ..."
+    },
+    "el": {
+      "calendar.label": "...",
+      "calendar.day0": "\u0394\u03b5\u03c5",
+      "calendar.day1": "\u03a4\u03c1\u03b9",
+      "calendar.day2": "\u03a4\u03b5\u03c4",
+      "calendar.day3": "\u03a0\u03b5\u03bc",
+      "calendar.day4": "\u03a0\u03b1\u03c1",
+      "calendar.day5": "\u03a3\u03b1\u03b2",
+      "calendar.day6": "\u039a\u03c5\u03c1",
+      "calendar.initDay": "0",
+      "calendar.month0": "\u0399\u03b1\u03bd\u03bf\u03c5\u03ac\u03c1\u03b9\u03bf\u03c2",
+      "calendar.month1": "\u03a6\u03b5\u03b2\u03c1\u03bf\u03c5\u03ac\u03c1\u03b9\u03bf\u03c2",
+      "calendar.month2": "\u039c\u03ac\u03c1\u03c4\u03b9\u03bf\u03c2",
+      "calendar.month3": "\u0391\u03c0\u03c1\u03af\u03bb\u03b9\u03bf\u03c2",
+      "calendar.month4": "\u039c\u03ac\u03b9\u03bf\u03c2",
+      "calendar.month5": "\u0399\u03bf\u03cd\u03bd\u03b9\u03bf\u03c2",
+      "calendar.month6": "\u0399\u03bf\u03cd\u03bb\u03b9\u03bf\u03c2",
+      "calendar.month7": "\u0391\u03cd\u03b3\u03bf\u03c5\u03c3\u03c4\u03bf\u03c2",
+      "calendar.month8": "\u03a3\u03b5\u03c0\u03c4\u03ad\u03bc\u03b2\u03c1\u03b9\u03bf\u03c2",
+      "calendar.month9": "\u039f\u03ba\u03c4\u03ce\u03b2\u03c1\u03b9\u03bf\u03c2",
+      "calendar.month10": "\u039d\u03bf\u03ad\u03bc\u03b2\u03c1\u03b9\u03bf\u03c2",
+      "calendar.month11": "\u0394\u03b5\u03ba\u03ad\u03bc\u03b2\u03c1\u03b9\u03bf\u03c2",
+      "calendar.close": "\u039a\u03bf\u03bd\u03c4\u03ac",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ".",
+      "status": "... \u03a6\u03bf\u03c1\u03c4\u03ce\u03bd\u03bf\u03bd\u03c4\u03b1\u03b9 ..."
+    },
+    "en": {
+      "calendar.label": "...",
+      "calendar.day0": "Mon",
+      "calendar.day1": "Tue",
+      "calendar.day2": "Wed",
+      "calendar.day3": "Thu",
+      "calendar.day4": "Fri",
+      "calendar.day5": "Sat",
+      "calendar.day6": "Sun",
+      "calendar.initDay": "6",
+      "calendar.month0": "January",
+      "calendar.month1": "February",
+      "calendar.month2": "March",
+      "calendar.month3": "April",
+      "calendar.month4": "May",
+      "calendar.month5": "June",
+      "calendar.month6": "July",
+      "calendar.month7": "August",
+      "calendar.month8": "September",
+      "calendar.month9": "October",
+      "calendar.month10": "November",
+      "calendar.month11": "December",
+      "calendar.close": "Close",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ".",
+      "status": "... Loading ..."
+    },
+    "en_us": {
+      "calendar.label": "...",
+      "calendar.day0": "Mon",
+      "calendar.day1": "Tue",
+      "calendar.day2": "Wed",
+      "calendar.day3": "Thu",
+      "calendar.day4": "Fri",
+      "calendar.day5": "Sat",
+      "calendar.day6": "Sun",
+      "calendar.initDay": "6",
+      "calendar.month0": "January",
+      "calendar.month1": "February",
+      "calendar.month2": "March",
+      "calendar.month3": "April",
+      "calendar.month4": "May",
+      "calendar.month5": "June",
+      "calendar.month6": "July",
+      "calendar.month7": "August",
+      "calendar.month8": "September",
+      "calendar.month9": "October",
+      "calendar.month10": "November",
+      "calendar.month11": "December",
+      "calendar.close": "Close",
+      "format.date": "MM/dd/yyyy",
+      "format.datetime": "MM/dd/yyyy hh:mm:ss",
+      "format.decimal": ".",
+      "format-number.decimal-separator-sign": ".",
+      "format-number.exponent-separator-sign": "e",
+      "format-number.grouping-separator-sign": ",",
+      "format-number.infinity": "Infinity",
+      "format-number.minus-sign": "-",
+      "format-number.NaN": "NaN",
+      "format-number.percent-sign": "%",
+      "format-number.per-mille-sign": "\u2030",
+      "status": "... Loading ..."
+    },
+    "es": {
+      "calendar.label": "...",
+      "calendar.day0": "Lun",
+      "calendar.day1": "Mar",
+      "calendar.day2": "Mie",
+      "calendar.day3": "Jue",
+      "calendar.day4": "Vie",
+      "calendar.day5": "Sab",
+      "calendar.day6": "Dom",
+      "calendar.initDay": "0",
+      "calendar.month0": "Enero",
+      "calendar.month1": "Febrero",
+      "calendar.month2": "Marzo",
+      "calendar.month3": "Abril",
+      "calendar.month4": "Mayo",
+      "calendar.month5": "Junio",
+      "calendar.month6": "Julio",
+      "calendar.month7": "Agosto",
+      "calendar.month8": "Septiembre",
+      "calendar.month9": "Octubre",
+      "calendar.month10": "Noviembre",
+      "calendar.month11": "Diciembre",
+      "calendar.close": "Cerrar",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "... Cargando ..."
+    },
+    "fr": {
+      "calendar.label": "...",
+      "calendar.day0": "Lun",
+      "calendar.day1": "Mar",
+      "calendar.day2": "Mer",
+      "calendar.day3": "Jeu",
+      "calendar.day4": "Ven",
+      "calendar.day5": "Sam",
+      "calendar.day6": "Dim",
+      "calendar.initDay": "0",
+      "calendar.month0": "Janvier",
+      "calendar.month1": "F\u00e9vrier",
+      "calendar.month2": "Mars",
+      "calendar.month3": "Avril",
+      "calendar.month4": "Mai",
+      "calendar.month5": "Juin",
+      "calendar.month6": "Juillet",
+      "calendar.month7": "Ao\u00fbt",
+      "calendar.month8": "Septembre",
+      "calendar.month9": "Octobre",
+      "calendar.month10": "Novembre",
+      "calendar.month11": "D\u00e9cembre",
+      "calendar.close": "Fermer",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "format-number.decimal-separator-sign": ",",
+      "format-number.exponent-separator-sign": ".10^",
+      "format-number.grouping-separator-sign": " ",
+      "format-number.infinity": "Infini",
+      "format-number.minus-sign": "-",
+      "format-number.NaN": "Non num\u00e9rique",
+      "format-number.percent-sign": "%",
+      "format-number.per-mille-sign": "\u2030",
+      "status": "Traitement en cours"
+    },
+    "gl": {
+      "calendar.label": "...",
+      "calendar.day0": "Lun",
+      "calendar.day1": "Mar",
+      "calendar.day2": "Mer",
+      "calendar.day3": "Xov",
+      "calendar.day4": "Ven",
+      "calendar.day5": "Sab",
+      "calendar.day6": "Dom",
+      "calendar.initDay": "0",
+      "calendar.month0": "Xaneiro",
+      "calendar.month1": "Febreiro",
+      "calendar.month2": "Marzo",
+      "calendar.month3": "Abril",
+      "calendar.month4": "Maio",
+      "calendar.month5": "Xu\u00f1o",
+      "calendar.month6": "Xulio",
+      "calendar.month7": "Agosto",
+      "calendar.month8": "Septembro",
+      "calendar.month9": "Outubro",
+      "calendar.month10": "Novembro",
+      "calendar.month11": "Decembro",
+      "calendar.close": "Preto",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "... Loading ..."
+    },
+    "it": {
+      "calendar.label": "...",
+      "calendar.day0": "Lun",
+      "calendar.day1": "Mar",
+      "calendar.day2": "Mer",
+      "calendar.day3": "Gio",
+      "calendar.day4": "Ven",
+      "calendar.day5": "Sab",
+      "calendar.day6": "Dom",
+      "calendar.initDay": "0",
+      "calendar.month0": "Gennaio",
+      "calendar.month1": "Febbraio",
+      "calendar.month2": "Marzo",
+      "calendar.month3": "Aprile",
+      "calendar.month4": "Maggio",
+      "calendar.month5": "Giugno",
+      "calendar.month6": "Luglio",
+      "calendar.month7": "Agosto",
+      "calendar.month8": "Settembre",
+      "calendar.month9": "Ottobre",
+      "calendar.month10": "Novembre",
+      "calendar.month11": "Dicembre",
+      "calendar.close": "Chiudi",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "Caricamento in corso"
+    },
+    "ja": {
+      "calendar.label": "...",
+      "calendar.day0": "\u6708",
+      "calendar.day1": "\u706b",
+      "calendar.day2": "\u6c34",
+      "calendar.day3": "\u6728",
+      "calendar.day4": "\u91d1",
+      "calendar.day5": "\u571f",
+      "calendar.day6": "\u65e5",
+      "calendar.initDay": "6",
+      "calendar.month0": "1\u6708",
+      "calendar.month1": "2\u6708",
+      "calendar.month2": "3\u6708",
+      "calendar.month3": "4\u6708",
+      "calendar.month4": "5\u6708",
+      "calendar.month5": "6\u6708",
+      "calendar.month6": "7\u6708",
+      "calendar.month7": "8\u6708",
+      "calendar.month8": "9\u6708",
+      "calendar.month9": "10\u6708",
+      "calendar.month10": "11\u6708",
+      "calendar.month11": "12\u6708",
+      "calendar.close": "\u9589\u3058\u308b",
+      "format.date": "yyyy\/MM\/dd",
+      "format.datetime": "yyyy\/MM\/dd hh:mm:ss",
+      "format.decimal": ".",
+      "status": "... \u8aad\u307f\u8fbc\u307f\u4e2d ..."
+    },
+    "ko": {
+      "calendar.label": "...",
+      "calendar.day0": "\uc6d4",
+      "calendar.day1": "\ud654",
+      "calendar.day2": "\uc218",
+      "calendar.day3": "\ubaa9",
+      "calendar.day4": "\uae08",
+      "calendar.day5": "\ud1a0",
+      "calendar.day6": "\uc77c",
+      "calendar.initDay": "6",
+      "calendar.month0": "1\uc6d4",
+      "calendar.month1": "2\uc6d4",
+      "calendar.month2": "3\uc6d4",
+      "calendar.month3": "4\uc6d4",
+      "calendar.month4": "5\uc6d4",
+      "calendar.month5": "6\uc6d4",
+      "calendar.month6": "7\uc6d4",
+      "calendar.month7": "8\uc6d4",
+      "calendar.month8": "9\uc6d4",
+      "calendar.month9": "10\uc6d4",
+      "calendar.month10": "11\uc6d4",
+      "calendar.month11": "12\uc6d4",
+      "calendar.close": "\ub2eb\uae30",
+      "format.date": "yyyy-MM-dd",
+      "format.datetime": "yyyy-MM-dd hh:mm:ss",
+      "format.decimal": ".",
+      "status": "... \ub85c\ub4dc\ud558\ub294 \uc911 ..."
+    },
+    "nb_no": {
+      "calendar.label": "...",
+      "calendar.day0": "Man",
+      "calendar.day1": "Tir",
+      "calendar.day2": "Ons",
+      "calendar.day3": "Tor",
+      "calendar.day4": "Fre",
+      "calendar.day5": "L\u00f8r",
+      "calendar.day6": "S\u00f8n",
+      "calendar.initDay": "0",
+      "calendar.month0": "Januar",
+      "calendar.month1": "Februar",
+      "calendar.month2": "Mars",
+      "calendar.month3": "April",
+      "calendar.month4": "Mai",
+      "calendar.month5": "Juni",
+      "calendar.month6": "Juli",
+      "calendar.month7": "August",
+      "calendar.month8": "September",
+      "calendar.month9": "Oktober",
+      "calendar.month10": "November",
+      "calendar.month11": "Desember",
+      "calendar.close": "Lukk",
+      "format.date": "dd.MM.yyyy",
+      "format.datetime": "dd.MM.yyyy kl. hh.mm.ss",
+      "format.decimal": ",",
+      "status": "... Loading ..."
+    },
+    "nl": {
+      "calendar.label": "...",
+      "calendar.day0": "Ma",
+      "calendar.day1": "Di",
+      "calendar.day2": "Wo",
+      "calendar.day3": "Do",
+      "calendar.day4": "Vr",
+      "calendar.day5": "Za",
+      "calendar.day6": "Zo",
+      "calendar.initDay": "6",
+      "calendar.month0": "januari",
+      "calendar.month1": "februari",
+      "calendar.month2": "maart",
+      "calendar.month3": "april",
+      "calendar.month4": "mei",
+      "calendar.month5": "juni",
+      "calendar.month6": "juli",
+      "calendar.month7": "augustus",
+      "calendar.month8": "september",
+      "calendar.month9": "oktober",
+      "calendar.month10": "november",
+      "calendar.month11": "december",
+      "calendar.close": "dichtbij",
+      "format.date": "dd-MM-yyyy",
+      "format.datetime": "dd-MM-yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "... Laden ..."
+    },
+    "nn_no": {
+      "calendar.label": "...",
+      "calendar.day0": "M\u00e5n",
+      "calendar.day1": "Tys",
+      "calendar.day2": "Ons",
+      "calendar.day3": "Tor",
+      "calendar.day4": "Fre",
+      "calendar.day5": "Lau",
+      "calendar.day6": "Sun",
+      "calendar.initDay": "0",
+      "calendar.month0": "Januar",
+      "calendar.month1": "Februar",
+      "calendar.month2": "Mars",
+      "calendar.month3": "April",
+      "calendar.month4": "Mai",
+      "calendar.month5": "Juni",
+      "calendar.month6": "Juli",
+      "calendar.month7": "August",
+      "calendar.month8": "September",
+      "calendar.month9": "Oktober",
+      "calendar.month10": "November",
+      "calendar.month11": "Desember",
+      "calendar.close": "Lukk",
+      "format.date": "dd.MM.yyyy",
+      "format.datetime": "dd.MM.yyyy kl. hh.mm.ss",
+      "format.decimal": ",",
+      "status": "... Loading ..."
+    },
+    "pl": {
+      "calendar.label": "...",
+      "calendar.day0": "Pon",
+      "calendar.day1": "Wt",
+      "calendar.day2": "\u015ar",
+      "calendar.day3": "Czw",
+      "calendar.day4": "Pt",
+      "calendar.day5": "Sob",
+      "calendar.day6": "Niedz",
+      "calendar.initDay": "0",
+      "calendar.month0": "Stycze\u0144",
+      "calendar.month1": "Luty",
+      "calendar.month2": "Marzec",
+      "calendar.month3": "Kwiecie\u0144",
+      "calendar.month4": "Maj",
+      "calendar.month5": "Czerwiec",
+      "calendar.month6": "Lipiec",
+      "calendar.month7": "Sierpie\u0144",
+      "calendar.month8": "Wrzesie\u0144",
+      "calendar.month9": "Pa\u017adziernik",
+      "calendar.month10": "Listopad",
+      "calendar.month11": "Grudzie\u0144",
+      "calendar.close": "Blisko",
+      "format.date": "yyyy-MM-dd",
+      "format.datetime": "yyyy-MM-dd hh:mm:ss",
+      "format.decimal": ".",
+      "status": "... Wczytywanie ..."
+    },
+    "pt": {
+      "calendar.label": "...",
+      "calendar.day0": "Seg",
+      "calendar.day1": "Ter",
+      "calendar.day2": "Qua",
+      "calendar.day3": "Qui",
+      "calendar.day4": "Sex",
+      "calendar.day5": "Sab",
+      "calendar.day6": "Dom",
+      "calendar.initDay": "0",
+      "calendar.month0": "Janeiro",
+      "calendar.month1": "Fevereiro",
+      "calendar.month2": "Mar\u00e7o",
+      "calendar.month3": "Abril",
+      "calendar.month4": "Maio",
+      "calendar.month5": "Junho",
+      "calendar.month6": "Julho",
+      "calendar.month7": "Agosto",
+      "calendar.month8": "Setembro",
+      "calendar.month9": "Outubro",
+      "calendar.month10": "Novembro",
+      "calendar.month11": "Dezembro",
+      "calendar.close": "Fechar",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "... A carregar ..."
+    },
+    "ro": {
+      "calendar.label": "...",
+      "calendar.day0": "Lun",
+      "calendar.day1": "Mar",
+      "calendar.day2": "Mie",
+      "calendar.day3": "Joi",
+      "calendar.day4": "Vin",
+      "calendar.day5": "S\u00e2m",
+      "calendar.day6": "Dum",
+      "calendar.initDay": "0",
+      "calendar.month0": "Ianurie",
+      "calendar.month1": "Februarie",
+      "calendar.month2": "Martie",
+      "calendar.month3": "Aprilie",
+      "calendar.month4": "Mai",
+      "calendar.month5": "Iunie",
+      "calendar.month6": "Iulie",
+      "calendar.month7": "August",
+      "calendar.month8": "Septembrie",
+      "calendar.month9": "Octombrie",
+      "calendar.month10": "Noiembrie",
+      "calendar.month11": "Decembrie",
+      "calendar.close": "\u00cenchide",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "... \u00cenc\u0103rcare pagin\u0103 ..."
+    },
+    "ru": {
+      "calendar.label": "...",
+      "calendar.day0": "\u041f\u043e\u043d",
+      "calendar.day1": "\u0412\u0442\u043e",
+      "calendar.day2": "\u0421\u0440\u0435",
+      "calendar.day3": "\u0427\u0435\u0442",
+      "calendar.day4": "\u041f\u044f\u0442",
+      "calendar.day5": "\u0421\u0443\u0431",
+      "calendar.day6": "\u0412\u043e\u0441",
+      "calendar.initDay": "0",
+      "calendar.month0": "\u042f\u043d\u0432\u0430\u0440\u044c",
+      "calendar.month1": "\u0424\u0435\u0432\u0440\u0430\u043b\u044c",
+      "calendar.month2": "\u041c\u0430\u0440\u0442",
+      "calendar.month3": "\u0410\u043f\u0440\u0435\u043b\u044c",
+      "calendar.month4": "\u041c\u0430\u0439",
+      "calendar.month5": "\u0418\u044e\u043d\u044c",
+      "calendar.month6": "\u0418\u044e\u043b\u044c",
+      "calendar.month7": "\u0410\u0432\u0433\u0443\u0441\u0442",
+      "calendar.month8": "\u0421\u0435\u043d\u0442\u044f\u0431\u0440\u044c",
+      "calendar.month9": "\u041e\u043a\u0442\u044f\u0431\u0440\u044c",
+      "calendar.month10": "\u041d\u043e\u044f\u0431\u0440\u044c",
+      "calendar.month11": "\u0414\u0435\u043a\u0430\u0431\u0440\u044c",
+      "calendar.close": "\u0417\u0430\u043a\u0440\u044b\u0442\u044c",
+      "format.date": "dd.MM.yyyy",
+      "format.datetime": "dd.MM.yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "... \u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430 ..."
+    },
+    "si": {
+      "calendar.label": "...",
+      "calendar.day0": "Pon",
+      "calendar.day1": "Tor",
+      "calendar.day2": "Sre",
+      "calendar.day3": "\u010cet",
+      "calendar.day4": "Pet",
+      "calendar.day5": "Sob",
+      "calendar.day6": "Ned",
+      "calendar.initDay": "0",
+      "calendar.month0": "Januar",
+      "calendar.month1": "Februar",
+      "calendar.month2": "Marec",
+      "calendar.month3": "April",
+      "calendar.month4": "Maj",
+      "calendar.month5": "Junij",
+      "calendar.month6": "Julij",
+      "calendar.month7": "Avgust",
+      "calendar.month8": "September",
+      "calendar.month9": "Oktober",
+      "calendar.month10": "November",
+      "calendar.month11": "December",
+      "calendar.close": "Zapri",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "... Nalagam ..."
+    },
+    "sk": {
+      "calendar.label": "...",
+      "calendar.day0": "pondelok",
+      "calendar.day1": "utorok",
+      "calendar.day2": "streda",
+      "calendar.day3": "\u0161tvrtok",
+      "calendar.day4": "piatok",
+      "calendar.day5": "sobota",
+      "calendar.day6": "nede\u013ea",
+      "calendar.initDay": "0",
+      "calendar.month0": "Janu\u00e1r",
+      "calendar.month1": "Febru\u00e1r",
+      "calendar.month2": "Marec",
+      "calendar.month3": "Apr\u00edl",
+      "calendar.month4": "M\u00e1j",
+      "calendar.month5": "J\u00fan",
+      "calendar.month6": "J\u00fal",
+      "calendar.month7": "August",
+      "calendar.month8": "September",
+      "calendar.month9": "Okt\u00f3ber",
+      "calendar.month10": "November",
+      "calendar.month11": "December",
+      "calendar.close": "Zavrie\u0165",
+      "format.date": "dd\/MM\/yyyy",
+      "format.datetime": "dd\/MM\/yyyy hh:mm:ss",
+      "format.decimal": ",",
+      "status": "... Na\u010d\u00edtavam ..."
+    },
+    "zh_cn": {
+      "calendar.label": "...",
+      "calendar.day0": "\u5468\u4e00",
+      "calendar.day1": "\u5468\u4e8c",
+      "calendar.day2": "\u5468\u4e09",
+      "calendar.day3": "\u5468\u56db",
+      "calendar.day4": "\u5468\u4e94",
+      "calendar.day5": "\u5468\u516d",
+      "calendar.day6": "\u5468\u65e5",
+      "calendar.initDay": "6",
+      "calendar.month0": "\u4e00\u6708",
+      "calendar.month1": "\u4e8c\u6708",
+      "calendar.month2": "\u4e09\u6708",
+      "calendar.month3": "\u56db\u6708",
+      "calendar.month4": "\u4e94\u6708",
+      "calendar.month5": "\u516d\u6708",
+      "calendar.month6": "\u4e03\u6708",
+      "calendar.month7": "\u516b\u6708",
+      "calendar.month8": "\u4e5d\u6708",
+      "calendar.month9": "\u5341\u6708",
+      "calendar.month10": "\u5341\u4e00\u6708",
+      "calendar.month11": "\u5341\u4e8c\u6708",
+      "calendar.close": "\u5173\u95ed",
+      "format.date": "yyyy\/MM\/dd",
+      "format.datetime": "yyyy\/MM\/dd hh:mm:ss",
+      "format.decimal": ".",
+      "status": "... \u6b63\u5728\u52a0\u8f7d ..."
+    },
+    "zh_tw": {
+      "calendar.label": "...",
+      "calendar.day0": "\u661f\u671f\u4e00",
+      "calendar.day1": "\u661f\u671f\u4e8c",
+      "calendar.day2": "\u661f\u671f\u4e09",
+      "calendar.day3": "\u661f\u671f\u56db",
+      "calendar.day4": "\u661f\u671f\u4e94",
+      "calendar.day5": "\u661f\u671f\u516d",
+      "calendar.day6": "\u661f\u671f\u65e5",
+      "calendar.initDay": "6",
+      "calendar.month0": "1 \u6708",
+      "calendar.month1": "2 \u6708",
+      "calendar.month2": "3 \u6708",
+      "calendar.month3": "4 \u6708",
+      "calendar.month4": "5 \u6708",
+      "calendar.month5": "6 \u6708",
+      "calendar.month6": "7 \u6708",
+      "calendar.month7": "8 \u6708",
+      "calendar.month8": "9 \u6708",
+      "calendar.month9": "10 \u6708",
+      "calendar.month10": "11 \u6708",
+      "calendar.month11": "12 \u6708",
+      "calendar.close": "\u95dc\u9589",
+      "format.date": "yyyy\/MM\/dd",
+      "format.datetime": "yyyy\/MM\/dd hh:mm:ss",
+      "format.decimal": ".",
+      "status": "... \u6b63\u5728\u8f09\u5165 ..."
+    },
+    "zh": {
+      "calendar.label": "...",
+      "calendar.day0": "\u4e00",
+      "calendar.day1": "\u4e8c",
+      "calendar.day2": "\u4e09",
+      "calendar.day3": "\u56db",
+      "calendar.day4": "\u4e94",
+      "calendar.day5": "\u516d",
+      "calendar.day6": "\u65e5",
+      "calendar.initDay": "6",
+      "calendar.month0": "\u4e00\u6708",
+      "calendar.month1": "\u4e8c\u6708",
+      "calendar.month2": "\u4e09\u6708",
+      "calendar.month3": "\u56db\u6708",
+      "calendar.month4": "\u4e94\u6708",
+      "calendar.month5": "\u516d\u6708",
+      "calendar.month6": "\u4e03\u6708",
+      "calendar.month7": "\u516b\u6708",
+      "calendar.month8": "\u4e5d\u6708",
+      "calendar.month9": "\u5341\u6708",
+      "calendar.month10": "\u5341\u4e00\u6708",
+      "calendar.month11": "\u5341\u4e8c\u6708",
+      "calendar.close": "\u5173",
+      "format.date": "yyyy-MM-dd",
+      "format.datetime": "yyyy-MM-dd hh:mm:ss",
+      "format.decimal": ".",
+      "status": "... \u88c5\u8f7d\u4e2d ..."
+    }
+  },
 
     
 /**
@@ -2269,8 +2896,12 @@ XsltForms_browser.i18n = {
  */
 
   get : function(key, defvalue) {
-    if (!XsltForms_browser.config || XsltForms_browser.config.nodeName === "dummy") {
-      return "Initializing";
+    if (!XsltForms_globals.standalone) {
+      if (!XsltForms_browser.config || XsltForms_browser.config.nodeName === "dummy") {
+        return "Initializing";
+      }
+    } else if (XsltForms_globals.language !== "navigator") {
+      return XsltForms_browser.i18n.config_data[XsltForms_globals.language][key] || XsltForms_browser.i18n.config_data.default[key] || defvalue;
     }
     if (XsltForms_globals.language === "navigator" || XsltForms_globals.language !== XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config)) {
       var lan = XsltForms_globals.language === "navigator" ? (navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage || "undefined")) : XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
@@ -2284,6 +2915,9 @@ XsltForms_browser.i18n = {
         found = XsltForms_browser.inArray(lan, XsltForms_browser.i18n.langs);
       }
       if (found) {
+        if (XsltForms_globals.standalone) {
+          return XsltForms_browser.i18n.config_data[lan][key] || XsltForms_browser.i18n.config_data.default[key] || defvalue;
+        }
         XsltForms_browser.loadProperties("config_" + lan + ".xsl");
         XsltForms_globals.language = XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
       } else {
@@ -2823,7 +3457,6 @@ XsltForms_browser.getId = function(element) {
     
 /**
  * * '''show''' function : show/hide an element (called by generated Javascript instructions, typically used for hints or input errors)
- * @callback
  */
 
 XsltForms_browser.show = function(el, type, value) {

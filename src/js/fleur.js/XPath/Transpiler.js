@@ -1,4 +1,3 @@
-/*globals Fleur*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -29,13 +28,19 @@ Fleur.Transpiler.prototype.gen = function(arr, expectedType) {
 Fleur.Transpiler.prototype.funcdef = function(arr, expectedType) {
   const previndent  = this.indent;
   this.indent += this.step;
+  const prevasync = this.async;
+  this.async = false;
   const gen = this.gen(arr, expectedType);
+  const newasync = this.async;
+  if (!this.async) {
+    this.async = prevasync;
+  }
   let result = gen.inst;
   result += "\n" + this.indent + "return "+ this.ctxvarname + ";";
   result += "\n" + previndent + "}";
   this.indent = previndent;
   return {
-    inst: (this.indent === "" ? "" : "\n") + this.indent + (this.async ? "async " : "") + this.ctxvarname + " => {" + result,
+    inst: (this.indent === "" ? "" : "\n") + this.indent + (newasync ? "async " : "") + this.ctxvarname + " => {" + result,
     sequenceType: gen.sequenceType
   };
 };

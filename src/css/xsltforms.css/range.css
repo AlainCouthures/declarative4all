@@ -13,6 +13,6 @@ xforms-range-cursor {
 	width: 17px; 
 	height: 17px;
 	position: absolute;
-	background-image:url('../img/ball.png');
+	background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAAd0SU1FB9wEBhMoKuFF9b0AAAB0SURBVDjL3ZRRDsAgCEMp2bU4PQfrvkwYQzMNX+uv8izEApJSCcDrgCSqu9es2N2n4AxDdAKAVXGWmT1AugsYLmO7uguoQCoNgohsu8jzaXHyNwhJmNnxUEmir50TN/Hra0zoV1DODvIqWKV4PLJM8ek+uQGc+lDIra5tbwAAAABJRU5ErkJggg==');
 	outline-style: none;
 }

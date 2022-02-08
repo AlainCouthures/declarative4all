@@ -1,4 +1,3 @@
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -7,13 +6,20 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_andOp = function(children) {
-  let result = this.gen(children[0][1][0], Fleur.atomicTypes) + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().dropTrue()) {";
+  let result = this.gen(children[0][1][0]).inst + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().dropTrue()) {";
   const previndent = this.indent;
   this.indent += this.step;
-  result += this.gen(children[1][1][0], Fleur.atomicTypes);
-  result += this.inst("fn_boolean_1()");
+  result += this.gen(children[1][1][0]).inst;
+  result += this.inst("fn_boolean_1()").inst;
   this.indent = previndent;
-  return result + "\n" + previndent + "}";
+  return {
+    inst: result + "\n" + previndent + "}",
+    sequenceType: {
+      nodeType: Fleur.Node.TEXT_NODE,
+      schemaTypeInfo: Fleur.Type_boolean,
+      occurrence: "1"
+    }
+  };
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.andOp] = function(ctx, children, callback) {

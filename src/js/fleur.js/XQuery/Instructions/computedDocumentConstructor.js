@@ -6,7 +6,10 @@
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_computedDocumentConstructor = function(children) {
-  return (children.length === 1 ? this.gen(children[0][1][0]) : this.inst("emptySequence()")) + this.inst("xqx_computedDocumentConstructor()");
+  let r = (children.length === 1 ? this.gen(children[0][1][0]).inst : this.inst("emptySequence()").inst) + this.inst("xqx_computedDocumentConstructor()").inst;
+  return {
+    inst: r
+  };
 };
 
 Fleur.Context.prototype.xqx_computedDocumentConstructor = function() {

@@ -1,4 +1,3 @@
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -39,6 +38,10 @@ Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, expectedTyp
     schemaTypeInfo: Fleur.Type_string,
     occurrence: "?"
   };
+  const untyped = returnType && returnType.schemaTypeInfo === Fleur.Type_untypedAtomic;
+  if (untyped) {
+    returnType.schemaTypeInfo = expectedType.schemaTypeInfo;
+  }
 
   let params = "";
   const paramstype = libfunc ? libfunc.params_type : null;
@@ -50,6 +53,10 @@ Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, expectedTyp
     };
     const paramgen = this.gen(args[i], expectedParamType);
     if (libfunc && expectedParamType) {
+//      if (paramgen.sequenceType.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+//        paramgen.inst += this.inst(expectedParamType.schemaTypeInfo.constructorName + "()").inst;
+//        paramgen.sequenceType.schemaTypeInfo = expectedParamType.schemaTypeInfo;
+//      }
       if ((paramgen.sequenceType.occurrence === "0" && (expectedParamType.occurrence === "1" || expectedParamType.occurrence === "+")) || (paramgen.sequenceType.schemaTypeInfo && expectedParamType.schemaTypeInfo && !paramgen.sequenceType.schemaTypeInfo.as(expectedParamType.schemaTypeInfo))) {
         Fleur.XQueryError_xqt("XPST0017", null, "Invalid type");
       }
@@ -60,7 +67,7 @@ Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, expectedTyp
     Fleur.XQueryError_xqt("XPST0017", null, "Unknown Javascript function", "", new Fleur.Text(shortname));
   }
   return {
-    inst: params + this.inst((libfunc ? fname : "xqx_functionCallExpr") + (fasync ? "_async" : "") + "(" + (libfunc ? "" : shortname + ", ") + (fname === "fn_concat" || !libfunc ? String(args.length) : "") + ")", fasync, libfunc ? expectedType : null).inst,
+    inst: params + this.inst((libfunc ? fname : "xqx_functionCallExpr") + (fasync ? "_async" : "") + "(" + (libfunc ? "" : shortname + ", ") + (fname === "fn_concat" || !libfunc ? String(args.length) : "") + ")", fasync, libfunc ? expectedType : null).inst + (untyped ? this.inst(returnType.schemaTypeInfo.constructorName + "()").inst : ""),
     sequenceType: returnType
   };
 };
