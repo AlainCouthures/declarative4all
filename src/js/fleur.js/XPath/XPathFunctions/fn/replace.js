@@ -1,76 +1,43 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_replace_3 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_string,
-    occurrence: "1"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "?"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
+Fleur.Context.prototype.fn_replace_3 = function() {
+  return this.emptySequence().fn_replace_4();
+};
+Fleur.Context.prototype.fn_replace_4 = function() {
+  const flags = this.item;
+  const replacement = this.itemstack.pop();
+  const pattern = this.itemstack.pop();
+  const input = this.itemstack.pop();
+  this.item = new Fleur.Text("");
+  this.item.schemaTypeInfo = Fleur.Type_string;
+  if (input.isNotEmpty()) {
+    try {
+      const re = new RegExp(pattern.data, flags.isNotEmpty() ? flags.data + "g" : "g");
+      this.item.data = input.data.replace(re, replacement.data);
+    } catch (e) {
+      this.item.data = input.data;
     }
-  ]
+  }
+  return this;
 };
 
-Fleur.signatures.fn_replace_4 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_string,
-    occurrence: "1"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "?"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "?"
-    }
-  ]
-};
+Fleur.XPathFunctions_fn["replace#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:replace", Fleur.Context.prototype.fn_replace_3,
+  [Fleur.SequenceType_string_01, Fleur.SequenceType_string_1, Fleur.SequenceType_string_1], Fleur.SequenceType_string_1);
 
-Fleur.XPathFunctions_fn["replace#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:replace",
+Fleur.XPathFunctions_fn["replace#4"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:replace", Fleur.Context.prototype.fn_replace_4,
+  [Fleur.SequenceType_string_01, Fleur.SequenceType_string_1, Fleur.SequenceType_string_1, Fleur.SequenceType_string_01], Fleur.SequenceType_string_1);
+/*
   function(input, pattern, replacement) {
     return Fleur.XPathFunctions_fn["replace#4"].jsfunc(input, pattern, replacement);
   },
   null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string}, {type: Fleur.Type_string}], false, false, {type: Fleur.Type_string});
-
-Fleur.XPathFunctions_fn["replace#4"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:replace",
+*/
+/*
   function(input, pattern, replacement, flags) {
       input = input || "";
       flags = (flags || "") + "g";
@@ -82,3 +49,4 @@ Fleur.XPathFunctions_fn["replace#4"] = new Fleur.Function("http://www.w3.org/200
       }
   },
   null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string}, {type: Fleur.Type_string}, {type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_string});
+*/

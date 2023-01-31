@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -35,10 +35,11 @@ Fleur.varMgr.prototype.get = function(ctx, vuri, vname) {
     }
     r = r.previous;
   } while (r);
-  return Fleur.error(ctx, "XPST0008", "$" + (vuri && vuri !== '' ? "Q{" + vuri + "}" + vname : vname) + " is undefined");
+  Fleur.XQueryError_xqt("XPST0008", null, "$" + (vuri && vuri !== '' ? "Q{" + vuri + "}" + vname : vname) + " is undefined");
 };
 Fleur.varMgr.prototype.set = function(ctx, vuri, vname, value) {
   //console.log(vname + " := " + Fleur.Serializer._serializeNodeToXQuery(value, false, ""));
+/*
   var i;
   var r = this;
   do {
@@ -52,6 +53,7 @@ Fleur.varMgr.prototype.set = function(ctx, vuri, vname, value) {
     }
     r = r.previous;
   } while (r);
+*/
   this.vars.push({vuri: vuri, vname: vname, value: value});
   return value;
 };

@@ -1,12 +1,12 @@
 {
-	"Name":"types.js",
-	"Description":"== XML Schema Management ==\nEach Schema is stored as a Javascript object created by the XSLT transformation.\nThe Type is the parent class for *Type classes.",
-	"Components":[
-		"Type.js",
-		"Schema.js",
-		"AtomicType.js",
-		"ListType.js",
-		"UnionType.js",
-		"TypeDefs.js"
-		]
+  "Name":"types.js",
+  "Description":"== XML Schema Management ==\nEach Schema is stored as a Javascript object created by the XSLT transformation.\nThe Type is the parent class for *Type classes.",
+  "Components":[
+    "Type.js",
+    "Schema.js",
+    "AtomicType.js",
+    "ListType.js",
+    "UnionType.js",
+    "TypeDefs.js"
+    ]
 }

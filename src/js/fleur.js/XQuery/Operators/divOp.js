@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -21,27 +21,12 @@ Fleur.divOpTypes = [
 ];
 
 Fleur.Transpiler.prototype.xqx_divOp = function(children) {
-  const arg1 = this.gen(children[0][1][0], {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_numeric,
-    occurrence: "?"
-  });
-  if (!arg1.sequenceType.schemaTypeInfo.as(Fleur.Type_numeric)) {
-    Fleur.XQueryError_xqt("XPST0017", null, "Not a number");
+  const arg1 = this.gen(children[0][1][0], Fleur.SequenceType_numeric_1);
+  const arg2 = this.gen(children[1][1][0], Fleur.SequenceType_numeric_1);
+  if (arg1.value && arg2.value) {
+    return this.staticargs([arg1, arg2]).xqx_divOp().staticinst(this);
   }
-  const arg2 = this.gen(children[1][1][0], {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_numeric,
-    occurrence: "?"
-  });
-  if (!arg2.sequenceType.schemaTypeInfo.as(Fleur.Type_numeric)) {
-    Fleur.XQueryError_xqt("XPST0017", null, "Not a number");
-  }
-  return this.inst("xqx_divOp()", false, {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_numeric,
-    occurrence: "?"
-  }, arg1.inst + arg2.inst);
+  return this.inst("xqx_divOp()", false, Fleur.SequenceType_numeric_1, arg1.inst + arg2.inst);
 };
 
 Fleur.Context.prototype.xqx_divOp = function() {
@@ -56,22 +41,23 @@ Fleur.Context.prototype.xqx_divOp = function() {
   if (op2[0] < 0) {
     return this;
   }
+  const res = new Fleur.Text();
   let restype = Fleur.divOpTypes[op1[0]][op2[0]];
   if (restype !== -1) {
-    let res, resvalue;
+    let dres, dresvalue;
     if (op1[0] < 4 && op2[0] < 4) {
       if (isNaN(Number(op1[1]) / Number(op2[1]))) {
-        this.item.data = "NaN";
+        res.data = "NaN";
       } else if (Number(op1[1]) / Number(op2[1]) === -Infinity) {
-        this.item.data = "-INF";
+        res.data = "-INF";
       } else if (Number(op1[1]) / Number(op2[1]) === Infinity) {
-        this.item.data = "INF";
+        res.data = "INF";
       } else if (Number(op2[1]) / Number(op1[1]) === -Infinity) {
-        this.item.data = "-0";
+        res.data = "-0";
       } else if (Number(op2[1]) / Number(op1[1]) === Infinity) {
-        this.item.data = "0";
+        res.data = "0";
       } else {
-        this.item.data = restype > 1 ? Fleur.Type_double.canonicalize(String(Number(op1[1]) / Number(op2[1]))) : Fleur.NumberToDecimalString(Number(op1[1]) / Number(op2[1]));
+        res.data = restype > 1 ? Fleur.Type_double.canonicalize(String(Number(op1[1]) / Number(op2[1]))) : Fleur.NumberToDecimalString(Number(op1[1]) / Number(op2[1]));
         if (restype === 0) {
           var newv = parseFloat(this.item.data);
           if (newv !== Math.floor(newv)) {
@@ -80,39 +66,38 @@ Fleur.Context.prototype.xqx_divOp = function() {
         }
       }
     } else if (op1[0] === 9 && op2[0] < 4) {
-      resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) / op2[1]);
-      res = {
-        sign: resvalue < 0 ? -1 : 1,
-        year: Math.floor(Math.abs(resvalue) / 12),
-        month: Math.abs(resvalue) % 12};
-      this.item.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+      dresvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) / op2[1]);
+      dres = {
+        sign: dresvalue < 0 ? -1 : 1,
+        year: Math.floor(Math.abs(dresvalue) / 12),
+        month: Math.abs(dresvalue) % 12};
+      res.data = (dres.sign < 0 ? "-" : "") + "P" + (dres.year !== 0 ? String(dres.year) + "Y": "") + (dres.month !== 0 || dres.year === 0 ? String(dres.month) + "M" : "");
     } else if (op1[0] === 10 && op2[0] < 4) {
-      resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / op2[1];
-      res = {sign: resvalue < 0 ? -1 : 1};
-      resvalue = Math.abs(resvalue);
-      res.day = Math.floor(resvalue / 86400);
-      resvalue = resvalue % 86400;
-      res.hour = Math.floor(resvalue / 3600);
-      resvalue = resvalue % 3600;
-      res.minute = Math.floor(resvalue / 60);
-      res.second = resvalue % 60;
-      this.item.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+      dresvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / op2[1];
+      dres = {sign: dresvalue < 0 ? -1 : 1};
+      dresvalue = Math.abs(dresvalue);
+      dres.day = Math.floor(dresvalue / 86400);
+      dresvalue = dresvalue % 86400;
+      dres.hour = Math.floor(dresvalue / 3600);
+      dresvalue = dresvalue % 3600;
+      dres.minute = Math.floor(dresvalue / 60);
+      dres.second = dresvalue % 60;
+      res.data = (dres.sign < 0 ? "-" : "") + "P" + (dres.day !== 0 ? String(dres.day) + "D": "") + (dres.hour !== 0 || dres.minute !== 0 || dres.second !== 0 || dres.day + dres.hour + dres.minute === 0 ? "T" : "") + (dres.hour !== 0 ? String(dres.hour) + "H" : "") + (dres.minute !== 0 ? String(dres.minute) + "M" : "") + (dres.second !== 0 || dres.day + dres.hour + dres.minute === 0 ? String(dres.second) + "S" : "");
     } else if (op1[0] === 9 && op2[0] === 9) {
-      resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) / (op2[1].sign * (op2[1].year * 12 + op2[1].month));
-      this.item.data = Fleur.Type_double.canonicalize(String(resvalue));
+      dresvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) / (op2[1].sign * (op2[1].year * 12 + op2[1].month));
+      res.data = Fleur.Type_double.canonicalize(String(dresvalue));
     } else if (op1[0] === 10 && op2[0] === 10) {
-      resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / (op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second));
-      this.item.data = Fleur.Type_double.canonicalize(String(resvalue));
+      dresvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / (op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second));
+      res.data = Fleur.Type_double.canonicalize(String(dresvalue));
     }
     this.item.schemaTypeInfo = Fleur.JSTypes[restype];
   } else {
-    this.item = new Fleur.Text();
-    this.item.schemaTypeInfo = Fleur.Type_error;
-    this.item._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+    Fleur.XQueryError_xqt(arg1.nodeType === Fleur.Node.ELEMENT_NODE || arg2.nodeType === Fleur.Node.ELEMENT_NODE ? "FORG0001" : "XPTY0004");
   }
+  this.item = res;
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.divOp] = function(ctx, children, callback) {
   Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
     var op1;
@@ -188,3 +173,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.divOp] = function(ctx, children, callback) {
     });
   });
 };
+*/

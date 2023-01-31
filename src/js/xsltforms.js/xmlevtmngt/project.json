@@ -1,7 +1,7 @@
 {
-	"Name":"xmlevtmngt.js",
-	"Description":"== XForms Events Management ==",
-	"Components":[
-		"Listener.js",
-		"XMLEvents.js"]
+  "Name":"xmlevtmngt.js",
+  "Description":"== XForms Events Management ==",
+  "Components":[
+    "Listener.js",
+    "XMLEvents.js"]
 }

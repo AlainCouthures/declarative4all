@@ -1,48 +1,23 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_max_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_anyAtomicType,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "*"
-    }
-  ]
+Fleur.Context.prototype.fn_max_1 = function() {
+  this.notyet();
 };
-Fleur.signatures.fn_max_2 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_anyAtomicType,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "*"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
-    }
-  ]
+Fleur.Context.prototype.fn_max_2 = function() {
+  this.notyet();
 };
 
+Fleur.XPathFunctions_fn["max#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:max", Fleur.Context.prototype.fn_max_1,
+  [Fleur.SequenceType_anyAtomicType_0n], Fleur.SequenceType_anyAtomicType_01);
+
+Fleur.XPathFunctions_fn["max#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:max", Fleur.Context.prototype.fn_max_2,
+  [Fleur.SequenceType_anyAtomicType_0n, Fleur.SequenceType_string_1], Fleur.SequenceType_anyAtomicType_01);
+/*
 Fleur.XPathFunctions_fn["max"] = function(ctx, children, callback) {
   if (children.length !== 1) {
     Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
@@ -106,3 +81,4 @@ Fleur.XPathFunctions_fn["max"] = function(ctx, children, callback) {
     Fleur.callback(function() {callback(a);});
   });
 };
+*/

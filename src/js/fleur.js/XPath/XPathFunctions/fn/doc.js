@@ -1,8 +1,7 @@
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -59,54 +58,15 @@ Fleur.encoding2encoding = {
   "utf-16":     "utf16le"   
 };
 
-Fleur.signatures.fn_doc_1 = {
-  need_ctx: false,
-  is_async: true,
-  return_type: null,
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
-    }
-  ]
-};
-Fleur.signatures.fn_doc_2 = {
-  need_ctx: false,
-  is_async: true,
-  return_type: null,
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
-    },
-    null
-  ]
-};
-Fleur.signatures.fn_doc_3 = {
-  need_ctx: false,
-  is_async: true,
-  return_type: null,
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
-    },
-    null,
-    null
-  ]
-};
-Fleur.Context.prototype.fn_doc_1_async = async function() {
-  await this.emptySequence().emptySequence().fn_doc_3_async();
+Fleur.Context.prototype.fn_doc_1 = async function() {
+  await this.emptySequence().emptySequence().fn_doc_3();
   return this;
 };
-Fleur.Context.prototype.fn_doc_2_async = async function() {
-  await this.emptySequence().fn_doc_3_async();
+Fleur.Context.prototype.fn_doc_2 = async function() {
+  await this.emptySequence().fn_doc_3();
   return this;
 };
-Fleur.Context.prototype.fn_doc_3_async = async function() {
+Fleur.Context.prototype.fn_doc_3 = async function() {
   let contentType = null;
   let encoding = null;
   let jsserial = {};
@@ -147,7 +107,7 @@ Fleur.Context.prototype.fn_doc_3_async = async function() {
         options.headers["Content-Length"] = postdata.length;
         //console.log(postdata);
       }
-      var resdata = "";
+      //var resdata = "";
     } else {
       const response = await fetch(docname);
       this.item = parser.parseFromString(await response.text(), contentType || response.headers.get("Content-Type"));
@@ -167,16 +127,8 @@ Fleur.Context.prototype.fn_doc_3_async = async function() {
       encoding = "utf8";
     }
     //console.log(docname);console.log(process.cwd());
-    const thisisit = this;
-    global.fs.readFile(docname, encoding, function(err, file) {
-      if (err) {
-        //console.log(err);
-        thisisit.item = Fleur.error(thisisit.ctx, "FODC0002");
-      } else {
-        //console.log(file.charCodeAt(1));
-        thisisit.item = parser.parseFromString(file.startsWith('\uFEFF') ? file.substr(1) : file, contentType);
-      }
-    });
+    const file = await global.fsPromises.readFile(docname, encoding);
+    this.item = parser.parseFromString(file.startsWith('\uFEFF') ? file.substr(1) : file, contentType);
   } else if (cmdexec || ps1exec) {
     docname = decodeURIComponent(docname.substr(6));
     if (!contentType) {
@@ -210,19 +162,27 @@ Fleur.Context.prototype.fn_doc_3_async = async function() {
   }
 };
 
-Fleur.XPathFunctions_fn["doc#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:doc",
+Fleur.XPathFunctions_fn["doc#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:doc", Fleur.Context.prototype.fn_doc_1,
+  [Fleur.SequenceType_string_01], Fleur.SequenceType_document_01, {dynonly: true, isasync: true});
+
+Fleur.XPathFunctions_fn["doc#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:doc", Fleur.Context.prototype.fn_doc_2,
+  [Fleur.SequenceType_string_01, Fleur.SequenceType_item_01], Fleur.SequenceType_document_01, {dynonly: true, isasync: true});
+
+Fleur.XPathFunctions_fn["doc#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:doc", Fleur.Context.prototype.fn_doc_3,
+  [Fleur.SequenceType_string_01, Fleur.SequenceType_item_01, Fleur.SequenceType_item_01], Fleur.SequenceType_document_01, {dynonly: true, isasync: true});
+/*
   function(docname, ctx, callback) {
     return Fleur.XPathFunctions_fn["doc#3"].jsfunc(docname, null, null, ctx, callback);
   },
   null, [{type: Fleur.Type_string}], true, true, {type: Fleur.Node});
-
-Fleur.XPathFunctions_fn["doc#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:doc",
+*/
+/*
   function(docname, serialization, ctx, callback) {
     return Fleur.XPathFunctions_fn["doc#3"].jsfunc(docname, serialization, null, ctx, callback);
   },
   null, [{type: Fleur.Type_string}, {type: Fleur.Node, occurence: "?"}], true, true, {type: Fleur.Node});
-
-Fleur.XPathFunctions_fn["doc#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:doc",
+*/
+/*
   function(docname, serialization, data, ctx, callback) {
     var contentType;
     var encoding;
@@ -364,3 +324,4 @@ Fleur.XPathFunctions_fn["doc#3"] = new Fleur.Function("http://www.w3.org/2005/xp
     }
   },
   null, [{type: Fleur.Type_string}, {type: Fleur.Node, occurence: "?"}, {type: Fleur.Node, occurence: "?"}], true, true, {type: Fleur.Node});
+*/

@@ -1,14 +1,15 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_computedPIConstructor = function(children) {
-  let r = (children.length === 2 ? this.gen(children[1][1][0], Fleur.atomicTypes).inst : this.inst("emptySequence()").inst) + this.inst("xqx_computedPIConstructor('" + children[0][1][0] + "')").inst;
+  let r = (children.length === 2 ? this.gen(children[1][1][0], Fleur.SequenceType_anyAtomicType_1).inst : this.inst("emptySequence()").inst) + this.inst("xqx_computedPIConstructor('" + children[0][1][0] + "')").inst;
   return {
-    inst: r
+    inst: r,
+    sequenceType: Fleur.SequenceType_processing_instruction_1
   };
 };
 
@@ -19,7 +20,7 @@ Fleur.Context.prototype.xqx_computedPIConstructor = function(name) {
   this.item = prins;
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.computedPIConstructor] = function(ctx, children, callback) {
   var aval, prins = new Fleur.ProcessingInstruction();
   if (children[0][0] === Fleur.XQueryX.piTarget) {
@@ -53,3 +54,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedPIConstructor] = function(ctx, children
     });
   }
 };
+*/

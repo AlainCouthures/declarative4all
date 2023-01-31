@@ -1,21 +1,23 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
 Fleur.Context.prototype.xqx_returnClause = function(fn) {
   let seq = new Fleur.Sequence();
+  const thisisit = this;
   this.tuple.forEach(vr => {
-    this.rs.varresolver = vr;
-    fn(this);
-    seq.appendChild(this.item);
+    thisisit.rs.varresolver = vr;
+    fn(thisisit);
+    seq.appendChild(thisisit.item);
   });
   this.item = seq.singleton();
+  this.rs.varresolver = this.rs.varresolver.previous;
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.returnClause] = function(ctx, children, callback, resarr) {
   //console.log("returnClause");
   var i = 0;
@@ -71,3 +73,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.returnClause] = function(ctx, children, callbac
   };
   Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
 };
+*/

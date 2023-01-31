@@ -1,26 +1,10 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.xs_boolean_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_boolean,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anySimpleType,
-      occurrence: "?"
-    }
-  ]
-};
 Fleur.Context.prototype.xs_boolean_1 = function() {
   if (this.item.isNotEmpty()) {
     const schematype = this.item.schemaTypeInfo;
@@ -39,7 +23,9 @@ Fleur.Context.prototype.xs_boolean_1 = function() {
   return this;
 };
 
-Fleur.XPathFunctions_xs["boolean#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:boolean",
+Fleur.XPathFunctions_xs["boolean#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:boolean", Fleur.Context.prototype.xs_boolean_1,
+  [Fleur.SequenceType_anyAtomicType_01], Fleur.SequenceType_boolean_01);
+/*
   function(arg) {
     return Fleur.XPathConstructor(arg, Fleur.Type_boolean, function(node) {
       if (node.schemaTypeInfo === Fleur.Type_integer || node.schemaTypeInfo === Fleur.Type_decimal || node.schemaTypeInfo === Fleur.Type_float || node.schemaTypeInfo === Fleur.Type_double) {
@@ -50,3 +36,4 @@ Fleur.XPathFunctions_xs["boolean#1"] = new Fleur.Function("http://www.w3.org/200
     });
   },
   null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
+*/

@@ -1,0 +1,2203 @@
+[
+  {
+    "name": "fn-abs",
+    "tests": [
+      {
+        "test": "fn:abs(xs:int('-2147483648'))",
+        "result": "xs:long('2147483648')"
+      },
+      {
+        "test": "fn:abs(xs:int('-1873914410'))",
+        "result": "xs:int('1873914410')"
+      },
+      {
+        "test": "fn:abs(xs:int('2147483647'))",
+        "result": "xs:int('2147483647')"
+      },
+      {
+        "test": "fn:abs(xs:integer('-999999999999999999'))",
+        "result": "xs:integer('999999999999999999')"
+      },
+      {
+        "test": "fn:abs(xs:integer('830993497117024304'))",
+        "result": "xs:integer('830993497117024304')"
+      },
+      {
+        "test": "fn:abs(xs:integer('999999999999999999'))",
+        "result": "xs:integer('999999999999999999')"
+      },
+      {
+        "test": "fn:abs(xs:decimal('-999999999999999999'))",
+        "result": "xs:decimal('999999999999999999')"
+      },
+      {
+        "test": "fn:abs(xs:decimal('617375191608514839'))",
+        "result": "xs:decimal('617375191608514839')"
+      },
+      {
+        "test": "fn:abs(xs:decimal('999999999999999999'))",
+        "result": "xs:decimal('999999999999999999')"
+      },
+      {
+        "test": "fn:abs(xs:double('-1.7976931348623157E308'))",
+        "result": "xs:double('1.7976931348623157E308')"
+      },
+      {
+        "test": "fn:abs(xs:double('0'))",
+        "result": "xs:double('0')"
+      },
+      {
+        "test": "fn:abs(xs:double('1.7976931348623157E308'))",
+        "result": "xs:double('1.7976931348623157E308')"
+      },
+      {
+        "test": "fn:abs(xs:float('-3.4028235E38'))",
+        "result": "xs:float('3.4028235E38')"
+      },
+      {
+        "test": "fn:abs(xs:float('0'))",
+        "result": "xs:float('0')"
+      },
+      {
+        "test": "fn:abs(xs:float('3.4028235E38'))",
+        "result": "xs:float('3.4028235E38')"
+      },
+      {
+        "test": "fn:abs(xs:long('-92233720368547758'))",
+        "result": "xs:long('92233720368547758')"
+      },
+      {
+        "test": "fn:abs(xs:long('-47175562203048468'))",
+        "result": "xs:long('47175562203048468')"
+      },
+      {
+        "test": "fn:abs(xs:long('92233720368547758'))",
+        "result": "xs:long('92233720368547758')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort('0'))",
+        "result": "xs:unsignedShort('0')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort('44633'))",
+        "result": "xs:unsignedShort('44633')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort('65535'))",
+        "result": "xs:unsignedShort('65535')"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('-999999999999999999'))",
+        "result": "xs:positiveInteger('999999999999999999')"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('-297014075999096793'))",
+        "result": "xs:positiveInteger('297014075999096793')"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('-1'))",
+        "result": "xs:positiveInteger('1')"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('1'))",
+        "result": "xs:positiveInteger('1')"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('52704602390610033'))",
+        "result": "xs:positiveInteger('52704602390610033')"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('999999999999999999'))",
+        "result": "xs:positiveInteger('999999999999999999')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong('0'))",
+        "result": "xs:unsignedLong('0')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong('130747108607674654'))",
+        "result": "xs:unsignedLong('130747108607674654')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong('184467440737095516'))",
+        "result": "xs:unsignedLong('184467440737095516')"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger('-999999999999999999'))",
+        "result": "xs:nonNegativeInteger('999999999999999999')"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger('-475688437271870490'))",
+        "result": "xs:nonNegativeInteger('475688437271870490')"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger('0'))",
+        "result": "xs:nonNegativeInteger('0')"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger('0'))",
+        "result": "xs:nonNegativeInteger('0')"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger('303884545991464527'))",
+        "result": "xs:nonNegativeInteger('303884545991464527')"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger('999999999999999999'))",
+        "result": "xs:nonNegativeInteger('999999999999999999')"
+      },
+      {
+        "test": "fn:abs(xs:short('-32768'))",
+        "result": "xs:int('32768')"
+      },
+      {
+        "test": "fn:abs(xs:short('-5324'))",
+        "result": "xs:short('5324')"
+      },
+      {
+        "test": "fn:abs(xs:short('32767'))",
+        "result": "xs:short('32767')"
+      },
+      {
+        "test": "fn:abs(xs:double('-0'))",
+        "result": "xs:double('0')"
+      },
+      {
+        "test": "fn:abs(xs:double('-INF'))",
+        "result": "xs:double('INF')"
+      },
+      {
+        "test": "fn:abs(xs:double('INF'))",
+        "result": "xs:double('INF')"
+      },
+      {
+        "test": "fn:abs(xs:double('NaN'))",
+        "result": "xs:double('NaN')"
+      },
+      {
+        "test": "fn:abs(xs:double('NaN'))",
+        "result": "xs:double('NaN')"
+      },
+      {
+        "test": "fn:abs(xs:decimal('-0'))",
+        "result": "xs:decimal('0')"
+      },
+      {
+        "test": "fn:abs(xs:decimal('0'))",
+        "result": "xs:decimal('0')"
+      },
+      {
+        "test": "fn:abs(xs:float('-0'))",
+        "result": "xs:float('0')"
+      },
+      {
+        "test": "fn:abs(xs:float('-INF'))",
+        "result": "xs:float('INF')"
+      },
+      {
+        "test": "fn:abs(xs:float('INF'))",
+        "result": "xs:float('INF')"
+      },
+      {
+        "test": "fn:abs(xs:float('NaN'))",
+        "result": "xs:float('NaN')"
+      },
+      {
+        "test": "fn:abs(xs:float('NaN'))",
+        "result": "xs:float('NaN')"
+      },
+      {
+        "test": "fn:abs(xs:int('0'))",
+        "result": "xs:int('0')"
+      },
+      {
+        "test": "fn:abs(xs:int('-0'))",
+        "result": "xs:int('0')"
+      },
+      {
+        "test": "fn:abs(xs:integer('0'))",
+        "result": "xs:integer('0')"
+      },
+      {
+        "test": "fn:abs(xs:integer('-0'))",
+        "result": "xs:integer('0')"
+      },
+      {
+        "test": "fn:abs(xs:long('0'))",
+        "result": "xs:long('0')"
+      },
+      {
+        "test": "fn:abs(xs:long('-0'))",
+        "result": "xs:long('0')"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger('-0'))",
+        "result": "xs:nonNegativeInteger('0')"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger('-0'))",
+        "result": "xs:nonNegativeInteger('0')"
+      },
+      {
+        "test": "fn:abs(xs:short('0'))",
+        "result": "xs:short('0')"
+      },
+      {
+        "test": "fn:abs(xs:short('-0'))",
+        "result": "xs:short('0')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong('-0'))",
+        "result": "xs:unsignedLong('0')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort('-0'))",
+        "result": "xs:unsignedShort('0')"
+      },
+      {
+        "test": "fn:abs(xs:decimal('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:decimal('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:decimal('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:decimal('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:int('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:int('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:int('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:int('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:integer('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:integer('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:integer('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:integer('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:long('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:long('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:long('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:long('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('-0'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('0'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('2'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger('-2'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger('2'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('0'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('-0'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('-2'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:short('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:short('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:short('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:short('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort('-INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort('INF'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort('-NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort('NaN'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0001'))"
+      },
+      {
+        "test": "fn:abs(xs:string('1'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:string('hello'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:boolean('1'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:boolean('0'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:boolean(fn:true()))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:boolean(fn:false()))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:date('2002-10-09'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:time('13:20:00-05:00'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:dateTime('2002-10-10T12:00:00-05:00'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:anyURI('www.examples.org'))",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "abs()",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPST0017'))"
+      },
+      {
+        "test": "abs(1, 2)",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPST0017'))"
+      },
+      {
+        "test": "empty(abs(()))",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(10.5) eq 10.5",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(-10.5) eq 10.5",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs('a string')",
+        "result": "fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0004'))"
+      },
+      {
+        "test": "fn:abs(xs:integer(-4))",
+        "result": "xs:integer('4')"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger(-4))",
+        "result": "xs:nonNegativeInteger('4')"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger(-4))",
+        "result": "xs:positiveInteger('4')"
+      },
+      {
+        "test": "fn:abs(xs:long(-4))",
+        "result": "xs:long('4')"
+      },
+      {
+        "test": "fn:abs(xs:int(-4))",
+        "result": "xs:int('4')"
+      },
+      {
+        "test": "fn:abs(xs:short(-4))",
+        "result": "xs:short('4')"
+      },
+      {
+        "test": "fn:abs(xs:byte(-4))",
+        "result": "xs:byte('4')"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger(4))",
+        "result": "xs:nonNegativeInteger('4')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong(4))",
+        "result": "xs:unsignedLong('4')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedInt(4))",
+        "result": "xs:unsignedInt('4')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort(4))",
+        "result": "xs:unsignedShort('4')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedByte(4))",
+        "result": "xs:unsignedByte('4')"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger(4))",
+        "result": "xs:positiveInteger('4')"
+      },
+      {
+        "test": "fn:abs(xs:integer(-4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:nonPositiveInteger(-4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:negativeInteger(-4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:long(-4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:int(-4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:short(-4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:byte(-4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:nonNegativeInteger(4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedLong(4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedInt(4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedShort(4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:unsignedByte(4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:positiveInteger(4)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(1.1) instance of xs:integer",
+        "result": "xs:boolean('false')"
+      },
+      {
+        "test": "fn:abs(1e1) instance of xs:integer",
+        "result": "xs:boolean('false')"
+      },
+      {
+        "test": "fn:abs(xs:float(1)) instance of xs:double",
+        "result": "xs:boolean('false')"
+      },
+      {
+        "test": "fn:abs(xs:float(1)) instance of xs:double",
+        "result": "xs:boolean('false')"
+      },
+      {
+        "test": "fn:abs(1.1) instance of xs:decimal",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(1e1) instance of xs:double",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:float(1)) instance of xs:float",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:integer(1)) instance of xs:integer",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:unsignedShort(.)) instance of xs:unsignedShort",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:unsignedLong(.)) instance of xs:unsignedLong",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:unsignedInt(.)) instance of xs:unsignedInt",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:unsignedByte(.)) instance of xs:unsignedByte",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:positiveInteger(.)) instance of xs:positiveInteger",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:nonPositiveInteger(.)) instance of xs:nonPositiveInteger",
+        "result": "xs:boolean('false')"
+      },
+      {
+        "test": "abs(xs:nonNegativeInteger(.)) instance of xs:nonNegativeInteger",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:negativeInteger(.)) instance of xs:negativeInteger",
+        "result": "xs:boolean('false')"
+      },
+      {
+        "test": "abs(xs:long(.)) instance of xs:long",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:int(.)) instance of xs:int",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:short(.)) instance of xs:short",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "abs(xs:byte(.)) instance of xs:byte",
+        "result": "xs:boolean('true')"
+      },
+      {
+        "test": "fn:abs(xs:float('-INF'))",
+        "result": "xs:float('INF')"
+      },
+      {
+        "test": "fn:abs(xs:double('-INF'))",
+        "result": "xs:double('INF')"
+      },
+      {
+        "test": "fn:abs(xs:float('INF'))",
+        "result": "xs:float('INF')"
+      },
+      {
+        "test": "fn:abs(xs:double('INF'))",
+        "result": "xs:double('INF')"
+      },
+      {
+        "test": "string-join(for $x in (1, xs:decimal(2), xs:float(3), xs:double(4)) return if ((abs($x)) instance of xs:integer) then 'integer' else if ((abs($x)) instance of xs:decimal) then 'decimal' else if ((abs($x)) instance of xs:float) then 'float' else if ((abs($x)) instance of xs:double) then 'double' else error(),' ')",
+        "result": "xs:string('integer decimal float double')"
+      },
+      {
+        "test": "fn:abs( fn:reverse( (1, xs:decimal(2.2), xs:float(3.3), xs:double(4.4)) )[2] )",
+        "result": "xs:float('3.3')"
+      }
+    ]
+  },
+  {
+    "name": "fn-adjust-date-to-timezone",
+    "tests": []
+  },
+  {
+    "name": "fn-adjust-dateTime-to-timezone",
+    "tests": []
+  },
+  {
+    "name": "fn-adjust-time-to-timezone",
+    "tests": []
+  },
+  {
+    "name": "fn-analyze-string",
+    "tests": []
+  },
+  {
+    "name": "fn-available-environment-variables",
+    "tests": []
+  },
+  {
+    "name": "fn-avg",
+    "tests": []
+  },
+  {
+    "name": "fn-base-uri",
+    "tests": []
+  },
+  {
+    "name": "fn-boolean",
+    "tests": []
+  },
+  {
+    "name": "fn-ceiling",
+    "tests": []
+  },
+  {
+    "name": "fn-codepoint-equal",
+    "tests": []
+  },
+  {
+    "name": "fn-codepoints-to-string",
+    "tests": []
+  },
+  {
+    "name": "fn-collection",
+    "tests": []
+  },
+  {
+    "name": "fn-compare",
+    "tests": []
+  },
+  {
+    "name": "fn-concat",
+    "tests": []
+  },
+  {
+    "name": "fn-contains",
+    "tests": []
+  },
+  {
+    "name": "fn-count",
+    "tests": []
+  },
+  {
+    "name": "fn-current-date",
+    "tests": []
+  },
+  {
+    "name": "fn-current-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-current-time",
+    "tests": []
+  },
+  {
+    "name": "fn-data",
+    "tests": []
+  },
+  {
+    "name": "fn-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-day-from-date",
+    "tests": []
+  },
+  {
+    "name": "fn-day-from-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-days-from-duration",
+    "tests": []
+  },
+  {
+    "name": "fn-deep-equal",
+    "tests": []
+  },
+  {
+    "name": "fn-default-collation",
+    "tests": []
+  },
+  {
+    "name": "fn-distinct-values",
+    "tests": []
+  },
+  {
+    "name": "fn-doc",
+    "tests": []
+  },
+  {
+    "name": "fn-doc-available",
+    "tests": []
+  },
+  {
+    "name": "fn-document-uri",
+    "tests": []
+  },
+  {
+    "name": "fn-element-with-id",
+    "tests": []
+  },
+  {
+    "name": "fn-empty",
+    "tests": []
+  },
+  {
+    "name": "fn-encode-for-uri",
+    "tests": []
+  },
+  {
+    "name": "fn-ends-with",
+    "tests": []
+  },
+  {
+    "name": "fn-environment-variable",
+    "tests": []
+  },
+  {
+    "name": "fn-error",
+    "tests": []
+  },
+  {
+    "name": "fn-escape-html-uri",
+    "tests": []
+  },
+  {
+    "name": "fn-exactly-one",
+    "tests": []
+  },
+  {
+    "name": "fn-exists",
+    "tests": []
+  },
+  {
+    "name": "fn-false",
+    "tests": []
+  },
+  {
+    "name": "fn-filter",
+    "tests": []
+  },
+  {
+    "name": "fn-floor",
+    "tests": []
+  },
+  {
+    "name": "fn-fold-left",
+    "tests": []
+  },
+  {
+    "name": "fn-fold-right",
+    "tests": []
+  },
+  {
+    "name": "fn-format-date",
+    "tests": []
+  },
+  {
+    "name": "fn-format-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-format-integer",
+    "tests": []
+  },
+  {
+    "name": "fn-format-number",
+    "tests": []
+  },
+  {
+    "name": "fn-format-time",
+    "tests": []
+  },
+  {
+    "name": "fn-function-lookup",
+    "tests": []
+  },
+  {
+    "name": "fn-function-arity",
+    "tests": []
+  },
+  {
+    "name": "fn-function-name",
+    "tests": []
+  },
+  {
+    "name": "fn-generate-id",
+    "tests": []
+  },
+  {
+    "name": "fn-has-children",
+    "tests": []
+  },
+  {
+    "name": "fn-head",
+    "tests": []
+  },
+  {
+    "name": "fn-hours-from-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-hours-from-duration",
+    "tests": []
+  },
+  {
+    "name": "fn-hours-from-time",
+    "tests": []
+  },
+  {
+    "name": "fn-id",
+    "tests": []
+  },
+  {
+    "name": "fn-idref",
+    "tests": []
+  },
+  {
+    "name": "fn-implicit-timezone",
+    "tests": []
+  },
+  {
+    "name": "fn-innermost",
+    "tests": []
+  },
+  {
+    "name": "fn-index-of",
+    "tests": []
+  },
+  {
+    "name": "fn-insert-before",
+    "tests": []
+  },
+  {
+    "name": "fn-in-scope-prefixes",
+    "tests": []
+  },
+  {
+    "name": "fn-iri-to-uri",
+    "tests": []
+  },
+  {
+    "name": "fn-lang",
+    "tests": []
+  },
+  {
+    "name": "fn-last",
+    "tests": []
+  },
+  {
+    "name": "fn-local-name",
+    "tests": []
+  },
+  {
+    "name": "fn-local-name-from-Qname",
+    "tests": []
+  },
+  {
+    "name": "fn-lower-case",
+    "tests": []
+  },
+  {
+    "name": "fn-for-each",
+    "tests": []
+  },
+  {
+    "name": "fn-max",
+    "tests": []
+  },
+  {
+    "name": "fn-for-each-pair",
+    "tests": []
+  },
+  {
+    "name": "fn-matches",
+    "tests": []
+  },
+  {
+    "name": "fn-matches.re",
+    "tests": []
+  },
+  {
+    "name": "fn-min",
+    "tests": []
+  },
+  {
+    "name": "fn-minutes-from-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-minutes-from-duration",
+    "tests": []
+  },
+  {
+    "name": "fn-minutes-from-time",
+    "tests": []
+  },
+  {
+    "name": "fn-month-from-date",
+    "tests": []
+  },
+  {
+    "name": "fn-months-from-duration",
+    "tests": []
+  },
+  {
+    "name": "fn-month-from-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-name",
+    "tests": []
+  },
+  {
+    "name": "fn-namespace-uri",
+    "tests": []
+  },
+  {
+    "name": "fn-namespace-uri-for-prefix",
+    "tests": []
+  },
+  {
+    "name": "fn-namespace-uri-from-Qname",
+    "tests": []
+  },
+  {
+    "name": "fn-nilled",
+    "tests": []
+  },
+  {
+    "name": "fn-node-name",
+    "tests": []
+  },
+  {
+    "name": "fn-normalize-space",
+    "tests": []
+  },
+  {
+    "name": "fn-normalize-unicode",
+    "tests": []
+  },
+  {
+    "name": "fn-not",
+    "tests": []
+  },
+  {
+    "name": "fn-number",
+    "tests": []
+  },
+  {
+    "name": "fn-one-or-more",
+    "tests": []
+  },
+  {
+    "name": "fn-outermost",
+    "tests": []
+  },
+  {
+    "name": "fn-parse-json",
+    "tests": []
+  },
+  {
+    "name": "fn-parse-xml",
+    "tests": []
+  },
+  {
+    "name": "fn-parse-xml-fragment",
+    "tests": []
+  },
+  {
+    "name": "fn-path",
+    "tests": []
+  },
+  {
+    "name": "fn-position",
+    "tests": []
+  },
+  {
+    "name": "fn-prefix-from-Qname",
+    "tests": []
+  },
+  {
+    "name": "fn-Qname",
+    "tests": []
+  },
+  {
+    "name": "fn-remove",
+    "tests": []
+  },
+  {
+    "name": "fn-replace",
+    "tests": []
+  },
+  {
+    "name": "fn-resolve-Qname",
+    "tests": []
+  },
+  {
+    "name": "fn-resolve-uri",
+    "tests": []
+  },
+  {
+    "name": "fn-reverse",
+    "tests": []
+  },
+  {
+    "name": "fn-root",
+    "tests": []
+  },
+  {
+    "name": "fn-round",
+    "tests": []
+  },
+  {
+    "name": "fn-round-half-to-even",
+    "tests": []
+  },
+  {
+    "name": "fn-seconds-from-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-seconds-from-duration",
+    "tests": []
+  },
+  {
+    "name": "fn-seconds-from-time",
+    "tests": []
+  },
+  {
+    "name": "fn-serialize",
+    "tests": []
+  },
+  {
+    "name": "fn-serialize-json",
+    "tests": []
+  },
+  {
+    "name": "fn-starts-with",
+    "tests": []
+  },
+  {
+    "name": "fn-static-base-uri",
+    "tests": []
+  },
+  {
+    "name": "fn-string",
+    "tests": []
+  },
+  {
+    "name": "fn-string-join",
+    "tests": []
+  },
+  {
+    "name": "fn-string-length",
+    "tests": []
+  },
+  {
+    "name": "fn-string-to-codepoints",
+    "tests": []
+  },
+  {
+    "name": "fn-subsequence",
+    "tests": []
+  },
+  {
+    "name": "fn-substring",
+    "tests": []
+  },
+  {
+    "name": "fn-substring-after",
+    "tests": []
+  },
+  {
+    "name": "fn-substring-before",
+    "tests": []
+  },
+  {
+    "name": "fn-sum",
+    "tests": []
+  },
+  {
+    "name": "fn-tail",
+    "tests": []
+  },
+  {
+    "name": "fn-timezone-from-date",
+    "tests": []
+  },
+  {
+    "name": "fn-timezone-from-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-timezone-from-time",
+    "tests": []
+  },
+  {
+    "name": "fn-tokenize",
+    "tests": []
+  },
+  {
+    "name": "fn-trace",
+    "tests": []
+  },
+  {
+    "name": "fn-translate",
+    "tests": []
+  },
+  {
+    "name": "fn-true",
+    "tests": []
+  },
+  {
+    "name": "fn-unordered",
+    "tests": []
+  },
+  {
+    "name": "fn-unparsed-text",
+    "tests": []
+  },
+  {
+    "name": "fn-unparsed-text-available",
+    "tests": []
+  },
+  {
+    "name": "fn-unparsed-text-lines",
+    "tests": []
+  },
+  {
+    "name": "fn-upper-case",
+    "tests": []
+  },
+  {
+    "name": "fn-uri-collection",
+    "tests": []
+  },
+  {
+    "name": "fn-year-from-date",
+    "tests": []
+  },
+  {
+    "name": "fn-years-from-duration",
+    "tests": []
+  },
+  {
+    "name": "fn-year-from-dateTime",
+    "tests": []
+  },
+  {
+    "name": "fn-zero-or-one",
+    "tests": []
+  },
+  {
+    "name": "math-acos",
+    "tests": []
+  },
+  {
+    "name": "math-asin",
+    "tests": []
+  },
+  {
+    "name": "math-atan",
+    "tests": []
+  },
+  {
+    "name": "math-atan2",
+    "tests": []
+  },
+  {
+    "name": "math-cos",
+    "tests": []
+  },
+  {
+    "name": "math-exp",
+    "tests": []
+  },
+  {
+    "name": "math-exp10",
+    "tests": []
+  },
+  {
+    "name": "math-log",
+    "tests": []
+  },
+  {
+    "name": "math-log10",
+    "tests": []
+  },
+  {
+    "name": "math-pi",
+    "tests": []
+  },
+  {
+    "name": "math-pow",
+    "tests": []
+  },
+  {
+    "name": "math-sin",
+    "tests": []
+  },
+  {
+    "name": "math-sqrt",
+    "tests": []
+  },
+  {
+    "name": "math-tan",
+    "tests": []
+  },
+  {
+    "name": "map-new",
+    "tests": []
+  },
+  {
+    "name": "map-contains",
+    "tests": []
+  },
+  {
+    "name": "map-get",
+    "tests": []
+  },
+  {
+    "name": "map-entry",
+    "tests": []
+  },
+  {
+    "name": "map-size",
+    "tests": []
+  },
+  {
+    "name": "map-keys",
+    "tests": []
+  },
+  {
+    "name": "map-remove",
+    "tests": []
+  },
+  {
+    "name": "map-collation",
+    "tests": []
+  },
+  {
+    "name": "xs-anyURI",
+    "tests": []
+  },
+  {
+    "name": "xs-base64Binary",
+    "tests": []
+  },
+  {
+    "name": "xs-dateTimeStamp",
+    "tests": []
+  },
+  {
+    "name": "xs-double",
+    "tests": []
+  },
+  {
+    "name": "xs-error",
+    "tests": []
+  },
+  {
+    "name": "xs-float",
+    "tests": []
+  },
+  {
+    "name": "xs-hexBinary",
+    "tests": []
+  },
+  {
+    "name": "xs-normalizedString",
+    "tests": []
+  },
+  {
+    "name": "xs-token",
+    "tests": []
+  },
+  {
+    "name": "op-add-dayTimeDurations",
+    "tests": []
+  },
+  {
+    "name": "op-add-dayTimeDuration-to-date",
+    "tests": []
+  },
+  {
+    "name": "op-add-dayTimeDuration-to-dateTime",
+    "tests": []
+  },
+  {
+    "name": "op-add-dayTimeDuration-to-time",
+    "tests": []
+  },
+  {
+    "name": "op-add-yearMonthDurations",
+    "tests": []
+  },
+  {
+    "name": "op-add-yearMonthDuration-to-date",
+    "tests": []
+  },
+  {
+    "name": "op-add-yearMonthDuration-to-dateTime",
+    "tests": []
+  },
+  {
+    "name": "op-anyURI-equal",
+    "tests": []
+  },
+  {
+    "name": "op-anyURI-greater-than",
+    "tests": []
+  },
+  {
+    "name": "op-anyURI-less-than",
+    "tests": []
+  },
+  {
+    "name": "op-bang",
+    "tests": []
+  },
+  {
+    "name": "op-base64Binary-equal",
+    "tests": []
+  },
+  {
+    "name": "op-boolean-equal",
+    "tests": []
+  },
+  {
+    "name": "op-boolean-greater-than",
+    "tests": []
+  },
+  {
+    "name": "op-boolean-less-than",
+    "tests": []
+  },
+  {
+    "name": "op-concat",
+    "tests": []
+  },
+  {
+    "name": "op-concatenate",
+    "tests": []
+  },
+  {
+    "name": "op-date-equal",
+    "tests": []
+  },
+  {
+    "name": "op-date-greater-than",
+    "tests": []
+  },
+  {
+    "name": "op-date-less-than",
+    "tests": []
+  },
+  {
+    "name": "op-dateTime-equal",
+    "tests": []
+  },
+  {
+    "name": "op-dateTime-greater-than",
+    "tests": []
+  },
+  {
+    "name": "op-dateTime-less-than",
+    "tests": []
+  },
+  {
+    "name": "op-dayTimeDuration-greater-than",
+    "tests": []
+  },
+  {
+    "name": "op-dayTimeDuration-less-than",
+    "tests": []
+  },
+  {
+    "name": "op-divide-dayTimeDuration",
+    "tests": []
+  },
+  {
+    "name": "op-divide-dayTimeDuration-by-dayTimeDuration",
+    "tests": []
+  },
+  {
+    "name": "op-divide-yearMonthDuration",
+    "tests": []
+  },
+  {
+    "name": "op-divide-yearMonthDuration-by-yearMonthDuration",
+    "tests": []
+  },
+  {
+    "name": "op-duration-equal",
+    "tests": []
+  },
+  {
+    "name": "op-except",
+    "tests": []
+  },
+  {
+    "name": "op-gDay-equal",
+    "tests": []
+  },
+  {
+    "name": "op-gMonth-equal",
+    "tests": []
+  },
+  {
+    "name": "op-gMonthDay-equal",
+    "tests": []
+  },
+  {
+    "name": "op-gYear-equal",
+    "tests": []
+  },
+  {
+    "name": "op-gYearMonth-equal",
+    "tests": []
+  },
+  {
+    "name": "op-hexBinary-equal",
+    "tests": []
+  },
+  {
+    "name": "op-intersect",
+    "tests": []
+  },
+  {
+    "name": "op-is-same-node",
+    "tests": []
+  },
+  {
+    "name": "op-multiply-dayTimeDuration",
+    "tests": []
+  },
+  {
+    "name": "op-multiply-yearMonthDuration",
+    "tests": []
+  },
+  {
+    "name": "op-node-after",
+    "tests": []
+  },
+  {
+    "name": "op-node-before",
+    "tests": []
+  },
+  {
+    "name": "op-NOTATION-equal",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-add",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-equal",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-divide",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-greater-than",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-integer-divide",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-less-than",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-mod",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-multiply",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-subtract",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-unary-minus",
+    "tests": []
+  },
+  {
+    "name": "op-numeric-unary-plus",
+    "tests": []
+  },
+  {
+    "name": "op-Qname-equal",
+    "tests": []
+  },
+  {
+    "name": "op-string-equal",
+    "tests": []
+  },
+  {
+    "name": "op-string-greater-than",
+    "tests": []
+  },
+  {
+    "name": "op-string-less-than",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-dates",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-dateTimes",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-dayTimeDuration-from-date",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-dayTimeDuration-from-dateTime",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-dayTimeDuration-from-time",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-dayTimeDurations",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-times",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-yearMonthDuration-from-date",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-yearMonthDuration-from-dateTime",
+    "tests": []
+  },
+  {
+    "name": "op-subtract-yearMonthDurations",
+    "tests": []
+  },
+  {
+    "name": "op-time-equal",
+    "tests": []
+  },
+  {
+    "name": "op-time-greater-than",
+    "tests": []
+  },
+  {
+    "name": "op-time-less-than",
+    "tests": []
+  },
+  {
+    "name": "op-to",
+    "tests": []
+  },
+  {
+    "name": "op-union",
+    "tests": []
+  },
+  {
+    "name": "op-yearMonthDuration-greater-than",
+    "tests": []
+  },
+  {
+    "name": "op-yearMonthDuration-less-than",
+    "tests": []
+  },
+  {
+    "name": "prod-AllowingEmpty",
+    "tests": []
+  },
+  {
+    "name": "prod-Annotation",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep.abbr",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep.ancestor",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep.ancestor-or-self",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep.following",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep.following-sibling",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep.preceding",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep.preceding-sibling",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep.static-typing",
+    "tests": []
+  },
+  {
+    "name": "prod-AxisStep.unabbr",
+    "tests": []
+  },
+  {
+    "name": "prod-BaseURIDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-BoundarySpaceDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-CastableExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-CastExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-CastExpr.derived",
+    "tests": []
+  },
+  {
+    "name": "prod-CastExpr.schema",
+    "tests": []
+  },
+  {
+    "name": "prod-Comment",
+    "tests": []
+  },
+  {
+    "name": "prod-CompAttrConstructor",
+    "tests": []
+  },
+  {
+    "name": "prod-CompDocConstructor",
+    "tests": []
+  },
+  {
+    "name": "prod-CompCommentConstructor",
+    "tests": []
+  },
+  {
+    "name": "prod-CompElemConstructor",
+    "tests": []
+  },
+  {
+    "name": "prod-CompnamespaceConstructor",
+    "tests": []
+  },
+  {
+    "name": "prod-CompPIConstructor",
+    "tests": []
+  },
+  {
+    "name": "prod-CompTextConstructor",
+    "tests": []
+  },
+  {
+    "name": "prod-ConstructionDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-ConstructionDecl.schema",
+    "tests": []
+  },
+  {
+    "name": "prod-ContextItemDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-ContextItemExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-CopynamespacesDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-CountClause",
+    "tests": []
+  },
+  {
+    "name": "prod-DecimalFormatDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-DefaultCollationDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-DefaultnamespaceDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-DirAttributeList",
+    "tests": []
+  },
+  {
+    "name": "prod-DirectConstructor",
+    "tests": []
+  },
+  {
+    "name": "prod-DirElemConstructor",
+    "tests": []
+  },
+  {
+    "name": "prod-DirElemContent",
+    "tests": []
+  },
+  {
+    "name": "prod-DirElemContent.namespace",
+    "tests": []
+  },
+  {
+    "name": "prod-DirElemContent.whitespace",
+    "tests": []
+  },
+  {
+    "name": "prod-EmptyOrderDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-EQname",
+    "tests": []
+  },
+  {
+    "name": "prod-ExtensionExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-FLWORExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-FLWORExpr.static-typing",
+    "tests": []
+  },
+  {
+    "name": "prod-ForClause",
+    "tests": []
+  },
+  {
+    "name": "prod-FunctionCall",
+    "tests": []
+  },
+  {
+    "name": "prod-FunctionDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-GeneralComp.eq",
+    "tests": []
+  },
+  {
+    "name": "prod-GeneralComp.ge",
+    "tests": []
+  },
+  {
+    "name": "prod-GeneralComp.gt",
+    "tests": []
+  },
+  {
+    "name": "prod-GeneralComp.le",
+    "tests": []
+  },
+  {
+    "name": "prod-GeneralComp.lt",
+    "tests": []
+  },
+  {
+    "name": "prod-GeneralComp.ne",
+    "tests": []
+  },
+  {
+    "name": "prod-GroupByClause",
+    "tests": []
+  },
+  {
+    "name": "prod-IfExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-InstanceofExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-LetClause",
+    "tests": []
+  },
+  {
+    "name": "prod-Literal",
+    "tests": []
+  },
+  {
+    "name": "prod-ModuleImport",
+    "tests": []
+  },
+  {
+    "name": "prod-namedFunctionRef",
+    "tests": []
+  },
+  {
+    "name": "prod-namespaceDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-nameTest",
+    "tests": []
+  },
+  {
+    "name": "prod-NodeTest",
+    "tests": []
+  },
+  {
+    "name": "prod-OptionDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-OptionDecl.serialization",
+    "tests": []
+  },
+  {
+    "name": "prod-OrExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-OrderByClause",
+    "tests": []
+  },
+  {
+    "name": "prod-OrderingModeDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-PathExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-ParenthesizedExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-PositionalVar",
+    "tests": []
+  },
+  {
+    "name": "prod-Predicate",
+    "tests": []
+  },
+  {
+    "name": "prod-QuantifiedExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-ReturnClause",
+    "tests": []
+  },
+  {
+    "name": "prod-SchemaImport",
+    "tests": []
+  },
+  {
+    "name": "prod-SequenceType",
+    "tests": []
+  },
+  {
+    "name": "prod-StepExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-SwitchExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-TreatExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-TryCatchExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-TypeswitchExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-UnorderedExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-ValidateExpr",
+    "tests": []
+  },
+  {
+    "name": "prod-ValueComp",
+    "tests": []
+  },
+  {
+    "name": "prod-VarDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-VarDecl.external",
+    "tests": []
+  },
+  {
+    "name": "prod-VarDefaultValue",
+    "tests": []
+  },
+  {
+    "name": "prod-VersionDecl",
+    "tests": []
+  },
+  {
+    "name": "prod-WhereClause",
+    "tests": []
+  },
+  {
+    "name": "prod-WindowClause",
+    "tests": []
+  },
+  {
+    "name": "misc-CombinedErrorCodes",
+    "tests": []
+  },
+  {
+    "name": "misc-AnnexE",
+    "tests": []
+  },
+  {
+    "name": "misc-AppendixA4",
+    "tests": []
+  },
+  {
+    "name": "misc-ErrorsAndOptimization",
+    "tests": []
+  },
+  {
+    "name": "misc-HigherOrderFunctions",
+    "tests": []
+  },
+  {
+    "name": "misc-MiscFunctions",
+    "tests": []
+  },
+  {
+    "name": "misc-StaticContext",
+    "tests": []
+  },
+  {
+    "name": "misc-Serialization",
+    "tests": []
+  },
+  {
+    "name": "misc-Surrogates",
+    "tests": []
+  },
+  {
+    "name": "misc-XMLEdition",
+    "tests": []
+  },
+  {
+    "name": "app-CatalogCheck",
+    "tests": []
+  },
+  {
+    "name": "app-Demos",
+    "tests": []
+  },
+  {
+    "name": "app-FunctxFn",
+    "tests": []
+  },
+  {
+    "name": "app-FunctxFunctx",
+    "tests": []
+  },
+  {
+    "name": "app-UseCaseNS",
+    "tests": []
+  },
+  {
+    "name": "app-UseCasePARTS",
+    "tests": []
+  },
+  {
+    "name": "app-UseCaseR",
+    "tests": []
+  },
+  {
+    "name": "app-UseCaseSEQ",
+    "tests": []
+  },
+  {
+    "name": "app-UseCaseSGML",
+    "tests": []
+  },
+  {
+    "name": "app-UseCaseSTRING",
+    "tests": []
+  },
+  {
+    "name": "app-UseCaseTREE",
+    "tests": []
+  },
+  {
+    "name": "app-UseCaseXMP",
+    "tests": []
+  },
+  {
+    "name": "app-XMark",
+    "tests": []
+  }
+]

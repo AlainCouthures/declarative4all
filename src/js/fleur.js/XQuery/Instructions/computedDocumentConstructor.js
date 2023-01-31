@@ -1,14 +1,15 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_computedDocumentConstructor = function(children) {
   let r = (children.length === 1 ? this.gen(children[0][1][0]).inst : this.inst("emptySequence()").inst) + this.inst("xqx_computedDocumentConstructor()").inst;
   return {
-    inst: r
+    inst: r,
+    sequenceType: Fleur.SequenceType_document_1
   };
 };
 
@@ -18,7 +19,7 @@ Fleur.Context.prototype.xqx_computedDocumentConstructor = function() {
   this.item = doc;
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.computedDocumentConstructor] = function(ctx, children, callback) {
   var doc = new Fleur.Document();
   Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
@@ -32,3 +33,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedDocumentConstructor] = function(ctx, ch
     Fleur.callback(function() {callback(doc);});
   });
 };
+*/

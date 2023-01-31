@@ -1,68 +1,65 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_index$_of_2 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_integer,
-    occurrence: "*"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "*"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "1"
-    }
-  ]
+Fleur.Context.prototype.fn_index$_of_2 = function() {
+  return this.fn_default$_collation_0().fn_index$_of_3();
 };
-Fleur.signatures.fn_index$_of_3 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_integer,
-    occurrence: "*"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "*"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "1"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
+Fleur.Context.prototype.fn_index$_of_3 = function() {
+  const collation = this.item;
+  const search = this.itemstack.pop();
+  const seq = this.itemstack.pop();
+  if (seq.isNotEmpty()) {
+    const c = Fleur.getCollation(collation.data);
+    const v2 = Fleur.toJSValue(search, true, true, true, true);
+    if (seq.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+      const v1 = Fleur.toJSValue(seq, v2[0] < 4, true, true, true);
+      if (v1[0] === v2[0] && Fleur.eqOp(v1, v2, c)) {
+        const res = new Fleur.Text();
+        res.schemaTypeInfo = Fleur.Type_integer;
+        res.data = "1";
+        this.item = res;
+      } else {
+        this.item = new Fleur.Sequence();
+      }
+    } else {
+      let result = new Fleur.Sequence();
+      seq.childNodes.forEach(function(d, i) {
+        const vd = Fleur.toJSValue(d, v2[0] < 4, true, true, true);
+        if (vd[0] === v2[0] && Fleur.eqOp(vd, v2, c)) {
+          const b = new Fleur.Text();
+          b.schemaTypeInfo = Fleur.Type_integer;
+          b.data = String(i + 1);
+          result.appendChild(b);
+        }
+      });
+      if (result.childNodes.length === 0) {
+        result = Fleur.EmptySequence;
+      } else if (result.childNodes.length === 1) {
+        result = result.childNodes[0];
+      }
+      this.item = result;
     }
-  ]
+  }
+  return this;
 };
 
-Fleur.XPathFunctions_fn["index-of#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:index-of",
+Fleur.XPathFunctions_fn["index-of#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:index-of", Fleur.Context.prototype.fn_index$_of_2,
+  [Fleur.SequenceType_anyAtomicType_0n, Fleur.SequenceType_anyAtomicType_1], Fleur.SequenceType_integer_0n);
+
+Fleur.XPathFunctions_fn["index-of#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:index-of", Fleur.Context.prototype.fn_index$_of_3,
+  [Fleur.SequenceType_anyAtomicType_0n, Fleur.SequenceType_anyAtomicType_1, Fleur.SequenceType_string_1], Fleur.SequenceType_integer_0n);
+/*
   function(seq, search) {
     return Fleur.XPathFunctions_fn["index-of#3"].jsfunc(seq, search, "http://www.w3.org/2005/xpath-functions/collation/codepoint");
   },
   null, [{type: Fleur.Node, occurence: "*"}, {type: Fleur.Node}], false, false, {type: Fleur.Type_integer, occurence: "*"});
-
-Fleur.XPathFunctions_fn["index-of#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:index-of",
-  function(seq, search, collation) {
+*/
+/*
+function(seq, search, collation) {
     var c = Fleur.getCollation(collation);
     if (!c) {
       var e = new Error("");

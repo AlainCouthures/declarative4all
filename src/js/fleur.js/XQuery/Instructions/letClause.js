@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -21,7 +21,7 @@ Fleur.Transpiler.prototype.xqx_letClause = function(children) {
     inst: result
   };
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.letClause] = function(ctx, children, callback, resarr) {
   //console.log("letClause ");
   Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
@@ -36,3 +36,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.letClause] = function(ctx, children, callback, 
     Fleur.XQueryEngine[Fleur.XQueryX.letClause](ctx, children.slice(1), callback, resarr);
   }, resarr);
 };
+*/

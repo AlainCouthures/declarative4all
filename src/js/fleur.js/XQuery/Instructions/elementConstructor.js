@@ -1,11 +1,11 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.Transpiler.prototype.xqx_elementConstructor = function(children) {
+Fleur.Transpiler.prototype.xqx_elementConstructor = function(children, expectedSequenceType) {
   let r = "";
   const prefix = children[0][1].length === 2 ? children[0][1][1][1][0] : "";
   let l = 0;
@@ -18,13 +18,14 @@ Fleur.Transpiler.prototype.xqx_elementConstructor = function(children) {
       l += children[2][1].length;
     }
   }
-  r += this.inst("xqx_elementConstructor('" + prefix + "', '" +  children[0][1][0] + "', " + String(l) + ")").inst;
+  r += this.inst("xqx_elementConstructor('" + prefix + "', '" +  children[0][1][0] + "', " + String(l) + ")", false, expectedSequenceType, "", expectedSequenceType).inst;
   if (children.length > 1) {
     const transp = this;
     r += children[1][1].reduce((inst, child) => inst + (child[0] === Fleur.XQueryX.namespaceDeclaration ? transp.inst("xqx_namespaceRemoval('" + (child[1].length === 2 ? child[1][0][1][0] : "") + "')").inst : ""), "");
   }
   return {
-    inst: r
+    inst: r,
+    sequenceType: expectedSequenceType || Fleur.SequenceType_element_1
   };
 };
 
@@ -51,7 +52,7 @@ Fleur.Context.prototype.xqx_elementConstructor = function(prefix, localName, cou
   this.item = elt;
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.elementConstructor] = function(ctx, children, callback) {
   var elt = new Fleur.Element();
   elt.internal_id = String(Fleur.Document_index++);
@@ -86,3 +87,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.elementConstructor] = function(ctx, children, c
     Fleur.callback(function() {callback(elt);});
   }
 };
+*/

@@ -1,52 +1,17 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_sum_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_anyAtomicType,
-    occurrence: "1"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "*"
-    }
-  ]
-};
-Fleur.signatures.fn_sum_2 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_anyAtomicType,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "*"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "?"
-    }
-  ]
-};
-
 Fleur.Context.prototype.fn_sum_1 = function() {
   if (this.item.nodeType === Fleur.Node.SEQUENCE_NODE) {
     if (this.item.childNodes.length !== 0) {
-      this.item.data = Fleur.Type_integer.canonicalize(String(this.item.data.length));
+      const res = new Fleur.Text();
+      res.data = Fleur.Type_integer.canonicalize(String(this.item.data.length));
+      res.schemaTypeInfo = Fleur.Type_integer;
+      this.item = res;
     } else {
       this.item = new Fleur.Text();
       this.item.data = "0";
@@ -55,8 +20,16 @@ Fleur.Context.prototype.fn_sum_1 = function() {
   }
   return this;
 };
+Fleur.Context.prototype.fn_sum_2 = function() {
+  this.notyet();
+};
 
-Fleur.XPathFunctions_fn["sum#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:sum",
+Fleur.XPathFunctions_fn["sum#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:sum", Fleur.Context.prototype.fn_sum_1,
+  [Fleur.SequenceType_anyAtomicType_0n], Fleur.SequenceType_anyAtomicType_1);
+
+Fleur.XPathFunctions_fn["sum#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:sum", Fleur.Context.prototype.fn_sum_2,
+  [Fleur.SequenceType_anyAtomicType_0n, Fleur.SequenceType_anyAtomicType_01], Fleur.SequenceType_anyAtomicType_1);
+/*
   function(arg) {
     if (arg === null) {
       return [null, null];
@@ -91,7 +64,7 @@ Fleur.XPathFunctions_fn["sum#1"] = new Fleur.Function("http://www.w3.org/2005/xp
         return [val, rt, precision];
       }, [0, null, 0]);
       return r;
-      /*
+      /
       var v = r[0];
       var t = r[1];
       var p = r[2];
@@ -101,7 +74,7 @@ Fleur.XPathFunctions_fn["sum#1"] = new Fleur.Function("http://www.w3.org/2005/xp
         }
       }
       return [v, t, p];
-      */
+      /
     }
     if (arg[1] === Fleur.Type_untypedAtomic) {
       arg[1] = Fleur.Type_double;
@@ -109,3 +82,4 @@ Fleur.XPathFunctions_fn["sum#1"] = new Fleur.Function("http://www.w3.org/2005/xp
     return arg;
   },
   null, [{type: Fleur.numericTypes, adaptative: true, occurence: "*"}], false, false, {type: Fleur.numericTypes, adaptative: true, occurence: "?"});
+*/

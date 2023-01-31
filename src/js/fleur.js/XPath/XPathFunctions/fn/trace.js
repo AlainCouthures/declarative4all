@@ -1,63 +1,66 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_trace_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: null,
-  params_type: [
-    null
-  ]
+Fleur.Context.prototype.fn_trace_1 = function() {
+  console.log(Fleur.Serializer._serializeNodeToXQuery(this.item, false, ""));
+  return this;
 };
-Fleur.signatures.fn_trace_2 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: null,
-  params_type: [
-    null,
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
-    }
-  ]
+Fleur.Context.prototype.fn_trace_2 = function() {
+  const label = this.item;
+  const n = this.itemstack.pop();
+  const labelval = label.isNotEmpty() ? label.data : "";
+  console.log(labelval + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
+  this.item = n;
+  return this;
 };
-Fleur.signatures.fn_trace_3 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: null,
-  params_type: [
-    null,
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
-    },
-    {
-      occurrence: "?"
-    }
-  ]
+Fleur.Context.prototype.fn_trace_3 = function() {
+  const serialization = this.item;
+  const label = this.itemstack.pop();
+  const n = this.itemstack.pop();
+  const labelval = label.isNotEmpty() ? label.data : "";
+  let contentType;
+  let indent = false;
+  if (serialization.isNotEmpty()) {
+    const op2 = Fleur.toJSObject(serialization);
+    contentType = Fleur.toContentType(op2[1],  "application/xquery");
+    indent = op2[1].indent === "yes";
+  }
+  if (!contentType) {
+    contentType = "application/xquery";
+  }
+  const ser = new Fleur.Serializer();
+  console.log(labelval + ser.serializeToString(n, contentType, indent));
+  this.item = n;
+  return this;
 };
 
-Fleur.XPathFunctions_fn["trace#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:trace",
+Fleur.XPathFunctions_fn["trace#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:trace", Fleur.Context.prototype.fn_trace_1,
+  [Fleur.SequenceType_item_0n], Fleur.SequenceType_item_0n);
+
+Fleur.XPathFunctions_fn["trace#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:trace", Fleur.Context.prototype.fn_trace_2,
+  [Fleur.SequenceType_item_0n, Fleur.SequenceType_string_1], Fleur.SequenceType_item_0n);
+
+Fleur.XPathFunctions_fn["trace#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:trace", Fleur.Context.prototype.fn_trace_3,
+  [Fleur.SequenceType_item_0n, Fleur.SequenceType_string_1, Fleur.SequenceType_item_01], Fleur.SequenceType_item_0n);
+/*
   function(n) {
     console.log(Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
     return n;
   },
   null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node});
-  
-Fleur.XPathFunctions_fn["trace#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:trace",
+*/
+/*
   function(n, label) {
     console.log((label || "") + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
     return n;
   },
   null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Node});
-  
-Fleur.XPathFunctions_fn["trace#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:trace",
+*/
+/*
   function(n, label, serialization) {
     var contentType;
     var indent = false;
@@ -78,3 +81,4 @@ Fleur.XPathFunctions_fn["trace#3"] = new Fleur.Function("http://www.w3.org/2005/
     return n;
   },
   null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node});
+*/

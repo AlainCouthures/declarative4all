@@ -1,11 +1,11 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.Transpiler.prototype.xqx_pathExpr = function(children, expectedType) {
+Fleur.Transpiler.prototype.xqx_pathExpr = function(children, expectedSequenceType) {
   let result = this.inst("xqx_pathExpr()").inst;
   const children2 = [];
   for (let i = 0, l = children.length; i < l; i++) {
@@ -48,14 +48,10 @@ Fleur.Transpiler.prototype.xqx_pathExpr = function(children, expectedType) {
     }
   }
   this.indent = previndent;
-  result += closes + this.inst("restoreContext()").inst;
-  if (expectedType && expectedType.schemaTypeInfo) {
-    result += this.inst("atomize()").inst;
-    result += this.inst(expectedType.schemaTypeInfo.constructorName + "()").inst;
-  }
+  result += closes + this.inst("restoreContext()", false, expectedSequenceType, "", expectedSequenceType).inst;
   return {
     inst: result,
-    sequenceType: expectedType
+    sequenceType: expectedSequenceType || Fleur.SequenceType_item_0n
   };
 };
 

@@ -1,10 +1,7 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
-/*eslint-disable no-console */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -34,6 +31,7 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
   }, false);
 } else if (global) {
   global.fs = require('fs');
+  global.fsPromises = require("fs/promises");
   global.http = require('http');
   global.path = require('path');
   global.url = require('url');
@@ -46,17 +44,19 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
     if (i >= startparams) {
       if (!params.q && !params.qs) {
         if (val.startsWith("-q:") && val.length > 3) {
-          params.q = val.substr(3);
+          params.q = val.substring(3);
         } else if (val.startsWith("-qs:") && val.length > 4) {
-          params.qs = val.substr(4);
+          params.qs = val.substring(4);
+        } else if (val.startsWith("-js:") && val.length > 4) {
+          params.js = val.substring(4);
         } else if (val.startsWith("-s:") && !params.s && val.length > 3) {
-          params.s = val.substr(3);
+          params.s = val.substring(3);
         } else if (val.startsWith("-o:") && !params.o && val.length > 3) {
-          params.o = val.substr(3);
+          params.o = val.substring(3);
         } else if (val.startsWith("-p:") && !params.p && val.length > 3) {
-          params.p = parseInt(val.substr(3), 10);
+          params.p = parseInt(val.substring(3), 10);
         } else if (val.startsWith("-f:") && !params.f && val.length > 3) {
-          params.f = val.substr(3);
+          params.f = val.substring(3);
         } else {
           params.usage = true;
         }
@@ -68,8 +68,9 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
     }
   });
   if (params.usage || (!params.qs && !params.q && (params.s || params.o))) {
-    process.stdout.write("Usage: node fleur ([-s:xmlfile] [-o:outfile] (-q:queryfile|-qs:querystring) [params]|[-p:port] [-f:folder])\n");
+    process.stdout.write("Usage: node fleur ([-s:xmlfile] [-js:jsfile|-o:outfile] (-q:queryfile|-qs:querystring) [params]|[-p:port] [-f:folder])\n");
     process.stdout.write(" -s:     XML input file (optional)\n");
+    process.stdout.write(" -js:    Javascript output file (optional)\n");
     process.stdout.write(" -o:     output file (optional)\n");
     process.stdout.write(" -q:     query file\n");
     process.stdout.write(" -qs:    query string\n");
@@ -92,7 +93,7 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
         };
       }
       try {
-             var d1 = new Date();
+        var d1 = new Date();
         xmldoc.evaluate(xexpr, null, env).then(
           function(res) {
             if (out) {
@@ -116,6 +117,11 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
       }
     };
     Fleur.baseDir = params.q ? global.path.dirname(params.q) : process.cwd();
+    var sourcejs = function(xexpr, out) {
+      const arr = Fleur.XQueryParser._xq2js(xexpr, [], [], 0);
+      const jscript = (new Fleur.Transpiler()).source(arr);
+      global.fs.writeFile(out, jscript, function(err) {if (err) process.stdout.write(err);});
+    };
     var sourceval = function(xml) {
       if (params.qs) {
         parseval(xml, params.qs, params.o);
@@ -129,7 +135,19 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
         });
       }
     };
-    if (params.s) {
+    if (params.js) {
+      if (params.qs) {
+        sourcejs(params.qs, params.js);
+      } else {
+        global.fs.readFile(params.q, 'binary', function(err, file){
+          if (err) {
+            process.stdout.write(err);
+          } else {
+            sourcejs(file, params.js);
+          }
+        });
+      }
+    } else if (params.s) {
       global.fs.readFile(params.s, 'binary', function(err, file){
         if (err) {
           process.stdout.write(err);

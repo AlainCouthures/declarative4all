@@ -1,27 +1,56 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
- Fleur.signatures.fn_distinct$_values_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: null,
-  params_type: [null]
+Fleur.Context.prototype.fn_distinct$_values_1 = function() {
+  this.itemstack.push(this.item);
+  this.item = new Fleur.Text();
+  this.item.data = "http://www.w3.org/2005/xpath-functions/collation/codepoint";
+  this.item.schemaTypeInfo = Fleur.Type_collation;
+  this.fn_distinct$_values_2();
+  return this;
+};
+Fleur.Context.prototype.fn_distinct$_values_2 = function() {
+  const collation = this.item;
+  const arg = this.itemstack.pop();
+  if (arg.nodeType === Fleur.Node.SEQUENCE_NODE) {
+    const c = Fleur.getCollation(collation.data);
+    let result = new Fleur.Sequence();
+    arg.childNodes.forEach(function(a) {
+      const opa = Fleur.toJSValue(a, true, true, true, true, false, false, true);
+      if (!result.childNodes.some(function(r) {
+          const opr = Fleur.toJSValue(r, true, true, true, true, false, false, true);
+          return Fleur.eqOp(opa, opr, c);
+        })) {
+        result.appendChild(a);
+      }
+    });
+    if (result.childNodes.length === 1) {
+      result = result.childNodes[0];
+    }
+    this.item = result;
+  } else {
+    this.item = arg;
+  }
+  return this;
 };
 
-Fleur.XPathFunctions_fn["distinct-values#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:distinct-values",
+Fleur.XPathFunctions_fn["distinct-values#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:distinct-values", Fleur.Context.prototype.fn_distinct$_values_1,
+  [Fleur.SequenceType_anyAtomicType_0n], Fleur.SequenceType_anyAtomicType_0n);
+
+Fleur.XPathFunctions_fn["distinct-values#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:distinct-values", Fleur.Context.prototype.fn_distinct$_values_2,
+  [Fleur.SequenceType_anyAtomicType_0n, Fleur.SequenceType_string_1], Fleur.SequenceType_anyAtomicType_0n);
+/*
   function(arg) {
     return Fleur.XPathFunctions_fn["distinct-values#2"].jsfunc(arg, "http://www.w3.org/2005/xpath-functions/collation/codepoint");
   },
   null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Node, occurence: "*"});
-  
-Fleur.XPathFunctions_fn["distinct-values#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:distinct-values",
-  function(arg, collation) {
+*/
+/*
+function(arg, collation) {
     var c = Fleur.getCollation(collation);
     if (!c) {
       var e = new Error("");
@@ -62,7 +91,7 @@ Fleur.XPathFunctions_fn["distinct-values#2"] = new Fleur.Function("http://www.w3
           if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "duration", Fleur.TypeInfo.DERIVATION_RESTRICTION) && r.schemaTypeInfo && r.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "duration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
             return a.data === r.data;
           }
-          return a.schemaTypeInfo === r.schemaTypeInfo && a.data === r.data;*/
+          return a.schemaTypeInfo === r.schemaTypeInfo && a.data === r.data;
         })) {
         result.appendChild(a);
       }
@@ -73,3 +102,4 @@ Fleur.XPathFunctions_fn["distinct-values#2"] = new Fleur.Function("http://www.w3
     return result;
   },
   null, [{type: Fleur.Node, occurence: "*"}, {type: Fleur.Type_string}], false, false, {type: Fleur.Node, occurence: "*"});
+*/

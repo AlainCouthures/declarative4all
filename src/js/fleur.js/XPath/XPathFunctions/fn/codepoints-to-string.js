@@ -1,29 +1,30 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_codepoint$_to$_string_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_string,
-    occurrence: "1"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_integer,
-      occurrence: "*"
-    }
-  ]
+Fleur.Context.prototype.fn_codepoints$_to$_string_1 = function() {
+  const newitem = new Fleur.Text();
+  newitem.schemaTypeInfo = Fleur.Type_string;
+  if (this.item.isEmpty()) {
+    newitem.appendData("");
+  } else if (this.item.nodeType === Fleur.Node.SEQUENCE_NODE) {
+    newitem.appendData(this.item.childNodes.reduce((a, c) => {
+      return a + String.fromCodePoint(Number(c.data));
+    }, ""));
+  } else {
+    newitem.appendData(String.fromCodePoint(Number(this.item.data)));
+  }
+  this.item = newitem;
+  return this;
 };
 
-Fleur.XPathFunctions_fn["codepoints-to-string#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:codepoints-to-string",
-  function(arg) {
+Fleur.XPathFunctions_fn["codepoints-to-string#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:codepoints-to-string", Fleur.Context.prototype.fn_codepoints$_to$_string_1,
+  [Fleur.SequenceType_codepoint_0n], Fleur.SequenceType_string_1);
+/*
+function(arg) {
     if (arg === null) {
       return "";
     }
@@ -49,3 +50,4 @@ Fleur.XPathFunctions_fn["codepoints-to-string#1"] = new Fleur.Function("http://w
     return String.fromCodePoint(Number(arg));
   },
   null, [{type: Fleur.Type_integer, occurence: "*"}], false, false, {type: Fleur.Type_string});
+*/

@@ -1,3 +1,14 @@
+xforms-form > xforms-body > form {
+  display: inline;
+}
+
+xforms-status-panel {
+  display: none;
+  z-index: 99;
+  top: 294.5px;
+  left: 490px;
+}
+
 xforms-action,
 xforms-alert-mark,
 xforms-bind,
@@ -66,7 +77,7 @@ xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-item,
 xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-itemset,
 xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-choices,
 xforms-itemset > xforms-label {
-	display: none;
+  display: none;
 }
 
 xforms-group:not([xf-ref]):not([xf-bind]),
@@ -83,13 +94,13 @@ xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-ite
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item {
-	display: block;
+  display: block;
 }
 
 xforms-repeat[xf-bound]:not([xf-notrelevant]) > xforms-repeat-item {
-	display: table-row;
+  display: inherit;
 }
-
+/*
 
 xforms-repeat-item > xforms-output[xf-value],
 xforms-repeat-item > xforms-output[xf-bound]:not([xf-notrelevant]),
@@ -105,9 +116,9 @@ xforms-repeat-item > xforms-select[xf-bound]:not([xf-notrelevant])[xf-appearance
 xforms-repeat-item > xforms-select1[xf-bound]:not([xf-notrelevant])[xf-appearance="full"],
 xforms-repeat-item > xforms-select[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]),
 xforms-repeat-item > xforms-select1[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]) {
-	display: inline-table;
+  display: inline;
 }
-
+*/
 xforms-output[xf-value],
 xforms-output[xf-bound]:not([xf-notrelevant]),
 xforms-input[xf-bound]:not([xf-notrelevant]),
@@ -130,5 +141,5 @@ xforms-select1[xf-appearance="full"] > xforms-body > xforms-item > xforms-label,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item > xforms-label,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item > xforms-label,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item > xforms-label {
-	display: inline-block;
+  display: inline-block;
 }

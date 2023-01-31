@@ -1,9 +1,7 @@
-/*eslint-env browser, jquery*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_schema plupload XsltForms_xmlevents XsltForms_class XsltForms_subform XsltForms_binding*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module upload
  * @description  === "XsltForms_upload" class ===
  * Upload Control  Class
@@ -172,8 +170,7 @@ XsltForms_upload.prototype.setValue = function(value) {
   }
   if (this.resource && typeof plupload !== "undefined") {
     if (!this.uploader) {
-      var upsettings = {};
-      eval("upsettings = " + (this.type.appinfo ? this.type.appinfo.replace(/(\r\n|\n|\r)/gm, " ") : "{}"));
+      var upsettings = eval(this.type.appinfo ? this.type.appinfo.replace(/(\r\n|\n|\r)/gm, " ") : "{}");
       upsettings.url = "dummy";
       upsettings.init = {
         PostInit: function() {

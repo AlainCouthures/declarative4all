@@ -1,42 +1,67 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_contains$_token_2 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_boolean,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "*"
-    },
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "1"
+Fleur.Context.prototype.fn_contains$_token_2 = function() {
+  this.itemstack.push(this.item);
+  this.item = new Fleur.Text();
+  this.item.data = "http://www.w3.org/2005/xpath-functions/collation/codepoint";
+  this.item.schemaTypeInfo = Fleur.Type_collation;
+  this.fn_contains$_token_3();
+  return this;
+};
+Fleur.Context.prototype.fn_contains$_token_3 = function() {
+  const collation = this.item;
+  const token = this.itemstack.pop();
+  const input = this.itemstack.pop();
+  const res = new Fleur.Text();
+  if (input.isEmpty() || token.isEmpty()) {
+    res.data = "false";
+  } else {
+    const c = Fleur.getCollation(collation.data);
+    let result = "false";
+    const ftokens = inputdata => {
+      const tokens = inputdata.split(" ");
+      for (let i = 0, l = tokens.length; i < l; i++) {
+        if (c.equals(tokens[i], token.data)) {
+          return true;
+        }
+      }
+      return false;
+    };
+    if (input.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+      result = String(ftokens(input.data));
+    } else {
+      for (let i = 0, l = input.childNodes.length; i < l; i++) {
+        if (ftokens(input.childNodes[i].data)) {
+          result = "true";
+          break;
+        }
+      }
     }
-  ]
+    res.data = result;
+  }
+  res.schemaTypeInfo = Fleur.Type_boolean;
+  this.item = res;
+  return this;
 };
 
-Fleur.XPathFunctions_fn["contains-token#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:contains-token",
-  function(input, token) {
+Fleur.XPathFunctions_fn["contains-token#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:contains-token", Fleur.Context.prototype.fn_contains$_token_2,
+  [Fleur.SequenceType_string_0n, Fleur.SequenceType_string_1], Fleur.SequenceType_boolean_1);
+
+Fleur.XPathFunctions_fn["contains-token#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:contains-token", Fleur.Context.prototype.fn_contains$_token_3,
+  [Fleur.SequenceType_string_0n, Fleur.SequenceType_string_1, Fleur.SequenceType_string_1], Fleur.SequenceType_boolean_1);
+/*
+function(input, token) {
     return Fleur.XPathFunctions_fn["contains-token#3"].jsfunc(input, token, "http://www.w3.org/2005/xpath-functions/collation/codepoint");
   },
   null, [{type: Fleur.Type_string, occurence: "*"}, {type: Fleur.Type_string}], false, false, {type: Fleur.Type_boolean});
-
-Fleur.XPathFunctions_fn["contains-token#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:contains-token",
-  function(input, token, collation) {
+*/
+/*
+function(input, token, collation) {
     var c = Fleur.getCollation(collation);
     if (!c) {
       var e = new Error("");
@@ -64,3 +89,4 @@ Fleur.XPathFunctions_fn["contains-token#3"] = new Fleur.Function("http://www.w3.
     return false;
   },
   null, [{type: Fleur.Type_string, occurence: "*"}, {type: Fleur.Type_string}, {type: Fleur.Type_string}], false, false, {type: Fleur.Type_boolean});
+*/

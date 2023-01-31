@@ -1,29 +1,30 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_parse_2 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "?"
-    },
-    {
-      occurrence: "?"
+Fleur.Context.prototype.fn_parse_2 = function() {
+  const serialization = this.item;
+  const arg = this.itemstack.pop();
+  if (arg.isNotEmpty()) {
+    let contentType = "application/xml";
+    if (serialization.isNotEmpty()) {
+      const op2 = Fleur.toJSObject(serialization);
+      contentType = Fleur.toContentType(op2[1]);
     }
-  ]
+    const parser = new Fleur.DOMParser();
+    this.item = parser.parseFromString(arg.data, contentType);
+  } else {
+    this.item = arg;
+  }
+  return this;
 };
 
-Fleur.XPathFunctions_fn["parse#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:parse",
+Fleur.XPathFunctions_fn["parse#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:parse", Fleur.Context.prototype.fn_parse_2,
+  [Fleur.SequenceType_string_01, Fleur.SequenceType_item_01], Fleur.SequenceType_document_01);
+/*
   function(arg, serialization) {
     var contentType;
     if (serialization) {
@@ -42,3 +43,4 @@ Fleur.XPathFunctions_fn["parse#2"] = new Fleur.Function("http://www.w3.org/2005/
     return arg !== null ? parser.parseFromString(arg, contentType) : null;
   },
   null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});
+*/

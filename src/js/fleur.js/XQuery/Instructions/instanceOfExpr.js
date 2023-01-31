@@ -1,12 +1,25 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_instanceOfExpr = function(children) {
+  const arg1 = this.gen(children[0][1][0]);
+  const seqtype = children[1][1];
+  const occurrence = seqtype.length === 2 ? seqtype[1][1][0] : "1";
+  return this.inst("xqx_instanceOfExpr(new Fleur.SequenceType(Fleur.Node.ATOMIC_NODE, Fleur.Type_" + seqtype[0][1][0] + ", '" + String(occurrence) + "'))", false, Fleur.SequenceType_boolean_1, arg1.inst);
+};
+
+Fleur.Context.prototype.xqx_instanceOfExpr = function(arg) {
+  const item = new Fleur.Text();
+  item.schemaTypeInfo = Fleur.Type_boolean;
+  item.data = String(this.item.instanceOf(arg));
+  this.item = item;
+  return this;
+};
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callback) {
   Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
     var seqtype = children[1][1];
@@ -62,3 +75,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callb
     }
   });
 };
+*/

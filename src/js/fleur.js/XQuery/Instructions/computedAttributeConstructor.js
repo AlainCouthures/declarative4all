@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -13,12 +13,13 @@ Fleur.Transpiler.prototype.xqx_computedAttributeConstructor = function(children)
   if (children[0][0] === Fleur.XQueryX.tagName) {
     tagName = children[0][1][0];
   } else {
-    r = this.gen(children[0][1][0], Fleur.atomicTypes).inst;
+    r = this.gen(children[0][1][0], Fleur.SequenceType_anyAtomicType_1).inst;
   }
-  r += this.gen(children[1][1][0], Fleur.atomicTypes).inst;
+  r += this.gen(children[1][1][0], Fleur.SequenceType_anyAtomicType_1).inst;
   r += this.inst("xqx_computedAttributeConstructor" + (tagName ? (URI ? "_URI" : "") + "('" + (URI ? URI : prefix) + "', '" + tagName + "')" : "_expr()")).inst;
   return {
-    inst: r
+    inst: r,
+    sequenceType: Fleur.SequenceType_attribute_1
   };
 };
 
@@ -60,7 +61,7 @@ Fleur.Context.prototype.xqx_computedAttributeConstructor_URI = function(URI, loc
   this.item = attr;
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.computedAttributeConstructor] = function(ctx, children, callback) {
   var attr = new Fleur.Attr();
   if (children[0][0] === Fleur.XQueryX.tagName) {
@@ -98,3 +99,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedAttributeConstructor] = function(ctx, c
     });
   }
 };
+*/

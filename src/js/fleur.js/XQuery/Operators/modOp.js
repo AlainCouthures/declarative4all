@@ -1,32 +1,17 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_modOp = function(children) {
-  const arg1 = this.gen(children[0][1][0], {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_numeric,
-    occurrence: "?"
-  });
-  if (!arg1.sequenceType.schemaTypeInfo.as(Fleur.Type_numeric)) {
-    Fleur.XQueryError_xqt("XPST0017", null, "Not a number");
+  const arg1 = this.gen(children[0][1][0], Fleur.SequenceType_numeric_1);
+  const arg2 = this.gen(children[1][1][0], Fleur.SequenceType_numeric_1);
+  if (arg1.value && arg2.value) {
+    return this.staticargs([arg1, arg2]).xqx_modOp().staticinst(this);
   }
-  const arg2 = this.gen(children[1][1][0], {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_numeric,
-    occurrence: "?"
-  });
-  if (!arg2.sequenceType.schemaTypeInfo.as(Fleur.Type_numeric)) {
-    Fleur.XQueryError_xqt("XPST0017", null, "Not a number");
-  }
-  return this.inst("xqx_modOp()", false, {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_numeric,
-    occurrence: "?"
-  }, arg1.inst + arg2.inst);
+  return this.inst("xqx_modOp()", false, Fleur.SequenceType_numeric_1, arg1.inst + arg2.inst);
 };
 
 Fleur.Context.prototype.xqx_modOp = function() {
@@ -34,23 +19,24 @@ Fleur.Context.prototype.xqx_modOp = function() {
   const arg2 = this.item;
   const op1 = Fleur.toJSNumber(arg1);
   if (op1[0] < 0) {
-    this.item = arg1;
-    return this;
+    Fleur.XQueryError_xqt(arg1.nodeType === Fleur.Node.ELEMENT_NODE || arg2.nodeType === Fleur.Node.ELEMENT_NODE ? "FORG0001" : "XPTY0004");
   }
   const op2 = Fleur.toJSNumber(arg2);
   if (op2[0] < 0) {
-    return this;
+    Fleur.XQueryError_xqt(arg1.nodeType === Fleur.Node.ELEMENT_NODE || arg2.nodeType === Fleur.Node.ELEMENT_NODE ? "FORG0001" : "XPTY0004");
   }
   if (typeof op1[1] !== typeof op2[1]) {
     op1[1] = Number(op1[1]);
     op2[1] = Number(op2[1]);
   }
   const divres = op1[1] / op2[1];
-  this.item.data = String(op1[1] - ((typeof divres === "number" ? Math.floor(divres) : divres) + Fleur.BigInt(divres >= 0 ? 0 : 1)) * op2[1]);
-  this.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
+  const res = new Fleur.Text();
+  res.data = String(op1[1] - ((typeof divres === "number" ? Math.floor(divres) + (divres >= 0 ? 0 : 1) : divres + Fleur.BigInt(divres >= 0 ? 0 : 1))) * op2[1]);
+  res.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
+  this.item = res;
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.modOp] = function(ctx, children, callback) {
   Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
     var op1;
@@ -79,3 +65,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.modOp] = function(ctx, children, callback) {
     });
   });
 };
+*/

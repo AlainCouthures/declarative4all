@@ -1,8 +1,8 @@
 /*
-XSLTForms 1.6 (663)
+XSLTForms 1.7 (664)
 XForms 1.1+ Engine
 
-Copyright (C) 2022 agenceXML - Alain Couthures
+Copyright (C) 2023 agenceXML - Alain Couthures
 Contact at : xsltforms@agencexml.com
 
 This library is free software; you can redistribute it and/or
@@ -194,10 +194,10 @@ xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
 	cursor: pointer;
 }
 #xsltforms-console {
-	font-size: 0.8em;
-	color: #888888;
-	border-top: thin solid #888888;
-	display: none;
+  font-size: 0.8em;
+  color: #888888;
+  border-top: thin solid #888888;
+  display: none;
 }
 xforms-debugger {
   display: flex;
@@ -247,32 +247,41 @@ xforms-expression {
   display: block;
 }
 xforms-dialog {
-	display: none;
-	position: absolute;
-	width: 400px;
-	height: 300px;
-	background-color: white;
-	border-top: 1px solid black;
-	border-left: 1px solid black;
-	border-bottom: 3px solid black;
-	border-right: 3px solid black;
-	padding: 10px;
-	z-index: 10;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+  display: none;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  padding: 10px;
+  z-index: 10;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 xforms-dialog-surround {
-	display: none;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background-color: green;
-	filter:alpha(opacity=40); 
-	opacity:0.4; 
-	-moz-opacity:0.4;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  filter:alpha(opacity=40); 
+  opacity:0.4; 
+  -moz-opacity:0.4;
+}
+xforms-form > xforms-body > form {
+  display: inline;
+}
+xforms-status-panel {
+  display: none;
+  z-index: 99;
+  top: 294.5px;
+  left: 490px;
 }
 xforms-action,
 xforms-alert-mark,
@@ -342,7 +351,7 @@ xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-item,
 xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-itemset,
 xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-choices,
 xforms-itemset > xforms-label {
-	display: none;
+  display: none;
 }
 xforms-group:not([xf-ref]):not([xf-bind]),
 xforms-group[xf-bound]:not([xf-notrelevant]),
@@ -358,26 +367,10 @@ xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-ite
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item {
-	display: block;
+  display: block;
 }
 xforms-repeat[xf-bound]:not([xf-notrelevant]) > xforms-repeat-item {
-	display: table-row;
-}
-xforms-repeat-item > xforms-output[xf-value],
-xforms-repeat-item > xforms-output[xf-bound]:not([xf-notrelevant]),
-xforms-repeat-item > xforms-input[xf-bound]:not([xf-notrelevant]),
-xforms-repeat-item > xforms-textarea[xf-bound]:not([xf-notrelevant]),
-xforms-repeat-item > xforms-secret[xf-bound]:not([xf-notrelevant]),
-xforms-repeat-item > xforms-upload[xf-bound]:not([xf-notrelevant]),
-xforms-repeat-item > xforms-range[xf-bound]:not([xf-notrelevant]),
-xforms-repeat-item > xforms-trigger:not([xf-ref]):not([xf-bind]),
-xforms-repeat-item > xforms-trigger[xf-bound]:not([xf-notrelevant]),
-xforms-repeat-item > xforms-submit,
-xforms-repeat-item > xforms-select[xf-bound]:not([xf-notrelevant])[xf-appearance="full"],
-xforms-repeat-item > xforms-select1[xf-bound]:not([xf-notrelevant])[xf-appearance="full"],
-xforms-repeat-item > xforms-select[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]),
-xforms-repeat-item > xforms-select1[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]) {
-	display: inline-table;
+  display: inherit;
 }
 xforms-output[xf-value],
 xforms-output[xf-bound]:not([xf-notrelevant]),
@@ -401,7 +394,7 @@ xforms-select1[xf-appearance="full"] > xforms-body > xforms-item > xforms-label,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item > xforms-label,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item > xforms-label,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item > xforms-label {
-	display: inline-block;
+  display: inline-block;
 }
 xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label,
 xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label {

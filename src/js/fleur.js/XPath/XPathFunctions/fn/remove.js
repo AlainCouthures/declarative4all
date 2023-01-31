@@ -1,24 +1,17 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_remove_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: null,
-  params_type: [
-    null,
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_integer,
-      occurrence: "1"
-    }
-  ]
+Fleur.Context.prototype.fn_remove_2 = function() {
+  this.notyet();
 };
 
+Fleur.XPathFunctions_fn["remove#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:remove", Fleur.Context.prototype.fn_remove_2,
+  [Fleur.SequenceType_item_0n, Fleur.SequenceType_integer_1], Fleur.SequenceType_item_0n);
+/*
 Fleur.XPathFunctions_fn["remove"] = function(ctx, children, callback) {
   if (children.length !== 2) {
     Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
@@ -71,4 +64,4 @@ Fleur.XPathFunctions_fn["remove"] = function(ctx, children, callback) {
       Fleur.callback(function() {callback(result);});
     });
   });
-};
+};*/

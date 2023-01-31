@@ -1,28 +1,35 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_timezone$_from$_dateTime_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_dayTimeDuration,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_dateTime,
-      occurrence: "?"
+Fleur.Context.prototype.fn_timezone$_from$_dateTime_1 = function(nodate, notime) {
+  if (this.item.isNotEmpty()) {
+    let dt;
+    if (notime) {
+      dt = Fleur.toDate(this.item);
+    } else if (nodate) {
+      dt = Fleur.toTime(this.item);
+    } else {
+      dt = Fleur.toDateTime(this.item);
     }
-  ]
+    if (dt.tz === null) {
+      this.item = new Fleur.Sequence();
+    } else {
+      const res = new Fleur.Text();
+      res.schemaTypeInfo = Fleur.Type_dayTimeDuration;
+      res.data = Fleur.msToDayTimeDuration(dt.tz * 60 * 1000);
+      this.item = res;
+    }
+  }
+  return this;
 };
 
-Fleur.XPathFunctions_fn["timezone-from-dateTime#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:timezone-from-datTime",
+Fleur.XPathFunctions_fn["timezone-from-dateTime#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:timezone-from-datTime", Fleur.Context.prototype.fn_timezone$_from$_dateTime_1,
+  [Fleur.SequenceType_dateTime_01], Fleur.SequenceType_dayTimeDuration_01);
+/*
   function(arg, nodate, notime) {
     var dt;
     if (arg === null) {
@@ -44,3 +51,4 @@ Fleur.XPathFunctions_fn["timezone-from-dateTime#1"] = new Fleur.Function("http:/
     return a;
   },
   null, [{type: Fleur.Type_time, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});
+*/

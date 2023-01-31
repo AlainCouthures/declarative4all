@@ -1,19 +1,30 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_sequenceExpr = function(children, expectedType) {
+  const expectedItemType = expectedType ? new Fleur.SequenceType(expectedType.nodeType, expectedType.schemaTypeInfo, "*") : null;
   let items = "";
+  let resultSeqType = null;
   for (let i = 0, l = children.length; i < l; i++) {
-    items += this.gen(children[i], expectedType).inst;
+    const itemgen = this.gen(children[i], expectedItemType);
+    items += itemgen.inst;
+    if (!resultSeqType) {
+      resultSeqType = new Fleur.SequenceType(itemgen.sequenceType.nodeType, itemgen.sequenceType.schemaTypeInfo, "+");
+    } else {
+      resultSeqType.schemaTypeInfo = resultSeqType.schemaTypeInfo.aggregate(itemgen.sequenceType.schemaTypeInfo);
+    }
   }
-  return this.inst("xqx_sequenceExpr(" + String(children.length) + ")", false,
-    items !== "" ? expectedType : {occurrence: "0"}, 
-    items);
+  return {
+    inst: this.inst("xqx_sequenceExpr(" + String(children.length) + ")", false, items !== "" ? expectedType : {occurrence: "0"}, items).inst,
+    sequenceType: children.length === 0 ? Fleur.SequenceType_empty_sequence : resultSeqType,
+    value: children.length === 0 ? new Fleur.Sequence() : null
+  };
 };
+
 Fleur.Context.prototype.xqx_sequenceExpr = function(itemlen) {
   const items = [];
   if (itemlen === 0) {
@@ -29,7 +40,7 @@ Fleur.Context.prototype.xqx_sequenceExpr = function(itemlen) {
   items.forEach(item => this.item.appendChild(item));
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callback, depth) {
   if (!depth) {
     depth = 0;
@@ -100,3 +111,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
   };
   Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb, children[0][0] === Fleur.XQueryX.sequenceExpr ? depth + 1 : depth);
 };
+*/

@@ -1,6 +1,6 @@
 {
   "Name":"fleur.js",
-  "Header":"\"use strict\";\ntry{console.info('Fleur $$$VersionName$$$ ($$$VersionNumber$$$), $$$VersionDescription$$$, copyright (C) $$$VersionYear$$$ agenceXML - Alain Couthures, contact at fleur@agencexml.com');}catch(e){}\n",
+  "Header":"\"use strict\";\ntry{if (typeof window !== 'undefined') console.info('Fleur $$$VersionName$$$ ($$$VersionNumber$$$), $$$VersionDescription$$$, copyright (C) $$$VersionYear$$$ agenceXML - Alain Couthures, contact at fleur@agencexml.com');}catch(e){}\n",
   "Footer":"",
   "Components":[
     ["(function(Fleur) {\nFleur.version = '$$$VersionName$$$';\n"],

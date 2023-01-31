@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -10,14 +10,42 @@ Fleur.Transpiler.prototype.xqx_forClauseItem = function(children) {
   this.indent += this.step;
   const gen = this.funcdef(children[1][1][0]);
   this.indent = previndent;
-  let result = "\n" + previndent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_forClauseItem" + (this.async ? "_async" : "") + "('" + (children[0][1][0][1][0][1].length === 2 ? children[0][1][0][1][0][1][1][1][0] : "") + "', '" + children[0][1][0][1][0][1][0] + "',";
+  const vname = children[0][1][0][1][0][1][0];
+  const namespaceURI = this.rs.nsresolver.lookupNamespaceURI((children[0][1][0][1][0][1].length === 2 ? children[0][1][0][1][0][1][1][1][0] : "")) || "";
+  const allowingEmpty = children[1][0] === Fleur.XQueryX.allowingEmpty ? 1 : 0;
+  const positionalVariableBinding = children[1 + allowingEmpty][0] === Fleur.XQueryX.positionalVariableBinding ? 1 : 0;
+  const pvname = positionalVariableBinding !== 0 ? children[1 + allowingEmpty][1][0] : null;
+  const pnamespaceURI = pvname ? this.rs.nsresolver.lookupNamespaceURI((children[1 + allowingEmpty][1].length === 2 ? children[1 + allowingEmpty][1][1][1][0] : "")) || "" : null;
+  let result = "\n" + previndent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_forClauseItem" + (this.async ? "_async" : "") + "('" + namespaceURI + "', '" + vname + "', " + String(allowingEmpty === 1) + ", " + (pnamespaceURI ? "'" + pnamespaceURI + "'" : "null") + ", " + (pvname ? "'" + pvname + "'" : "null") + ",";
   result += gen.inst;
   result += "\n" + previndent + ");";
+  this.rs.varresolver.set(null, namespaceURI, vname, new Fleur.SequenceType(gen.sequenceType.nodeType, gen.sequenceType.schemaTypeInfo, allowingEmpty ? "?" : "1"));
   return {
     inst: result
   };
 };
 
+Fleur.Context.prototype.xqx_forClauseItem = function(namespaceURI, vname, allowingEmpty, pnamespaceURI, pvname, fn) {
+  const newtuple = [];
+  this.tuple.forEach(vr => {
+    this.rs.varresolver = vr;
+    fn(this);
+    if (this.item.isSingle() || (allowingEmpty && this.item.isEmpty())) {
+      vr.set(null, namespaceURI, vname, this.item);
+      newtuple.push(vr);
+    } else {
+      this.item.childNodes.forEach(foritem => {
+        const forvr = vr.clone();
+        forvr.set(null, namespaceURI, vname, foritem);
+        newtuple.push(forvr);
+      });
+    }
+  });
+  this.tuple = newtuple;
+  return this;
+};
+
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callback, resarr) {
   //console.log("forClauseItem");
   var i = 0;

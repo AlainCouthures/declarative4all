@@ -1,36 +1,31 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_node$_name_0 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_string,
-    occurrence: "?"
-  },
-  params_type: []
+Fleur.Context.prototype.fn_node$_name_0 = function() {
+  return this.current().fn_node$_name_1();
 };
-Fleur.signatures.fn_node$_name_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_string,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      occurrence: "?"
-    }
-  ]
+Fleur.Context.prototype.fn_node$_name_1 = function() {
+  const node = this.item;
+  if (node.isNotEmpty() && (node.nodeType !== Fleur.Node.DOCUMENT_NODE && node.nodeType !== Fleur.Node.COMMENT_NODE && node.nodeType !== Fleur.Node.TEXT_NODE)) {
+    const newitem = new Fleur.Text("");
+    newitem.data = node.nodeName;
+    newitem.schemaTypeInfo = Fleur.Type_QName;
+    newitem._setNodeNameLocalNamePrefix(node.namespaceURI.isNotEmpty() ? node.namespaceURI : "", node.nodeName);
+    this.item = newitem;
+  }
+  return this;
 };
 
-Fleur.XPathFunctions_fn["node-name#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:node-name",
+Fleur.XPathFunctions_fn["node-name#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:node-name", Fleur.Context.prototype.fn_node$_name_0,
+  [], Fleur.SequenceType_QName_01);
+
+Fleur.XPathFunctions_fn["node-name#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:node-name", Fleur.Context.prototype.fn_node$_name_1,
+  [Fleur.SequenceType_item_01], Fleur.SequenceType_QName_01);
+/*
   function(ctx) {
     if (ctx._curr === Fleur.EmptySequence) {
       return null;
@@ -41,9 +36,9 @@ Fleur.XPathFunctions_fn["node-name#0"] = new Fleur.Function("http://www.w3.org/2
     return ctx._curr.nodeName;
   },
   null, [], true, false, {type: Fleur.Type_string});
-
-Fleur.XPathFunctions_fn["node-name#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:node-name",
-  function(node) {
+*/
+/*
+function(node) {
     if (node === Fleur.EmptySequence) {
       return null;
     }
@@ -53,3 +48,4 @@ Fleur.XPathFunctions_fn["node-name#1"] = new Fleur.Function("http://www.w3.org/2
     return node.nodeName;
   },
   null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Type_string});
+*/

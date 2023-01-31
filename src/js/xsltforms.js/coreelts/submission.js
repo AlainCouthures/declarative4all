@@ -1,9 +1,7 @@
-/*eslint-env browser*/
-/*globals XsltForms_browser XsltForms_binding XsltForms_coreElement XsltForms_globals XsltForms_xmlevents Fleur XsltForms_class XsltForms_subform*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module submission
  * @description  === "XsltForms_submission" class ===
  * Submission Class
@@ -34,6 +32,7 @@ function XsltForms_submission(subform, elt) {
   this.relevant = elt.hasAttribute("xf-relevant") ? elt.getAttribute("xf-relevant") !== "false" : this.serialization !== "none";
   this.synchr = elt.getAttribute("xf-mode") === "synchronous";
   this.show = elt.getAttribute("xf-show");
+  this.target = elt.getAttribute("xf-target") || "_self";
   var mediatype = elt.getAttribute("xf-mediatype");
   if (mediatype) {
     var lines = mediatype.split(";");
@@ -317,7 +316,7 @@ XsltForms_submission.prototype.submit = async function() {
             const file = await fileHandle[0].getFile();
             const contents = await file.text();
             loadcontents(contents);
-          } catch(e) {};
+          } catch(e) {}
           subm.pending = false;
           return;
         } else {
@@ -327,7 +326,7 @@ XsltForms_submission.prototype.submit = async function() {
             subm.cell.type = "file";
             submbody.appendChild(subm.cell);
             subm.element.appendChild(submbody);
-            subm.cell.addEventListener("change", e => {
+            subm.cell.addEventListener("change", () => {
               const reader = new FileReader();
               reader.onerror = () => {
                 XsltForms_xmlevents.dispatch(subm, "xforms-submit-error");
@@ -374,7 +373,7 @@ XsltForms_submission.prototype.submit = async function() {
           return;
         } 
       } else {
-        eval("ser = (" + action.substring(11) + ");");
+        ser = eval(action.substring(11));
       }
       if (ser !== "" && (subm.replace === "instance" || (subm.targetref && subm.replace === "text"))) {
         ctxnode = !instance ? (node ? (node.documentElement ? node.documentElement : node.ownerDocument.documentElement) : subm.model.getInstance().documentElement) : document.getElementById(instance).xfElement.doc.documentElement;
@@ -406,7 +405,7 @@ XsltForms_submission.prototype.submit = async function() {
   }
   if (action.substring(0,11) === "javascript:") {
     if (method === "get") {
-      eval("ser = (" + action.substr(11) + ");");
+      ser = eval(action.substring(11));
       if (ser !== "" && (subm.replace === "instance" || (subm.targetref && subm.replace === "text"))) {
         ctxnode = !instance ? (node ? (node.documentElement ? node.documentElement : node.ownerDocument.documentElement) : subm.model.getInstance().documentElement) : document.getElementById(instance).xfElement.doc.documentElement;
         if (subm.targetref) {
@@ -453,8 +452,7 @@ XsltForms_submission.prototype.submit = async function() {
       txt.setAttribute("name", "postdata");
       txt.setAttribute("value", ser);
       outForm.appendChild(txt);
-      body = XsltForms_browser.isXhtml ? document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "body")[0] : document.getElementsByTagName("body")[0];
-      body.insertBefore(outForm, body.firstChild);
+      document.querySelector("xforms-form > xforms-body").appendChild(outForm);
     }
     outForm.submit();
     XsltForms_globals.closeAction("XsltForms_submission.prototype.submit");
@@ -537,12 +535,12 @@ XsltForms_submission.prototype.submit = async function() {
                 resp = XsltForms_browser.transformText(resp, xslhref, false);
                 piindex = resp.indexOf("<?xml-stylesheet", 0);
               }
-              if( subm.show === "new" ) {
+              if( subm.show === "new" || subm.target !== "_self") {
                 if (req.getResponseHeader("Content-Type") === "application/octet-stream;base64") {
                   //window.open("data:application/octet-stream;base64," + resp,"_blank");
                   location.href ="data:application/octet-stream;base64," + resp;
                 } else {
-                  var w = window.open("about:blank","_blank");
+                  var w = window.open("about:blank", subm.target);
                   w.document.write(resp);
                   w.document.close();
                 }

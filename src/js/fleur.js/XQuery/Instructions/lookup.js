@@ -1,12 +1,96 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_lookup = function(children) {
+  let r = "";
+  const childname =
+    children[0][0] === Fleur.XQueryX.star ? "star" :
+    children[0][0] === Fleur.XQueryX.NCName ? "NCName" :
+    "expr";
+  const NCName = childname === "NCName" ? children[0][1][0] : null;
+  if (childname === "expr") {
+    r = this.gen(children[0][1][0]).inst;
+  }
+  r += this.inst("xqx_lookup_" + childname + "(" + (NCName ? "'" + NCName + "'": "") + ")").inst;
+  return {
+    inst: r,
+    sequenceType: childname === "star" ? Fleur.SequenceType_entry_0n : Fleur.SequenceType_entry_01
+  };
+};
+
+Fleur.Context.prototype.xqx_lookup_NCName = function(NCName) {
+  const arg = this.item;
+  const res = new Fleur.Sequence();
+  if (arg.isSingle()) {
+    if (arg.nodeType === Fleur.Node.MAP_NODE) {
+      arg.entries.forEach(e => {
+        if (e.localName === NCName) {
+          res.appendChild(e.cloneNode());
+        }
+      });
+    }
+  } else {
+    arg.childNodes.forEach(c => {
+      if (c.nodeType === Fleur.Node.MAP_NODE) {
+        c.entries.forEach(e => {
+          if (e.localName === NCName) {
+            res.appendChild(e.cloneNode());
+          }
+        });
+      }
+    });
+  }
+  this.item = res.singleton();
+  return this;
+};
+Fleur.Context.prototype.xqx_lookup_expr = function() {
+  const arg1 = this.itemstack.pop();
+  const NCName = this.item.data;
+  const res = new Fleur.Sequence();
+  if (arg1.isSingle()) {
+    if (arg1.nodeType === Fleur.Node.MAP_NODE) {
+      arg1.entries.forEach(e => {
+        if (e.localName === NCName) {
+          res.appendChild(e.cloneNode());
+        }
+      });
+    }
+  } else {
+    arg1.childNodes.forEach(c => {
+      if (c.nodeType === Fleur.Node.MAP_NODE) {
+        c.entries.forEach(e => {
+          if (e.localName === NCName) {
+            res.appendChild(e.cloneNode());
+          }
+        });
+      }
+    });
+  }
+  this.item = res.singleton();
+  return this;
+};
+Fleur.Context.prototype.xqx_lookup_star = function() {
+  const arg = this.item;
+  const res = new Fleur.Sequence();
+  if (arg.isSingle()) {
+    if (arg.nodeType === Fleur.Node.MAP_NODE) {
+      arg.entries.forEach(e => res.appendChild(e.cloneNode()));
+    }
+  } else {
+    arg.childNodes.forEach(c => {
+      if (c.nodeType === Fleur.Node.MAP_NODE) {
+        c.entries.forEach(e => res.appendChild(e.cloneNode()));
+      }
+    });
+  }
+  this.item = res.singleton();
+  return this;
+};
+/*
 Fleur.XQueryEngine.lookups = function(ctx, children, callback, functionid) {
 //console.log(functionid + " - " + pos + " - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
   var ncname, ilabel, seq;
@@ -160,3 +244,4 @@ Fleur.XQueryEngine.lookups = function(ctx, children, callback, functionid) {
 Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
   Fleur.XQueryEngine.lookups(ctx, children, callback, Fleur.XQueryX.lookup);
 };
+*/

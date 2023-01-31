@@ -1,14 +1,14 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
 Fleur.XQueryEngine.updating = false;
 Fleur.XQueryEngine.updateQueue = [];
 
-Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, expectedType) {
+Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, expectedSequenceType) {
   var pf2 = "fn";
   var args = children[1][1];
   if (children[0][1][1] && children[0][1][1][0] === Fleur.XQueryX.prefix) {
@@ -20,55 +20,56 @@ Fleur.Transpiler.prototype.xqx_functionCallExpr = function(children, expectedTyp
     } else {
       pf2 = pf;
     }
-  } else if (" boolean-from-string is-card-number count-non-empty index power random if choose property digest hmac local-date local-dateTime now days-from-date days-to-date seconds-from-dateTime seconds-to-dateTime adjust-dateTime-to-timezone seconds months instance instance-ids current context event nodeindex is-valid serialize transform js-eval ".indexOf(" " + children[0][1][0] + " ") !== -1) {
+  } else if (" boolean-from-string is-card-number count-non-empty index power random if choose property digest hmac local-date local-dateTime now days-from-date days-to-date seconds-from-dateTime seconds-to-dateTime adjust-dateTime-to-timezone seconds months instance instance-ids current context event nodeindex is-valid transform js-eval ".indexOf(" " + children[0][1][0] + " ") !== -1) {
     pf2 = "xf";
   }
-  const shortname = children[0][1][0].replace(/-/g, "$_");
+  const xname = children[0][1][0];
+  const shortname = xname.replace(/-/g, "$_");
   let fname = pf2 + "_" + shortname;
   if (fname !== "fn_concat") {
     fname += "_" + String(args.length);
   }
-  const libfunc = Fleur.signatures[fname];
-  const fasync = libfunc ? libfunc.is_async : false;
+  const ns = Fleur.defaultNS.uri[Fleur.defaultNS.pf.lastIndexOf(pf2)];
+  const libfunc = Fleur.XPathFunctions[ns][xname + "#" + (fname !== "fn_concat" ? String(args.length) : "")];
+  const fasync = libfunc ? libfunc.isasync : false;
   if (!this.async) {
     this.async = fasync;
   }
-  const returnType = libfunc ? libfunc.return_type : {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_string,
-    occurrence: "?"
-  };
-  const untyped = returnType && returnType.schemaTypeInfo === Fleur.Type_untypedAtomic;
+  const returnSequenceType = libfunc ? libfunc.rettype : Fleur.SequenceType_string_01;
+  const untyped = returnSequenceType && returnSequenceType.schemaTypeInfo === Fleur.Type_untypedAtomic;
   if (untyped) {
-    returnType.schemaTypeInfo = expectedType.schemaTypeInfo;
+    returnSequenceType.schemaTypeInfo = expectedSequenceType.schemaTypeInfo;
   }
 
   let params = "";
-  const paramstype = libfunc ? libfunc.params_type : null;
+  const paramstype = libfunc ? libfunc.argtypes : null;
+  let staticvalues = true;
+  let paramgens = [];
   for (let i = 0, l = args.length; i < l; i++) {
-    const expectedParamType = libfunc && fname !== "fn_concat" ? paramstype[i] : {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_string,
-      occurrence: "?"
-    };
+    const expectedParamType = libfunc && fname !== "fn_concat" ? paramstype[i] : Fleur.SequenceType_anyAtomicType_01;
     const paramgen = this.gen(args[i], expectedParamType);
-    if (libfunc && expectedParamType) {
-//      if (paramgen.sequenceType.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-//        paramgen.inst += this.inst(expectedParamType.schemaTypeInfo.constructorName + "()").inst;
-//        paramgen.sequenceType.schemaTypeInfo = expectedParamType.schemaTypeInfo;
+    staticvalues = staticvalues && paramgen.value;
+    paramgens.push(paramgen);
+//    if (libfunc && expectedParamType) {
+////      if (paramgen.sequenceType.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+////        paramgen.inst += this.inst(expectedParamType.schemaTypeInfo.constructorName + "()").inst;
+////        paramgen.sequenceType.schemaTypeInfo = expectedParamType.schemaTypeInfo;
+////      }
+//      if ((paramgen.sequenceType.occurrence === "0" && (expectedParamType.occurrence === "1" || expectedParamType.occurrence === "+")) || (paramgen.sequenceType.schemaTypeInfo && expectedParamType.schemaTypeInfo && !paramgen.sequenceType.schemaTypeInfo.as(expectedParamType.schemaTypeInfo))) {
+//        Fleur.XQueryError_xqt("XPST0017", null, "Invalid type");
 //      }
-      if ((paramgen.sequenceType.occurrence === "0" && (expectedParamType.occurrence === "1" || expectedParamType.occurrence === "+")) || (paramgen.sequenceType.schemaTypeInfo && expectedParamType.schemaTypeInfo && !paramgen.sequenceType.schemaTypeInfo.as(expectedParamType.schemaTypeInfo))) {
-        Fleur.XQueryError_xqt("XPST0017", null, "Invalid type");
-      }
-    }
+//    }
     params += paramgen.inst;
+  }
+  if (staticvalues && libfunc && !libfunc.dynonly) {
+    return this.staticargs(paramgens)[fname](fname === "fn_concat" || !libfunc ? args.length : null).staticinst(this);
   }
   if (!libfunc && typeof window[shortname] !== "function") {
     Fleur.XQueryError_xqt("XPST0017", null, "Unknown Javascript function", "", new Fleur.Text(shortname));
   }
   return {
-    inst: params + this.inst((libfunc ? fname : "xqx_functionCallExpr") + (fasync ? "_async" : "") + "(" + (libfunc ? "" : shortname + ", ") + (fname === "fn_concat" || !libfunc ? String(args.length) : "") + ")", fasync, libfunc ? expectedType : null).inst + (untyped ? this.inst(returnType.schemaTypeInfo.constructorName + "()").inst : ""),
-    sequenceType: returnType
+    inst: params + this.inst((libfunc ? fname : "xqx_functionCallExpr") + "(" + (libfunc ? "" : shortname + ", ") + (fname === "fn_concat" || !libfunc ? String(args.length) : "") + ")", fasync, expectedSequenceType).inst + (returnSequenceType.nodeType === Fleur.Node.ANY_NODE && expectedSequenceType.nodeType !== Fleur.Node.ANY_NODE ? this.inst("fn_data_1()").inst: "") + (untyped ? this.inst(returnSequenceType.schemaTypeInfo.constructorName + "()").inst : ""),
+    sequenceType: expectedSequenceType || returnSequenceType
   };
 };
 
@@ -87,7 +88,7 @@ Fleur.Context.prototype.xqx_functionCallExpr = function(shortname, arglen) {
   this.item.data = String(shortname.apply(null, args));
   return this;
 };
-
+/*
 Fleur.functionCall = function(ctx, children, xf, args, callback) {
   var mainUpdater = false;
   if (xf.updating && !ctx.updater) {
@@ -409,3 +410,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
   }
   Fleur.functionCall(ctx, children, xf, args, callback);
 };
+*/

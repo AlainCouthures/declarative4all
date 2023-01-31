@@ -1,17 +1,17 @@
 {
-	"Components":[
-		"Transpiler.js",
-		"Context.js",
-		"XPathFunctions/project.json",
-		"Atomize.js",
-		"Collations.js",
-		"XPathConstructor.js",
-		"XPathEvaluator.js",
-		"XPathException.js",
-		"XPathExpression.js",
-		"XPathNSResolver.js",
-		"XPathResult.js",
-		"varMgr.js",
-		"encchars.js"
-	]
+  "Components":[
+    "Transpiler.js",
+    "Context.js",
+    "XPathFunctions/project.json",
+    "Atomize.js",
+    "Collations.js",
+    "XPathConstructor.js",
+    "XPathEvaluator.js",
+    "XPathException.js",
+    "XPathExpression.js",
+    "XPathNSResolver.js",
+    "XPathResult.js",
+    "varMgr.js",
+    "encchars.js"
+  ]
 }

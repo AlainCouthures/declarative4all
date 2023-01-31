@@ -188,7 +188,7 @@
                         <xsl:value-of select="."/>
                       </xsl:attribute>
                     </xsl:when>
-                    <xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class'">
+                    <xsl:when test="local-name() = 'id' or local-name() = 'style' or local-name() = 'class' or local-name() = 'autocomplete'">
                       <xsl:attribute name="{local-name()}">
                         <xsl:value-of select="."/>
                       </xsl:attribute>
@@ -212,6 +212,11 @@
                 </xsl:when>
                 <xsl:when test="namespace-uri() = 'http://www.agencexml.com/meta'">
                   <xsl:attribute name="meta-{local-name()}">
+                    <xsl:value-of select="."/>
+                  </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="namespace-uri() = 'http://www.w3.org/1999/xhtml'">
+                  <xsl:attribute name="html-{local-name()}">
                     <xsl:value-of select="."/>
                   </xsl:attribute>
                 </xsl:when>

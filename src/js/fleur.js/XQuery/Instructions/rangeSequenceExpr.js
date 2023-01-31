@@ -1,14 +1,15 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_rangeSequenceExpr = function(children) {
-  let r = this.gen(children[0][1][0], Fleur.Type_integer).inst + this.gen(children[1][1][0], Fleur.Type_integer).inst + this.inst("xqx_rangeSequenceExpr()").inst;
+  let r = this.gen(children[0][1][0], Fleur.SequenceType_integer_01).inst + this.gen(children[1][1][0], Fleur.SequenceType_integer_01).inst + this.inst("xqx_rangeSequenceExpr()").inst;
   return {
-    inst: r
+    inst: r,
+    sequenceType: Fleur.SequenceType_integer_0n
   };
 };
 
@@ -40,7 +41,7 @@ Fleur.Context.prototype.xqx_rangeSequenceExpr = function() {
       this.item.appendChild(i);
       op1[1]++;
     }
-}
+  }
   return this;
 };
 

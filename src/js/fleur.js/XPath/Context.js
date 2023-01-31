@@ -1,12 +1,10 @@
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-
 Fleur.Context = function(path, rs, nodedeps, xfdeps, position) {
   this.item = null;
   this.path = path;
@@ -15,22 +13,25 @@ Fleur.Context = function(path, rs, nodedeps, xfdeps, position) {
   this.pathstack = [];
   this.tuplestack = [];
   this.tuple = null;
-  if (rs) {
-    this.rs = rs;
+  if (!rs) {
+    rs = {};
+    rs.now = Fleur.dateToDateTime();
+    rs.nsresolver = new Fleur.XPathNSResolver();
+    rs.varresolver = new Fleur.varMgr();
   }
-  if (nodedeps) {
-    this.nodedeps = nodedeps;
-    this.nodedepset = new Set();
-    const nodedepset = this.nodedepset;
-    this.nodedeps.forEach(nodedep => nodedepset.add(nodedep.internal_id));
-  }
-  if (xfdeps) {
-    this.xfdeps = xfdeps;
-    this.xfdepset = new Set();
-    const xfdepset = this.xfdepset;
-    this.xfdeps.forEach(xfdep => xfdepset.add(xfdep));
-  }
+  this.rs = rs;
+  nodedeps = nodedeps || [];
+  this.nodedeps = nodedeps;
+  this.nodedepset = new Set();
+  const nodedepset = this.nodedepset;
+  this.nodedeps.forEach(nodedep => nodedepset.add(nodedep.internal_id));
+  xfdeps = xfdeps || [];
+  this.xfdeps = xfdeps;
+  this.xfdepset = new Set();
+  const xfdepset = this.xfdepset;
+  this.xfdeps.forEach(xfdep => xfdepset.add(xfdep));
   this.position = position;
+  this.engine = Fleur;
 };
 
 Fleur.Context.prototype.clone = function(path) {
@@ -47,6 +48,12 @@ Fleur.Context.prototype.emptySequence = function() {
   this.itemstack.push(this.item);
   const item = new Fleur.Sequence();
   this.item = item;
+  return this;
+};
+
+Fleur.Context.prototype.current = function() {
+  this.itemstack.push(this.item);
+  this.item = this.path;
   return this;
 };
 
@@ -115,8 +122,11 @@ Fleur.Context.prototype.isFalse = function() {
   return val;
 };
 
-Fleur.Context.prototype.atomize = function() {
+Fleur.Context.prototype.atomize = function(expectedSequenceType) {
   this.item = Fleur.Atomize(this.item);
+  if (expectedSequenceType && !this.item.schemaTypeInfo.as(expectedSequenceType.schemaTypeInfo)) {
+    Fleur.XQueryError_xqt("XPST0017", null, "Invalid type");
+  }
   return this;
 };
 
@@ -124,17 +134,73 @@ Fleur.Context.prototype.typeConstructor = function(schemaType) {
   if (this.item.isEmpty()) {
     return this;
   }
-  this.item = Fleur.Atomize(this.item);
+//  this.item = Fleur.Atomize(this.item);
+  const res = new Fleur.Text();
+  if (schemaType === Fleur.Type_numeric) {
+    try {
+      res.data = Fleur.Type_integer.canonicalize(this.item.data);
+      res.schemaTypeInfo = Fleur.Type_integer;
+      this.item = res;
+      return this;
+    } catch (e) {}
+    try {
+      res.data =  Fleur.Type_decimal.canonicalize(this.item.data);
+      res.schemaTypeInfo = Fleur.Type_decimal;
+      this.item = res;
+      return this;
+    } catch (e) {}
+    try {
+      res.data =  Fleur.Type_float.canonicalize(this.item.data);
+      res.schemaTypeInfo = Fleur.Type_float;
+      this.item = res;
+      return this;
+    } catch (e) {}
+    try {
+      res.data =  Fleur.Type_double.canonicalize(this.item.data);
+      res.schemaTypeInfo = Fleur.Type_double;
+      this.item = res;
+      return this;
+    } catch (e) {
+      Fleur.XQueryError_xqt(e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001", null, "Wrong argument for xs:" + schemaType.typeName + "#1", "", this.item);
+    }
+  }
   if (this.item.schemaTypeInfo === Fleur.Type_string || this.item.schemaTypeInfo === Fleur.Type_untypedAtomic) {
     if (!this.item.hasOwnProperty("data")) {
-      Fleur.XQueryError_xqt("FORG00001", null, "Wrong argument type for xs:" + schemaType.constructorName.substr(3, schemaType.constructorName - 5) + "#1", "", this.item);
+      Fleur.XQueryError_xqt("FORG00001", null, "Wrong argument for xs:" + schemaType.typeName + "#1", "", this.item);
     }
   }
   try {
-    this.item.data = schemaType.canonicalize(this.item.textContent);
-    this.item.schemaTypeInfo = schemaType;
+    res.data = schemaType.canonicalize(this.item.textContent);
+    res.schemaTypeInfo = schemaType;
+    this.item = res;
     return this;
   } catch (e) {
-    Fleur.XQueryError_xqt(e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001", null, "Wrong argument type for xs:" + schemaType.constructorName.substr(3, schemaType.constructorName - 5) + "#1", "", this.item);
+    Fleur.XQueryError_xqt(e.code === Fleur.DOMException.VALIDATION_ERR ? "FORG0001" : "FODT0001", null, "Wrong argument for xs:" + schemaType.typeName + "#1", "", this.item);
+  }
+};
+
+Fleur.Context.prototype.notyet = function() {
+  Fleur.XQueryError_xqt("XPST0001", null, "Not yet implemented");
+};
+
+Fleur.Context.prototype.staticinst = function(transp) {
+  if (this.item.isEmpty()) {
+    return {
+      inst: transp.inst("xqx_sequenceExpr(0)", false).inst,
+      sequenceType: Fleur.SequenceType_empty_sequence,
+      value: this.item
+      };
+  }
+  return {
+    inst: transp.inst("xqx_constantExpr(Fleur.Type_" + this.item.schemaTypeInfo.typeName + ", '" + this.item.data + "')", false).inst,
+    sequenceType: new Fleur.SequenceType(Fleur.Node.TEXT_NODE, this.item.schemaTypeInfo, "1"),
+    value: this.item
+  };
+};
+
+Fleur.Context.prototype.log = function() {
+  const ser = this.fn_serialize_1().item.data;
+  if (ser.length !== 0) {
+    console.log(ser);
   }
 };

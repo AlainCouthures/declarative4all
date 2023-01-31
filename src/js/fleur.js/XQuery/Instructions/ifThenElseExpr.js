@@ -1,34 +1,28 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.Transpiler.prototype.xqx_ifThenElseExpr = function(children, expectedType) {
+Fleur.Transpiler.prototype.xqx_ifThenElseExpr = function(children, expectedSequenceType) {
   let result = this.gen(children[0][1][0]).inst + "\n" + this.indent + "if (" + this.ctxvarname + ".fn_boolean_1().isTrue()) {";
   const previndent = this.indent;
   this.indent += this.step;
-  const thenexpr = this.gen(children[1][1][0], expectedType);
-  if ((thenexpr.sequenceType.occurrence === "0" && (expectedType.occurrence === "1" || expectedType.occurrence === "+")) || (thenexpr.sequenceType.schemaTypeInfo && expectedType.schemaTypeInfo && !thenexpr.sequenceType.schemaTypeInfo.as(expectedType.schemaTypeInfo))) {
-    Fleur.XQueryError_xqt("XPST0017", null, "Invalid type");
-  }
+  const thenexpr = this.gen(children[1][1][0], expectedSequenceType);
   result += thenexpr.inst;
   this.indent = previndent;
   result += "\n" + previndent + "} else {";
   this.indent += this.step;
-  const elseexpr = this.gen(children[2][1][0], expectedType);
-  if ((elseexpr.sequenceType.occurrence === "0" && (expectedType.occurrence === "1" || expectedType.occurrence === "+")) || (elseexpr.sequenceType.schemaTypeInfo && expectedType.schemaTypeInfo && !elseexpr.sequenceType.schemaTypeInfo.as(expectedType.schemaTypeInfo))) {
-    Fleur.XQueryError_xqt("XPST0017", null, "Invalid type");
-  }
+  const elseexpr = this.gen(children[2][1][0], expectedSequenceType);
   result += elseexpr.inst;
   this.indent = previndent;
   return {
     inst: result + "\n" + previndent + "}",
-    sequenceType: thenexpr.sequenceType
+    sequenceType: Fleur.SequenceType.or(thenexpr.sequenceType, elseexpr.sequenceType)
   };
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.ifThenElseExpr] = function(ctx, children, callback) {
   Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
     var boolean;
@@ -74,3 +68,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.ifThenElseExpr] = function(ctx, children, callb
     }
   });
 };
+*/

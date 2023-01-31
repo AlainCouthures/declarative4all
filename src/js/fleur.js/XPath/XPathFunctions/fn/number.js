@@ -1,48 +1,41 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
- Fleur.signatures.fn_number_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_numeric,
-    occurrence: "1"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "?"
-    }
-  ]
+Fleur.Context.prototype.fn_number_0 = function() {
+  return this.current().fn_number_1();
 };
 Fleur.Context.prototype.fn_number_1 = function() {
+  const res = new Fleur.Text();
   if (this.item.isNotEmpty()) {
     try {
-      this.item.data = Fleur.Type_double.canonicalize(this.item.data);
-    } catch {
-      this.item.data = "NaN";
+      res.data = Fleur.Type_double.canonicalize(this.item.data);
+    } catch(e) {
+      res.data = "NaN";
     }
   } else {
-    this.item = new Fleur.Text();
-    this.item.data = "NaN";
+    res.data = "NaN";
   }
-  this.item.schemaTypeInfo = Fleur.Type_double;
+  res.schemaTypeInfo = Fleur.Type_double;
+  this.item = res;
   return this;
 };
 
-Fleur.XPathFunctions_fn["number#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:number",
+Fleur.XPathFunctions_fn["number#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:number", Fleur.Context.prototype.fn_number_0,
+  [], Fleur.SequenceType_numeric_1);
+
+Fleur.XPathFunctions_fn["number#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:number", Fleur.Context.prototype.fn_number_1,
+  [Fleur.SequenceType_anyAtomicType_01], Fleur.SequenceType_numeric_1);
+/*
   function(ctx) {
     return Fleur.XPathFunctions_fn["number#1"].jsfunc(ctx._curr);
   },
   null, [], true, false, {type: Fleur.Type_double});
-
-Fleur.XPathFunctions_fn["number#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:number",
+*/
+/*
   function(arg) {
     var a = Fleur.Atomize(arg);
     if (a.schemaTypeInfo === Fleur.Type_error) {
@@ -66,3 +59,4 @@ Fleur.XPathFunctions_fn["number#1"] = new Fleur.Function("http://www.w3.org/2005
     return parseFloat(a.data);
   },
   null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Type_double});
+*/

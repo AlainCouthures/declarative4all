@@ -8,7 +8,7 @@
 Fleur.XQueryError = function(namespaceURI, localName, prefix, position, description, module, value, additional) {
   throw {
     name: "XQueryError",
-    message: "fn:error(xs:QName(\"" + (prefix ? prefix + ":" : "") + localName + "\"), \"" + description + "\"" + (value ? ", " + Fleur.Serializer._serializeNodeToXQuery(value, false, "") : "") + ")",
+    message: "fn:error(xs:QName('" + namespaceURI + "', '" + (prefix ? prefix + ":" : "") + localName + "')" + (!Fleur.TestSuite ? ", '" + description + "'" + (value ? ", " + Fleur.Serializer._serializeNodeToXQuery(value, false, "") : "") : "") + ")",
     namespaceURI: namespaceURI,
     localName: localName,
     prefix: prefix,

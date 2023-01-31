@@ -1,9 +1,7 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -191,6 +189,20 @@ Fleur.Serializer._serializeHTMLToString = function(node, indent, offset) {
       }
       return s;
   }
+};
+Fleur.Serializer._serializeSequenceTypeToXQuery = function(sequenceType) {
+  const fschemaTypeInfo = sequenceType ? sequenceType.schemaTypeInfo : null;
+  return fschemaTypeInfo ? (
+    sequenceType === Fleur.SequenceType_empty_sequence ? "empty-sequence()" :
+    sequenceType === Fleur.SequenceType_document_1 ? "document()" :
+    sequenceType === Fleur.SequenceType_element_1 ? "element()" :
+    sequenceType === Fleur.SequenceType_attribute_1 ? "attribute()" :
+    sequenceType === Fleur.SequenceType_processing_instruction_1 ? "processing-instruction()" :
+    sequenceType === Fleur.SequenceType_comment_01 ? "comment()?" :
+    sequenceType === Fleur.SequenceType_map_1 ? "map()" :
+    sequenceType === Fleur.SequenceType_entry_1 ? "entry()" :
+    (fschemaTypeInfo.typeNamespace === "http://www.w3.org/2001/XMLSchema" ? "xs:" : "Q{" + fschemaTypeInfo.typeNamespace + "}") + fschemaTypeInfo.typeName + (sequenceType.occurrence === "1" ? "" : sequenceType.occurrence)) :
+    "none";
 };
 Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, postfix, inmap, defquot) {
   var s, i, l;

@@ -1,4 +1,3 @@
-/*globals XsltForms_browser, XsltForms_exprContext, Fleur, XsltForms_FleurConv*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -17,8 +16,7 @@ function XsltForms_xpath(subform, expression) {
   try {
     if (Fleur.minimal) {
       compiled = Fleur.XPathEvaluator._xp2js(expression, "", "");
-      var arr;
-      eval("arr = " + compiled + ";");
+      var arr = eval(compiled);
       compiled = Fleur.minimal ? XsltForms_FleurConv[arr[0]](arr[1]) : (new Fleur.Transpiler("ctx", "  ")).funcdef(arr);
       compiled = eval(compiled);
     } else {
@@ -46,13 +44,13 @@ function XsltForms_xpath(subform, expression) {
 XsltForms_xpath.prototype.evaluate = function() {
   alert("XPath error");
 };
-XsltForms_xpath.prototype.xpath_evaluate = function(ctx, current, subform, varresolver) {
+XsltForms_xpath.prototype.xpath_evaluate = function(ctx, current, subform, element) {
   //console.log(this.expression);
   var d1 = new Date();
   XsltForms_browser.assert(ctx);
 //  alert("XPath evaluate \""+this.expression+"\"");
   if (!ctx.node) {
-    ctx = new XsltForms_exprContext(subform, ctx, null, null, null, this.nsresolver, current, varresolver);
+    ctx = new XsltForms_exprContext(subform, ctx, null, null, null, this.nsresolver, current, element);
   } else if (!ctx.nsresolver) {
     ctx.nsresolver = this.nsresolver;
   }

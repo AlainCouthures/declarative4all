@@ -24,7 +24,7 @@
 		</xf:model>
 		<style type="text/css">
 			#search label { float: left; width: 4em; }
-			#results { border:1px solid black; width: 15em; margin-left: 4em;}
+			#results { border:1px solid black; width: 15em; margin-left: 0em;}
 			#results .xforms-value:hover { background-color: #418ad5; }
 		</style>
   </head>

@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -12,11 +12,12 @@ Fleur.Transpiler.prototype.xqx_simpleMapExpr = function(children) {
   this.async = false;
   let result = this.funcdef(children[1][1].length === 1 && children[1][1][0][1][0][0] === Fleur.XQueryX.filterExpr ? children[1][1][0][1][0][1][0] : children[1]);
   this.indent = previndent;
-  result = "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_simpleMapExpr" + (this.async ? "_async" : "") + "(" + result;
+  result = "\n" + this.indent + (this.async ? "await " : "") + this.ctxvarname + ".xqx_simpleMapExpr" + (this.async ? "_async" : "") + "(" + result.inst;
   this.async = this.async || prevasync;
   let r = this.gen(children[0][1].length === 1 && children[0][1][0][1][0][0] === Fleur.XQueryX.filterExpr ? children[0][1][0][1][0][1][0] : children[0]).inst + result + "\n" + this.indent + ");";
   return {
-    inst: r
+    inst: r,
+    sequenceType: Fleur.SequenceType_item_0n
   };
 };
 

@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -16,7 +16,8 @@ Fleur.Transpiler.prototype.xqx_attributeConstructor = function(children) {
   }
   r += this.inst("xqx_attributeConstructor" + (value ? "_value" : "") + "('" +  prefix + "', '" + children[0][1][0] + "'" + (value ? ", '" + value + "'" : "") + ")").inst;
   return {
-    inst : r
+    inst: r,
+    sequenceType: Fleur.SequenceType_attribute_1
   };
 };
 
@@ -45,7 +46,7 @@ Fleur.Context.prototype.xqx_attributeConstructor_value = function(prefix, localN
   this.item = attr;
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.attributeConstructor] = function(ctx, children, callback, elt) {
   var attr = new Fleur.Attr();
   var t;
@@ -73,3 +74,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.attributeConstructor] = function(ctx, children,
     }, attr);
   }
 };
+*/

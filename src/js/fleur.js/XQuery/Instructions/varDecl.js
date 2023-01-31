@@ -1,12 +1,34 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_varDecl = function(children) {
+  let r = "";
+  let vstype = Fleur.SequenceType_string_01; 
+  const vname = children[0][1][0];
+  const namespaceURI = this.rs.nsresolver.lookupNamespaceURI((children[0][1].length === 2 ? children[0][1][1][1][0] : "")) || "";
+  if (children[1][0] !== Fleur.XQueryX.external) {
+    const vvalue = this.gen(children[1][1][0]);
+    r = vvalue.inst;
+    vstype = vvalue.sequenceType;
+    r += this.inst("xqx_varDecl('" + namespaceURI + "', '" + vname + "')").inst;
+  }
+  this.rs.varresolver.set(null, namespaceURI, vname, vstype);
+  return {
+    inst: r,
+    sequenceType: Fleur.SequenceType_empty_sequence
+  };
+};
+
+Fleur.Context.prototype.xqx_varDecl = function(namespaceURI, vname) {
+  this.rs.varresolver.set(null, namespaceURI, vname, this.item);
+  this.item = this.itemstack.pop();
+  return this;
+};
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.varDecl] = function(ctx, children, callback) {
   var vname = children[0][1][0];
   var uri = "";
@@ -41,3 +63,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.varDecl] = function(ctx, children, callback) {
     });
   }
 };
+*/

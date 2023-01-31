@@ -1,12 +1,34 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_mapConstructorEntry = function(children) {
+  let r = this.gen(children[1][1][0], Fleur.SequenceType_item_0n).inst;
+  r += this.gen(children[0][1][0], Fleur.SequenceType_string_1).inst;
+  r += this.inst("xqx_mapConstructorEntry()").inst;
+  return {
+    inst: r,
+    sequenceType: Fleur.SequenceType_entry_1
+  };
+};
+
+Fleur.Context.prototype.xqx_mapConstructorEntry = function() {
+  const evalue = this.itemstack.pop();
+  const ekey = this.item;
+  const entry = new Fleur.Entry();
+  const localName = ekey.data;
+  entry.nodeName = localName;
+  entry.localName = localName;
+  entry.prefix = null;
+  entry.namespaceURI = null;
+  entry.appendChild(evalue);
+  this.item = entry;
+  return this;
+};
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.mapConstructorEntry] = function(ctx, children, callback) {
   var entry = new Fleur.Entry();
   Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
@@ -31,3 +53,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.mapConstructorEntry] = function(ctx, children, 
     }
   });
 };
+*/

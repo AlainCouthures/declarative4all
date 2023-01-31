@@ -1,12 +1,36 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
+Fleur.Transpiler.prototype.xqx_mapConstructor = function(children) {
+  let r = "";
+  const transp = this;
+  r = children.reduce((inst, child) => inst + transp.gen(child).inst, "");
+  r += this.inst("xqx_mapConstructor(" + String(children.length) + ")").inst;
+  return {
+    inst: r,
+    sequenceType: Fleur.SequenceType_map_1
+  };
+};
+
+Fleur.Context.prototype.xqx_mapConstructor = function(count) {
+  const map = new Fleur.Map();
+  map.appendContent(this.item, "");
+  const args = count !== 0 ? [this.item] : (this.itemstack.push(this.item), []);
+  for (let i = 1; i < count; i++) {
+    args.push(this.itemstack.pop());
+  }
+  args.reverse();
+  args.forEach(arg => {
+    map.setEntryNode(arg);
+  });
+  this.item = map;
+  return this;
+};
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.mapConstructor] = function(ctx, children, callback) {
   var map = new Fleur.Map();
   var i = 0;
@@ -37,3 +61,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.mapConstructor] = function(ctx, children, callb
     Fleur.callback(function() {callback(map);});
   }
 };
+*/

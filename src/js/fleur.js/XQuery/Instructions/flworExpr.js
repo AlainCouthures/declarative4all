@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -35,6 +35,11 @@ Fleur.Transpiler.prototype.xqx_flworExpr = function(children, expectedType) {
   };
 };
 
+Fleur.Context.prototype.xqx_flworExpr = function() {
+  this.tuplestack.push(this.tuple);
+  this.tuple = [new Fleur.varMgr([], this.rs.varresolver)];
+  return this;
+};
 /*
 Fleur.Transpiler.prototype.xqx_flworExpr_old = function(children, expectedType) {
   const previndent = this.indent;
@@ -65,13 +70,6 @@ Fleur.Transpiler.prototype.xqx_flworExpr_old = function(children, expectedType) 
     inst: result + "\n" + previndent + "]);",
     sequenceType: returnSequenceType
   };
-};
-*/
-
-Fleur.Context.prototype.xqx_flworExpr = function() {
-  this.tuplestack.push(this.tuple);
-  this.tuple = [new Fleur.varMgr([], this.rs.varresolver)];
-  return this;
 };
 
 Fleur.XQueryEngine[Fleur.XQueryX.flworExpr] = function(ctx, children, callback) {

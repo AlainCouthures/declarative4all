@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
@@ -18,7 +18,8 @@ Fleur.Transpiler.prototype.xqx_computedElementConstructor = function(children) {
   r += children.length === 2 ? this.gen(children[1][1][0]).inst : this.inst("emptySequence()").inst;
   r += this.inst("xqx_computedElementConstructor" + (tagName ? (URI ? "_URI" : "") + "('" + (URI ? URI : prefix) + "', '" + tagName + "')" : "_expr()")).inst;
   return {
-    inst: r
+    inst: r,
+    sequenceType: Fleur.SequenceType_element_1
   };
 };
 

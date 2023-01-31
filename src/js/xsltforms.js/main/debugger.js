@@ -10,12 +10,12 @@ function fleur(expression) {
   let result;
   let compiled;
   const current = XsltForms_globals.defaultModel.getInstanceDocument().documentElement;
-  let ctx = new XsltForms_exprContext(XsltForms_subform.subforms["xsltforms-mainform"], current, null, null, null, Fleur.XPathNSResolver_default, current, null);
+  let ctx = new XsltForms_exprContext(XsltForms_subform.subforms["xsltforms-mainform"], current, null, null, null, new Fleur.XPathNSResolver(), current, null);
   let arr;
   if (Fleur.minimal) {
     try {
       compiled = Fleur.XPathEvaluator._xp2js(expression, "", "");
-      eval("arr = " + compiled + ";");
+      arr = eval(compiled);
       compiled = XsltForms_FleurConv[arr[0]](arr[1]);
       compiled = eval(compiled);
       let res = compiled.evaluate(ctx);
@@ -71,7 +71,7 @@ const XsltForms_debugger = {
       XsltForms_debugger.xfbody.appendChild(document.body.firstChild);
     }
     XsltForms_debugger.xfboard.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" style="float:right; cursor:pointer" onclick="XsltForms_debugger.close()" height="20" width="20"><g transform="translate(4,4) scale (0.5,0.5)"><path stroke-miterlimit="4" d="M 0,0 20,20" style="opacity:1;fill:grey;stroke:grey;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;fill-opacity:1;stroke-opacity:1"/><path stroke-miterlimit="4" d="M 0,20 20,0" style="opacity:1;fill:grey;stroke:grey;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;fill-opacity:1;stroke-opacity:1"/></g></svg>';
-    XsltForms_debugger.xfboard.innerHTML += "XForms Debugger (XSLTForms " + XsltForms_globals.fileVersion + (Fleur.version ? " + Fleur " + Fleur.version : "") + ")<br>";
+    XsltForms_debugger.xfboard.innerHTML += "XForms Debugger (XSLTForms " + XsltForms_globals.fileVersion + (Fleur.version ? " + Fleur " + Fleur.version : "") + ")<br>&gt; <i>XPath expression</i><br>";
     XsltForms_debugger.xfhistory = document.createElement("xforms-console-history");
     XsltForms_debugger.xfboard.appendChild(XsltForms_debugger.xfhistory);
     const xfexprbody = document.createElement("xforms-body");
@@ -103,10 +103,10 @@ const XsltForms_debugger = {
           XsltForms_debugger.xfhistory.appendChild(expr);
         } else {
           const expr = document.createElement("xforms-expression");
-          expr.textContent = "-> " + evt.target.value;
+          expr.textContent = "> " + evt.target.value;
           XsltForms_debugger.xfhistory.appendChild(expr);
           const value = document.createElement("xforms-result");
-          value.textContent = "<- " + fleur(evt.target.value);
+          value.textContent = fleur(evt.target.value);
           XsltForms_debugger.xfhistory.appendChild(value);
         }
         XsltForms_debugger.textarea.value = "";

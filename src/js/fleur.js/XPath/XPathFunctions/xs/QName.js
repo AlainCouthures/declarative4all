@@ -1,32 +1,32 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.xs_QName_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_QName,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anySimpleType,
-      occurrence: "?"
-    }
-  ]
-};
 Fleur.Context.prototype.xs_QName_1 = function() {
   this.typeConstructor(Fleur.Type_QName);
+  let prefix = "";
+  let localName = "";
+  if (this.item.data.indexOf(":") !== -1) {
+    const nparts = this.item.data.split(":");
+    prefix = nparts[0];
+    localName = nparts[1];
+  } else {
+    localName = this.item.data;
+  }
+  this.item.namespaceURI = this.rs.nsresolver.lookupNamespaceURI(prefix);
+  this.item.nodeName = this.item.data;
+  this.item.prefix = prefix;
+  this.item.localName = localName;
+  this.item.data = null;
   return this;
 };
 
-Fleur.XPathFunctions_xs["QName#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:QName",
+Fleur.XPathFunctions_xs["QName#1"] = new Fleur.Function("http://www.w3.org/2001/XMLSchema", "xs:QName", Fleur.Context.prototype.xs_QName_1,
+  [Fleur.SequenceType_anyAtomicType_01], Fleur.SequenceType_QName_01);
+/*
   function(arg) {
     return Fleur.XPathConstructor(arg, Fleur.Type_QName, function() {});
   },
@@ -58,3 +58,4 @@ Fleur.XPathFunctions_xs.QName = function(ctx, children, callback) {
     Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
   }
 };
+*/

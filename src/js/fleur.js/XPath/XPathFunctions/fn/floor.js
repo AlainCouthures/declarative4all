@@ -1,39 +1,28 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_floor_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_numeric,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_numeric,
-      occurrence: "?"
-    }
-  ]
-};
 Fleur.Context.prototype.fn_floor_1 = function() {
   if (this.item.isNotEmpty()) {
     const op  = Fleur.toJSValue(this.item, true, false, false, false, false, false);
     if (op[0] >= 0) {
-      this.item.data = String(Math.floor(Number(op[1])));
-      this.item.schemaTypeInfo = Fleur.Type_double;
+      const res = new Fleur.Text();
+      res.data = String(Math.floor(Number(op[1])));
+      res.schemaTypeInfo = Fleur.Type_double;
+      this.item = res;
     }
   }
   return this;
 };
 
-Fleur.XPathFunctions_fn["floor#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:floor",
+Fleur.XPathFunctions_fn["floor#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:floor", Fleur.Context.prototype.fn_floor_1,
+  [Fleur.SequenceType_numeric_01], Fleur.SequenceType_numeric_01);
+/*
   function(a) {
     return a ? [typeof a[0] === "bigint" ? a[0] : Math.floor(a[0]), a[1]] : null;
   },
   null, [{type: Fleur.numericTypes, adaptative: true, occurence: "?"}], false, false, {type: Fleur.numericTypes, adaptative: true, occurence: "?"});
+*/

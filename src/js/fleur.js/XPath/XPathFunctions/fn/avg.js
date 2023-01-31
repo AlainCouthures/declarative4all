@@ -1,29 +1,18 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.signatures.fn_avg_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_anyAtomicType,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      nodeType: Fleur.Node.TEXT_NODE,
-      schemaTypeInfo: Fleur.Type_anyAtomicType,
-      occurrence: "*"
-    }
-  ]
+Fleur.Context.prototype.fn_avg_1 = function() {
+  this.notyet();
 };
 
-Fleur.XPathFunctions_fn["avg#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:avg",
-  function(arg) {
+Fleur.XPathFunctions_fn["avg#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:avg", Fleur.Context.prototype.fn_avg_1,
+  [Fleur.SequenceType_anyAtomicType_0n], Fleur.SequenceType_anyAtomicType_01);
+/*
+function(arg) {
     if (arg === null) {
       return [null, null];
     }
@@ -71,3 +60,4 @@ Fleur.XPathFunctions_fn["avg#1"] = new Fleur.Function("http://www.w3.org/2005/xp
     return arg;
   },
   null, [{type: Fleur.numericTypes, adaptative: true, occurence: "*"}], false, false, {type: Fleur.numericTypes, adaptative: true, occurence: "?"});
+*/

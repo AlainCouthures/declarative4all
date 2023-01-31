@@ -1,5 +1,3 @@
-/*eslint-env browser*/
-/*globals XsltForms_xpathFunction Fleur XsltForms_globals XsltForms_browser XsltForms_idManager XsltForms_typeDefs zip_inflate XsltForms_schema XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>

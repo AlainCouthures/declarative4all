@@ -1,14 +1,15 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
 Fleur.Transpiler.prototype.xqx_computedTextConstructor = function(children) {
-  let r = (children.length === 1 ? this.gen(children[0][1][0], Fleur.atomicTypes).inst : this.inst("emptySequence()").inst) + this.inst("xqx_computedTextConstructor()").inst;
+  let r = children.length === 1 ? this.gen(children[0][1][0], Fleur.SequenceType_anyAtomicType_1).inst + this.inst("xqx_computedTextConstructor()").inst : this.inst("emptySequence()").inst;
   return {
-    inst: r
+    inst: r,
+    sequenceType: children.length === 1 ? Fleur.SequenceType_untypedAtomic_01 : Fleur.SequenceType_empty_sequence
   };
 };
 

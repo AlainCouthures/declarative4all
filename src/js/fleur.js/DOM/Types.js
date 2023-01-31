@@ -1,13 +1,12 @@
-/*eslint-env browser, node*/
-/*globals Fleur */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
 Fleur.Types = {};
+Fleur.Types["#internal"] = {};
 Fleur.Types["http://www.w3.org/2001/XMLSchema"] = {};
 
 Fleur.Types_XMLSchema = Fleur.Types["http://www.w3.org/2001/XMLSchema"];
@@ -21,8 +20,34 @@ Fleur.Type_anyAtomicType = new Fleur.TypeInfo_XMLSchema("anyAtomicType", [[Fleur
 
 Fleur.Type_untypedAtomic = new Fleur.TypeInfo_XMLSchema("untypedAtomic", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_anyAtomicType]]);
 
+Fleur.Type_numeric = new Fleur.TypeInfo_XMLSchema("numeric", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_anyAtomicType]]);
+//  [Fleur.TypeInfo.DERIVATION_UNION, Fleur.Type_integer],
+//  [Fleur.TypeInfo.DERIVATION_UNION, Fleur.Type_decimal],
+//  [Fleur.TypeInfo.DERIVATION_UNION, Fleur.Type_float],
+//  [Fleur.TypeInfo.DERIVATION_UNION, Fleur.Type_double]
+//]);
+Fleur.Type_numeric.constructorName = "xs_numeric_1";
+Fleur.Type_numeric.canonicalize = function(s) {
+  try {
+    return Fleur.Type_integer.canonicalize(s);
+  } catch (e) {}
+  try {
+    return Fleur.Type_decimal.canonicalize(s);
+  } catch (e) {}
+  try {
+    return Fleur.Type_float.canonicalize(s);
+  } catch (e) {}
+  try {
+    return Fleur.Type_double.canonicalize(s);
+  } catch (e) {}
+  throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
+
 Fleur.Type_string = new Fleur.TypeInfo_XMLSchema("string", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_anyAtomicType]]);
 Fleur.Type_string.constructorName = "xs_string_1";
+Fleur.Type_string.canonicalize = function(s) {
+  return s;
+};
 
 Fleur.Type_boolean = new Fleur.TypeInfo_XMLSchema("boolean", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_anyAtomicType]]);
 Fleur.Type_boolean.constructorName = "xs_boolean_1";
@@ -40,7 +65,7 @@ Fleur.Type_boolean.canonicalize = function(s) {
   throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
 
-Fleur.Type_decimal = new Fleur.TypeInfo_XMLSchema("decimal", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_anyAtomicType]]);
+Fleur.Type_decimal = new Fleur.TypeInfo_XMLSchema("decimal", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_numeric]]);
 Fleur.Type_decimal.constructorName = "xs_decimal_1";
 Fleur.Type_decimal.canonicalize = function(s) {
   if (/^\s*[\-+]?([0-9]+(\.[0-9]*)?|[\-+]?\.[0-9]+)\s*$/.test(s)) {
@@ -86,7 +111,7 @@ Fleur.Type_decimal.canonicalize = function(s) {
   throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
 
-Fleur.Type_float = new Fleur.TypeInfo_XMLSchema("float", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_anyAtomicType]]);
+Fleur.Type_float = new Fleur.TypeInfo_XMLSchema("float", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_numeric]]);
 Fleur.Type_float.constructorName = "xs_float_1";
 Fleur.Type_float.canonicalize = function(s) {
   if (/^\s*(([\-+]?([0-9]+(\.[0-9]*)?)|[\-+]?(\.[0-9]+))([eE][\-+]?[0-9]+)?|[\-+]?INF|NaN)\s*$/.test(s)) {
@@ -128,7 +153,7 @@ Fleur.Type_float.canonicalize = function(s) {
   throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
 
-Fleur.Type_double = new Fleur.TypeInfo_XMLSchema("double", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_anyAtomicType]]);
+Fleur.Type_double = new Fleur.TypeInfo_XMLSchema("double", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_numeric]]);
 Fleur.Type_double.constructorName = "xs_double_1";
 Fleur.Type_double.canonicalize = Fleur.Type_float.canonicalize;
 
@@ -203,7 +228,7 @@ Fleur.Type_gYear.canonicalize = function(s) {
 Fleur.Type_gMonthDay = new Fleur.TypeInfo_XMLSchema("gMonthDay", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_anyAtomicType]]);
 Fleur.Type_gMonthDay.constructorName = "xs_gMonthDay_1";
 Fleur.Type_gMonthDay.canonicalize = function(s) {
-  if (/^\s*--(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])\s*$/.test(s)) {
+  if (/^\s*--((0[1-9]|1[0-2])-([01][1-9]|10|2[0-9]))|((0[13-9]|1[0-2])-30)|((0[13578]|1[02])-31)\s*$/.test(s)) {
     return s.trim();
   }
   throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
@@ -254,6 +279,21 @@ Fleur.Type_anyURI.canonicalize = function(s) {
   throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
 
+Fleur.Type_collation = new Fleur.TypeInfo_XMLSchema("collation", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string]]);
+Fleur.Type_collation.constructorName = "xs_collation_1";
+Fleur.Type_collation.canonicalize = function(s) {
+  var c = Fleur.Collations[s];
+  if (!c && !s.startsWith("http://")) {
+    c = Fleur.Collations["http://www.w3.org/2005/xpath-functions/collation/" + s];
+    if (c) {
+      return "http://www.w3.org/2005/xpath-functions/collation/" + s;
+    }
+  } else {
+    return s;
+  }
+  throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
+
 Fleur.Type_QName = new Fleur.TypeInfo_XMLSchema("QName", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_anyAtomicType]]);
 Fleur.Type_QName.constructorName = "xs_QName_1";
 Fleur.Type_QName.canonicalize = function(s) {
@@ -280,6 +320,7 @@ Fleur.Type_NOTATION.constructorName = "xs_NOTATION_1";
 Fleur.Type_NOTATION.canonicalize = Fleur.Type_token.canonicalize;
 
 Fleur.Type_language = new Fleur.TypeInfo_XMLSchema("language", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_token]]);
+Fleur.Type_language.constructorName = "xs_language_1";
 Fleur.Type_language.canonicalize = function(s) {
   if (/^\s*[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*\s*$/.test(s)) {
     return s.trim();
@@ -377,14 +418,6 @@ Fleur.Type_integer.canonicalize = function(s) {
   }
   throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
 };
-
-Fleur.Type_numeric = new Fleur.TypeInfo_XMLSchema("numeric", [
-  [Fleur.TypeInfo.DERIVATION_UNION, Fleur.Type_integer],
-  [Fleur.TypeInfo.DERIVATION_UNION, Fleur.Type_decimal],
-  [Fleur.TypeInfo.DERIVATION_UNION, Fleur.Type_float],
-  [Fleur.TypeInfo.DERIVATION_UNION, Fleur.Type_double]
-]);
-Fleur.Type_numeric.constructorName = "xs_numeric_1";
 
 Fleur.Type_nonPositiveInteger = new Fleur.TypeInfo_XMLSchema("nonPositiveInteger", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_integer]]);
 Fleur.Type_nonPositiveInteger.constructorName = "xs_nonPositiveInteger_1";
@@ -546,6 +579,19 @@ Fleur.Type_unsignedShort.canonicalize = function(s) {
     s = s.trim();
     var value = parseInt(s, 10);
     if (value <= 65535) {
+      return String(value);
+    }
+  }
+  throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
+
+Fleur.Type_codepoint = new Fleur.TypeInfo_XMLSchema("codepoint", [[Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_unsignedShort]]);
+Fleur.Type_codepoint.constructorName = "xs_codepoint_1";
+Fleur.Type_codepoint.canonicalize = function(s) {
+  if (/^\s*(\+?[0-9]+|-0+)\s*$/.test(s)) {
+    s = s.trim();
+    var value = parseInt(s, 10);
+    if (value > 0 && value <= 65535) {
       return String(value);
     }
   }

@@ -5,33 +5,28 @@
  * @module 
  * @description 
  */
-Fleur.signatures.fn_name_0 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_string,
-    occurrence: "?"
-  },
-  params_type: []
+Fleur.Context.prototype.fn_name_0 = function() {
+  return this.current().fn_name_1();
 };
-Fleur.signatures.fn_name_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: {
-    nodeType: Fleur.Node.TEXT_NODE,
-    schemaTypeInfo: Fleur.Type_string,
-    occurrence: "?"
-  },
-  params_type: [
-    {
-      occurrence: "?"
+Fleur.Context.prototype.fn_name_1 = function() {
+  const node = this.item;
+  if (node.isNotEmpty()) {
+    const newitem = new Fleur.Text("");
+    newitem.schemaTypeInfo = Fleur.Type_string;
+    if (node.nodeType !== Fleur.Node.DOCUMENT_NODE && node.nodeType !== Fleur.Node.COMMENT_NODE && node.nodeType !== Fleur.Node.TEXT_NODE) {
+      newitem.data = node.nodeName;
     }
-  ]
+    this.item = newitem;
+  }
+  return this;
 };
 
-Fleur.XPathFunctions_fn["name#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:name",
-  function(ctx) {
+Fleur.XPathFunctions_fn["name#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:name", Fleur.Context.prototype.fn_name_0,
+  [], Fleur.SequenceType_string_01);
+
+Fleur.XPathFunctions_fn["name#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:name", Fleur.Context.prototype.fn_name_1,
+  [Fleur.SequenceType_item_01], Fleur.SequenceType_string_01);
+/*  function(ctx) {
     if (ctx._curr === null) {
       return null;
     }
@@ -41,8 +36,8 @@ Fleur.XPathFunctions_fn["name#0"] = new Fleur.Function("http://www.w3.org/2005/x
     return ctx._curr.nodeName;
   },
   null, [], true, false, {type: Fleur.Type_string});
-
-Fleur.XPathFunctions_fn["name#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:name",
+*/
+/*
   function(node) {
     if (node === null) {
       return null;
@@ -53,3 +48,4 @@ Fleur.XPathFunctions_fn["name#1"] = new Fleur.Function("http://www.w3.org/2005/x
     return node.nodeName;
   },
   null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Type_string});
+*/

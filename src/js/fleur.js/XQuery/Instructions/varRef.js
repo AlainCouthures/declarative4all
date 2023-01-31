@@ -1,26 +1,22 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
-Fleur.Transpiler.prototype.xqx_varRef = function(children) {
-  var nsURI;
-  if (children[0][1].length === 1) {
-    nsURI = "";
-  } else {
-    nsURI = children[0][1][1][1][0] + ":";
-  }
-  return this.inst("xqx_varRef('" + children[0][1][0] + "')");
+Fleur.Transpiler.prototype.xqx_varRef = function(children, expectedSequenceType) {
+  const nsURI = this.rs.nsresolver.lookupNamespaceURI(children[0][1].length === 1 ? "" : children[0][1][1][1][0]) || "";
+  const vname = children[0][1][0];
+  return this.inst("xqx_varRef('" + nsURI + "', '" + vname + "')", false, expectedSequenceType, null, this.rs.varresolver.get(null, nsURI, vname));
 };
 
-Fleur.Context.prototype.xqx_varRef = function(vname) {
+Fleur.Context.prototype.xqx_varRef = function(nsURI, vname) {
   this.itemstack.push(this.item);
-  this.item = this.rs.varresolver.get(null, "", vname);
+  this.item = this.rs.varresolver.get(null, nsURI, vname);
   return this;
 };
-
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.varRef] = function(ctx, children, callback) {
   var nsURI;
   if (children[0][1].length === 1) {
@@ -33,3 +29,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.varRef] = function(ctx, children, callback) {
   //alert(children[0][1][0] + " -> " + n.data);
   Fleur.callback(function() {callback(n);});
 };
+*/

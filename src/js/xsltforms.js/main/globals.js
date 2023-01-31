@@ -1,9 +1,7 @@
-/*eslint-env browser*/
-/*globals XsltForms_browser zip_inflate idRef XsltForms_xpath Fleur XsltForms_repeat XsltForms_xmlevents XsltForms_listener XsltForms_idManager XsltForms_schema XsltForms_calendar XsltForms_typeDefs $$$VersionNumber$$$*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module globals
  * @description  === "XsltForms_globals" class ===
  * Global class for XSLTForms Management
@@ -61,6 +59,8 @@ var XsltForms_globals = {
   componentLoads: [],
   jslibraries: {},
   htmlversion: "4",
+  hasusername: false,
+  haspassword: false,
 
     
 /**
@@ -637,7 +637,7 @@ var XsltForms_globals = {
  * * '''build''' method : XForms build management
  */
 
-  build : function(element, ctx, selected, varresolver) {
+  build : function(element, ctx, selected) {
     if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms-console" || element.hasXFElement === false) {
       return {ctx: ctx, hasXFElement: false};
     }
@@ -650,10 +650,10 @@ var XsltForms_globals = {
     if (xf) {
       if (xf instanceof Array) {
         for (var ixf = 0, lenxf = xf.length; ixf < lenxf; ixf++) {
-          xf[ixf].build(ctx, varresolver);
+          xf[ixf].build(ctx);
         }
       } else {
-        xf.build(ctx, varresolver);
+        xf.build(ctx);
         if (xf.isRepeat) {
           xf.refresh(selected);
         }
@@ -684,7 +684,7 @@ var XsltForms_globals = {
           }
           if (!childs[i].getAttribute("cloned")) {
             var samechild = childs[i];
-            var br = this.build(childs[i], curctx, selected, varresolver);
+            var br = this.build(childs[i], curctx, selected);
             if (childs[i] !== samechild) {
               i--;
             } else {
@@ -700,7 +700,7 @@ var XsltForms_globals = {
           }
         }
       }
-      element.varScope = null;
+      //element.varScope = null;
     }
     if(this.building) {
       if (xf instanceof Array) {
@@ -1079,5 +1079,21 @@ var XsltForms_globals = {
       str += (msg.arr[msg.length >> 2] >>> (8 * (4 - msg.length % 4))).toString(16);
     }
     return str;
+//  },
+//  autofilldetectstep: 100,
+//  autofilldetectcurrent: 0,
+//  autofilldetectlimit: 2000,
+/*  autofilldetect: function() {
+    let autofills = document.querySelectorAll("*:-webkit-autofill");
+    if (autofills.length !== 0) {
+      autofills[0].click();
+      alert(autofills.length);
+    } else {
+      this.autofilldetectcurrent += this.autofilldetectstep;
+      if (this.autofilldetectcurrent < this.autofilldetectlimit) {
+        window.setTimeout("XsltForms_globals.autofilldetect()", 1000);
+      }
+    }
+    */
   }
 };

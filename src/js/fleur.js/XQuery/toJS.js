@@ -14,26 +14,41 @@ Fleur.pad = function(number) {
    return String(number);
 };
 Fleur.dateToDate = function(dtz) {
-  return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
+  return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "+" : "-") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
 };
 Fleur.dateToDateTime = function(dtz) {
-  return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + 'T' + Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
+  if (!dtz) {
+    const d = new Date();
+    dtz = {
+      d: d,
+      tz: d.getTimezoneOffset() 
+    };
+  }
+  return String(dtz.d.getFullYear()) + '-' + Fleur.pad(dtz.d.getMonth() + 1) + '-' + Fleur.pad(dtz.d.getDate()) + 'T' + Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "+" : "-") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
 };
 Fleur.dateToTime = function(dtz) {
-  return Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "-" : "+") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
+  return Fleur.pad(dtz.d.getHours()) + ':' + Fleur.pad(dtz.d.getMinutes()) + ':' + Fleur.pad(dtz.d.getSeconds()) + (dtz.d.getMilliseconds() !== 0 ? '.' + (dtz.d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) : "") + (dtz.tz !== null ? dtz.tz === 0 ? "Z" : (dtz.tz < 0 ? "+" : "-") + Fleur.pad(Math.floor(Math.abs(dtz.tz) / 60)) + ":" + Fleur.pad(Math.abs(dtz.tz) % 60) : "");
 };
 Fleur.toDate = function(s) {
+  let d = new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10));
+  if (d.getMonth() + 1 !== Number(s.substr(5, 2))) {
+    throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+  }
   return {
-    d: new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10)),
+    d: d,
     tz: s.endsWith("Z") ? 0 :
-      s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
-      s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
+      s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
+      s.substr(s.length - 6, 1) === "+" && s.substr(s.length - 3, 1) === ":" ? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
       null
   };
 };
 Fleur.toDateTime = function(s) {
+  let d = new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10), parseInt(s.substr(11, 2), 10), parseInt(s.substr(14, 2), 10), parseInt(s.substr(17, 2), 10), s.charAt(19) === "." ? parseFloat("0." + s.substr(20).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0);
+  if (d.getMonth() + 1 !== Number(s.substr(5, 2))) {
+    throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+  }
   return {
-    d: new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10), parseInt(s.substr(11, 2), 10), parseInt(s.substr(14, 2), 10), parseInt(s.substr(17, 2), 10), s.charAt(19) === "." ? parseFloat("0." + s.substr(20).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0),
+    d: d,
     tz: s.endsWith("Z") ? 0 :
       s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
       s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
@@ -50,8 +65,8 @@ Fleur.toTime = function(s) {
   return {
     d: d,
     tz: s.endsWith("Z") ? 0 :
-      s.substr(s.length - 6, 1) === "+" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
-      s.substr(s.length - 6, 1) === "-" && s.substr(s.length - 3, 1) === ":"? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
+      s.substr(s.length - 6, 1) === "-"  && s.substr(s.length - 3, 1) === ":" ? parseInt(s.substr(s.length - 5, 2), 10) * 60 + parseInt(s.substr(s.length - 2, 2), 10) :
+      s.substr(s.length - 6, 1) === "+" && s.substr(s.length - 3, 1) === ":" ? -parseInt(s.substr(s.length - 5, 2), 10) * 60 - parseInt(s.substr(s.length - 2, 2), 10) :
       null
   };
 };
@@ -126,7 +141,7 @@ Fleur.NumberToDecimalString = function(n, precision) {
     s[1] = s[1] || "";
     if (exp >= 0) {
       if (exp < s[1].length) {
-        return s[0] + s[1].substr(0, s[1].length - exp) + "." + s[1].substr(s[1].length - exp);
+        return s[0] + s[1].substring(0, s[1].length - exp) + "." + s[1].substring(s[1].length - exp);
       }
       return s[0] + s[1] + "0".repeat(exp - s[1].length);
     }

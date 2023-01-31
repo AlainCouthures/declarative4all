@@ -1,19 +1,10 @@
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
- * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @license LGPL - See file 'LICENSE.md' in this project.
  * @module 
  * @description 
  */
- Fleur.signatures.fn_tail_1 = {
-  need_ctx: false,
-  is_async: false,
-  return_type: null,
-  params_type: [
-    null
-  ]
-};
-
 Fleur.Context.prototype.fn_tail_1 = function() {
   if (this.item.nodeType === Fleur.Node.SEQUENCE_NODE && this.item.childNodes.length !== 0) {
     if (this.item.childNodes.length > 2) {
@@ -31,7 +22,9 @@ Fleur.Context.prototype.fn_tail_1 = function() {
   return this;
 };
 
-Fleur.XPathFunctions_fn["tail#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:tail",
+Fleur.XPathFunctions_fn["tail#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:tail", Fleur.Context.prototype.fn_tail_1,
+  [Fleur.SequenceType_item_0n], Fleur.SequenceType_item_0n);
+/*
   function(arg) {
     if (arg === Fleur.EmptySequence || arg.nodeType !== Fleur.Node.SEQUENCE_NODE) {
       return Fleur.EmptySequence;
@@ -46,3 +39,4 @@ Fleur.XPathFunctions_fn["tail#1"] = new Fleur.Function("http://www.w3.org/2005/x
     return arg.childNodes[1];
   },
   null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Node, occurence: "*"});
+*/

@@ -12,6 +12,7 @@ Fleur.Node = function() {
   this.childNodes = new Fleur.NodeList();
   this.children = new Fleur.NodeList();
 };
+Fleur.Node.ANY_NODE = 0;
 Fleur.Node.ELEMENT_NODE = 1;
 Fleur.Node.ATTRIBUTE_NODE = 2;
 Fleur.Node.TEXT_NODE = 3;
@@ -837,4 +838,21 @@ Fleur.Node.prototype.toArray = function() {
 };
 Fleur.Node.prototype.hasNumericType = function() {
   return Fleur.numericTypes.indexOf(this.schemaTypeInfo) !== -1;
+};
+Fleur.Node.prototype.instanceOf = function(seqtype) {
+  if (this.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+    return seqtype.occurrence !== "0" && this.schemaTypeInfo.as(seqtype.schemaTypeInfo);
+  }
+  if (this.childNodes.length === 0) {
+    return seqtype.occurrence === "0" || seqtype.occurrence === "?" || seqtype.occurrence === "*";
+  }
+  if (seqtype.occurrence !== "+" && seqtype.occurrence !== "*") {
+    return false;
+  }
+  for(let i = 0, l = this.childNodes.length; i < l; i++) {
+    if (!this.childNodes[i].schemaTypeInfo.as(seqtype.schemaTypeInfo)) {
+      return false;
+    }
+  }
+  return true;
 };

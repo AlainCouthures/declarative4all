@@ -6,9 +6,9 @@
  * @description 
  */
 Fleur.TypeInfo = function(typeNamespace, typeName, derivations) {
-  this.typeNamespace = typeNamespace;
-  this.typeName = typeName;
-  Fleur.Types[typeNamespace][typeName] = this;
+  this.typeNamespace = typeNamespace || "#internal";
+  this.typeName = typeName || "t" + String(Object.keys(Fleur.Types[this.typeNamespace]).length);
+  Fleur.Types[this.typeNamespace][this.typeName] = this;
   this.derivations = derivations;
 };
 
@@ -30,7 +30,7 @@ Fleur.TypeInfo.prototype.isDerivedFrom_ = function(typeArg, derivationMethod) {
   }
   if (this.derivations) {
     for (let i = 0, l = this.derivations.length; i < l; i++) {
-      if (typeArg === this.derivations[i][1] && (derivationMethod === 0 || (derivationMethod & this.derivations[i][0]) !== 0)) {
+      if (typeArg === this.derivations[i][1] && (derivationMethod === 0 || (derivationMethod && this.derivations[i][0]) !== 0)) {
         return true;
       }
       if (this.derivations[i][1].isDerivedFrom_(typeArg, derivationMethod)) {
@@ -45,7 +45,7 @@ Fleur.TypeInfo.prototype.isDerivedFrom = function(typeNamespaceArg, typeNameArg,
 };
 
 Fleur.TypeInfo.prototype.as = function(targetedType) {
-  if (this.isDerivedFrom_(targetedType, Fleur.DERIVATION_RESTRICTION)) {
+  if (!targetedType || this.isDerivedFrom_(targetedType, Fleur.DERIVATION_RESTRICTION)) {
     return true;
   }
   if (targetedType.derivations) {
@@ -58,6 +58,33 @@ Fleur.TypeInfo.prototype.as = function(targetedType) {
     }
   }
   return false;
+};
+
+Fleur.TypeInfo.prototype._ancestors = function(ancestors) {
+  ancestors.push(this);
+  if (this.derivations) {
+    for (let i= 0, l = this.derivations.length; i < l; i++) {
+      if (this.derivations[i][0] === Fleur.TypeInfo.DERIVATION_RESTRICTION) {
+        this.derivations[i][1]._ancestors(ancestors);
+      }
+    }
+  }
+};
+
+Fleur.TypeInfo.prototype.aggregate = function(typeArg) {
+  let typeArgAncestors = [];
+  typeArg._ancestors(typeArgAncestors);
+  typeArgAncestors.reverse();
+  let ancestors = [];
+  this._ancestors(ancestors);
+  ancestors.reverse();
+  let a = ancestors[0];
+  let i = 0;
+  while (i < ancestors.length && i < typeArgAncestors.length && ancestors[i] === typeArgAncestors[i]) {
+    a = ancestors[i];
+    i++;
+  }
+  return a;
 };
 
 Fleur.TypeInfo.prototype.getPrimitiveType = function(types, derivationMethod) {

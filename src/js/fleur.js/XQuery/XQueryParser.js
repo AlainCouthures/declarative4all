@@ -257,7 +257,7 @@ Fleur.XQueryParser._calc = function(args, ops, newopprec, newop) {
   const op = ops.length !== 0 ? ops[ops.length - 1][1] : "";
   const curprec = ops.length !== 0 ? ops[ops.length - 1][0] : 0;
   const prectest = ops.length === 0 || curprec > newopprec || ((newop === op || op === "then") && newop === "return") || newop === "then";
-  console.log("XQuery - Consider \"" + newop + "\"[" + newopprec + "] vs. \"" + op + "\"[" + curprec + "] => " + (prectest ? "Do nothing" : "Evaluate \"" + op + "\""));
+  //console.log("XQuery - Consider \"" + newop + "\"[" + newopprec + "] vs. \"" + op + "\"[" + curprec + "] => " + (prectest ? "Do nothing" : "Evaluate \"" + op + "\""));
   if (prectest) {
     return [args, ops];
   }
@@ -461,9 +461,8 @@ Fleur.XQueryParser._calc = function(args, ops, newopprec, newop) {
     case "treat as?":
     case "treat as*":
       occ = op.charAt(8);
-      if (arg2val.indexOf("[Fleur.XQueryX.nameTest,") !== -1) {
-        arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
-        arg2 = [Fleur.XQueryX.atomicType,arg2[1][0]];
+      if (arg2[1][0][1][1][0] === Fleur.XQueryX.nameTest) {
+        arg2 = [Fleur.XQueryX.atomicType, arg2[1][0][1][1][1]];
       } else if (arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") !== -1) {
         arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") + 86);
         arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
@@ -482,10 +481,9 @@ Fleur.XQueryParser._calc = function(args, ops, newopprec, newop) {
     case "instance of?":
     case "instance of*":
       occ = op.charAt(11);
-      if (arg2val.indexOf("[Fleur.XQueryX.nameTest,") !== -1) {
-        arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.nameTest,") + 24);
-        arg2val3 = "[Fleur.XQueryX.atomicType," + arg2val2.substr(0, arg2val2.length - 4);
-      } else if (arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") !== -1) {
+      if (arg2[1][0][1][1][0] === Fleur.XQueryX.nameTest) {
+        arg2 = [Fleur.XQueryX.atomicType, arg2[1][0][1][1][1]];
+      } else if (arg2[0] === Fleur.XQueryX.pathExpr) {
         arg2val2 = arg2val.substr(arg2val.indexOf("[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],") + 86);
         arg2val3 = arg2val2.substr(0, arg2val2.length - 4);
       } else {
@@ -1048,19 +1046,19 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
     var r, t1;
     if (c2 !== "" && "0123456789".indexOf(c2) !== -1) {
       t1 = Fleur.XQueryParser._getNumber(c2 + d);
-      r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,[t1.replace(/e\+/, "e")]]]]]];
+      t = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.expr,[[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,[t1.replace(/e\+/, "e")]]]]]]]];
       plen = t1.length + 1;
     } else if (c2 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c2) !== -1) {
       t1 = Fleur.XQueryParser._getName(c2 + d);
-      r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.NCName,[t1]]]];
+      t = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.NCName,[t1]]]];
       plen = t1.length + 1;
     } else if (c2 === "*") {
-      r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.star,[]]]];
+      t = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.star,[]]]];
       plen = 2;
     } else if (c2 === "(") {
-      t = Fleur.XQueryParser._xp2js(s.substr(i + 1), [], [999,"("]);
-      plen = s.length - parseInt(t.substr(0, t.indexOf(".")), 10) + 1 + i;
-      r = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.expr,[t.substr(t.indexOf(".") + 1)]]]];
+      t = Fleur.XQueryParser._xp2js(s.substr(i + 1), [], [[999, "("]]);
+      plen = s.length - t[3] + 1;
+      t = [Fleur.XQueryX.lookup,[[Fleur.XQueryX.expr,[[t[0], t[1]]]]]];
     }
   } else {
     var func = [];
@@ -1104,12 +1102,12 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
             p = [Fleur.XQueryX.computedCommentConstructor,(cargs[1] !== 0 ? [[Fleur.XQueryX.argExpr,[cargs]]] : []), 0, plen, 0];
             break;
           case "map":
-            var cargs2 = cargs[0] === Fleur.XQueryX.arguments ? cargs[1] : cargs;
-            p = [Fleur.XQueryX.mapConstructor,[cargs2], 0, plen, 0];
+            var cargs2 = cargs[0] === Fleur.XQueryX.sequenceExpr ? cargs[1] : [cargs];
+            p = [Fleur.XQueryX.mapConstructor, cargs2, 0, plen, 0];
             break;
           case "array":
-            var cargs3 = cargs[0] === Fleur.XQueryX.arguments ? cargs[1] : cargs;
-            p = [Fleur.XQueryX.arrayConstructor,[cargs3], 0, plen, 0];
+            var cargs3 = cargs[0] === Fleur.XQueryX.arguments ? cargs[1] : [cargs];
+            p = [Fleur.XQueryX.arrayConstructor, cargs3, 0, plen, 0];
             break;
           case "entry":
             p = [Fleur.XQueryX.computedEntryConstructor,[[Fleur.XQueryX.tagNameExpr,[cargs]]], 0, plen, 0];
@@ -1201,8 +1199,8 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
                 c = xq.charAt(j);
                 var tdecl = [];
                 if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-                  d = xq.substr(j + 1);
-                  r = Fleur.XQueryParser._getName(c + d);
+                  let d = xq.substr(j + 1);
+                  let r = Fleur.XQueryParser._getName(c + d);
                   if (r === "as") {
                     j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
                     c = xq.charAt(j);
@@ -1235,14 +1233,14 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
             j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
             c = xq.charAt(j);
             if (c === "a") {
-              d = xq.substr(j + 1);
-              r = Fleur.XQueryParser._getName(c + d);
+              let d = xq.substr(j + 1);
+              let r = Fleur.XQueryParser._getName(c + d);
               if (r === "as") {
                 j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
                 c = xq.charAt(j);
                 if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
                   d = xq.substr(j + 1);
-                  ptype = Fleur.XQueryParser._getName(c + d);
+                  let ptype = Fleur.XQueryParser._getName(c + d);
                   pindex = ptype.indexOf(":");
                   np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
                   c = xq.charAt(j + ptype.length);
@@ -1353,7 +1351,7 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
         arg1 = arg.substr(0, arg.length - 8).substr(77);
         arg2 = "";
       }
-      fargs = t.length !== 0 && t[0] !== Fleur.XQueryX.arguments ? [Fleur.XQueryX.arguments,[t]] : t;
+      let fargs = t.length !== 0 && t[0] !== Fleur.XQueryX.arguments ? [Fleur.XQueryX.arguments,[t]] : t;
       arg1 = [arg1];
       if (arg2.length !== 0) {
         arg1.push([lookup ? Fleur.XQueryX.lookup: Fleur.XQueryX.predicates,[arg2]]);
@@ -1373,13 +1371,13 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
       p = [Fleur.XQueryX.flworExpr,t[0] === Fleur.XQueryX.arguments || t[0] === Fleur.XQueryX.flworExpr ? t[1] : [t], 0, plen, 0];
       isret = true;
     } else if (arg[0] === Fleur.XQueryX.quantifiedExpr && arg[1][0] && arg[1][0][0] === Fleur.XQueryX.quantifier) {
-      fargs = t[0] === Fleur.XQueryX.arguments ? t[1] : [t];
+      let fargs = t[0] === Fleur.XQueryX.arguments ? t[1] : [t];
       arg[1].push(fargs);
       p = arg;
       p[3] = plen;
       isret = true;
     } else if (arg.length !== 0 && arg[1] !== 0) {
-      fargs = t[0] === Fleur.XQueryX.arguments ? t[1] : [t];
+      let fargs = t[0] === Fleur.XQueryX.arguments ? t[1] : [t];
       p = [Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[arg]],fargs]]]]]]]];
     } else {
       p = t;
@@ -1393,10 +1391,12 @@ Fleur.XQueryParser._getPredParam = function(c, s, l, arg, allowpredicates, preds
     const stepcontent = arg[1][0][1];
     const laststepcontent = stepcontent[stepcontent.length - 1];
     if (c === "?") {
-      if (arg.indexOf(",[Fleur.XQueryX.predicates,[") === -1) {
-        p = plen + "." + arg.substr(0, arg.length - 4) + "," + t.substr(t.indexOf(".") + 1) + "]]]]";
+      if (laststepcontent[0] !== Fleur.XQueryX.predicates) {
+        stepcontent.push(t);
+        p = arg;
+        p[3] = plen;
       } else {
-        p = plen + "." + arg.substr(0, predstart) + predarr.reduce(function(s, pr) {return s + ",[Fleur.XQueryX.predicate,[" + pr + "]]";}, "") + "," + t.substr(t.indexOf(".") + 1) + "]]]]";;
+        p = plen + "." + arg.substr(0, predstart) + predarr.reduce(function(s, pr) {return s + ",[Fleur.XQueryX.predicate,[" + pr + "]]";}, "") + "," + t.substr(t.indexOf(".") + 1) + "]]]]";
       }
       allowpredicates = false;
     } else if (laststepcontent[0] !== Fleur.XQueryX.predicates) {
@@ -1506,12 +1506,12 @@ Fleur.XQueryParser._xp2js = function(xp, args, ops, begin) {
     const t51 = Fleur.XQueryParser._getName(d);
     const pt51 = (t51.indexOf(":") === -1 ? ":" : "") + t51;
     if ((ops.length !== 0 && ops[0][1] === "group by") || (ops.length > 1 && ops[0][1] === "~," && ops[1][1] === "group by")) {
-      r = [Fleur.XQueryX.groupingSpec,[[Fleur.XQueryX.varName,[pt51.substr(pt51.indexOf(":") + 1)]]], begin, t51.length + 1, 0];
+      r = [Fleur.XQueryX.groupingSpec,[[Fleur.XQueryX.varName,[pt51.substring(pt51.indexOf(":") + 1)]]], begin, t51.length + 1, 0];
     } else {
-      r = [Fleur.XQueryX.varRef,[[Fleur.XQueryX.name,[pt51.substr(pt51.indexOf(":") + 1)]]], begin, t51.length + 1, 0];
+      r = [Fleur.XQueryX.varRef,[[Fleur.XQueryX.name,[pt51.substring(pt51.indexOf(":") + 1)]]], begin, t51.length + 1, 0];
     }
     if (pt51.charAt(0) !== ":") {
-      r[1][0][1].push([Fleur.XQueryX.prefix,[pt51.substr(0, pt51.indexOf(":"))]]);
+      r[1][0][1].push([Fleur.XQueryX.prefix,[pt51.substring(0, pt51.indexOf(":"))]]);
     }
   } else if (c === "?") {
     var c2 = d.charAt(0);
@@ -1747,7 +1747,7 @@ Fleur.XQueryParser._getVersion = function(xq) {
   var r = "";
   var v, e;
   if (c === "" || "abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
-    return i + ".";
+    return [0, 0, i, 0, 0];
   }
   r = Fleur.XQueryParser._getName(c + d);
   if (r === "xquery") {
@@ -1755,7 +1755,7 @@ Fleur.XQueryParser._getVersion = function(xq) {
     c = xq.charAt(j);
     d = xq.substr(j + 1);
     if (c === "" || "abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
-      return i + ".";
+      return [0, 0, i, 0, 0];
     }
     r = Fleur.XQueryParser._getName(c + d);
     if (r === "version") {
@@ -1763,15 +1763,15 @@ Fleur.XQueryParser._getVersion = function(xq) {
       c = xq.charAt(j);
       d = xq.substr(j + 1);
       if (c !== "'" && c !== '"') {
-        return i + ".";
+        return [0, 0, i, 0, 0];
       }
-      r = Fleur.XQueryParser._getStringLiteral(c + d);
-      var vl = r.substr(0, r.indexOf("."));
-      v = r.substr(vl.length + 1);
-      j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+      r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.version, i);
+      var vl = r[3];
+      v = [r[0], r[1]];
+      j = Fleur.XQueryParser._skipSpaces(xq, j + vl);
       c = xq.charAt(j);
       if (c === ";") {
-        return (j + 1) + ".[Fleur.XQueryX.versionDecl,[[Fleur.XQueryX.version,[" + v + "]]]],";
+        return [Fleur.XQueryX.versionDecl,[v], i, j + 1, 0];
       }
       d = xq.substr(j + 1);
       r = Fleur.XQueryParser._getName(c + d);
@@ -1781,19 +1781,24 @@ Fleur.XQueryParser._getVersion = function(xq) {
       c = xq.charAt(j);
       d = xq.substr(j + 1);
       if (c !== "'" && c !== '"') {
-        return i + ".";
+        return [0, 0, i, 0, 0];
       }
-      r = Fleur.XQueryParser._getStringLiteral(c + d);
-      var el = r.substr(0, r.indexOf("."));
-      e = r.substr(el.length + 1);
-      j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(el, 10));
+      r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.encoding, i);
+      var el = r[3];
+      e = [r[0], r[1]];
+      j = Fleur.XQueryParser._skipSpaces(xq, j + el);
       c = xq.charAt(j);
       if (c === ";") {
-        return (j + 1) + ".[Fleur.XQueryX.versionDecl,[" + (v ? "[Fleur.XQueryX.version,[" + v + "]]," : "") + "[Fleur.XQueryX.encoding,[" + e + "]]]],";
+        r = [Fleur.XQueryX.versionDecl,[], i, j + 1, 0];
+        if (v) {
+          r[1].push(v);
+        }
+        r[1].push(e);
+        return r;
       }
     }
   }
-  return i + ".";
+  return [0, 0, i, 0, 0];
 };
 Fleur.XQueryParser._getProlog = function(xq, i) {
   var pindex;
@@ -1801,7 +1806,7 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
   var c = xq.charAt(i);
   var d = xq.substr(i + 1);
   var r = "", prefix, v, vl;
-  var res = i + ".";
+  var res =  [0, 0, i, 0, 0];
   var end = xq.length;
   var updatingfunction = false;
   var j;
@@ -1811,7 +1816,7 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
       case "declare":
         j = Fleur.XQueryParser._skipSpaces(xq, i + r.length);
         c = xq.charAt(j);
-        d = xq.substr(j + 1);
+        d = xq.substring(j + 1);
         while (c === "%") {
           r = Fleur.XQueryParser._getName(d);
           if (r === "updating") {
@@ -1827,7 +1832,7 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
             case "default":
               j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
               c = xq.charAt(j);
-              d = xq.substr(j + 1);
+              d = xq.substring(j + 1);
               if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
                 r = Fleur.XQueryParser._getName(c + d);
                 switch (r) {
@@ -1844,13 +1849,12 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                         c = xq.charAt(j);
                         d = xq.substr(j + 1);
                         if (c === "'" || c === '"') {
-                          r = Fleur.XQueryParser._getStringLiteral(c + d);
-                          vl = r.substr(0, r.indexOf("."));
-                          v = r.substr(vl.length + 1);
-                          j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                          r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.uri, 0);
+                          vl = r[3];
+                          j = Fleur.XQueryParser._skipSpaces(xq, j + vl);
                           c = xq.charAt(j);
                           if (c === ";") {
-                            return (j + 1) + ".[Fleur.XQueryX.defaultNamespaceDecl,[[Fleur.XQueryX.defaultNamespaceCategory,['" + category + "']],[Fleur.XQueryX.uri,[" + v + "]]]],";
+                            return [Fleur.XQueryX.defaultNamespaceDecl,[[Fleur.XQueryX.defaultNamespaceCategory,[category]],[r[0], r[1]]], i, j + 1, 0];
                           }
                         }
                       }
@@ -1861,13 +1865,12 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                     c = xq.charAt(j);
                     d = xq.substr(j + 1);
                     if (c === "'" || c === '"') {
-                      r = Fleur.XQueryParser._getStringLiteral(c + d);
-                      vl = r.substr(0, r.indexOf("."));
-                      v = r.substr(vl.length + 1);
-                      j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                      r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.defaultCollationDecl, 0);
+                      vl = r[3];
+                      j = Fleur.XQueryParser._skipSpaces(xq, j + vl);
                       c = xq.charAt(j);
                       if (c === ";") {
-                        return (j + 1) + ".[Fleur.XQueryX.defaultCollationDecl,[" + v + "]],";
+                        return [r[0], r[1], i, j + 1, 0];
                       }
                     }
                     break;
@@ -1887,7 +1890,7 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                             j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
                             c = xq.charAt(j);
                             if (c === ";") {
-                              return (j + 1) + ".[Fleur.XQueryX.emptyOrderingDecl,['empty " + r + "']],";
+                              return [Fleur.XQueryX.emptyOrderingDecl,["empty " + r], i, j + 1];
                             }
                           }
                         }
@@ -1910,7 +1913,7 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                   j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
                   c = xq.charAt(j);
                   if (c === ";") {
-                    return (j + 1) + ".[Fleur.XQueryX." + decl + ",['" + r + "']],";
+                    return [Fleur.XQueryX[decl],[r], i, j + 1, 0];
                   }
                 }
               }
@@ -1920,13 +1923,12 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
               c = xq.charAt(j);
               d = xq.substr(j + 1);
               if (c === "'" || c === '"') {
-                r = Fleur.XQueryParser._getStringLiteral(c + d);
-                vl = r.substr(0, r.indexOf("."));
-                v = r.substr(vl.length + 1);
-                j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.baseUriDecl, 0);
+                vl = r[3];
+                j = Fleur.XQueryParser._skipSpaces(xq, j + vl);
                 c = xq.charAt(j);
                 if (c === ";") {
-                  return (j + 1) + ".[Fleur.XQueryX.baseUriDecl,[" + v + "]],";
+                  return [r[0], r[1], i, j + 1, 0];
                 }
               }
               break;
@@ -1940,7 +1942,7 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                   j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
                   c = xq.charAt(j);
                   if (c === ";") {
-                    return (j + 1) + ".[Fleur.XQueryX.orderingModeDecl,['" + r + "']],";
+                    return [Fleur.XQueryX.orderingModeDecl,[r], i, j + 1, 0];
                   }
                 }
               }
@@ -1965,7 +1967,7 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                         j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
                         c = xq.charAt(j);
                         if (c === ";") {
-                          return (j + 1) + ".[Fleur.XQueryX.copyNamespacesDecl,[[Fleur.XQueryX.preserveMode,['" + preserve + "']],[Fleur.XQueryX.inheritMode,['" + r + "']]]],";
+                          return [Fleur.XQueryX.copyNamespacesDecl,[[Fleur.XQueryX.preserveMode,[preserve]],[Fleur.XQueryX.inheritMode,[r]]], i, j + 1, 0];
                         }
                       }
                     }
@@ -1988,13 +1990,12 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                   c = xq.charAt(j);
                   d = xq.substr(j + 1);
                   if (c === "'" || c === '"') {
-                    r = Fleur.XQueryParser._getStringLiteral(c + d);
-                    vl = r.substr(0, r.indexOf("."));
-                    v = r.substr(vl.length + 1);
-                    j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                    r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.uri, 0);
+                    vl = r[3];
+                    j = Fleur.XQueryParser._skipSpaces(xq, j + vl);
                     c = xq.charAt(j);
                     if (c === ";") {
-                      return (j + 1) + ".[Fleur.XQueryX.namespaceDecl,[[Fleur.XQueryX.prefixElt,['" + prefix + "']],[Fleur.XQueryX.uri,[" + v + "]]]],";
+                      return [Fleur.XQueryX.namespaceDecl,[[Fleur.XQueryX.prefixElt,[prefix]],[r[0], r[1]]], i, j + 1, 0];
                     }
                   }
                 }
@@ -2015,25 +2016,23 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                 var vname = Fleur.XQueryParser._getName(c + d);
                 j = Fleur.XQueryParser._skipSpaces(xq, j + vname.length);
                 c = xq.charAt(j);
-                d = xq.substr(j + 1);
+                d = xq.substring(j + 1);
                 pindex = vname.indexOf(":");
-                var np = pindex === -1 ? "'" + vname + "'" : "'" + vname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + vname.substr(0, pindex) + "']]";
-                var fres = ".[Fleur.XQueryX.varDecl,[[Fleur.XQueryX.varName,[" + np + "]]";
-                var nbpar = 0;
+                var np = pindex === -1 ? [vname] : [vname.substring(pindex + 1), [Fleur.XQueryX.prefix, [vname.substring(0, pindex)]]];
+                var fres = [Fleur.XQueryX.varDecl, [[Fleur.XQueryX.varName, np]]];
                 r = Fleur.XQueryParser._getName(c + d);
                 if (r === "external") {
                   j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
                   c = xq.charAt(j);
-                  fres += ",[Fleur.XQueryX.external,[]]";
+                  fres[1].push([Fleur.XQueryX.external, []]);
                   if (c === ";") {
-                    return (j + 1) + fres + "]],";
+                    return [fres[0], fres[1], i, j + 1, 0];
                   }
                   d = xq.substr(j + 1);
                 }
                 if (c + d.charAt(0) !== ":=") {
                   return res;
                 }
-                fres += ",[Fleur.XQueryX.varValue,[";
                 j = Fleur.XQueryParser._skipSpaces(xq, j + 2);
                 c = xq.charAt(j);
                 var parents = 0;
@@ -2059,11 +2058,11 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                   c = xq.charAt(++j);
                 }
                 if (vvalue !== "") {
-                  fres += Fleur.XQueryParser._xp2js(vvalue, [], [], 0);
+                  const vcomp = Fleur.XQueryParser._xp2js(vvalue, [], [], 0);
+                  fres[1].push([Fleur.XQueryX.varValue, [[vcomp[0], vcomp[1]]]]);
                 }
-                fres += "]]]],";
                 if (c === ";") {
-                  return (j + 1) + fres;
+                  return [fres[0], fres[1], i, j + 1, 0];
                 }
               }
               break;
@@ -2076,9 +2075,18 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                 j = Fleur.XQueryParser._skipSpaces(xq, j + fname.length);
                 c = xq.charAt(j);
                 pindex = fname.indexOf(":");
-                var np = pindex === -1 ? "'" + fname + "'" : "'" + fname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + fname.substr(0, pindex) + "']]";
-                var fres = ".[Fleur.XQueryX.functionDecl,[" + (updatingfunction ? "[Fleur.XQueryX.updatingFunction,['true']]," : "") + "[Fleur.XQueryX.functionName,[" + np + "]],[Fleur.XQueryX.paramList,[";
-                var nbpar = 0;
+                let np;
+                if (pindex === -1) {
+                  np = [fname];
+                } else {
+                  np = [fname.substring(pindex + 1), [Fleur.XQueryX.prefix, [fname.substring(0, pindex)]]];
+                }
+                const fres = [Fleur.XQueryX.functionDecl,[]];
+                if (updatingfunction) {
+                  fres[1].push([Fleur.XQueryX.updatingFunction,["true"]]);
+                }
+                fres[1].push([Fleur.XQueryX.functionName, np]);
+                const plist = [Fleur.XQueryX.paramList,[]];
                 if (c === "(") {
                   do {
                     j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
@@ -2096,7 +2104,7 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                       var pname = Fleur.XQueryParser._getName(c + d);
                       j = Fleur.XQueryParser._skipSpaces(xq, j + pname.length);
                       c = xq.charAt(j);
-                      var tdecl = "";
+                      const param = [Fleur.XQueryX.param,[[Fleur.XQueryX.varName,[pname]]]];
                       if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
                         d = xq.substr(j + 1);
                         r = Fleur.XQueryParser._getName(c + d);
@@ -2107,30 +2115,31 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                             d = xq.substr(j + 1);
                             var ptype = Fleur.XQueryParser._getName(c + d);
                             pindex = ptype.indexOf(":");
-                            np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
+                            let np;
+                            if (pindex === -1) {
+                              np = [ptype];
+                            } else {
+                              np = [ptype.substring(pindex + 1) ,[Fleur.XQueryX.prefix, [ptype.substring(0, pindex)]]];
+                            }
                             c = xq.charAt(j + ptype.length);
-                            tdecl = ",[Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[" + np + "]]";
+                            const tdecl = [Fleur.XQueryX.typeDeclaration, [[Fleur.XQueryX.atomicType, np]]];
                             if ("?+*".indexOf(c) !== -1) {
-                              tdecl += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
+                              tdecl[1].push([Fleur.XQueryX.occurrenceIndicator,[c]]);
                               j++;
                             }
-                            tdecl += "]]";
+                            param[1].push(tdecl);
                             j = Fleur.XQueryParser._skipSpaces(xq, j + ptype.length);
                             c = xq.charAt(j);
                           }
                         }
                       }
-                      if (nbpar !== 0) {
-                        fres += ",";
-                      }
-                      fres += "[Fleur.XQueryX.param,[[Fleur.XQueryX.varName,['" + pname + "']]" + tdecl + "]]";
-                      nbpar++;
+                      plist[1].push(param);
                     }
                   } while (c === ",");
+                  fres[1].push(plist);
                   if (c !== ")") {
                     return res;
                   }
-                  fres += "]]";
                   j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
                   c = xq.charAt(j);
                   if (c === "a") {
@@ -2145,39 +2154,23 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                         c = xq.charAt(++j);
                       }
                       np = Fleur.XQueryParser._xp2js(ftdecl, [], [], 0);
-                      if (np === "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],[Fleur.XQueryX.anyItemType,[]]]]]]") {
-                        np = "[Fleur.XQueryX.anyItemType,[]]";
+                      if (np[1][0][1][1][0] === Fleur.XQueryX.anyItemType) {
+                        np = [Fleur.XQueryX.anyItemType, []];
                       } else {
-                        np = np.substr(np.indexOf("[Fleur.XQueryX.nameTest,") + 24);
-                        np = "[Fleur.XQueryX.atomicType," + np.substr(0, np.length - 4);
+                        //np = np.substr(np.indexOf("[Fleur.XQueryX.nameTest,") + 24);
+                        np = [Fleur.XQueryX.atomicType,np[1][0][1][1][1]];
                       }
-                      fres += ",[Fleur.XQueryX.typeDeclaration,[" + np;
+                      const fdecl = [Fleur.XQueryX.typeDeclaration, [np]];
                       if ("?+*".indexOf(c) !== -1) {
-                        fres += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
+                        fdecl[1].push([Fleur.XQueryX.occurrenceIndicator,[c]]);
                         j++;
                       }
-                      fres += "]]";
+                      fres[1].push(fdecl);
                       j = Fleur.XQueryParser._skipSpaces(xq, j);
                       c = xq.charAt(j);
-/*                      if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-                        d = xq.substr(j + 1);
-                        ptype = Fleur.XQueryParser._getName(c + d);
-                        pindex = ptype.indexOf(":");
-                        np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
-                        c = xq.charAt(j + ptype.length);
-                        fres += ",[Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[" + np + "]]";
-                        if ("?+*".indexOf(c) !== -1) {
-                          fres += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
-                          j++;
-                        }
-                        fres += "]]";
-                        j = Fleur.XQueryParser._skipSpaces(xq, j + ptype.length);
-                        c = xq.charAt(j);
-                      }*/
                     }
                   }
                   if (c === "{") {
-                    fres += ",[Fleur.XQueryX.functionBody,[";
                     var braces = 1;
                     var body = "";
                     while ((c !== "}" || braces !== 0) && j !== end) {
@@ -2192,13 +2185,15 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                       }
                     }
                     if (body !== "") {
-                      fres += Fleur.XQueryParser._xp2js(body, [], [], 0);
+                      const fbres = Fleur.XQueryParser._xp2js(body, [], [], 0);
+                      fres[1].push([Fleur.XQueryX.functionBody,[[fbres[0], fbres[1]]]]);
+                    } else {
+                      fres[1].push([Fleur.XQueryX.functionBody,[]]);
                     }
-                    fres += "]]]],";
                     j = Fleur.XQueryParser._skipSpaces(xq, j + 1);
                     c = xq.charAt(j);
                     if (c === ";") {
-                      return (j + 1) + fres;
+                      return [fres[0], fres[1], i, j + 1, 0];
                     }
                   } else if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
                     d = xq.substr(j + 1);
@@ -2206,9 +2201,9 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                     if (r === "external") {
                       j = Fleur.XQueryParser._skipSpaces(xq, j + r.length);
                       c = xq.charAt(j);
-                      fres += ",[Fleur.XQueryX.externalDefinition,[]]]],";
+                      fres[1].push([Fleur.XQueryX.externalDefinition,[]]);
                       if (c === ";") {
-                        return (j + 1) + fres;
+                        return [fres[0], fres[1], i, j + 1, 0];
                       }
                     }
                   }
@@ -2225,17 +2220,16 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                 c = xq.charAt(j);
                 d = xq.substr(j + 1);
                 if (c === "'" || c === '"') {
-                  r = Fleur.XQueryParser._getStringLiteral(c + d);
-                  vl = r.substr(0, r.indexOf("."));
-                  v = r.substr(vl.length + 1);
-                  j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+                  r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.optionContents, 0);
+                  vl = r[3];
+                  j = Fleur.XQueryParser._skipSpaces(xq, j + vl);
                   c = xq.charAt(j);
                   if (c === ";") {
                     pindex = optionname.indexOf(":");
                     if (pindex === -1) {
-                      return (j + 1) + ".[Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,['" + optionname + "']],[Fleur.XQueryX.optionContents,[" + v + "]]]],";
+                      return [Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,[optionname]],[r[0], r[1]]], i, j + 1, 0];
                     }
-                    return (j + 1) + ".[Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,['" + optionname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + optionname.substr(0, pindex) + "']]]],[Fleur.XQueryX.optionContents,[" + v + "]]]],";
+                    return [Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,[optionname.substring(pindex + 1),[Fleur.XQueryX.prefix,[optionname.substring(0, pindex)]]]],[r[0], r[1]]], i, j + 1, 0];
                   }
                 }
               }
@@ -2259,13 +2253,12 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                 c = xq.charAt(j);
                 d = xq.substr(j + 1);
                 if (c === "'" || c === '"') {
-                  r = Fleur.XQueryParser._getStringLiteral(c + d);
-                  vl = r.substr(0, r.indexOf("."));
-                  v = r.substr(vl.length + 1);
+                  r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.targetLocation, 0);
+                  vl = r[3];
                   j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
                   c = xq.charAt(j);
                   if (c === ";") {
-                    return (j + 1) + ".[Fleur.XQueryX.javascriptImport,[[Fleur.XQueryX.targetLocation,[" + v + "]]]],";
+                    return [Fleur.XQueryX.javascriptImport,[[r[0], r[1]]], i, j + 1, 0];
                   }
                 }
               } else {
@@ -2304,10 +2297,10 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
               }
             }
             if (c === "'" || c === '"') {
-              r = Fleur.XQueryParser._getStringLiteral(c + d);
-              vl = r.substr(0, r.indexOf("."));
-              var modname = r.substr(vl.length + 1);
-              j = Fleur.XQueryParser._skipSpaces(xq, j + parseInt(vl, 10));
+              r = Fleur.XQueryParser._getStringLiteral(c + d, Fleur.XQueryX.targetNamespace, 0);
+              vl = r[3];
+              var modname = [r[0], r[1]];
+              j = Fleur.XQueryParser._skipSpaces(xq, j + vl);
               c = xq.charAt(j);
               d = xq.substr(j + 1);
               v = null;
@@ -2327,7 +2320,14 @@ Fleur.XQueryParser._getProlog = function(xq, i) {
                 }
               }
               if (c === ";") {
-                return (j + 1) + ".[Fleur.XQueryX.moduleImport,[[Fleur.XQueryX.targetNamespace,[" + modname + "]]" + (prefix ? ",[Fleur.XQueryX.namespacePrefix,['" + prefix + "']]" : "") + (v ? ",[Fleur.XQueryX.targetLocationExpr,[" + v + "]]" : "") + "]],";
+                const fres = [Fleur.XQueryX.moduleImport, [modname], i, j + 1, 0];
+                if (prefix) {
+                  fres[1].push([Fleur.XQueryX.namespacePrefix,[prefix]]);
+                }
+                if (v && v[0] !== 0) {
+                  fres[1].push([Fleur.XQueryX.targetLocationExpr,[[v[0], v[1]]]]);
+                }
+                return fres;
               }
             }
           }
@@ -2340,13 +2340,31 @@ Fleur.XQueryParser._xq2js = function(xq) {
   //console.log("_xq2js: " + xq);
   //xq = xq.replace(/^\s+|\s+$/gm, " ");
   const v = Fleur.XQueryParser._getVersion(xq);
-  const vl = v.substr(0, v.indexOf("."));
-  let prolog = "", p, pc, pl = parseInt(vl, 10);
+  const prologs = [];
+  let pl = v[3];
   do {
-    p = Fleur.XQueryParser._getProlog(xq, pl);
-    pl = parseInt(p.substr(0, p.indexOf(".")), 10);
-    pc = p.substr(p.indexOf(".") + 1);
-    prolog += pc;
-  } while (pc !== "");
-  return "[Fleur.XQueryX.module,[" + v.substr(v.indexOf(".") + 1) + "[Fleur.XQueryX.mainModule,[" + (prolog === "" ? "" : "[Fleur.XQueryX.prolog,[" + prolog.substr(0, prolog.length - 1) + "]],") + "[Fleur.XQueryX.queryBody,[" + Fleur.XQueryParser._xp2js(xq.substr(pl), [], [], 0) + ']]]],[Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]],[Fleur.XQueryX.xqxuf,["http://www.w3.org/2007/xquery-update-10"]],[Fleur.XQueryX.schemaLocation,["http://www.w3.org/2007/xquery-update-10 http://www.w3.org/2007/xquery-update-10/xquery-update-10-xqueryx.xsd http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"]],[Fleur.XQueryX.xsi,["http://www.w3.org/2001/XMLSchema-instance"]]]]';
+    const p = Fleur.XQueryParser._getProlog(xq, pl);
+    if (p[0] === 0) {
+      pl = p[2];
+      break;
+    }
+    pl = p[3];
+    prologs.push([p[0], p[1]]);
+  } while (true);
+  const r = [Fleur.XQueryX.module,[]];
+  if (v[0] !== 0) {
+    r[1].push([v[0], v[1]]);
+  }
+  const mainmodule = [Fleur.XQueryX.mainModule,[]];
+  if (prologs.length !== 0) {
+    mainmodule[1].push([Fleur.XQueryX.prolog, prologs]);
+  }
+  const xp = Fleur.XQueryParser._xp2js(xq.substr(pl), [], [], 0);
+  mainmodule[1].push([Fleur.XQueryX.queryBody, [[xp[0], xp[1]]]]);
+  r[1].push(mainmodule);
+  r[1].push([Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]]);
+  r[1].push([Fleur.XQueryX.xqxuf,["http://www.w3.org/2007/xquery-update-10"]]);
+  r[1].push([Fleur.XQueryX.schemaLocation,["http://www.w3.org/2007/xquery-update-10 http://www.w3.org/2007/xquery-update-10/xquery-update-10-xqueryx.xsd http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"]]);
+  r[1].push([Fleur.XQueryX.xsi,["http://www.w3.org/2001/XMLSchema-instance"]]);
+  return r;
 };
