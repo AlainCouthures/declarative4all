@@ -1,0 +1,2 @@
+export const encodeEntities = s => s.replace(/[&<>"']/g, match => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;'})[match]);
+export const encodeTextEntities = s => s.replace(/[&<]/g, match => ({'&': '&amp;', '<': '&lt;'})[match]);
