@@ -1,0 +1,9 @@
+input: line*.
+-line: name, s, amount, newline.
+name: word++([Zs]+).
+-word:[L]+.
+amount: currency, number.
+@currency: [Sc].
+-number: [Nd]+.
+-newline: s?, (-#a; -#d)+.
+-s: -[Zs]+.

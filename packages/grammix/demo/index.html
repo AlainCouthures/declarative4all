@@ -16,7 +16,7 @@
           <option value="">-- Select a sample --</option>
         </select>
         <br>
-        <textarea id="grammar" rows="15" cols="90" spellcheck="false" required placeholder="Enter your grammar"></textarea>
+        <textarea id="grammar" rows="5" cols="50" spellcheck="false" required placeholder="Enter your grammar"></textarea>
         <br>
         <button id="clear-grammar" type="button">Clear</button>
         <button id="normalized" type="button">Normalized Grammar</button>
@@ -26,14 +26,14 @@
         <br>
         <label for="input">Text</label>
         <br>
-        <textarea id="input" rows="10" cols="90" spellcheck="false" placeholder="Enter your text"></textarea>
+        <textarea id="input" rows="2" cols="50" spellcheck="false" placeholder="Enter your text"></textarea>
         <br>
         <button id="clear-input" type="button">Clear</button>
         <button id="copy-input" type="button">to Clipboard</button>
         <br>
         <label for="xml">XML</label>
         <br>
-        <textarea id="xml" rows="20" cols="90" spellcheck="false" placeholder="Enter your xml"></textarea>
+        <textarea id="xml" rows="8" cols="50" spellcheck="false" placeholder="Enter your xml"></textarea>
         <br>
         <button id="copy-xml" type="button">to Clipboard</button>
       </div>
@@ -42,6 +42,7 @@
           <img src="grammix.svg" alt="Grammix Logo" class="logo">
           <div>
             <h1>Grammix Demo</h1>
+            <a href="https://github.com/AlainCouthures/declarative4all/tree/master/packages/grammix" target="_blank" rel="noopener">https://github.com/AlainCouthures/declarative4all/tree/master/packages/grammix</a>
             <p>Copyright © agenceXML - 2025</p>
           </div>
         </div>
@@ -145,12 +146,12 @@ checkInputValidity();
 xmlTextArea.addEventListener('input', () => {
   if (currentGrammar) {
     try {
-      const canonicalizeResult = currentGrammar.canonicalize(xmlTextArea.value);
+      const normalizeResult = currentGrammar.normalize(xmlTextArea.value);
       xmlTextArea.setCustomValidity('');
       xmlTextArea.removeAttribute('aria-invalid');
       inputTextArea.setCustomValidity('');
       inputTextArea.removeAttribute('aria-invalid');
-      inputTextArea.value = canonicalizeResult;
+      inputTextArea.value = normalizeResult;
       outputPre.textContent = '';
       outputPre.classList.remove('error');
     } catch (error) {
@@ -373,14 +374,14 @@ left>first: operand.
        endtag: -"</", s, name, s, -">", s.
     attribute: -"<@", s, name, s, -">", s.
 
-    insertion: -"+", s, (string; -"#", hex), s.`}],
+    insertion: -"+", s, (string; -"#", hex), s.`}] /*,
   ['Javascript to XSLT Transpiler', { label: 'js2xslt', content: `xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform":
     -"import * as xslt4all from './xslt4all.mjs';", -#a,
     -"export const transform = xmlInput => {", -#a,
     -"  const xsltStylesheet = xslt4all.stylesheet();", -#a,
     -"  return xsltStylesheet.transform(xmlInput);", -#a,
     -"};"
-    .`}]
+    .`}]*/
 ]);
 grammarOptions.forEach((data, key) => {
   const option = document.createElement('option');
@@ -406,7 +407,7 @@ clearGrammarButton.addEventListener('click', () => {
 });
 normalizedButton.addEventListener('click', () => {
   grammarsSelect.value = '';
-  grammarTextArea.value = currentGrammar.toCanonicalIXml();
+  grammarTextArea.value = currentGrammar.toNormalizedIXml();
   checkGrammarValidity();
 });
 expandedButton.addEventListener('click', () => {

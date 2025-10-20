@@ -1,23 +1,23 @@
 class V {
-  constructor(t, e) {
-    if (this.nodeType = 2, this.nodeName = e, t) {
-      this.namespaceURI = t;
-      const n = e.split(":");
-      this.prefix = n.length > 1 ? n[0] : "", this.localName = n.length > 1 ? n[1] : n[0];
+  constructor(e, t) {
+    if (this.nodeType = 2, this.nodeName = t, e) {
+      this.namespaceURI = e;
+      const s = t.split(":");
+      this.prefix = s.length > 1 ? s[0] : "", this.localName = s.length > 1 ? s[1] : s[0];
     } else
-      this.namespaceURI = "", this.prefix = "", this.localName = e;
-    this.name = e, this.value = "";
+      this.namespaceURI = "", this.prefix = "", this.localName = t;
+    this.name = t, this.value = "";
   }
-  appendChild(t) {
-    t && (this.value += t.textContent || "");
-  }
-}
-class dt {
-  constructor(t, e) {
-    this.nodeType = 133, this.URI = t ?? "", this.prefix = e ?? "";
+  appendChild(e) {
+    e && (this.value += e.textContent || "");
   }
 }
-class j {
+class me {
+  constructor(e, t) {
+    this.nodeType = 133, this.URI = e ?? "", this.prefix = t ?? "";
+  }
+}
+class z {
   attributes = [];
   namespaces = [];
   childNodes = [];
@@ -25,215 +25,215 @@ class j {
   parentNode = null;
   previousSibling = null;
   nextSibling = null;
-  constructor(t, e) {
-    if (this.nodeName = e, t) {
-      this.namespaceURI = t;
-      const n = e.split(":");
-      this.prefix = n.length > 1 ? n[0] : "", this.localName = n.length > 1 ? n[1] : n[0];
+  constructor(e, t) {
+    if (this.nodeName = t, e) {
+      this.namespaceURI = e;
+      const s = t.split(":");
+      this.prefix = s.length > 1 ? s[0] : "", this.localName = s.length > 1 ? s[1] : s[0];
     } else
-      this.namespaceURI = "", this.prefix = "", this.localName = e;
+      this.namespaceURI = "", this.prefix = "", this.localName = t;
   }
-  appendChild(t) {
-    t && (t.previousSibling = this.childNodes[this.childNodes.length - 1], t.previousSibling && (t.previousSibling.nextSibling = t), this.childNodes.push(t), t.parentNode = this);
+  appendChild(e) {
+    e && (e.previousSibling = this.childNodes[this.childNodes.length - 1], e.previousSibling && (e.previousSibling.nextSibling = e), this.childNodes.push(e), e.parentNode = this);
   }
-  removeChild(t) {
-    t.previousSibling && (t.previousSibling.nextSibling = t.nextSibling), this.childNodes = this.childNodes.filter((e) => e !== t);
+  removeChild(e) {
+    e.previousSibling && (e.previousSibling.nextSibling = e.nextSibling), this.childNodes = this.childNodes.filter((t) => t !== e);
   }
-  getAttribute(t) {
-    for (let e = 0, n = this.attributes.length; e < n; e++)
-      if (this.attributes[e].name === t)
-        return this.attributes[e].value;
+  getAttribute(e) {
+    for (let t = 0, s = this.attributes.length; t < s; t++)
+      if (this.attributes[t].name === e)
+        return this.attributes[t].value;
     return "";
   }
-  getAttributeNS(t, e) {
-    const n = e.split(":"), s = n.length > 1 ? n[1] : n[0];
+  getAttributeNS(e, t) {
+    const s = t.split(":"), i = s.length > 1 ? s[1] : s[0];
     for (let a = 0, r = this.attributes.length; a < r; a++)
-      if (this.attributes[a].namespaceURI === t && this.attributes[a].localName === s)
+      if (this.attributes[a].namespaceURI === e && this.attributes[a].localName === i)
         return this.attributes[a].value;
     return "";
   }
-  setAttributeNS(t, e, n) {
-    if (t === "http://www.w3.org/2000/xmlns/")
-      this.setNamespace(n, e === "xmlns" ? "" : e.slice(6));
+  setAttributeNS(e, t, s) {
+    if (e === "http://www.w3.org/2000/xmlns/")
+      this.setNamespace(s, t === "xmlns" ? "" : t.slice(6));
     else {
-      const s = e.split(":"), a = s.length > 1 ? s[1] : s[0];
+      const i = t.split(":"), a = i.length > 1 ? i[1] : i[0];
       for (let c = 0, _ = this.attributes.length; c < _; c++)
-        if (this.attributes[c].namespaceURI === t && this.attributes[c].localName === a) {
-          this.attributes[c].value = n;
+        if (this.attributes[c].namespaceURI === e && this.attributes[c].localName === a) {
+          this.attributes[c].value = s;
           return;
         }
-      const r = new V(t, e);
-      r.value = n, this.attributes.push(r), r.ownerElement = this;
+      const r = new V(e, t);
+      r.value = s, this.attributes.push(r), r.ownerElement = this;
     }
   }
-  setAttribute(t, e) {
-    this.setAttributeNS("", t, e);
+  setAttribute(e, t) {
+    this.setAttributeNS("", e, t);
   }
-  setAttributeNodeNS(t) {
-    for (let e = 0, n = this.attributes.length; e < n; e++)
-      if (this.attributes[e].namespaceURI === t.namespaceURI && this.attributes[e].localName === t.localName) {
-        this.attributes[e] = t;
+  setAttributeNodeNS(e) {
+    for (let t = 0, s = this.attributes.length; t < s; t++)
+      if (this.attributes[t].namespaceURI === e.namespaceURI && this.attributes[t].localName === e.localName) {
+        this.attributes[t] = e;
         return;
       }
-    this.attributes.push(t), t.ownerElement = this;
+    this.attributes.push(e), e.ownerElement = this;
   }
-  setAttributeNode(t) {
-    this.setAttributeNodeNS(t);
+  setAttributeNode(e) {
+    this.setAttributeNodeNS(e);
   }
-  removeAttribute(t) {
-    this.attributes = this.attributes.filter((e) => e.name !== t);
+  removeAttribute(e) {
+    this.attributes = this.attributes.filter((t) => t.name !== e);
   }
-  setNamespace(t, e) {
-    const n = new dt(t, e);
-    this.namespaces.push(n);
-  }
-}
-class ot {
-  constructor(t) {
-    this.nodeType = 3, this.textContent = t ?? "";
+  setNamespace(e, t) {
+    const s = new me(e, t);
+    this.namespaces.push(s);
   }
 }
-class Et {
+class le {
+  constructor(e) {
+    this.nodeType = 3, this.textContent = e ?? "";
+  }
+}
+class Ne {
   constructor() {
     this.nodeType = 132, this.childNodes = [];
   }
-  appendChild(t) {
-    t && this.childNodes.push(t);
+  appendChild(e) {
+    e && this.childNodes.push(e);
   }
 }
-const lt = (m) => m.replace(/[&<>"']/g, (t) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" })[t]), Nt = (m) => m.replace(/[&<]/g, (t) => ({ "&": "&amp;", "<": "&lt;" })[t]);
-class ct {
+const ce = (m) => m.replace(/[&<>"']/g, (e) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" })[e]), ge = (m) => m.replace(/[&<]/g, (e) => ({ "&": "&amp;", "<": "&lt;" })[e]);
+class ue {
   textContent = "";
   attributes = [];
-  constructor(t, e) {
-    if (this.nodeName = e, t) {
-      this.namespaceURI = t;
-      const n = e.split(":");
-      this.prefix = n.length > 1 ? n[0] : "", this.localName = n.length > 1 ? n[1] : n[0];
+  constructor(e, t) {
+    if (this.nodeName = t, e) {
+      this.namespaceURI = e;
+      const s = t.split(":");
+      this.prefix = s.length > 1 ? s[0] : "", this.localName = s.length > 1 ? s[1] : s[0];
     } else
-      this.namespaceURI = "", this.prefix = "", this.localName = e;
+      this.namespaceURI = "", this.prefix = "", this.localName = t;
   }
   toParentNode() {
     if (this.nodeName) {
-      let t = "<" + this.nodeName;
+      let e = "<" + this.nodeName;
       if (this.attributes.length !== 0) {
-        const e = [], n = [];
-        this.attributes.forEach((s) => {
-          s.name === "xmlns" ? e.unshift(s) : s.name.startsWith("xmlns:") ? e.push(s) : n.push(s);
-        }), e.sort((s, a) => s.name === "xmlns" ? -1 : a.name === "xmlns" ? 1 : s.name.localeCompare(a.name)), n.sort((s, a) => {
-          const r = s.name.split(":"), c = a.name.split(":"), _ = r.length > 1 ? r[0] : "", f = r.length > 1 ? r[1] : r[0], i = c.length > 1 ? c[0] : "", d = c.length > 1 ? c[1] : c[0];
-          return _ < i ? -1 : _ > i ? 1 : f.localeCompare(d);
+        const t = [], s = [];
+        this.attributes.forEach((i) => {
+          i.name === "xmlns" ? t.unshift(i) : i.name.startsWith("xmlns:") ? t.push(i) : s.push(i);
+        }), t.sort((i, a) => i.name === "xmlns" ? -1 : a.name === "xmlns" ? 1 : i.name.localeCompare(a.name)), s.sort((i, a) => {
+          const r = i.name.split(":"), c = a.name.split(":"), _ = r.length > 1 ? r[0] : "", f = r.length > 1 ? r[1] : r[0], n = c.length > 1 ? c[0] : "", d = c.length > 1 ? c[1] : c[0];
+          return _ < n ? -1 : _ > n ? 1 : f.localeCompare(d);
         });
-        for (let s = 0, a = e.length; s < a; s++)
-          t += " " + e[s].name + '="' + lt(e[s].value) + '"';
-        for (let s = 0, a = n.length; s < a; s++)
-          t += " " + n[s].name + '="' + lt(n[s].value) + '"';
+        for (let i = 0, a = t.length; i < a; i++)
+          e += " " + t[i].name + '="' + ce(t[i].value) + '"';
+        for (let i = 0, a = s.length; i < a; i++)
+          e += " " + s[i].name + '="' + ce(s[i].value) + '"';
       }
-      return this.textContent ? t += ">" + this.textContent + (this.ownerDocument.indent && this.textContent.startsWith(`
+      return this.textContent ? e += ">" + this.textContent + (this.ownerDocument.indent && this.textContent.startsWith(`
 `) ? `
-` : "") + "</" + this.nodeName + ">" : t += "/>", t;
+` : "") + "</" + this.nodeName + ">" : e += "/>", e;
     }
     return this.textContent;
   }
-  appendChild(t) {
-    const e = t.toParentNode(this);
+  appendChild(e) {
+    const t = e.toParentNode(this);
     if (this.ownerDocument.indent) {
-      const n = " ".repeat(this.ownerDocument.indent);
-      e.startsWith("<") || this.textContent ? (this.textContent && !this.textContent.startsWith(`
+      const s = " ".repeat(this.ownerDocument.indent);
+      t.startsWith("<") || this.textContent ? (this.textContent && !this.textContent.startsWith(`
 `) && (this.textContent = `
-` + n + this.textContent), this.textContent += `
-` + n + e.replace(/\n/g, `
-` + n)) : this.textContent += e;
+` + s + this.textContent), this.textContent += `
+` + s + t.replace(/\n/g, `
+` + s)) : this.textContent += t;
     } else
-      this.textContent += e;
+      this.textContent += t;
   }
-  setAttributeNS(t, e, n) {
-    const s = e.split(":"), a = s.length > 1 ? s[1] : s[0];
+  setAttributeNS(e, t, s) {
+    const i = t.split(":"), a = i.length > 1 ? i[1] : i[0];
     for (let c = 0, _ = this.attributes.length; c < _; c++)
-      if (this.attributes[c].namespaceURI === t && this.attributes[c].localName === a) {
-        this.attributes[c].value = n;
+      if (this.attributes[c].namespaceURI === e && this.attributes[c].localName === a) {
+        this.attributes[c].value = s;
         return;
       }
-    const r = new V(t, e);
-    r.value = n, this.attributes.push(r);
+    const r = new V(e, t);
+    r.value = s, this.attributes.push(r);
   }
-  setAttributeNodeNS(t) {
-    this.attributes.push(t);
+  setAttributeNodeNS(e) {
+    this.attributes.push(e);
   }
 }
-class ut {
-  constructor(t, e) {
-    if (this.nodeName = e, t) {
-      this.namespaceURI = t;
-      const n = e.split(":");
-      this.prefix = n.length > 1 ? n[0] : "", this.localName = n.length > 1 ? n[1] : n[0];
+class _e {
+  constructor(e, t) {
+    if (this.nodeName = t, e) {
+      this.namespaceURI = e;
+      const s = t.split(":");
+      this.prefix = s.length > 1 ? s[0] : "", this.localName = s.length > 1 ? s[1] : s[0];
     } else
-      this.namespaceURI = "", this.prefix = "", this.localName = e;
-    this.name = e, this.value = "";
+      this.namespaceURI = "", this.prefix = "", this.localName = t;
+    this.name = t, this.value = "";
   }
-  appendChild(t) {
-    t && (this.value += t.textContent || "");
+  appendChild(e) {
+    e && (this.value += e.textContent || "");
   }
 }
-class gt {
-  constructor(t) {
-    this.textContent = Nt(t);
+class be {
+  constructor(e) {
+    this.textContent = ge(e);
   }
   toParentNode() {
     return this.textContent;
   }
 }
 class B {
-  constructor(t) {
-    this.textContent = "", this.indent = t;
+  constructor(e) {
+    this.textContent = "", this.indent = e;
   }
-  createElement(t) {
-    const e = new ct("", t);
-    return e.ownerDocument = this, e;
+  createElement(e) {
+    const t = new ue("", e);
+    return t.ownerDocument = this, t;
   }
-  createElementNS(t, e) {
-    const n = new ct(t, e);
-    return n.ownerDocument = this, n;
+  createElementNS(e, t) {
+    const s = new ue(e, t);
+    return s.ownerDocument = this, s;
   }
-  createAttribute(t) {
-    return new ut("", t);
+  createAttribute(e) {
+    return new _e("", e);
   }
-  createAttributeNS(t, e) {
-    return new ut(t, e);
+  createAttributeNS(e, t) {
+    return new _e(e, t);
   }
-  createTextNode(t) {
-    return new gt(t);
+  createTextNode(e) {
+    return new be(e);
   }
-  appendChild(t) {
+  appendChild(e) {
     this.textContent = `<?xml version="1.0" encoding="UTF-8"?>
-` + t.toParentNode();
+` + e.toParentNode();
   }
 }
-class _t {
+class he {
   textContent = "";
   attributes = "";
   childNodes = "";
   ownerDocument = null;
-  constructor(t, e, n) {
-    const [s, a] = t && e.includes(":") ? e.split(":") : [null, e];
+  constructor(e, t, s) {
+    const [i, a] = e && t.includes(":") ? t.split(":") : [null, t];
     this.textContent = [
       '"nodeType": 1,',
-      `"nodeName": "${e}",`,
-      `"namespaceURI": ${JSON.stringify(t || null)},`,
-      `"prefix": ${JSON.stringify(s)},`,
+      `"nodeName": "${t}",`,
+      `"namespaceURI": ${JSON.stringify(e || null)},`,
+      `"prefix": ${JSON.stringify(i)},`,
       `"localName": "${a}"`
-    ].join(n ? `
+    ].join(s ? `
 ` : " ");
   }
-  setAttributeNS(t, e, n) {
-    const [s, a] = t && e.includes(":") ? e.split(":") : [null, e], { indent: r } = this.ownerDocument;
+  setAttributeNS(e, t, s) {
+    const [i, a] = e && t.includes(":") ? t.split(":") : [null, t], { indent: r } = this.ownerDocument;
     let c = [
       '"nodeType": 2,',
-      `"nodeName": "${e}",`,
-      `"namespaceURI": ${JSON.stringify(t || null)},`,
-      `"prefix": ${JSON.stringify(s)},`,
+      `"nodeName": "${t}",`,
+      `"namespaceURI": ${JSON.stringify(e || null)},`,
+      `"prefix": ${JSON.stringify(i)},`,
       `"localName": "${a}",`,
-      `"value": ${JSON.stringify(n)}`
+      `"value": ${JSON.stringify(s)}`
     ].join(r ? `
 ` : " ");
     if (r) {
@@ -248,137 +248,137 @@ ${_}`, this.attributes += `${this.attributes ? `,
     } else
       this.attributes += `${this.attributes ? ", " : ""}{${c}}`;
   }
-  appendChild(t) {
-    const e = t.toParentNode(this), { indent: n } = this.ownerDocument;
-    if (n) {
-      const s = " ".repeat(this.ownerDocument.indent);
+  appendChild(e) {
+    const t = e.toParentNode(this), { indent: s } = this.ownerDocument;
+    if (s) {
+      const i = " ".repeat(this.ownerDocument.indent);
       this.childNodes += `${this.childNodes ? `,
 ` : `
-`}${s}${e.replaceAll(`
+`}${i}${t.replaceAll(`
 `, `
-${s}`)}`;
+${i}`)}`;
     } else
-      this.childNodes += `${this.childNodes ? ", " : ""}${e}`;
+      this.childNodes += `${this.childNodes ? ", " : ""}${t}`;
   }
   toParentNode() {
-    const { indent: t } = this.ownerDocument, e = t ? `
+    const { indent: e } = this.ownerDocument, t = e ? `
 ` : "";
-    let n = [
-      `${e}${this.textContent},`,
-      `"attributes": [${this.attributes ? this.attributes + e : ""}],`,
-      `"childNodes": [${this.childNodes ? this.childNodes + e : ""}]`
-    ].join(t ? `
+    let s = [
+      `${t}${this.textContent},`,
+      `"attributes": [${this.attributes ? this.attributes + t : ""}],`,
+      `"childNodes": [${this.childNodes ? this.childNodes + t : ""}]`
+    ].join(e ? `
 ` : " ");
-    if (t) {
-      const s = " ".repeat(t);
-      n = n.replaceAll(`
+    if (e) {
+      const i = " ".repeat(e);
+      s = s.replaceAll(`
 `, `
-${s}`);
+${i}`);
     }
-    return `{${n}${e}}`;
+    return `{${s}${t}}`;
   }
 }
-const bt = (m) => m.split("-").map(([t, ...e]) => t.toUpperCase() + e.join("")).join(""), U = (m) => m.includes('"') ? m.includes("'") ? `"${m.replaceAll('"', '""')}"` : `'${m}'` : `"${m}"`, At = (m) => m.includes("'") ? m.includes('"') ? `'${m.replaceAll("'", "\\'").replace(/\r?\n/g, "\\n")}'` : `"${m.replace(/\r?\n/g, "\\n")}"` : `'${m.replace(/\r?\n/g, "\\n")}'`;
-class Tt {
+const Ae = (m) => m.split("-").map(([e, ...t]) => e.toUpperCase() + t.join("")).join(""), U = (m) => m.includes('"') ? m.includes("'") ? `"${m.replaceAll('"', '""')}"` : `'${m}'` : `"${m}"`, Te = (m) => m.includes("'") ? m.includes('"') ? `'${m.replaceAll("'", "\\'").replace(/\r?\n/g, "\\n")}'` : `"${m.replace(/\r?\n/g, "\\n")}"` : `'${m.replace(/\r?\n/g, "\\n")}'`;
+class Re {
   textContent = "";
   ownerDocument = null;
-  constructor(t, e) {
-    this.textContent = `"nodeType": 3,${e ? `
-` : " "}"textContent": ${At(t)}`;
+  constructor(e, t) {
+    this.textContent = `"nodeType": 3,${t ? `
+` : " "}"textContent": ${Te(e)}`;
   }
   toParentNode() {
-    const { indent: t } = this.ownerDocument, e = t ? `
+    const { indent: e } = this.ownerDocument, t = e ? `
 ` : "";
-    let n = `${e}${this.textContent}`;
-    if (t) {
-      const s = " ".repeat(t);
-      n = n.replaceAll(`
+    let s = `${t}${this.textContent}`;
+    if (e) {
+      const i = " ".repeat(e);
+      s = s.replaceAll(`
 `, `
-${s}`);
+${i}`);
     }
-    return `{${n}${e}}`;
+    return `{${s}${t}}`;
   }
 }
-class ht {
+class pe {
   textContent = "";
   indent = 0;
-  constructor(t) {
-    this.indent = t;
+  constructor(e) {
+    this.indent = e;
   }
-  createElement(t) {
-    const e = new _t("", t, this.indent);
-    return e.ownerDocument = this, e;
+  createElement(e) {
+    const t = new he("", e, this.indent);
+    return t.ownerDocument = this, t;
   }
-  createElementNS(t, e) {
-    const n = new _t(t, e, this.indent);
-    return n.ownerDocument = this, n;
+  createElementNS(e, t) {
+    const s = new he(e, t, this.indent);
+    return s.ownerDocument = this, s;
   }
-  createTextNode(t) {
-    const e = new Tt(t, this.indent);
-    return e.ownerDocument = this, e;
+  createTextNode(e) {
+    const t = new Re(e, this.indent);
+    return t.ownerDocument = this, t;
   }
-  appendChild(t) {
-    this.textContent = t.toParentNode();
+  appendChild(e) {
+    this.textContent = e.toParentNode();
   }
 }
-function Rt(m, t) {
-  const e = {
+function Se(m, e) {
+  const t = {
     amp: "&",
     lt: "<",
     gt: ">",
     apos: "'",
     quot: '"'
-  }, [n, ...s] = t.split("&");
-  return s.reduce((a, r) => {
-    const [c, ..._] = r.split(";"), f = c.startsWith("#") ? String.fromCharCode(c[1] === "x" ? parseInt(c.slice(2), 16) : parseInt(c.slice(1), 10)) : e[c] ?? m?.getEntity(c);
+  }, [s, ...i] = e.split("&");
+  return i.reduce((a, r) => {
+    const [c, ..._] = r.split(";"), f = c.startsWith("#") ? String.fromCharCode(c[1] === "x" ? parseInt(c.slice(2), 16) : parseInt(c.slice(1), 10)) : t[c] ?? m?.getEntity(c);
     return a + (f ?? `&${c};`) + _.join(";");
-  }, n);
+  }, s);
 }
-function K(m, t, e) {
-  const n = e.substring(0, t).split(`
-`).length, s = t - e.lastIndexOf(`
-`, t - 1) + 1;
-  return `Error: ${m} at line ${n}, column ${s}`;
+function K(m, e, t) {
+  const s = t.substring(0, e).split(`
+`).length, i = e - t.lastIndexOf(`
+`, e - 1) + 1;
+  return `Error: ${m} at line ${s}, column ${i}`;
 }
 function Q(m) {
   if (typeof m != "string" || !m)
     return !1;
-  const t = m.indexOf(":");
-  if (t !== -1) {
-    if (t === 0 || t === m.length - 1 || m.indexOf(":", t + 1) !== -1)
+  const e = m.indexOf(":");
+  if (e !== -1) {
+    if (e === 0 || e === m.length - 1 || m.indexOf(":", e + 1) !== -1)
       return !1;
-    const r = m.substring(0, t), c = m.substring(t + 1);
+    const r = m.substring(0, e), c = m.substring(e + 1);
     return Q(r) && Q(c);
   }
-  const e = (r) => r >= 65 && r <= 90 || r === 95 || r >= 97 && r <= 122 || r >= 192 && r <= 214 || r >= 216 && r <= 246 || r >= 248 && r <= 767 || r >= 880 && r <= 893 || r >= 895 && r <= 8191 || r >= 8204 && r <= 8205 || r >= 8304 && r <= 8591 || r >= 11264 && r <= 12271 || r >= 12289 && r <= 55295 || r >= 63744 && r <= 64975 || r >= 65008 && r <= 65533 || r >= 65536 && r <= 983039, n = (r) => e(r) || r === 45 || r === 46 || r >= 48 && r <= 57 || r === 183 || r >= 768 && r <= 879 || r >= 8255 && r <= 8256;
-  let s = 0, a = m.codePointAt(s);
-  if (!e(a))
+  const t = (r) => r >= 65 && r <= 90 || r === 95 || r >= 97 && r <= 122 || r >= 192 && r <= 214 || r >= 216 && r <= 246 || r >= 248 && r <= 767 || r >= 880 && r <= 893 || r >= 895 && r <= 8191 || r >= 8204 && r <= 8205 || r >= 8304 && r <= 8591 || r >= 11264 && r <= 12271 || r >= 12289 && r <= 55295 || r >= 63744 && r <= 64975 || r >= 65008 && r <= 65533 || r >= 65536 && r <= 983039, s = (r) => t(r) || r === 45 || r === 46 || r >= 48 && r <= 57 || r === 183 || r >= 768 && r <= 879 || r >= 8255 && r <= 8256;
+  let i = 0, a = m.codePointAt(i);
+  if (!t(a))
     return !1;
-  for (s += a > 65535 ? 2 : 1; s < m.length; ) {
-    if (a = m.codePointAt(s), !n(a))
+  for (i += a > 65535 ? 2 : 1; i < m.length; ) {
+    if (a = m.codePointAt(i), !s(a))
       return !1;
-    s += a > 65535 ? 2 : 1;
+    i += a > 65535 ? 2 : 1;
   }
   return !0;
 }
-function pt(m) {
+function de(m) {
   return Q(m) && !/^[Xx][Mm][Ll]/.test(m);
 }
-const nt = 0;
-function mt(m, t, e, n) {
-  e = e ?? nt;
-  for (var s, a, r, c, _, f, i = 0, d = t.length, x, o, l, p, h = [], E = m.ownerDocument || m, S = m, A, N, u, T = ` 	
-\r?`, C = ` 	
+const se = 0;
+function fe(m, e, t, s) {
+  t = t ?? se;
+  for (var i, a, r, c, _, f, n = 0, d = e.length, x, o, l, p, h = [], E = m.ownerDocument || m, O = m, A, N, u, T = ` 	
+\r?`, D = ` 	
 \r[>`, $ = ` 	
 \r>`, k = ` 	
 \r/>`, G = ` 	
 \r=/<>'"`, R = ` 	
-\r`, D, I = { xmlns: "http://www.w3.org/2000/xmlns/", xml: "http://www.w3.org/XML/1998/namespace" }, L = {}, y, g, J, Y, F, X, P, et, v; i !== d; ) {
-    for (r = "", u = t.charAt(i); u !== "<" && i !== d; ) {
+\r`, C, I = { xmlns: "http://www.w3.org/2000/xmlns/", xml: "http://www.w3.org/XML/1998/namespace" }, L = {}, y, g, J, Y, F, X, P, te, v; n !== d; ) {
+    for (r = "", u = e.charAt(n); u !== "<" && n !== d; ) {
       if (u === "&") {
-        for (u = t.charAt(++i), c = i, _ = ""; u !== ";" && i !== d; )
-          _ += u, u = t.charAt(++i);
-        if (i === d)
+        for (u = e.charAt(++n), c = n, _ = ""; u !== ";" && n !== d; )
+          _ += u, u = e.charAt(++n);
+        if (n === d)
           break;
         switch (P = "", _) {
           case "amp":
@@ -397,198 +397,198 @@ function mt(m, t, e, n) {
             r += '"';
             break;
           default:
-            _.charAt(0) === "#" ? r += String.fromCharCode(parseInt(_.charAt(1).toLowerCase() === "x" ? "0" + _.substring(1).toLowerCase() : _.substring(1), _.charAt(1).toLowerCase() === "x" ? 16 : 10)) : E.doctype && (P = E.doctype.getEntity(_), t = t.substring(0, c - 1) + P + t.substring(i + 1), i = c - 2, d = t.length);
+            _.charAt(0) === "#" ? r += String.fromCharCode(parseInt(_.charAt(1).toLowerCase() === "x" ? "0" + _.substring(1).toLowerCase() : _.substring(1), _.charAt(1).toLowerCase() === "x" ? 16 : 10)) : E.doctype && (P = E.doctype.getEntity(_), e = e.substring(0, c - 1) + P + e.substring(n + 1), n = c - 2, d = e.length);
         }
       } else
         r += u;
-      u = t.charAt(++i);
+      u = e.charAt(++n);
     }
-    if (r.trim() !== "" && S.appendChild(E.createTextNode(r.trim())), i === d)
+    if (r.trim() !== "" && O.appendChild(E.createTextNode(r.trim())), n === d)
       break;
-    if (i++, t.charAt(i) === "!") {
-      if (i++, t.substr(i, 2) === "--") {
-        if (i += 2, f = t.indexOf("-->", i), f !== i) {
-          for (f === -1 && (f = d), r = "", s = i; s < f; )
-            r += t.charAt(s++);
-          if (S.appendChild(E.createComment(r)), f === d)
+    if (n++, e.charAt(n) === "!") {
+      if (n++, e.substr(n, 2) === "--") {
+        if (n += 2, f = e.indexOf("-->", n), f !== n) {
+          for (f === -1 && (f = d), r = "", i = n; i < f; )
+            r += e.charAt(i++);
+          if (O.appendChild(E.createComment(r)), f === d)
             break;
-          i = f;
+          n = f;
         }
-        i += 3;
-      } else if (t.substr(i, 7) === "[CDATA[") {
-        if (i += 7, f = t.indexOf("]]>", i), f !== i) {
-          for (f === -1 && (f = d), r = "", s = i; s < f; )
-            r += t.charAt(s++);
-          if (S.appendChild(E.createCDATASection(r)), f === d)
+        n += 3;
+      } else if (e.substr(n, 7) === "[CDATA[") {
+        if (n += 7, f = e.indexOf("]]>", n), f !== n) {
+          for (f === -1 && (f = d), r = "", i = n; i < f; )
+            r += e.charAt(i++);
+          if (O.appendChild(E.createCDATASection(r)), f === d)
             break;
-          i = f;
+          n = f;
         }
-        i += 3;
-      } else if (t.substr(i, 7) === "DOCTYPE") {
-        for (i += 7, f = t.indexOf(">", i); R.indexOf(u) !== -1; )
-          u = t.charAt(i++);
-        for (x = ""; C.indexOf(u) === -1 && i !== d; )
-          x += u, u = t.charAt(i++);
+        n += 3;
+      } else if (e.substr(n, 7) === "DOCTYPE") {
+        for (n += 7, f = e.indexOf(">", n); R.indexOf(u) !== -1; )
+          u = e.charAt(n++);
+        for (x = ""; D.indexOf(u) === -1 && n !== d; )
+          x += u, u = e.charAt(n++);
         for (; R.indexOf(u) !== -1; )
-          u = t.charAt(i++);
-        for (Y = ""; C.indexOf(u) === -1 && i !== d; )
-          Y += u, u = t.charAt(i++);
+          u = e.charAt(n++);
+        for (Y = ""; D.indexOf(u) === -1 && n !== d; )
+          Y += u, u = e.charAt(n++);
         if (Y === "PUBLIC" || Y === "SYSTEM") {
           if (Y === "PUBLIC") {
             for (; R.indexOf(u) !== -1; )
-              u = t.charAt(i++);
-            for (F = "", s = i, a = Math.min(f - 1, t.indexOf(u, i)); s < a; )
-              F += t.charAt(s++);
-            i += F.length + 1, u = t.charAt(i++);
+              u = e.charAt(n++);
+            for (F = "", i = n, a = Math.min(f - 1, e.indexOf(u, n)); i < a; )
+              F += e.charAt(i++);
+            n += F.length + 1, u = e.charAt(n++);
           }
           for (; R.indexOf(u) !== -1; )
-            u = t.charAt(i++);
-          for (X = "", s = i, a = Math.min(f - 1, t.indexOf(u, i)); s < a; )
-            X += t.charAt(s++);
-          for (i += X.length + 1, u = t.charAt(i++); R.indexOf(u) !== -1; )
-            u = t.charAt(i++);
+            u = e.charAt(n++);
+          for (X = "", i = n, a = Math.min(f - 1, e.indexOf(u, n)); i < a; )
+            X += e.charAt(i++);
+          for (n += X.length + 1, u = e.charAt(n++); R.indexOf(u) !== -1; )
+            u = e.charAt(n++);
         } else
           F = X = null;
-        if (E.implementation && (S.appendChild(E.doctype = E.implementation.createDocumentType(x, F, X)), E.doctype.ownerDocument = E), u === "[") {
-          for (f = t.indexOf("]", i), u = t.charAt(i++); u !== "]" && i < d; ) {
+        if (E.implementation && (O.appendChild(E.doctype = E.implementation.createDocumentType(x, F, X)), E.doctype.ownerDocument = E), u === "[") {
+          for (f = e.indexOf("]", n), u = e.charAt(n++); u !== "]" && n < d; ) {
             for (; R.indexOf(u) !== -1; )
-              u = t.charAt(i++);
+              u = e.charAt(n++);
             if (u === "]")
               break;
-            if (t.substr(i, 7) === "!ENTITY") {
-              for (i += 7, u = t.charAt(i++); R.indexOf(u) !== -1; )
-                u = t.charAt(i++);
+            if (e.substr(n, 7) === "!ENTITY") {
+              for (n += 7, u = e.charAt(n++); R.indexOf(u) !== -1; )
+                u = e.charAt(n++);
               if (u === "%")
-                for (u = t.charAt(i++); R.indexOf(u) !== -1; )
-                  u = t.charAt(i++);
-              for (x = ""; C.indexOf(u) === -1; )
-                x += u, u = t.charAt(i++);
+                for (u = e.charAt(n++); R.indexOf(u) !== -1; )
+                  u = e.charAt(n++);
+              for (x = ""; D.indexOf(u) === -1; )
+                x += u, u = e.charAt(n++);
               for (; R.indexOf(u) !== -1; )
-                u = t.charAt(i++);
-              if (t.substr(i - 1, 6) === "SYSTEM")
-                for (i += 5, u = t.charAt(i++); R.indexOf(u) !== -1; )
-                  u = t.charAt(i++);
-              else if (t.substr(i - 1, 6) === "PUBLIC") {
-                for (i += 5, u = t.charAt(i++); R.indexOf(u) !== -1; )
-                  u = t.charAt(i++);
-                for (; C.indexOf(u) === -1 && i !== d; )
-                  u = t.charAt(i++);
+                u = e.charAt(n++);
+              if (e.substr(n - 1, 6) === "SYSTEM")
+                for (n += 5, u = e.charAt(n++); R.indexOf(u) !== -1; )
+                  u = e.charAt(n++);
+              else if (e.substr(n - 1, 6) === "PUBLIC") {
+                for (n += 5, u = e.charAt(n++); R.indexOf(u) !== -1; )
+                  u = e.charAt(n++);
+                for (; D.indexOf(u) === -1 && n !== d; )
+                  u = e.charAt(n++);
                 for (; R.indexOf(u) !== -1; )
-                  u = t.charAt(i++);
+                  u = e.charAt(n++);
               }
-              for (P = "", s = i, a = Math.min(f - 1, t.indexOf(u, i)); s < a; )
-                P += t.charAt(s++);
-              i += P.length + 1, u = t.charAt(i++), E.doctype.setEntity(x, P);
-            } else if (t.substr(i, 9) === "!NOTATION") {
-              for (i += 9, u = t.charAt(i++); R.indexOf(u) !== -1; )
-                u = t.charAt(i++);
-              for (x = ""; C.indexOf(u) === -1 && i !== d; )
-                x += u, u = t.charAt(i++);
+              for (P = "", i = n, a = Math.min(f - 1, e.indexOf(u, n)); i < a; )
+                P += e.charAt(i++);
+              n += P.length + 1, u = e.charAt(n++), E.doctype.setEntity(x, P);
+            } else if (e.substr(n, 9) === "!NOTATION") {
+              for (n += 9, u = e.charAt(n++); R.indexOf(u) !== -1; )
+                u = e.charAt(n++);
+              for (x = ""; D.indexOf(u) === -1 && n !== d; )
+                x += u, u = e.charAt(n++);
               for (; R.indexOf(u) !== -1; )
-                u = t.charAt(i++);
-              if (t.substr(i - 1, 6) === "SYSTEM")
-                for (i += 5, u = t.charAt(i++); R.indexOf(u) !== -1; )
-                  u = t.charAt(i++);
-              else if (t.substr(i - 1, 6) === "PUBLIC") {
-                for (i += 5, u = t.charAt(i++); R.indexOf(u) !== -1; )
-                  u = t.charAt(i++);
-                for (; C.indexOf(u) === -1 && i !== d; )
-                  u = t.charAt(i++);
+                u = e.charAt(n++);
+              if (e.substr(n - 1, 6) === "SYSTEM")
+                for (n += 5, u = e.charAt(n++); R.indexOf(u) !== -1; )
+                  u = e.charAt(n++);
+              else if (e.substr(n - 1, 6) === "PUBLIC") {
+                for (n += 5, u = e.charAt(n++); R.indexOf(u) !== -1; )
+                  u = e.charAt(n++);
+                for (; D.indexOf(u) === -1 && n !== d; )
+                  u = e.charAt(n++);
                 for (; R.indexOf(u) !== -1; )
-                  u = t.charAt(i++);
+                  u = e.charAt(n++);
               }
               if (u === '"' || u === "'") {
-                for (et = "", s = i, a = Math.min(f - 1, t.indexOf(u, i)); s < a; )
-                  et += t.charAt(s++);
-                i += et.length + 1, u = t.charAt(i++);
+                for (te = "", i = n, a = Math.min(f - 1, e.indexOf(u, n)); i < a; )
+                  te += e.charAt(i++);
+                n += te.length + 1, u = e.charAt(n++);
               }
             }
-            i = t.indexOf(">", i - 1) + 1, u = t.charAt(i++);
+            n = e.indexOf(">", n - 1) + 1, u = e.charAt(n++);
           }
-          f = t.indexOf(">", i);
+          f = e.indexOf(">", n);
         }
-        if (f !== i) {
+        if (f !== n) {
           if (f === -1 && (f = d), f === d)
             break;
-          i = f;
+          n = f;
         }
-        i++;
+        n++;
       }
-    } else if (t.charAt(i) === "?") {
-      for (i++, u = t.charAt(i++), x = ""; T.indexOf(u) === -1 && i !== d; )
-        x += u, u = t.charAt(i++);
-      if (f = t.indexOf("?>", i - 1), f === -1 && (f = d), x === "xml") {
-        if (i != 6)
-          throw new Error(K("Invalid position for XML declaration", i - 7, t));
-        t.charCodeAt(f + 2) === 13 && f++, t.charCodeAt(f + 2) === 10 && f++;
+    } else if (e.charAt(n) === "?") {
+      for (n++, u = e.charAt(n++), x = ""; T.indexOf(u) === -1 && n !== d; )
+        x += u, u = e.charAt(n++);
+      if (f = e.indexOf("?>", n - 1), f === -1 && (f = d), x === "xml") {
+        if (n != 6)
+          throw new Error(K("Invalid position for XML declaration", n - 7, e));
+        e.charCodeAt(f + 2) === 13 && f++, e.charCodeAt(f + 2) === 10 && f++;
       } else if (x !== "") {
-        for (r = "", s = i; s < f; )
-          r += t.charAt(s++);
-        S.appendChild(E.createProcessingInstruction(x, f === i - 1 ? "" : r));
+        for (r = "", i = n; i < f; )
+          r += e.charAt(i++);
+        O.appendChild(E.createProcessingInstruction(x, f === n - 1 ? "" : r));
       }
       if (f === d)
         break;
-      i = f + 2;
-    } else if (t.charAt(i) === "/") {
-      for (i++, u = t.charAt(i++), x = ""; $.indexOf(u) === -1 && i !== d; )
-        x += u, u = t.charAt(i++);
-      if (!pt(x))
-        throw new Error(K("Invalid XML element name", i - 2 - x.length, t));
+      n = f + 2;
+    } else if (e.charAt(n) === "/") {
+      for (n++, u = e.charAt(n++), x = ""; $.indexOf(u) === -1 && n !== d; )
+        x += u, u = e.charAt(n++);
+      if (!de(x))
+        throw new Error(K("Invalid XML element name", n - 2 - x.length, e));
       if (x === A) {
-        D = h.pop(), I = {};
-        for (g in D.namespaces)
-          Object.prototype.hasOwnProperty.call(D.namespaces, g) && (I[g] = D.namespaces[g]);
-        S = D.node, A = D.nodeName;
+        C = h.pop(), I = {};
+        for (g in C.namespaces)
+          Object.prototype.hasOwnProperty.call(C.namespaces, g) && (I[g] = C.namespaces[g]);
+        O = C.node, A = C.nodeName;
       } else {
-        if (e === nt)
-          throw new Error(K("Not well-formed XML", i - 2 - x.length, t));
+        if (t === se)
+          throw new Error(K("Not well-formed XML", n - 2 - x.length, e));
         for (; h.length !== 0; )
-          if (D = h.pop(), x === D.node.nodeName) {
+          if (C = h.pop(), x === C.node.nodeName) {
             I = {};
-            for (g in D.namespaces)
-              Object.prototype.hasOwnProperty.call(D.namespaces, g) && (I[g] = D.namespaces[g]);
-            S = D.node, A = D.nodeName;
+            for (g in C.namespaces)
+              Object.prototype.hasOwnProperty.call(C.namespaces, g) && (I[g] = C.namespaces[g]);
+            O = C.node, A = C.nodeName;
             break;
           }
       }
-      if (i = t.indexOf(">", i - 1) + 1, i === 0)
+      if (n = e.indexOf(">", n - 1) + 1, n === 0)
         break;
     } else {
-      for (u = t.charAt(i++), x = ""; k.indexOf(u) === -1 && i !== d; )
-        x += u, u = t.charAt(i++);
-      if (f = t.indexOf(">", i - 1), x !== "") {
-        if (!pt(x))
-          throw new Error(K("Invalid XML element name", i - 2 - x.length, t));
+      for (u = e.charAt(n++), x = ""; k.indexOf(u) === -1 && n !== d; )
+        x += u, u = e.charAt(n++);
+      if (f = e.indexOf(">", n - 1), x !== "") {
+        if (!de(x))
+          throw new Error(K("Invalid XML element name", n - 2 - x.length, e));
         L = {};
         for (g in I)
           Object.prototype.hasOwnProperty.call(I, g) && (L[g] = I[g]);
-        for (p = {}; i !== d; ) {
+        for (p = {}; n !== d; ) {
           for (; R.indexOf(u) !== -1; )
-            u = t.charAt(i++);
-          if (G.indexOf(u) !== -1 || i === d)
+            u = e.charAt(n++);
+          if (G.indexOf(u) !== -1 || n === d)
             break;
-          for (o = ""; G.indexOf(u) === -1 && i !== d; )
-            o += u, u = t.charAt(i++);
+          for (o = ""; G.indexOf(u) === -1 && n !== d; )
+            o += u, u = e.charAt(n++);
           if (o !== "") {
             if (o !== "xmlns" && !Q(o))
-              throw new Error(K("Invalid XML attribute name", i - 2 - o.length, t));
-            for (; R.indexOf(u) !== -1 && i !== d; )
-              u = t.charAt(i++);
+              throw new Error(K("Invalid XML attribute name", n - 2 - o.length, e));
+            for (; R.indexOf(u) !== -1 && n !== d; )
+              u = e.charAt(n++);
             if (u === "=") {
-              for (u = t.charAt(i++); R.indexOf(u) !== -1 && i !== d; )
-                u = t.charAt(i++);
+              for (u = e.charAt(n++); R.indexOf(u) !== -1 && n !== d; )
+                u = e.charAt(n++);
               if (l = "", u === "'" || u === '"') {
-                l = "", s = i;
-                const at = t.indexOf(u, i);
-                if (at !== -1) {
-                  for (a = Math.min(f - 1, at); s < a; )
-                    l += t.charAt(s++);
-                  i += l.length + 1, u = t.charAt(i++);
+                l = "", i = n;
+                const oe = e.indexOf(u, n);
+                if (oe !== -1) {
+                  for (a = Math.min(f - 1, oe); i < a; )
+                    l += e.charAt(i++);
+                  n += l.length + 1, u = e.charAt(n++);
                 } else
-                  i = d;
+                  n = d;
               } else
-                for (; k.indexOf(u) === -1 && i !== d; )
-                  l += u, u = t.charAt(i++);
+                for (; k.indexOf(u) === -1 && n !== d; )
+                  l += u, u = e.charAt(n++);
             } else
               l = o;
             y = o.indexOf(":"), g = y !== -1 ? o.substring(0, y) : "", J = y !== -1 ? o.substring(y + 1) : o, g === "xmlns" ? L[J] = l : g === "" && J === "xmlns" && (L[""] = l), p[g] || (p[g] = {}), p[g][J] = l;
@@ -598,48 +598,48 @@ function mt(m, t, e, n) {
         for (g in p)
           if (Object.prototype.hasOwnProperty.call(p, g)) {
             if (g !== "" && !(g in L))
-              throw new Error(K(`Prefix '${g}' not declared`, i - 2 - o.length, t));
+              throw new Error(K(`Prefix '${g}' not declared`, n - 2 - o.length, e));
             for (o in p[g])
-              Object.prototype.hasOwnProperty.call(p[g], o) && (l = Rt(E.doctype, p[g][o]), E._elementById && o === "id" && (g === "" || g === "xml") && (E._elementById[l] = N), N.setAttributeNS(g !== "" ? L[g] : o === "xmlns" ? "http://www.w3.org/2000/xmlns/" : null, g !== "" ? g + ":" + o : o, l));
+              Object.prototype.hasOwnProperty.call(p[g], o) && (l = Se(E.doctype, p[g][o]), E._elementById && o === "id" && (g === "" || g === "xml") && (E._elementById[l] = N), N.setAttributeNS(g !== "" ? L[g] : o === "xmlns" ? "http://www.w3.org/2000/xmlns/" : null, g !== "" ? g + ":" + o : o, l));
           }
-        if (S.appendChild(N), t.charAt(i - 1) !== "/") {
-          h.push({ node: S, nodeName: A, namespaces: I }), S = N, A = x, I = {};
+        if (O.appendChild(N), e.charAt(n - 1) !== "/") {
+          h.push({ node: O, nodeName: A, namespaces: I }), O = N, A = x, I = {};
           for (g in L)
             Object.prototype.hasOwnProperty.call(L, g) && (I[g] = L[g]);
         }
       }
-      if (i = f + 1, i === 0)
+      if (n = f + 1, n === 0)
         break;
     }
   }
-  if (h.length !== 0 && e === nt)
-    throw new Error(K("Not well-formed XML", i - 2 - x.length, t));
+  if (h.length !== 0 && t === se)
+    throw new Error(K("Not well-formed XML", n - 2 - x.length, e));
 }
-const M = (m, t) => {
-  const e = t.ownerDocument ?? t;
+const S = (m, e) => {
+  const t = e.ownerDocument ?? e;
   switch (m.nodeType) {
     case 1: {
-      const n = e.createElementNS(m.namespaceURI, m.nodeName);
+      const s = t.createElementNS(m.namespaceURI, m.nodeName);
       if (m.namespaces)
-        for (const s of m.namespaces)
-          n.setAttributeNS("http://www.w3.org/2000/xmlns/", s.prefix ? `xmlns:${s.prefix}` : "xmlns", s.URI);
-      for (const s of m.attributes)
-        M(s, n);
-      for (const s of m.childNodes)
-        M(s, n);
-      t.appendChild(n);
+        for (const i of m.namespaces)
+          s.setAttributeNS("http://www.w3.org/2000/xmlns/", i.prefix ? `xmlns:${i.prefix}` : "xmlns", i.URI);
+      for (const i of m.attributes)
+        S(i, s);
+      for (const i of m.childNodes)
+        S(i, s);
+      e.appendChild(s);
       break;
     }
     case 2: {
-      t.setAttributeNS(m.namespaceURI, m.name, m.value);
+      e.setAttributeNS(m.namespaceURI, m.name, m.value);
       break;
     }
     case 3: {
-      t.appendChild(e.createTextNode(m.textContent));
+      e.appendChild(t.createTextNode(m.textContent));
       break;
     }
   }
-}, Mt = {
+}, Oe = {
   entities: {
     quot: '"',
     amp: "&",
@@ -900,32 +900,32 @@ const M = (m, t) => {
   }
 };
 class q {
-  doctype = Mt;
+  doctype = Oe;
   documentElement = null;
   childNodes = [];
   nodeType = 0;
-  constructor(t) {
-    t && this.fromString(t);
+  constructor(e) {
+    e && this.fromString(e);
   }
-  createElement(t) {
-    const e = new j("", t);
-    return e.ownerDocument = this, e;
+  createElement(e) {
+    const t = new z("", e);
+    return t.ownerDocument = this, t;
   }
-  createElementNS(t, e) {
-    const n = new j(t, e);
-    return n.ownerDocument = this, n;
+  createElementNS(e, t) {
+    const s = new z(e, t);
+    return s.ownerDocument = this, s;
   }
-  createAttribute(t) {
-    return new V("", t);
+  createAttribute(e) {
+    return new V("", e);
   }
-  createAttributeNS(t, e) {
-    return new V(t, e);
+  createAttributeNS(e, t) {
+    return new V(e, t);
   }
-  createNamespace(t, e) {
-    return new dt(t, e);
+  createNamespace(e, t) {
+    return new me(e, t);
   }
-  createTextNode(t) {
-    return new ot(t);
+  createTextNode(e) {
+    return new le(e);
   }
   createComment() {
     return null;
@@ -933,239 +933,239 @@ class q {
   createProcessingInstruction() {
     return null;
   }
-  createCDATASection(t) {
-    return new ot(t);
+  createCDATASection(e) {
+    return new le(e);
   }
   createArray() {
-    return new Et();
+    return new Ne();
   }
-  appendChild(t) {
-    t && t.nodeType === 1 && (this.documentElement = t), this.childNodes.push(t);
+  appendChild(e) {
+    e && e.nodeType === 1 && (this.documentElement = e), this.childNodes.push(e);
   }
-  fromString(t) {
-    mt(this, t);
+  fromString(e) {
+    fe(this, e);
   }
   toString() {
-    const t = new B();
-    return M(this.documentElement, t), t.textContent;
+    const e = new B();
+    return S(this.documentElement, e), e.textContent;
   }
-  toNode(t) {
-    return M(this.documentElement, t), t;
+  toNode(e) {
+    return S(this.documentElement, e), e;
   }
   toIndentedString() {
-    const t = new B(2);
-    return M(this.documentElement, t), t.textContent;
+    const e = new B(2);
+    return S(this.documentElement, e), e.textContent;
   }
   toJson() {
-    const t = new ht();
-    return M(this.documentElement, t), t.textContent;
+    const e = new pe();
+    return S(this.documentElement, e), e.textContent;
   }
   toIndentedJson() {
-    const t = new ht(2);
-    return M(this.documentElement, t), t.textContent;
+    const e = new pe(2);
+    return S(this.documentElement, e), e.textContent;
   }
 }
-const St = (m) => JSON.stringify(
+const re = (m) => JSON.stringify(
   m,
-  (t, e) => e instanceof RegExp ? "__REGEX__" + e.toString().replace(/"/g, "___quote___") + "___REGEXEND___" : e
+  (e, t) => t instanceof RegExp ? "__REGEX__" + t.toString().replace(/"/g, "___quote___") + "___REGEXEND___" : t
 ).replace(/"__REGEX__/g, "").replace(/___REGEXEND___"/g, "").replace(/___quote___/g, '"');
-class Ot extends q {
+class Me extends q {
   globalNamespaceURI = "";
   globalPrefix = "";
   rules = [];
-  canonicalRules = [];
+  normalizingRules = [];
   toArray() {
     return this.rules;
   }
   toJSON() {
-    return St(this.rules);
+    return re(this.rules);
   }
-  addNamespace(t, e) {
-    this.globalNamespaceURI = t, this.globalPrefix = e;
+  addNamespace(e, t) {
+    this.globalNamespaceURI = e, this.globalPrefix = t;
   }
 }
-class O {
+class M {
   textContent = "";
   toParentNode() {
     return this.textContent;
   }
-  appendChild(t) {
-    this.textContent += t.toParentNode(this);
+  appendChild(e) {
+    this.textContent += e.toParentNode(this);
   }
-  setAttributeNS(t, e, n) {
-    this[`$$${e}`] = n;
-  }
-}
-class wt extends O {
-  appendChild(t) {
-    this.textContent += (t instanceof ft ? " " : this.textContent && `
-`) + t.toParentNode(this);
+  setAttributeNS(e, t, s) {
+    this[`$$${t}`] = s;
   }
 }
-class ft extends O {
+class we extends M {
+  appendChild(e) {
+    this.textContent += (e instanceof xe ? " " : this.textContent && `
+`) + e.toParentNode(this);
+  }
+}
+class xe extends M {
   toParentNode() {
     return `{${this.textContent}}`;
   }
 }
-class Ct extends O {
+class De extends M {
   toParentNode() {
     return `ixml ${this.textContent}.`;
   }
-  appendChild(t) {
-    this.textContent += (this.textContent && " ") + t.toParentNode(this);
+  appendChild(e) {
+    this.textContent += (this.textContent && " ") + e.toParentNode(this);
   }
 }
-class Dt extends O {
+class Ce extends M {
   toParentNode() {
     return `version ${U(this.$$string)}`;
   }
 }
-class $t extends O {
+class $e extends M {
   toParentNode() {
     return `${this.$$mark ?? ""}${this.$$name}${this.$$alias ? `>${this.$$alias}` : ""}: ${this.textContent}.`;
   }
-  appendChild(t) {
-    this.textContent += (this.textContent && "; ") + t.toParentNode(this);
+  appendChild(e) {
+    this.textContent += (this.textContent && "; ") + e.toParentNode(this);
   }
 }
-class It extends O {
+class Ie extends M {
   toParentNode() {
     return `(${this.textContent})`;
   }
-  appendChild(t) {
-    this.textContent += (this.textContent && "; ") + t.toParentNode(this);
+  appendChild(e) {
+    this.textContent += (this.textContent && "; ") + e.toParentNode(this);
   }
 }
-class Lt extends O {
-  appendChild(t) {
-    this.textContent += (this.textContent && ", ") + t.toParentNode(this);
+class Le extends M {
+  appendChild(e) {
+    this.textContent += (this.textContent && ", ") + e.toParentNode(this);
   }
 }
-class kt extends O {
+class ke extends M {
   toParentNode() {
     return `${this.textContent}?`;
   }
 }
-class yt extends O {
+class ye extends M {
   constructor() {
     super(), this.hasSeparator = !1;
   }
   toParentNode() {
     return this.textContent + (this.hasSeparator ? "" : "*");
   }
-  appendChild(t) {
-    this.textContent += (t instanceof z ? "**" : "") + t.toParentNode(this), this.hasSeparator = t instanceof z;
+  appendChild(e) {
+    this.textContent += (e instanceof j ? "**" : "") + e.toParentNode(this), this.hasSeparator = e instanceof j;
   }
 }
-class vt extends O {
+class ve extends M {
   constructor() {
     super(), this.hasSeparator = !1;
   }
   toParentNode() {
     return this.textContent + (this.hasSeparator ? "" : "+");
   }
-  appendChild(t) {
-    this.textContent += (t instanceof z ? "++" : "") + t.toParentNode(this), this.hasSeparator = t instanceof z;
+  appendChild(e) {
+    this.textContent += (e instanceof j ? "++" : "") + e.toParentNode(this), this.hasSeparator = e instanceof j;
   }
 }
-class z extends O {
+class j extends M {
 }
-class Bt extends O {
+class Be extends M {
   toParentNode() {
     return (this.$$tmark ?? "") + (this.$$string ? U(this.$$string) : `#${this.$$hex}`);
   }
 }
-class Pt extends O {
+class Pe extends M {
   toParentNode() {
     return `${this.$$tmark ?? ""}[${this.textContent}]`;
   }
-  appendChild(t) {
-    this.textContent += (this.textContent && "; ") + t.toParentNode(this);
+  appendChild(e) {
+    this.textContent += (this.textContent && "; ") + e.toParentNode(this);
   }
 }
-class Kt extends O {
+class Ke extends M {
   toParentNode() {
     return `${this.$$tmark ?? ""}~[${this.textContent}]`;
   }
-  appendChild(t) {
-    this.textContent += (this.textContent && "; ") + t.toParentNode(this);
+  appendChild(e) {
+    this.textContent += (this.textContent && "; ") + e.toParentNode(this);
   }
 }
-class Ut extends O {
+class Ue extends M {
   toParentNode() {
     return this.$$string ? U(this.$$string) : this.$$hex ? `#${this.$$hex}` : this.$$from ? `${this.$$from.startsWith("#") ? this.$$from : U(this.$$from)}-${this.$$to.startsWith("#") ? this.$$to : U(this.$$to)}` : this.$$code;
   }
 }
-class Yt extends O {
+class Ye extends M {
   toParentNode() {
     return `${this.$$mark ?? ""}${this.$$name}${this.$$alias ? `>${this.$$alias}` : ""}`;
   }
 }
-class Ft extends O {
+class Fe extends M {
   toParentNode() {
     return `+${this.$$string ? U(this.$$string) : this.$$hex}`;
   }
 }
-const Xt = {
-  IXmlElementIxml: wt,
-  IXmlElementComment: ft,
-  IXmlElementProlog: Ct,
-  IXmlElementVersion: Dt,
-  IXmlElementRule: $t,
-  IXmlElementAlts: It,
-  IXmlElementAlt: Lt,
-  IXmlElementOption: kt,
-  IXmlElementRepeat0: yt,
-  IXmlElementRepeat1: vt,
-  IXmlElementSep: z,
-  IXmlElementLiteral: Bt,
-  IXmlElementInclusion: Pt,
-  IXmlElementExclusion: Kt,
-  IXmlElementMember: Ut,
-  IXmlElementNonterminal: Yt,
-  IXmlElementInsertion: Ft
+const Xe = {
+  IXmlElementIxml: we,
+  IXmlElementComment: xe,
+  IXmlElementProlog: De,
+  IXmlElementVersion: Ce,
+  IXmlElementRule: $e,
+  IXmlElementAlts: Ie,
+  IXmlElementAlt: Le,
+  IXmlElementOption: ke,
+  IXmlElementRepeat0: ye,
+  IXmlElementRepeat1: ve,
+  IXmlElementSep: j,
+  IXmlElementLiteral: Be,
+  IXmlElementInclusion: Pe,
+  IXmlElementExclusion: Ke,
+  IXmlElementMember: Ue,
+  IXmlElementNonterminal: Ye,
+  IXmlElementInsertion: Fe
 };
-class jt {
+class ze {
   textContent = "";
-  constructor(t) {
-    this.textContent = t ?? "";
+  constructor(e) {
+    this.textContent = e ?? "";
   }
   toParentNode() {
     return this.textContent;
   }
 }
-class st {
+class ie {
   textContent = "";
-  createElementNS(t, e) {
-    const n = new Xt[`IXmlElement${bt(e.substring(e.indexOf(":") + 1))}`]();
-    return n.ownerDocument = this, n;
+  createElementNS(e, t) {
+    const s = new Xe[`IXmlElement${Ae(t.substring(t.indexOf(":") + 1))}`]();
+    return s.ownerDocument = this, s;
   }
-  createTextNode(t) {
-    return new jt(t);
+  createTextNode(e) {
+    return new ze(e);
   }
-  appendChild(t) {
-    this.textContent = t.toParentNode();
+  appendChild(e) {
+    this.textContent = e.toParentNode();
   }
 }
-class tt {
-  #e = "";
-  #s = 0;
+class ee {
+  #t = "";
+  #i = 0;
+  #s = 1;
   #n = 1;
-  #i = 1;
-  #t = 0;
+  #e = 0;
   [Symbol.iterator]() {
     return this;
   }
-  reset(t, e) {
-    this.#e = t, this.#s = 0, this.#n = e?.line ?? 1, this.#i = this.#n, this.#t = e ? -e.col : 0;
+  reset(e, t) {
+    this.#t = e, this.#i = 0, this.#s = t?.line ?? 1, this.#n = this.#s, this.#e = t ? -t.col : 0;
   }
   next() {
-    if (this.#s < this.#e.length) {
-      const t = this.#e[this.#s++];
-      return t === `
-` && (this.#n += 1, this.#t = this.#s), {
+    if (this.#i < this.#t.length) {
+      const e = this.#t[this.#i++];
+      return e === `
+` && (this.#s += 1, this.#e = this.#i), {
         value: {
-          char: t
+          char: e
         },
         done: !1
       };
@@ -1177,148 +1177,148 @@ class tt {
   }
   save() {
     return {
-      line: this.#n,
-      col: this.#s - this.#t
+      line: this.#s,
+      col: this.#i - this.#e
     };
   }
-  formatError(t, e) {
-    if (typeof this.#e != "string")
-      return `${e} at index ${this.#s - 1}`;
-    const n = this.#s - this.#t + (t.endOfText ? 1 : 0), s = this.#e.split(`
-`).slice(Math.max(0, this.#n - this.#i - 4), this.#n - this.#i + 1), a = String(this.#n).length, r = (c, _) => " ".repeat(_ - String(c).length) + c;
+  formatError(e, t) {
+    if (typeof this.#t != "string")
+      return `${t} at index ${this.#i - 1}`;
+    const s = this.#i - this.#e + (e.endOfText ? 1 : 0), i = this.#t.split(`
+`).slice(Math.max(0, this.#s - this.#n - 4), this.#s - this.#n + 1), a = String(this.#s).length, r = (c, _) => " ".repeat(_ - String(c).length) + c;
     return [
-      t.endOfText ? `${e} at end of line ${this.#n}` : `${e} at line ${this.#n} col ${n}:`,
+      e.endOfText ? `${t} at end of line ${this.#s}` : `${t} at line ${this.#s} col ${s}:`,
       "",
-      s.map(
-        (c, _) => `${r(this.#n - s.length + _ + 1, a)}: ${c}`
+      i.map(
+        (c, _) => `${r(this.#s - i.length + _ + 1, a)}: ${c}`
       ).join(`
 `),
-      `${" ".repeat(a + n + 1)}^`
+      `${" ".repeat(a + s + 1)}^`
     ].join(`
 `);
   }
 }
 class b {
   data = [];
-  constructor(t, e, n, s, a) {
-    Object.assign(this, { rule: t, dot: e, reference: n, wantedBy: s, parser: a }), this.isComplete = this.dot === t.symbols.length;
+  constructor(e, t, s, i, a) {
+    Object.assign(this, { rule: e, dot: t, reference: s, wantedBy: i, parser: a }), this.isComplete = this.dot === e.symbols.length;
   }
   toString() {
-    return `{${this.rule.toString(this.dot)}}, from: ${this.reference || 0}, wantedBy: ${this.wantedBy.map((t) => t.rule.name).join(", ")}`;
+    return `{${this.rule.toString(this.dot)}}, from: ${this.reference || 0}, wantedBy: ${this.wantedBy.map((e) => e.rule.name).join(", ")}`;
   }
-  expectingState(t, e, n, s) {
-    if (t) {
-      if ("string" in t)
-        return this.nextState({ data: t.string, reference: e }, n, s);
-      if ("attributeName" in t && "attributes" in n && t.alias in n.attributes) {
-        const a = new H(s.grammar, new tt(), t.attributeName);
-        a.feed(n.attributes[t.alias]);
+  expectingState(e, t, s, i) {
+    if (e) {
+      if ("string" in e)
+        return this.nextState({ data: e.string, reference: t }, s, i);
+      if ("attributeName" in e && "attributes" in s && e.alias in s.attributes) {
+        const a = new H(i.grammar, new ee(), e.attributeName);
+        a.feed(s.attributes[e.alias]);
         const r = a.finish();
         return r.length > 0 ? this.nextState({
           data: {
-            attributeName: t.alias,
+            attributeName: e.alias,
             resultingValue: r[0].childNodes[0]?.textContent ?? ""
           },
           reference: this.reference
-        }, n, s) : null;
-      } else return s.lexer instanceof tt && ("startName" in t || "endName" in t) ? this.nextState({ data: "", reference: e }, n, s) : this;
+        }, s, i) : null;
+      } else return i.lexer instanceof ee && ("startName" in e || "endName" in e) ? this.nextState({ data: "", reference: t }, s, i) : this;
     } else
       return this;
   }
-  nextState(t, e, n) {
-    let s = this.dot + 1;
-    const a = new b(this.rule, s, this.reference, this.wantedBy, n);
-    if (a.left = this, a.right = t, a.isComplete)
+  nextState(e, t, s) {
+    let i = this.dot + 1;
+    const a = new b(this.rule, i, this.reference, this.wantedBy, s);
+    if (a.left = this, a.right = e, a.isComplete)
       a.data = a.build(), a.right = void 0;
     else
-      return a.expectingState(this.rule.symbols[s], this.reference, e, n);
+      return a.expectingState(this.rule.symbols[i], this.reference, t, s);
     return a;
   }
   build() {
-    const t = [];
-    for (let e = this; e.left; e = e.left)
-      e.right?.data !== null && t.unshift(e.right.data);
-    return t;
+    const e = [];
+    for (let t = this; t.left; t = t.left)
+      t.right?.data !== null && e.unshift(t.right.data);
+    return e;
   }
   finish() {
-    const t = {
+    const e = {
       1: () => b.createElement(this.rule.alias, this.rule.ns),
       2: () => b.createAttribute(this.rule.alias),
       [-1]: () => b.createArray()
     };
-    this.#e(t[this.rule.mark]?.()) || (this.data = xt);
+    this.#t(e[this.rule.mark]?.()) || (this.data = Ee);
   }
-  static getTextContent(t) {
-    switch (t.nodeType) {
+  static getTextContent(e) {
+    switch (e.nodeType) {
       case 1:
       case 132:
-        return t.childNodes.reduce((e, n) => e + b.getTextContent(n), "");
+        return e.childNodes.reduce((t, s) => t + b.getTextContent(s), "");
       case 2:
-        return t.value;
+        return e.value;
       case 3:
-        return t.textContent;
+        return e.textContent;
     }
   }
-  static appendToNode(t, e) {
-    switch (e.nodeType) {
+  static appendToNode(e, t) {
+    switch (t.nodeType) {
       case 1: {
-        t.nodeType == 2 ? t.value += b.getTextContent(e) : t.appendChild(e);
+        e.nodeType == 2 ? e.value += b.getTextContent(t) : e.appendChild(t);
         break;
       }
       case 2: {
-        t.nodeType == 2 ? t.value += b.getTextContent(e) : t.nodeType == 1 ? t.attributes.push(e) : t.appendChild(e);
+        e.nodeType == 2 ? e.value += b.getTextContent(t) : e.nodeType == 1 ? e.attributes.push(t) : e.appendChild(t);
         break;
       }
       case 3: {
-        switch (t.nodeType) {
+        switch (e.nodeType) {
           case 1:
           case 132: {
-            t.childNodes.at(-1)?.nodeType === 3 ? t.childNodes.at(-1).textContent += b.getTextContent(e) : t.appendChild(b.createTextNode(b.getTextContent(e)));
+            e.childNodes.at(-1)?.nodeType === 3 ? e.childNodes.at(-1).textContent += b.getTextContent(t) : e.appendChild(b.createTextNode(b.getTextContent(t)));
             break;
           }
           case 2: {
-            t.value += b.getTextContent(e);
+            e.value += b.getTextContent(t);
             break;
           }
         }
         break;
       }
       case 132: {
-        e.childNodes.forEach((n) => b.appendToNode(t, n)), e.attributes && t.nodeType === 132 && e.attributes.forEach((n) => t.setAttribute(n.name, n.value));
+        t.childNodes.forEach((s) => b.appendToNode(e, s)), t.attributes && e.nodeType === 132 && t.attributes.forEach((s) => e.setAttribute(s.name, s.value));
         break;
       }
     }
   }
-  #e(t) {
-    let e = 0, n = {}, s = [];
+  #t(e) {
+    let t = 0, s = {}, i = [];
     for (const a of this.rule.symbols) {
-      const r = this.data[e];
+      const r = this.data[t];
       if (typeof r == "object" && r !== null && "startName" in r)
         Object.keys(r.attributes).forEach((c) => {
-          n[c] = "";
-        }), s = t.attributes, t.attributes = [];
+          s[c] = "";
+        }), i = e.attributes, e.attributes = [];
       else if (typeof r == "object" && r !== null && "endName" in r) {
-        if (t.attributes.forEach((c) => {
-          delete n[c.name];
-        }), t.attributes = s, Object.keys(n).length > 0)
+        if (e.attributes.forEach((c) => {
+          delete s[c.name];
+        }), e.attributes = i, Object.keys(s).length > 0)
           return !1;
       } else if (typeof r == "object" && r !== null && "attributeName" in r)
-        b.appendToNode(t, b.createTextNode(r.resultingValue)), t.setAttribute(r.attributeName, r.resultingValue);
+        b.appendToNode(e, b.createTextNode(r.resultingValue)), e.setAttribute(r.attributeName, r.resultingValue);
       else if (r || a.string || a.attributeName)
         switch (a.mark) {
           case -1: {
             if (a.name)
               switch (r.nodeType) {
                 case 1: {
-                  r.attributes.forEach((c) => b.appendToNode(t, c)), r.childNodes.forEach((c) => b.appendToNode(t, c));
+                  r.attributes.forEach((c) => b.appendToNode(e, c)), r.childNodes.forEach((c) => b.appendToNode(e, c));
                   break;
                 }
                 case 132: {
-                  r.childNodes.forEach((c) => b.appendToNode(t, c)), t.nodeType === 132 && r.attributes && r.attributes.forEach((c) => t.setAttribute(c.name, c.value));
+                  r.childNodes.forEach((c) => b.appendToNode(e, c)), e.nodeType === 132 && r.attributes && r.attributes.forEach((c) => e.setAttribute(c.name, c.value));
                   break;
                 }
                 case 2: {
-                  b.appendToNode(t, b.createTextNode(r.value));
+                  b.appendToNode(e, b.createTextNode(r.value));
                   break;
                 }
               }
@@ -1326,80 +1326,80 @@ class b {
           }
           case 0: {
             const c = a.name ? r : a.regExp || a.attributeName ? b.createTextNode(r) : b.createTextNode(a.char || a.string);
-            b.appendToNode(t, c);
+            b.appendToNode(e, c);
             break;
           }
           case 1: {
             if (r.nodeType === 132) {
               const c = b.createElement(a.alias);
-              r.childNodes.forEach((_) => b.appendToNode(c, _)), b.appendToNode(t, c);
+              r.childNodes.forEach((_) => b.appendToNode(c, _)), b.appendToNode(e, c);
             } else
-              b.appendToNode(t, r);
+              b.appendToNode(e, r);
             break;
           }
           case 2: {
             if ([132, 1, 3].includes(r.nodeType)) {
               const c = b.createAttribute(a.alias);
-              c.value = b.getTextContent(r), b.appendToNode(t, c);
+              c.value = b.getTextContent(r), b.appendToNode(e, c);
             } else
-              b.appendToNode(t, r);
+              b.appendToNode(e, r);
             break;
           }
         }
-      e++;
+      t++;
     }
-    return this.data = t, !0;
+    return this.data = e, !0;
   }
-  static createElement(t, e) {
+  static createElement(e, t) {
     return {
       nodeType: 1,
       attributes: [],
-      namespaces: e || [],
+      namespaces: t || [],
       childNodes: [],
-      nodeName: t,
-      localName: t,
-      appendChild: function(n) {
-        this.childNodes.push(n);
+      nodeName: e,
+      localName: e,
+      appendChild: function(s) {
+        this.childNodes.push(s);
       },
-      getAttribute: function(n) {
-        return this.attributes.find((a) => a.name === n)?.value ?? "";
+      getAttribute: function(s) {
+        return this.attributes.find((a) => a.name === s)?.value ?? "";
       },
-      setAttribute: function(n, s) {
-        const a = this.attributes.find((r) => r.name === n);
-        a ? a.value = s : this.attributes.push({
+      setAttribute: function(s, i) {
+        const a = this.attributes.find((r) => r.name === s);
+        a ? a.value = i : this.attributes.push({
           nodeType: 2,
-          name: n,
-          value: s
+          name: s,
+          value: i
         });
       },
-      setNamespace(n, s) {
+      setNamespace(s, i) {
         this.namespaces.push({
           nodeType: 133,
-          prefix: s,
-          URI: n
+          prefix: i,
+          URI: s
         });
       },
-      lookupNamespaceURI(n) {
-        const s = this.namespaces.find((a) => a.prefix === n);
-        return s ? s.URI : null;
+      lookupNamespaceURI(s) {
+        const i = this.namespaces.find((a) => a.prefix === s);
+        return i ? i.URI : null;
       },
-      lookupPrefix(n) {
-        const s = this.namespaces.find((a) => a.URI === n);
-        return s ? s.prefix : null;
+      lookupPrefix(s) {
+        const i = this.namespaces.find((a) => a.URI === s);
+        return i ? i.prefix : null;
       }
     };
   }
-  static createAttribute(t) {
+  static createAttribute(e) {
     return {
       nodeType: 2,
-      name: t,
+      name: e,
       value: ""
     };
   }
-  static createTextNode(t) {
+  static createTextNode(e) {
     return {
       nodeType: 3,
-      textContent: t
+      textContent: e
     };
   }
   static createArray() {
@@ -1407,38 +1407,38 @@ class b {
       nodeType: 132,
       attributes: [],
       childNodes: [],
-      appendChild: function(t) {
-        this.childNodes.push(t);
+      appendChild: function(e) {
+        this.childNodes.push(e);
       },
-      setAttribute: function(t, e) {
-        const n = this.attributes.find((s) => s.name === t);
-        n ? n.value = e : this.attributes.push({
+      setAttribute: function(e, t) {
+        const s = this.attributes.find((i) => i.name === e);
+        s ? s.value = t : this.attributes.push({
           nodeType: 2,
-          name: t,
-          value: e
+          name: e,
+          value: t
         });
       }
     };
   }
 }
-class it {
+class ne {
   states = [];
   wants = {};
   scannable = [];
   completed = {};
-  constructor(t, e) {
-    Object.assign(this, { parser: t, reference: e });
+  constructor(e, t) {
+    Object.assign(this, { parser: e, reference: t });
   }
-  process(t) {
-    const { states: e, wants: n, completed: s } = this;
-    for (const a of e) {
+  process(e) {
+    const { states: t, wants: s, completed: i } = this;
+    for (const a of t) {
       if (a.isComplete) {
-        if (a.finish(), a.data !== xt) {
+        if (a.finish(), a.data !== Ee) {
           for (const c of a.wantedBy)
-            this.#e(c, a, t);
+            this.#t(c, a, e);
           if (a.reference === this.reference) {
             const c = a.rule.name;
-            (s[c] ??= []).push(a);
+            (i[c] ??= []).push(a);
           }
         }
         continue;
@@ -1448,317 +1448,317 @@ class it {
         this.scannable.push(a);
         continue;
       }
-      if (n[r]) {
-        if (n[r].push(a), s[r])
-          for (const c of s[r])
-            this.#e(a, c, t);
+      if (s[r]) {
+        if (s[r].push(a), i[r])
+          for (const c of i[r])
+            this.#t(a, c, e);
       } else
-        n[r] = [a], this.predict(r, t);
+        s[r] = [a], this.predict(r, e);
     }
   }
-  predict(t, e) {
-    const n = this.parser.grammar.byName[t] ?? [];
-    for (const s of n) {
-      const r = new b(s, 0, this.reference, this.wants[t], this.parser).expectingState(s.symbols[0], this.reference, e, this.parser);
+  predict(e, t) {
+    const s = this.parser.grammar.byName[e] ?? [];
+    for (const i of s) {
+      const r = new b(i, 0, this.reference, this.wants[e], this.parser).expectingState(i.symbols[0], this.reference, t, this.parser);
       r && this.states.push(r);
     }
   }
-  #e(t, e, n) {
-    this.states.push(t.nextState(e, n, this.parser));
+  #t(e, t, s) {
+    this.states.push(e.nextState(t, s, this.parser));
   }
 }
 class W extends Error {
-  constructor(t, e, n) {
-    super(t), this.name = "EarleyParserError", this.offset = e, this.value = n;
+  constructor(e, t, s) {
+    super(e), this.name = "EarleyParserError", this.offset = t, this.value = s;
   }
 }
 class H {
   static fail = {};
   grammar = null;
   lexer = null;
-  #e = null;
-  #s = [];
-  #n = 0;
-  #i = null;
-  #t = {
+  #t = null;
+  #i = [];
+  #s = 0;
+  #n = null;
+  #e = {
     char: null
   };
   //  #stringInput = true;
-  constructor(t, e, n) {
-    this.grammar = t, this.lexer = e;
-    const s = new it(this, 0);
-    this.#s = [s], this.#i = n ?? t.rules[0]?.name, s.wants[this.#i] = [], s.predict(this.#i), s.process();
+  constructor(e, t, s) {
+    this.grammar = e, this.lexer = t;
+    const i = new ne(this, 0);
+    this.#i = [i], this.#n = s ?? e.rules[0]?.name, i.wants[this.#n] = [], i.predict(this.#n), i.process();
   }
-  feed(t) {
-    const e = this.lexer;
-    e.reset(t, this.#e);
+  feed(e) {
+    const t = this.lexer;
+    t.reset(e, this.#t);
     try {
-      for (this.#t of e) {
-        const n = this.#s[this.#n];
-        delete this.#s[this.#n - 1];
-        const s = new it(this, this.#n + 1);
-        if (this.#s.push(s), n.scannable.forEach((a) => {
-          if (!this.#t.endOfText) {
+      for (this.#e of t) {
+        const s = this.#i[this.#s];
+        delete this.#i[this.#s - 1];
+        const i = new ne(this, this.#s + 1);
+        if (this.#i.push(i), s.scannable.forEach((a) => {
+          if (!this.#e.endOfText) {
             const r = a.rule.symbols[a.dot];
             let c = null;
-            if ("char" in r && "char" in this.#t && r.char === this.#t.char ? c = this.#t.char : "regExp" in r && "char" in this.#t && r.regExp.test(this.#t.char) ? c = this.#t.char : "startName" in r && r.startName === this.#t.startName ? (this.#t.attributes = this.#t.nextAttributes, c = {
-              startName: this.#t.startName,
-              attributes: this.#t.attributes
-            }) : "endName" in r && r.endName === this.#t.endName && (c = {
-              endName: this.#t.endName,
-              attributes: this.#t.attributes
-            }, this.#t.attributes = this.#t.nextAttributes), c !== null) {
-              const _ = a.nextState({ data: c, reference: this.#n }, this.#t, this);
-              _ && s.states.push(_);
+            if ("char" in r && "char" in this.#e && r.char === this.#e.char ? c = this.#e.char : "regExp" in r && "char" in this.#e && r.regExp.test(this.#e.char) ? c = this.#e.char : "startName" in r && r.startName === this.#e.startName ? (this.#e.attributes = this.#e.nextAttributes, c = {
+              startName: this.#e.startName,
+              attributes: this.#e.attributes
+            }) : "endName" in r && r.endName === this.#e.endName && (c = {
+              endName: this.#e.endName,
+              attributes: this.#e.attributes
+            }, this.#e.attributes = this.#e.nextAttributes), c !== null) {
+              const _ = a.nextState({ data: c, reference: this.#s }, this.#e, this);
+              _ && i.states.push(_);
             }
           }
-        }), s.process(this.#t), s.states.length === 0)
-          throw new W(this.#a(), this.#n, this.#t.char);
-        this.#n++;
+        }), i.process(this.#e), i.states.length === 0)
+          throw new W(this.#l(), this.#s, this.#e.char);
+        this.#s++;
       }
-    } catch (n) {
-      if (n instanceof W)
-        throw n;
+    } catch (s) {
+      if (s instanceof W)
+        throw s;
       {
-        const s = new it(this, this.#n + 1);
-        throw this.#s.push(s), new W(this.#r(n), this.#n, n.value?.char);
+        const i = new ne(this, this.#s + 1);
+        throw this.#i.push(i), new W(this.#r(s), this.#s, s.value?.char);
       }
     }
-    return this.#t = {
+    return this.#e = {
       endOfText: !0
-    }, this.#s[this.#n] && (this.#e = e.save()), this;
+    }, this.#i[this.#s] && (this.#t = t.save()), this;
   }
-  #r(t) {
-    const { token: e } = t, n = e ? `input ${JSON.stringify(e.text[0])} (lexer error)` : "input (lexer error)", s = e ? this.lexer.formatError(e, "Syntax error") : t.message;
-    return this.#o(s, n);
+  #r(e) {
+    const { token: t } = e, s = t ? `input ${JSON.stringify(t.text[0])} (lexer error)` : "input (lexer error)", i = t ? this.lexer.formatError(t, "Syntax error") : e.message;
+    return this.#a(i, s);
   }
-  #a() {
-    let t = "";
-    return this.#t.endOfText ? t = "end of text" : "startName" in this.#t ? t = `<${this.#t.startName}>` : "endName" in this.#t ? t = `</${this.#t.endName}>` : t = JSON.stringify(this.#t.char), this.#o(this.lexer.formatError(this.#t, this.lexer instanceof tt ? "Syntax error" : "Normalizing error"), t);
+  #l() {
+    let e = "";
+    return this.#e.endOfText ? e = "end of text" : "startName" in this.#e ? e = `<${this.#e.startName}>` : "endName" in this.#e ? e = `</${this.#e.endName}>` : e = JSON.stringify(this.#e.char), this.#a(this.lexer.formatError(this.#e, this.lexer instanceof ee ? "Syntax error" : "Normalizing error"), e);
   }
-  #o(t, e) {
-    const n = [t], s = this.#s[this.#s.length - (this.#t.endOfText ? 1 : 2)];
-    if (!s)
-      return n.concat("").join(`
+  #a(e, t) {
+    const s = [e], i = this.#i[this.#i.length - (this.#e.endOfText ? 1 : 2)];
+    if (!i)
+      return s.concat("").join(`
 `);
-    const a = s.states.filter((r) => {
+    const a = i.states.filter((r) => {
       const c = r.rule.symbols[r.dot];
       return c?.char || c?.regExp || c?.startName || c?.endName;
     });
-    return a.length === 0 ? (n.push(`Unexpected ${e}. I did not expect any more input. Here is the state of my parse table:
-`), this.#l(s.states, n)) : (n.push(`Unexpected ${e}. Instead, I was expecting to see one of the following:
+    return a.length === 0 ? (s.push(`Unexpected ${t}. I did not expect any more input. Here is the state of my parse table:
+`), this.#o(i.states, s)) : (s.push(`Unexpected ${t}. Instead, I was expecting to see one of the following:
 `), a.map((r) => this.#u(r, []) || [r]).forEach((r) => {
       const c = r[0].rule.symbols[r[0].dot], _ = this.#c(c);
-      n.push(`${/^[aeiou]/i.test(_) ? "An" : "A"} ${_} based on:`), this.#l(r, n);
-    })), n.concat("").join(`
+      s.push(`${/^[aeiou]/i.test(_) ? "An" : "A"} ${_} based on:`), this.#o(r, s);
+    })), s.concat("").join(`
 `);
   }
-  #l(t, e) {
-    let n = null, s = 0;
-    for (const a of t) {
+  #o(e, t) {
+    let s = null, i = 0;
+    for (const a of e) {
       const r = a.rule.toString(a.dot);
-      if (r === n) {
-        s++;
+      if (r === s) {
+        i++;
         continue;
       }
-      s > 0 && e.push(`    ^ ${s} more lines identical to this`), e.push(`    ${r}`), n = r, s = 0;
+      i > 0 && t.push(`    ^ ${i} more lines identical to this`), t.push(`    ${r}`), s = r, i = 0;
     }
   }
-  #c(t) {
-    return t.name || t.char ? t.toString() : t.regExp ? `character matching ${t.toString()}` : t.startName ? `start tag <${t.startName}>` : t.endName ? `end tag </${t.endName}>` : t.attributeName ? `attribute ${t.attributeName}` : `insertion of ${JSON.stringify(t.string)}`;
+  #c(e) {
+    return e.name || e.char ? e.toString() : e.regExp ? `character matching ${e.toString()}` : e.startName ? `start tag <${e.startName}>` : e.endName ? `end tag </${e.endName}>` : e.attributeName ? `attribute ${e.attributeName}` : `insertion of ${JSON.stringify(e.string)}`;
   }
-  #u(t, e) {
-    if (e.indexOf(t) !== -1)
+  #u(e, t) {
+    if (t.indexOf(e) !== -1)
       return null;
-    if (t.wantedBy.length === 0)
-      return [t];
-    const n = t.wantedBy[0], s = [t].concat(e), a = this.#u(n, s);
-    return a === null ? null : [t].concat(a);
+    if (e.wantedBy.length === 0)
+      return [e];
+    const s = e.wantedBy[0], i = [e].concat(t), a = this.#u(s, i);
+    return a === null ? null : [e].concat(a);
   }
   finish() {
-    if (this.#t.endOfText || this.#t.char) {
-      const t = this.#s.at(-1).states.filter(
-        (e) => e.rule.name === this.#i && e.dot === e.rule.symbols.length && e.reference === 0 && e.data !== H.fail
-      ).map((e) => e.data);
-      if (t.length === 0)
-        throw new W(this.#a(), this.#n, this.#t.char);
-      return t;
+    if (this.#e.endOfText || this.#e.char) {
+      const e = this.#i.at(-1).states.filter(
+        (t) => t.rule.name === this.#n && t.dot === t.rule.symbols.length && t.reference === 0 && t.data !== H.fail
+      ).map((t) => t.data);
+      if (e.length === 0)
+        throw new W(this.#l(), this.#s, this.#e.char);
+      return e;
     }
     return [];
   }
 }
-const xt = H.fail;
-class zt {
-  constructor([t, e, n, s]) {
-    return this.mark = t, {
-      2: () => this.char = n,
-      3: () => this.regExp = n,
-      4: () => this.string = n,
+const Ee = H.fail;
+class je {
+  constructor([e, t, s, i]) {
+    return this.mark = e, {
+      2: () => this.char = s,
+      3: () => this.regExp = s,
+      4: () => this.string = s,
       1: () => {
-        this.name = n, this.alias = s;
+        this.name = s, this.alias = i;
       },
       5: () => {
-        this.startName = n, this.ns = (s ?? []).map((r) => ({
+        this.startName = s, this.ns = (i ?? []).map((r) => ({
           prefix: r[0],
           URI: r[1]
         }));
       },
-      6: () => this.endName = n,
+      6: () => this.endName = s,
       7: () => {
-        this.attributeName = n, this.alias = s;
+        this.attributeName = s, this.alias = i;
       }
-    }[e]?.(), this;
+    }[t]?.(), this;
   }
   toString() {
     if (this.name)
       return `${Z[this.mark]}${this.name}${this.alias && this.name !== this.alias ? ">" + this.alias : ""}`;
     if (this.startName)
-      return `<${this.startName}${this.ns.reduce((t, e) => t + ` xmlns${e.prefix ? ":" + e.prefix : ""}="${e.URI}"`, "")}>`;
+      return `<${this.startName}${this.ns.reduce((e, t) => e + ` xmlns${t.prefix ? ":" + t.prefix : ""}="${t.URI}"`, "")}>`;
     if (this.endName)
       return `</${this.endName}>`;
     if (this.attributeName)
       return `<@${this.attributeName}>`;
     if (this.char) {
-      const t = this.char.codePointAt(0);
-      if (t <= 31 || t >= 127)
-        return `${Z[this.mark]}#${t.toString(16)}`;
-      const e = this.char.includes('"') ? "'" : '"';
-      return `${Z[this.mark]}${e}${this.char}${e}`;
+      const e = this.char.codePointAt(0);
+      if (e <= 31 || e >= 127)
+        return `${Z[this.mark]}#${e.toString(16)}`;
+      const t = this.char.includes('"') ? "'" : '"';
+      return `${Z[this.mark]}${t}${this.char}${t}`;
     }
     if (this.regExp) {
-      const t = [...this.regExp.source], e = t[1] === "^" ? 2 : 1, n = [];
-      let s = "", a = !1;
-      for (let r = e; r < t.length - 1; r++) {
-        const c = t[r];
+      const e = [...this.regExp.source], t = e[1] === "^" ? 2 : 1, s = [];
+      let i = "", a = !1;
+      for (let r = t; r < e.length - 1; r++) {
+        const c = e[r];
         if (c === "\\") {
-          const _ = t[++r];
+          const _ = e[++r];
           if (_ === "p") {
             r += 2;
             let f = "";
-            for (; t[r] !== "}"; )
-              f += t[r++];
-            if (s) {
-              const i = s.includes('"') ? "'" : '"';
-              n.push(`${i}${s}${i}`), s = "";
+            for (; e[r] !== "}"; )
+              f += e[r++];
+            if (i) {
+              const n = i.includes('"') ? "'" : '"';
+              s.push(`${n}${i}${n}`), i = "";
             }
-            n.push(f);
+            s.push(f);
           } else if (["x", "u"].includes(_)) {
-            if (s) {
-              const d = s.includes('"') ? "'" : '"';
-              n.push(`${d}${s}${d}`), s = "";
+            if (i) {
+              const d = i.includes('"') ? "'" : '"';
+              s.push(`${d}${i}${d}`), i = "";
             }
-            const f = _ === "x" ? 2 : 4, i = t.slice(r + 1, r + 1 + f).join("");
-            a ? (n[n.length - 1] += `#${i}`, a = !1) : n.push(`#${i}`), r += f;
+            const f = _ === "x" ? 2 : 4, n = e.slice(r + 1, r + 1 + f).join("");
+            a ? (s[s.length - 1] += `#${n}`, a = !1) : s.push(`#${n}`), r += f;
           } else
-            s += _;
+            i += _;
         } else if (c === "-") {
-          if (s.length > 1) {
-            const [f, ...i] = [...s].reverse();
-            if (i.length) {
-              const d = i.join("").includes('"') ? "'" : '"';
-              n.push(`${d}${i.reverse().join("")}${d}`);
+          if (i.length > 1) {
+            const [f, ...n] = [...i].reverse();
+            if (n.length) {
+              const d = n.join("").includes('"') ? "'" : '"';
+              s.push(`${d}${n.reverse().join("")}${d}`);
             }
-            s = f;
+            i = f;
           }
-          const _ = s.includes('"') ? "'" : '"';
-          n.push(`${_}${s}${_}-`), a = !0, s = "";
+          const _ = i.includes('"') ? "'" : '"';
+          s.push(`${_}${i}${_}-`), a = !0, i = "";
         } else {
           const _ = c.codePointAt(0);
           if (_ <= 31 || _ >= 127) {
-            if (s) {
-              const f = s.includes('"') ? "'" : '"';
-              n.push(`${f}${s}${f}`), s = "";
+            if (i) {
+              const f = i.includes('"') ? "'" : '"';
+              s.push(`${f}${i}${f}`), i = "";
             }
-            a ? (n[n.length - 1] += `#${_.toString(16)}`, a = !1) : n.push(`#${_.toString(16)}`);
+            a ? (s[s.length - 1] += `#${_.toString(16)}`, a = !1) : s.push(`#${_.toString(16)}`);
           } else if (a) {
             const f = c.includes('"') ? "'" : '"';
-            n[n.length - 1] += `${f}${c}${f}`, a = !1;
+            s[s.length - 1] += `${f}${c}${f}`, a = !1;
           } else
-            s += c;
+            i += c;
         }
       }
-      if (s) {
-        const r = s.includes('"') ? "'" : '"';
-        n.push(`${r}${s}${r}`);
+      if (i) {
+        const r = i.includes('"') ? "'" : '"';
+        s.push(`${r}${i}${r}`);
       }
-      return `${Z[this.mark]}${e === 1 ? "" : "~"}[${n.join("; ")}]`;
+      return `${Z[this.mark]}${t === 1 ? "" : "~"}[${s.join("; ")}]`;
     }
     if (this.string) {
-      const t = [];
-      let e = "";
-      for (const n of this.string) {
-        const s = n.codePointAt(0);
-        if (s >= 32 && s <= 126)
-          e += n;
+      const e = [];
+      let t = "";
+      for (const s of this.string) {
+        const i = s.codePointAt(0);
+        if (i >= 32 && i <= 126)
+          t += s;
         else {
-          if (e) {
-            const a = e.includes('"') ? "'" : '"';
-            t.push(`+${a}${e}${a}`), e = "";
+          if (t) {
+            const a = t.includes('"') ? "'" : '"';
+            e.push(`+${a}${t}${a}`), t = "";
           }
-          t.push(`+#${s.toString(16)}`);
+          e.push(`+#${i.toString(16)}`);
         }
       }
-      if (e) {
-        const n = e.includes('"') ? "'" : '"';
-        t.push(`+${n}${e}${n}`);
+      if (t) {
+        const s = t.includes('"') ? "'" : '"';
+        e.push(`+${s}${t}${s}`);
       }
-      return t.join(", ");
+      return e.join(", ");
     }
   }
 }
-class Ht {
-  constructor([t, e, n, s, a]) {
-    Object.assign(this, { mark: t, name: e, alias: n, ns: s }), this.ns = s.map((r) => ({ prefix: r[0], URI: r[1] })), this.symbols = a.map((r) => new zt(r));
+class He {
+  constructor([e, t, s, i, a]) {
+    Object.assign(this, { mark: e, name: t, alias: s, ns: i }), this.ns = i.map((r) => ({ prefix: r[0], URI: r[1] })), this.symbols = a.map((r) => new je(r));
   }
-  toString(t) {
-    const e = this.symbols.map((n, s) => [s === t ? "● " : "", n.toString()].join("")).join(", ");
-    return `${Wt[this.mark]}${this.name}${this.alias !== this.name ? `>${this.alias}` : ""}${this.ns.reduce((n, s) => n + ` xmlns${s.prefix ? ":" + s.prefix : ""}="${s.URI}"`, "")}: ${e}${t === this.symbols.length ? ". ●" : "."}`;
+  toString(e) {
+    const t = this.symbols.map((s, i) => [i === e ? "● " : "", s.toString()].join("")).join(", ");
+    return `${We[this.mark]}${this.name}${this.alias !== this.name ? `>${this.alias}` : ""}${this.ns.reduce((s, i) => s + ` xmlns${i.prefix ? ":" + i.prefix : ""}="${i.URI}"`, "")}: ${t}${e === this.symbols.length ? ". ●" : "."}`;
   }
 }
-class Gt {
+class Ge {
   byName = {};
-  constructor(t) {
-    this.rules = t.map((e) => new Ht(e)), this.rules.forEach((e) => {
-      (this.byName[e.name] ??= []).push(e);
+  constructor(e) {
+    this.rules = e.map((t) => new He(t)), this.rules.forEach((t) => {
+      (this.byName[t.name] ??= []).push(t);
     });
   }
   toString() {
-    return this.rules.map((t) => t.toString()).join(`
+    return this.rules.map((e) => e.toString()).join(`
 `);
   }
 }
-class Jt {
-  #e = null;
-  #s = [];
-  #n = "";
-  #i = 0;
-  #t = !0;
+class Je {
+  #t = null;
+  #i = [];
+  #s = "";
+  #n = 0;
+  #e = !0;
   #r = !1;
-  #a = !1;
-  #o = "";
-  #l = 0;
+  #l = !1;
+  #a = "";
+  #o = 0;
   #c = !1;
   [Symbol.iterator]() {
     return this;
   }
-  reset(t) {
-    this.#e = t.documentElement ?? t;
+  reset(e) {
+    this.#t = e.documentElement ?? e;
   }
-  inject(t) {
-    this.#o = t, this.#c = !0, this.#l = 0;
+  inject(e) {
+    this.#a = e, this.#c = !0, this.#o = 0;
   }
   #u() {
-    this.#n = "", this.#i = 0, this.#e.nextSibling ? (this.#e = this.#e.nextSibling, this.#e.nodeType === 3 ? (this.#n = this.#e.textContent, this.#i = 0) : this.#t = !0) : (this.#e = this.#e.parentNode, this.#r = !0, this.#a = !this.#e);
+    this.#s = "", this.#n = 0, this.#t.nextSibling ? (this.#t = this.#t.nextSibling, this.#t.nodeType === 3 ? (this.#s = this.#t.textContent, this.#n = 0) : this.#e = !0) : (this.#t = this.#t.parentNode, this.#r = !0, this.#l = !this.#t);
   }
   next() {
-    if (this.#a)
+    if (this.#l)
       return {
         done: !0
       };
     if (this.#c)
-      return this.#l < this.#o.length ? {
+      return this.#o < this.#a.length ? {
         value: {
-          char: this.#o[this.#l++],
+          char: this.#a[this.#o++],
           injected: !0
         }
       } : (this.#c = !1, {
@@ -1767,35 +1767,35 @@ class Jt {
           injected: !0
         }
       });
-    if (this.#e.nodeType === 3 && this.#i < this.#n.length) {
-      const t = this.#n[this.#i++], e = this.#s[this.#s.length - 1];
-      return this.#i === this.#n.length && this.#u(), {
+    if (this.#t.nodeType === 3 && this.#n < this.#s.length) {
+      const e = this.#s[this.#n++], t = this.#i[this.#i.length - 1];
+      return this.#n === this.#s.length && this.#u(), {
         value: {
-          char: t,
-          attributes: e
+          char: e,
+          attributes: t
         }
       };
     }
-    if (this.#t) {
-      const t = this.#s[this.#s.length - 1] ?? {}, e = Object.fromEntries((this.#e.attributes?.filter((s) => s.namespaceURI !== "http://invisiblexml.org/NS") ?? []).map(({ name: s, value: a }) => [s, a]));
-      this.#s.push(e), this.#t = !1;
-      const n = this.#e.nodeName;
-      return this.#e.childNodes.length > 0 ? (this.#e = this.#e.childNodes[0], this.#e.nodeType === 3 ? (this.#n = this.#e.textContent, this.#i = 0) : this.#t = !0) : this.#r = !0, {
+    if (this.#e) {
+      const e = this.#i[this.#i.length - 1] ?? {}, t = Object.fromEntries((this.#t.attributes?.filter((i) => i.namespaceURI !== "http://invisiblexml.org/NS") ?? []).map(({ name: i, value: a }) => [i, a]));
+      this.#i.push(t), this.#e = !1;
+      const s = this.#t.nodeName;
+      return this.#t.childNodes.length > 0 ? (this.#t = this.#t.childNodes[0], this.#t.nodeType === 3 ? (this.#s = this.#t.textContent, this.#n = 0) : this.#e = !0) : this.#r = !0, {
         value: {
-          startName: n,
-          attributes: t,
-          nextAttributes: e
+          startName: s,
+          attributes: e,
+          nextAttributes: t
         }
       };
     }
     if (this.#r) {
       this.#r = !1;
-      const t = this.#e.nodeName, e = this.#s.pop(), n = this.#s[this.#s.length - 1] ?? {};
+      const e = this.#t.nodeName, t = this.#i.pop(), s = this.#i[this.#i.length - 1] ?? {};
       return this.#u(), {
         value: {
-          endName: t,
-          attributes: e,
-          nextAttributes: n
+          endName: e,
+          attributes: t,
+          nextAttributes: s
         }
       };
     }
@@ -1803,23 +1803,23 @@ class Jt {
   save() {
     return null;
   }
-  formatError(t, e) {
-    let n = "";
-    return t.endOfText ? n = "end of text" : "startName" in t ? n = `<${t.startName}>` : "endName" in t ? n = `</${t.endName}>` : n = JSON.stringify(t.char), `${e} at ${n}`;
+  formatError(e, t) {
+    let s = "";
+    return e.endOfText ? s = "end of text" : "startName" in e ? s = `<${e.startName}>` : "endName" in e ? s = `</${e.endName}>` : s = JSON.stringify(e.char), `${t} at ${s}`;
   }
 }
-const rt = (m, t, e, n, s) => {
-  const a = typeof t == "string";
+const ae = (m, e, t, s, i) => {
+  const a = typeof e == "string";
   try {
-    const r = new H(new Gt(m), a ? new tt() : new Jt());
-    r.feed(t);
+    const r = new H(new Ge(m), a ? new ee() : new Je());
+    r.feed(e);
     const c = r.finish();
     let _ = c[0];
     if (_?.nodeType === 132 && _?.childNodes.length === 1 && (_ = _.childNodes[0]), a && _?.nodeType !== 1)
       throw new Error("Parse error");
     if (c.length > 1 && a) {
       const f = _.lookupNamespaceURI("") === "http://invisiblexml.org/NS" ? "" : _.lookupPrefix("http://invisiblexml.org/NS") ?? "ixml";
-      f === "ixml" && !_.lookupPrefix("http://invisiblexml.org/NS") && _.setNamespace("http://invisiblexml.org/NS", "xmlns:ixml"), _.attributes.push({
+      f === "ixml" && !_.lookupPrefix("http://invisiblexml.org/NS") && _.setNamespace("http://invisiblexml.org/NS", "ixml"), _.attributes.push({
         nodeType: 2,
         namespaceURI: "http://invisiblexml.org/NS",
         prefix: f,
@@ -1827,7 +1827,7 @@ const rt = (m, t, e, n, s) => {
         value: "ambiguous"
       });
     }
-    M(_, s);
+    S(_, i);
   } catch ({ message: r }) {
     const c = {
       nodeType: 1,
@@ -1839,11 +1839,11 @@ const rt = (m, t, e, n, s) => {
         this.childNodes.push(_);
       },
       getAttribute: function(_) {
-        return this.attributes.find((i) => i.name === _)?.value ?? "";
+        return this.attributes.find((n) => n.name === _)?.value ?? "";
       },
       setAttribute: function(_, f) {
-        const i = this.attributes.find((d) => d.name === _);
-        i ? i.value = f : this.attributes.push({
+        const n = this.attributes.find((d) => d.name === _);
+        n ? n.value = f : this.attributes.push({
           nodeType: 2,
           name: _,
           value: f
@@ -1859,12 +1859,12 @@ const rt = (m, t, e, n, s) => {
     }), c.appendChild({
       nodeType: 3,
       textContent: r
-    }), M(c, s);
+    }), S(c, i);
   }
 };
-class w extends Ot {
+class w extends Me {
   grammarElement = null;
-  canonicalGrammarElement = null;
+  normalizedGrammarElement = null;
   static MARK_to_rulemark = {
     2: "@",
     [-1]: "-",
@@ -1876,7 +1876,7 @@ class w extends Ot {
     1: "^",
     0: ""
   };
-  static #e = {
+  static #t = {
     L: "A",
     Ll: "a",
     Lu: "A",
@@ -1941,70 +1941,74 @@ class w extends Ot {
     Separator: " ",
     Other: ""
   };
-  appendChild(t) {
-    t?.nodeType === 1 && (this.grammarElement = t);
+  appendChild(e) {
+    e?.nodeType === 1 && (this.grammarElement = e);
   }
-  toNode(t) {
-    this.grammarElement && M(this.grammarElement, t);
+  toNode(e) {
+    this.grammarElement && S(this.grammarElement, e);
   }
   toString() {
-    const t = new B();
-    return M(this.grammarElement, t), t.textContent;
+    const e = new B();
+    return S(this.grammarElement, e), e.textContent;
   }
-  toCanonicalString() {
-    const t = new B();
-    return M(this.canonicalGrammarElement, t), t.textContent;
+  toNormalizedString() {
+    const e = new B();
+    return S(this.normalizedGrammarElement, e), e.textContent;
   }
   toExpandedString() {
-    const t = new B();
-    return M(this.documentElement, t), t.textContent;
+    const e = new B();
+    return S(this.documentElement, e), e.textContent;
   }
   toIndentedString() {
-    const t = new B(2);
-    return M(this.grammarElement, t), t.textContent;
+    const e = new B(2);
+    return S(this.grammarElement, e), e.textContent;
   }
-  toIndentedCanonicalString() {
-    const t = new B(2);
-    return M(this.canonicalGrammarElement, t), t.textContent;
+  toIndentedNormalizedString() {
+    const e = new B(2);
+    return S(this.normalizedGrammarElement, e), e.textContent;
   }
   toIndentedExpandedString() {
-    const t = new B(2);
-    return M(this.documentElement, t), t.textContent;
+    const e = new B(2);
+    return S(this.documentElement, e), e.textContent;
   }
   toIXml() {
-    const t = new st();
-    return M(this.grammarElement, t), t.textContent;
+    const e = new ie();
+    return S(this.grammarElement, e), e.textContent;
   }
-  toCanonicalIXml() {
-    const t = new st();
-    return M(this.canonicalGrammarElement, t), t.textContent;
+  toNormalizedIXml() {
+    const e = new ie();
+    return S(this.normalizedGrammarElement, e), e.textContent;
   }
   toExpandedIXml() {
-    const t = new st();
-    return M(this.documentElement, t), t.textContent;
+    const e = new ie();
+    return S(this.documentElement, e), e.textContent;
   }
-  fromString(t) {
-    mt(this, t);
+  toRules() {
+    let e = "[";
+    return e += this.rules.reduce((t, s, i) => t + (i !== 0 ? "," : "") + re(s).replace(/\\/g, "\\"), "[") + "]", e += ",", e += this.normalizingRules.reduce((t, s, i) => t + (i !== 0 ? "," : "") + re(s).replace(/\\/g, "\\"), "[") + "]", e += "]", e;
   }
-  #s() {
-    this.parse = (t, e) => (e || (e = new q()), rt(this.rules, t, this.defaultNamespaceURI, this.defaultPrefix, e), e);
+  fromString(e) {
+    fe(this, e);
   }
-  #n() {
-    this.canonicalize = (t) => {
-      const e = new q(), n = new q(t);
-      if (rt(this.canonicalizingRules, n, this.defaultNamespaceURI, this.defaultPrefix, e), e.childNodes[0]?.localName === "ixml")
-        throw new Error(e.childNodes[0]?.childNodes[0]?.textContent ?? "Invalid XML document for IXML grammar");
-      return e.childNodes[0]?.textContent ?? "";
+  generateParseFunction() {
+    this.parse = (e, t) => (t || (t = new q()), ae(this.rules, e, this.defaultNamespaceURI, this.defaultPrefix, t), t);
+  }
+  generateNormalizeFunction() {
+    this.normalize = (e) => {
+      const t = new q(), s = new q(e);
+      if (ae(this.normalizingRules, s, this.defaultNamespaceURI, this.defaultPrefix, t), t.childNodes[0]?.localName === "ixml")
+        throw new Error(t.childNodes[0]?.childNodes[0]?.textContent ?? "Invalid XML document for IXML grammar");
+      return t.childNodes[0]?.textContent ?? "";
     };
   }
   #i() {
-    const t = this.createElement("ixml");
-    let e = "", n = null;
-    this.rules.forEach((s) => {
-      const a = w.MARK_to_rulemark[s[0]] + s[1] + (s[1] !== s[2] ? ">" + s[2] : "");
-      (!n || e !== a) && (n = this.createElement("rule"), w.MARK_to_rulemark[s[0]] && n.setAttribute("mark", w.MARK_to_rulemark[s[0]]), n.setAttribute("name", s[1]), s[2] !== s[1] && n.setAttribute("alias", s[2]), t.appendChild(n), e = a);
+    const e = this.createElement("ixml");
+    let t = "", s = null;
+    this.rules.forEach((i) => {
+      const a = w.MARK_to_rulemark[i[0]] + i[1] + (i[1] !== i[2] ? ">" + i[2] : "");
+      (!s || t !== a) && (s = this.createElement("rule"), w.MARK_to_rulemark[i[0]] && s.setAttribute("mark", w.MARK_to_rulemark[i[0]]), s.setAttribute("name", i[1]), i[2] !== i[1] && s.setAttribute("alias", i[2]), e.appendChild(s), t = a);
       const r = this.createElement("alt");
-      s[4].forEach((c) => {
+      i[4].forEach((c) => {
         switch (c[1]) {
           case 1: {
             const _ = this.createElement("nonterminal");
@@ -2017,8 +2021,8 @@ class w extends Ot {
             break;
           }
           case 3: {
-            const _ = c[2].source.split(""), f = _[1] === "^" ? 2 : 1, i = this.createElement(f === 1 ? "inclusion" : "exclusion");
-            c[0] !== 0 && i.setAttribute("tmark", w.MARK_to_termmark[c[0]]);
+            const _ = c[2].source.split(""), f = _[1] === "^" ? 2 : 1, n = this.createElement(f === 1 ? "inclusion" : "exclusion");
+            c[0] !== 0 && n.setAttribute("tmark", w.MARK_to_termmark[c[0]]);
             let d = null, x = null;
             for (let o = f, l = _.length - 1; o < l; o++)
               if (_[o] === "\\")
@@ -2029,28 +2033,28 @@ class w extends Ot {
                     p += _[o], o++;
                   if (d) {
                     const E = this.createElement("member");
-                    E.setAttributeNode(d), i.appendChild(E), d = null;
+                    E.setAttributeNode(d), n.appendChild(E), d = null;
                   }
                   const h = this.createElement("member");
-                  h.setAttribute("code", p), i.appendChild(h);
+                  h.setAttribute("code", p), n.appendChild(h);
                 } else if (_[o] === "x") {
                   if (o++, x)
-                    d = this.createAttribute("to"), d.value = "#" + _[o] + _[o + 1], x.setAttributeNode(d), i.appendChild(x), x = null, d = null;
+                    d = this.createAttribute("to"), d.value = "#" + _[o] + _[o + 1], x.setAttributeNode(d), n.appendChild(x), x = null, d = null;
                   else {
                     if (d) {
                       const p = this.createElement("member");
-                      p.setAttributeNode(d), i.appendChild(p), d = null;
+                      p.setAttributeNode(d), n.appendChild(p), d = null;
                     }
                     d = this.createAttribute("hex"), d.value = _[o] + _[o + 1];
                   }
                   o++;
                 } else if (_[o] === "u") {
                   if (o++, x)
-                    d = this.createAttribute("to"), d.value = "#" + _[o] + _[o + 1] + _[o + 2] + _[o + 3], x.setAttributeNode(d), i.appendChild(x), x = null, d = null;
+                    d = this.createAttribute("to"), d.value = "#" + _[o] + _[o + 1] + _[o + 2] + _[o + 3], x.setAttributeNode(d), n.appendChild(x), x = null, d = null;
                   else {
                     if (d) {
                       const p = this.createElement("member");
-                      p.setAttributeNode(d), i.appendChild(p), d = null;
+                      p.setAttributeNode(d), n.appendChild(p), d = null;
                     }
                     d = this.createAttribute("hex"), d.value = _[o] + _[o + 1] + _[o + 2] + _[o + 3];
                   }
@@ -2060,7 +2064,7 @@ class w extends Ot {
                     d.value += _[o];
                   else {
                     const p = this.createElement("member");
-                    p.setAttributeNode(d), i.appendChild(p), d = this.createAttribute("string"), d.value = _[o];
+                    p.setAttributeNode(d), n.appendChild(p), d = this.createAttribute("string"), d.value = _[o];
                   }
                 else
                   d = this.createAttribute("string"), d.value = _[o];
@@ -2068,37 +2072,37 @@ class w extends Ot {
                 const p = (d.nodeName === "hex" ? "#" : "") + d.value;
                 d = this.createAttribute("from"), d.value = p, x = this.createElement("member"), x.setAttributeNode(d);
               } else if (x)
-                d = this.createAttribute("to"), d.value = _[o], x.setAttributeNode(d), i.appendChild(x), x = null, d = null;
+                d = this.createAttribute("to"), d.value = _[o], x.setAttributeNode(d), n.appendChild(x), x = null, d = null;
               else if (_[o].codePointAt(0) <= 31 || _[o].codePointAt(0) >= 127) {
                 if (d) {
                   const h = this.createElement("member");
-                  h.setAttributeNode(d), i.appendChild(h), d = null;
+                  h.setAttributeNode(d), n.appendChild(h), d = null;
                 }
                 const p = this.createElement("member");
-                p.setAttribute("hex", _[o].codePointAt(0).toString(16)), i.appendChild(p);
+                p.setAttribute("hex", _[o].codePointAt(0).toString(16)), n.appendChild(p);
               } else if (d)
                 if (d.name === "string")
                   d.value += _[o];
                 else {
                   const p = this.createElement("member");
-                  p.setAttributeNode(d), i.appendChild(p), d = this.createAttribute("string"), d.value = _[o];
+                  p.setAttributeNode(d), n.appendChild(p), d = this.createAttribute("string"), d.value = _[o];
                 }
               else
                 d = this.createAttribute("string"), d.value = _[o];
             if (d) {
               const o = this.createElement("member");
-              o.setAttributeNode(d), i.appendChild(o);
+              o.setAttributeNode(d), n.appendChild(o);
             }
-            r.appendChild(i);
+            r.appendChild(n);
             break;
           }
           case 4: {
             const _ = c[2].split("");
             let f = "";
-            for (let i = 0, d = _.length; i < d; i++) {
-              const x = _[i].codePointAt(0);
+            for (let n = 0, d = _.length; n < d; n++) {
+              const x = _[n].codePointAt(0);
               if (x >= 32 && x <= 126)
-                f += _[i];
+                f += _[n];
               else {
                 if (f !== "") {
                   const l = this.createElement("insertion");
@@ -2109,25 +2113,25 @@ class w extends Ot {
               }
             }
             if (f !== "") {
-              const i = this.createElement("insertion");
-              i.setAttribute("string", f), r.appendChild(i), f = "";
+              const n = this.createElement("insertion");
+              n.setAttribute("string", f), r.appendChild(n), f = "";
             }
             break;
           }
         }
-      }), n.appendChild(r);
-    }), super.appendChild(t);
+      }), s.appendChild(r);
+    }), super.appendChild(e);
   }
-  #t() {
-    const t = new w();
-    M(this.grammarElement, t), this.canonicalGrammarElement = t.grammarElement;
-    let e = this.canonicalGrammarElement.childNodes.filter((o) => o.nodeName === "rule");
-    const n = (o) => {
+  #s() {
+    const e = new w();
+    S(this.grammarElement, e), this.normalizedGrammarElement = e.grammarElement;
+    let t = this.normalizedGrammarElement.childNodes.filter((o) => o.nodeName === "rule");
+    const s = (o) => {
       if (o.nodeName === "inclusion" && o.getAttribute("tmark") === "-") {
         o.nodeName = o.localName = "literal";
         const l = o.childNodes[0], p = l.getAttribute("code");
         if (p)
-          o.setAttribute("string", w.#e[p]);
+          o.setAttribute("string", w.#t[p]);
         else {
           const h = l.getAttribute("from");
           if (h)
@@ -2137,14 +2141,14 @@ class w extends Ot {
             if (E)
               o.setAttribute("string", E[0]);
             else {
-              const S = l.getAttribute("hex");
-              S && o.setAttribute("hex", S);
+              const O = l.getAttribute("hex");
+              O && o.setAttribute("hex", O);
             }
           }
         }
         o.childNodes = [];
       } else if (o.nodeName === "exclusion" && o.getAttribute("tmark") === "-") {
-        const l = new RegExp(this.#r(o));
+        const l = new RegExp(this.#n(o));
         o.nodeName = o.localName = "literal";
         let p = "";
         for (let h = 32; h <= 126; h++) {
@@ -2172,10 +2176,10 @@ class w extends Ot {
           }
       } else
         for (const l of o.childNodes)
-          n(l);
+          s(l);
     };
-    e.forEach(n);
-    const s = Object.fromEntries(e.map((o) => [o.getAttribute("name"), o]));
+    t.forEach(s);
+    const i = Object.fromEntries(t.map((o) => [o.getAttribute("name"), o]));
     let a;
     const r = (o) => {
       if (o.getAttribute("ignoredText") === "")
@@ -2192,7 +2196,7 @@ class w extends Ot {
             break;
           }
           case "nonterminal": {
-            const l = s[o.getAttribute("name")], p = l?.getAttribute("ignoredText");
+            const l = i[o.getAttribute("name")], p = l?.getAttribute("ignoredText");
             l?.getAttribute("mark") === "-" || o.getAttribute("mark") === "-" ? p && (o.setAttribute("ignoredText", p), a = !0) : (o.setAttribute("ignoredText", "false"), a = !0);
             break;
           }
@@ -2205,7 +2209,7 @@ class w extends Ot {
         }
     };
     do
-      a = !1, e.forEach(r);
+      a = !1, t.forEach(r);
     while (a);
     const c = (o) => {
       if ((o.nodeName === "alts" || o.nodeName === "rule") && o.childNodes.length > 1) {
@@ -2216,7 +2220,7 @@ class w extends Ot {
         c(l);
     };
     do
-      a = !1, e.forEach(c);
+      a = !1, t.forEach(c);
     while (a);
     const _ = (o) => {
       for (const l of o.childNodes)
@@ -2242,7 +2246,7 @@ class w extends Ot {
             break;
           }
           case "nonterminal": {
-            const l = o.getAttribute("mark"), p = s[o.getAttribute("name")], h = l === "^" || l === "@" ? "false" : p?.getAttribute("disposable");
+            const l = o.getAttribute("mark"), p = i[o.getAttribute("name")], h = l === "^" || l === "@" ? "false" : p?.getAttribute("disposable");
             h && (o.setAttribute("disposable", String(h)), a = !0);
             break;
           }
@@ -2272,11 +2276,11 @@ class w extends Ot {
         }
     };
     do
-      a = !1, e.forEach(_);
+      a = !1, t.forEach(_);
     while (a);
     const f = (o) => {
       for (const l of o.childNodes)
-        if (l instanceof j)
+        if (l instanceof z)
           if (l.getAttribute("disposable") === "true")
             o.removeChild(l);
           else if (l.nodeName === "repeat1")
@@ -2299,38 +2303,38 @@ class w extends Ot {
               const h = l.childNodes[0].childNodes.filter((E) => E.getAttribute("disposable") !== "true" && E.getAttribute("ignoredText") !== "true");
               if (f(l), p) {
                 l.nodeName = l.localName = "alts", this.createElement("alt").appendChild(p);
-                const S = this.createElement("alt"), A = this.createElement("repeat1"), N = this.createElement("alts");
-                N.childNodes = h, A.appendChild(N), S.appendChild(A), l.childNodes = [p, S];
+                const O = this.createElement("alt"), A = this.createElement("repeat1"), N = this.createElement("alts");
+                N.childNodes = h, A.appendChild(N), O.appendChild(A), l.childNodes = [p, O];
               }
             } else
               l.removeAttribute("disposable"), l.removeAttribute("ignoredText"), f(l);
           else
             l.removeAttribute("disposable"), l.removeAttribute("ignoredText"), f(l);
     };
-    e.forEach(f);
-    const i = /* @__PURE__ */ new Set();
-    e.length > 0 && i.add(e[0].getAttribute("name"));
+    t.forEach(f);
+    const n = /* @__PURE__ */ new Set();
+    t.length > 0 && n.add(t[0].getAttribute("name"));
     const d = (o) => {
       for (const l of o.childNodes ?? [])
         d(l);
-      o.nodeName === "nonterminal" && i.add(o.getAttribute("name"));
+      o.nodeName === "nonterminal" && n.add(o.getAttribute("name"));
     };
-    this.canonicalGrammarElement.childNodes.forEach(d), this.canonicalGrammarElement.childNodes = this.canonicalGrammarElement.childNodes.filter((o) => !(o instanceof j) || i.has(o.getAttribute("name"))), this.canonicalGrammarElement.childNodes.forEach((o) => {
-      o instanceof j && (o.removeAttribute("disposable"), o.removeAttribute("ignoredText"));
-    }), e = this.canonicalGrammarElement.childNodes.filter((o) => o.nodeName === "rule");
+    this.normalizedGrammarElement.childNodes.forEach(d), this.normalizedGrammarElement.childNodes = this.normalizedGrammarElement.childNodes.filter((o) => !(o instanceof z) || n.has(o.getAttribute("name"))), this.normalizedGrammarElement.childNodes.forEach((o) => {
+      o instanceof z && (o.removeAttribute("disposable"), o.removeAttribute("ignoredText"));
+    }), t = this.normalizedGrammarElement.childNodes.filter((o) => o.nodeName === "rule");
     const x = (o) => {
       for (const l of o.childNodes)
         x(l), l.nodeName === "alts" && l.childNodes.length === 1 && l.childNodes[0].childNodes.length === 1 && !["option", "repeat0", "repeat1"].includes(l.childNodes[0].childNodes[0].nodeName) && (o.childNodes[o.childNodes.indexOf(l)] = l.childNodes[0].childNodes[0], a = !0);
     };
     do
-      a = !1, e.forEach(x);
+      a = !1, t.forEach(x);
     while (a);
   }
-  #r(t) {
-    return (t.localName === "inclusion" ? "[" : "[^") + t.childNodes.reduce((e, n) => {
-      let s = "", a = n.getAttribute("from") || "";
+  #n(e) {
+    return (e.localName === "inclusion" ? "[" : "[^") + e.childNodes.reduce((t, s) => {
+      let i = "", a = s.getAttribute("from") || "";
       if (a !== "") {
-        let r = n.getAttribute("to") || "";
+        let r = s.getAttribute("to") || "";
         if (a.startsWith("#")) {
           const c = parseInt(a.substring(1), 16).toString(16);
           c.length < 3 ? a = "\\x" + c.padStart(2, "0") : a = "\\u" + c.padStart(4, "0");
@@ -2339,43 +2343,43 @@ class w extends Ot {
           const c = parseInt(r.substring(1), 16).toString(16);
           c.length < 3 ? r = "\\x" + c.padStart(2, "0") : r = "\\u" + c.padStart(4, "0");
         }
-        s = a + "-" + r;
+        i = a + "-" + r;
       } else {
-        const r = n.getAttribute("string") || "";
+        const r = s.getAttribute("string") || "";
         if (r !== "")
-          s = r.replace(/([[\]\\^-])/g, "\\$1");
+          i = r.replace(/([[\]\\^-])/g, "\\$1");
         else {
-          const c = n.getAttribute("hex") || "";
+          const c = s.getAttribute("hex") || "";
           if (c !== "") {
             let _ = parseInt(c, 16);
             if (_ <= 255)
-              s = "\\x" + _.toString(16).padStart(2, "0");
+              i = "\\x" + _.toString(16).padStart(2, "0");
             else if (_ <= 65535)
-              s = "\\u" + _.toString(16).padStart(4, "0");
+              i = "\\u" + _.toString(16).padStart(4, "0");
             else {
               _ -= 65536;
-              let f = _ >> 10 & 1023 | 55296, i = _ & 1023 | 56320;
-              s = "\\u" + f.toString(16) + "\\u" + i.toString(16);
+              let f = _ >> 10 & 1023 | 55296, n = _ & 1023 | 56320;
+              i = "\\u" + f.toString(16) + "\\u" + n.toString(16);
             }
           } else {
-            const _ = n.getAttribute("code") || "";
-            s += "\\p{" + _ + "}";
+            const _ = s.getAttribute("code") || "";
+            i += "\\p{" + _ + "}";
           }
         }
       }
-      return e + s;
+      return t + i;
     }, "") + "]";
   }
-  #a(t) {
-    const e = { "@": 2, "-": -1, "^": 1, "": 0 }, n = { "@": 2, "-": -1, "^": 1, "": 1 };
-    let s = [];
-    t.childNodes.forEach((_) => {
+  #e(e) {
+    const t = { "@": 2, "-": -1, "^": 1, "": 0 }, s = { "@": 2, "-": -1, "^": 1, "": 1 };
+    let i = [];
+    e.childNodes.forEach((_) => {
       if (_.localName === "rule") {
-        const f = _.getAttribute("name"), i = _.getAttribute("alias"), d = [], x = i || f, o = (l, p) => {
-          let h = "", E = "", S = "", A = null, N = [];
+        const f = _.getAttribute("name"), n = _.getAttribute("alias"), d = [], x = n || f, o = (l, p) => {
+          let h = "", E = "", O = "", A = null, N = [];
           switch (p.localName) {
             case "nonterminal": {
-              h = p.getAttribute("name"), E = p.getAttribute("alias"), S = E || h, A = [[e[p.getAttribute("mark") || ""], 1, h, S]];
+              h = p.getAttribute("name"), E = p.getAttribute("alias"), O = E || h, A = [[t[p.getAttribute("mark") || ""], 1, h, O]];
               break;
             }
             case "attribute": {
@@ -2395,26 +2399,26 @@ class w extends Ot {
               const u = p.localName === "insertion" ? "" : p.getAttribute("tmark") || "", T = p.getAttribute("string") || "";
               if (T !== "")
                 if (T.length === 1 || p.localName === "insertion")
-                  A = [[e[u], p.localName === "insertion" ? 4 : 2, T]];
+                  A = [[t[u], p.localName === "insertion" ? 4 : 2, T]];
                 else {
                   h = l.name + "_" + l.rule_count + "_literal_" + l.literal_count++;
-                  const C = T.split("").map(($) => {
+                  const D = T.split("").map(($) => {
                     const k = p.ownerDocument.createElement("literal");
                     return k.setAttribute("string", $), k.setAttribute("tmark", "-"), k;
                   }).reduce(o, { pick: [], subrules: [], name: l.name, rule_count: l.rule_count, literal_count: 1 });
-                  N = [[-1, h, h, [], u !== "-" ? C.pick.concat([[0, 4, T]]) : C.pick]], A = [[e[p.getAttribute("mark") || ""], 1, h, h]];
+                  N = [[-1, h, h, [], u !== "-" ? D.pick.concat([[0, 4, T]]) : D.pick]], A = [[t[p.getAttribute("mark") || ""], 1, h, h]];
                 }
               else {
-                const C = p.getAttribute("hex") || "";
-                if (C !== "") {
-                  let $ = parseInt(C, 16);
+                const D = p.getAttribute("hex") || "";
+                if (D !== "") {
+                  let $ = parseInt(D, 16);
                   if ($ <= 65535)
-                    A = [[e[u], p.localName === "insertion" ? 4 : 2, String.fromCodePoint($)]];
+                    A = [[t[u], p.localName === "insertion" ? 4 : 2, String.fromCodePoint($)]];
                   else {
                     $ -= 65536;
                     let k = $ >> 10 & 1023 | 55296, G = $ & 1023 | 56320;
                     const R = [[-1, 2, String.fromCodePoint(k)], [-1, 2, String.fromCodePoint(G)]];
-                    h = l.name + "_" + l.rule_count + "_literal_" + l.literal_count++, N = [[-1, h, h, [], u !== "-" ? R.concat([[0, 4, String.fromCodePoint($)]]) : R]], A = [[e[p.getAttribute("mark") || ""], 1, h, h]];
+                    h = l.name + "_" + l.rule_count + "_literal_" + l.literal_count++, N = [[-1, h, h, [], u !== "-" ? R.concat([[0, 4, String.fromCodePoint($)]]) : R]], A = [[t[p.getAttribute("mark") || ""], 1, h, h]];
                   }
                 }
               }
@@ -2422,8 +2426,8 @@ class w extends Ot {
             }
             case "inclusion":
             case "exclusion": {
-              const u = p.getAttribute("tmark") || "", T = this.#r(p);
-              A = [[e[u], 3, new RegExp(T, "u")]];
+              const u = p.getAttribute("tmark") || "", T = this.#n(p);
+              A = [[t[u], 3, new RegExp(T, "u")]];
               break;
             }
             case "alts": {
@@ -2451,8 +2455,8 @@ class w extends Ot {
                 p.childNodes[1].childNodes.forEach(($) => {
                   u.push($);
                 });
-                const T = u.concat([p.childNodes[0]]).reduce(o, { pick: [], subrules: [], name: h + "_sep", rule_count: l.rule_count, alts_count: 1, option_count: 1, repeat0_count: 1, repeat1_count: 1, literal_count: 1 }), C = [p.childNodes[0]].reduce(o, { pick: [], subrules: [], name: h, rule_count: l.rule_count, alts_count: 1, option_count: 1, repeat0_count: 1, repeat1_count: 1, literal_count: 1 });
-                N.push([-1, h, h, [], C.pick.concat([[-1, 1, h + "_next"]])]), N = N.concat(C.subrules), N.push([-1, h + "_next", h + "_next", [], [[-1, 1, h + "_next"], [-1, 1, h + "_sep"]]]), N.push([-1, h + "_sep", h + "_sep", [], T.pick]), N = N.concat(T.subrules), N.push([-1, h + "_next", h + "_next", [], []]);
+                const T = u.concat([p.childNodes[0]]).reduce(o, { pick: [], subrules: [], name: h + "_sep", rule_count: l.rule_count, alts_count: 1, option_count: 1, repeat0_count: 1, repeat1_count: 1, literal_count: 1 }), D = [p.childNodes[0]].reduce(o, { pick: [], subrules: [], name: h, rule_count: l.rule_count, alts_count: 1, option_count: 1, repeat0_count: 1, repeat1_count: 1, literal_count: 1 });
+                N.push([-1, h, h, [], D.pick.concat([[-1, 1, h + "_next"]])]), N = N.concat(D.subrules), N.push([-1, h + "_next", h + "_next", [], [[-1, 1, h + "_next"], [-1, 1, h + "_sep"]]]), N.push([-1, h + "_sep", h + "_sep", [], T.pick]), N = N.concat(T.subrules), N.push([-1, h + "_next", h + "_next", [], []]);
               } else if (p.childNodes[0].localName !== "alts") {
                 const u = [p.childNodes[0]].reduce(o, { pick: [], subrules: [], name: h, rule_count: l.rule_count, alts_count: 1, option_count: 1, repeat0_count: 1, repeat1_count: 1, literal_count: 1 });
                 N.push([-1, h, h, [], [[-1, 1, h, h]].concat(u.pick)]), N = N.concat(u.subrules);
@@ -2485,27 +2489,27 @@ class w extends Ot {
           }
           if (l.localName === "alt") {
             const h = l.childNodes.reduce(o, { pick: [], subrules: [], name: f, rule_count: p + 1, alts_count: 1, option_count: 1, repeat0_count: 1, repeat1_count: 1, literal_count: 1 }), E = _.getAttribute("mark") || "";
-            s.push([n[E], f, x, d, h.pick]), s = s.concat(h.subrules);
+            i.push([s[E], f, x, d, h.pick]), i = i.concat(h.subrules);
           }
         });
       }
     });
     const a = [], r = {};
-    s.forEach((_, f) => {
-      const i = w.MARK_to_rulemark[_[0]] + _[1] + (_[1] !== _[2] ? ">" + _[2] : "");
-      r[i] ? r[i].push(f) : (r[i] = [f], a.push(i));
+    i.forEach((_, f) => {
+      const n = w.MARK_to_rulemark[_[0]] + _[1] + (_[1] !== _[2] ? ">" + _[2] : "");
+      r[n] ? r[n].push(f) : (r[n] = [f], a.push(n));
     });
     const c = [];
     return a.forEach((_) => {
       r[_].forEach((f) => {
-        c.push(s[f]);
+        c.push(i[f]);
       });
     }), c;
   }
-  #o() {
-    this.canonicalizingRules = [];
-    for (const t of this.canonicalRules) {
-      const [, e, n, , s] = t, a = [];
+  #r() {
+    this.normalizingRules = [];
+    for (const e of this.normalizedRules) {
+      const [, t, s, , i] = e, a = [];
       let r = "", c = "";
       const _ = () => {
         if (c !== "")
@@ -2513,33 +2517,33 @@ class w extends Ot {
             a.push([-1, 2, f]);
         c = "", r !== "" && a.push([0, 4, r]), r = "";
       };
-      for (const f of s) {
-        const [i, d, x, o] = f;
-        d === 2 && i === -1 ? r += x : d === 4 ? c += x : (_(), d === 1 ? a.push([i, d, x, o]) : a.push([i, d, x]));
+      for (const f of i) {
+        const [n, d, x, o] = f;
+        d === 2 && n === -1 ? r += x : d === 4 ? c += x : (_(), d === 1 ? a.push([n, d, x, o]) : a.push([n, d, x]));
       }
-      _(), this.canonicalizingRules.push([-1, e, n, [], a]);
+      _(), this.normalizingRules.push([-1, t, s, [], a]);
     }
-    if (this.canonicalizingRules.length !== 0) {
-      const [, t, e] = this.canonicalizingRules[0];
-      this.canonicalizingRules = [[-1, "#initialRule", "#initialRule", [], [[1, 1, t, e]]], ...this.canonicalizingRules];
-      const n = {}, s = {};
-      this.canonicalRules.forEach((a) => {
+    if (this.normalizingRules.length !== 0) {
+      const [, e, t] = this.normalizingRules[0];
+      this.normalizingRules = [[-1, "#initialRule", "#initialRule", [], [[1, 1, e, t]]], ...this.normalizingRules];
+      const s = {}, i = {};
+      this.normalizedRules.forEach((a) => {
         const [r, c, _] = a;
-        n[c] = r, s[c] = _;
-      }), this.canonicalizingRules.forEach((a) => {
+        s[c] = r, i[c] = _;
+      }), this.normalizingRules.forEach((a) => {
         const r = a[4], c = [];
         r.forEach((_) => {
-          const [f, i, d, x] = _, o = n[d], l = s[d], p = i === 1 && f === 0 ? o : f, h = i === 1 && d === x ? l : x;
-          p === 2 ? c.push([0, 7, d, h]) : (i === 1 && p !== -1 && c.push([-1, 5, h]), i !== 1 || !x && !l ? c.push([p, i, d]) : c.push([-1, i, d, p !== -1 && i === 1 && d === x || !x ? l : x]), i === 1 && p !== -1 && c.push([-1, 6, h]));
+          const [f, n, d, x] = _, o = s[d], l = i[d], p = n === 1 && f === 0 ? o : f, h = n === 1 && d === x ? l : x;
+          p === 2 ? c.push([0, 7, d, h]) : (n === 1 && p !== -1 && c.push([-1, 5, h]), n !== 1 || !x && !l ? c.push([p, n, d]) : c.push([-1, n, d, p !== -1 && n === 1 && d === x || !x ? l : x]), n === 1 && p !== -1 && c.push([-1, 6, h]));
         }), a[4] = c;
       });
     }
   }
-  generateRules(t) {
-    this.rules = t ?? this.#a(this.grammarElement), this.#i(), this.#s(), this.#t(), this.canonicalRules = this.#a(this.canonicalGrammarElement), this.#o(), this.#n();
+  generateRules(e) {
+    this.rules = e ?? this.#e(this.grammarElement), this.#i(), this.generateParseFunction(), this.#s(), this.normalizedRules = this.#e(this.normalizedGrammarElement), this.#r(), this.generateNormalizeFunction();
   }
 }
-const Z = w.MARK_to_termmark, Wt = w.MARK_to_rulemark, Zt = [
+const Z = w.MARK_to_termmark, We = w.MARK_to_rulemark, Ze = [
   [1, "ixml", "ixml", [["", "http://invisiblexml.org/NS"]], [[0, 1, "s", "s"], [-1, 1, "ixml_1_option_1", "ixml_1_option_1"], [0, 1, "rule", "rule"], [-1, 1, "ixml_1_repeat1_1", "ixml_1_repeat1_1"], [0, 1, "s", "s"]]],
   [-1, "ixml_1_option_1", "ixml_1_option_1", [], [[0, 1, "prolog", "prolog"], [0, 1, "RS", "RS"]]],
   [-1, "ixml_1_option_1", "ixml_1_option_1", [], []],
@@ -2703,37 +2707,23 @@ const Z = w.MARK_to_termmark, Wt = w.MARK_to_rulemark, Zt = [
   [1, "insertion", "insertion", [], [[-1, 2, "+"], [0, 1, "s", "s"], [-1, 1, "insertion_1_alts_1", "insertion_1_alts_1"], [0, 1, "s", "s"]]],
   [-1, "insertion_1_alts_1", "insertion_1_alts_1", [], [[0, 1, "string", "string"]]],
   [-1, "insertion_1_alts_1", "insertion_1_alts_1", [], [[-1, 2, "#"], [0, 1, "hex", "hex"]]]
-], Qt = (m) => {
+], qe = (m) => {
+  const e = new w();
+  return ae(Ze, m, null, null, e), e.generateRules(), e;
+}, Ve = (m) => {
+  const e = new w();
+  return S(m.documentElement ?? m, e), e.generateRules(), e;
+}, Qe = ([m, e]) => {
   const t = new w();
-  return rt(Zt, m, null, null, t), t.generateRules(), t;
-}, te = (m) => {
-  const t = new w();
-  return M(m.documentElement ?? m, t), t.generateRules(), t;
-}, ee = (m) => {
-  const t = new w();
-  return t.generateRules(m), t;
-}, ne = (m) => {
-  const t = new w();
-  return t.fromString(m), t.generateRules(), t;
+  return t.rules = m, t.generateParseFunction(), t.normalizingRules = e, t.generateNormalizeFunction(), t;
+}, et = (m) => {
+  const e = new w();
+  return e.fromString(m), e.generateRules(), e;
 };
-async function qt(m = []) {
-  const [t, e] = m.map(Number);
-  if (Number.isNaN(t) || Number.isNaN(e)) {
-    console.error("Usage: node monapp.mjs <a> <b>"), process.exitCode = 1;
-    return;
-  }
-  const n = calculTruc(t, e);
-  console.log(n);
-}
-const Vt = typeof process < "u" && process.versions?.node;
-Vt && import.meta.url === new URL(process.argv[1], "file:").href && await Promise.resolve(qt(process.argv.slice(2))).catch((t) => {
-  console.error(t?.stack || t), process.exit(1);
-});
 export {
-  Qt as fromIXml,
-  te as fromNode,
-  ee as fromRules,
-  ne as fromXml,
-  qt as mainCLI,
-  St as richJSONstringify
+  qe as fromIXml,
+  Ve as fromNode,
+  Qe as fromRules,
+  et as fromXml,
+  re as richJSONstringify
 };

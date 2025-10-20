@@ -7,10 +7,11 @@ import { IXmlDocument } from "./IXmlDocument";
 import { parseWithGrammar } from "../utils/parseWithGrammar.js";
 import { XmlDocument } from "./XmlDocument.js";
 import { XmlElement } from "./XmlElement.js";
+import { richJSONstringify } from "../utils/richJSONstringify.js";
 
 export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
   grammarElement = null;
-  canonicalGrammarElement = null;
+  normalizedGrammarElement = null;
   static MARK_to_rulemark = {
     [ATTRIBUTE_MARK]: "@",
     [DELETED_MARK]: "-",
@@ -102,9 +103,9 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
     replicate(this.grammarElement, doc);
     return doc.textContent;
   }
-  toCanonicalString() {
+  toNormalizedString() {
     const doc = new SerializerDocument();
-    replicate(this.canonicalGrammarElement, doc);
+    replicate(this.normalizedGrammarElement, doc);
     return doc.textContent;
   }
   toExpandedString() {
@@ -117,9 +118,9 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
     replicate(this.grammarElement, doc);
     return doc.textContent;
   }
-  toIndentedCanonicalString() {
+  toIndentedNormalizedString() {
     const doc = new SerializerDocument(2);
-    replicate(this.canonicalGrammarElement, doc);
+    replicate(this.normalizedGrammarElement, doc);
     return doc.textContent;
   }
   toIndentedExpandedString() {
@@ -132,9 +133,9 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
     replicate(this.grammarElement, doc);
     return doc.textContent;
   }
-  toCanonicalIXml() {
+  toNormalizedIXml() {
     const doc = new IXmlDocument();
-    replicate(this.canonicalGrammarElement, doc);
+    replicate(this.normalizedGrammarElement, doc);
     return doc.textContent;
   }
   toExpandedIXml() {
@@ -142,10 +143,18 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
     replicate(this.documentElement, doc);
     return doc.textContent;
   }
+  toRules() {
+    let res = '[';
+    res += this.rules.reduce((ser, rule, index) => ser + (index !== 0 ? ',' : '') + richJSONstringify(rule).replace(/\\/g, '\\'), '[') + ']';
+    res += ',';
+    res += this.normalizingRules.reduce((ser, rule, index) => ser + (index !== 0 ? ',' : '') + richJSONstringify(rule).replace(/\\/g, '\\'), '[') + ']';
+    res += ']';
+    return res;
+  }
   fromString(str) {
     loadFromString(this, str);
   }
-  #generateParseFunction() {
+  generateParseFunction() {
     this.parse = (input, node) => {
       if (!node) {
         node = new XmlDocument();
@@ -154,11 +163,11 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
       return node
     }
   }
-  #generateCanonicalizeFunction() {
-    this.canonicalize = input => {
+  generateNormalizeFunction() {
+    this.normalize = input => {
       const doc = new XmlDocument();
       const inputDoc = new XmlDocument(input);
-      parseWithGrammar(this.canonicalizingRules, inputDoc, this.defaultNamespaceURI, this.defaultPrefix, doc);
+      parseWithGrammar(this.normalizingRules, inputDoc, this.defaultNamespaceURI, this.defaultPrefix, doc);
       if (doc.childNodes[0]?.localName === 'ixml') {
         throw new Error(doc.childNodes[0]?.childNodes[0]?.textContent ?? 'Invalid XML document for IXML grammar');
       }
@@ -381,11 +390,11 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
     });
     super.appendChild(ixmlElt);
   }
-  #canonicalizeGrammar() {
-    const canonicalDocument = new IXmlXmlDocument();
-    replicate(this.grammarElement, canonicalDocument);
-    this.canonicalGrammarElement = canonicalDocument.grammarElement;
-    let ruleNodes = this.canonicalGrammarElement.childNodes.filter(e => e.nodeName === "rule");
+  #normalizeGrammar() {
+    const normalizedDocument = new IXmlXmlDocument();
+    replicate(this.grammarElement, normalizedDocument);
+    this.normalizedGrammarElement = normalizedDocument.grammarElement;
+    let ruleNodes = this.normalizedGrammarElement.childNodes.filter(e => e.nodeName === "rule");
     const inclusionReduce = n => {
       if (n.nodeName === "inclusion" && n.getAttribute("tmark") === "-") {
         n.nodeName = n.localName = "literal";
@@ -680,15 +689,15 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
         usedTerms.add(n.getAttribute("name"));
       }
     };
-    this.canonicalGrammarElement.childNodes.forEach(checkUsedTerms);
-    this.canonicalGrammarElement.childNodes = this.canonicalGrammarElement.childNodes.filter(e => !(e instanceof XmlElement) || usedTerms.has(e.getAttribute("name")));
-    this.canonicalGrammarElement.childNodes.forEach(e => {
+    this.normalizedGrammarElement.childNodes.forEach(checkUsedTerms);
+    this.normalizedGrammarElement.childNodes = this.normalizedGrammarElement.childNodes.filter(e => !(e instanceof XmlElement) || usedTerms.has(e.getAttribute("name")));
+    this.normalizedGrammarElement.childNodes.forEach(e => {
       if (e instanceof XmlElement) {
         e.removeAttribute("disposable");
         e.removeAttribute("ignoredText");
       }
     });
-    ruleNodes = this.canonicalGrammarElement.childNodes.filter(e => e.nodeName === "rule");
+    ruleNodes = this.normalizedGrammarElement.childNodes.filter(e => e.nodeName === "rule");
     const checkAlts = n => {
       for (const c of n.childNodes) {
         checkAlts(c);
@@ -950,9 +959,9 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
     });
     return orderedRules;
   }
-  #generateCanonicalizingRules() {
-    this.canonicalizingRules = [];
-    for (const rule of this.canonicalRules) {
+  #generateNormalizingRules() {
+    this.normalizingRules = [];
+    for (const rule of this.normalizedRules) {
       const [, name, alias,, terms] = rule;
       const newTerms = [];
       let deletedString = "";
@@ -985,19 +994,19 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
         }
       }
       stringProcess();
-      this.canonicalizingRules.push([DELETED_MARK, name, alias, [], newTerms]);
+      this.normalizingRules.push([DELETED_MARK, name, alias, [], newTerms]);
     }
-    if (this.canonicalizingRules.length !== 0) {
-      const [, firstRuleName, firstRuleAlias] = this.canonicalizingRules[0];
-      this.canonicalizingRules = [[DELETED_MARK, '#initialRule', '#initialRule', [], [[ELEMENT_MARK, NON_TERMINAL_SYMBOL, firstRuleName, firstRuleAlias]]], ...this.canonicalizingRules];
+    if (this.normalizingRules.length !== 0) {
+      const [, firstRuleName, firstRuleAlias] = this.normalizingRules[0];
+      this.normalizingRules = [[DELETED_MARK, '#initialRule', '#initialRule', [], [[ELEMENT_MARK, NON_TERMINAL_SYMBOL, firstRuleName, firstRuleAlias]]], ...this.normalizingRules];
       const defaultMarks = {};
       const defaultAliases = {};
-      this.canonicalRules.forEach(r => {
+      this.normalizedRules.forEach(r => {
         const [mark, name, alias] = r;
         defaultMarks[name] = mark;
         defaultAliases[name] = alias;
       });
-      this.canonicalizingRules.forEach(r => {
+      this.normalizingRules.forEach(r => {
         const terms = r[4];
         const newTerms = [];
         terms.forEach(term => {
@@ -1029,11 +1038,11 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
   generateRules(rules) {
     this.rules = rules ?? this.#generateRulesFromNode(this.grammarElement);
     this.#expandedGrammarFromRules()
-    this.#generateParseFunction();
-    this.#canonicalizeGrammar();
-    this.canonicalRules = this.#generateRulesFromNode(this.canonicalGrammarElement);
-    this.#generateCanonicalizingRules();
-    this.#generateCanonicalizeFunction();
+    this.generateParseFunction();
+    this.#normalizeGrammar();
+    this.normalizedRules = this.#generateRulesFromNode(this.normalizedGrammarElement);
+    this.#generateNormalizingRules();
+    this.generateNormalizeFunction();
   }
 }
 

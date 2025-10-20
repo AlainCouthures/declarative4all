@@ -5,7 +5,7 @@ export class IXmlExpandedXmlDocument extends XmlDocument {
   globalNamespaceURI = "";
   globalPrefix = "";
   rules = [];
-  canonicalRules = [];
+  normalizingRules = [];
   toArray() {
     return this.rules;
   }

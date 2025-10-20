@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "demo": "vite demo"
   },
   "devDependencies": {
     "vite": "^7.1.4"
   },
   "bin": {
-    "grammix": "./preview/grammix.mjs"
+    "grammix": "./bin/grammix.js"
   }
 }

@@ -1,6 +1,5 @@
 import './style.css';
 import * as grammix from '../src/index.js';
-
 /*
 import { EarleyXmlLexer } from '../../../common/classes/EarleyXmlLexer.js';
 import { XmlDocument } from '../../../common/classes/XmlDocument.js';
@@ -138,12 +137,12 @@ checkInputValidity();
 xmlTextArea.addEventListener('input', () => {
   if (currentGrammar) {
     try {
-      const canonicalizeResult = currentGrammar.canonicalize(xmlTextArea.value);
+      const normalizeResult = currentGrammar.normalize(xmlTextArea.value);
       xmlTextArea.setCustomValidity('');
       xmlTextArea.removeAttribute('aria-invalid');
       inputTextArea.setCustomValidity('');
       inputTextArea.removeAttribute('aria-invalid');
-      inputTextArea.value = canonicalizeResult;
+      inputTextArea.value = normalizeResult;
       outputPre.textContent = '';
       outputPre.classList.remove('error');
     } catch (error) {
@@ -366,14 +365,14 @@ left>first: operand.
        endtag: -"</", s, name, s, -">", s.
     attribute: -"<@", s, name, s, -">", s.
 
-    insertion: -"+", s, (string; -"#", hex), s.`}],
+    insertion: -"+", s, (string; -"#", hex), s.`}] /*,
   ['Javascript to XSLT Transpiler', { label: 'js2xslt', content: `xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform":
     -"import * as xslt4all from './xslt4all.mjs';", -#a,
     -"export const transform = xmlInput => {", -#a,
     -"  const xsltStylesheet = xslt4all.stylesheet();", -#a,
     -"  return xsltStylesheet.transform(xmlInput);", -#a,
     -"};"
-    .`}]
+    .`}]*/
 ]);
 grammarOptions.forEach((data, key) => {
   const option = document.createElement('option');
@@ -399,7 +398,7 @@ clearGrammarButton.addEventListener('click', () => {
 });
 normalizedButton.addEventListener('click', () => {
   grammarsSelect.value = '';
-  grammarTextArea.value = currentGrammar.toCanonicalIXml();
+  grammarTextArea.value = currentGrammar.toNormalizedIXml();
   checkGrammarValidity();
 });
 expandedButton.addEventListener('click', () => {

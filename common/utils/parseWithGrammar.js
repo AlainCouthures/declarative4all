@@ -21,7 +21,7 @@ export const parseWithGrammar = (grammar, input, namespaceURI, prefix, node) => 
     if (results.length > 1 && stringInput) {
       const prefix = r.lookupNamespaceURI('') === 'http://invisiblexml.org/NS' ? '' : r.lookupPrefix('http://invisiblexml.org/NS') ?? 'ixml';
       if (prefix === 'ixml' && !r.lookupPrefix('http://invisiblexml.org/NS')) {
-        r.setNamespace('http://invisiblexml.org/NS', 'xmlns:ixml');
+        r.setNamespace('http://invisiblexml.org/NS', 'ixml');
       }
       r.attributes.push({
         nodeType: ATTRIBUTE_NODE,
