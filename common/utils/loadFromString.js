@@ -104,9 +104,7 @@ export function loadFromString(node, s, mode, leaftags) {
       }
       c = s.charAt(++offset);
     }
-    if (text.trim() !== '') {
-      currnode.appendChild(doc.createTextNode(text.trim()));
-    }
+    currnode.appendChild(doc.createTextNode(text));
     if (offset === end) {
       break;
     }
@@ -390,6 +388,7 @@ export function loadFromString(node, s, mode, leaftags) {
             namespaces[prefix] = n.namespaces[prefix];
           }
         }
+        n.node.appendChild(currnode);
         currnode = n.node;
         currnodeName = n.nodeName;
       } else {
@@ -405,6 +404,7 @@ export function loadFromString(node, s, mode, leaftags) {
                 namespaces[prefix] = n.namespaces[prefix];
               }
             }
+            n.node.appendChild(currnode);
             currnode = n.node;
             currnodeName = n.nodeName;
             break;
@@ -422,7 +422,6 @@ export function loadFromString(node, s, mode, leaftags) {
         nodename += c;
         c = s.charAt(offset++);
       }
-      index = s.indexOf('>', offset - 1);
       if (nodename !== '') {
         if (!isValidXMLElementName(nodename)) {
           throw new Error(formatErrorMessage('Invalid XML element name', offset - 2 - nodename.length, s));
@@ -464,8 +463,7 @@ export function loadFromString(node, s, mode, leaftags) {
                 ii = offset;
                 const attrend = s.indexOf(c, offset);
                 if (attrend !== -1) {
-                  ll = Math.min(index - 1, attrend);
-                  while (ii < ll) {
+                  while (ii < attrend) {
                     attrvalue += s.charAt(ii++);
                   }
                   offset += attrvalue.length + 1;
@@ -525,8 +523,8 @@ export function loadFromString(node, s, mode, leaftags) {
             }
           }
         }
-        currnode.appendChild(eltnode);
         if (s.charAt(offset - 1) !== '/') {
+          index = offset - 1;
           parents.push({node: currnode, nodeName: currnodeName, namespaces: namespaces});
           currnode = eltnode;
           currnodeName = nodename;
@@ -536,6 +534,9 @@ export function loadFromString(node, s, mode, leaftags) {
               namespaces[prefix] = newnamespaces[prefix];
             }
           }
+        } else {
+          index = offset;
+          currnode.appendChild(eltnode);
         }
       }
       offset = index + 1;

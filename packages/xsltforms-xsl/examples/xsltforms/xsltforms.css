@@ -1,0 +1,532 @@
+/*
+XSLTForms 1.7 (664)
+XForms 1.1+ Engine
+
+Copyright (C) 2023 agenceXML - Alain Couthures
+Contact at : xsltforms@agencexml.com
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+.xsltforms-aid-button {
+	padding: 0;
+}
+xforms-alert, xforms-help, xforms-hint { 
+	display: none;
+	position: absolute;
+	border: thin solid black; 
+	margin-left: 0.5ex;
+	padding: 0.2px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+xforms-alert {
+	color: white;
+	background-color: #f00;
+}
+xforms-help {
+	background-color: #eeeeff;
+}
+xforms-hint {
+	z-index: 2;
+	background-color: #ff8;
+}
+xforms-input[xf-invalid] > xforms-alert-mark {
+	display: none;
+}
+xforms-alert-mark::after {
+	content: ' \2716';
+	color: red;
+}
+xforms-alert-mark:hover + xforms-alert {
+	display: inline;
+	cursor: help;
+}
+xforms-input:hover xforms-hint,
+xforms-trigger:hover xforms-hint {
+	display: block;
+	cursor: help;
+}
+xforms-help-mark::after {
+	content: ' \2754';
+	color: green;
+}
+xforms-help-mark:hover + xforms-help {
+	display: inline;
+	cursor: help;
+}
+xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
+	display: inline;
+	cursor: help;
+}
+.xsltforms-calendar, .xsltforms-calendarList {
+	border-top: 1px solid black;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+	border-left: 1px solid black;
+	padding: 1px 0 0 1px;
+	font-family: tahoma, verdana, sans-serif;
+	font-size: 12px;
+	color: black;
+	background: #f8f8f8;
+	display: none;
+	position: absolute;
+	z-index: 9;
+}
+.xsltforms-calendar button {
+	text-align: center;
+	padding: 1px;
+	border: 1px solid;
+	border-color: #fff #000 #000 #fff;
+}
+.xsltforms-calendar thead .xsltforms-listHover {
+	border: 2px solid;
+	border-color: #fff #000 #000 #fff;
+	padding: 0;
+	background-color: #d8e0e4;
+}
+.xsltforms-calendar .xsltforms-calendar-title, .xsltforms-calendar .xsltforms-calendar-title input, .xsltforms-calendar .xsltforms-calendar-title select, .xsltforms-calendar tfoot {
+	font-weight: bold;
+	padding: 1px;
+	border: 1px solid #000;
+	color: #000;
+	text-align: center;
+	background-color: #f8f8f8;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA/tpB3AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1gUBDAgfNCTDHgAAAFlJREFUeNpVjskRgDAMA5WVof+6oAbaMMcnPCAJ/OTZlcZa1q1yHJfI3MWep8i83lSrhD0JWwIQtgWfs4iIeIFdGoiWoHxl22IOtalHpss/MHUwumMvIp5fbsP7FTL17XHsAAAAAElFTkSuQmCC');
+}
+.xsltforms-calendar .xsltforms-calendar-title input {
+	width: 3em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #f8f8f8;
+}
+.xsltforms-calendar-date tfoot {
+	display: none;
+}
+.xsltforms-calendar tfoot input {
+	width: 2em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: center;
+	background: #f0f0f0;
+}
+.xsltforms-calendar .xsltforms-calendar-names {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAIAAADDbMD2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1gUBDAcldbAGYwAAAENJREFUeNoFwQESgCAIAEE6C2ym//+0SRClXcnchCfuwfBF+GLEZoxgzuR7hczkYGPWsH5idmG9oao894GqyoySqvoBAwEj81+5NlEAAAAASUVORK5CYII=');
+}
+.xsltforms-calendar .xsltforms-calendar-name {
+	border-bottom: 1px solid #000;
+	padding: 2px;
+	text-align: center;
+}
+.xsltforms-calendar .xsltforms-calendar-day {
+	width: 2em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: right;
+	padding: 2px 4px 2px 2px;
+}
+.xsltforms-calendar tbody .xsltforms-listHover {
+	padding: 1px 3px 1px 1px;
+	border: 1px solid;
+	border-color: #fff #000 #000 #fff;
+	background-color: #dddddd;
+}
+.xsltforms-calendar .xsltforms-calendar-today {
+	font-weight: bold;
+	color: #00f;
+}
+.xsltforms-calendar .xsltforms-calendar-selected {
+	font-weight: bold;
+	padding: 2px 2px 0 2px;
+	border: 1px solid;
+	border-color: #000 #fff #fff #000;
+	background: #cccccc;
+}
+.xsltforms-calendar .xsltforms-calendar-weekend {
+	color: #f00;
+}
+.xsltforms-calendarList {
+	padding: 0;
+	margin: 0;
+	width: 55px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.xsltforms-calendarList li {
+	list-style-type: none;
+	text-align: center;
+	padding: 1px;
+}
+.xsltforms-calendarList li.xsltforms-listHover {
+	border: 1px solid;
+	border-color: #fff #000 #000 #fff;
+	padding: 0;
+	background-color: #dddddd;
+	width: 100%;
+}
+.xforms-group-label-collapsed::before {
+	content: '\23F5\00A0';
+}
+.xforms-group-label-collapsed:hover {
+	cursor: pointer;
+}
+.xforms-group-label-expanded::before {
+	content: '\23F7\00A0';
+}
+.xforms-group-label-expanded:hover {
+	cursor: pointer;
+}
+#xsltforms-console {
+  font-size: 0.8em;
+  color: #888888;
+  border-top: thin solid #888888;
+  display: none;
+}
+xforms-debugger {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-left: 0;
+  margin-top: -1ex;
+}
+xforms-debugger > xforms-body, xforms-board {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+xforms-debugger > xforms-body {
+  min-height: 200px;
+}
+xforms-board {
+  padding: 0;
+  font-size: 12px;
+}
+xforms-gutter {
+  height: 4px;
+  padding: 0;
+  cursor: ns-resize;
+  flex: 0 0 auto;
+}
+xforms-gutter::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: grey;
+  margin: 0 auto;
+}
+xforms-board > xforms-body > textarea {
+  border: 0;
+  resize: none;
+  outline: none;
+  width: 90%;
+}
+xforms-console-history {
+  display: block;
+}
+xforms-expression {
+  display: block;
+}
+xforms-dialog {
+  display: none;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  padding: 10px;
+  z-index: 10;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+xforms-dialog-surround {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  filter:alpha(opacity=40); 
+  opacity:0.4; 
+  -moz-opacity:0.4;
+}
+xforms-form > xforms-body > form {
+  display: inline;
+}
+xforms-status-panel {
+  display: none;
+  z-index: 99;
+  top: 294.5px;
+  left: 490px;
+}
+xforms-action,
+xforms-alert-mark,
+xforms-bind,
+xforms-component,
+xforms-delete,
+xforms-dialog,
+xforms-dispatch,
+xforms-filename,
+xforms-group,
+xforms-hide,
+xforms-input,
+xforms-insert,
+xforms-instance,
+xforms-itext,
+xforms-load,
+xforms-mediatype,
+xforms-message,
+xforms-model,
+xforms-options,
+xforms-output,
+xforms-range,
+xforms-rebuild,
+xforms-recalculate,
+xforms-refresh,
+xforms-repeat,
+xforms-reset,
+xforms-revalidate,
+xforms-script,
+xforms-secret,
+xforms-select,
+xforms-select1,
+xforms-send,
+xforms-setfocus,
+xforms-setindex,
+xforms-setnode,
+xforms-setselection,
+xforms-setvalue,
+xforms-show,
+xforms-split,
+xforms-submission,
+xforms-text,
+xforms-textarea,
+xforms-timer,
+xforms-toggle,
+xforms-translation,
+xforms-tree,
+xforms-unload,
+xforms-upload,
+xforms-value,
+xforms-var,
+xforms-wrap,
+xforms-group[xf-ref]:not([xf-bound]),
+xforms-group[xf-bind]:not([xf-bound]),
+*[xf-repeat-ref]:not([xf-bound]),
+*[xf-repeat-bind]:not([xf-bound]) ,
+*[data-xf-repeat-ref]:not([xf-bound]),
+*[data-xf-repeat-bind]:not([xf-bound]) ,
+xforms-case:not([xf-selected = "true"]),
+xforms-trigger[xf-ref]:not([xf-bound]),
+xforms-trigger[xf-bind]:not([xf-bound]),
+xforms-trigger[xf-notrelevant],
+xforms-select:not([xf-appearance="full"]) > xforms-body > xforms-item,
+xforms-select:not([xf-appearance="full"]) > xforms-body > xforms-itemset,
+xforms-select:not([xf-appearance="full"]) > xforms-body > xforms-choices,
+xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-item,
+xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-itemset,
+xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-choices,
+xforms-itemset > xforms-label {
+  display: none;
+}
+xforms-group:not([xf-ref]):not([xf-bind]),
+xforms-group[xf-bound]:not([xf-notrelevant]),
+xforms-repeat[xf-bound]:not([xf-notrelevant]),
+xforms-case[xf-selected = "true"],
+xforms-select[xf-appearance="full"] > xforms-body > xforms-item,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-item,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item {
+  display: block;
+}
+xforms-repeat[xf-bound]:not([xf-notrelevant]) > xforms-repeat-item {
+  display: inherit;
+}
+xforms-output[xf-value],
+xforms-output[xf-bound]:not([xf-notrelevant]),
+xforms-input[xf-bound]:not([xf-notrelevant]),
+xforms-textarea[xf-bound]:not([xf-notrelevant]),
+xforms-secret[xf-bound]:not([xf-notrelevant]),
+xforms-upload[xf-bound]:not([xf-notrelevant]),
+xforms-range[xf-bound]:not([xf-notrelevant]),
+xforms-trigger:not([xf-ref]):not([xf-bind]),
+xforms-trigger[xf-bound]:not([xf-notrelevant]),
+xforms-submit,
+xforms-select[xf-bound]:not([xf-notrelevant])[xf-appearance="full"],
+xforms-select1[xf-bound]:not([xf-notrelevant])[xf-appearance="full"],
+xforms-select[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]),
+xforms-select[xf-appearance="full"] > xforms-body > xforms-item > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item > xforms-label,
+xforms-select1[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]),
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item > xforms-label {
+  display: inline-block;
+}
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label {
+	font-weight: bold;
+	font-style: italic;
+}
+xforms-select[xf-appearance="full"] > xforms-body > xforms-item > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item > xforms-label,
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item > xforms-label,
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item > xforms-label {
+	font-weight: normal;
+}
+body {
+	margin: 1ex;
+	font-family: tahoma, verdana, sans-serif;
+}
+input {
+	font-size: 100%;
+}
+input[type='checkbox'] {
+  width: 1ex;
+  height: 1ex;
+}
+input[xf-numeric] {
+	text-align: right;
+}
+textarea {
+	font-family: tahoma, verdana, sans-serif;
+	font-size: 100%;
+}
+select {
+	font-size: 100%;
+}
+a[appearance="minimal"] {
+	cursor: default;
+}
+xforms-input[xf-readonly] > xforms-body {
+	background-color: #f8f8f8;
+	color: #333333;
+}
+xforms-input[xf-numeric] {
+	text-align: right;
+}
+xforms-item[xf-appearance="full"] {
+	display: block !important;
+}
+xforms-label {
+	font-weight: bold;
+	display: block;
+	margin: 0;
+	padding-right: 0.5ex;
+}
+xforms-label img{
+	border: none !important;
+}
+xforms-submit xforms-label,
+xforms-trigger xforms-label {
+	padding-right: 0;
+}
+xforms-select > xforms-label,
+xform-select1 > xforms-label,
+xforms-textarea > xforms-label {
+	vertical-align: top;
+}
+xforms-range-rail {
+	width: 200px;
+	height: 4px;
+	border: 1px solid #999999;
+	position: relative;
+	margin: 6px 15px 0 10px;
+	display: inline-block;
+}
+xforms-range-cursor {
+	margin: 0;
+	margin-top: -8px;
+	margin-left: -5px;
+	width: 17px; 
+	height: 17px;
+	position: absolute;
+	background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAAd0SU1FB9wEBhMoKuFF9b0AAAB0SURBVDjL3ZRRDsAgCEMp2bU4PQfrvkwYQzMNX+uv8izEApJSCcDrgCSqu9es2N2n4AxDdAKAVXGWmT1AugsYLmO7uguoQCoNgohsu8jzaXHyNwhJmNnxUEmir50TN/Hra0zoV1DODvIqWKV4PLJM8ek+uQGc+lDIra5tbwAAAABJRU5ErkJggg==');
+	outline-style: none;
+}
+xforms-input[xf-bound][xf-required]:not([xf-invalid]) > xforms-label::after {
+	content: "*";
+	color: red;
+}
+xforms-input:not([xf-required])[xf-invalid] > xforms-label::after {
+	content: "\2716";
+	color: red;
+}
+xforms-input[xf-bound][xf-required][xf-invalid] > xforms-label::after {
+	content: "*\2716";
+	color: red;
+}
+xforms-input[xf-invalid]:not([xf-required]) > xforms-body > input,
+xforms-input[xf-invalid][xf-required] > xforms-body > input,
+xforms-textarea[xf-invalid]:not([xf-required]) > xforms-body > textarea {
+	background-color: #fcc;
+	border-style: solid;
+	border-width: thin;
+}
+#xsltforms-status-panel {
+	display: none;
+	position: absolute;
+	width: 300px;
+	min-width: 300px;
+	min-height: 20px;
+	padding: 10px;
+	text-align: center;
+	background-color: #eeeeee;
+	opacity: 0.85;
+	filter: alpha(opacity=85);
+	border: 1px solid black;
+	font: bold 20px Arial, Verdana;
+	z-index: 11;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: content-box;
+}
+xforms-trigger {
+	margin-top: 1px;
+}
+xforms-trigger a,
+xforms-trigger a:link,
+xforms-trigger a:hover,
+xforms-trigger a:visited {
+	text-decoration: none;
+	color: #000000;
+	border: none !important;
+	cursor: pointer;
+}

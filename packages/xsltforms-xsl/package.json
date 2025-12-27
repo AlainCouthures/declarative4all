@@ -1,0 +1,18 @@
+{
+  "name": "xsltforms-xsl",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "demo": "vite demo",
+    "examples": "vite examples"
+  },
+  "devDependencies": {
+    "vite": "^7.1.4"
+  },
+  "bin": {
+    "xsltforms-xsl": "./bin/xsltforms-xsl.js"
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html><script src="xsltforms/xsltforms-xsl.js"></script>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" lang="en">
+  <head>
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover"/>
+    <title>XForms Samples</title>
+    <style type="text/css">
+      @media screen and (prefers-color-scheme: dark) {
+        body, textarea {
+        background-color: black;
+        color: lightgrey;
+        }
+      }
+      @media screen and (prefers-color-scheme: light) {
+        body, textarea {
+        background-color: white;
+        color: black;
+        }
+      }
+    </style>
+    <xf:model>
+      <xf:instance>
+        <data xmlns="">
+          <form label="Address" name="address.html"/>
+          <form label="Bind" name="bind.html"/>
+          <form label="Button" name="button.html"/>
+          <form label="Calculator" name="calculator.html"/>
+          <form label="Checkbox" name="checkbox.html"/>
+          <form label="Constraint" name="constraint.html"/>
+          <form label="Date" name="date.html"/>
+          <form label="Deep Copy" name="deep-copy.html"/>
+          <form label="First Field" name="first-field.html"/>
+          <form label="Hello" name="hello.html"/>
+          <form label="Incremental" name="incremental.html"/>
+          <form label="Input Width" name="input-width.html"/>
+          <form label="Input" name="input.html"/>
+          <form label="Readonly" name="readonly.html"/>
+          <form label="Relevant" name="relevant.html"/>
+          <form label="Required" name="required.html"/>
+          <form label="Secret" name="secret.html"/>
+          <form label="Select From File" name="select-from-file.html"/>
+          <form label="Select Model" name="select-model.html"/>
+          <form label="Select Multi Col" name="select-multi-col.html"/>
+          <form label="Select" name="select.html"/>
+          <form label="Select1 Drop" name="select1-drop.html"/>
+          <form label="Select1" name="select1.html"/>
+          <form label="Spreadsheet" name="spreadsheet.html"/>
+          <form label="Textarea Styled" name="textarea-styled.html"/>
+          <form label="Textarea" name="textarea.html"/>
+        </data>
+      </xf:instance>
+    </xf:model>
+  </head>
+  <body>
+    <xf:repeat ref="form">
+      <xf:trigger ref=".">
+        <xf:label ref="@label"/>
+        <xf:load ev:event="DOMActivate">
+          <xf:resource value="@name"/>
+        </xf:load>
+      </xf:trigger>
+    </xf:repeat>
+  </body>
+</html>

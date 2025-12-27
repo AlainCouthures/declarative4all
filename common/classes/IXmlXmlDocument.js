@@ -766,6 +766,7 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
     const termmark_to_MARK = { "@": ATTRIBUTE_MARK, "-": DELETED_MARK, "^": ELEMENT_MARK, "": INHERITED_MARK };
     const rulemark_to_MARK = { "@": ATTRIBUTE_MARK, "-": DELETED_MARK, "^": ELEMENT_MARK, "": ELEMENT_MARK };
     let rules = [];
+    let numid = 1;
     grammarElement.childNodes.forEach(rule => {
       if (rule.localName === "rule") {
         const rule_name = rule.getAttribute("name");
@@ -809,7 +810,7 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
                 if (term_literal.length === 1 || term.localName === "insertion") {
                   term_pick = [[termmark_to_MARK[term_tmark], term.localName === "insertion" ? INSERTION_SYMBOL : TERMINAL_SYMBOL, term_literal]];
                 } else {
-                  term_name = terms_o.name + "_" + terms_o.rule_count + "_literal_" + terms_o.literal_count++;
+                  term_name = terms_o.name + "_" + terms_o.rule_count + "_literal_" + terms_o.literal_count++ + "#" + numid++;
                   const term_reduce_o = term_literal.split("").map(c => {
                     const e = term.ownerDocument.createElement("literal");
                     e.setAttribute("string", c);
@@ -830,7 +831,7 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
                     let highSurrogate = ((num >> 10) & 0x3FF) | 0xD800;
                     let lowSurrogate = (num & 0x3FF) | 0xDC00;
                     const surrogates = [[DELETED_MARK, TERMINAL_SYMBOL, String.fromCodePoint(highSurrogate)], [DELETED_MARK, TERMINAL_SYMBOL, String.fromCodePoint(lowSurrogate)]];
-                    term_name = terms_o.name + "_" + terms_o.rule_count + "_literal_" + terms_o.literal_count++;
+                    term_name = terms_o.name + "_" + terms_o.rule_count + "_literal_" + terms_o.literal_count++ + "#" + numid++;
                     term_subrules = [[DELETED_MARK, term_name, term_name, [], term_tmark !== "-" ? surrogates.concat([[INHERITED_MARK, INSERTION_SYMBOL, String.fromCodePoint(num)]]) : surrogates]];
                     term_pick = [[termmark_to_MARK[term.getAttribute("mark") || ""], NON_TERMINAL_SYMBOL, term_name, term_name]];
                     }
@@ -846,7 +847,7 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
               break;
             }
             case "alts": {
-              term_name = terms_o.name + "_" + terms_o.rule_count + "_alts_" + terms_o.alts_count++;
+              term_name = terms_o.name + "_" + terms_o.rule_count + "_alts_" + terms_o.alts_count++ + "#" + numid++;
               term.childNodes.forEach(alt => {
                 const term_reduce_o = alt.childNodes.reduce(terms_reduce, {pick: [], subrules: [], name: term_name, rule_count: terms_o.rule_count, alts_count: 1, option_count: 1, repeat0_count: 1, repeat1_count: 1, literal_count: 1});
                 term_subrules.push([DELETED_MARK, term_name, term_name, [], term_reduce_o.pick]);
@@ -856,7 +857,7 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
               break; 
             }
             case "option": {
-              term_name = terms_o.name + "_" + terms_o.rule_count + "_option_" + terms_o.option_count++;
+              term_name = terms_o.name + "_" + terms_o.rule_count + "_option_" + terms_o.option_count++ + "#" + numid++;
               if (term.childNodes[0].localName !== "alts") {
                 const term_reduce_o = term.childNodes.reduce(terms_reduce, {pick: [], subrules: [], name: term_name, rule_count: terms_o.rule_count, alts_count: 1, option_count: 1, repeat0_count: 1, repeat1_count: 1, literal_count: 1});
                 term_subrules.push([DELETED_MARK, term_name, term_name, [], term_reduce_o.pick]);
@@ -873,7 +874,7 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
               break;
             }
             case "repeat0": {
-              term_name = terms_o.name + "_" + terms_o.rule_count + "_repeat0_" + terms_o.repeat0_count++;
+              term_name = terms_o.name + "_" + terms_o.rule_count + "_repeat0_" + terms_o.repeat0_count++ + "#" + numid++;
               if (term.childNodes.length === 2) {
                 const tsep = [];
                 term.childNodes[1].childNodes.forEach(t => {
@@ -905,7 +906,7 @@ export class IXmlXmlDocument extends IXmlExpandedXmlDocument{
               break;
             }
             case "repeat1": {
-              term_name = terms_o.name + "_" + terms_o.rule_count + "_repeat1_" + terms_o.repeat1_count++;
+              term_name = terms_o.name + "_" + terms_o.rule_count + "_repeat1_" + terms_o.repeat1_count++ + "#" + numid++;
               let term_reduce_o;
               if (term.childNodes.length === 2) {
                 const term_sep_reduce_o = term.childNodes[1].childNodes.reduce(terms_reduce, {pick: [], subrules: [], name: term_name + "_sep", rule_count: terms_o.rule_count, alts_count: 1, option_count: 1, repeat0_count: 1, repeat1_count: 1, literal_count: 1});
