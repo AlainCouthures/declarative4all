@@ -74,6 +74,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.elementConstructor] = function(ctx, children, c
       if (children.length > 2) {
         var nsr = ctx.env.nsresolver;
         ctx.env.nsresolver = new Fleur.XPathNSResolver(elt);
+        if (nsr.nsresolver) {
+          ctx.env.nsresolver.pf = nsr.nsresolver.pf.slice(0);
+          ctx.env.nsresolver.uri = nsr.nsresolver.uri.slice(0);
+        } else {
+          ctx.env.nsresolver.pf = nsr.pf.slice(0);
+          ctx.env.nsresolver.uri = nsr.uri.slice(0);
+        }
         Fleur.XQueryEngine[children[2][0]](ctx, children[2][1], function(n) {
           ctx.env.nsresolver = nsr;
           Fleur.callback(function() {callback(n);});
